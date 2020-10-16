@@ -1,0 +1,41 @@
+###########################
+# Western Air Nomads Events
+###########################
+
+add_namespace = western
+
+#Firenation Attack
+country_event = {
+	id = western.1
+	title = western.1.t
+	desc = western.1.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	#immediate = {
+	#	set_global_flag = west_temple_fallen
+	#}
+
+	option = {
+		name = western.1.a
+		ai_chance = { 
+			factor = 99
+		}
+		#hidden_effect = {
+		#	load_oob = "western_airbender_defenders_0_5"
+		#}
+	}
+
+	option = {
+		name = western.1.b
+		ai_chance = { 
+			factor = 1
+		}
+		#hidden_effect = {
+		#	load_oob = "western_airbender_defenders_1"
+		#}
+	}
+}

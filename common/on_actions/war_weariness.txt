@@ -1,0 +1,529 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					country_has_war_exhaustion = yes
+				}
+				set_variable = { war_exhaustion_variable = 0 }
+				set_variable = { war_exhaustion_daily = 1 }
+				set_variable = { peace_exhaustion_daily = -5 }
+				set_variable = { war_exhaustion_max = 9000 }
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = { has_war = yes }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = { has_war = no }
+					add_to_variable = { war_exhaustion_variable = peace_exhaustion_daily }
+				}
+
+                clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
+			}
+		}
+	}
+
+    on_daily = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable < 200 }
+						OR = {
+							has_idea = war_weariness_1
+							has_idea = war_weariness_2
+							has_idea = war_weariness_3
+							has_idea = war_weariness_4
+							has_idea = war_weariness_5
+							has_idea = war_weariness_6
+							has_idea = war_weariness_7
+							has_idea = war_weariness_8
+							has_idea = war_weariness_9
+							has_idea = war_weariness_10
+						}
+					}
+					remove_ideas = war_weariness_1
+					remove_ideas = war_weariness_2
+					remove_ideas = war_weariness_3
+					remove_ideas = war_weariness_4
+					remove_ideas = war_weariness_5
+					remove_ideas = war_weariness_6
+					remove_ideas = war_weariness_7
+					remove_ideas = war_weariness_8
+					remove_ideas = war_weariness_9
+					remove_ideas = war_weariness_10
+				}
+
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 200 }
+						check_variable = { war_exhaustion_variable < 600 }
+						NOT = { has_idea = war_weariness_1 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_1
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 600 }
+						check_variable = { war_exhaustion_variable < 1200 }
+						NOT = { has_idea = war_weariness_2 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_2
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 1200 }
+						check_variable = { war_exhaustion_variable < 2000 }
+						NOT = { has_idea = war_weariness_3 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_3
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 2000 }
+						check_variable = { war_exhaustion_variable < 3200 }
+						NOT = { has_idea = war_weariness_4 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_4
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 3200 }
+						check_variable = { war_exhaustion_variable < 4500 }
+						NOT = { has_idea = war_weariness_5 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_5
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 4500 }
+						check_variable = { war_exhaustion_variable < 6000 }
+						NOT = { has_idea = war_weariness_6 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_6
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 6000 }
+						check_variable = { war_exhaustion_variable < 7000 }
+						NOT = { has_idea = war_weariness_7 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_7
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 7000 }
+						check_variable = { war_exhaustion_variable < 7600 }
+						NOT = { has_idea = war_weariness_8 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9	}
+						remove_ideas = war_weariness_9
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_8
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 7600 }
+						check_variable = { war_exhaustion_variable < 8000 }
+						NOT = { has_idea = war_weariness_9 }
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_10 	}
+						remove_ideas = war_weariness_10
+					}
+					add_ideas = war_weariness_9
+				}
+
+				if = {
+					limit = {
+						check_variable = { war_exhaustion_variable > 8000 }
+						NOT = { has_idea =  war_weariness_10 }
+					}
+					add_ideas =  war_weariness_10
+					if = {
+						limit = { 	has_idea = war_weariness_1	}
+						remove_ideas = war_weariness_1
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_2	}
+						remove_ideas = war_weariness_2
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_3	}
+						remove_ideas = war_weariness_3
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_4	}
+						remove_ideas = war_weariness_4
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_5	}
+						remove_ideas = war_weariness_5
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_6	}
+						remove_ideas = war_weariness_6
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_7	}
+						remove_ideas = war_weariness_7
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_8	}
+						remove_ideas = war_weariness_8
+					}
+					if = {
+						limit = { 	has_idea = war_weariness_9 	}
+						remove_ideas = war_weariness_9
+					}
+				}
+			}
+		}
+	}
+}

@@ -1,0 +1,168 @@
+# options for map_icon_category:
+# For land units: infantry,armored,other
+# For sea units: ship,transport,uboat
+
+sub_units = {
+
+	spearmen = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 1000
+		ai_priority = 400
+		active = no
+
+		type = {
+			infantry
+			melee
+		}
+		
+		group = melee
+		
+		categories = {
+			category_army
+			category_front_line
+			category_light_infantry
+			category_all_infantry
+		}
+		
+		combat_width = 3
+		
+		#Size Definitions
+		max_strength = 25
+		max_organisation = 60
+		default_morale = 0.5
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 100
+		suppression = 2
+		weight = 0.5
+		
+		supply_consumption = 1
+	
+		need = {
+			spear_equipment = 100
+			heavy_armor_equipment = 100
+		}
+	}
+
+	swordsmen = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 600
+		ai_priority = 200
+		active = no
+
+		type = {
+			infantry
+			melee
+		}
+		
+		group = melee
+		
+		categories = {
+			category_army
+			category_front_line
+			category_sword_infantry
+			category_all_infantry
+		}
+		
+		combat_width = 3
+		
+		#Size Definitions
+		max_strength = 25
+		max_organisation = 20
+		default_morale = 0.25
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 200
+		suppression = 1
+		weight = 0.5
+		
+		supply_consumption = 1
+	
+		need = {
+			sword_equipment = 100
+			heavy_armor_equipment = 100
+		}
+
+		marsh = {
+			attack = 0.4
+		}
+		river = {
+			attack = 0.5
+		}
+		amphibious = {
+			attack = 0.6
+		}
+
+		urban = {
+			defence = 0.4
+		}
+		village = {
+			defence = 0.2
+		}
+	}
+
+	pikemen = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 600
+		ai_priority = 200
+		active = no
+
+		type = {
+			infantry
+			melee
+		}
+		
+		group = melee
+		
+		categories = {
+			category_army
+			category_front_line
+			category_pike_infantry
+			category_all_infantry
+		}
+		
+		combat_width = 3
+		
+		#Size Definitions
+		max_strength = 30
+		max_organisation = 20
+		default_morale = 0.25
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 200
+		suppression = 1.5
+		weight = 0.7
+		
+		supply_consumption = 1
+	
+		need = {
+			pike_equipment = 100
+			heavy_armor_equipment = 100
+		}
+
+		forest = {
+			attack = -0.1
+			defence = -0.1
+		}
+		jungle = {
+			attack = -0.2
+			defence = -0.2
+		}
+		urban = {
+			attack = -0.2
+		}
+		village = {
+			attack = -0.1
+		}
+	}
+
+}

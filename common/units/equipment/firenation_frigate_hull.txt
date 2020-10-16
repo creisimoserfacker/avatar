@@ -1,0 +1,592 @@
+equipments = {
+
+	firenation_frigate_hull = {
+
+		is_archetype = yes
+		is_buildable = no
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		alias = battlecruiser
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { medium_armor_plates light_armor_plates }	
+			}
+			fixed_ship_crew_slot = {
+				required = yes
+				allowed_module_categories = {
+					ship_boarding
+					ship_firebender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+			fixed_ship_artillery_slot = {
+				required = yes
+				allowed_module_categories = {
+					ship_catapult
+					ship_ballista
+				}
+			}
+			fixed_ship_bridge_slot = {
+				required = no
+				allowed_module_categories = { bridge }
+			}
+			fixed_ship_storage_slot = {
+				required = no
+				allowed_module_categories = { storage_room }
+			}
+			fixed_ship_engine_slot = {
+				required = yes
+				allowed_module_categories = { steam_engine }
+			}
+			deck_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_catapult
+					ship_firebender_crew
+					ship_archers
+					ship_ballista
+					mine_layer
+					ship_boarding
+				}
+			}
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+		
+		lg_armor_piercing = 0
+		lg_attack = 0
+		
+		hg_armor_piercing = 0
+		hg_attack = 0
+		
+		torpedo_attack = 0
+		sub_attack = 0
+		
+		anti_air_attack = 0
+		
+		armor_value = 0
+
+		
+		surface_detection = 20
+		sub_detection = 1
+		surface_visibility = 15
+		naval_speed = 20
+		reliability = 0.80
+		
+		naval_range = 100
+		
+		max_strength = 100		
+		
+		fuel_consumption = 400
+		manpower = 400
+		
+		build_cost_ic = 1200
+		resources = {
+			steel = 1
+			aluminium = 2
+		}
+	}
+
+	firenation_frigate_hull_1 = {
+
+		visual_level = 0
+		archetype = firenation_frigate_hull
+		priority = 1900
+		
+		
+		module_slots = inherit
+	}
+
+	firenation_frigate_hull_2 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = firenation_frigate_hull_1
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			steel = 1
+			aluminium = 2
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_bridge_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_crew_2_slot = inherit
+			fixed_ship_engine_slot = inherit
+			deck_1_custom_slot = inherit
+			bridge_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					storage_room
+					lookout
+					maintenance_crew
+					ship_boarding
+					ship_firebender_crew
+				}
+			}
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+	}
+
+	firenation_frigate_hull_3 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = firenation_frigate_hull_2
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			steel = 2
+			aluminium = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_bridge_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_engine_slot = inherit
+			deck_1_custom_slot = inherit
+			deck_2_custom_slot = deck_1_custom_slot
+			bridge_1_custom_slot = inherit
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+	}
+
+	firenation_frigate_hull_4 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = firenation_frigate_hull_3
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			steel = 2
+			aluminium = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_bridge_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_crew_2_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_boarding
+					ship_firebender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+			fixed_ship_engine_slot = inherit
+			deck_1_custom_slot = inherit
+			deck_2_custom_slot = deck_1_custom_slot
+			bridge_1_custom_slot = inherit
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+	}
+
+	firenation_frigate_hull_5 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = firenation_frigate_hull_4
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			steel = 3
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_bridge_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_crew_2_slot = inherit
+			fixed_ship_engine_slot = inherit
+			deck_1_custom_slot = inherit
+			deck_2_custom_slot = deck_1_custom_slot
+			bridge_1_custom_slot = inherit
+			bridge_2_custom_slot = bridge_1_custom_slot
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+	}
+
+	firenation_frigate_hull_6 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = firenation_frigate_hull_5
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			steel = 3
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_bridge_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_crew_2_slot = inherit
+			fixed_ship_engine_slot = inherit
+			deck_1_custom_slot = inherit
+			deck_2_custom_slot = deck_1_custom_slot
+			bridge_1_custom_slot = inherit
+			bridge_2_custom_slot = bridge_1_custom_slot
+			deck_3_custom_slot = deck_1_custom_slot
+		}
+		module_count_limit = {
+			category = ship_firebender_crew
+			count < 2
+		}
+	}
+
+	firenation_frigate_1 = {
+
+		visual_level = 0
+		archetype = firenation_frigate_hull
+		priority = 1900
+		module_slots = inherit
+
+		type = { 
+			screen_ship
+			anti_air
+		}
+		upgrades = {
+			fixed_ship_armor_slot = medium_armor_plates_1
+			fixed_ship_crew_slot = ship_boarding_1
+			fixed_ship_artillery_slot = ship_ballista_1
+			fixed_ship_bridge_slot = lookout_1
+			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_engine_slot = steam_engine_1
+			deck_1_custom_slot = ship_archers_1
+		}
+		module_slots = inherit
+		default_modules = {
+			
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 0
+		
+		anti_air_attack = 0
+		
+		armor_value = 5
+
+		
+		surface_detection = 15
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 20
+		reliability = 0.8
+		resources = {
+			#oil = 1
+			steel = 2
+		}
+	}
+
+	firenation_frigate_2 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = light_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_armor_slot = medium_armor_plates_1
+			fixed_ship_crew_slot = ship_boarding_1
+			fixed_ship_artillery_slot = ship_ballista_1
+			fixed_ship_bridge_slot = lookout_1
+			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_engine_slot = steam_engine_1
+			deck_1_custom_slot = ship_archers_1
+			bridge_1_custom_slot = lookout_1
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+		
+
+		
+		type = { 
+			screen_ship
+			anti_air
+		}
+		build_cost_ic = 1650
+		resources = {
+			#oil = 1
+			steel = 3
+		}
+		manpower = 800
+	}
+	firenation_frigate_3 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = light_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_armor_slot = medium_armor_plates_2
+			fixed_ship_crew_slot = ship_boarding_2
+			fixed_ship_artillery_slot = ship_ballista_2
+			fixed_ship_bridge_slot = lookout_2
+			fixed_ship_storage_slot = storage_room_2
+			fixed_ship_engine_slot = steam_engine_2
+			deck_1_custom_slot = ship_archers_2
+			deck_2_custom_slot = mine_layer_1
+			bridge_1_custom_slot = lookout_2
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+		
+
+		
+		type = { 
+			screen_ship
+			anti_air
+		}
+		build_cost_ic = 1650
+		resources = {
+			#oil = 1
+			steel = 3
+		}
+		manpower = 800
+	}
+	firenation_frigate_4 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = light_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_armor_slot = medium_armor_plates_2
+			fixed_ship_crew_slot = ship_boarding_2
+			fixed_ship_artillery_slot = ship_ballista_2
+			fixed_ship_crew_2_slot = ship_archers_1
+			fixed_ship_bridge_slot = lookout_2
+			fixed_ship_storage_slot = storage_room_2
+			fixed_ship_engine_slot = steam_engine_2
+			deck_1_custom_slot = ship_archers_2
+			deck_2_custom_slot = mine_layer_2
+			bridge_1_custom_slot = lookout_2
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+		
+
+		
+		type = { 
+			screen_ship
+			anti_air
+		}
+		build_cost_ic = 1650
+		resources = {
+			#oil = 1
+			steel = 3
+		}
+		manpower = 800
+	}
+	firenation_frigate_5 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = light_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_armor_slot = medium_armor_plates_3
+			fixed_ship_crew_slot = ship_boarding_3
+			fixed_ship_artillery_slot = ship_ballista_3
+			fixed_ship_crew_2_slot = ship_archers_2
+			fixed_ship_bridge_slot = lookout_3
+			fixed_ship_storage_slot = storage_room_3
+			fixed_ship_engine_slot = steam_engine_3
+			deck_1_custom_slot = ship_archers_3
+			deck_2_custom_slot = mine_layer_3
+			bridge_1_custom_slot = lookout_3
+			bridge_2_custom_slot = maintenance_crew_1
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+		
+
+		
+		type = { 
+			screen_ship
+			anti_air
+		}
+		build_cost_ic = 1650
+		resources = {
+			#oil = 1
+			steel = 3
+		}
+		manpower = 800
+	}
+	firenation_frigate_6 = {
+
+		visual_level = 1
+		archetype = firenation_frigate_hull
+		priority = 1900
+		parent = light_cruiser_1
+		module_slots = inherit
+		default_modules = {
+			fixed_ship_armor_slot = medium_armor_plates_3
+			fixed_ship_crew_slot = ship_boarding_3
+			fixed_ship_artillery_slot = ship_ballista_3
+			fixed_ship_crew_2_slot = ship_archers_3
+			fixed_ship_bridge_slot = lookout_3
+			fixed_ship_storage_slot = storage_room_3
+			fixed_ship_engine_slot = steam_engine_3
+			deck_1_custom_slot = ship_archers_3
+			deck_2_custom_slot = mine_layer_3
+			bridge_1_custom_slot = lookout_3
+			bridge_2_custom_slot = maintenance_crew_2
+			deck_3_custom_slot = ship_catapult_1
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+		
+
+		
+		type = { 
+			screen_ship
+			anti_air
+		}
+		build_cost_ic = 1650
+		resources = {
+			#oil = 1
+			steel = 3
+		}
+		manpower = 800
+	}
+}

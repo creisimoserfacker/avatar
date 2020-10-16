@@ -1,0 +1,329 @@
+
+FIR_unit_production = {
+	enable = {
+		original_tag = FIR
+	}
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = defender
+		value = 20
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = landing_troops
+		value = 80
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = offensive
+		value = 60
+	}
+	
+	
+	# Naval unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 10
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 0
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 100
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 15
+	}
+	
+}
+
+FIR_naval_role_ratios_historical = {
+	enable = {
+		has_dlc = "Man the Guns"
+		original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = cruiser
+		value = 100
+	}
+}
+
+FIR_area_priority = {
+	enable = {
+		original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = firelands #homeland
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = earth_plate
+		value = 120
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = northpole
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = southpole
+		value = 10
+	}
+}
+
+
+temple_march = {
+	enable = {
+		original_tag = FIR
+		has_idea = sozins_comet_1
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = "NAT"
+		value = 100
+	}
+	ai_strategy = {
+		type = front_control
+		tag = NAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "SAT"
+		value = 100
+	}
+	ai_strategy = {
+		type = front_control
+		tag = SAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "WAT"
+		value = 100
+	}
+	ai_strategy = {
+		type = front_control
+		tag = WAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "EAT"
+		value = 100
+	}
+	ai_strategy = {
+		type = front_control
+		tag = EAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	
+}
+
+
+FIR_far_waters = {
+	enable = {
+		original_tag = FIR
+		has_war_with = EAR
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 48
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 49
+		value = 100
+	}
+
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 5
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 43
+		value = 100
+	}
+}
+
+
+# lets make sure the earthkingdom is properly invaded
+pohuai_taku_invasions = {
+	enable = {
+		#original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "POH"			
+		value = 1000
+	}
+	ai_strategy = {
+		type = conquer
+		id = "POH"
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "TAK"			
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "YUE"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "WUL"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "XIN"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HEB"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "GAR"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "MAK"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NOW"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HAN"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NIX"
+		value = -100000
+	}
+	
+}
+
+pohuai_taku_invasions = {
+	enable = {
+		original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "POH"			
+		value = -100000
+	}
+	ai_strategy = {
+		type = conquer
+		id = "POH"
+		value = -100000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "TAK"			
+		value = -100000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "YUE"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "WUL"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "XIN"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HEB"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "GAR"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "MAK"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NOW"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HAN"
+		value = 100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NIX"
+		value = -100000
+	}
+	
+}

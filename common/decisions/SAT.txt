@@ -1,0 +1,122 @@
+SAT_upcoming_war_category = {
+
+	troubeling_signs = {
+
+		allowed = {
+			TAG = SAT
+		}
+
+		available = {
+			has_country_flag = fully_prepared
+			NOT = {
+				has_global_flag = air_nomad_genocide
+			}
+        }
+
+        days_mission_timeout = 100
+        is_good = no
+
+		complete_effect = {
+			add_war_support = 0.5
+			add_stability = 0.5
+		}
+
+		timeout_effect = {
+			custom_effect_tooltip = troubeling_signs_tt
+		}
+
+		cost = 10
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+		}
+	}
+
+	reveal_avatar_aang = {
+
+		allowed = {
+			TAG = SAT
+		}
+
+		available = {
+			AND = {
+				has_global_flag = avatar_aang
+			}
+        }
+
+		complete_effect = {
+			set_global_flag = monks_revealed_aang
+		}
+
+		cost = 10
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+		}
+	}
+
+	send_aang_to_the_eastern_temple = {
+
+		allowed = {
+			TAG = SAT
+		}
+
+		available = {
+			AND = {
+				has_global_flag = monks_revealed_aang
+			}
+        }
+
+        days_remove = 21
+
+		complete_effect = {
+			set_global_flag = send_aang_away
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					has_global_flag = gyatso_and_aang_flee
+				}
+				SAT = { news_event = { id = news.8 } }
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = gyatso_and_aang_flee
+					}
+				}
+				SAT = { news_event = { id = news.7 } }
+			}
+		}
+
+		cost = 10
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+		}
+	}
+
+	gyatso_and_aang = {
+
+		allowed = {
+			TAG = SAT
+		}
+
+		available = {
+			AND = {
+				has_global_flag = send_aang_away
+			}
+        }
+
+		complete_effect = {
+			set_global_flag = gyatso_and_aang_flee
+		}
+
+		cost = 10
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+		}
+	}
+}

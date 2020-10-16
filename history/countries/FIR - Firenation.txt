@@ -1,0 +1,816 @@
+
+
+ ## #####  ##  ###  #####       #   ##
+#     #   #  # #  #   #        ##  #  #
+ #    #   #### ###    #       # #    #
+  #   #   #  # #  #   #         #   #
+##    #   #  # #  #   #         #  ####
+
+
+capital = 417
+
+OOB = "FIR_12"
+
+set_country_flag = FIR_armor
+set_country_flag = FIR_navy
+set_country_flag = FIR_air_techs
+set_country_flag = FIR_special_forces
+set_country_flag = fire_nation
+
+set_country_flag = avatar_friendly
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "FIR_12_naval_mtg"
+	else = {
+		set_naval_oob = "FIR_12_naval_legacy"
+	}
+}
+
+set_technology = {
+
+	basic_spear_1 = 1
+	spear_2 = 1
+	spear_3 = 1
+	basic_sword_1 = 1
+	sword_2 = 1
+	sword_3 = 1
+	basic_polearm_1 = 1
+	polearm_2 = 1
+	polearm_3 = 1
+	basic_armor = 1
+	heavy_armor_1 = 1
+	heavy_armor_2 = 1
+	heavy_armor_3 = 1
+
+	ranged_weapons = 1
+	bow0 = 1
+	arrow0 = 1
+	ballista0 = 1
+	bolt1 = 1
+	catapult0 = 1
+	projectile1 =1
+
+	tech_support = 1
+	tech_military_police = 1
+	tech_engineers = 1
+	tech_scouts = 1
+
+	fire_equipment = 1
+	marines = 1
+	trebuchets = 1
+
+	power = 1
+
+	infrastructure_1 = 1
+	infrastructure_2 = 1
+	port_1 = 1
+	port_2 = 1
+
+
+	fire_sails_1 = 1
+	early_fire_galley = 1
+	early_fire_yacht = 1
+	light_engine_1 = 1
+	early_fire_cruiser = 1
+	early_fire_frigate = 1
+	fire_invasion_capacity_1 = 1
+	frigate_armor_1 = 1
+	ship_storage_1 = 1
+	ship_binoculars_1 = 1
+	early_convoy = 1
+
+	naval_archers_1 = 1
+	naval_ballista_1 = 1
+	naval_catapult_1 = 1
+	naval_firebender_1 = 1
+	naval_trebuchet_1 = 1
+}
+
+
+set_research_slots = 3
+set_convoys = 140
+set_stability = 1 
+set_war_support = 0.6
+
+army_experience = 80
+navy_experience = 100
+air_experience = 0
+
+
+set_politics = {
+	ruling_party = imperialism
+	last_election = "10.1.1"
+	election_frequency = 120
+	elections_allowed = no
+}
+
+set_popularities = {
+	tribalism = 0
+	democratica = 5
+	imperialism = 90
+	monarchism = 0
+	pacifism = 5
+}
+
+
+add_ideas = {
+	national_prosperity
+
+	#slight_war_exhaustion_gui
+
+	limited_fire_conscription
+	fire_exceptional
+	limited_exports
+	low_economic_mobilisation 
+	family_support_3
+	average_education
+}
+
+
+create_country_leader = {
+	name = "Sozin"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Firenation_Zosin.dds"
+	expire = "32.4.7"
+	ideology = colonialism
+	traits = {
+		firelord
+		out_of_controll
+	}
+}
+
+
+create_field_marshal = {
+	name = "Sozin"
+	picture = "Portrait_Firenation_Zosin.dds"
+	traits = { skilled_staffer offensive_infantry fast_planner aggressive_assaulter firelord }
+	skill = 4
+	attack_skill = 4
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
+
+	id = 1
+}
+
+create_field_marshal = {
+	name = "Shaozu"
+	picture = "Portrait_Firenation_Generic13.dds"
+	traits = { generic supply_organisation }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 4
+}
+
+create_corps_commander = {
+	name = "Yotto"
+	picture = "Portrait_Firenation_Generic14.dds"
+	traits = { generic trait_engineer naval_invader }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Track"
+	picture = "Portrait_Firenation_Generic5.dds"
+	traits = { generic offensive_infantry sneak_attack cavalry_leader }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 3
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Konran"
+	picture = "Portrait_Firenation_Generic3.dds"
+	traits = { generic trait_mountaineer trait_engineer }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 2
+}
+
+create_corps_commander = {
+	name = "Waruidesu"
+	picture = "Portrait_Firenation_Generic2.dds"
+	traits = { generic }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Jeong"
+	picture = "Portrait_Firenation_Generic7.dds"
+	traits = { generic }
+	skill = 1
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+
+create_navy_leader = {
+	name = "Lee"
+	picture = "Portrait_Firenation_Generic8.dds"
+	traits = { generic naval_lineage battleship_adherent }
+	skill = 3
+	attack_skill = 3
+	defense_skill = 1
+	maneuvering_skill = 3
+	coordination_skill = 2
+}
+
+create_navy_leader = {
+	name = "Ogodei"
+	picture = "Portrait_Firenation_Generic7.dds"
+	traits = { generic }
+	skill = 3
+	attack_skill = 2
+	defense_skill = 2
+	maneuvering_skill = 2
+	coordination_skill = 3
+}
+
+
+
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	create_equipment_variant = {
+		name = "Explorer Class"
+		type = firenation_cruiser_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_storage_2_slot = storage_room_1
+			fixed_ship_armor_slot = light_armor_plates_1
+			bridge_1_custom_slot = binoculars_1
+			deck_2_custom_slot = ship_ballista_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Destroyer Class"
+		type = firenation_cruiser_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_armor_slot = light_armor_plates_1
+			deck_1_custom_slot = ship_catapult_1
+			deck_2_custom_slot = ship_catapult_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Invasion Class"
+		type = firenation_frigate_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_armor_slot = light_armor_plates_1
+			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_storage_2_slot = storage_room_1
+			fixed_ship_storage_3_slot = storage_room_1
+			deck_1_custom_slot = ship_firebender_crew
+			deck_2_custom_slot = ship_firebender_crew
+			deck_3_custom_slot = ship_firebender_crew
+			deck_4_custom_slot = ship_firebender_crew
+    	}
+	}
+
+}
+
+
+ ## #####  ##  ###  #####     ####   #
+#     #   #  # #  #   #       #     ##
+ #    #   #### ###    #       ###  # #
+  #   #   #  # #  #   #          #   #
+##    #   #  # #  #   #       ###    #
+
+
+52.1.1 ={
+	
+	OOB = "FIR_52"
+
+	add_political_power = 1198
+
+
+create_country_leader = {
+	name = "Azulon"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Firenation_Azulon2.dds"
+	expire = "110.1.1"
+	ideology = colonialism
+	traits = {
+		firelord
+	}
+}
+
+remove_unit_leader = 1
+
+	create_faction = Alliance_of_Fire
+	add_to_faction = FIR
+
+	unlock_national_focus = FIR_fireempire
+
+
+# WAR
+	declare_war_on = {
+		target = EAR
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = NWT
+		type = annex_everything
+	}
+	declare_war_on = {
+		target = SWT
+		type = annex_everything
+	}
+
+
+
+	XIN = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	WUL = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	NOW = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	KYI = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	MER = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	FMB = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	GDD = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	LAM = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	WBA = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	EBA = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	ECB = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	NCB = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	ISL = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	HEB = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	YII = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	ZIN = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	NAN = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	MPO = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	SWA = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	ZAO = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	YUE = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	GAR = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	HAN = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	OMS = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	GAO = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	CHN = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	NIX = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	MAK = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	POH = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	TAK = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	
+
+# DIPLOMACY	
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = POH
+		autonomous_state = autonomy_colony
+	}
+	set_autonomy = {
+		target = TAK
+		autonomous_state = autonomy_colony
+	}
+	set_autonomy = {
+		target = MAK
+		autonomous_state = autonomy_colony
+	}
+}
+if = {
+	limit = { 
+		not = {
+			has_dlc = "Together for Victory"
+		}
+	}
+	set_autonomy = {
+		target = POH
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = TAK
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = MAK
+		autonomous_state = autonomy_puppet
+	}
+}
+
+
+
+}
+
+
+
+ ## #####  ##  ###  #####       #  ##    #
+#     #   #  # #  #   #        ## #  #  #
+ #    #   #### ###    #       # # #  # #  #
+  #   #   #  # #  #   #         # #  # #  #
+##    #   #  # #  #   #         #  ##   ##
+
+
+
+106.2.4 ={
+	
+	OOB = "FIR_106"
+
+	add_political_power = 1198
+
+	add_to_faction = XIN
+	add_to_faction = WUL
+	add_to_faction = NOW
+
+
+create_country_leader = {
+	name = "Azulon"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Firenation_Azulon1.dds"
+	expire = "110.1.1"
+	ideology = colonialism
+	traits = {
+		firelord
+	}
+}
+
+
+#create_field_marshal = {
+#	name = "Azulon"
+#	picture = "Portrait_Firenation_Azulon1.dds"
+#	traits = {  offensive_doctrine armor_officer }
+#	skill = 8
+#	attack_skill = 7
+#	defense_skill = 2
+#	planning_skill = 4
+#	logistics_skill = 3
+#}
+
+remove_unit_leader = 1
+#remove_unit_leader = 70
+
+create_field_marshal = {
+	name = "Iroh"
+	picture = "Portrait_Firenation_Iroh1.dds"
+	traits = { dragon_of_the_west calm supply_organisation besieger defensive_infantry thorough_planner }
+	skill = 4
+	attack_skill = 3
+	defense_skill = 3
+	planning_skill = 1
+	logistics_skill = 2
+	id = 7
+}
+
+create_field_marshal = {
+	name = "Joeng Joeng"
+	picture = "Portrait_Firenation_Joengjoeng.dds"
+	traits = { offensive_infantry powerful_attack trait_engineer bridge_builder }
+	skill = 3
+	attack_skill = 1
+	defense_skill = 3
+	planning_skill = 1
+	logistics_skill = 2
+	id = 8
+}
+
+create_corps_commander = {
+	name = "Lu Ten"
+	picture = "Portrait_Firenation_Lu_Ten.dds"
+	traits = { trait_reckless offensive_infantry }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 1
+	id = 9
+}
+
+
+# WAR
+	declare_war_on = {
+		target = EAR
+		type = annex_everything
+	}
+
+# DIPLOMACY
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = XIN
+		autonomous_state = autonomy_colony
+	}
+	set_autonomy = {
+		target = WUL
+		autonomous_state = autonomy_colony
+	}
+	set_autonomy = {
+		target = NOW
+		autonomous_state = autonomy_colony
+	}
+}
+if = {
+	limit = { 
+		not = {
+			has_dlc = "Together for Victory"
+		}
+	}
+	set_autonomy = {
+		target = XIN
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = WUL
+		autonomous_state = autonomy_puppet
+	}
+	set_autonomy = {
+		target = NOW
+		autonomous_state = autonomy_puppet
+	}
+}
+
+}
+
+
+
+ ## #####  ##  ###  #####       #   #   #
+#     #   #  # #  #   #        ##  ##  ##
+ #    #   #### ###    #       # # # # # #
+  #   #   #  # #  #   #         #   #   #
+##    #   #  # #  #   #         #   #   #
+
+
+
+
+111.10.30 ={
+	
+	OOB = "FIR_111"
+	
+	add_political_power = 1198
+
+
+create_country_leader = {
+	name = "Ozai"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Firenation_Ozai.dds"
+	expire = "138.1.1"
+	ideology = colonialism
+	traits = {
+		firelord
+	}
+}
+
+
+remove_unit_leader = 1
+remove_unit_leader = 2
+remove_unit_leader = 3
+remove_unit_leader = 4
+
+
+create_field_marshal = {
+	name = "Shinu"
+	picture = "Portrait_Firenation_Shinu.dds"
+	traits = {  }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 3
+}
+
+create_field_marshal = {
+	name = "Bujing"
+	picture = "Portrait_Firenation_Bujing.dds"
+	traits = {  }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Li"
+	picture = "Portrait_Firenation_Li.dds"
+	traits = {  }
+	skill = 2
+	attack_skill = 1
+	defense_skill = 2
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Mak"
+	picture = "Portrait_Firenation_Mak.dds"
+	traits = {  }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Mung"
+	picture = "Portrait_Firenation_Mung.dds"
+	traits = {  }
+	skill = 1
+	attack_skill = 1
+	defense_skill = 1
+	planning_skill = 1
+	logistics_skill = 1
+}
+
+create_corps_commander = {
+	name = "Zhao"
+	picture = "Portrait_Firenation_Zhao.dds"
+	traits = {  }
+	skill = 2
+	attack_skill = 2
+	defense_skill = 1
+	planning_skill = 2
+	logistics_skill = 2
+}
+
+
+# WAR
+	declare_war_on = {
+		target = EAR
+		type = annex_everything
+	}
+
+# DIPLOMACY
+	
+
+}

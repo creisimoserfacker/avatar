@@ -1,0 +1,68 @@
+ideas = {
+
+	education_laws = { 
+		law = yes
+		use_list_view = yes
+		no_education = {
+			
+			cost = 150
+			removal_cost = -1
+		
+			modifier = {
+				political_power_gain = 0.5
+				research_speed_factor = -0.15
+				consumer_goods_factor = -0.1
+				production_factory_max_efficiency_factor = -0.25
+			}
+			
+			cancel_if_invalid = no
+		}
+		
+		average_education = {
+			
+			cost = 150
+			removal_cost = -1
+			default = yes
+		
+			modifier = {
+				research_speed_factor = -0.05
+				production_factory_max_efficiency_factor = -0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+
+		mandatory_education = {
+			
+			cost = 150
+			removal_cost = -1
+			default = yes
+		
+			modifier = {
+				research_speed_factor = 0.1
+				consumer_goods_factor = 0.05
+				production_factory_max_efficiency_factor = 0.05
+			}
+			
+			cancel_if_invalid = no
+		}
+		indoctrination = {
+
+			cost = 300
+			removal_cost = -1
+			
+			available = {
+				imperialism > 0.33
+			}
+
+			modifier = {
+				research_speed_factor = 0.05
+				political_power_gain = 1.0
+				consumer_goods_factor = 0.1
+				production_factory_max_efficiency_factor = 0.15
+			}
+
+			cancel_if_invalid = no
+		}
+	}
+}

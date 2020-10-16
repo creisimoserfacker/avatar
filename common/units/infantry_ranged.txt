@@ -1,0 +1,225 @@
+sub_units = {
+
+	archers = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 600
+		ai_priority = 400
+		active = no
+
+		type = {
+			infantry
+			ranged
+		}
+		
+		group = ranged
+		
+		categories = {
+			category_army
+			category_front_line
+			category_all_ranged
+			category_archers
+		}
+		
+		combat_width = 1
+		
+		#Size Definitions
+		max_strength = 4
+		max_organisation = 10
+		default_morale = 0.25
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 400
+		suppression = 1
+		weight = 0.5
+		
+		supply_consumption = 1
+
+		essential = {
+			arrow_equipment
+		}
+	
+		need = {
+			arrow_equipment = 3000
+			bow_equipment = 100
+		}
+	}
+
+	skirmishers = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 600
+		ai_priority = 200
+		active = no
+
+		type = {
+			infantry
+			ranged
+		}
+		
+		group = ranged
+		
+		categories = {
+			category_army
+			category_front_line
+			category_all_ranged
+			category_skirmisher
+		}
+		
+		combat_width = 2
+		
+		#Size Definitions
+		max_strength = 10
+		max_organisation = 24
+		default_morale = 1
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 120
+		suppression = 1
+		weight = 0.5
+		
+		supply_consumption = 0.5
+	
+		need = {
+			javelin_equipment = 100
+			light_armor_equipment = 100
+		}
+
+		forest = {
+			attack = 0.2
+			defence = 0.2
+		}
+		jungle = {
+			attack = 0.4
+			defence = 0.4
+		}
+
+	}
+
+	catapult_brigade = {
+		sprite = artillery
+		map_icon_category = infantry
+		priority = 1198
+		ai_priority = 100
+		active = no
+		
+		type = {
+			infantry
+			ranged
+			siege
+		}
+
+		group = ranged
+		
+		categories = {
+			category_army
+			category_line_artillery
+			category_artillery
+		}
+
+		combat_width = 1
+
+		manpower = 40
+		need = {
+			catapult_equipment = 10
+		}
+		
+		max_strength = 0.6
+		max_organisation = 0
+		default_morale = 0.1
+		training_time = 120
+		weight = 0.5
+		supply_consumption = 0.4
+
+		#Line artillery bonuses
+		# soft_attack = 0.25
+		
+		forest = {
+			attack = -0.2
+			movement = -0.2
+		}
+
+		hills = {
+			movement = -0.05
+		}
+
+		mountain = {
+			movement = -0.2
+		}
+
+		jungle = {
+			attack = -0.25
+			movement = -0.2
+		}
+
+		marsh = {
+			attack = -0.2
+			movement = -0.3
+		}
+
+		fort = {
+			attack = 0.1
+		}
+
+		river = {
+			attack = -0.2
+			movement = -0.2
+		}
+
+		amphibious = {
+			attack = -0.4
+		}
+	}
+
+
+	ballista = {
+		sprite = artillery
+		map_icon_category = infantry
+		priority = 600
+		ai_priority = 400
+		active = no
+
+		type = {
+			ranged
+			siege
+		}
+
+		group = ranged
+
+		categories = {
+			category_support_battalions
+			category_army
+		}
+
+		
+		combat_width = 1
+		training_time = 120
+
+		need = {
+			ballista_equipment = 20
+		}
+		
+		#Size Definitions
+		max_strength = 0.2
+		max_organisation = 0
+		default_morale = 0.1
+		manpower = 40
+		weight = 0.1
+		
+        supply_consumption = 0.4
+
+		# Support nerfs to combat abilities
+		defense = -0.4
+		breakthrough = -0.4
+		soft_attack = -0.4
+		hard_attack = -0.4
+		air_attack = -0.2
+
+	}
+
+
+}

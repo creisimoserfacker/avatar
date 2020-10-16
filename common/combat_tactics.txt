@@ -1,0 +1,566 @@
+#### COMBAT TACTICS ###########################################################
+#
+# NOTE: tactics must start with "tactic_" in their name to work with techs.
+###############################################################################
+
+phases = { # phase = no is the standard phase
+	close_combat
+	tactical_withdrawal
+	seize_bridge
+	hold_bridge
+}
+
+tactic_basic_attack = {
+
+	is_attacker = yes
+	trigger = { # combined scope for both country and combatant
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = yes
+
+	base =  { factor = 4 }
+	picture = attack
+	
+	countered_by = tactic_ambush
+
+	attacker = 0.05
+}
+
+tactic_basic_defend = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  { factor = 4 }
+	picture = defend
+
+	countered_by = tactic_volley_fire
+	
+	defender = 0.05
+}
+
+tactic_volley_fire = {
+
+	is_attacker = yes
+	trigger = { # combined scope for both country and combatant
+		is_attacker = yes
+		skill_advantage > 1
+		phase = no
+	}
+	
+	active = no
+
+	base =  { factor = 4 }
+	picture = volleyfire
+	
+	countered_by = tactic_shield_wall
+
+	attacker = 0.05
+	defender = -0.1
+	attacker_movement_speed = -0.1
+}
+
+tactic_counterattack = { # counters basic attack, assault
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		skill_advantage > 0
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 4
+		modifier = {
+			add = 4
+			has_trait = unyielding_defender
+		}
+	}
+	picture = counterattack
+
+	countered_by = tactic_feint_retreat
+	
+	attacker = -0.10
+	defender = 0.10
+}
+
+
+tactic_frontal_assault = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 2
+		modifier = {
+			add = 2
+			has_trait = aggressive_assaulter
+		}
+	} #Revisit ideally this should be more common in urban terrain
+	
+	picture = assault
+	countered_by = tactic_reinforce_the_vanguard
+	
+	#phase = close_combat #changes phase to close combat
+	
+	attacker = 0.20		#attacker gets a bonus to doing damage
+}
+
+tactic_reinforce_the_vanguard = { # counters basic attack, assault
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		skill_advantage > 1
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 4
+		modifier = {
+			add = 4
+			has_trait = defensive_infantry
+		}
+	}
+	picture = reinforcethevanguard
+
+	countered_by = tactic_cavalry_flank
+	
+	defender = 0.10
+}
+
+tactic_cavalry_flank = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 2
+		modifier = {
+			add = 8
+			has_trait = cavalry_leader
+		}
+	} #Revisit ideally this should be more common in urban terrain
+	
+	picture = assault
+	countered_by = tactic_reinforce_the_flanks
+	
+	#phase = close_combat #changes phase to close combat
+	
+	defender = -0.10
+	combat_width = 0.10
+}
+
+tactic_reinforce_the_flanks = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 4
+	}
+	picture = reinforcetheflanks
+	countered_by = tactic_frontal_assault
+	
+	defender = 0.05
+}
+
+tactic_cavalry_charge = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = yes
+	
+	base =  {
+		factor = 4
+		modifier = {
+			add = 8
+			has_trait = cavalry_leader
+		}
+	}
+	picture = calvarycharge
+	countered_by = tactic_phalanx
+	
+	attacker_movement_speed = 0.10
+	attacker = 0.15
+}
+tactic_phalanx = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = yes
+	
+	base = { factor = 4 }
+	picture = phalanx
+
+	countered_by = tactic_bait_distraction
+	defender = 0.15
+}
+
+
+#########################   UNLOCKABLE   #########################
+
+
+tactic_hammer_and_anvil = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = no
+	
+	base =  { factor = 4 }
+	picture = hammerandanvil
+	
+	countered_by = tactic_square_formation
+	
+	attacker = 0.15
+	defender = -0.10
+}
+
+tactic_square_formation = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+	
+	active = no
+	
+	base =  { factor = 4 }
+	picture = squareformation
+	
+	countered_by = tactic_siege_bombardment
+	
+	combat_width = -0.25
+	defender = 0.25
+}
+
+tactic_siege_bombardment = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+	
+	active = no
+	
+	base =  { factor = 4 }
+	picture = siegebombardment
+	
+	countered_by = tactic_scattered_defense
+	
+	attacker_movement_speed = -0.5
+	attacker = 0.25
+}
+tactic_scattered_defense = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = scattered_defense
+
+	countered_by = tactic_cavalry_charge
+
+	combat_width = 0.25
+	defender = 0.10
+}
+tactic_rushed_assault = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = rushedassault
+
+	countered_by = tactic_pincer_movement
+
+	attacker = 0.50
+	combat_width = -0.50
+	attacker_movement_speed = -0.20
+}
+tactic_pincer_movement = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = pincermovement
+
+	countered_by = tactic_oblique_assault
+
+	attacker = -0.20
+	combat_width = 0.25
+}
+tactic_oblique_assault = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = obliqueassault
+
+	countered_by = tactic_hold_chokepoint
+
+	attacker = 0.05
+	defender = -0.10
+}
+tactic_hold_chokepoint = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = holdchokepoint
+
+	countered_by = tactic_infiltration
+
+	defender = 0.10
+	attacker_movement_speed = -0.20
+	combat_width = -0.50
+}
+tactic_infiltration = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture =  infiltration
+
+	countered_by = tactic_defeat_in_detail
+
+	attacker = 0.10
+	attacker_movement_speed = -0.10
+}
+tactic_ambush = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = ambush
+
+	countered_by = tactic_mass_charge
+
+	defender = 0.20
+	combat_width = -0.50
+}
+tactic_mass_charge = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = masscharge
+
+	countered_by = tactic_field_traps
+
+	attacker = 0.15
+	defender = 0.05
+	combat_width = 0.50
+}
+tactic_field_traps = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = fieldtraps
+
+	countered_by = tactic_cautious_advance
+
+	attacker = -0.20
+}
+tactic_cautious_advance = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = cautiousadvance
+
+	countered_by = tactic_hit_and_run
+
+	defender = -0.20
+	attacker_movement_speed = -0.25
+}
+tactic_hit_and_run = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = hitandrun
+
+	countered_by = tactic_rushed_assault
+
+	defender = 0.25
+	attacker_movement_speed = -0.30
+}
+tactic_feint_retreat = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = feinedretreat
+
+	countered_by = tactic_evade_battle
+
+	defender = -0.30
+}
+tactic_evade_battle = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = evadebattle
+
+	attacker = -0.50
+	defender = -0.50
+	combat_width = -0.50
+}
+tactic_bait_distraction = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = baitdistraction
+	
+	countered_by = tactic_evade_battle
+
+	defender = -0.15
+}
+tactic_shield_wall = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = shieldwall
+
+	countered_by = tactic_hammer_and_anvil
+
+	defender = 0.10
+}
+tactic_defeat_in_detail = {
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = defeatindetail
+
+	countered_by = tactic_force_concentration
+
+	defender = -0.20
+	combat_width = -0.50
+}
+tactic_force_concentration = {
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = no
+	}
+
+	active = no
+
+	base = { factor = 4 }
+	picture = forceconcentration
+
+	combat_width = 0.30
+}

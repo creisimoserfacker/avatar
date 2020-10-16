@@ -1,0 +1,1494 @@
+# Updated upstream
+technologies = {
+
+	reform_0 = {
+		
+		path = {
+			leads_to_tech = progressive_0
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_0
+			research_cost_coeff = 1
+		}
+		
+		production_factory_max_efficiency_factor = 0.02
+		global_building_slots_factor = 0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_0 = {
+		
+		path = {
+			leads_to_tech = progressive_economy_0
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_resources_0
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_education_0
+			research_cost_coeff = 1
+		}
+		XOR = {
+			conservative_0
+		}
+		
+		global_building_slots_factor = 0.10
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_0 = {
+		
+		path = {
+			leads_to_tech = conservative_economy_0
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_resources_0
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_education_0
+			research_cost_coeff = 1
+		}
+		XOR = {
+			progressive_0
+		}
+		
+		consumer_goods_factor = -0.01
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_economy_0 = {
+	
+		production_factory_start_efficiency_factor = 0.02
+		line_change_production_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_resources_0 = {
+	
+		fuel_gain_factor_from_states = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -5 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_education_0 = {
+		
+		research_speed_factor = 0.08
+		
+		path = {
+			leads_to_tech = reform_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_economy_0 = {
+		
+		production_factory_efficiency_gain_factor = 0.02
+		production_factory_max_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 7 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_resources_0 = {
+		
+		fuel_gain_factor = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 3 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_education_0 = {
+		
+		consumer_goods_factor = -0.01
+		research_speed_factor = 0.04
+		
+		path = {
+			leads_to_tech = reform_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	reform_1 = {
+		
+		path = {
+			leads_to_tech = progressive_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_1
+			research_cost_coeff = 1
+		}
+		
+		production_factory_max_efficiency_factor = 0.04
+		global_building_slots_factor = 0.10
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_1 = {
+		
+		path = {
+			leads_to_tech = progressive_economy_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_resources_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_education_1
+			research_cost_coeff = 1
+		}
+		XOR = {
+			conservative_1
+		}
+		
+		conversion_cost_civ_to_mil_factor = -0.2
+		equipment_conversion_speed = 0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_1 = {
+		
+		path = {
+			leads_to_tech = conservative_economy_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_resources_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_education_1
+			research_cost_coeff = 1
+		}
+		XOR = {
+			progressive_1
+		}
+		
+		industry_free_repair_factor = 0.15
+		industry_air_damage_factor = -0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_economy_1 = {
+	
+		production_factory_start_efficiency_factor = 0.02
+		line_change_production_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_resources_1 = {
+	
+		fuel_gain_factor = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -5 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_education_1 = {
+		
+		path = {
+			leads_to_tech = reform_2
+			research_cost_coeff = 1
+		}
+		
+		research_speed_factor = 0.08
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_economy_1 = {
+		
+		production_factory_efficiency_gain_factor = 0.02
+		production_factory_max_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 7 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_resources_1 = {
+
+		local_resources_factor = 0.06
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 3 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_education_1 = {
+		
+		path = {
+			leads_to_tech = reform_2
+			research_cost_coeff = 1
+		}
+		
+		consumer_goods_factor = -0.01
+		research_speed_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	reform_2 = {
+		
+		path = {
+			leads_to_tech = progressive_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_2
+			research_cost_coeff = 1
+		}
+		
+		production_factory_max_efficiency_factor = 0.08
+		global_building_slots_factor = 0.15
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_2 = {
+		
+		path = {
+			leads_to_tech = progressive_economy_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_resources_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_education_2
+			research_cost_coeff = 1
+		}
+		XOR = {
+			conservative_2
+		}
+		
+		conversion_cost_civ_to_mil_factor = -0.2
+		equipment_conversion_speed = 0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 18 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_2 = {
+		
+		path = {
+			leads_to_tech = conservative_economy_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_resources_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_education_2
+			research_cost_coeff = 1
+		}
+		XOR = {
+			progressive_2
+		}
+		
+		industry_free_repair_factor = 0.15
+		industry_air_damage_factor = -0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 18 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_economy_2 = {
+	
+		production_factory_start_efficiency_factor = 0.02
+		line_change_production_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_resources_2 = {
+	
+		fuel_gain_factor = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -5 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_education_2 = {
+		
+		path = {
+			leads_to_tech = reform_3
+			research_cost_coeff = 1
+		}
+		
+		research_speed_factor = 0.08
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 22 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_economy_2 = {
+		
+		production_factory_efficiency_gain_factor = 0.02
+		production_factory_max_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 7 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_resources_2 = {
+
+		local_resources_factor = 0.06
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 3 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_education_2 = {
+		
+		path = {
+			leads_to_tech = reform_3
+			research_cost_coeff = 1
+		}
+		
+		consumer_goods_factor = -0.01
+		research_speed_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 22 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	reform_3 = {
+		
+		path = {
+			leads_to_tech = progressive_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_3
+			research_cost_coeff = 1
+		}
+		
+		production_factory_max_efficiency_factor = 0.10
+		global_building_slots_factor = 0.20
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 24 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_3 = {
+		
+		path = {
+			leads_to_tech = progressive_economy_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_resources_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_education_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			conservative_3
+		}
+		
+		conversion_cost_civ_to_mil_factor = -0.2
+		equipment_conversion_speed = 0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_3 = {
+		
+		path = {
+			leads_to_tech = conservative_economy_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_resources_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_education_3
+			research_cost_coeff = 1
+		}
+		XOR = {
+			progressive_3
+		}
+		
+		industry_free_repair_factor = 0.15
+		industry_air_damage_factor = -0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 26 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_economy_3 = {
+	
+		production_factory_start_efficiency_factor = 0.02
+		line_change_production_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_resources_3 = {
+	
+		fuel_gain_factor = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -5 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_education_3 = {
+		
+		path = {
+			leads_to_tech = reform_4
+			research_cost_coeff = 1
+		}
+		
+		research_speed_factor = 0.08
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 30 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_economy_3 = {
+		
+		production_factory_efficiency_gain_factor = 0.02
+		production_factory_max_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 7 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_resources_3 = {
+
+		local_resources_factor = 0.06
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 3 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_education_3 = {
+		
+		path = {
+			leads_to_tech = reform_4
+			research_cost_coeff = 1
+		}
+		
+		consumer_goods_factor = -0.01
+		research_speed_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 30 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	reform_4 = {
+		
+		path = {
+			leads_to_tech = progressive_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_4
+			research_cost_coeff = 1
+		}
+		
+		production_factory_max_efficiency_factor = 0.12
+		global_building_slots_factor = 0.25
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 32 }
+		}
+
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_4 = {
+		
+		path = {
+			leads_to_tech = progressive_economy_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_resources_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = progressive_education_4
+			research_cost_coeff = 1
+		}
+		XOR = {
+			conservative_4
+		}
+		
+		conversion_cost_civ_to_mil_factor = -0.2
+		equipment_conversion_speed = 0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 34 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_4 = {
+		
+		path = {
+			leads_to_tech = conservative_economy_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_resources_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = conservative_education_4
+			research_cost_coeff = 1
+		}
+		XOR = {
+			progressive_4
+		}
+		
+		industry_free_repair_factor = 0.15
+		industry_air_damage_factor = -0.05
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 34 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_economy_4 = {
+	
+		production_factory_start_efficiency_factor = 0.02
+		line_change_production_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -1 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_resources_4 = {
+	
+		fuel_gain_factor = 0.05
+		local_resources_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -5 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	progressive_education_4 = {
+		
+		path = {
+			leads_to_tech = reform_5
+			research_cost_coeff = 1
+		}
+		
+		research_speed_factor = 0.08
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = -3 y = 38 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_economy_4 = {
+		
+		production_factory_efficiency_gain_factor = 0.02
+		production_factory_max_efficiency_factor = 0.04
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 7 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_resources_4 = {
+
+		local_resources_factor = 0.06
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 3 y = 36 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	conservative_education_4 = {
+		
+		path = {
+			leads_to_tech = reform_5
+			research_cost_coeff = 1
+		}
+		
+		consumer_goods_factor = -0.01
+		research_speed_factor = 0.04
+
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 5 y = 38 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+	
+	reform_5 = {
+		
+		production_factory_max_efficiency_factor = 0.15
+		global_building_slots_factor = 0.30
+		
+		research_cost = 1
+		start_year = 1
+		folder = {
+			name = electronics_folder
+			position = { x = 1 y = 40 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+}

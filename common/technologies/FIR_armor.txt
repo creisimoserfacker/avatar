@@ -1,0 +1,526 @@
+technologies = {
+
+	heavy_cavalry_1 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_1
+		}
+
+		enable_subunits = {
+			komodo_rhinos
+		}
+
+		on_research_complete = {
+			limit = {
+				NOT = {	has_template_containing_unit = komodo_rhinos }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_tech = motorised_infantry
+					}
+
+					load_oob = "unlock_tanks_mot"
+				}
+				if = {
+					limit = {
+						NOT = { has_tech = motorised_infantry }
+					}
+
+					load_oob = "unlock_tanks"
+				}
+			}
+
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+		
+		path = {
+			leads_to_tech = heavy_cavalry_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 0 }
+		}
+
+		sub_technologies = {
+			ranged_heavy_cavalry_1
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	ranged_heavy_cavalry_1 = {
+
+		enable_subunits = {
+			komodo_rhinos_ranged
+		}
+	
+		research_cost = 0.5
+		start_year = 10
+		
+		ai_will_do = {
+			factor = 0.5
+			
+		}
+		
+		categories = {
+			armor
+		}
+	}
+
+	heavy_cavalry_2 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_2
+		}
+		
+		path = {
+			leads_to_tech = heavy_cavalry_3
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = bender_cavalry_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 14
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	bender_cavalry_1 = {
+
+		enable_subunits = {
+			firebender_cavalry
+		}
+		
+		#path = {
+		#	leads_to_tech = heavy_cavalry_4
+		#	research_cost_coeff = 1
+		#}
+		
+		research_cost = 2
+		start_year = 16
+		folder = {
+			name = fir_armour_folder
+			position = { x = 2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	heavy_cavalry_3 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_3
+		}
+		
+		path = {
+			leads_to_tech = heavy_cavalry_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 20
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	heavy_cavalry_4 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_4
+		}
+		
+		path = {
+			leads_to_tech = heavy_cavalry_5
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = archer_cavalry_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 30
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	archer_cavalry_1 = {
+
+		enable_subunits = {
+			archer_cavalry
+		}
+		
+		#path = {
+		#	leads_to_tech = heavy_cavalry_5
+		#	research_cost_coeff = 1
+		#}
+		
+		research_cost = 2
+		start_year = 34
+		folder = {
+			name = fir_armour_folder
+			position = { x = 2 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	heavy_cavalry_5 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_5
+		}
+		
+		path = {
+			leads_to_tech = heavy_cavalry_6
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = raider_cavalry_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = catapult_cavalry_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 50
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	heavy_cavalry_6 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_6
+		}
+		
+		research_cost = 2
+		start_year = 60
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	catapult_cavalry_1 = {
+
+		enable_subunits = {
+			catapult_cavalry
+		}
+		
+		research_cost = 2
+		start_year = 55
+		folder = {
+			name = fir_armour_folder
+			position = { x = 2 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	raider_cavalry_1 = {
+
+		enable_subunits = {
+			raider_cavalry
+		}
+		
+		research_cost = 2
+		start_year = 55
+		folder = {
+			name = fir_armour_folder
+			position = { x = -2 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+
+
+
+
+
+
+	armored_vehicle_prototype = {
+
+		enable_equipments = {
+			tank_equipment_1
+		}
+
+		on_research_complete = {
+			limit = {
+				NOT = {	has_template_containing_unit = komodo_rhinos }
+			}
+			hidden_effect = {
+				if = {
+					limit = {
+						has_tech = motorised_infantry
+					}
+
+					load_oob = "unlock_tanks_mot"
+				}
+				if = {
+					limit = {
+						NOT = { has_tech = motorised_infantry }
+					}
+
+					load_oob = "unlock_tanks"
+				}
+			}
+
+			custom_effect_tooltip = UNLOCK_DIVISION_TEMPLATE
+		}
+		
+		path = {
+			leads_to_tech = tank_prototype_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = armored_train_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	tank_prototype_1
+
+		enable_equipments = {
+			tank_equipment_2
+		}
+		
+		path = {
+			leads_to_tech = tank_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = siege_tank_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = tundra_tank_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 6 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	tank_1
+
+		enable_equipments = {
+			tank_equipment_3
+		}
+		
+		path = {
+			leads_to_tech = tank_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	tank_2
+
+		enable_equipments = {
+			tank_equipment_4
+		}
+		
+		path = {
+			leads_to_tech = tank_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 6 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	siege_tank_1
+
+		enable_equipments = {
+			siege_tank_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = siege_tank_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = fir_armour_folder
+			position = { x = 3 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+
+
+}

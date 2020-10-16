@@ -1,0 +1,150 @@
+scripted_gui = {
+
+	calendar = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "calendar_container"
+
+		effects = {
+			calendar_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar }
+				set_variable = { show_calendar = show }
+				if = {
+					limit = {
+						check_variable = { show_calendar_list > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_list }
+					set_variable = { show_calendar_list = show }
+				}
+				if = {
+					limit = {
+						check_variable = { show_calendar_effects > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_effects }
+					set_variable = { show_calendar_effects = show }
+				}
+
+				if = {
+					limit = {
+						check_variable = { show_avatar > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_avatar }
+					set_variable = { show_avatar = show }
+				}
+			}
+		}
+	}
+
+	calendar_window = {
+		context_type = player_context
+
+		window_name = "calendar_window_container"
+
+		visible = {
+			check_variable = { show_calendar > 0.0 }
+		}
+
+		effects = {
+			calendar_close_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar }
+				set_variable = { show_calendar = show }
+				if = {
+					limit = {
+						check_variable = { show_calendar_list > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_list }
+					set_variable = { show_calendar_list = show }
+				}
+				if = {
+					limit = {
+						check_variable = { show_calendar_effects > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_effects }
+					set_variable = { show_calendar_effects = show }
+				}
+			}
+			calendar_list_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar_list }
+				set_variable = { show_calendar_list = show }
+				if = {
+					limit = {
+						check_variable = { show_calendar_effects > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_effects }
+					set_variable = { show_calendar_effects = show }
+				}
+			}
+			calendar_effects_button_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar_effects }
+				set_variable = { show_calendar_effects = show }
+				if = {
+					limit = {
+						check_variable = { show_calendar_list > 0.0 }
+					}
+					set_temp_variable = { show = 1 }
+					subtract_from_temp_variable = { show = show_calendar_list }
+					set_variable = { show_calendar_list = show }
+				}
+			}
+		}
+
+	}
+
+	calendar_list_window = {
+		context_type = player_context
+
+		window_name = "calendar_list_window_container"
+		parent_window_name = "calendar_window_container"
+
+		visible = {
+			check_variable = { show_calendar_list > 0.0 }
+		}
+
+        dynamic_lists = {
+            event_listing_grid = {
+                change_scope = yes
+                entry_container = nuclear_power_listing_entry
+            }
+        }
+
+		effects = {
+			calendar_list_close_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar_list }
+				set_variable = { show_calendar_list = show }
+			}
+
+		}
+
+	}
+
+	calendar_effects_window = {
+		context_type = player_context
+
+		window_name = "calendar_effects_window_container"
+		parent_window_name = "calendar_window_container"
+
+		visible = {
+			check_variable = { show_calendar_effects > 0.0 }
+		}
+
+		effects = {
+			calendar_effects_close_click = {
+				set_temp_variable = { show = 1 }
+				subtract_from_temp_variable = { show = show_calendar_effects }
+				set_variable = { show_calendar_effects = show }
+			}
+		}
+
+	}
+}

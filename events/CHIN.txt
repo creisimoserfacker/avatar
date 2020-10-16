@@ -1,0 +1,856 @@
+#Chin events
+add_namespace = CHIN
+
+#todo:border war, add inf/science/kyoshi parts to tree
+
+#focus tree events
+#new leader
+country_event = {
+	id = CHIN.1
+	title = CHIN.1.t
+	desc = CHIN.1.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.1.a
+		kill_country_leader = yes
+		create_country_leader = { 
+			name = "Chun Hu" 
+			desc = "POLITICS_CHUN_HU_desc" 
+			picture = "Portrait_CHN_CHUN_HU.dds" 
+			expire = "200.1.1" 
+			ideology = absolute_monarchy
+			traits = { } 
+		}
+		
+	}
+}
+
+#political divide
+country_event = {
+	id = CHIN.2
+	title = CHIN.2.t
+	desc = CHIN.2.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.2.a
+		swap_ideas = {
+			add_idea = PathToTheKingdom
+			remove_idea = PoliticalDivide
+		}
+	}
+	
+	option = {
+		name = CHIN.2.b
+		swap_ideas = {
+			add_idea = PathToIndependence
+			remove_idea = PoliticalDivide
+		}
+	}
+		
+}
+
+#Kyoshi hatred
+country_event = {
+	id = CHIN.3
+	title = CHIN.3.t
+	desc = CHIN.3.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.3.a
+		add_opinion_modifier = { target = KYI modifier = large_decrease }
+		KYI  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+	}
+		
+}
+
+#Avatar day
+country_event = {
+	id = CHIN.4
+	title = CHIN.4.t
+	desc = CHIN.4.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.4.a
+		add_opinion_modifier = { target = KYI modifier = large_decrease }
+		KYI  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+	}
+		
+}
+
+#hatefull people
+country_event = {
+	id = CHIN.5
+	title = CHIN.5.t
+	desc = CHIN.5.d
+	picture = GFX_report_event_hitler_handshake
+
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.5.a
+		swap_ideas = {
+			add_idea = ChinsPeople1
+			remove_idea = PathToTheKingdom
+		}
+	}
+		
+}
+
+#a new state
+country_event = {
+	id = CHIN.6
+	title = CHIN.6.t
+	desc = CHIN.6.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.6.a
+		swap_ideas = {
+			add_idea = ChinsPeople2
+			remove_idea = ChinsPeople1
+		}
+	}
+		
+}
+
+#self reliance
+country_event = {
+	id = CHIN.7
+	title = CHIN.7.t
+	desc = CHIN.7.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.7.a
+		add_resource = {
+			type = oil
+			amount = 10
+			state = 233
+		}
+		add_resource = {
+			type = chromium
+			amount = 3
+			state = 233
+		}
+	}
+		
+}
+
+#trip to the south
+country_event = {
+	id = CHIN.8
+	title = CHIN.8.t
+	desc = CHIN.8.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.8.a
+		trigger = {
+			tag = SWT
+		}
+		add_resource = {
+			type = oil
+			amount = 5
+			state = 261
+		}		
+		CHN = { country_event = { id = CHIN.9 days = 3} }
+	}
+	
+	option = {
+		name = CHIN.8.b
+		trigger = {
+			tag = SAT
+		}
+		add_resource = {
+			type = oil
+			amount = 5
+			state = 68
+		}		
+		CHN = { country_event = { id = CHIN.10 days = 2} }
+	}
+		
+}
+
+country_event = {
+	id = CHIN.9
+	title = CHIN.9.t
+	desc = CHIN.9.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.9.a
+		add_resource = {
+			type = chromium
+			amount = 5
+			state = 233
+		}
+	}	
+}
+
+country_event = {
+	id = CHIN.10
+	title = CHIN.10.t
+	desc = CHIN.10.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.10.a
+		add_resource = {
+			type = tungsten
+			amount = 5
+			state = 233
+		}
+	}
+}
+
+#school of chin
+country_event = {
+	id = CHIN.11
+	title = CHIN.11.t
+	desc = CHIN.11.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.11.a
+		add_ideas = ChinsLegacy1
+	}
+}
+
+#training camps
+country_event = {
+	id = CHIN.12
+	title = CHIN.12.t
+	desc = CHIN.12.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.12.a
+		swap_ideas = {
+			add_idea = ChinsLegacy2
+			remove_idea = ChinsLegacy1
+		}
+	}
+		
+}
+
+#chins legacy
+country_event = {
+	id = CHIN.13
+	title = CHIN.13.t
+	desc = CHIN.13.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.13.a
+		swap_ideas = {
+			add_idea = ChinsLegacy3
+			remove_idea = ChinsLegacy2
+		}
+	}
+		
+}
+
+#Zaofu Metal
+country_event = {
+	id = CHIN.14
+	title = CHIN.14.t
+	desc = CHIN.14.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	#accept
+	option = {
+		name = CHIN.14.a
+		CHN = { country_event = { id = CHIN.15 days = 2} }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				add = 10
+        
+				trigger = {
+					has_opinion = {
+					target = CHN
+					value > 100
+					}
+				}
+			}
+		}
+	}
+	
+	#decline
+	option = {
+		name = CHIN.14.b
+		CHN = { country_event = { id = CHIN.16 days = 2} }
+		ai_will_do = {
+			factor = 90
+			modifier = {
+				add = -10
+        
+				trigger = {
+					has_opinion = {
+					target = CHN
+					value > 100
+					}
+				}
+			}
+		}
+	}	
+}
+
+#Zaofu accepts
+country_event = {
+	id = CHIN.15
+	title = CHIN.15.t
+	desc = CHIN.15.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.15.a
+		annex_country = { target = ZAO }
+	}
+		
+}
+
+#Zaofu Refuses
+country_event = {
+	id = CHIN.16
+	title = CHIN.16.t
+	desc = CHIN.16.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.16.a
+		add_opinion_modifier = { target = ZAO modifier = large_decrease }
+	}
+		
+}
+
+#letter for independence
+country_event = {
+	id = CHIN.17
+	title = CHIN.17.t
+	desc = CHIN.17.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.17.a
+		CHN = { country_event = { id = CHIN.18 days = 7}}
+	}
+		
+}
+
+country_event = {
+	id = CHIN.18
+	title = CHIN.18.t
+	desc = CHIN.18.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.18.a
+		add_ideas = DeniedFreedom
+	}
+		
+}
+
+#a new dawn
+country_event = {
+	id = CHIN.19
+	title = CHIN.19.t
+	desc = CHIN.19.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.19.a
+		set_politics = { ruling_party = imperialism elections_allowed = no }
+	}
+		
+}
+
+#zaofu subjucation (temp event could be changed for border war if I find a way)
+country_event = {
+	id = CHIN.20
+	title = CHIN.20.t
+	desc = CHIN.20.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.20.a
+		ZAO = { country_event = { id = CHIN.21 days = 2}}
+	}
+		
+}
+
+country_event = {
+	id = CHIN.21
+	title = CHIN.21.t
+	desc = CHIN.21.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.21.a
+		CHN = { country_event = { id = CHIN.22 days = 2}}
+	}
+		
+}
+
+country_event = {
+	id = CHIN.22
+	title = CHIN.22.t
+	desc = CHIN.22.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.22.a
+		annex_country = { target = ZAO }
+	}
+		
+}
+
+# independence
+country_event = {
+	id = CHIN.23
+	title = CHIN.23.t
+	desc = CHIN.23.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.23.a
+		
+		CHN = { country_event = { id = CHIN.24 }}
+		add_opinion_modifier = { target = CHN modifier = large_decrease }
+		CHN  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+		ai_will_do = {
+			factor = 10
+			modifier = {
+				add = 65
+        
+				trigger = {
+					has_war = yes
+				}
+			}
+		}
+	}
+		
+	option = {
+		name = CHIN.23.b
+		declare_war_on = {
+			target = CHN
+			type = puppet_wargoal_focus
+		}
+		CHN = { country_event = { id = CHIN.25 }}
+		add_opinion_modifier = { target = CHN modifier = large_decrease }
+		CHN  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
+		ai_will_do = {
+			factor = 90
+			modifier = {
+				add = -65
+        
+				trigger = {
+					has_war = yes
+				}
+			}
+		}
+	}
+}
+	
+country_event = {
+	id = CHIN.24
+	title = CHIN.24.t
+	desc = CHIN.24.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.24.a
+	}
+		
+}
+
+country_event = {
+	id = CHIN.25
+	title = CHIN.25.t
+	desc = CHIN.25.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.25.a
+	}
+		
+}
+
+	
+#Empire of chin
+country_event = {
+	id = CHIN.26
+	title = CHIN.26.t
+	desc = CHIN.26.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.26.a
+		set_cosmetic_tag = CHN_empire
+		swap_ideas = {
+			add_idea = ChinsLegacy4
+			remove_idea = ChinsLegacy3
+		}
+		news_event = { id = chin_becomes_empire days = 1 }
+	}	
+}
+
+news_event = {
+	id = chin_becomes_empire
+	title = chin_becomes_empire.t
+	desc = chin_becomes_empire.d
+	picture = GFX_news_event_nuke
+	major = yes 
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = chin_becomes_empire.a
+		trigger = {
+			OR = { 
+				tag = CHN
+				tag = CHN_empire
+			}
+		}
+	}
+	
+	option = {
+		name = chin_becomes_empire.b
+	}
+}
+
+#The Southern League
+country_event = {
+	id = CHIN.27
+	title = CHIN.27.t
+	desc = CHIN.27.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = CHIN.27.a
+		trigger = {
+			tag = SWT
+		}
+		add_resource = {
+			type = oil
+			amount = 5
+			state = 261
+		}				
+		add_resource = {
+			type = tungsten
+			amount = 5
+			state = 261
+		}	
+		add_ideas = { SouthernLeague1 }
+		CHN = { country_event = { id = CHIN.28 days = 3}}
+	}
+	
+	option = {
+		name = CHIN.27.b
+		trigger = {
+			tag = SAT
+		}
+		add_resource = {
+			type = oil
+			amount = 5
+			state = 68
+		}				
+		add_resource = {
+			type = chromium
+			amount = 5
+			state = 68
+		}	
+		add_ideas = { SouthernLeague1 }
+		CHN = { country_event = { id = CHIN.29 days = 2}}
+	}
+}
+
+country_event = {
+	id = CHIN.28
+	title = CHIN.28.t
+	desc = CHIN.28.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.28.a
+		add_resource = {
+			type = chromium
+			amount = 5
+			state = 233
+		}
+	}
+		
+}
+
+country_event = {
+	id = CHIN.29
+	title = CHIN.29.t
+	desc = CHIN.29.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.29.a
+		add_resource = {
+			type = tungsten
+			amount = 5
+			state = 233
+		}
+	}
+		
+}
+
+#immigrants
+country_event = {
+	id = CHIN.30
+	title = CHIN.30.t
+	desc = CHIN.30.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.30.a
+		swap_ideas = {
+			add_idea = SouthernLeague2
+			remove_idea = SouthernLeague1
+		}
+	}
+		
+}
+
+#nandao Coal
+country_event = {
+	id = CHIN.31
+	title = CHIN.31.t
+	desc = CHIN.31.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.31.a
+		every_other_country = {
+			limit = {
+				is_southern_league_member = yes
+			}
+			country_event = { id = CHIN.32 days = 2}
+		}
+		add_ideas = SouthernLeague2
+		add_resource = {
+			type = oil
+			amount = 10
+			state = 254
+		}				
+		add_resource = {
+			type = chromium
+			amount = 10
+			state = 254
+		}	
+		add_resource = {
+			type = tungsten
+			amount = 10
+			state = 254
+		}	
+	}
+	
+	option = {
+		name = CHIN.31.b
+		every_other_country = {
+			limit = {
+				is_southern_league_member = yes
+			}
+			news_event = { id = nandao_refuses }
+		}
+	}		
+}
+
+news_event = {
+	id = chin_invites_nandao
+	title = chin_invites_nandao.t
+	desc = chin_invites_nandao.d
+	picture = GFX_news_event_nuke
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = chin_invites_nandao.a
+	}
+}
+
+country_event = {
+	id = CHIN.32
+	title = CHIN.32.t
+	desc = CHIN.32.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.32.a
+		random_owned_controlled_state = {
+			add_resource = {
+				type = rubber
+				amount = 10
+			}
+		}
+	}	
+}
+
+news_event = {
+	id = nandao_refuses
+	title = nandao_refuses.t
+	desc = nandao_refuses.d
+	picture = GFX_news_event_nuke
+	is_triggered_only = yes
+	fire_only_once = yes
+	
+	option = {
+		name = nandao_refuses.a
+	}
+}
+
+#private army
+country_event = {
+	id = CHIN.33
+	title = CHIN.33.t
+	desc = CHIN.33.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.33.a
+		add_ideas = SouthernLeagueArmy
+	}	
+}
+
+#trade promotion
+country_event = {
+	id = CHIN.34
+	title = CHIN.34.t
+	desc = CHIN.34.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.34.a
+		swap_ideas = {
+			add_idea = SouthernLeague3
+			remove_idea = SouthernLeague2
+		}
+	}	
+}
+
+#Shu trade
+country_event = {
+	id = CHIN.35
+	title = CHIN.35.t
+	desc = CHIN.35.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.35.a
+		ai_will_do = {
+			factor = 40
+		}
+		CHN = { country_event = { id = CHIN.36 days = 2}}
+	}
+	option = {
+		name = CHIN.35.b
+		ai_will_do = {
+			factor = 60
+		}
+		CHN = { country_event = { id = CHIN.37 days = 2}}
+	}	
+}
+
+country_event = {
+	id = CHIN.36
+	title = CHIN.36.t
+	desc = CHIN.36.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.36.a
+		transfer_state = 78
+		transfer_state = 83
+	}	
+}
+
+country_event = {
+	id = CHIN.37
+	title = CHIN.37.t
+	desc = CHIN.37.d
+	picture = GFX_report_event_hitler_handshake
+	
+	is_triggered_only = yes
+
+	option = {
+		name = CHIN.37.a
+	}	
+}

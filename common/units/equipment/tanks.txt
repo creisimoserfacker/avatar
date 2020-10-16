@@ -1,0 +1,456 @@
+equipments = {
+
+	tank_equipment = {
+	
+		is_archetype = yes
+		picture = archetype_tank_equipment
+		is_buildable = no
+		type = infantry
+		group_by = archetype
+		
+		interface_category = interface_category_land
+		
+		active = no
+		
+		#Misc Abilities
+		reliability = 0.9
+		maximum_speed = 4
+
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 1
+		
+		build_cost_ic = 0.6
+		resources = {
+			tungsten = 1
+		}
+
+		fuel_consumption = 0.4
+		
+	}
+
+	tank_equipment_1 = {
+	
+		archetype = tank_equipment
+		active = no
+		priority = 05
+		visual_level = 0
+	}
+
+    tank_equipment_2 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_1
+		priority = 10
+		visual_level = 0
+
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+
+		build_cost_ic = 0.7
+		resources = {
+			tungsten = 2
+		}
+	}
+
+	tank_equipment_2 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_1
+		priority = 10
+		visual_level = 1
+		
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+		
+		build_cost_ic = 0.8
+		resources = {
+			tungsten = 2
+		}
+	}
+	
+	tank_equipment_3 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_2
+		priority = 10
+		visual_level = 2
+		
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+		
+		reliability = 0.9
+		build_cost_ic = 1
+		resources = {
+			tungsten = 2
+			chromium = 1
+		}
+	}
+
+	tank_equipment_4 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_3
+		priority = 10
+		visual_level = 3
+		
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+		
+		reliability = 0.9
+		build_cost_ic = 1
+		resources = {
+			tungsten = 2
+			chromium = 1
+		}
+	}
+
+
+	tank_equipment_5 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_4
+		priority = 10
+		visual_level = 4
+		
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+		
+		reliability = 1
+		build_cost_ic = 1.1
+		resources = {
+			tungsten = 1
+			chromium = 1
+			steel = 1
+		}
+	}
+
+	tank_equipment_6 = {
+	
+		archetype = tank_equipment
+		parent = tank_equipment_5
+		priority = 10
+		visual_level = 5
+		
+		#Defensive Abilities
+		defense = 20
+		breakthrough = 2
+		hardness = 0.2
+		armor_value = 1
+
+		#Offensive Abilities
+		soft_attack = 0
+		hard_attack = 0
+		ap_attack = 0
+		air_attack = 0
+		
+		reliability = 1
+		build_cost_ic = 1.2
+		resources = {
+			tungsten = 2
+			chromium = 2
+			steel = 1
+		}
+	}
+
+
+	#############################
+
+
+	tundra_tank_equipment = {
+		year = 1934
+
+		is_archetype = yes
+		is_convertable = yes
+		picture = archetype_heavy_tank_equipment
+		is_buildable = no
+		is_convertable = yes
+		type = armor
+		group_by = archetype
+		
+		interface_category = interface_category_armor
+		
+		upgrades = {
+			tank_reliability_upgrade
+			tank_engine_upgrade
+			tank_armor_upgrade
+			tank_gun_upgrade
+		}
+		
+		#Misc Abilities
+		maximum_speed = 5
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 6
+		breakthrough = 36
+		hardness = 0.95
+		armor_value = 70
+
+		#Offensive Abilities
+		soft_attack = 15
+		hard_attack = 12
+		ap_attack = 35
+		air_attack = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 25 
+		resources = {
+			#oil = 1
+			steel = 3
+			chromium = 3
+		}
+		
+		fuel_consumption = 4.4
+	}
+
+	tundra_tank_equipment_1 = {
+		year = 1934
+
+		archetype = heavy_tank_equipment		
+		priority = 90
+		visual_level = 0
+		is_convertable = yes
+	}
+
+	tundra_tank_equipment_2 = {
+		year = 1941
+
+		archetype = heavy_tank_equipment
+		parent = heavy_tank_equipment_1
+		priority = 90
+		visual_level = 1
+		is_convertable = yes
+		
+		#Misc Abilities
+		maximum_speed = 6
+
+		#Defensive Abilities
+		defense = 8
+		breakthrough = 52
+		armor_value = 110
+
+		#Offensive Abilities
+		soft_attack = 27
+		hard_attack = 30
+		ap_attack = 111
+		
+		build_cost_ic = 27 
+		resources = {
+#			oil = 1
+			steel = 3
+			chromium = 3
+		}
+	}
+
+	tundra_tank_equipment_3 = {
+		year = 1943
+
+		archetype = heavy_tank_equipment
+		parent = heavy_tank_equipment_2
+		priority = 90
+		visual_level = 2
+		is_convertable = yes
+
+		#Misc Abilities
+		maximum_speed = 6
+
+		#Defensive Abilities
+		defense = 9
+		breakthrough = 67
+		armor_value = 130
+
+		#Offensive Abilities
+		soft_attack = 35
+		hard_attack = 40
+		ap_attack = 131
+		
+		build_cost_ic = 30
+		resources = {
+			#oil = 1
+			steel = 4
+			chromium = 3
+		}
+	}
+
+
+	#######################################################
+
+
+	siege_tank_equipment = {
+		year = 1934
+
+		is_archetype = yes
+		is_convertable = yes
+		picture = archetype_heavy_tank_equipment
+		is_buildable = no
+		is_convertable = yes
+		type = armor
+		group_by = archetype
+		
+		interface_category = interface_category_armor
+		
+		upgrades = {
+			tank_reliability_upgrade
+			tank_engine_upgrade
+			tank_armor_upgrade
+			tank_gun_upgrade
+		}
+		
+		#Misc Abilities
+		maximum_speed = 5
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 6
+		breakthrough = 36
+		hardness = 0.95
+		armor_value = 70
+
+		#Offensive Abilities
+		soft_attack = 15
+		hard_attack = 12
+		ap_attack = 35
+		air_attack = 0
+
+		#Space taken in convoy
+		lend_lease_cost = 14
+		
+		build_cost_ic = 25 
+		resources = {
+			#oil = 1
+			steel = 3
+			chromium = 3
+		}
+		
+		fuel_consumption = 4.4
+	}
+
+	siege_tank_equipment_1 = {
+		year = 1934
+
+		archetype = heavy_tank_equipment		
+		priority = 90
+		visual_level = 0
+		is_convertable = yes
+	}
+
+	siege_tank_equipment_2 = {
+		year = 1941
+
+		archetype = heavy_tank_equipment
+		parent = heavy_tank_equipment_1
+		priority = 90
+		visual_level = 1
+		is_convertable = yes
+		
+		#Misc Abilities
+		maximum_speed = 6
+
+		#Defensive Abilities
+		defense = 8
+		breakthrough = 52
+		armor_value = 110
+
+		#Offensive Abilities
+		soft_attack = 27
+		hard_attack = 30
+		ap_attack = 111
+		
+		build_cost_ic = 27 
+		resources = {
+#			oil = 1
+			steel = 3
+			chromium = 3
+		}
+	}
+
+	siege_tank_equipment_3 = {
+		year = 1943
+
+		archetype = heavy_tank_equipment
+		parent = heavy_tank_equipment_2
+		priority = 90
+		visual_level = 2
+		is_convertable = yes
+
+		#Misc Abilities
+		maximum_speed = 6
+
+		#Defensive Abilities
+		defense = 9
+		breakthrough = 67
+		armor_value = 130
+
+		#Offensive Abilities
+		soft_attack = 35
+		hard_attack = 40
+		ap_attack = 131
+		
+		build_cost_ic = 30
+		resources = {
+			#oil = 1
+			steel = 4
+			chromium = 3
+		}
+	}
+
+}

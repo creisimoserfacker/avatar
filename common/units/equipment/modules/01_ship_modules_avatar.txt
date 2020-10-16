@@ -1,0 +1,2652 @@
+equipment_modules = {
+
+
+###  ### #   # ###  ### ###      ##  ###  ### #   #
+#  # #   ##  # #  # #   #  #    #  # #  # #   #   #
+###  ##  # # # #  # ##  ###     #    ###  ##  # # #
+#  # #   #  ## #  # #   #  #    #  # #  # #   # # #
+###  ### #   # ###  ### #  #     ##  #  # ###  # #
+
+	ship_firebender_crew_1 = {
+		category = ship_firebender_crew
+
+		add_stats = {
+			lg_attack = 2
+			build_cost_ic = 120	
+		}
+		
+		multiply_stats = {
+			lg_attack = 0.05
+			hg_attack = 0.25
+			torpedo_attack = 0.1
+		}
+
+		dismantle_cost_ic = 700
+	}
+	ship_earthbender_crew_1 = {
+		category = ship_earthbender_crew
+		
+		multiply_stats = {
+			lg_attack = 0.1
+			hg_attack = 0.2
+			torpedo_attack = 1.05
+		}
+		
+		dismantle_cost_ic = 700
+	}
+	ship_airbender_crew_1 = {
+		category = ship_airbender_crew
+		
+		multiply_stats = {
+			naval_speed = 0.25
+			naval_range = 0.25
+			lg_attack = 0.05
+			hg_attack = 0.05
+			torpedo_attack = 0.1
+		}
+		
+		dismantle_cost_ic = 700
+	}
+	ship_waterbender_crew_1 = {
+		category = ship_waterbender_crew
+
+		add_stats = {
+			lg_attack = 2
+			hg_attack = 4
+			build_cost_ic = 120	
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.15
+			naval_range = 0.15
+			torpedo_attack = 0.2
+		}
+		
+		dismantle_cost_ic = 700
+	}
+
+ ##   ###   ###  #     #
+#  #  #  #  #    #     #
+#     ###   ##   #  #  #
+#  #  #  #  #    #  #  #
+ ##   #  #  ###   ## ## 
+
+	maintenance_crew_1 = {
+		category = ship_crew
+		
+		add_stats = {
+			build_cost_ic = 10
+		}
+		multiply_stats = {
+			reliability = 0.15
+		}
+		dismantle_cost_ic = 700
+	}
+	maintenance_crew_2 = {
+		category = ship_crew
+		
+		
+		add_stats = {
+			build_cost_ic = 20
+		}
+		multiply_stats = {
+			reliability = 0.20
+		}
+		dismantle_cost_ic = 700
+	}
+	maintenance_crew_3 = {
+		category = ship_crew
+		
+		
+		add_stats = {
+			build_cost_ic = 30
+		}
+		multiply_stats = {
+			reliability = 0.25
+		}
+		dismantle_cost_ic = 700
+	}
+	maintenance_crew_4 = {
+		category = ship_crew
+		
+		
+		add_stats = {
+			build_cost_ic = 40
+		}
+		multiply_stats = {
+			reliability = 0.30
+		}
+		dismantle_cost_ic = 700
+	}
+	maintenance_crew_5 = {
+		category = ship_crew
+		
+		
+		add_stats = {
+			build_cost_ic = 50
+		}
+		multiply_stats = {
+			reliability = 0.35
+		}
+		dismantle_cost_ic = 700
+	}
+	maintenance_crew_6 = {
+		category = ship_crew
+		
+		
+		add_stats = {
+			build_cost_ic = 60
+		}
+		multiply_stats = {
+			reliability = 0.40
+		}
+		dismantle_cost_ic = 700
+	}
+
+###  #   #  ##  #  #   #  ###  ###
+#    ##  # #    #  ##  #  #   #
+##   # # # # ## #  # # #  ##   ##
+#    #  ## #  # #  #  ##  #      #
+###  #   #  ##  #  #   #  ### ###
+
+	steam_engine_1 = {
+		category = steam_engine
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 90
+
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.20
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_2 = {
+		category = steam_engine
+		parent = steam_engine_1
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 120
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.26
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_1
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_3 = {
+		category = steam_engine
+		parent = steam_engine_2
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 150
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.32
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_2
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_4 = {
+		category = steam_engine
+		parent = steam_engine_3
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 170
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.38
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_3
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_5 = {
+		category = steam_engine
+		parent = steam_engine_4
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 170
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.44
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_4
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_6 = {
+		category = steam_engine
+		parent = steam_engine_5
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 170
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.50
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_5
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_7 = {
+		category = steam_engine
+		parent = steam_engine_6
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 170
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.56
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_6
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	steam_engine_8 = {
+		category = steam_engine
+		parent = steam_engine_7
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 170
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.62
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = steam_engine_7
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+
+	heavy_steam_engine_1 = {
+		category = heavy_steam_engine
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 90
+
+		}
+		build_cost_resources = {
+			rubber = 2
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.30
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = steam_engine
+			module_category = heavy_steam_engine
+			convert_cost_ic = 250
+		}
+		critical_parts = { burning_engine }
+	}
+	heavy_steam_engine_2 = {
+		category = heavy_steam_engine
+		parent = heavy_steam_engine_1
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			naval_speed = 6
+			build_cost_ic = 120
+		}
+		build_cost_resources = {
+			rubber = 2
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.34
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = heavy_steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = heavy_steam_engine_1
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	heavy_steam_engine_3 = {
+		category = heavy_steam_engine
+		parent = heavy_steam_engine_2
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			naval_speed = 7
+			build_cost_ic = 150
+		}
+		build_cost_resources = {
+			rubber = 2
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.38
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = heavy_steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = heavy_steam_engine_2
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+	heavy_steam_engine_4 = {
+		category = heavy_steam_engine
+		parent = heavy_steam_engine_3
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			naval_speed = 8
+			build_cost_ic = 150
+		}
+		build_cost_resources = {
+			rubber = 2
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.44
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = heavy_steam_engine
+			convert_cost_ic = 250
+		}
+		
+		can_convert_from = {
+			module = heavy_steam_engine_3
+			convert_cost_ic = 230
+		}
+		critical_parts = { burning_engine }
+	}
+
+	sails_1 = {
+		category = sails
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 3
+			build_cost_ic = 60
+
+		}
+		build_cost_resources = {
+			tungsten = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.21
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+	}
+	sails_2 = {
+		category = sails
+		parent = sails_1
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 4
+			build_cost_ic = 80
+
+		}
+		build_cost_resources = {
+			tungsten = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.32
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_1
+			convert_cost_ic = 100
+		}
+	}
+	sails_3 = {
+		category = sails
+		parent = sails_2
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 5
+			build_cost_ic = 100
+
+		}
+		build_cost_resources = {
+			tungsten = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.32
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_2
+			convert_cost_ic = 100
+		}
+	}
+	sails_4 = {
+		category = sails
+		parent = sails_3
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 6
+			build_cost_ic = 120
+
+		}
+		build_cost_resources = {
+			tungsten = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.32
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_2
+			convert_cost_ic = 100
+		}
+	}
+	oars_1 = {
+		category = oars
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 2
+			build_cost_ic = 60
+
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.10
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+	}
+	oars_2 = {
+		category = oars
+		parent = oars_1
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 2
+			build_cost_ic = 80
+
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.20
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_1
+			convert_cost_ic = 100
+		}
+	}
+	oars_3 = {
+		category = oars
+		parent = oars_2
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 2
+			build_cost_ic = 100
+
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.30
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_2
+			convert_cost_ic = 100
+		}
+	}
+	oars_4 = {
+		category = oars
+		parent = oars_3
+		sfx = sfx_ui_sd_module_engine
+
+		
+		add_stats = {
+			naval_speed = 2
+			build_cost_ic = 120
+
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		
+		multiply_stats = {
+			naval_speed = 0.4
+			reliability = -0.2
+		}
+		
+		can_convert_from = {
+			module_category = sails
+			convert_cost_ic = 120
+		}
+		
+		can_convert_from = {
+			module = sails_2
+			convert_cost_ic = 100
+		}
+	}
+
+
+###  ### ##### ###  ##  ##### #  ##  #   #
+#  # #     #   #   #  #   #   # #  # ##  #
+#  # ##    #   ##  #      #   # #  # # # #
+#  # #     #   #   #  #   #   # #  # #  ##
+###  ###   #   ###  ##    #   #  ##  #   #
+
+
+	crows_nest_1 = {
+		category = crows_nest
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 80
+			surface_detection = 6
+		}
+		
+	}
+	crows_nest_2 = {
+		category = crows_nest
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 100
+			surface_detection = 9
+		}
+
+		can_convert_from = {
+			module = crows_nest_1
+			convert_cost_ic = 30
+		}
+	}
+	crows_nest_3 = {
+		category = crows_nest
+		sfx = sfx_ui_sd_module_sonar
+		
+		multiply_stats = {
+			lg_attack = 0.05
+			hg_attack = 0.05
+			anti_air_attack = 0.05
+		}
+		add_stats = {
+			surface_detection = 12
+			build_cost_ic = 120
+		}
+		can_convert_from = {
+			module = crows_nest_2
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = crows_nest
+			convert_cost_ic = 60
+		}
+
+	}
+	crows_nest_4 = {
+		category = crows_nest
+		sfx = sfx_ui_sd_module_sonar
+
+		multiply_stats = {
+			lg_attack = 0.1
+			hg_attack = 0.1
+			anti_air_attack = 0.1
+		}
+		add_stats = {
+			
+			build_cost_ic = 140
+			surface_detection = 15
+		}
+		can_convert_from = {
+			module = crows_nest_3
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = crows_nest
+			convert_cost_ic = 90
+		}
+
+	}
+
+	lookout_1 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 150
+			surface_detection = 8
+		}
+	}
+	lookout_2 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			build_cost_ic = 200
+			surface_detection = 12
+		}
+		
+		can_convert_from = {
+			module = binoculars_1
+			convert_cost_ic = 30
+		}
+	}
+	lookout_3 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+		
+		add_stats = {
+			
+			surface_detection = 16
+			build_cost_ic = 250
+		}
+		can_convert_from = {
+			module = binoculars_2
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = bridge
+			convert_cost_ic = 60
+		}
+	}
+	lookout_4 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			
+			build_cost_ic = 300
+			surface_detection = 20
+		}
+		can_convert_from = {
+			module = binoculars_3
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = bridge
+			convert_cost_ic = 90
+		}
+	}
+
+
+ ## #####  ##  ###   ##   ##  ###
+#     #   #  # #  # #  # #    #
+ #    #   #  # ###  #### # ## ##
+  #   #   #  # #  # #  # #  # #
+##	  #    ##  #  # #  #  ##  ###
+
+
+	storage_room_1 = {
+		category = storage_room
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 150
+		}
+		multiply_stats = {
+			fuel_consumption = 1.2
+			naval_range = 1.4
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+	}
+	storage_room_2 = {
+		category = storage_room
+		parent = storage_room_1
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 200
+		}
+		multiply_stats = {
+			fuel_consumption = 1.4
+			naval_range = 1.8
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = storage_room_1
+			convert_cost_ic = 45
+		}
+	}
+	storage_room_3 = {
+		category = storage_room
+		parent = storage_room_2
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 250
+		}
+		multiply_stats = {
+			fuel_consumption = 1.6
+			naval_range = 2.2
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = storage_room_2
+			convert_cost_ic = 45
+		}
+	}
+	storage_room_4 = {
+		category = storage_room
+		parent = storage_room_3
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 300
+		}
+		multiply_stats = {
+			fuel_consumption = 1.8
+			naval_range = 2.6
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = storage_room_4
+			convert_cost_ic = 45
+		}
+	}
+
+	supplies_1 = {
+		category = supplies
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 70
+		}
+		multiply_stats = {
+			fuel_consumption = 1.1
+			naval_range = 1.2
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = supplies
+			convert_cost_ic = 120
+		}
+	}
+	supplies_2 = {
+		category = supplies
+		parent = supplies_1
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 100
+		}
+		multiply_stats = {
+			fuel_consumption = 1.2
+			naval_range = 1.4
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = supplies
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = supplies_1
+			convert_cost_ic = 45
+		}
+	}
+	supplies_3 = {
+		category = supplies
+		parent = supplies_2
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 130
+		}
+		multiply_stats = {
+			fuel_consumption = 1.3
+			naval_range = 1.6
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = supplies
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = supplies_2
+			convert_cost_ic = 45
+		}
+	}
+	supplies_4 = {
+		category = supplies
+		parent = supplies_3
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 160
+		}
+		multiply_stats = {
+			fuel_consumption = 1.4
+			naval_range = 1.8
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = supplies
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = supplies_4
+			convert_cost_ic = 45
+		}
+	}
+
+
+#   # ###  ##  ###   ##  #   #    ## #   #  ##  #
+#   # #   #  # #  # #  # ##  #   #   ## ## #  # #
+# # # ##  #### ###  #  # # # #    #  # # # #  # #
+# # # #   #  # #    #  # #  ##     # #   # #  # #
+ # #  ### #  # #     ##  #   #   ##  #   #  ##  ###
+
+	ship_archers_1 = {
+		category = ship_archers
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 1
+			build_cost_ic = 80	
+		}
+		multiply_stats = {
+			naval_speed = -0.01
+		}
+		add_average_stats = {
+			lg_armor_piercing = 1
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 60
+		}
+	}
+	ship_archers_2 = {
+		category = ship_archers
+		parent = ship_archers_1
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 2.2
+			build_cost_ic = 120
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.02
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_archers_1
+			convert_cost_ic = 45
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+	ship_archers_3 = {
+		category = ship_archers
+		parent = ship_archers_2
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 3.4
+			build_cost_ic = 160
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.03
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_archers_2
+			convert_cost_ic = 45
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+	ship_archers_4 = {
+		category = ship_archers
+		parent = ship_archers_3
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 4.6
+			build_cost_ic = 200
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.04
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_archers_3
+			convert_cost_ic = 45
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+	ship_archers_5 = {
+		category = ship_archers
+		parent = ship_archers_4
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 5.8
+			build_cost_ic = 240
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.05
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_archers_4
+			convert_cost_ic = 45
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+	ship_archers_6 = {
+		category = ship_archers
+		parent = ship_archers_5
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			lg_attack = 7
+			build_cost_ic = 280
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.06
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_archers
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_archers_5
+			convert_cost_ic = 45
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+
+ 	ship_catapult_1 = {
+		category = ship_catapult
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 1
+			lg_attack = 2
+			build_cost_ic = 200	
+		}
+		multiply_stats = {
+			naval_speed = -0.02
+		}
+		add_average_stats = {
+			lg_armor_piercing = 1
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_light_battery
+			convert_cost_ic = 60
+		}
+		critical_parts = { damaged_catapults }
+	}
+	ship_catapult_2 = {
+		category = ship_catapult
+		parent = ship_catapult_1
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 1.8
+			lg_attack = 3
+			build_cost_ic = 260
+		}
+		multiply_stats = {
+			naval_speed = -0.04
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		
+		can_convert_from = {
+			module_category = ship_light_weapon
+			convert_cost_ic = 75
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module = ship_catapult_1
+			convert_cost_ic = 45
+		}
+		critical_parts = { damaged_catapults }
+	}
+	ship_catapult_3 = {
+		category = ship_catapult
+		parent = ship_catapult_2
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 2.6
+			lg_attack = 4
+			build_cost_ic = 300
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.06
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_light_weapon
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_catapult_2
+			convert_cost_ic = 45
+		}
+		critical_parts = { damaged_catapults }
+	}
+	ship_catapult_4 = {
+		category = ship_catapult
+		parent = ship_catapult_3
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 3.4
+			lg_attack = 5
+			build_cost_ic = 360
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_light_weapon
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_catapult_3
+			convert_cost_ic = 45
+		}
+		critical_parts = { damaged_catapults }
+	}
+	ship_catapult_5 = {
+		category = ship_catapult
+		parent = ship_catapult_4
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 4.2
+			lg_attack = 6
+			build_cost_ic = 420
+			
+		}
+		multiply_stats = {
+			naval_speed = -0.1
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_light_weapon
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_catapult_4
+			convert_cost_ic = 45
+		}
+		critical_parts = { damaged_catapults }
+	}
+	ship_catapult_6 = {
+		category = ship_catapult
+		parent = ship_catapult_5
+		sfx = sfx_ui_sd_module_turret
+		
+		add_stats = {
+			hg_attack = 6
+			lg_attack = 7
+			build_cost_ic = 480
+		}
+		multiply_stats = {
+			naval_speed = -0.12
+		}
+		add_average_stats = {
+			lg_armor_piercing = 2
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_light_weapon
+			convert_cost_ic = 75
+		}
+		
+		can_convert_from = {
+			module = ship_catapult_5
+			convert_cost_ic = 45
+		}
+		critical_parts = { damaged_catapults }
+	}
+
+
+#   # ###  ##  ###   ##  #   #   ###  #  ## 
+#   # #   #  # #  # #  # ##  #   #  # # #    
+# # # ##  #### ###  #  # # # #   ###  # # ##
+# # # #   #  # #    #  # #  ##   #  # # #  #
+ # #  ### #  # #     ##  #   #   ###  #  ## 
+
+
+
+ 	ship_trebuchet_1 = {
+		category = ship_trebuchet
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 4
+			build_cost_ic = 1000
+		}
+		multiply_stats = {
+			naval_speed = -0.05
+		}
+		add_average_stats = {
+			hg_armor_piercing = 31
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 700
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+	ship_trebuchet_2 = {
+		category = ship_trebuchet
+		parent = ship_trebuchet_1
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 7
+			build_cost_ic = 1200
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			hg_armor_piercing = 36
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 900
+		}
+		
+		can_convert_from = {
+			module = ship_trebuchet_1
+			convert_cost_ic = 600
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+	ship_trebuchet_3 = {
+		category = ship_trebuchet
+		parent = ship_trebuchet_2
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 10
+			build_cost_ic = 1400
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			hg_armor_piercing = 36
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 900
+		}
+		
+		can_convert_from = {
+			module = ship_trebuchet_2
+			convert_cost_ic = 600
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+	ship_trebuchet_4 = {
+		category = ship_trebuchet
+		parent = ship_trebuchet_3
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 13
+			build_cost_ic = 1600
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			hg_armor_piercing = 36
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 900
+		}
+		
+		can_convert_from = {
+			module = ship_trebuchet_3
+			convert_cost_ic = 600
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+	ship_trebuchet_5 = {
+		category = ship_trebuchet
+		parent = ship_trebuchet_4
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 16
+			build_cost_ic = 1800
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			hg_armor_piercing = 36
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 900
+		}
+		
+		can_convert_from = {
+			module = ship_trebuchet_4
+			convert_cost_ic = 600
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+	ship_trebuchet_6 = {
+		category = ship_trebuchet
+		parent = ship_trebuchet_5
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = capital_ship
+		
+		add_stats = {
+			hg_attack = 19
+			build_cost_ic = 2000
+		}
+		multiply_stats = {
+			naval_speed = -0.08
+		}
+		add_average_stats = {
+			hg_armor_piercing = 36
+		}
+		build_cost_resources = {
+			rubber = 1
+		}
+		can_convert_from = {
+			module_category = ship_trebuchet
+			convert_cost_ic = 900
+		}
+		
+		can_convert_from = {
+			module = ship_trebuchet_5
+			convert_cost_ic = 600
+		}
+		critical_parts = { damaged_trebuchets }
+	}
+
+
+
+	ship_heavy_ballista_1 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 2
+			anti_air_attack = 1
+			build_cost_ic = 300
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.01
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_heavy_ballista_2 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 4
+			anti_air_attack = 4
+			build_cost_ic = 350
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.02
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_heavy_ballista_3 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 6
+			anti_air_attack = 8
+			build_cost_ic = 400
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.03
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_heavy_ballista_4 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 8
+			anti_air_attack = 11
+			build_cost_ic = 500
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.04
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_heavy_ballista_5 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 10
+			anti_air_attack = 14
+			build_cost_ic = 550
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.05
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_heavy_ballista_6 = {
+		category = ship_heavy_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 12
+			anti_air_attack = 17
+			build_cost_ic = 600
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.06
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+		can_convert_from = {
+			module_category = ship_heavy_ballista
+			convert_cost_ic = 60
+		}
+	}
+
+
+ ##  #  # ### ###      ##  ### ###  
+#  # ## #  #   #      #  #  #  #  # 
+#### # ##  #   #      ####  #  ###  
+#  # #  #  #   #      #  #  #  #  # 
+#  # #  #  #  ###     #  # ### #  # 
+
+
+	ship_ballista_1 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 2
+			anti_air_attack = 1
+			build_cost_ic = 300
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.01
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_ballista_2 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 4
+			anti_air_attack = 4
+			build_cost_ic = 350
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.02
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_ballista_3 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 6
+			anti_air_attack = 8
+			build_cost_ic = 400
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.03
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_ballista_4 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 8
+			anti_air_attack = 11
+			build_cost_ic = 500
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.04
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_ballista_5 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 10
+			anti_air_attack = 14
+			build_cost_ic = 550
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.05
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+	ship_ballista_6 = {
+		category = ship_ballista
+		sfx = sfx_ui_sd_module_turret
+		add_equipment_type = anti_air
+		
+		add_stats = {
+			hg_attack = 12
+			anti_air_attack = 17
+			build_cost_ic = 600
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+		multiply_stats = {
+			anti_air_attack = 0.1
+			naval_speed = -0.06
+		}
+
+		can_convert_from = {
+			module_category = ship_ballista
+			convert_cost_ic = 60
+		}
+	}
+
+
+
+###   ##   ##  ###  ###  # #   #  ##
+#  # #  # #  # #  # #  # # ##  # #
+###  #  # #### ###  #  # # # # # # ##
+#  # #  # #  # #  # #  # # #  ## #  #
+###   ##  #  # #  # ###  # #   #  ##
+
+	boarding_crew_1 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 6
+			build_cost_ic = 300
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			aluminium = 1
+		}
+	}
+
+	boarding_crew_2 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 10
+			build_cost_ic = 400
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			stone = 1
+		}
+	}
+	
+	boarding_crew_3 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 14
+			build_cost_ic = 500
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			iron = 1
+		}
+	}
+	
+	boarding_crew_4 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 18
+			build_cost_ic = 600
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			iron = 1
+		}
+	}
+	
+	boarding_crew_5 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 22
+			build_cost_ic = 700
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+	}
+	
+	boarding_crew_6 = {
+		category = ship_boarding
+		sfx = sfx_ui_sd_module_turret
+
+		
+		add_stats = {
+			torpedo_attack = 26
+			build_cost_ic = 800
+		}
+		multiply_stats = {
+			naval_speed = -0.01			
+		}
+		build_cost_resources = {
+			steel = 1
+		}
+	}
+ ##  ###  #   #  ##  ###       ##  ##  #  # ### #   # ###  ## 
+#  # #  # ## ## #  # #  #     #   #  # #  # #   ## ## #   #   
+#### ###  # # # #  # ###       #  #    #### ##  # # # ##   #  
+#  # #  # #   # #  # #  #       # #  # #  # #   #   # #     # 
+#  # #  # #   #  ##  #  #     ##   ##  #  # ### #   # ### ##  
+	
+
+	light_armor_plates_1 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.1
+			naval_speed = -0.05
+		}
+		dismantle_cost_ic = 2500
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 4
+		}
+	}
+	light_armor_plates_2 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_2
+		
+		multiply_stats = {
+			build_cost_ic = 0.15
+			naval_speed = -0.075
+			max_strength = 0.05
+		}
+		dismantle_cost_ic = 3000
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 6
+		}
+	}
+	light_armor_plates_3 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_3
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.1
+			max_strength = 0.1
+		}
+		dismantle_cost_ic = 3500
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 8
+		}
+	}
+	light_armor_plates_4 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.25
+			naval_speed = -0.125
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 4000
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 10
+		}
+	}
+	light_armor_plates_5 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.30
+			naval_speed = -0.150
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 4500
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 12
+		}
+	}
+	light_armor_plates_6 = {
+		category = light_armor_plates
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.35
+			naval_speed = -0.175
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 5000
+		build_cost_resources = {
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 14
+		}
+	}
+
+	medium_armor_plates_1 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 6
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	medium_armor_plates_2 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.25
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 9
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	medium_armor_plates_3 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 12
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	medium_armor_plates_4 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.3
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 15
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	medium_armor_plates_5 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.35
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 18
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	medium_armor_plates_6 = {
+		category = medium_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.4
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 21
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+
+	heavy_armor_plates_1 = {
+		category = heavy_armor_plates
+		gfx = ship_armor_thick_1
+		add_equipment_type = capital_ship
+		
+		multiply_stats = {
+			build_cost_ic = 0.3
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 2
+		}
+		add_stats = {
+			armor_value = 10
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_armor_plates_2 = {
+		category = heavy_armor_plates
+		gfx = ship_armor_thick_1
+		add_equipment_type = capital_ship
+		
+		multiply_stats = {
+			build_cost_ic = 0.35
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 2
+		}
+		add_stats = {
+			armor_value = 15
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_armor_plates_3 = {
+		category = heavy_armor_plates
+		gfx = ship_armor_thick_1
+		add_equipment_type = capital_ship
+		
+		multiply_stats = {
+			build_cost_ic = 0.40
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 2
+		}
+		add_stats = {
+			armor_value = 20
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_armor_plates_4 = {
+		category = heavy_armor_plates
+		gfx = ship_armor_thick_1
+		add_equipment_type = capital_ship
+		
+		multiply_stats = {
+			build_cost_ic = 0.45
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 2
+		}
+		add_stats = {
+			armor_value = 25
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+
+	super_heavy_armor_plates_1 = {
+		category = super_heavy_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.5
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 2
+		}
+		add_stats = {
+			armor_value = 20
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	super_heavy_armor_plates_2 = {
+		category = super_heavy_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.60
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 3
+		}
+		add_stats = {
+			armor_value = 30
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	super_heavy_armor_plates_3 = {
+		category = super_heavy_armor_plates
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.60
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			steel = 3
+		}
+		add_stats = {
+			armor_value = 30
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	
+	light_hull_reinforcement_1 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.1
+			naval_speed = -0.05
+		}
+		dismantle_cost_ic = 2500
+		build_cost_resources = {
+			chromium = 1
+			aluminium = 1
+		}
+		add_stats = {
+			armor_value = 4
+		}
+	}
+	light_hull_reinforcement_2 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_2
+		
+		multiply_stats = {
+			build_cost_ic = 0.15
+			naval_speed = -0.075
+			max_strength = 0.05
+		}
+		dismantle_cost_ic = 3000
+		build_cost_resources = {
+			chromium = 1
+			aluminium = 1
+		}
+		add_stats = {
+			armor_value = 6
+		}
+	}
+	light_hull_reinforcement_3 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_3
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.1
+			max_strength = 0.1
+		}
+		dismantle_cost_ic = 3500
+		build_cost_resources = {
+			chromium = 1
+			aluminium = 1
+		}
+		add_stats = {
+			armor_value = 8
+		}
+	}
+	light_hull_reinforcement_4 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.25
+			naval_speed = -0.125
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 4000
+		build_cost_resources = {
+			aluminium = 1
+			chromium = 1
+		}
+		add_stats = {
+			armor_value = 10
+		}
+	}
+	light_hull_reinforcement_5 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.30
+			naval_speed = -0.150
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 4500
+		build_cost_resources = {
+			aluminium = 2
+		}
+		add_stats = {
+			armor_value = 12
+		}
+	}
+	light_hull_reinforcement_6 = {
+		category = light_hull_reinforcement
+		gfx = ship_armor_thin_4
+		
+		multiply_stats = {
+			build_cost_ic = 0.35
+			naval_speed = -0.175
+			max_strength = 0.15
+		}
+		dismantle_cost_ic = 5000
+		build_cost_resources = {
+			aluminium = 2
+		}
+		add_stats = {
+			armor_value = 14
+		}
+	}
+
+	heavy_hull_reinforcement_1 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 2
+		}
+		add_stats = {
+			armor_value = 6
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_hull_reinforcement_2 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.25
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 2
+		}
+		add_stats = {
+			armor_value = 9
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_hull_reinforcement_3 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.2
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 2
+			iron = 1
+		}
+		add_stats = {
+			armor_value = 12
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_hull_reinforcement_4 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.3
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 2
+			iron = 1
+		}
+		add_stats = {
+			armor_value = 15
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_hull_reinforcement_5 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.35
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 18
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	heavy_hull_reinforcement_6 = {
+		category = heavy_hull_reinforcement
+		gfx = ship_armor_thick_1
+		
+		multiply_stats = {
+			build_cost_ic = 0.4
+			naval_speed = -0.2
+			max_strength = 0.05
+		}
+		build_cost_resources = {
+			aluminium = 1
+			steel = 1
+		}
+		add_stats = {
+			armor_value = 21
+			surface_visibility = 10
+		}
+		dismantle_cost_ic = 5500
+	}
+	#   # ### #  # ###     #    ##  #   # ### ###  
+	## ##  #  ## # #       #   #  #  # #  #   #  # 
+	# # #  #  # ## ##      #   ####   #   ##  ###  
+	#   #  #  #  # #       #   #  #   #   #   #  # 
+	#   # ### #  # ###     ### #  #   #   ### #  #
+	
+	mine_layer_1 = {
+		category = mine_layer
+		gui_category = ship_mine_warfare
+		gfx = ship_mine_layer
+		
+		add_stats = {
+			mines_planting = 1
+			build_cost_ic = 100
+		}
+		multiply_stats = {
+			naval_speed = -0.02			
+		}
+	}
+	mine_layer_2 = {
+		category = mine_layer
+		gui_category = ship_mine_warfare
+		gfx = ship_mine_layer
+	
+		add_stats = {
+			mines_planting = 1.2
+			build_cost_ic = 200
+		}
+		multiply_stats = {
+			naval_speed = -0.04			
+		}
+	}
+	mine_layer_3 = {
+		category = mine_layer
+		gui_category = ship_mine_warfare
+		gfx = ship_mine_layer
+		
+		add_stats = {
+			mines_planting = 1.4
+			build_cost_ic = 300
+		}
+		multiply_stats = {
+			naval_speed = -0.08			
+		}
+	}
+	mine_layer_4 = {
+		category = mine_layer
+		gui_category = ship_mine_warfare
+		gfx = ship_mine_layer
+		
+		add_stats = {
+			mines_planting = 1.6
+			build_cost_ic = 400
+		}
+		multiply_stats = {
+			naval_speed = -0.1			
+		}
+	}
+
+}

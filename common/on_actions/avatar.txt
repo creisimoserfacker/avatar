@@ -1,0 +1,128 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			if = {
+				limit = {
+					has_start_date < 110.01.01
+				}
+				set_global_flag = avatar_aang
+				set_global_flag = avatar_born_air
+				set_global_flag = avatar_sat
+				set_global_flag = avatar_team_appa
+				set_global_flag = avatar_team_gyatso
+				every_country = {
+					set_variable = { avatar_age = 12 }
+					set_variable = { avatar_influence = 50 }
+					set_variable = { avatar_spirituality = 25 }
+					set_variable = { avatar_state = 0 }
+					set_variable = { avatar_airbender_skill = 80 }
+					set_variable = { avatar_waterbender_skill = 0 }
+					set_variable = { avatar_earthbender_skill = 0 }
+					set_variable = { avatar_firebender_skill = 0 }
+				}
+			}
+			if = {
+				limit = {
+					has_start_date > 110.01.01
+				}
+				set_global_flag = avatar_aang
+				every_country = {
+					set_variable = { avatar_age = 12 }
+					set_variable = { avatar_airbender_skill = 100 }
+					set_variable = { avatar_waterbender_skill = 0 }
+					set_variable = { avatar_earthbender_skill = 0 }
+					set_variable = { avatar_firebender_skill = 0 }
+				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			clamp_variable = {
+			    var = avatar_influence
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_spirituality
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_state
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_airbender_skill
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_waterbender_skill
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_earthbender_skill
+			    min = 0
+			    max = 100
+			}
+			clamp_variable = {
+			    var = avatar_firebender_skill
+			    min = 0
+			    max = 100
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = avatar_team_katara
+					}
+				}
+				add_to_variable = {
+				    var = avatar_waterbender_skill
+				    value = 1
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = avatar_team_toph
+					}
+				}
+				add_to_variable = {
+				    var = avatar_earthbender_skill
+				    value = 1
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = avatar_team_zuko
+					}
+				}
+				add_to_variable = {
+				    var = avatar_firebender_skill
+				    value = 1
+				}
+			}
+			if = {
+				limit = {
+					OR = {
+						has_global_flag = avatar_team_gyatso
+					}
+				}
+				add_to_variable = {
+				    var = avatar_airbender_skill
+				    value = 1
+				}
+			}
+		}
+	}
+}

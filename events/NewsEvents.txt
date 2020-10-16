@@ -1,0 +1,328 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = news
+
+# Sozins Comet
+news_event = {
+	id = news.1
+	title = news.1.t
+	desc = news.1.d
+	picture = GFX_avatar_news_event_001
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = sozins_comet_first
+		}
+	}
+
+	option = {
+		name = news.1.z
+		trigger = {
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+
+	option = {
+		name = news.1.a
+		trigger = { 
+			TAG = FIR
+			NOT = {
+				has_global_flag = genocide_active
+			}
+		}
+	}
+	option = {
+		name = news.1.b
+		trigger = { 
+			TAG = FIR
+			has_global_flag = genocide_active
+		}
+	}
+	option = {
+		name = news.1.c
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+# Comet Trigger (HIDDEN)
+news_event = {
+	id = news.2
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 12.8.6
+		date < 12.8.20
+		country_exists = FIR
+		NOT = { has_global_flag = sozins_comet_first }
+	}
+
+	mean_time_to_happen = {
+		days = 6
+	}
+	
+	immediate = {
+		random_list = {
+			100 = { FIR = { news_event = { id = news.1 } } }
+		}
+		FIR = {
+			add_timed_idea = { idea = sozins_comet_1 days = 100 }
+		}
+	}
+	
+	option = {
+		name = news.2.a
+	}
+}
+
+
+#Bears! (by Jari 'Spider-Man')
+news_event = {
+	id = news.3
+	title = news.3.t
+	desc = news.3.d
+	picture = GFX_avatar_news_event_002
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	option = {
+		name = news.3.a
+	}
+	
+}
+
+# Bears Trigger (HIDDEN)
+country_event = {
+	id = news.4
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		date > 61.1.1
+		date < 68.1.1
+		NOT = { has_global_flag = bears_appear }
+	}
+
+	mean_time_to_happen = {
+		days = 600
+	}
+	
+	immediate = {
+		random_list = {
+			100 = { EAR = { news_event = { id = news.3 } } }
+		}
+	}
+	
+	option = {
+		name = news.4.a
+	}
+}
+
+#
+#deleted hidden temple situations
+#
+
+#Airnomad Genocide News
+
+#Air Nomade Genocide
+news_event = {
+	id = news.5
+	title = news.5.t
+	desc = news.5.d
+	picture = GFX_avatar_news_event_004
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = air_nomad_genocide
+
+			FIR = {
+				delete_unit_template_and_units = { division_template = "Special Attack Forces" }
+			}
+			SAT = {
+				dismantle_faction = yes
+			}
+			WAT = {
+				dismantle_faction = yes
+			}
+			NAT = {
+				dismantle_faction = yes
+			}
+			EAT = {
+				dismantle_faction = yes
+			}
+		}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = news.5.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.5.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+#Airnomad Genocide Trigger (HIDDEN)
+news_event = {
+	id = news.6
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		OR = {
+			has_global_flag = north_temple_fallen
+			has_global_flag = north_temple_survived
+		}
+		OR = {
+			has_global_flag = east_temple_fallen
+			has_global_flag = east_temple_survived
+		}
+		OR = {
+			has_global_flag = south_temple_fallen
+			has_global_flag = south_temple_survived
+		}
+		OR = {
+			has_global_flag = west_temple_fallen
+			has_global_flag = west_temple_survived
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 30
+	}
+	
+	immediate = {
+		random_list = {
+			100 = { FIR = { news_event = { id = news.5 } } }
+		}
+	}
+	
+	option = {
+		name = news.6.a
+	}
+}
+
+news_event = {
+	id = news.7
+	title = news.7.t
+	desc = news.7.d
+	picture = GFX_avatar_news_event_005
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			clr_global_flag = avatar_team_gyatso
+			set_global_flag = avatar_iceberg
+		}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = news.7.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.7.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+news_event = {
+	id = news.8
+	title = news.8.t
+	desc = news.8.d
+	picture = GFX_avatar_news_event_005
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			
+		}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = news.8.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.8.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+#Sozin dies News
+news_event = {
+	id = news.14
+	title = news.14.t
+	desc = news.14.d
+	picture = GFX_news_event_005
+	is_triggered_only = yes
+	
+	fire_only_once = yes
+	
+	major = yes
+
+	option = {
+		name = news.14.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+	option = {
+		name = news.14.b
+		trigger = { TAG = FIR }
+	}
+	
+}

@@ -1,0 +1,454 @@
+###########################
+# Firenation Events
+###########################
+
+add_namespace = firenation
+
+#West temple situation
+country_event = {
+	id = firenation.1
+	title = firenation.1.t
+	desc = firenation.1.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.1.a
+		ai_chance = { 
+			factor = 100
+		}
+		WAT = {
+			leave_faction = yes
+			transfer_state = 167
+			transfer_state = 232
+			transfer_state = 181
+			transfer_state = 200
+			transfer_state = 175
+			transfer_state = 222
+			transfer_state = 148
+			transfer_state = 123
+			transfer_state = 112
+			transfer_state = 208
+			transfer_state = 118
+			transfer_state = 111
+			transfer_state = 100
+			transfer_state = 82
+			give_military_access = FIR
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Extincted Nation"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Westernairtemple_Extinct.dds"
+				expire = "120.1.1"
+				ideology = active_pacifism
+				traits = {
+					extinguished_population
+				}
+			}
+		}
+		hidden_effect = {
+			WAT = {
+				white_peace = FIR
+				leave_faction = yes
+			}
+		}
+	}
+	#option = {
+	#	name = firenation.1.b
+	#}
+}
+# West Temple Attack
+country_event = {
+	id = firenation.2
+	title = firenation.2.t
+	desc = firenation.2.d
+	picture = GFX_report_event_attack_west
+	is_triggered_only = yes
+
+	option = {
+		name = firenation.2.a
+		ai_chance = { 
+			factor = 0
+		}
+		hidden_effect = {
+			load_oob = "western_firebender_army_1"
+			123 = {
+				add_building_construction = {
+					type = naval_base
+					province = 6585
+					level = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = firenation.2.b
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			load_oob = "western_firebender_army_2"
+		}
+	}
+}
+
+
+#South temple situation
+country_event = {
+	id = firenation.3
+	title = firenation.3.t
+	desc = firenation.3.d
+	picture = GFX_report_event_south_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.3.a
+		ai_chance = { 
+			factor = 100
+		}
+		SAT = {
+			leave_faction = yes
+			transfer_state = 242
+			transfer_state = 319
+			transfer_state = 274
+			transfer_state = 297
+			transfer_state = 137
+			transfer_state = 203
+			transfer_state = 134
+			transfer_state = 236
+			transfer_state = 329
+			transfer_state = 239
+			transfer_state = 296
+			transfer_state = 125
+			transfer_state = 356
+			transfer_state = 357
+			transfer_state = 258
+			transfer_state = 285
+			transfer_state = 228
+			transfer_state = 260
+			give_military_access = FIR
+			kill_country_leader = yes
+			dismantle_faction = yes
+			create_country_leader = {
+				name = "Extincted Nation"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Southernairtemple_Extinct.dds"
+				expire = "120.1.1"
+				ideology = active_pacifism
+				traits = {
+					extinguished_population
+				}
+			}
+		}
+		hidden_effect = {
+			SAT = {
+				white_peace = FIR
+				leave_faction = yes
+			}
+		}
+	}
+	#option = {
+	#	name = firenation.1.b
+	#}
+}
+# South Temple Attack
+country_event = {
+	id = firenation.4
+	title = firenation.4.t
+	desc = firenation.4.d
+	picture = GFX_report_event_attack_south
+	is_triggered_only = yes
+
+	#immediate = {
+	#	random_list = {
+	#		100 = { WAT = { country_event = { id = western.1 } } }
+	#	}
+	#}
+
+	option = {
+		name = firenation.4.a
+		ai_chance = { 
+			factor = 0
+		}
+		hidden_effect = {
+			load_oob = "southern_firebender_army_1"
+			239 = {
+				add_building_construction = {
+					type = naval_base
+					province = 9556
+					level = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = firenation.4.b
+		ai_chance = { 
+			factor = 110
+		}
+		hidden_effect = {
+			load_oob = "southern_firebender_army_2"
+		}
+	}
+}
+
+
+#North temple situation
+country_event = {
+	id = firenation.5
+	title = firenation.5.t
+	desc = firenation.5.d
+	picture = GFX_report_event_north_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.5.a
+		ai_chance = { 
+			factor = 100
+		}
+		NAT = {
+			leave_faction = yes
+			transfer_state = 316
+			transfer_state = 34
+			give_military_access = FIR
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Extincted Nation"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Northernairtemple_Extinct.dds"
+				expire = "120.1.1"
+				ideology = active_pacifism
+				traits = {
+					extinguished_population
+				}
+			}
+		}
+		hidden_effect = {
+			NAT = {
+				white_peace = FIR
+				leave_faction = yes
+			}
+		}
+	}
+	#option = {
+	#	name = firenation.5.b
+	#}
+}
+# North Temple Attack
+country_event = {
+	id = firenation.6
+	title = firenation.6.t
+	desc = firenation.6.d
+	picture = GFX_report_event_attack_north
+	is_triggered_only = yes
+
+	option = {
+		name = firenation.6.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			load_oob = "northern_firebender_army_2"
+			34 = {
+				add_building_construction = {
+					type = naval_base
+					province = 4622
+					level = 1
+				}
+			}
+
+		}
+	}
+	option = {
+		name = firenation.6.b
+		ai_chance = { 
+			factor = 0
+		}
+		hidden_effect = {
+			load_oob = "northern_firebender_army_2"
+		}
+	}
+}
+
+
+#East temple situation
+country_event = {
+	id = firenation.7
+	title = firenation.7.t
+	desc = firenation.7.d
+	picture = GFX_report_event_east_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.7.a
+		ai_chance = { 
+			factor = 100
+		}
+		EAT = {
+			leave_faction = yes
+			transfer_state = 320
+			transfer_state = 371
+			transfer_state = 373
+			transfer_state = 247
+			transfer_state = 447
+			transfer_state = 188
+			transfer_state = 22
+			transfer_state = 106
+			transfer_state = 24
+			give_military_access = FIR
+			kill_country_leader = yes
+			create_country_leader = {
+				name = "Extincted Nation"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Easternairtemple_Extinct.dds"
+				expire = "120.1.1"
+				ideology = active_pacifism
+				traits = {
+					extinguished_population
+				}
+			}
+		}
+		hidden_effect = {
+			EAT = {
+				white_peace = FIR
+			}
+		}
+	}
+	#option = {
+	#	name = firenation.7.b
+	#}
+}
+# East Temple Attack
+country_event = {
+	id = firenation.8
+	title = firenation.8.t
+	desc = firenation.8.d
+	picture = GFX_report_event_attack_east
+	is_triggered_only = yes
+
+	option = {
+		name = firenation.8.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			load_oob = "eastern_firebender_army_2"
+			22 = {
+				add_building_construction = {
+					type = naval_base
+					province = 2882
+					level = 1
+				}
+			}
+
+		}
+	}
+	option = {
+		name = firenation.8.b
+		ai_chance = { 
+			factor = 0
+		}
+		hidden_effect = {
+			load_oob = "eastern_firebender_army_2"
+		}
+	}
+}
+#East temple reinforcements
+country_event = {
+	id = firenation.9
+	title = firenation.9.t
+	desc = firenation.9.d
+	picture = GFX_report_event_east_temple_reinforcements
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.9.a
+		ai_chance = { 
+			factor = 100
+		}
+		hidden_effect = {
+			load_oob = "eastern_firebender_army_3"
+			247 = {
+				add_building_construction = {
+					type = naval_base
+					province = 4215
+					level = 1
+				}
+			}
+			447 = {
+				add_building_construction = {
+					type = naval_base
+					province = 4096
+					level = 1
+				}
+			}
+
+		}
+	}
+	option = {
+		name = firenation.9.b
+		ai_chance = { 
+			factor = 0
+		}
+
+	}
+}
+
+#Sozin Dies :´(
+country_event = {
+	id = firenation.11
+	hidden = yes
+
+	trigger = {
+		date > 32.1.1
+		has_country_leader = {
+   			name = "Sozin"
+    		ruling_only = yes
+		}
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			FIR = {
+				set_country_flag = sozin_dead
+				kill_country_leader = yes
+				remove_unit_leader = 1
+				load_focus_tree = firenation_no_leader_sozin
+				create_country_leader = {
+					name = "Empty Throne"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "Portrait_Firenation_No_Leader.dds"
+					expire = "200.1.1"
+					ideology = colonialism
+					traits = {
+						no_leader
+					}
+				}
+			}
+ 		} 		
+ 		random_list = {
+			100 = { FIR = { news_event = { hours = 12 id = news.6 } } }
+		}
+ 	}
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.11.a
+	}
+}

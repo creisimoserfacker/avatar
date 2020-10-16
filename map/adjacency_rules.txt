@@ -1,0 +1,345 @@
+#Adjacency rules are special rules for adjacencies
+#If smbd who is at war fights over canal/strait it is considered closed
+#Enemy status is considered if any of sides controlling the chanel is at war with country
+#Friend status is considered non of sides controlling the chanel is at war with country and one of controllers is ally of giving military access
+#Every one else is considered as neutral according to canal/strait
+#Military access considered as being friend
+#Rules needs linking from the straits that are affected by the rule ( adjacency_rule_id )
+
+#Name is how you refer to the rule in adjecencies.csv
+
+#Suez Canal
+adjacency_rule
+{
+	name = "SUEZ_CANAL"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 3371 6478 4795 4255 746 }
+
+	is_disabled = {
+		OR = {
+			has_global_flag = SUEZ_CANAL_BLOCKED
+			has_country_flag = SUEZ_CANAL_BLOCKED_FOR_COUNTRY
+		}
+		tooltip = disable_canal_tt
+	}
+		
+	icon = 746
+	offset = { -6 0 12 }
+}
+
+#Gibraltar Strait
+adjacency_rule
+{
+	name = "GIBRALTAR_STRAIT"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = yes
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 891 2549 }
+	
+	icon = 13730	
+	offset = { -14 0 0 }
+}
+
+#Øresund - (Østersøen <-> Kattegat/Skagerak/Nordsøen)
+adjacency_rule
+{
+	name = "DANISH_BELTS_STRAIT"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = yes
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 7354 7326 }
+	
+	icon = 7354
+	offset = { -10 0 8 }
+}
+
+#Panama Canal
+adjacency_rule
+{
+	name = "PANAMA_CANAL"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = no
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = yes
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 6117 1752 6121 4752 }
+
+	is_disabled = {
+		OR = {
+			has_global_flag = PANAMA_CANAL_BLOCKED
+			has_country_flag = PANAMA_CANAL_BLOCKED_FOR_COUNTRY
+		}
+		tooltip = disable_canal_tt
+	}
+		
+	icon = 1752
+	offset = { 2 0 0 }
+}
+
+#Turkish Straits
+adjacency_rule
+{
+	name = "BOSPHORUS_STRAIT"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = yes
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 2488 2674 8399 }
+	
+	icon = 2674
+	offset = { -8 0 10 }
+}
+
+#Kiel Canal
+adjacency_rule
+{
+	name = "KIEL_CANAL"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 4639 6369 6417 1505 6505 6587 }
+		
+	icon = 4639
+	offset = { 6 0 10 }
+}
+
+#Azulon Gates
+adjacency_rule
+{
+	name = "AZULON_GATES"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = yes
+		trade = no
+	}
+	friend =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	neutral =
+	{
+		army = yes
+		navy = yes
+		submarine = yes
+		trade = yes
+	}
+	
+	required_provinces = { 8229 8118 }
+	
+	icon = 14533
+	offset = { 16 0 0 }
+}
+
+#Serpent Pass
+adjacency_rule
+{
+	name = "SERPENT_PASS"
+
+	contested =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	enemy =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = no
+	}
+	friend =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	neutral =
+	{
+		army = no
+		navy = no
+		submarine = no
+		trade = yes
+	}
+	
+	required_provinces = { 7276 7259 }
+	
+	icon = 14312
+	offset = { -5 0 10 }
+}

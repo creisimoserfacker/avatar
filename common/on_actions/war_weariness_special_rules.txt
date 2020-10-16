@@ -1,0 +1,104 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			every_country = {
+				limit = {
+					country_has_war_exhaustion = yes
+				}
+
+				set_variable = { actual_casualties = 0 }
+				set_variable = { war_exhaustion_factor = 10 }
+				set_variable = { war_exhaustion_remove_1 = -1 }
+				set_variable = { war_exhaustion_remove_100 = -100 }
+				set_variable = { war_exhaustion_remove_200 = -200 }
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = { has_idea = partial_economic_mobilisation }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+				}
+				if = {
+					limit = { has_idea = family_support_3 }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 = -1 }
+				}
+			}
+		}
+	}
+	on_weekly = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = { has_idea = war_economy }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+				}
+				if = {
+					limit = { has_idea = family_support_4 }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 = -1 }
+				}
+			}
+		}
+	}
+	on_daily = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				if = {
+					limit = { has_idea = tot_economic_mobilisation }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+				}
+				if = {
+					limit = { has_idea = family_support_5 }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 = -1 }
+				}
+			}
+		}
+	}
+
+	on_weekly = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				set_variable = { occupation_war_exhaustion = num_occupied_states }
+
+				if = {
+					limit = { num_occupied_states > 0 }
+	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
+				}
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				set_variable = { updated_casualties = casualties_k }
+
+				if = {
+					limit = { 
+						check_variable = { actual_casualties < updated_casualties }
+					}
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_factor }
+	                add_to_variable = {
+    					var = actual_casualties
+    					value = 1
+					}
+				}
+			}
+		}
+	}
+
+}

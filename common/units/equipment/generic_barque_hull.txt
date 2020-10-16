@@ -1,0 +1,627 @@
+equipments = {
+
+	barque_hull = {
+
+		is_archetype = yes
+		is_buildable = no
+		type = screen_ship
+		interface_category = interface_category_screen_ships
+		alias = destroyer
+		priority = 1900
+
+		module_slots = {
+			fixed_ship_crew_slot = {
+				required = yes
+				allowed_module_categories = {
+					ship_boarding
+					ship_eartbender_crew
+					ship_airbender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+			fixed_ship_mast_slot = {
+				required = no
+				allowed_module_categories = { crows_nest }
+			}
+			fixed_ship_sails_slot = {
+				required = yes
+				allowed_module_categories = { sails }
+			}
+			fixed_ship_storage_slot = {
+				required = no
+				allowed_module_categories = { supplies }
+			}
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+		
+		lg_armor_piercing = 0
+		lg_attack = 0
+		
+		hg_armor_piercing = 0
+		hg_attack = 0
+		
+		torpedo_attack = 0
+		sub_attack = 0
+		
+		anti_air_attack = 0
+		
+		armor_value = 0
+
+		
+		surface_detection = 20
+		sub_detection = 1
+		surface_visibility = 15
+		naval_speed = 20
+		reliability = 0.80
+
+		mines_sweeping = 1
+		
+		naval_range = 120
+		
+		max_strength = 100		
+		
+		fuel_consumption = 120 #mp/100*range
+		manpower = 100
+		
+		build_cost_ic = 1200
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+	}
+
+	barque_hull_1 = {
+
+		visual_level = 0
+		archetype = barque_hull
+		priority = 1900
+		
+		
+		module_slots = inherit
+	}
+
+	barque_hull_2 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_hull_1
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		module_slots = {
+			fixed_ship_crew_slot = inherit
+			fixed_ship_mast_slot = inherit
+			fixed_ship_sails_slot = inherit
+			fixed_ship_storage_slot = inherit
+			aftercastle_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					mine_layer
+					ship_archers
+					ship_boarding
+					ship_eartbender_crew
+					ship_airbender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+	}
+
+	barque_hull_3 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_hull_2
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { light_hull_reinforcement }	
+			}
+			fixed_ship_crew_slot = inherit
+			fixed_ship_mast_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_sails_slot = inherit
+			aftercastle_custom_slot = inherit
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+	}
+
+	barque_hull_4 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_hull_3
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_mast_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_sails_slot = inherit
+			deck_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					mine_layer
+					ship_archers
+					sails
+					crows_nest
+				}
+			}
+			aftercastle_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_archers
+					ship_boarding
+					ship_eartbender_crew
+					ship_airbender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+	}
+
+	barque_hull_5 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_4
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = {
+				required = no
+				allowed_module_categories = { 
+					ship_ballista
+					ship_catapult
+				}
+			}
+			fixed_ship_mast_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_sails_slot = inherit
+			deck_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					mine_layer
+					ship_archers
+					sails
+					crows_nest
+					ship_ballista
+					ship_catapult
+				}
+			}
+			aftercastle_custom_slot = inherit
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+	}
+
+	barque_hull_6 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_4
+		manpower = 800
+		naval_speed = 25
+		reliability = 0.85
+		build_cost_ic = 1900
+		naval_range = 3000
+		max_strength = 110
+		resources = {
+			aluminium = 1
+			tungsten = 1
+		}
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_artillery_slot = inherit
+			fixed_ship_mast_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_sails_slot = inherit
+			forecastle_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					ship_boarding
+					ship_eartbender_crew
+					ship_airbender_crew
+					ship_archers
+					maintenance_crew
+				}
+			}
+			deck_1_custom_slot = inherit
+			aftercastle_custom_slot = forecastle_custom_slot
+		}
+		module_count_limit = {
+			category = ship_earthbender_crew
+			count < 2
+		}
+		module_count_limit = {
+			category = ship_airbender_crew
+			count < 2
+		}
+	}
+
+	barque_ship_1 = {
+
+		visual_level = 0
+		archetype = barque_hull
+		priority = 1900
+		module_slots = inherit
+
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_crew_slot = ship_boarding_1
+			fixed_ship_mast_slot = crows_nest_1
+			fixed_ship_sails_slot = sails_1
+			fixed_ship_storage_slot = supplies_1
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 0
+		
+		anti_air_attack = 0
+		
+		armor_value = 5
+
+		
+		surface_detection = 15
+		sub_detection = 5
+		surface_visibility = 15
+		naval_speed = 20
+		reliability = 0.8
+		resources = {
+			chromium = 2
+			aluminium = 4
+			tungsten = 2
+			iron = 1
+			oil = 2
+		}
+	}
+
+	barque_ship_2 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_ship_1
+		module_slots = inherit
+		
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_crew_slot = ship_boarding_1
+			fixed_ship_mast_slot = crows_nest_1
+			fixed_ship_sails_slot = sails_1
+			fixed_ship_storage_slot = supplies_1
+			aftercastle_custom_slot = maintenance_crew_1
+		}
+		
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+
+		build_cost_ic = 1650
+		resources = {
+			chromium = 2
+			aluminium = 5
+			tungsten = 3
+			iron = 1
+			oil = 2
+		}
+		manpower = 800
+	}
+	barque_ship_3 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_ship_2
+		module_slots = inherit
+		
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_crew_slot = ship_boarding_2
+			fixed_ship_mast_slot = crows_nest_2
+			fixed_ship_sails_slot = sails_2
+			fixed_ship_storage_slot = supplies_2
+			aftercastle_custom_slot = maintenance_crew_2
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+
+		build_cost_ic = 1650
+		resources = {
+			chromium = 3
+			aluminium = 5
+			tungsten = 3
+			iron = 2
+			oil = 2
+		}
+		manpower = 800
+	}
+	
+	barque_ship_4 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_ship_3
+		module_slots = inherit
+		
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_armor_slot = light_hull_reinforcement_2
+			fixed_ship_crew_slot = ship_boarding_2
+			fixed_ship_mast_slot = crows_nest_2
+			fixed_ship_sails_slot = sails_2
+			fixed_ship_storage_slot = supplies_2
+			deck_1_custom_slot = ship_archers_1
+			aftercastle_custom_slot = maintenance_crew_2
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+
+		build_cost_ic = 1650
+		resources = {
+			chromium = 2
+			aluminium = 6
+			tungsten = 4
+			iron = 2
+			stone = 2
+			oil = 3
+		}
+		manpower = 800
+	}
+	
+	barque_ship_5 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_ship_4
+		module_slots = inherit
+		
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_armor_slot = light_hull_reinforcement_3
+			fixed_ship_crew_slot = ship_boarding_3
+			fixed_ship_artillery_slot = ship_ballista_1
+			fixed_ship_mast_slot = crows_nest_3
+			fixed_ship_sails_slot = sails_3
+			fixed_ship_storage_slot = supplies_3
+			deck_1_custom_slot = ship_archers_2
+			aftercastle_custom_slot = maintenance_crew_3
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+
+		build_cost_ic = 1650
+		resources = {
+			chromium = 2
+			aluminium = 5
+			tungsten = 4
+			iron = 2
+			stone = 3
+			steel = 1
+			rubber = 3
+			oil = 3
+		}
+		manpower = 800
+	}
+	
+	barque_ship_6 = {
+
+		visual_level = 1
+		archetype = barque_hull
+		priority = 1900
+		parent = barque_ship_4
+		module_slots = inherit
+		
+		type = { 
+			screen_ship
+		}
+		
+		default_modules = {
+			fixed_ship_armor_slot = light_hull_reinforcement_3
+			fixed_ship_crew_slot = ship_boarding_3
+			fixed_ship_artillery_slot = ship_ballista_2
+			fixed_ship_mast_slot = crows_nest_3
+			fixed_ship_sails_slot = sails_3
+			fixed_ship_storage_slot = supplies_3
+			forecastle_custom_slot = ship_boarding_3
+			deck_1_custom_slot = ship_archers_3
+			aftercastle_custom_slot = maintenance_crew_3
+		}
+		lg_armor_piercing = 0
+		lg_attack = 0
+		torpedo_attack = 2
+		sub_attack = 5
+		
+		anti_air_attack = 0
+		
+		armor_value = 6
+
+		
+		surface_detection = 20
+		sub_detection = 5
+		naval_speed = 25
+		reliability = 0.85
+
+		naval_range = 3000
+		
+		max_strength = 120
+
+		build_cost_ic = 1650
+		resources = {
+			chromium = 2
+			aluminium = 5
+			tungsten = 4
+			iron = 2
+			stone = 3
+			steel = 1
+			rubber = 3
+			oil = 3
+		}
+		manpower = 800
+	}
+	
+	
+}
