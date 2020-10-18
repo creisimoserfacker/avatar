@@ -101,7 +101,7 @@ sub_units = {
 	}
 
 	catapult_brigade = {
-		sprite = artillery
+		sprite = infantry
 		map_icon_category = infantry
 		priority = 1198
 		ai_priority = 100
@@ -128,8 +128,8 @@ sub_units = {
 			catapult_equipment = 10
 		}
 		
-		max_strength = 0.6
-		max_organisation = 0
+		max_strength = 1
+		max_organisation = 1
 		default_morale = 0.1
 		training_time = 120
 		weight = 0.5
@@ -177,7 +177,7 @@ sub_units = {
 
 
 	ballista = {
-		sprite = artillery
+		sprite = infantry
 		map_icon_category = infantry
 		priority = 600
 		ai_priority = 400
@@ -201,11 +201,16 @@ sub_units = {
 
 		need = {
 			ballista_equipment = 20
+			bolt_equipment = 400
+		}
+
+		essential = {
+			bolt_equipment
 		}
 		
 		#Size Definitions
-		max_strength = 0.2
-		max_organisation = 0
+		max_strength = 1
+		max_organisation = 1
 		default_morale = 0.1
 		manpower = 40
 		weight = 0.1
@@ -213,11 +218,11 @@ sub_units = {
         supply_consumption = 0.4
 
 		# Support nerfs to combat abilities
-		defense = -0.4
-		breakthrough = -0.4
-		soft_attack = -0.4
-		hard_attack = -0.4
-		air_attack = -0.2
+		#defense = -0.4
+		#breakthrough = -0.4
+		#soft_attack = -0.4
+		#hard_attack = -0.4
+		#air_attack = -0.2
 
 	}
 
