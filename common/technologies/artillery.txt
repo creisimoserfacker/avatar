@@ -4,7 +4,6 @@ technologies = {
 
 		enable_equipments = {
 			javelin_equipment_0
-			light_armor_equipment_0
 		}
 		
 		enable_subunits = {
@@ -14,16 +13,12 @@ technologies = {
 			leads_to_tech = tacticsarrow
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = light_armor_1
-			research_cost_coeff = 1
-		}
+		#path = {
+		#	leads_to_tech = light_armor_0
+		#	research_cost_coeff = 1
+		#}
 		path = {
 			leads_to_tech = javelin1
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = uniform0
 			research_cost_coeff = 1
 		}
 		path = {
@@ -39,6 +34,49 @@ technologies = {
 		
 		folder = {
 			name = artillery_folder
+			position = { x = -2 y = 0 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	light_armor_0 = {
+
+		enable_equipments = {
+			light_armor_equipment_0
+		}
+
+		path = {
+			leads_to_tech = light_armor_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = uniform0
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = ranged_weapons
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = bow0
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 2 y = 0 }
+		}
+		folder = {
+			name = support_folder
 			position = { x = 0 y = 0 }
 		}
 		
