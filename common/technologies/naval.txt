@@ -184,7 +184,7 @@ technologies = {
 			barque_ship_1
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_2
+			leads_to_tech = barque_ship_tech_2
 			research_cost_coeff = 1
 		}
 		path = {
@@ -221,7 +221,7 @@ technologies = {
 			barque_ship_2
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_3
+			leads_to_tech = barque_ship_tech_3
 			research_cost_coeff = 1
 		}
 
@@ -250,7 +250,7 @@ technologies = {
 			barque_ship_3
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_4
+			leads_to_tech = barque_ship_tech_4
 			research_cost_coeff = 1
 		}
 
@@ -279,7 +279,7 @@ technologies = {
 			barque_ship_4
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_5
+			leads_to_tech = barque_ship_tech_5
 			research_cost_coeff = 1
 		}
 
@@ -308,7 +308,7 @@ technologies = {
 			barque_ship_5
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_6
+			leads_to_tech = barque_ship_tech_6
 			research_cost_coeff = 1
 		}
 
@@ -362,19 +362,15 @@ technologies = {
 			junk_ship_1
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_2
+			leads_to_tech = junk_ship_tech_2
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = light_armor_tech_1
+			leads_to_tech = junk_flagship_tech_2
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = crows_nest_tech_1
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = warship_ship_1
+			leads_to_tech = warship_ship_tech_1
 			research_cost_coeff = 1
 		}
 
@@ -403,7 +399,36 @@ technologies = {
 			junk_ship_2
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_3
+			leads_to_tech = junk_ship_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+
+		start_year = 15
+		
+		folder = {
+			name = naval_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			naval_equipment
+			dd_tech
+		}
+	}
+	
+	junk_ship_tech_3 = {
+
+		enable_equipments = {
+			junk_ship_3
+		}
+		path = {
+			leads_to_tech = junk_ship_tech_4
 			research_cost_coeff = 1
 		}
 
@@ -426,13 +451,13 @@ technologies = {
 		}
 	}
 	
-	junk_ship_tech_3 = {
+	junk_ship_tech_4 = {
 
 		enable_equipments = {
-			junk_ship_3
+			junk_ship_4
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_4
+			leads_to_tech = junk_ship_tech_5
 			research_cost_coeff = 1
 		}
 
@@ -455,16 +480,12 @@ technologies = {
 		}
 	}
 	
-	junk_ship_tech_4 = {
+	junk_ship_tech_5 = {
 
 		enable_equipments = {
-			junk_ship_4
+			junk_ship_5
 		}
-		path = {
-			leads_to_tech = galley_ship_tech_5
-			research_cost_coeff = 1
-		}
-
+		
 		research_cost = 1.5
 
 		start_year = 15
@@ -484,23 +505,27 @@ technologies = {
 		}
 	}
 	
-	junk_ship_tech_5 = {
+	junk_flagship_tech_1 = {
 
 		enable_equipments = {
-			junk_ship_5
+			junk_flagship_1
 		}
 		path = {
-			leads_to_tech = galley_ship_tech_6
+			leads_to_tech = junk_flagship_tech_2
 			research_cost_coeff = 1
 		}
-		
+		path = {
+			leads_to_tech = warship_ship_tech_1
+			research_cost_coeff = 1
+		}
+
 		research_cost = 1.5
 
 		start_year = 15
 		
 		folder = {
 			name = naval_folder
-			position = { x = 0 y = 32 }
+			position = { x = 2 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -512,13 +537,126 @@ technologies = {
 			dd_tech
 		}
 	}
+	
+	junk_flagship_tech_2 = {
+
+		enable_equipments = {
+			junk_flagship_2
+		}
+		path = {
+			leads_to_tech = junk_flagship_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+
+		start_year = 15
+		
+		folder = {
+			name = naval_folder
+			position = { x = 2 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			naval_equipment
+			dd_tech
+		}
+	}
+	
+	junk_flagship_tech_3 = {
+
+		enable_equipments = {
+			junk_flagship_3
+		}
+		path = {
+			leads_to_tech = junk_flagship_tech_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+
+		start_year = 15
+		
+		folder = {
+			name = naval_folder
+			position = { x = 2 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			naval_equipment
+			dd_tech
+		}
+	}
+	
+	junk_flagship_tech_4 = {
+
+		enable_equipments = {
+			junk_flagship_4
+		}
+		path = {
+			leads_to_tech = junk_flagship_tech_5
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+
+		start_year = 15
+		
+		folder = {
+			name = naval_folder
+			position = { x = 2 y = 22 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			naval_equipment
+			dd_tech
+		}
+	}
+	
+	junk_flagship_tech_5 = {
+
+		enable_equipments = {
+			junk_flagship_5
+		}
+		
+		research_cost = 1.5
+
+		start_year = 15
+		
+		folder = {
+			name = naval_folder
+			position = { x = 2 y = 28 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			naval_equipment
+			dd_tech
+		}
+	}
+	
 	warship_ship_tech_1 = {
 
 		enable_equipments = {
 			warship_ship_1
 		}
 		path = {
-			leads_to_tech = warship_ship_2
+			leads_to_tech = warship_ship_tech_2
 			research_cost_coeff = 1
 		}
 		path = {
@@ -531,7 +669,7 @@ technologies = {
 		
 		folder = {
 			name = naval_folder
-			position = { x = 4 y = 10 }
+			position = { x = 8 y = 12 }
 		}
 		
 		ai_will_do = {
@@ -544,13 +682,13 @@ technologies = {
 		}
 	}
 	
-	warship_ship_2 = {
+	warship_ship_tech_2 = {
 
 		enable_equipments = {
 			warship_ship_2
 		}
 		path = {
-			leads_to_tech = warship_ship_3
+			leads_to_tech = warship_ship_tech_3
 			research_cost_coeff = 1
 		}
 
@@ -560,7 +698,7 @@ technologies = {
 		
 		folder = {
 			name = naval_folder
-			position = { x = 4 y = 16 }
+			position = { x = 8 y = 18 }
 		}
 		
 		ai_will_do = {
@@ -573,13 +711,13 @@ technologies = {
 		}
 	}
 	
-	warship_ship_3 = {
+	warship_ship_tech_3 = {
 
 		enable_equipments = {
 			warship_ship_3
 		}
 		path = {
-			leads_to_tech = warship_ship_4
+			leads_to_tech = warship_ship_tech_4
 			research_cost_coeff = 1
 		}
 
@@ -589,7 +727,7 @@ technologies = {
 		
 		folder = {
 			name = naval_folder
-			position = { x = 4 y = 22 }
+			position = { x = 8 y = 24 }
 		}
 		
 		ai_will_do = {
@@ -602,7 +740,7 @@ technologies = {
 		}
 	}
 	
-	warship_ship_4 = {
+	warship_ship_tech_4 = {
 
 		enable_equipments = {
 			warship_ship_4
@@ -614,7 +752,7 @@ technologies = {
 		
 		folder = {
 			name = naval_folder
-			position = { x = 4 y = 28 }
+			position = { x = 8 y = 30 }
 		}
 		
 		ai_will_do = {
@@ -627,177 +765,4 @@ technologies = {
 		}
 	}
 	
-	warship_flagship_tech_1 = {
-
-		enable_equipments = {
-			warship_flagship_1
-		}
-		path = {
-			leads_to_tech = warship_flagship_tech_2
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1.5
-
-		start_year = 15
-		
-		folder = {
-			name = naval_folder
-			position = { x = 6 y = 12 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
-	
-	warship_flagship_tech_2 = {
-
-		enable_equipments = {
-			warship_flagship_2
-		}
-		path = {
-			leads_to_tech = warship_flagship_tech_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1.5
-
-		start_year = 15
-		
-		folder = {
-			name = naval_folder
-			position = { x = 6 y = 18 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
-	
-	warship_flagship_tech_3 = {
-
-		enable_equipments = {
-			warship_flagship_3
-		}
-		path = {
-			leads_to_tech = warship_flagship_tech_4
-			research_cost_coeff = 1
-		}
-
-		research_cost = 1.5
-
-		start_year = 15
-		
-		folder = {
-			name = naval_folder
-			position = { x = 6 y = 24 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
-	
-	warship_flagship_tech_4 = {
-
-		enable_equipments = {
-			warship_flagship_4
-		}
-
-		research_cost = 1.5
-
-		start_year = 15
-		
-		folder = {
-			name = naval_folder
-			position = { x = 6 y = 30 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
-	
-	convoy_tech_1 = {
-
-		enable_equipments = {
-			convoy_1
-		}
-		path = {
-			leads_to_tech = convoy_tech_2
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = supplies_tech_1
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = mine_tech_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.5
-
-		start_year = 10
-		
-		folder = {
-			name = naval_folder
-			position = { x = 0 y = 0 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
-	
-	convoy_tech_2 = {
-
-		enable_equipments = {
-			convoy_2
-		}
-		
-		research_cost = 1.5
-
-		start_year = 30
-		
-		folder = {
-			name = naval_folder
-			position = { x = 0 y = 18 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			naval_equipment
-			dd_tech
-		}
-	}
 }
