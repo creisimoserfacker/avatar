@@ -72,6 +72,39 @@ FIR_conquest_category = {
 		}
 	}
 
+	victory = {
+
+		allowed = {
+			TAG = FIR
+		}
+
+		#available = {
+        #    FIR = {
+        #    	controls_state = 155
+        #    }
+        #}
+
+		complete_effect = {
+			set_victory_points = {
+				province = 6682
+				value = 50
+			}
+		}
+
+		cost = 1#40
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 00
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				factor = 100
+			}
+		}
+	}
+
 	war_with_northern_watertribe = {
 
 		visible = {
