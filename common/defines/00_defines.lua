@@ -588,8 +588,8 @@ NMilitary = {
 
 	RECON_SKILL_IMPACT = 5, -- how many skillpoints is a recon advantage worth when picking a tactic.
 
-	MAX_DIVISION_BRIGADE_WIDTH = 5,			-- Max width of regiments in division designer.
-	MAX_DIVISION_BRIGADE_HEIGHT = 5,		-- Max height of regiments in division designer.
+	MAX_DIVISION_BRIGADE_WIDTH = 3,			-- Max width of regiments in division designer.
+	MAX_DIVISION_BRIGADE_HEIGHT = 4,		-- Max height of regiments in division designer.
 	MAX_DIVISION_SUPPORT_WIDTH = 1,			-- Max width of support in division designer.
 	MAX_DIVISION_SUPPORT_HEIGHT = 5,		-- Max height of support in division designer.
 	
@@ -629,8 +629,8 @@ NMilitary = {
 	COMBAT_MOVEMENT_SPEED = 10.0,	               -- speed reduction base modifier in combat
 	TACTIC_SWAP_FREQUENCEY = 24,                   -- hours between tactic swaps
 	INITIATIVE_PICK_COUNTER_ADVANTAGE_FACTOR  = 0.35, -- advantage per leader level for picking a counter
-	BASE_COMBAT_WIDTH = 48,                        -- base combat width
-	ADDITIONAL_COMBAT_WIDTH = 48,                  -- more opened up by support attack
+	BASE_COMBAT_WIDTH = 72,                        -- base combat width
+	ADDITIONAL_COMBAT_WIDTH = 24,                  -- more opened up by support attack
 	AMPHIBIOUS_INVADE_MOVEMENT_COST = 24.0,        -- total progress cost of movement while amphibious invading
 	LAND_SPEED_MODIFIER = 0.05,                   -- basic speed control
 	RIVER_CROSSING_PENALTY = -0.3,                 -- small river crossing
