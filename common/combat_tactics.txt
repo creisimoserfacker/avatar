@@ -50,6 +50,7 @@ tactic_volley_fire = {
 	is_attacker = yes
 	trigger = { # combined scope for both country and combatant
 		is_attacker = yes
+		hardness > 0.75
 		skill_advantage > 1
 		phase = no
 	}
@@ -61,7 +62,7 @@ tactic_volley_fire = {
 	
 	countered_by = tactic_shield_wall
 
-	attacker = 0.05
+	attacker = 0.15
 	defender = -0.1
 	attacker_movement_speed = -0.1
 }
@@ -146,6 +147,7 @@ tactic_cavalry_flank = {
 	trigger = {
 		is_attacker = yes
 		phase = no
+		has_trait = cavalry_leader
 	}
 	
 	active = yes
@@ -190,6 +192,7 @@ tactic_cavalry_charge = {
 	trigger = {
 		is_attacker = yes
 		phase = no
+		has_trait = cavalry_leader
 	}
 	
 	active = yes

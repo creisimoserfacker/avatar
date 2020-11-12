@@ -5,6 +5,7 @@ equipments = {
 		is_archetype = yes
 		picture = archetype_heavy_cavalry_equipment
 		is_buildable = no
+		is_convertable = yes
 		type = armor
 		group_by = archetype
 		
@@ -33,7 +34,7 @@ equipments = {
 		
 		build_cost_ic = 0.6
 		resources = {
-			tungsten = 1
+			oil = 2
 		}
 
 		fuel_consumption = 0.4
@@ -46,6 +47,7 @@ equipments = {
 		active = no
 		priority = 05
 		visual_level = 0
+		is_convertable = yes
 	}
 
     heavy_cavalry_equipment_1 = {
@@ -54,6 +56,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_basic
 		priority = 10
 		visual_level = 0
+		is_convertable = yes
 
 		#Defensive Abilities
 		defense = 20
@@ -67,9 +70,10 @@ equipments = {
 		ap_attack = 0
 		air_attack = 0
 
-		build_cost_ic = 0.7
+		build_cost_ic = 16
 		resources = {
-			tungsten = 2
+			chromium = 2
+			iron = 1
 		}
 	}
 
@@ -79,6 +83,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_1
 		priority = 10
 		visual_level = 1
+		is_convertable = yes
 		
 		#Defensive Abilities
 		defense = 20
@@ -92,9 +97,10 @@ equipments = {
 		ap_attack = 0
 		air_attack = 0
 		
-		build_cost_ic = 0.8
+		build_cost_ic = 17
 		resources = {
-			tungsten = 2
+			chromium = 2
+			iron = 2
 		}
 	}
 	
@@ -104,6 +110,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_2
 		priority = 10
 		visual_level = 2
+		is_convertable = yes
 		
 		#Defensive Abilities
 		defense = 20
@@ -118,10 +125,10 @@ equipments = {
 		air_attack = 0
 		
 		reliability = 0.9
-		build_cost_ic = 1
+		build_cost_ic = 18
 		resources = {
-			tungsten = 2
-			chromium = 1
+			chromium = 2
+			iron = 3
 		}
 	}
 
@@ -131,6 +138,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_3
 		priority = 10
 		visual_level = 3
+		is_convertable = yes
 		
 		#Defensive Abilities
 		defense = 20
@@ -145,10 +153,10 @@ equipments = {
 		air_attack = 0
 		
 		reliability = 0.9
-		build_cost_ic = 1
+		build_cost_ic = 19
 		resources = {
-			tungsten = 2
-			chromium = 1
+			chromium = 2
+			steel = 1
 		}
 	}
 
@@ -159,6 +167,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_4
 		priority = 10
 		visual_level = 4
+		is_convertable = yes
 		
 		#Defensive Abilities
 		defense = 20
@@ -173,11 +182,10 @@ equipments = {
 		air_attack = 0
 		
 		reliability = 1
-		build_cost_ic = 1.1
+		build_cost_ic = 20
 		resources = {
-			tungsten = 1
-			chromium = 1
-			steel = 1
+			chromium = 2
+			steel = 2
 		}
 	}
 
@@ -187,6 +195,7 @@ equipments = {
 		parent = heavy_cavalry_equipment_5
 		priority = 10
 		visual_level = 5
+		is_convertable = yes
 		
 		#Defensive Abilities
 		defense = 20
@@ -201,11 +210,70 @@ equipments = {
 		air_attack = 0
 		
 		reliability = 1
-		build_cost_ic = 1.2
+		build_cost_ic = 21
 		resources = {
-			tungsten = 2
 			chromium = 2
-			steel = 1
+			steel = 3
+		}
+	}
+
+
+	heavy_catapult_cavalry_equipment = {
+
+		is_archetype = yes
+		is_convertable = yes
+		picture = archetype_heavy_cavalry_equipment					
+		is_buildable = no
+		family = heavy_cavalry_equipment
+		type = { 
+			armor
+			artillery
+		}
+		group_by = archetype
+
+		interface_category = interface_category_armor
+
+		#Misc Abilities
+		maximum_speed = 8
+		reliability = 0.8
+
+		#Defensive Abilities
+		defense = 4
+		breakthrough = 12
+		hardness = 0.5
+		armor_value = 5
+
+		#Offensive Abilities
+		soft_attack = 34
+		hard_attack = 0.5
+		ap_attack = 4
+		air_attack = 0		
+		
+		build_cost_ic = 23
+		resources = {
+			oil = 1
+		}
+		fuel_consumption = 1.2
+	}
+
+	heavy_catapult_cavalry_equipment_1 = {
+
+		archetype = heavy_catapult_cavalry_equipment
+		family = heavy_cavalry_equipment
+		priority = 20
+		visual_level = 1
+		can_convert_from = { 
+			heavy_cavalry_equipment_1
+			heavy_cavalry_equipment_2
+			heavy_cavalry_equipment_3
+			heavy_cavalry_equipment_4
+			heavy_cavalry_equipment_5
+			heavy_cavalry_equipment_6
+		}
+
+		resources = {
+			aluminium = 3
+			steel = 3
 		}
 	}
 

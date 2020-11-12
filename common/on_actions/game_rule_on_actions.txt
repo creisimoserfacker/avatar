@@ -1,0 +1,124 @@
+on_actions = {
+	
+	on_startup = {
+		effect = {
+	
+			# Game Rules - United Earthkingdom
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = earthkingdom_fragmentation_status
+						option = EARTHKINGDOM_UNITED
+					}
+				}
+				EAR = {
+					set_cosmetic_tag = EAR_united
+
+					every_state = {
+						if = {
+							limit {
+								OR = {
+									is_owned_by = WBA
+									is_owned_by = EBA
+									is_owned_by = POH
+									is_owned_by = TAK
+									is_owned_by = HAN
+									is_owned_by = MAK
+									is_owned_by = NIX
+									is_owned_by = YUE
+									is_owned_by = XIN
+									is_owned_by = GAR
+									is_owned_by = WUL
+									is_owned_by = NOW
+									is_owned_by = HEB
+									is_owned_by = ISL
+									is_owned_by = NCB
+									is_owned_by = ECB
+									is_owned_by = LAM
+									is_owned_by = GDD
+									is_owned_by = FMB
+									is_owned_by = MER
+									is_owned_by = OMS
+									is_owned_by = MPO
+									is_owned_by = SWA
+									is_owned_by = ZAO
+									is_owned_by = CHN
+									is_owned_by = GAO
+									is_owned_by = NAN
+									is_owned_by = ZIN
+									is_owned_by = YII
+								}
+							}
+							add_core_of = EAR
+						}
+					}
+
+					annex_country = { target = WBA transfer_troops = yes }
+					annex_country = { target = EBA transfer_troops = yes }
+					annex_country = { target = POH transfer_troops = yes }
+					annex_country = { target = TAK transfer_troops = yes }
+					annex_country = { target = HAN transfer_troops = yes }
+					annex_country = { target = MAK transfer_troops = yes }
+					annex_country = { target = NIX transfer_troops = yes }
+					annex_country = { target = YUE transfer_troops = yes }
+					annex_country = { target = XIN transfer_troops = yes }
+					annex_country = { target = GAR transfer_troops = yes }
+					annex_country = { target = WUL transfer_troops = yes }
+					annex_country = { target = NOW transfer_troops = yes }
+					annex_country = { target = HEB transfer_troops = yes }
+					annex_country = { target = ISL transfer_troops = yes }
+					annex_country = { target = NCB transfer_troops = yes }
+					annex_country = { target = ECB transfer_troops = yes }
+					annex_country = { target = LAM transfer_troops = yes }
+					annex_country = { target = GDD transfer_troops = yes }
+					annex_country = { target = FMB transfer_troops = yes }
+					annex_country = { target = MER transfer_troops = yes }
+					annex_country = { target = OMS transfer_troops = yes }
+					annex_country = { target = MPO transfer_troops = yes }
+					annex_country = { target = SWA transfer_troops = yes }
+					annex_country = { target = ZAO transfer_troops = yes }
+					annex_country = { target = CHN transfer_troops = yes }
+					annex_country = { target = GAO transfer_troops = yes }
+					annex_country = { target = NAN transfer_troops = yes }
+					annex_country = { target = ZIN transfer_troops = yes }
+					annex_country = { target = YII transfer_troops = yes }
+				}
+
+			}
+
+
+			# Game Rules - United Earthkingdom
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = airnomads_fragmentation_status
+						option = AIRNOMADS_UNITED
+					}
+				}
+				SAT = {
+					set_cosmetic_tag = AIR_united
+
+					every_state = {
+						if = {
+							limit {
+								OR = {
+									is_owned_by = EAT
+									is_owned_by = WAT
+									is_owned_by = NAT
+								}
+							}
+							add_core_of = SAT
+						}
+					}
+
+					annex_country = { target = EAT transfer_troops = yes }
+					annex_country = { target = WAT transfer_troops = yes }
+					annex_country = { target = NAT transfer_troops = yes }
+				}
+
+			}
+
+		}
+	}
+
+}
