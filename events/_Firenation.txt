@@ -15,13 +15,32 @@ country_event = {
 
 	fire_only_once = yes
 
+	immediate = {
+ 		hidden_effect = {
+			WAT = {
+				white_peace = FIR
+				leave_faction = yes
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Extincted Nation"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "Portrait_Westernairtemple_Extinct.dds"
+					expire = "120.1.1"
+					ideology = active_pacifism
+					traits = {
+						extinguished_population
+					}
+				}
+			}
+		}
+ 	}
+
 	option = {
 		name = firenation.1.a
 		ai_chance = { 
 			factor = 100
 		}
 		WAT = {
-			leave_faction = yes
 			transfer_state = 167
 			transfer_state = 232
 			transfer_state = 181
@@ -37,55 +56,74 @@ country_event = {
 			transfer_state = 100
 			transfer_state = 82
 			give_military_access = FIR
-			kill_country_leader = yes
-			create_country_leader = {
-				name = "Extincted Nation"
-				desc = "POLITICS_ADOLF_HITLER_DESC"
-				picture = "Portrait_Westernairtemple_Extinct.dds"
-				expire = "120.1.1"
-				ideology = active_pacifism
-				traits = {
-					extinguished_population
-				}
-			}
-		}
-		every_state = {
-			limit = {
-				OR = {
-					state = 167
-					state = 232
-					state = 181
-					state = 200
-					state = 175
-					state = 222
-					state = 148
-					state = 123
-					state = 112
-					state = 208
-					state = 118
-					state = 111
-					state = 100
-					state = 82
-				}
-			}
-			add_province_modifier = {
-				static_modifiers = { unplanned_offensive }
-				province = {
-					all_provinces = yes
-				}
-			}
-			set_state_flag = SPR_unplanned_offensive_flag
 		}
 		hidden_effect = {
-			WAT = {
-				white_peace = FIR
-				leave_faction = yes
+			every_state = {
+				limit = {
+					OR = {
+						state = 167
+						state = 232
+						state = 181
+						state = 200
+						state = 175
+						state = 222
+						state = 148
+						state = 123
+						state = 112
+						state = 208
+						state = 118
+						state = 111
+						state = 100
+						state = 82
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
-	#option = {
-	#	name = firenation.1.b
-	#}
+	option = {
+		name = firenation.1.b
+		FIR = {
+			transfer_state = 167
+			transfer_state = 232
+			transfer_state = 181
+			transfer_state = 200
+			transfer_state = 175
+			transfer_state = 222
+			transfer_state = 148
+			transfer_state = 123
+			transfer_state = 112
+			transfer_state = 208
+			transfer_state = 118
+			transfer_state = 111
+			transfer_state = 100
+			transfer_state = 82
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 167
+						state = 232
+						state = 181
+						state = 200
+						state = 175
+						state = 222
+						state = 148
+						state = 123
+						state = 112
+						state = 208
+						state = 118
+						state = 111
+						state = 100
+						state = 82
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
+				add_compliance = 100
+			}
+		}
+	}
 }
 # West Temple Attack
 country_event = {
@@ -134,13 +172,33 @@ country_event = {
 
 	fire_only_once = yes
 
+	immediate = {
+ 		hidden_effect = {
+			SAT = {
+				white_peace = FIR
+				leave_faction = yes
+				kill_country_leader = yes
+				dismantle_faction = yes
+				create_country_leader = {
+					name = "Extincted Nation"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "Portrait_Southernairtemple_Extinct.dds"
+					expire = "120.1.1"
+					ideology = active_pacifism
+					traits = {
+						extinguished_population
+					}
+				}
+			}
+		}
+ 	}
+
 	option = {
 		name = firenation.3.a
 		ai_chance = { 
 			factor = 100
 		}
 		SAT = {
-			leave_faction = yes
 			transfer_state = 242
 			transfer_state = 319
 			transfer_state = 274
@@ -160,29 +218,87 @@ country_event = {
 			transfer_state = 228
 			transfer_state = 260
 			give_military_access = FIR
-			kill_country_leader = yes
-			dismantle_faction = yes
-			create_country_leader = {
-				name = "Extincted Nation"
-				desc = "POLITICS_ADOLF_HITLER_DESC"
-				picture = "Portrait_Southernairtemple_Extinct.dds"
-				expire = "120.1.1"
-				ideology = active_pacifism
-				traits = {
-					extinguished_population
-				}
-			}
 		}
 		hidden_effect = {
-			SAT = {
-				white_peace = FIR
-				leave_faction = yes
+			every_state = {
+				limit = {
+					OR = {
+						state = 242
+						state = 319
+						state = 274
+						state = 297
+						state = 137
+						state = 203
+						state = 134
+						state = 236
+						state = 329
+						state = 239
+						state = 296
+						state = 125
+						state = 356
+						state = 357
+						state = 258
+						state = 285
+						state = 228
+						state = 260
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
+				add_compliance = 100
 			}
 		}
 	}
-	#option = {
-	#	name = firenation.1.b
-	#}
+	option = {
+		name = firenation.1.b
+		FIR = {
+			transfer_state = 242
+			transfer_state = 319
+			transfer_state = 274
+			transfer_state = 297
+			transfer_state = 137
+			transfer_state = 203
+			transfer_state = 134
+			transfer_state = 236
+			transfer_state = 329
+			transfer_state = 239
+			transfer_state = 296
+			transfer_state = 125
+			transfer_state = 356
+			transfer_state = 357
+			transfer_state = 258
+			transfer_state = 285
+			transfer_state = 228
+			transfer_state = 260
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 242
+						state = 319
+						state = 274
+						state = 297
+						state = 137
+						state = 203
+						state = 134
+						state = 236
+						state = 329
+						state = 239
+						state = 296
+						state = 125
+						state = 356
+						state = 357
+						state = 258
+						state = 285
+						state = 228
+						state = 260
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
+				add_compliance = 100
+			}
+		}
+	}
 }
 # South Temple Attack
 country_event = {
@@ -237,38 +353,67 @@ country_event = {
 
 	fire_only_once = yes
 
+	immediate = {
+ 		hidden_effect = {
+			NAT = {
+				white_peace = FIR
+				leave_faction = yes
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Extincted Nation"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "Portrait_Westernairtemple_Extinct.dds"
+					expire = "120.1.1"
+					ideology = active_pacifism
+					traits = {
+						extinguished_population
+					}
+				}
+			}
+		}
+ 	}
+
 	option = {
-		name = firenation.5.a
+		name = firenation.1.a
 		ai_chance = { 
 			factor = 100
 		}
 		NAT = {
-			leave_faction = yes
 			transfer_state = 316
 			transfer_state = 34
 			give_military_access = FIR
-			kill_country_leader = yes
-			create_country_leader = {
-				name = "Extincted Nation"
-				desc = "POLITICS_ADOLF_HITLER_DESC"
-				picture = "Portrait_Northernairtemple_Extinct.dds"
-				expire = "120.1.1"
-				ideology = active_pacifism
-				traits = {
-					extinguished_population
-				}
-			}
 		}
 		hidden_effect = {
-			NAT = {
-				white_peace = FIR
-				leave_faction = yes
+			every_state = {
+				limit = {
+					OR = {
+						state = 316
+						state = 34
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
-	#option = {
-	#	name = firenation.5.b
-	#}
+	option = {
+		name = firenation.1.b
+		FIR = {
+			transfer_state = 316
+			transfer_state = 34
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 316
+						state = 34
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
+				add_compliance = 100
+			}
+		}
+	}
 }
 # North Temple Attack
 country_event = {
@@ -318,13 +463,32 @@ country_event = {
 
 	fire_only_once = yes
 
+	immediate = {
+ 		hidden_effect = {
+			EAT = {
+				white_peace = FIR
+				leave_faction = yes
+				kill_country_leader = yes
+				create_country_leader = {
+					name = "Extincted Nation"
+					desc = "POLITICS_ADOLF_HITLER_DESC"
+					picture = "Portrait_Westernairtemple_Extinct.dds"
+					expire = "120.1.1"
+					ideology = active_pacifism
+					traits = {
+						extinguished_population
+					}
+				}
+			}
+		}
+ 	}
+
 	option = {
-		name = firenation.7.a
+		name = firenation.1.a
 		ai_chance = { 
 			factor = 100
 		}
 		EAT = {
-			leave_faction = yes
 			transfer_state = 320
 			transfer_state = 371
 			transfer_state = 373
@@ -335,27 +499,60 @@ country_event = {
 			transfer_state = 106
 			transfer_state = 24
 			give_military_access = FIR
-			kill_country_leader = yes
-			create_country_leader = {
-				name = "Extincted Nation"
-				desc = "POLITICS_ADOLF_HITLER_DESC"
-				picture = "Portrait_Easternairtemple_Extinct.dds"
-				expire = "120.1.1"
-				ideology = active_pacifism
-				traits = {
-					extinguished_population
-				}
-			}
 		}
 		hidden_effect = {
-			EAT = {
-				white_peace = FIR
+			every_state = {
+				limit = {
+					OR = {
+						state = 320
+						state = 371
+						state = 373
+						state = 247
+						state = 447
+						state = 188
+						state = 22
+						state = 106
+						state = 24
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
-	#option = {
-	#	name = firenation.7.b
-	#}
+	option = {
+		name = firenation.1.b
+		FIR = {
+			transfer_state = 320
+			transfer_state = 371
+			transfer_state = 373
+			transfer_state = 247
+			transfer_state = 447
+			transfer_state = 188
+			transfer_state = 22
+			transfer_state = 106
+			transfer_state = 24
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+						state = 320
+						state = 371
+						state = 373
+						state = 247
+						state = 447
+						state = 188
+						state = 22
+						state = 106
+						state = 24
+					}
+				}
+				add_dynamic_modifier = { modifier = genocide_state }
+				add_compliance = 100
+			}
+		}
+	}
+
 }
 # East Temple Attack
 country_event = {

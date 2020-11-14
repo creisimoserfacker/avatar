@@ -1,0 +1,41 @@
+#	Example:
+# 
+#	example_dynamic_modifier = {
+#		icon = "GFX_idea_unknown" # optional, will show up in guis if icon is specified
+#		enable = { always = yes } #optional, the modifier won't apply if not enabled
+#		remove_trigger = { always = no } #optional, will remove the modifier if true
+#
+#		# list of modifiers
+#		fuel_cost = 321
+#		max_fuel = var_max_fuel # will be taken from a variable
+#	}
+#
+#
+#	In a script file:
+#
+#	effect = {
+#		add_dynamic_modifier = {
+#			modifier = example_dynamic_modifier
+#			scope = GER # optional, if you specify this your dynamic modifier scoped to this scope (root is the effect scope)
+#			days = 14 # optional, will be removed after this many days passes
+#		}
+#	}
+#
+#	can be added to countries, states or unit leaders
+#	will only updated daily, unless forced by force_update_dynamic_modifier effect
+
+genocide_state = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_sabotaged_resource
+	local_factories = -1.0
+	local_manpower = -1.0
+	local_resources = -0.5 
+	resistance_target = -1.0
+	resistance_activity = -1.0
+	required_garrison_factor = -1
+	compliance_gain = 10
+	recruitable_population_factor = -1.0
+	local_building_slots_factor = -0.9
+	state_production_speed_buildings_factor = -0.9
+}
