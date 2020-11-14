@@ -244,7 +244,7 @@ technologies = {
 
 		enable_tactic = tactic_volley_fire
 
-		category_all_ranged = {
+		category_ranged = {
 			soft_attack = 0.1
 		}
 		
@@ -297,7 +297,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		category_all_infantry = {
+		category_melee = {
 			breakthrough = 0.10
 			max_organisation = 10
 		}
@@ -342,7 +342,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		category_all_ranged = {
+		category_ranged = {
 			max_organisation = 5
 			hard_attack = 0.15
 		}
@@ -390,7 +390,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_infantry ={
+		category_melee ={
 			breakthrough = 0.1
 		}
 		
@@ -638,7 +638,10 @@ technologies = {
 		}
 
 		enable_tactic = tactic_shield_wall
-		category_all_melee = {
+		spearmen = {
+			combat_width = -0.5
+		}
+		pikemen = {
 			combat_width = -0.5
 		}
 		
@@ -677,11 +680,7 @@ technologies = {
 		xp_research_bonus = 0.80
 
 		spearmen = {
-			combat_width = -0.4
-		}
-
-		spearmen2 = {
-			combat_width = -0.4
+			combat_width = -0.5
 		}
 
 
@@ -746,7 +745,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		minimum_training_level = -0.1
-		category_army = {
+		category_all_foot = {
 			default_morale = 0.1
 		}
 
@@ -1025,8 +1024,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_infantry_charge
-		experience_gain_navy = 0.05
+		enable_tactic = tactic_ambush
+		land_night_attack = 0.25
 		
 		doctrine = yes
 		research_cost = 2.50
@@ -1077,8 +1076,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		land_night_attack = 0.20
-		category_army = {
+		attrition = -0.2
+		supply_consumption_factor = -0.1
+		category_all_foot = {
 			acclimatization_cold_climate_gain_factor = 0.05
 		}
 		
@@ -1126,8 +1126,12 @@ technologies = {
 			research_cost_coeff = 1
 		}		
 
-		supply_consumption_factor = -0.15
-		attrition = -0.10
+		category_melee = {
+			defense = 0.15
+		}
+		category_all_cavalry = {
+			defense = 0.1
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -1405,8 +1409,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_backhand_blow
-		experience_gain_air = 0.05
+		enable_tactic = tactic_hold_chokepoint
+		category_bender = {
+			defense = 0.15
+		}
 		
 		doctrine = yes
 		research_cost = 2.50
@@ -1459,7 +1465,7 @@ technologies = {
 
 		category_bender = {
 			max_organisation = 10
-			defense = 0.10
+			defense = 0.15
 		}
 
 		doctrine = yes
@@ -1503,7 +1509,7 @@ technologies = {
 		}
 
 		category_bender = {
-			soft_attack = 0.10
+			soft_attack = 0.15
 			hard_attack = 0.10
 		}
 
@@ -1818,8 +1824,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_unexpected_thrust
-		enable_tactic = tactic_blitz
+		enable_tactic = tactic_bait_distraction
+		enable_tactic = tactic_infiltration
 		
 		doctrine = yes
 		research_cost = 5
@@ -1859,8 +1865,12 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_speed_factor = 0.05
-		experience_gain_army = 0.02
+		category_all_mounted = {
+			maximum_speed = 0.1
+		}
+		category_support_battalions = {
+			soft_attack = 0.15
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -1900,12 +1910,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		field_hospital = {
+		avatar_field_hospital = {
 			casualty_trickleback = 0.10
 		}
-		category_army = {
-			default_morale = 0.10
-		}
+		army_morale_factor = 0.05
 
 		doctrine = yes
 		research_cost = 5
@@ -1946,7 +1954,7 @@ technologies = {
 		}
 
 		land_reinforce_rate = 0.05
-		planning_speed = 0.25
+		planning_speed = 0.20
 
 		doctrine = yes
 		research_cost = 5
@@ -1986,12 +1994,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		recon = { 
+		category_scout = { 
 			recon = 1 
 		}
-		category_army = {
-			 soft_attack = 0.1
-		}
+
+		enable_tactic = tactic_oblique_assault
 		
 		doctrine = yes
 		research_cost = 5
@@ -2041,9 +2048,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_infantry = {
-			 soft_attack = 0.1
-			 max_organisation = 5
+		category_all_mounted = {
+			soft_attack = 0.1
+		}
+		category_ranged = {
+			breakthrough = 0.15
 		}
 
 		doctrine = yes

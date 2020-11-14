@@ -6,6 +6,9 @@
 phases = { # phase = no is the standard phase
 	close_combat
 	tactical_withdrawal
+	siege
+	seize_wall
+	hold_wall
 	seize_bridge
 	hold_bridge
 }
@@ -43,28 +46,6 @@ tactic_basic_defend = {
 	countered_by = tactic_volley_fire
 	
 	defender = 0.05
-}
-
-tactic_volley_fire = {
-
-	is_attacker = yes
-	trigger = { # combined scope for both country and combatant
-		is_attacker = yes
-		hardness > 0.75
-		skill_advantage > 1
-		phase = no
-	}
-	
-	active = no
-
-	base =  { factor = 4 }
-	picture = volleyfire
-	
-	countered_by = tactic_shield_wall
-
-	attacker = 0.15
-	defender = -0.1
-	attacker_movement_speed = -0.1
 }
 
 tactic_counterattack = { # counters basic attack, assault
@@ -229,6 +210,27 @@ tactic_phalanx = {
 
 #########################   UNLOCKABLE   #########################
 
+tactic_volley_fire = {
+
+	is_attacker = yes
+	trigger = { # combined scope for both country and combatant
+		is_attacker = yes
+		hardness > 0.75
+		skill_advantage > 1
+		phase = no
+	}
+	
+	active = no
+
+	base =  { factor = 4 }
+	picture = volleyfire
+	
+	countered_by = tactic_shield_wall
+
+	attacker = 0.15
+	defender = -0.1
+	attacker_movement_speed = -0.1
+}
 
 tactic_hammer_and_anvil = {
 	is_attacker = yes
@@ -266,23 +268,6 @@ tactic_square_formation = {
 	defender = 0.25
 }
 
-tactic_siege_bombardment = {
-	is_attacker = yes
-	trigger = {
-		is_attacker = yes
-		phase = no
-	}
-	
-	active = no
-	
-	base =  { factor = 4 }
-	picture = siegebombardment
-	
-	countered_by = tactic_scattered_defense
-	
-	attacker_movement_speed = -0.5
-	attacker = 0.25
-}
 tactic_scattered_defense = {
 	is_attacker = no
 	trigger = {
@@ -566,4 +551,512 @@ tactic_force_concentration = {
 	picture = forceconcentration
 
 	combat_width = 0.30
+}
+
+
+###  #  #  ##   ### ### ###
+#  # #  # #  # #    #   #  #
+###  #### ####  ##  ##  #  #
+#    #  # #  #    # #   #  #
+#    #  # #  # ###  ### ###
+
+
+
+########################### wall
+
+
+########### siege
+
+tactic_siege = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		has_combat_modifier = fort_attack
+		phase = no
+	}
+	
+	base =  { factor = 10 }
+	picture = siege_begin
+	
+	phase = siege
+	
+	attacker_movement_speed = -0.25
+	attacker = 0.2
+	defender = -0.05
+}
+tactic_attacker_sw_siege = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = siege
+	}
+
+	phase = seize_wall
+
+	countered_by = tactic_defender_harassment_attack
+	
+	base =  { factor = 4 }
+	picture = siege_begin
+	display_phase = siege
+	
+	attacker_movement_speed = -0.5
+	attacker = 0.2
+}
+tactic_attacker_siege_bombardment = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = siege
+		skill > 4
+	}
+
+	phase = seize_wall
+
+	countered_by = tactic_defender_scattered_wall_defense
+	
+	base =  { factor = 4 }
+	picture = siegebombardment
+	display_phase = siege
+
+	attacker_movement_speed = -0.25
+	attacker = 0.2
+	defender = -0.1
+}
+
+########### seize wall
+#failed
+
+tactic_attacker_failed_attack = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_wall
+	}
+
+	phase = siege
+	
+	base =  { factor = 4 }
+	picture = failedattack
+	display_phase = siege
+
+	combat_width = -0.75
+	attacker = -0.1
+	defender = 0.2
+}
+#success
+
+tactic_attacker_storm_the_walls = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_wall
+	}
+
+	phase = hold_wall
+
+	countered_by = tactic_defender_wall_defense
+	
+	base =  { factor = 4 }
+	picture = stormthewalls
+	display_phase = siege
+
+	attacker_movement_speed = 0.1
+	combat_width = -0.5
+	attacker = 0.2
+	defender = -0.1
+}
+tactic_attacker_siege_towers = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_wall
+		skill > 4
+	}
+	
+	phase = hold_wall
+
+	base =  { factor = 4 }
+	picture = siegetowers
+	display_phase = siege
+
+	attacker_movement_speed = 0.1
+	combat_width = -0.25
+	attacker = 0.4
+	defender = -0.1
+}
+tactic_attacker_ram_the_gates = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_wall
+		skill > 4
+	}
+
+	phase = hold_wall
+
+	countered_by = tactic_defender_reinforce_gates
+	
+	base =  { factor = 4 }
+	picture = ramgates
+	display_phase = siege
+
+	attacker_movement_speed = 0.1
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.1
+}
+
+############### hold wall
+
+tactic_attacker_hold_walls = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = hold_wall
+		skill > 2
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_holdwall
+	display_phase = hold_wall
+
+	combat_width = -0.25
+	defender = -0.2
+}
+tactic_attacker_hold_break = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = hold_wall
+		skill > 3
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_holdbreak
+	display_phase = hold_wall
+
+	combat_width = 0.25
+	attacker = 0.2
+}
+
+######## defender
+
+tactic_defender_wall_defense = { 
+	is_attacker = no
+	trigger = {
+		has_combat_modifier = fort_attack
+		is_attacker = no
+		phase = siege
+	}
+	
+	base =  { factor = 4 }
+	picture = walldefense
+	display_phase = siege
+
+	attacker = -1.0
+}
+tactic_defender_harassment_attack = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = siege
+	}
+	
+	base =  { factor = 4 }
+	picture = harassmentattack
+	display_phase = siege
+
+	defender = 0.25
+}
+
+###### (seize wall)/defend wall
+
+tactic_defender_scattered_wall_defense = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = seize_wall
+	}
+	
+	base =  { factor = 4 }
+	picture = scatteredwalldefense
+	display_phase = siege
+
+	combat_width = 0.25
+	defender = -0.05
+}
+tactic_defender_reinforce_gates = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = seize_wall
+	}
+	
+	base =  { factor = 4 }
+	picture = reinforcegates
+	display_phase = siege
+
+	combat_width = -0.25
+	defender = -0.05
+}
+
+############## retake wall
+
+tactic_defender_bombardment = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = hold_wall
+		skill < 2
+	}
+	
+	base =  { factor = 2 }
+	picture = defender_bombardment
+	display_phase = hold_wall
+	
+	combat_width = -0.25
+	attacker = 0.1
+	defender = 0.05
+}
+tactic_retake_wall = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = hold_wall
+	}
+	
+	base =  { factor = 2 }
+	picture = retakewall
+
+	countered_by = tactic_attacker_hold_walls
+	
+	phase = siege
+	
+	attacker_movement_speed = 0.1
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.05
+}
+tactic_retake_break = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = hold_wall
+		skill < 3
+	}
+
+	countered_by = tactic_attacker_hold_break
+
+	phase = siege
+	
+	base =  { factor = 2 }
+	picture = retakebreak
+	display_phase = hold_wall
+
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.1
+}
+
+
+
+######################### bridge 
+
+
+tactic_seize_bridge = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		has_combat_modifier = river_crossing
+		phase = no
+	}
+	
+	base =  { factor = 2 }
+	picture = seize_bridge
+	
+	phase = seize_bridge
+	
+	attacker_movement_speed = 0.1
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.05
+}
+tactic_attacker_sb_hold = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_bridge
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_sb_hold
+	display_phase = seize_bridge
+	
+	combat_width = -0.25
+	attacker = 0.2
+}
+tactic_attacker_sb_skillful_defence = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = seize_bridge
+		skill > 4
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_sb_skillful_defence
+	display_phase = seize_bridge
+
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.1
+}
+tactic_defender_sb_assault = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = seize_bridge
+	}
+	
+	base =  { factor = 4 }
+	picture = defender_sb_assault
+	display_phase = seize_bridge
+
+	combat_width = -0.25
+	defender = -0.05
+}
+tactic_defender_sb_reckless_assault = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = seize_bridge
+		skill < 3
+	}
+	
+	base =  { factor = 4 }
+	picture = defender_sb_reckless_assault
+	display_phase = seize_bridge
+
+	combat_width = -0.25
+	attacker = 0.25
+	defender = -0.1
+}
+tactic_defender_sb_retake_bridge = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = seize_bridge
+		skill > 2
+	}
+	
+	countered_by = tactic_attacker_sb_skillful_defence
+	phase = hold_bridge
+	
+	base =  { factor = 4 }
+	picture = defender_sb_retake_bridge
+	display_phase = seize_bridge
+
+	combat_width = -0.25
+	attacker = 0.1
+	defender = -0.05
+}
+
+tactic_hold_bridge = { 
+	is_attacker = no
+	trigger = {
+		has_combat_modifier = river_crossing
+		is_attacker = no
+		phase = no
+		skill > 2
+	}
+	
+	base =  { factor = 2 }
+	picture = tactic_hold_bridge
+	
+	phase = hold_bridge
+	
+	attacker_movement_speed = 0.1
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.05
+}
+tactic_attacker_hb_attack = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = hold_bridge
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_hb_attack
+	display_phase = hold_bridge
+
+	combat_width = -0.25
+	attacker = 0.1
+}
+tactic_attacker_hb_rush = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = hold_bridge
+		skill > 4
+	}
+	
+	base =  { factor = 4 }
+	picture = attacker_hb_rush
+	display_phase = hold_bridge
+
+	combat_width = -0.25
+	attacker = 0.2
+}
+tactic_attacker_hb_storm = { 
+	is_attacker = yes
+	trigger = {
+		is_attacker = yes
+		phase = hold_bridge
+	}
+	
+	base =  { factor = 2 }
+	picture = attacker_hb_storm
+	display_phase = hold_bridge
+
+	countered_by = tactic_defender_hb_skillful_defence
+	
+	phase = seize_bridge
+	
+	combat_width = -0.25
+	attacker = 0.2
+	defender = 0.05
+}
+tactic_defender_hb_hold = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = hold_bridge
+		skill < 3
+	}
+	
+	base =  { factor = 2 }
+	picture = defender_hb_hold
+	display_phase = hold_bridge
+
+	combat_width = -0.25
+	attacker = 0.2
+	defender = -0.1
+}
+tactic_defender_hb_skillful_defence = { 
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = hold_bridge
+		skill > 2
+	}
+	
+	base =  { factor = 2 }
+	picture = defender_hb_skillful_defence
+	display_phase = hold_bridge
+	
+	combat_width = -0.25
+	attacker = 0.1
+	defender = 0.05
 }

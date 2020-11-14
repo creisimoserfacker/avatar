@@ -172,6 +172,14 @@ non_core_controller = {
 	local_resources = -0.65
 }
 
+state_genocide = {
+	local_building_slots_factor = -0.5
+	
+	local_factories = -1.0
+	local_manpower = -1.0
+	local_resources = -1.0
+}
+
 lacking_consumer_goods = {
 }
 
@@ -179,90 +187,6 @@ gain_focus = {
 	political_power_cost = 1
 } 
 
-#license production
-
-ROM_license_german_equipment = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { has_war_with = ROOT }
-		}
-	}
-
-	license_purchase_cost = 0 #base cost reduction
-	ai_license_acceptance = 20 #more to AI acceptance value.
-	license_production_speed = 0.25 #speed  increase for being a license
-	license_tech_difference_speed = 0.25 #less cost increase for each tech level between the license and own tech level 
-}
-
-ROM_foreign_motor_company = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { has_war_with = ROOT }
-		}
-	}
-
-	license_purchase_cost = 0 #base cost reduction
-	ai_license_acceptance = 20 #more to AI acceptance value.
-	license_production_speed = 0.1 #speed  increase for being a license
-	license_tech_difference_speed = 0.1 #less cost increase for each tech level between the license and own tech level 
-}
-
-HUN_dynastic_ties_license = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { has_war_with = ROOT }
-		}
-	}
-
-	license_purchase_cost = 0 #base cost reduction
-	ai_license_acceptance = 50 #more to AI acceptance value.
-
-}
-
-YUG_western_license = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { has_war_with = ROOT }
-		}
-	}
-	ai_license_acceptance = 20 #more to AI acceptance value.
-
-}
-
-FRA_coordinate_rearmament = {
-	valid_relation_trigger = {
-		FROM = {
-			is_in_faction_with = ROOT
-		}
-	}
-	license_purchase_cost = 0
-	ai_license_acceptance = 100 #more to AI acceptance value.
-	license_production_speed = 0.25
-	license_tech_difference_speed = 0.25
-}
-
-HUN_stubborn_fools = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { is_in_faction_with = ROOT }
-		}
-	}
-	ai_license_acceptance = -50 #penalty to AI acceptance
-
-}
-
-ROM_military_modernization = {
-	valid_relation_trigger = {
-		FROM = {
-			NOT = { has_war_with = ROOT }
-		}
-	}
-
-	license_purchase_cost = 0 #base cost reduction
-	ai_license_acceptance = 60 #more to AI acceptance value.
-	license_production_speed = 0.25 #speed  increase for being a license
-	license_tech_difference_speed = 0.25 #less cost increase for each tech level between the license and own tech level 
-}
 
 free_license = {
 	valid_relation_trigger = {
@@ -542,7 +466,3 @@ operative_nationality_operation = {
 	operation_outcome = 0.1
 	operation_cost = -0.1
 }
-
-#LaR Compliance
-
-
