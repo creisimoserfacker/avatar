@@ -31,6 +31,8 @@ replace_path="common/scripted_triggers"
 replace_path="common/technology_sharing"
 replace_path="common/operations"
 reaplce_path="common/continous_focus"
+reaplce_path="common/technologies"
+reaplce_path="common/units"
 tags={
 	"Map"
 	"Utilities"
