@@ -44,7 +44,7 @@ technologies = {
 	domestication_0 = {
 		
 		path = {
-			leads_to_tech = domestication_0
+			leads_to_tech = domestication_1
 			research_cost_coeff = 1
 		}
 
@@ -60,6 +60,85 @@ technologies = {
 		folder = {
 			name = fir_armour_folder
 			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+
+	domestication_1 = {
+		
+		path = {
+			leads_to_tech = domestication_2
+			research_cost_coeff = 1
+		}
+
+		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
+		experience_gain_komodo_rhinos_training_factor = 1
+		
+		research_cost = 1
+		start_year = 24
+		folder = {
+			name = electronics_folder
+			position = { x = -8 y = 12 }
+		}
+		folder = {
+			name = fir_armour_folder
+			position = { x = 6 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 6 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+
+	domestication_2 = {
+
+		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
+		experience_gain_komodo_rhinos_training_factor = 1
+		
+		research_cost = 1
+		start_year = 36
+		folder = {
+			name = electronics_folder
+			position = { x = -8 y = 18 }
+		}
+		folder = {
+			name = fir_armour_folder
+			position = { x = 12 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 12 y = 0 }
 		}
 		
 		ai_will_do = {
