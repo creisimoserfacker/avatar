@@ -3,7 +3,7 @@ sub_units = {
 	galley = {
 		sprite = galley
 		map_icon_category = ship
-		priority = 2
+		priority = 3
 		active = yes
 		type = { screen_ship }
 		need = { galley_hull = 1 }
@@ -39,21 +39,14 @@ sub_units = {
 	junk = {
 		sprite = junk
 		map_icon_category = ship
-		priority = 8
+		priority = 7
 		active = yes
-		type = { capital_ship }
-		need_equipment = { junk_hull = 1 }
-		need_equipment_modules = {
-			any = {
-				ship_armor_bc_1 = 1
-				ship_armor_bc_2 = 1
-				ship_armor_bc_3 = 1
-			}
-		}
+		type = { screen_ship }
+		need = { junk_hull = 1 }
 
 		max_organisation = 40
 
-		supply_consumption = 0.12
+		supply_consumption = 0.08
 		
 		critical_parts = { destroyed_sails on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1
@@ -62,19 +55,12 @@ sub_units = {
 	}
 	
 	heavy_junk = {
-		sprite = junk
+		sprite = heavy_junk
 		map_icon_category = ship
-		priority = 8
+		priority = 9
 		active = yes
 		type = { capital_ship }
-		need_equipment = { junk_hull = 1 }
-		need_equipment_modules = {
-			any = {
-				ship_armor_bc_1 = 1
-				ship_armor_bc_2 = 1
-				ship_armor_bc_3 = 1
-			}
-		}
+		need = { junk_hull = 1 }
 
 		max_organisation = 40
 
@@ -89,21 +75,14 @@ sub_units = {
 	warship = {
 		sprite = warship
 		map_icon_category = ship
-		priority = 8
+		priority = 11
 		active = yes
 		type = { capital_ship }
-		need_equipment = { junk_hull = 1 }
-		need_equipment_modules = {
-			any = {
-				ship_armor_bc_1 = 1
-				ship_armor_bc_2 = 1
-				ship_armor_bc_3 = 1
-			}
-		}
+		need = { warship_hull = 1 }
 
 		max_organisation = 40
 
-		supply_consumption = 0.12
+		supply_consumption = 0.2
 		
 		critical_parts = { destroyed_sails on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1

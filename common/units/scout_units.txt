@@ -83,7 +83,7 @@ sub_units = {
 
 
 
-	scout_komodo_rhinos = {
+	scout_mongooze_lizards = {
 		sprite = cavalry
 		map_icon_category = other
 		priority = 599
@@ -102,7 +102,6 @@ sub_units = {
 			category_scout
 			category_all_mounted
 			category_all_cavalry
-			category_all_rhinos
 		}
 
 		combat_width = 0
@@ -120,11 +119,11 @@ sub_units = {
 		recon = 1.5
 		can_be_parachuted = no
 
-		transport = komodo_rhino
+		transport = mongooze_lizard
 	
 		need = {
-			komodo_rhino = 10
-			heavy_cavalry_equipment = 10
+			mongooze_lizard = 10
+			light_cavalry_equipment = 10
 			support_equipment = 10
 			light_armor_equipment = 10
 		}
@@ -199,7 +198,7 @@ sub_units = {
 	
 		need = {
 			ostrich_horse = 10
-			heavy_cavalry_equipment = 10
+			medium_cavalry_equipment = 10
 			support_equipment = 10
 			light_armor_equipment = 10
 		}
@@ -274,7 +273,80 @@ sub_units = {
 	
 		need = {
 			buffalo_yak = 10
-			heavy_cavalry_equipment = 10
+			medium_cavalry_equipment = 10
+			support_equipment = 10
+			light_armor_equipment = 10
+		}
+
+		forest = {
+			movement = 0.2
+		}
+		hills = {
+			movement = 0.2
+		}
+		mountain = {
+			movement = 0.2
+		}
+		jungle = {
+			movement = 0.2
+		}
+		marsh = {
+			movement = 0.2
+		}
+		plains = {
+			movement = 0.2
+		}
+		desert = {
+			movement = 0.2
+		}
+		river = {
+			movement = 0.2
+		}
+
+		same_support_type = recon
+	}
+
+	scout_cat_deers = {
+		sprite = cavalry
+		map_icon_category = other
+		priority = 599
+		ai_priority = 200
+		active = no
+		#cavalry = yes
+
+		type = { 
+			infantry 
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_scout
+			category_all_mounted
+			category_all_cavalry
+		}
+
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 2
+		max_organisation = 20
+		default_morale = 0.3
+		manpower = 10
+		training_time = 200
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.1
+		recon = 1.5
+		can_be_parachuted = no
+
+		transport = cat_deer
+	
+		need = {
+			cat_deer = 10
+			light_cavalry_equipment = 10
 			support_equipment = 10
 			light_armor_equipment = 10
 		}

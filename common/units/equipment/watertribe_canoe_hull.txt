@@ -12,6 +12,10 @@ equipments = {
 		interface_category = interface_category_other_ships
 
 		module_slots = {
+			fixed_ship_armor_slot = {
+				required = no
+				allowed_module_categories = { light_hull_reinforcement }	
+			}
 			fixed_ship_crew_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -33,38 +37,28 @@ equipments = {
 	
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
 		surface_detection = 20
-		sub_detection = 0
 		surface_visibility = 1
-		sub_visibility = 25
-		naval_speed = 14
-		reliability = 0.60
-		
-		naval_range = 2500
-		
-		max_strength = 10
-		
 
+		reliability = 0.70
+		naval_range = 25
+		max_strength = 10
 		fuel_consumption = 1
-		
-		build_cost_ic = 220
+		manpower = 4
+		build_cost_ic = 2200
 		resources = {
 			chromium = 1
 		}
 		
-		manpower = 200
 	}
 	
 	watertribe_canoe_hull_1 = {
@@ -85,21 +79,19 @@ equipments = {
 		parent = watertribe_canoe_hull_1
 		year = 1936
 		visual_level = 1
-		archetype = watertribe_raft_hull
-		priority = 1900
-		parent = watertribe_raft_hull_1
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
 		
+		reliability = 0.74
+		naval_range = 25
+		max_strength = 10
+		fuel_consumption = 1.5
+		manpower = 6
+		build_cost_ic = 2400
 		resources = {
 			chromium = 1
 		}
 		
 		module_slots = {
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_oars_slot = inherit
 			fixed_ship_storage_slot = {
@@ -111,24 +103,7 @@ equipments = {
 			category = ship_waterbender_crew
 			count < 2
 		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			chromium = 2
-		}
-		type = { 
-			screen_ship
-		}
 	}
 
 	watertribe_canoe_hull_3 = {
@@ -137,7 +112,19 @@ equipments = {
 		archetype = watertribe_canoe_hull
 		priority = 2500
 		parent = watertribe_canoe_hull_2
+
+		reliability = 0.78
+		naval_range = 25
+		max_strength = 10
+		fuel_consumption = 2
+		manpower = 8
+		build_cost_ic = 2600
+		resources = {
+			chromium = 1
+		}
+
 		module_slots = {
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_oars_slot = inherit
 			fixed_ship_storage_slot = inherit
@@ -156,23 +143,6 @@ equipments = {
 			count < 2
 		}
 		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
-
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 
 	watertribe_canoe_hull_4 = {
@@ -181,7 +151,19 @@ equipments = {
 		archetype = watertribe_canoe_hull
 		priority = 2500
 		parent = watertribe_canoe_hull_3
+
+		reliability = 0.82
+		naval_range = 25
+		max_strength = 10
+		fuel_consumption = 2.5
+		manpower = 10
+		build_cost_ic = 2800
+		resources = {
+			chromium = 1
+		}
+
 		module_slots = {
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_oars_slot = inherit
 			fixed_ship_storage_slot = inherit
@@ -201,23 +183,7 @@ equipments = {
 			category = ship_waterbender_crew
 			count < 2
 		}
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
-
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
 		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 	
 	watertribe_canoe_hull_5 = {
@@ -226,11 +192,19 @@ equipments = {
 		archetype = watertribe_canoe_hull
 		priority = 2500
 		parent = watertribe_canoe_hull_4
+
+		reliability = 0.86
+		naval_range = 25
+		max_strength = 10
+		fuel_consumption = 3
+		manpower = 12
+		build_cost_ic = 3000
+		resources = {
+			chromium = 1
+		}
+
 		module_slots = {
-			fixed_ship_armor_slot = {
-				required = yes
-				allowed_module_categories = { light_hull_reinforcement }	
-			}
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_oars_slot = inherit
 			fixed_ship_storage_slot = inherit
@@ -241,24 +215,7 @@ equipments = {
 			category = ship_waterbender_crew
 			count < 2
 		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 	
 	watertribe_canoe_1 = {
@@ -297,7 +254,7 @@ equipments = {
 
 		fuel_consumption = 1
 		
-		build_cost_ic = 250
+		build_cost_ic = 2200
 		resources = {
 			chromium = 3
 			aluminium = 1
@@ -345,7 +302,7 @@ equipments = {
 		
 
 		
-		build_cost_ic = 250
+		build_cost_ic = 2400
 		resources = {
 			chromium = 3
 			aluminium = 2
@@ -393,7 +350,7 @@ equipments = {
 
 
 		
-		build_cost_ic = 350
+		build_cost_ic = 2600
 		resources = {
 			chromium = 3
 			aluminium = 3
@@ -442,7 +399,7 @@ equipments = {
 		
 
 		
-		build_cost_ic = 400
+		build_cost_ic = 2800
 		resources = {
 			chromium = 2
 			aluminium = 4
@@ -493,7 +450,7 @@ equipments = {
 		
 
 		
-		build_cost_ic = 400
+		build_cost_ic = 3000
 		resources = {
 			chromium = 2
 			aluminium = 4

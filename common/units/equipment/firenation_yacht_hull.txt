@@ -13,7 +13,7 @@ equipments = {
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
-				allowed_module_categories = { light_armor_plates }	
+				allowed_module_categories = { medium_hull_reinforcement heavy_hull_reinforcement light_armor_plates }	
 			}
 			fixed_ship_crew_slot = {
 				required = yes
@@ -26,7 +26,7 @@ equipments = {
 			}
 			fixed_ship_bridge_slot = {
 				required = no
-				allowed_module_categories = { lookout }
+				allowed_module_categories = { bridge }
 			}
 			fixed_ship_engine_slot = {
 				required = yes
@@ -34,43 +34,34 @@ equipments = {
 			}
 		}
 		module_count_limit = {
-			category = ship_firebender_crew
+			category = maintenance_crew
 			count < 2
 		}
 		
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
 		surface_detection = 20
-		sub_detection = 1
-		surface_visibility = 15
-		naval_speed = 20
-		reliability = 0.80
-		
-		naval_range = 2500
-		
-		max_strength = 100		
-		
+		surface_visibility = 8
 
-		fuel_consumption = 20
-		
-		build_cost_ic = 1800
+		reliability = 0.70
+		naval_range = 45
+		max_strength = 10		
+		fuel_consumption = 7.2
+		manpower = 16
+		build_cost_ic = 4200
 		resources = {
 			aluminium = 1
 		}
 		
-		manpower = 600
 	}
 
 	firenation_yacht_hull_1 = {
@@ -89,13 +80,13 @@ equipments = {
 		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_hull_1
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
 		
+		reliability = 0.75
+		naval_range = 45
+		max_strength = 10		
+		fuel_consumption = 8.1
+		manpower = 18
+		build_cost_ic = 4400
 		resources = {
 			aluminium = 1
 		}
@@ -122,12 +113,13 @@ equipments = {
 		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_hull_2
-		naval_speed = 27
-		build_cost_ic = 2000
-		reliability = 0.90
-		max_strength = 120
-		naval_range = 4000
-		manpower = 1200
+		
+		reliability = 0.80
+		naval_range = 45
+		max_strength = 10		
+		fuel_consumption = 9
+		manpower = 20
+		build_cost_ic = 4600
 		resources = {
 			aluminium = 1
 		}
@@ -160,12 +152,13 @@ equipments = {
 		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_hull_3
-		naval_speed = 28
-		reliability = 0.95
-		manpower = 1400
-		build_cost_ic = 2100
-		naval_range = 4500
-		max_strength = 130
+		
+		reliability = 0.85
+		naval_range = 45
+		max_strength = 10		
+		fuel_consumption = 9.9
+		manpower = 22
+		build_cost_ic = 4800
 		resources = {
 			aluminium = 1
 		}
@@ -198,12 +191,13 @@ equipments = {
 		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_hull_4
-		naval_speed = 28
-		reliability = 0.95
-		manpower = 1400
-		build_cost_ic = 2100
-		naval_range = 4500
-		max_strength = 130
+		
+		reliability = 0.90
+		naval_range = 45
+		max_strength = 10		
+		fuel_consumption = 10.8
+		manpower = 24
+		build_cost_ic = 5000
 		resources = {
 			aluminium = 1
 		}

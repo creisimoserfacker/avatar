@@ -1,12 +1,12 @@
 sub_units = {
 	
 	watertribe_canoe = {
-		sprite = destroyer
+		sprite = canoe
 		map_icon_category = ship
-		priority = 3
+		priority = 1
 		active = yes
 		type = { screen_ship }
-		need = { watertribe_canoe = 1 }
+		need = { watertribe_canoe_hull = 1 }
 		
 		max_organisation = 40
 
@@ -19,16 +19,16 @@ sub_units = {
 	}
 	
 	watertribe_raft = {
-		sprite = destroyer
+		sprite = raft
 		map_icon_category = ship
-		priority = 3
+		priority = 4
 		active = yes
 		type = { screen_ship }
 		need = { watertribe_raft_hull = 1 }
 		
 		max_organisation = 40
 
-		supply_consumption = 0.01
+		supply_consumption = 0.02
 		
 		critical_parts = { damaged_sails on_fire rudder_jammed}
 		critical_part_damage_chance_mult = 1
@@ -37,16 +37,16 @@ sub_units = {
 	}
 	
 	watertribe_cutter_ship = {
-		sprite = light_cruiser
+		sprite = cutter
 		map_icon_category = ship
-		priority = 3
+		priority = 6
 		active = yes
 		type = { screen_ship }
-		need = { watertribe_cutter_ship_hull = 1 }
+		need = { watertribe_cutter_hull = 1 }
 		
 		max_organisation = 40
 
-		supply_consumption = 0.01
+		supply_consumption = 0.04
 		
 		critical_parts = { damaged_sails on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1
@@ -55,17 +55,17 @@ sub_units = {
 	}
 
 	watertribe_cutter_flagship = {
-		sprite = heavy_cruiser
+		sprite = heavy_cutter
 		map_icon_category = ship
-		priority = 6
+		priority = 8
 		active = yes
 		type = { capital_ship }
-		need = { watertribe_cutter_ship_hull = 1 }
+		need = { watertribe_cutter_hull = 1 }
 		
 		max_organisation = 40
 
 		
-		supply_consumption = 0.1
+		supply_consumption = 0.06
 		critical_parts = { damaged_sails on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1
 		
@@ -73,16 +73,16 @@ sub_units = {
 	}
 
 	watertribe_warship = {
-		sprite = battlecruiser
+		sprite = warship
 		map_icon_category = ship
-		priority = 3
+		priority = 12
 		active = yes
 		type = { capital_ship }
 		need = { watertribe_warship_hull = 1 }
 		
 		max_organisation = 40
 
-		supply_consumption = 0.01
+		supply_consumption = 0.12
 		
 		critical_parts = { damaged_sails on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1
@@ -91,16 +91,16 @@ sub_units = {
 	}
 
 	watertribe_submarine = {
-		sprite = submarine
+		sprite = water_submarine
 		map_icon_category = ship
-		priority = 3
+		priority = 100
 		active = yes
 		type = { submarine }
 		need = { watertribe_submarine_hull = 1 }
 		
 		max_organisation = 40
 
-		supply_consumption = 0.01
+		supply_consumption = 0.02
 		
 		critical_parts = { burning_engine on_fire rudder_jammed }
 		critical_part_damage_chance_mult = 1

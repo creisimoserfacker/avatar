@@ -76,15 +76,12 @@ set_technology = {
 	early_fire_frigate = 1
 	fire_invasion_capacity_1 = 1
 	frigate_armor_1 = 1
-	ship_storage_1 = 1
-	ship_binoculars_1 = 1
-	early_convoy = 1
-
-	naval_archers_1 = 1
-	naval_ballista_1 = 1
-	naval_catapult_1 = 1
-	naval_firebender_1 = 1
-	naval_trebuchet_1 = 1
+	cruiser_armor_1 = 1
+	
+	boarding_tech_1 = 1
+	light_ship_weapons = 1
+	heavy_ship_weapons = 1
+	ship_support_modules = 1
 }
 
 
@@ -248,6 +245,30 @@ create_navy_leader = {
 
 if = {
 	limit = { has_dlc = "Man the Guns" }
+
+	create_equipment_variant = {
+		name = "Patrol Class"
+		type = galley_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_archers_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Raider Class"
+		type = firenation_frigate_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_armor_slot = light_armor_plates_1
+			fixed_ship_crew_slot = ship_firebender_crew_1
+			fixed_ship_bridge_slot = lookout_1
+    	}
+	}
+
 	create_equipment_variant = {
 		name = "Explorer Class"
 		type = firenation_cruiser_hull_1
@@ -256,10 +277,9 @@ if = {
 		modules = {
         	fixed_ship_engine_slot = steam_engine_1
 			fixed_ship_storage_slot = storage_room_1
-			fixed_ship_storage_2_slot = storage_room_1
+			fixed_ship_crew_slot = ship_firebender_crew_1
 			fixed_ship_armor_slot = light_armor_plates_1
-			bridge_1_custom_slot = binoculars_1
-			deck_2_custom_slot = ship_ballista_1
+			fixed_ship_bridge_slot = lookout_1
     	}
 	}
 
@@ -270,28 +290,26 @@ if = {
 		parent_version = 0
 		modules = {
         	fixed_ship_engine_slot = steam_engine_1
-			fixed_ship_storage_slot = storage_room_1
 			fixed_ship_armor_slot = light_armor_plates_1
+			fixed_ship_crew_slot = boarding_crew_1
 			deck_1_custom_slot = ship_catapult_1
-			deck_2_custom_slot = ship_catapult_1
+			fixed_ship_artillery_slot = ship_catapult_1
     	}
 	}
 
 	create_equipment_variant = {
-		name = "Invasion Class"
-		type = firenation_frigate_hull_1
+		name = "Capital Class"
+		type = firenation_cruiser_hull_1
 		#name_group = GER_CA_HISTORICAL
 		parent_version = 0
 		modules = {
         	fixed_ship_engine_slot = steam_engine_1
-			fixed_ship_armor_slot = light_armor_plates_1
+			fixed_ship_armor_slot = medium_armor_plates_1
+			fixed_ship_crew_slot = ship_firebender_crew_1
+			deck_1_custom_slot = ship_trebuchet_1
+			fixed_ship_artillery_slot = ship_trebuchet_1
+			fixed_ship_bridge_slot = lookout_1
 			fixed_ship_storage_slot = storage_room_1
-			fixed_ship_storage_2_slot = storage_room_1
-			fixed_ship_storage_3_slot = storage_room_1
-			deck_1_custom_slot = ship_firebender_crew
-			deck_2_custom_slot = ship_firebender_crew
-			deck_3_custom_slot = ship_firebender_crew
-			deck_4_custom_slot = ship_firebender_crew
     	}
 	}
 

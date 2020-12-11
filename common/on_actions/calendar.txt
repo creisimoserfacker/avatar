@@ -10,6 +10,13 @@ on_actions = {
 					set_variable = { calendar_month = 1 }
 					set_variable = { calendar_year = 12 }
 				}
+
+				if = {
+					limit = {
+						has_country_flag = water_nation
+					}
+					add_ideas = half_moon
+				}
 			}
 		}
 	}
@@ -39,7 +46,13 @@ on_actions = {
 				limit = {
 					has_country_flag = water_nation
 				}
-				add_timed_idea = { idea = full_moon days = 4 }
+				swap_ideas = {
+					remove_idea = half_moon
+					add_idea = full_moon
+				}
+				hidden_effect = {
+					news_event = { id = calendar.1 days = 4 }
+				}
 			}
 		}
 	}
