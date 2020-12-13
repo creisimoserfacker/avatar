@@ -23,43 +23,29 @@ on_actions = {
 
 				if = {
 					limit = { has_idea = economy_3 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+	                add_to_variable = { war_exhaustion_variable = 5 }
 				}
 				if = {
 					limit = { has_idea = family_support_3 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 }
+	                add_to_variable = { war_exhaustion_variable = -5 }
 				}
-			}
-		}
-	}
-	on_weekly = {
-		effect = {
-            if = {
-				limit = { country_has_war_exhaustion = yes }
 
 				if = {
 					limit = { has_idea = economy_4 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+	                add_to_variable = { war_exhaustion_variable = 15 }
 				}
 				if = {
 					limit = { has_idea = family_support_4 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 }
+	                add_to_variable = { war_exhaustion_variable = -15 }
 				}
-			}
-		}
-	}
-	on_daily = {
-		effect = {
-            if = {
-				limit = { country_has_war_exhaustion = yes }
 
 				if = {
 					limit = { has_idea = economy_5 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+	                add_to_variable = { war_exhaustion_variable = 50 }
 				}
 				if = {
 					limit = { has_idea = family_support_5 }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_1 }
+	                add_to_variable = { war_exhaustion_variable = -50 }
 				}
 			}
 		}
