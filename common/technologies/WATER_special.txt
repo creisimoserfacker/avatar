@@ -15,7 +15,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = water_training_1
+			leads_to_tech = waterbender_healer
 			research_cost_coeff = 1
 		}
 
@@ -42,10 +42,6 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = water_bender_healer
-			research_cost_coeff = 1
-		}
-		path = {
 			leads_to_tech = water_training_2
 			research_cost_coeff = 1
 		}
@@ -55,7 +51,7 @@ technologies = {
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 2 }
+			position = { x = 0 y = 4 }
 		}
 		
 		categories = {
@@ -72,12 +68,16 @@ technologies = {
 		enable_subunits = {
 			waterbender_healer
 		}
+			path = {
+			leads_to_tech = water_bender_healer
+			research_cost_coeff = 1
+		}
 	
 		research_cost = 2
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = -3 y = 2 }
+			position = { x = 0 y = 2 }
 		}
 		categories = {
 			support
@@ -100,7 +100,7 @@ technologies = {
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 4 }
+			position = { x = 0 y = 6}
 		}
 		
 		categories = {
@@ -132,7 +132,7 @@ technologies = {
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 6 }
+			position = { x = 0 y = 8 }
 		}
 		
 		categories = {
@@ -154,7 +154,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = water_advanced_bending
+			leads_to_tech = water_training_4
 			research_cost_coeff = 1
 		}
 
@@ -162,7 +162,7 @@ technologies = {
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = -2 y = 8 }
+			position = { x = -2 y = 10 }
 		}
 		
 		categories = {
@@ -185,7 +185,7 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = water_advanced_bending
+			leads_to_tech = water_training_4
 			research_cost_coeff = 1
 		}
 
@@ -193,7 +193,7 @@ technologies = {
 		start_year = 1
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 2 y = 8 }
+			position = { x = 2 y = 10 }
 		}
 		
 		categories = {
@@ -205,39 +205,9 @@ technologies = {
 			factor = 0
 		}
 	}
-	water_advanced_bending = {
-
-
-		enable_subunits = {
-			waterbender_advanced
-		}
-
-		path = {
-			leads_to_tech = water_training_4
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		start_year = 1
-		folder = {
-			name = water_special_forces_folder
-			position = { x = 0 y = 10 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
+	
 	water_training_4 = {
 
-		waterbender_advanced = {
-			max_organisation = 2
-			default_morale = 0.2
-		}
 		waterbender = {
 			max_organisation = 2
 			default_morale = 0.2
@@ -247,8 +217,7 @@ technologies = {
 			leads_to_tech = water_training_5
 			research_cost_coeff = 1
 		}
-
-
+		
 		research_cost = 3
 		start_year = 2
 		folder = {
@@ -267,42 +236,7 @@ technologies = {
 	}
 	water_training_5 = {
 
-		waterbender_advanced = {
-			max_organisation = 3
-			default_morale = 0.2
-		}
-		waterbender = {
-			max_organisation = 2
-			default_morale = 0.2
-		}
 
-		path = {
-			leads_to_tech = water_training_6
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 3
-		start_year = 2
-		folder = {
-			name = water_special_forces_folder
-			position = { x = 0 y = 14 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	water_training_6 = {
-
-		waterbender_advanced = {
-			max_organisation = 5
-			default_morale = 0.4
-		}
 		waterbender = {
 			max_organisation = 2
 			default_morale = 0.2
@@ -321,7 +255,7 @@ technologies = {
 		start_year = 3
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 16 }
+			position = { x = 0 y = 14 }
 		}
 		
 		categories = {
@@ -337,13 +271,13 @@ technologies = {
 
 		xor = { defense_training_water_2 }
 
-		waterbender_advanced = {
+		waterbender = {
 			soft_attack = 0.05
 			hard_attack = 0.05
 		}
 
 		path = {
-			leads_to_tech = water_master_bending
+			leads_to_tech = water_training_6
 			research_cost_coeff = 1
 		}
 
@@ -351,7 +285,7 @@ technologies = {
 		start_year = 3
 		folder = {
 			name = water_special_forces_folder
-			position = { x = -2 y = 18 }
+			position = { x = -2 y = 16 }
 		}
 		
 		categories = {
@@ -368,13 +302,13 @@ technologies = {
 
 		xor = { attack_training_water_2 }
 
-		waterbender_advanced = {
+		waterbender = {
 			defense = 0.05
 			breakthrough = 0.05
 		}
 
 		path = {
-			leads_to_tech = water_master_bending
+			leads_to_tech = water_training_6
 			research_cost_coeff = 1
 		}
 
@@ -382,7 +316,7 @@ technologies = {
 		start_year = 3
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 2 y = 18 }
+			position = { x = 2 y = 16 }
 		}
 		
 		categories = {
@@ -394,88 +328,16 @@ technologies = {
 			factor = 0
 		}
 	}
-	water_master_bending = {
-
-
-		enable_subunits = {
-			waterbender_master
+	
+	water_training_6 = {
+	
+		waterbender = {
+			max_organisation = 2
+			default_morale = 0.2
 		}
 
 		path = {
 			leads_to_tech = water_training_7
-
-			research_cost_coeff = 2
-		}
-
-		research_cost = 2
-		start_year = 4
-		folder = {
-			name = water_special_forces_folder
-			position = { x = 0 y = 20 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	water_training_7 = {
-		waterbender_master = {
-			max_organisation = 4
-			default_morale = 0.3
-		}
-
-		waterbender_advanced = {
-			max_organisation = 2
-			default_morale = 0.2
-		}
-		waterbender = {
-			max_organisation = 2
-			default_morale = 0.2
-		}
-
-		path = {
-			leads_to_tech = water_training_8
-			research_cost_coeff = 1
-		}
-
-
-		research_cost = 3
-		start_year = 2
-		folder = {
-			name = water_special_forces_folder
-			position = { x = 0 y = 22 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	water_training_8 = {
-		waterbender_master = {
-			max_organisation = 4
-			default_morale = 0.3
-		}
-
-		waterbender_advanced = {
-			max_organisation = 3
-			default_morale = 0.2
-		}
-		waterbender = {
-			max_organisation = 2
-			default_morale = 0.2
-		}
-
-		path = {
-			leads_to_tech = water_training_9
 			research_cost_coeff = 1
 		}
 		
@@ -483,7 +345,7 @@ technologies = {
 		start_year = 3
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 24 }
+			position = { x = 0 y = 20 }
 		}
 		
 		categories = {
@@ -495,16 +357,8 @@ technologies = {
 			factor = 0
 		}
 	}
-	water_training_9 = {
-		waterbender_master = {
-			max_organisation = 4
-			default_morale = 0.3
-		}
-
-		waterbender_advanced = {
-			max_organisation = 5
-			default_morale = 0.4
-		}
+	water_training_7 = {
+		
 		waterbender = {
 			max_organisation = 2
 			default_morale = 0.2
@@ -514,7 +368,7 @@ technologies = {
 		start_year = 4
 		folder = {
 			name = water_special_forces_folder
-			position = { x = 0 y = 26 }
+			position = { x = 0 y = 22 }
 		}
 		
 		categories = {
