@@ -12,77 +12,78 @@ equipments = {
 		interface_category = interface_category_other_ships
 
 		module_slots = {
+			fixed_ship_armor_slot = {
+				required = no
+				allowed_module_categories = { light_hull_reinforcement }	
+			}
 			fixed_ship_crew_slot = {
 				required = yes
 				allowed_module_categories = {
 					ship_boarding
 					ship_eartbender_crew
+					ship_firebender_crew
+					ship_waterbender_crew
 					ship_airbender_crew
 					ship_archers
 					maintenance_crew
 				}
 			}
-			fixed_ship_mast_slot = {
-				required = no
-				allowed_module_categories = { crows_nest sails }
-			}
-			fixed_ship_oars_slot = {
-				required = yes
-				allowed_module_categories = { oars sails }
-			}
 			fixed_ship_storage_slot = {
 				required = no
 				allowed_module_categories = { supplies }
 			}
+			fixed_ship_oars_slot = {
+				required = no
+				allowed_module_categories = { oars }
+			}
+			fixed_ship_mast_slot = {
+				required = no
+				allowed_module_categories = { crows_nest sails }
+			}
 		}
+
 		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
+			category = maintenance_crew
 			count < 2
 		}
 		module_count_limit = {
 			category = sails
-			count < 2
+			count > 0
+		}
+
+		default_modules = {
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_crew_slot = empty
+			fixed_ship_storage_slot = empty
+			fixed_ship_oars_slot = empty
+			fixed_ship_mast_slot = sails_1
 		}
 		
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
 		surface_detection = 20
-		sub_detection = 0
-		surface_visibility = 1
-		sub_visibility = 25
-		naval_speed = 14
-		reliability = 0.60
+		surface_visibility = 10
 		
-		naval_range = 2500
-		
-		max_strength = 10
-		
-
-		fuel_consumption = 1
-		
-		build_cost_ic = 220
+		reliability = 0.70
+		naval_range = 60
+		max_strength = 20
+		fuel_consumption = 24
+		manpower = 40
+		build_cost_ic = 4000
 		resources = {
 			aluminium = 1
 			chromium = 1
 		}
 		
-		manpower = 200
 	}
 	
 	galley_hull_1 = {
@@ -101,43 +102,30 @@ equipments = {
 		archetype = galley_hull
 		priority = 2500
 		parent = galley_hull_1
-		module_slots = {
-			fixed_ship_crew_slot = inherit
-			fixed_ship_mast_slot = inherit
-			fixed_ship_oars_slot = inherit
-			fixed_sails_slot = {
-				required = no
-				allowed_module_categories = { sails }
-			}
-			fixed_ship_storage_slot = inherit
-		}
-		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
-		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
+		reliability = 0.74
+		naval_range = 60
 		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
+		fuel_consumption = 27.6
+		manpower = 46
+		build_cost_ic = 4200
 		resources = {
 			aluminium = 1
 			chromium = 1
 		}
-		type = { 
-			screen_ship
+
+		module_slots = {
+			fixed_ship_armor_slot = inherit
+			fixed_ship_crew_slot = inherit
+			fixed_ship_storage_slot = inherit
+			fixed_ship_oars_slot = inherit
+			fixed_ship_mast_slot = inherit
+			fixed_sails_slot = {
+				required = no
+				allowed_module_categories = { sails }
+			}
 		}
+
 	}
 
 	galley_hull_3 = {
@@ -146,11 +134,20 @@ equipments = {
 		archetype = galley_hull
 		priority = 2500
 		parent = glley_hull_2
+
+		reliability = 0.78
+		naval_range = 60
+		max_strength = 20
+		fuel_consumption = 31.2
+		manpower = 52
+		build_cost_ic = 4400
+		resources = {
+			aluminium = 1
+			chromium = 1
+		}
+
 		module_slots = {
-			fixed_ship_armor_slot = {
-				required = yes
-				allowed_module_categories = { light_hull_reinforcement }	
-			}
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_mast_slot = inherit
 			fixed_ship_storage_slot = inherit
@@ -163,38 +160,15 @@ equipments = {
 					ship_boarding
 					ship_eartbender_crew
 					ship_airbender_crew
-					ship_archers
+					ship_firebender_crew
+					ship_waterbender_crew
 					maintenance_crew
+
+					ship_ballista
 				}
 			}
 		}
-		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
-		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-			tungsten = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 
 	galley_hull_4 = {
@@ -203,10 +177,22 @@ equipments = {
 		archetype = galley_hull
 		priority = 2500
 		parent = galley_hull_3
+
+		reliability = 0.82
+		naval_range = 60
+		max_strength = 20
+		fuel_consumption = 34.8
+		manpower = 58
+		build_cost_ic = 4600
+		resources = {
+			aluminium = 1
+			chromium = 1
+		}
+
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
-				allowed_module_categories = { light_hull_reinforcement }	
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement }	
 			}
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -216,33 +202,7 @@ equipments = {
 			fixed_ship_storage_slot = inherit
 			aftercastle_custom_slot = inherit
 		}
-		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
-		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-			tungsten = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 	
 	galley_hull_5 = {
@@ -251,6 +211,18 @@ equipments = {
 		archetype = galley_hull
 		priority = 2500
 		parent = galley_hull_4
+
+		reliability = 0.86
+		naval_range = 60
+		max_strength = 20
+		fuel_consumption = 38.4
+		manpower = 64
+		build_cost_ic = 4800
+		resources = {
+			aluminium = 1
+			chromium = 1
+		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -269,44 +241,9 @@ equipments = {
 					ship_catapult
 				}
 			}
-			aftercastle_custom_slot = {
-				required = no
-				allowed_module_categories = {
-					ship_archers
-					ship_boarding
-					ship_eartbender_crew
-					ship_airbender_crew
-					maintenance_crew
-				}
-			}
-		}
-		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
+			aftercastle_custom_slot = inherit
 		}
 		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
-
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-			tungsten = 1
-		}
-		type = { 
-			screen_ship
-		}
 	}
 	
 	galley_hull_6 = {
@@ -315,6 +252,17 @@ equipments = {
 		archetype = galley_hull
 		priority = 2500
 		parent = galley_hull_5
+
+		reliability = 0.90
+		naval_range = 60
+		max_strength = 20
+		fuel_consumption = 42
+		manpower = 70
+		build_cost_ic = 5000
+		resources = {
+			aluminium = 1
+			chromium = 1
+		}
 		
 		module_slots = {
 			fixed_ship_armor_slot = inherit
@@ -326,43 +274,21 @@ equipments = {
 			forecastle_custom_slot = {
 				required = no
 				allowed_module_categories = {
+					ship_archers
 					ship_boarding
 					ship_eartbender_crew
 					ship_airbender_crew
-					ship_archers
+					ship_firebender_crew
+					ship_waterbender_crew
 					maintenance_crew
+
+					ship_ballista
 				}
 			}
 			deck_1_custom_slot = inherit
 			aftercastle_custom_slot = forecastle_custom_slot
 		}
-		module_count_limit = {
-			category = ship_earthbender_crew
-			count < 2
-		}
-		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
-		}
-		
-		sub_visibility = 20
-		naval_speed = 14
-		reliability = 0.70
 
-		naval_range = 4000
-		reliability = 0.70
-		max_strength = 20
-		
-
-		
-		build_cost_ic = 250
-		resources = {
-			aluminium = 1
-			steel = 2
-		}
-		type = { 
-			screen_ship
-		}
 	}
 	
 	galley_ship_1 = {

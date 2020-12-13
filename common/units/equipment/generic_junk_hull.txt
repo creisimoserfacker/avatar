@@ -4,7 +4,7 @@ equipments = {
 
 		is_archetype = yes
 		is_buildable = no
-		type = capital_ship
+		type = screen_ship
 		interface_category = interface_category_screen_ships
 		alias = light_cruiser
 		priority = 1900
@@ -12,7 +12,7 @@ equipments = {
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
-				allowed_module_categories = { heavy_hull_reinforcement light_hull_reinforcement }	
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement }	
 			}
 			fixed_ship_crew_slot = {
 				required = yes
@@ -58,34 +58,24 @@ equipments = {
 		
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
 		surface_detection = 20
-		sub_detection = 1
-		surface_visibility = 15
-		naval_speed = 20
+		surface_visibility = 20
+		
 		reliability = 0.80
-
-		mines_sweeping = 1
-		
 		naval_range = 120
-		
-		max_strength = 100		
-		
-		fuel_consumption = 120 #mp/100*range
-		manpower = 100
-		
-		build_cost_ic = 1200
+		max_strength = 80	
+		fuel_consumption = 72 #mp/100*range
+		manpower = 60
+		build_cost_ic = 6400
 		resources = {
 			chromium = 1
 			aluminium = 1
@@ -109,17 +99,19 @@ equipments = {
 		archetype = junk_hull
 		priority = 1900
 		parent = junk_hull_1
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.83
+		naval_range = 120
+		max_strength = 80	
+		fuel_consumption = 79.2 #mp/100*range
+		manpower = 66
+		build_cost_ic = 6600
 		resources = {
 			chromium = 1
 			aluminium = 1
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -154,18 +146,24 @@ equipments = {
 		archetype = junk_hull
 		priority = 1900
 		parent = junk_hull_2
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.86
+		naval_range = 120
+		max_strength = 80	
+		fuel_consumption = 86.4 #mp/100*range
+		manpower = 72
+		build_cost_ic = 6800
 		resources = {
-			aluminium = 2
+			chromium = 1
+			aluminium = 1
 			tungsten = 1
 		}
+
 		module_slots = {
-			fixed_ship_armor_slot = inherit
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement heavy_hull_reinforcement }	
+			}
 			fixed_ship_crew_slot = inherit
 			fixed_ship_artillery_slot = {
 				required = no
@@ -206,16 +204,19 @@ equipments = {
 		archetype = junk_hull
 		priority = 1900
 		parent = junk_hull_3
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.89
+		naval_range = 120
+		max_strength = 80	
+		fuel_consumption = 93.6 #mp/100*range
+		manpower = 78
+		build_cost_ic = 7000
 		resources = {
-			aluminium = 2
+			chromium = 1
+			aluminium = 1
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -252,17 +253,19 @@ equipments = {
 		archetype = junk_hull
 		priority = 1900
 		parent = junk_hull_4
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.92
+		naval_range = 120
+		max_strength = 80	
+		fuel_consumption = 100.8 #mp/100*range
+		manpower = 84
+		build_cost_ic = 7200
 		resources = {
+			chromium = 1
 			aluminium = 1
 			tungsten = 1
-			steel = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit

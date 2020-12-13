@@ -10,6 +10,10 @@ equipments = {
 		priority = 1900
 
 		module_slots = {
+			fixed_ship_armor_slot = {
+				required = no
+				allowed_module_categories = { light_hull_reinforcement }	
+			}
 			fixed_ship_crew_slot = {
 				required = yes
 				allowed_module_categories = {
@@ -21,59 +25,50 @@ equipments = {
 				}
 			}
 			fixed_ship_mast_slot = {
-				required = no
-				allowed_module_categories = { crows_nest }
+				required = yes
+				allowed_module_categories = { main_sails }
 			}
 			fixed_ship_sails_slot = {
-				required = yes
-				allowed_module_categories = { sails }
+				required = no
+				allowed_module_categories = { main_sails sails crows_nest }
 			}
 			fixed_ship_storage_slot = {
 				required = no
 				allowed_module_categories = { supplies }
 			}
 		}
+		
 		module_count_limit = {
-			category = ship_earthbender_crew
+			category = maintenance_crew
 			count < 2
 		}
 		module_count_limit = {
-			category = ship_airbender_crew
-			count < 2
+			category = sails
+			count > 0
 		}
 		
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
 		surface_detection = 20
-		sub_detection = 1
 		surface_visibility = 15
-		naval_speed = 20
-		reliability = 0.80
-
-		mines_sweeping = 1
 		
-		naval_range = 120
-		
-		max_strength = 100		
-		
-		fuel_consumption = 120 #mp/100*range
-		manpower = 100
-		
-		build_cost_ic = 1200
+		reliability = 0.75
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 80 #mp/100*range
+		manpower = 80
+		build_cost_ic = 6200
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
 	}
@@ -94,17 +89,20 @@ equipments = {
 		archetype = barque_hull
 		priority = 1900
 		parent = barque_hull_1
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.78
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 90 #mp/100*range
+		manpower = 90
+		build_cost_ic = 6600
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
+
 		module_slots = {
+			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
 			fixed_ship_mast_slot = inherit
 			fixed_ship_sails_slot = inherit
@@ -138,20 +136,22 @@ equipments = {
 		archetype = barque_hull
 		priority = 1900
 		parent = barque_hull_2
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.81
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 100 #mp/100*range
+		manpower = 100
+		build_cost_ic = 7000
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
-				allowed_module_categories = { light_hull_reinforcement }	
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement }	
 			}
 			fixed_ship_crew_slot = inherit
 			fixed_ship_mast_slot = inherit
@@ -175,16 +175,18 @@ equipments = {
 		archetype = barque_hull
 		priority = 1900
 		parent = barque_hull_3
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.84
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 110 #mp/100*range
+		manpower = 110
+		build_cost_ic = 7400
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -228,16 +230,18 @@ equipments = {
 		archetype = barque_hull
 		priority = 1900
 		parent = barque_4
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.87
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 120 #mp/100*range
+		manpower = 120
+		build_cost_ic = 7800
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -280,16 +284,18 @@ equipments = {
 		archetype = barque_hull
 		priority = 1900
 		parent = barque_4
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.90
+		naval_range = 100
+		max_strength = 60
+		fuel_consumption = 130 #mp/100*range
+		manpower = 130
+		build_cost_ic = 8200
 		resources = {
-			aluminium = 1
+			aluminium = 2
 			tungsten = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit

@@ -12,7 +12,7 @@ equipments = {
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
-				allowed_module_categories = { heavy_hull_reinforcement }	
+				allowed_module_categories = { light_armor_plates medium_armor_plates heavy_armor_plates }	
 			}
 			fixed_ship_crew_slot = {
 				required = yes
@@ -78,37 +78,27 @@ equipments = {
 		
 		lg_armor_piercing = 0
 		lg_attack = 0
-		
 		hg_armor_piercing = 0
 		hg_attack = 0
-		
 		torpedo_attack = 0
 		sub_attack = 0
-		
 		anti_air_attack = 0
-		
 		armor_value = 0
-
+		naval_speed = 0
+		sub_detection = 0
 		
-		surface_detection = 20
-		sub_detection = 1
-		surface_visibility = 15
-		naval_speed = 20
-		reliability = 0.80
-
-		mines_sweeping = 1
-		
-		naval_range = 120
-		
-		max_strength = 100		
-		
+		surface_detection = 15
+		surface_visibility = 30
+	
+		reliability = 0.60
+		naval_range = 72
+		max_strength = 120		
 		fuel_consumption = 120 #mp/100*range
 		manpower = 100
-		
-		build_cost_ic = 1200
+		build_cost_ic = 26400
 		resources = {
 			aluminium = 2
-			tungsten = 1
+			steel = 1
 		}
 	}
 
@@ -128,16 +118,18 @@ equipments = {
 		archetype = warship_hull
 		priority = 1900
 		parent = warship_hull_1
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.65
+		naval_range = 72
+		max_strength = 120		
+		fuel_consumption = 144 #mp/100*range
+		manpower = 120
+		build_cost_ic = 27000
 		resources = {
 			aluminium = 2
-			tungsten = 1
+			steel = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
@@ -182,15 +174,15 @@ equipments = {
 		archetype = warship_hull
 		priority = 1900
 		parent = warship_hull_2
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.70
+		naval_range = 72
+		max_strength = 120		
+		fuel_consumption = 168 #mp/100*range
+		manpower = 140
+		build_cost_ic = 27600
 		resources = {
-			aluminium = 1
-			tungsten = 1
+			aluminium = 2
 			steel = 1
 		}
 		
@@ -222,17 +214,18 @@ equipments = {
 		archetype = warship_hull
 		priority = 1900
 		parent = warship_hull_3
-		manpower = 800
-		naval_speed = 25
-		reliability = 0.85
-		build_cost_ic = 1900
-		naval_range = 3000
-		max_strength = 110
+		
+		reliability = 0.75
+		naval_range = 72
+		max_strength = 120		
+		fuel_consumption = 192 #mp/100*range
+		manpower = 160
+		build_cost_ic = 28200
 		resources = {
-			aluminium = 1
-			tungsten = 1
+			aluminium = 2
 			steel = 1
 		}
+
 		module_slots = {
 			fixed_ship_armor_slot = inherit
 			fixed_ship_crew_slot = inherit
