@@ -21,6 +21,8 @@ on_actions = {
             if = {
 				limit = { country_has_war_exhaustion = yes }
 
+					##### ideas ####
+					
 				if = {
 					limit = { has_idea = economy_3 }
 	                add_to_variable = { war_exhaustion_variable = 5 }
@@ -47,14 +49,8 @@ on_actions = {
 					limit = { has_idea = family_support_5 }
 	                add_to_variable = { war_exhaustion_variable = -50 }
 				}
-			}
-		}
-	}
 
-	on_weekly = {
-		effect = {
-            if = {
-				limit = { country_has_war_exhaustion = yes }
+					#### occupation ###
 
 				set_variable = { occupation_war_exhaustion = num_occupied_states }
 
@@ -62,6 +58,7 @@ on_actions = {
 					limit = { num_occupied_states > 0 }
 	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
 				}
+
 			}
 		}
 	}

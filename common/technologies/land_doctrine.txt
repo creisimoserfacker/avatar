@@ -13,6 +13,7 @@ technologies = {
 
 		invasion_preparation = -0.3
 		amphibious_invasion = 0.25
+		navy_max_range_factor = 0.05
 		
 		doctrine = yes
 		research_cost = 7
@@ -81,7 +82,8 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		naval_hit_chance = 0.05
+		ships_at_battle_start = 0.25
 		
 		doctrine = yes
 		research_cost = 7
@@ -109,11 +111,7 @@ technologies = {
 
 	airborn_fleet = {
 
-		dependencies = {
-			power = 1
-		}
-
-		xp_research_type = navy
+		xp_research_type = air
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
@@ -122,8 +120,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		invasion_preparation = -0.3
-		amphibious_invasion = 0.25
+		air_range_factor = 0.1
+		experience_gain_air_factor = 0.1
+		army_bonus_air_superiority_factor = 0.05
 		
 		doctrine = yes
 		research_cost = 7
@@ -151,7 +150,7 @@ technologies = {
 
 	strategic_bombing = {
 
-		xp_research_type = navy
+		xp_research_type = air
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
@@ -160,7 +159,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		shore_bombardment_bonus = 0.2
+		air_strategic_bomber_bombing_factor = 0.2
 		
 		doctrine = yes
 		research_cost = 7
@@ -192,7 +191,7 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		air_strategic_bomber_bombing_factor = 0.2
 		
 		doctrine = yes
 		research_cost = 7
@@ -244,8 +243,9 @@ technologies = {
 
 		enable_tactic = tactic_volley_fire
 
-		category_ranged = {
+		category_front_army = {
 			soft_attack = 0.1
+			breakthrough = 0.1
 		}
 		
 		doctrine = yes
@@ -298,9 +298,12 @@ technologies = {
 		}
 		
 		category_melee = {
-			breakthrough = 0.10
-			max_organisation = 10
+			breakthrough = 0.20
 		}
+		category_ranged = {
+			breakthrough = 0.10
+		}
+		org_loss_when_moving = -0.1
 
 		doctrine = yes
 		research_cost = 7
@@ -342,9 +345,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		category_ranged = {
-			max_organisation = 5
-			hard_attack = 0.15
+		army_speed_factor = 0.10
+		category_front_army = {
+			default_morale = 0.1
 		}
 
 		doctrine = yes
@@ -391,7 +394,8 @@ technologies = {
 		}
 
 		category_melee ={
-			breakthrough = 0.1
+			soft_attack = 0.1
+			max_organisation = 10
 		}
 		
 		doctrine = yes
@@ -430,17 +434,30 @@ technologies = {
 		}
 
 		firenation_cruiser = {
-			max_organisation = 10
+			lg_attack = 0.10
 			surface_detection = 0.05			
 		}
 		firenation_heavy_cruiser = {
-			max_organisation = 10
+			lg_attack = 0.10
 			surface_detection = 0.05
 		}
 		junk = {
-			max_organisation = 10
+			lg_attack = 0.10
 			surface_detection = 0.05
 		}
+		heavy_junk = {
+			lg_attack = 0.10
+			surface_detection = 0.05
+		}
+		watertribe_cutter_ship = {
+			lg_attack = 0.10
+			surface_detection = 0.05
+		}
+		watertribe_cutter_flagship = {
+			lg_attack = 0.10
+			surface_detection = 0.05
+		}
+		mines_planting_by_fleets_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -513,8 +530,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		invasion_preparation = -0.3
-		amphibious_invasion = 0.25
+		category_front_army = {
+			max_organisation = 10
+		}
+		land_reinforce_rate = 0.02
 		
 		doctrine = yes
 		research_cost = 7
@@ -542,7 +561,7 @@ technologies = {
 
 	multiplanar_warfare = {
 
-		xp_research_type = navy
+		xp_research_type = army
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
@@ -551,7 +570,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		shore_bombardment_bonus = 0.2
+		max_planning = 0.1
+		planning_speed = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -579,11 +599,11 @@ technologies = {
 
 	flying_fortress = {
 
-		xp_research_type = navy
+		xp_research_type = air
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		air_strategic_bomber_defence_factor = 0.25
 		
 		doctrine = yes
 		research_cost = 7
@@ -638,11 +658,8 @@ technologies = {
 		}
 
 		enable_tactic = tactic_shield_wall
-		spearmen = {
-			combat_width = -0.5
-		}
-		pikemen = {
-			combat_width = -0.5
+		category_front_army = {
+			defense = 0.2
 		}
 		
 		doctrine = yes
@@ -682,9 +699,10 @@ technologies = {
 		spearmen = {
 			combat_width = -0.5
 		}
-
-
-		land_reinforce_rate = 0.05
+		pikemen = {
+			combat_width = -0.5
+		}
+		minimum_training_level = -0.1
 
 		path = {
 			leads_to_tech = endurance
@@ -744,10 +762,11 @@ technologies = {
 			leads_to_tech = root_b
 			research_cost_coeff = 1
 		}
-		minimum_training_level = -0.1
+
 		category_all_foot = {
 			default_morale = 0.1
 		}
+		land_reinforce_rate = 0.05
 
 		doctrine = yes
 		research_cost = 5
@@ -902,8 +921,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		invasion_preparation = -0.3
-		amphibious_invasion = 0.25
+		convoy_escort_efficiency = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -940,7 +958,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		shore_bombardment_bonus = 0.2
+		convoy_escort_efficiency = 0.2
 		
 		doctrine = yes
 		research_cost = 7
@@ -972,7 +990,7 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		convoy_escort_efficiency = 0.3
 		
 		doctrine = yes
 		research_cost = 7
@@ -1026,6 +1044,9 @@ technologies = {
 
 		enable_tactic = tactic_ambush
 		land_night_attack = 0.25
+		category_all_foot = {
+			default_morale = 0.2
+		}
 		
 		doctrine = yes
 		research_cost = 2.50
@@ -1126,12 +1147,7 @@ technologies = {
 			research_cost_coeff = 1
 		}		
 
-		category_melee = {
-			defense = 0.15
-		}
-		category_all_cavalry = {
-			defense = 0.1
-		}
+		resistance_damage_to_garrison_on_our_occupied_states = 0.4
 
 		doctrine = yes
 		research_cost = 5
@@ -1176,9 +1192,10 @@ technologies = {
 		}
 
 		junk = {
-			max_organisation = 10
+			lg_attack = 0.05
 			surface_detection = 0.15
 		}
+		naval_speed_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -1216,9 +1233,29 @@ technologies = {
 		}
 
 		galley = {
-			lg_attack = 0.05
 			convoy_raiding_coordination = 0.2
 		}
+		barque = {
+			convoy_raiding_coordination = 0.2
+		}
+		watertribe_canoe = {
+			convoy_raiding_coordination = 0.2
+		}
+		watertribe_raft = {
+			convoy_raiding_coordination = 0.2
+		}
+		watertribe_cutter_ship = {
+			convoy_raiding_coordination = 0.2
+		}
+		watertribe_submarine = {
+			convoy_raiding_coordination = 0.2
+		}
+		firenation_frigate = {
+			convoy_raiding_coordination = 0.2
+		}
+
+		naval_retreat_chance = 0.1
+		naval_retreat_speed = 0.25
 		
 		doctrine = yes
 		research_cost = 7
@@ -1250,7 +1287,7 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		convoy_raiding_efficiency_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -1279,7 +1316,7 @@ technologies = {
 
 	assimetrical_warfare = {
 
-		xp_research_type = navy
+		xp_research_type = army
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
@@ -1288,8 +1325,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		invasion_preparation = -0.3
-		amphibious_invasion = 0.25
+		category_front_army = {
+			default_morale = 0.2
+		}
 		
 		doctrine = yes
 		research_cost = 7
@@ -1317,7 +1355,7 @@ technologies = {
 
 	infiltration = {
 
-		xp_research_type = navy
+		xp_research_type = army
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
@@ -1326,7 +1364,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		shore_bombardment_bonus = 0.2
+		enable_tactic = tactic_infiltration
+		supply_consumption_factor = -0.10
 		
 		doctrine = yes
 		research_cost = 7
@@ -1358,7 +1397,9 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		category_all_foot = {
+			defense = 0.15
+		}
 		
 		doctrine = yes
 		research_cost = 7
@@ -1410,9 +1451,8 @@ technologies = {
 		}
 
 		enable_tactic = tactic_hold_chokepoint
-		category_bender = {
-			defense = 0.15
-		}
+		army_speed_factor = 0.10
+		org_loss_when_moving = -0.25
 		
 		doctrine = yes
 		research_cost = 2.50
@@ -1665,8 +1705,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		invasion_preparation = -0.3
-		amphibious_invasion = 0.25
+		air_interception_agility_factor = 0.2
+		air_mission_xp_gain_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -1703,7 +1743,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		shore_bombardment_bonus = 0.2
+		air_air_superiority_attack_factor = 0.2
+		air_air_superiority_agility_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -1735,7 +1776,8 @@ technologies = {
 		xp_research_cost = 100
 		xp_research_bonus = 1.00
 
-		convoy_escort_efficiency = 0.05
+		air_ace_generation_chance_factor = 0.15
+		air_close_air_support_attack_factor = 0.1
 		
 		doctrine = yes
 		research_cost = 7
@@ -1780,9 +1822,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_mounted = {
+		category_bender = {
 			breakthrough = 0.1
-			max_organisation = 5
+			soft_attack = 0.05
+			hard_attack = 0.05
 		}
 
 
@@ -1856,8 +1899,8 @@ technologies = {
 
 	solar_plexus_a = {
 
-		xp_research_type = army
-		xp_research_cost = 140
+		xp_research_type = navy
+		xp_research_cost = 100
 		xp_research_bonus = 0.80
 
 		path = {
@@ -1865,12 +1908,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_mounted = {
-			maximum_speed = 0.1
-		}
-		category_support_battalions = {
-			soft_attack = 0.15
-		}
+		invasion_preparation = -0.3
 
 		doctrine = yes
 		research_cost = 5
@@ -1910,7 +1948,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		avatar_field_hospital = {
+		category_healer = {
 			casualty_trickleback = 0.10
 		}
 		army_morale_factor = 0.05
@@ -1953,8 +1991,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		land_reinforce_rate = 0.05
-		planning_speed = 0.20
+		category_ranged = {
+			breakthrough = 0.2
+			soft_attack = 0.1
+			hard_attack = 0.1
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -1996,6 +2037,9 @@ technologies = {
 
 		category_scout = { 
 			recon = 1 
+		}
+		category_front_army = {
+			breakthrough = 0.15
 		}
 
 		enable_tactic = tactic_oblique_assault
@@ -2048,11 +2092,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_mounted = {
-			soft_attack = 0.1
-		}
-		category_ranged = {
-			breakthrough = 0.15
+		category_all_cavalry = {
+			soft_attack = 0.2
+			hard_attack = 0.1
+			max_organisation = 10
 		}
 
 		doctrine = yes
@@ -2103,7 +2146,7 @@ technologies = {
 			energy_and_drive = 1
 		}
 
-		enable_tactic = tactic_backhand_blow
+		enable_tactic = tactic_hammer_and_anvil
 		casualty_trickleback = 0.10
 		experience_loss_factor = -0.15
 		
@@ -2148,7 +2191,10 @@ technologies = {
 		category_army = {
 			defense = 0.2
 		}
-		max_dig_in = 15
+		
+		category_front_army = {
+			max_organisation = 10
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -2234,9 +2280,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		enable_tactic = tactic_relentless_assault
-		category_all_infantry = {
-			soft_attack = 0.15
+		enable_tactic = tactic_rushed_assault
+		category_bender = {
+			breakthrough = 0.15
 		}
 		
 		doctrine = yes
@@ -2320,7 +2366,11 @@ technologies = {
 		xp_research_cost = 140
 		xp_research_bonus = 0.80
 
-		category_all_mounted = {
+		category_cavalry = {
+			breakthrough = 0.10
+			soft_attack = 0.20
+		}
+		category_tanks = {
 			breakthrough = 0.10
 			soft_attack = 0.20
 		}
@@ -2367,7 +2417,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_breakthrough
+		enable_tactic = tactic_cautious_advance
 		army_speed_factor = 0.15
 		
 		doctrine = yes
@@ -2451,7 +2501,7 @@ technologies = {
 		xp_research_bonus = 0.80
 
 		org_loss_when_moving = -0.1
-		category_all_mounted = {
+		category_all_cavalry = {
 			breakthrough = 0.15
 			max_organisation = 5
 		}
@@ -2502,10 +2552,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_infantry = {
-			defense = 0.1
+		category_all_melee = {
+			max_organisation = 5
 		}
 		max_dig_in = 10
+		dig_in_speed_factor = 0.25
 
 		doctrine = yes
 		research_cost = 5
@@ -2545,8 +2596,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_barrage
-		enable_tactic = tactic_elastic_defense
+		enable_tactic = tactic_mass_charge
+		enable_tactic = tactic_force_concentration
 
 		doctrine = yes
 		research_cost = 5
@@ -2586,8 +2637,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		political_power_factor = 0.1
-		high_command_cost_factor = -0.20
+		category_bender = {
+			max_organisation = 5
+			soft_attack = 0.1
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -2627,10 +2680,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		category_army = {
-			default_morale = 0.10
-			supply_consumption_factor = -0.1
+		category_front_army = {
+			max_organisation = 5
 		}
+		supply_consumption_factor = -0.10
 
 		doctrine = yes
 		research_cost = 5
@@ -2670,8 +2723,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
+		category_melee = {
+			soft_attack = 0.1
+		}
 		land_reinforce_rate = 0.05
-		planning_speed = 0.15
 
 		doctrine = yes
 		research_cost = 5
@@ -2711,10 +2766,12 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		recon = {
+		category_scout = {
 			recon = 1
 		}
 		max_planning = 0.20
+
+		enable_tactic = tactic_pincer_movement
 		
 		doctrine = yes
 		research_cost = 5
@@ -2759,8 +2816,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		category_army = {
-			defense = 0.1
+		category_front_army = {
+			soft_attack = 0.05
+			max_organisation = 10
 		}
 		dig_in_speed_factor = 0.15
 
@@ -2806,7 +2864,7 @@ technologies = {
 		}
 
 		max_dig_in = 15
-		enable_tactic = tactic_delay
+		enable_tactic = tactic_field_traps
 
 		doctrine = yes
 		research_cost = 5
@@ -2846,12 +2904,14 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_infantry = {
+		category_melee = {
 			defense = 0.15
+			soft_attack = 0.1
 		}
 
-		category_all_ranged = {
+		category_ranged = {
 			defense = 0.15
+			hard_attack = 0.1
 		}
 
 		doctrine = yes
@@ -2887,12 +2947,10 @@ technologies = {
 		xp_research_cost = 140
 		xp_research_bonus = 0.80
 
-		category_all_infantry = {
-			hard_attack = 0.20
-		}
-
-		category_all_ranged = {
-			hard_attack = 0.20
+		out_of_supply_factor = -0.2
+		spearmen = {
+			combat_width = -0.5
+			soft_attack = 0.1
 		}
 
 		doctrine = yes
@@ -2938,7 +2996,7 @@ technologies = {
 
 		max_planning = 0.15
 
-		enable_tactic = tactic_planned_attack
+		enable_tactic = tactic_scattered_defense
 
 		doctrine = yes
 		research_cost = 5
@@ -2978,9 +3036,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_all_infantry = {
-			hard_attack = 0.20
-			max_organisation = 10
+		category_bender = {
+			soft_attack = 0.1
+			hard_attack = 0.1
+			breakthrough = 0.2
 		}
 
 		doctrine = yes
@@ -3016,8 +3075,12 @@ technologies = {
 		xp_research_cost = 140
 		xp_research_bonus = 0.80
 
-		category_all_mounted = {
-			max_organisation = 10
+		category_all_cavalry = {
+			soft_attack = 0.2
+			breakthrough = 0.2
+		}
+		category_all_tanks = {
+			soft_attack = 0.2
 			breakthrough = 0.2
 		}
 
@@ -3067,8 +3130,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_core_attack_factor = 0.1
-		army_core_defence_factor = 0.1
+		army_speed_factor = 0.10
+		army_morale_factor = 0.25
 
 		doctrine = yes
 		research_cost = 5
@@ -3108,8 +3171,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		enable_tactic = tactic_guerrilla_tactics
-		enable_tactic = tactic_elastic_defense
+		enable_tactic = tactic_defeat_in_detail
+		enable_tactic = tactic_field_traps
 
 		doctrine = yes
 		research_cost = 5
@@ -3149,7 +3212,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		experience_loss_factor = -0.1
-		political_advisor_cost_factor = -0.25
+		category_bender = {
+			max_organisation = 10
+			default_morale = 0.2
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -3189,10 +3255,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		field_hospital = {
+		category_healer = {
 			casualty_trickleback = 0.15
-			}
-		MONTHLY_POPULATION = 0.2
+		}
+		experience_loss_factor = -0.1
 
 		doctrine = yes
 		research_cost = 5
@@ -3232,8 +3298,12 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		encryption_factor = 0.1
-		max_planning = 0.15
+		decryption_factor = 0.1
+		army_morale_factor = 0.25
+
+		category_bender = {
+			soft_attack = 0.2
+		}
 
 		doctrine = yes
 		research_cost = 5
@@ -3273,10 +3343,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		decryption_factor = 0.2
-		category_all_ranged = {
-			 defense = 0.2
+		encryption_factor = 0.2
+		category_all_spear = {
+			soft_attack = 0.05
+			hard_attack = 0.25
 		}
+
+		enable_tactic = tactic_hit_and_run
 
 		doctrine = yes
 		research_cost = 5
@@ -3326,9 +3399,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		category_support_battalions = {
+		category_support = {
 			soft_attack = 0.25
 			hard_attack = 0.25
+			default_morale = 0.2
 		}
 
 		doctrine = yes
@@ -3372,8 +3446,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		partisan_effect = 0.3
-		enable_tactic = tactic_tactical_withdrawal
+		resistance_damage_to_garrison_on_our_occupied_states = 0.1
+		enable_tactic = tactic_feint_retreat
 
 		doctrine = yes
 		research_cost = 5
@@ -3497,7 +3571,7 @@ technologies = {
 
 		army_speed_factor = 0.15
 		org_loss_when_moving = -0.15
-		enable_tactic = tactic_unexpected_thrust
+		enable_tactic = tactic_evade_battle
 
 		doctrine = yes
 		research_cost = 5
@@ -3577,7 +3651,7 @@ technologies = {
 		xp_research_cost = 140
 		xp_research_bonus = 0.80
 
-		category_all_ranged = {
+		category_ranged = {
 			soft_attack = 0.15
 			hard_attack = 0.20
 			max_organisation = 10
@@ -3631,7 +3705,7 @@ technologies = {
 			defense = 0.2
 		}
 
-		enable_tactic = tactic_barrage
+		enable_tactic = tactic_square_formation
 
 		doctrine = yes
 		research_cost = 5
