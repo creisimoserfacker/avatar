@@ -204,12 +204,19 @@ equipments = {
 		}
 
 		module_slots = {
-			fixed_ship_armor_slot = inherit
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement light_armor_plates }	
+			}
 			fixed_ship_crew_slot = inherit
 			fixed_ship_oars_slot = inherit
 			fixed_ship_storage_slot = inherit
 			deck_1_custom_slot = inherit
 			aftercastle_custom_slot = inherit
+			engine_slot = {
+				required = no
+				allowed_module_categories = { steam_engine }
+			}
 		}
 		module_count_limit = {
 			category = ship_waterbender_crew
