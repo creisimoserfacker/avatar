@@ -276,19 +276,19 @@ equipments = {
 		}
 
 		module_slots = {
-			fixed_ship_armor_slot = inherit
+			fixed_ship_armor_slot = {
+				required = yes
+				allowed_module_categories = { light_hull_reinforcement medium_hull_reinforcement light_armor_plates medium_armor_plates }	
+			}
 			fixed_ship_crew_slot = inherit
 			fixed_ship_artillery_slot = inherit
 			fixed_ship_mast_slot = inherit
 			fixed_ship_storage_slot = inherit
 			fixed_ship_sails_slot = inherit
 			deck_1_custom_slot = inherit
-			mast_1_custom_slot = {
+			engine_slot = {
 				required = no
-				allowed_module_categories = {
-					sails
-					crows_nest
-				}
+				allowed_module_categories = { steam_engine }
 			}
 			deck_2_custom_slot = deck_1_custom_slot
 			aftercastle_custom_slot = inherit
@@ -572,7 +572,7 @@ equipments = {
 			fixed_ship_sails_slot = sails_3
 			fixed_ship_storage_slot = supplies_3
 			deck_1_custom_slot = ship_archers_3
-			mast_1_custom_slot = sails_3
+			engine_slot = steam_engine_3 
 			deck_2_custom_slot = mine_layer_3
 			aftercastle_custom_slot =  maintenance_crew_3
 		}
@@ -671,7 +671,7 @@ equipments = {
 		}
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_armor_slot = medium_hull_reinforcement_1
 			fixed_ship_crew_slot = boarding_crew_1
 			fixed_ship_mast_slot = crows_nest_1
 			fixed_ship_sails_slot = sails_1
@@ -722,7 +722,7 @@ equipments = {
 		}
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_hull_reinforcement_2
+			fixed_ship_armor_slot = medium_hull_reinforcement_2
 			fixed_ship_crew_slot = boarding_crew_2
 			fixed_ship_mast_slot = crows_nest_2
 			fixed_ship_sails_slot = sails_2
@@ -775,7 +775,7 @@ equipments = {
 		}
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_hull_reinforcement_2
+			fixed_ship_armor_slot = medium_hull_reinforcement_2
 			fixed_ship_crew_slot = boarding_crew_2
 			fixed_ship_mast_slot = crows_nest_2
 			fixed_ship_sails_slot = sails_2
@@ -829,7 +829,7 @@ equipments = {
 		}
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_hull_reinforcement_3
+			fixed_ship_armor_slot = medium_hull_reinforcement_3
 			fixed_ship_artillery_slot = ship_ballista_1
 			fixed_ship_crew_slot = boarding_crew_3
 			fixed_ship_mast_slot = crows_nest_3
@@ -885,14 +885,14 @@ equipments = {
 		}
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_hull_reinforcement_3
+			fixed_ship_armor_slot = medium_armor_plates_3
 			fixed_ship_artillery_slot = ship_ballista_2
 			fixed_ship_crew_slot = boarding_crew_3
 			fixed_ship_mast_slot = crows_nest_3
 			fixed_ship_sails_slot = sails_3
 			fixed_ship_storage_slot = supplies_3
 			deck_1_custom_slot = ship_archers_3
-			mast_1_custom_slot = sails_3
+			engine_slot = steam_engine_3
 			deck_2_custom_slot = mine_layer_3
 			aftercastle_custom_slot =  maintenance_crew_3
 		}
