@@ -48,8 +48,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
-		experience_gain_komodo_rhinos_training_factor = 1
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_1
+		}
 		
 		research_cost = 1
 		start_year = 12
@@ -88,8 +89,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
-		experience_gain_komodo_rhinos_training_factor = 1
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_2
+		}
 		
 		research_cost = 1
 		start_year = 24
@@ -123,8 +125,14 @@ technologies = {
 
 	domestication_2 = {
 
-		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
-		experience_gain_komodo_rhinos_training_factor = 1
+		path = {
+			leads_to_tech = domestication_3
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_3
+		}
 		
 		research_cost = 1
 		start_year = 36
@@ -139,6 +147,33 @@ technologies = {
 		folder = {
 			name = armour_folder
 			position = { x = 12 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+		}	
+	}
+
+	domestication_3 = {
+
+		modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
+		#experience_gain_komodo_rhinos_training_factor = 1
+		
+		research_cost = 1
+		start_year = 48
+		folder = {
+			name = electronics_folder
+			position = { x = -8 y = 24 }
 		}
 		
 		ai_will_do = {
