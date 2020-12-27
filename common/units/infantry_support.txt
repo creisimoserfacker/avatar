@@ -27,7 +27,7 @@ sub_units = {
 		max_strength = 2
 		max_organisation = 20
 		default_morale = 0.3
-		manpower = 30
+		manpower = 120
 		training_time = 120
 
 		#Misc Abilities
@@ -35,7 +35,7 @@ sub_units = {
 		supply_consumption = 0.02
 		
 		entrenchment  = 6
-
+		reliability_factor = 0.06
 				
 		defense = 0.1
 		breakthrough = 0.5
@@ -48,14 +48,23 @@ sub_units = {
 		}
 
 		need = {
-			support_equipment = 60
+			support_equipment = 240
 		}
 
 		can_be_parachuted = no
 
 		forest = {
-			defence = 0.25
+			defence = 0.05
 			movement = 0.05
+		}
+		jungle = {
+			defence = 0.1
+			movement = 0.2
+		}
+
+		marsh = {
+			defence = 0.1
+			movement = 0.2
 		}
 
 		hills = {
@@ -67,7 +76,6 @@ sub_units = {
 			defence = 0.1
 			movement = 0.05
 		}
-
 		canyon = {
 			defence = 0.1
 			movement = 0.05
@@ -77,19 +85,16 @@ sub_units = {
 			defence = 0.1
 			movement = 0.05
 		}
-
-		jungle = {
-			defence = 0.25
-			movement = 0.2
+		high_mountain = {
+			defence = 0.05
+			movement = 0.05
 		}
 
-		marsh = {
-			defence = 0.25
-			movement = 0.2
+		village = {
+			defence = 0.1
 		}
-
-		fort = {
-			defence = 0.25
+		urban = {
+			defence = 0.1
 		}
 
 		river = {
@@ -125,9 +130,9 @@ sub_units = {
 	
 		#Size Definitions
 		max_strength = 2
-		max_organisation = 20
+		max_organisation = 29
 		default_morale = 0.3
-		manpower = 120
+		manpower = 160
 		training_time = 120
 
 		#Misc Abilities
@@ -149,43 +154,57 @@ sub_units = {
 
 		need = {
 			support_equipment = 240
-			light_armor_equipment = 120
+			light_armor_equipment = 160
 		}
 
 		can_be_parachuted = no
 
 		forest = {
-			attack = 0.1
-			movement = 0.05
+			attack = 0.05
 		}
-
-		hills = {
-			attack = 0.1
-			movement = 0.05
-		}
-
 		jungle = {
 			attack = 0.05
-			movement = 0.2
 		}
 
 		marsh = {
-			attack = 0.25
-			movement = 0.2
+			attack = 0.05
+		}
+
+		hills = {
+			attack = 0.05
+		}
+		cliff = {
+			attack = 0.05
+		}
+		canyon = {
+			attack = 0.05
+		}
+
+		mountain = {
+			attack = 0.05
+		}
+		high_mountain = {
+			attack = 0.05
+		}
+
+		village = {
+			attack = 0.05
+		}
+		urban = {
+			attack = 0.05
 		}
 
 		fort = {
-			attack = 0.25
+			attack = 0.05
 		}
 
 		river = {
 			attack = 0.5
-			movement = 0.5
+			#movement = 0.5
 		}
-
 		amphibious = {
 			attack = 0.25
-			movement = 0.25
+			#movement = 0.25
 		}
 	}
 
@@ -267,7 +286,7 @@ sub_units = {
 		max_strength = 5
 		max_organisation = 5	
 		default_morale = 0.5
-		manpower = 25
+		manpower = 40
 		training_time = 120
 
 		#Misc Abilities
@@ -276,15 +295,14 @@ sub_units = {
 		can_be_parachuted = no
 		
 		# Important Ability
-		reliability_factor = 0.02
-		equipment_capture_factor = 0.02
+		equipment_capture_factor = 0.05
 		
 		essential = {
 			support_equipment
 		}
 		
 		need = {
-			support_equipment = 25
+			support_equipment = 80
 		}
 
 	}
@@ -375,11 +393,11 @@ sub_units = {
 			attack = -0.8
 		}
 		urban = {
-			defence = 0.5
+			defence = 0.1
 			attack = -0.4
 		}
 		village = {
-			defence = 0.25
+			defence = 0.1
 			attack = -0.4
 		}
 
