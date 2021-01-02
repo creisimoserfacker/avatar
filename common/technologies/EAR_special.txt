@@ -1,6 +1,6 @@
 technologies = {
 
-	earth_equipment = {
+	earthbender_equipment_1 = {
 
 		enable_equipments = {
 			earthbender_equipment_1
@@ -15,15 +15,423 @@ technologies = {
 		}
 
 		path = {
+			leads_to_tech = earth_bender_healer
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = earth_training_1
 			research_cost_coeff = 1
 		}
-
+		
 		research_cost = 2
 		start_year = 1
 		folder = {
 			name = earth_special_forces_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earth_training_1 = {
+
+		earthbender = {
+			max_organisation = 1
+			default_morale = 0.1
+		}
+
+		path = {
+			leads_to_tech = earth_training_2
+			research_cost_coeff = 1
+		}
+
+
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earth_training_2 = {
+
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = {
+			leads_to_tech = earthbender_equipment_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 20
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 6}
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earthbender_equipment_2 = {
+
+		enable_equipments = {
+			earthbender_equipment_2
+		}
+
+		path = {
+			leads_to_tech = earth_training_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earth_training_3 = {
+
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = { 
+			leads_to_tech = attack_training_earth
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defense_training_earth
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 30
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	attack_training_earth = {
+
+		xor = { defense_training_earth }
+
+		earthbender = {
+			soft_attack = 0.02
+			hard_attack = 0.02
+		}
+
+		path = {
+			leads_to_tech = earthbender_equipment_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 35
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = -1 y = 12 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	defense_training_earth = {
+
+		xor = { attack_training_earth }
+
+		earthbender = {
+			defense = 0.02
+			breakthrough = 0.02
+		}
+
+		path = {
+			leads_to_tech = earthbender_equipment_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 35
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 1 y = 12 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	earth_training_4 = {
+
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = {
+			leads_to_tech = earth_training_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3
+		start_year = 50
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earth_training_5 = {
+
+
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = { 
+			leads_to_tech = attack_training_earth_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defense_training_earth_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 60
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 18 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	attack_training_earth_2 = {
+
+		xor = { defense_training_earth_2 }
+
+		earthbender = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+
+		path = {
+			leads_to_tech = earthbender_equipment_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 70
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = -1 y = 20 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	defense_training_earth_2 = {
+
+		xor = { attack_training_earth_2 }
+
+		earthbender = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+
+		path = {
+			leads_to_tech = earthbender_equipment_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 70
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 1 y = 20 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	earth_training_6 = {
+	
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+		
+		research_cost = 4
+		start_year = 90
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = -1 y = 24 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earth_training_7 = {
+		
+		earthbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		
+		research_cost = 3
+		start_year = 100
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 1 y = 24 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	earthbender_equipment_3 = {
+
+		enable_equipments = {
+			earthbender_equipment_3
+		}
+
+		path = {
+			leads_to_tech = earth_training_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 40
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 14 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	earthbender_equipment_4 = {
+
+		enable_equipments = {
+			earthbender_equipment_4
+		}
+
+		path = {
+			leads_to_tech = earth_training_6
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = earth_training_7
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 80
+		folder = {
+			name = earth_special_forces_folder
+			position = { x = 0 y = 22 }
 		}
 		
 		categories = {

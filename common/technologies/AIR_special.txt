@@ -1,6 +1,6 @@
 technologies = {
 
-	air_equipment = {
+	airbender_equipment_1 = {
 
 		enable_equipments = {
 			airbender_equipment_1
@@ -15,15 +15,423 @@ technologies = {
 		}
 
 		path = {
+			leads_to_tech = air_bender_healer
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = air_training_1
 			research_cost_coeff = 1
 		}
-
+		
 		research_cost = 2
 		start_year = 1
 		folder = {
 			name = air_special_forces_folder
-			position = { x = 0 y = 0 }
+			position = { x = 0 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_training_1 = {
+
+		airbender = {
+			max_organisation = 1
+			default_morale = 0.1
+		}
+
+		path = {
+			leads_to_tech = air_training_2
+			research_cost_coeff = 1
+		}
+
+
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_training_2 = {
+
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = {
+			leads_to_tech = airbender_equipment_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 20
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 6}
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	airbender_equipment_2 = {
+
+		enable_equipments = {
+			airbender_equipment_2
+		}
+
+		path = {
+			leads_to_tech = air_training_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_training_3 = {
+
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = { 
+			leads_to_tech = attack_training_air
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defense_training_air
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 30
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	attack_training_air = {
+
+		xor = { defense_training_air }
+
+		airbender = {
+			soft_attack = 0.02
+			hard_attack = 0.02
+		}
+
+		path = {
+			leads_to_tech = airbender_equipment_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 35
+		folder = {
+			name = air_special_forces_folder
+			position = { x = -1 y = 12 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	defense_training_air = {
+
+		xor = { attack_training_air }
+
+		airbender = {
+			defense = 0.02
+			breakthrough = 0.02
+		}
+
+		path = {
+			leads_to_tech = airbender_equipment_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 35
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 1 y = 12 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	air_training_4 = {
+
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = {
+			leads_to_tech = air_training_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 3
+		start_year = 50
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_training_5 = {
+
+
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		path = { 
+			leads_to_tech = attack_training_air_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = defense_training_air_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 60
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 18 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	attack_training_air_2 = {
+
+		xor = { defense_training_air_2 }
+
+		airbender = {
+			soft_attack = 0.05
+			hard_attack = 0.05
+		}
+
+		path = {
+			leads_to_tech = airbender_equipment_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 70
+		folder = {
+			name = air_special_forces_folder
+			position = { x = -1 y = 20 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	defense_training_air_2 = {
+
+		xor = { attack_training_air_2 }
+
+		airbender = {
+			defense = 0.05
+			breakthrough = 0.05
+		}
+
+		path = {
+			leads_to_tech = airbender_equipment_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 70
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 1 y = 20 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	air_training_6 = {
+	
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+		
+		research_cost = 4
+		start_year = 90
+		folder = {
+			name = air_special_forces_folder
+			position = { x = -1 y = 24 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_training_7 = {
+		
+		airbender = {
+			max_organisation = 2
+			default_morale = 0.2
+		}
+
+		
+		research_cost = 3
+		start_year = 100
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 1 y = 24 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	airbender_equipment_3 = {
+
+		enable_equipments = {
+			airbender_equipment_3
+		}
+
+		path = {
+			leads_to_tech = air_training_4
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 40
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 14 }
+		}
+		
+		categories = {
+			infantry_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	airbender_equipment_4 = {
+
+		enable_equipments = {
+			airbender_equipment_4
+		}
+
+		path = {
+			leads_to_tech = air_training_6
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = air_training_7
+			research_cost_coeff = 1
+		}
+
+		research_cost = 3
+		start_year = 80
+		folder = {
+			name = air_special_forces_folder
+			position = { x = 0 y = 22 }
 		}
 		
 		categories = {

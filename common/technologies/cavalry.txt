@@ -23,16 +23,12 @@ technologies = {
 		}
 
 		path = {
-			leads_to_tech = lcb_update_1
+			leads_to_tech = lc_update_s_1
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = lc_update_1
+			leads_to_tech = lc_update_h_1
 			research_cost_coeff = 1
-		}
-
-		sub_technologies = {
-			light_bender
 		}
 
 		research_cost = 2
@@ -52,30 +48,9 @@ technologies = {
 		}
 	}
 
-	light_bender = {
-		
-		enable_subunits = {
-			bender_mongooze_lizards
-		}
-		
-		research_cost = 1.5
-		
-		folder = {
-			name = armour_folder
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
+	lc_update_s_1 = {
 
-	lcb_update_1 = {
-
-		bender_mongooze_lizards = {
+		category_all_light_cavalry = {
 			soft_attack = 0.1
 		}
 
@@ -95,9 +70,9 @@ technologies = {
 			cat_light_armor
 		}
 	}
-	lc_update_1 = {
+	lc_update_h_1 = {
 
-		mongooze_lizards = {
+		category_all_light_cavalry = {
 			hard_attack = 0.1
 		}
 
@@ -180,6 +155,34 @@ technologies = {
 			light_cavalry_equipment_4
 		}
 		
+		path = {
+			leads_to_tech = light_cavalry_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 58
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	light_cavalry_5 = {
+
+		enable_equipments = {
+			light_cavalry_equipment_5
+		}
+		
 		#path = {
 		#	leads_to_tech = light_cavalry_4
 		#	research_cost_coeff = 1
@@ -189,7 +192,7 @@ technologies = {
 		start_year = 58
 		folder = {
 			name = armour_folder
-			position = { x = 0 y = 16 }
+			position = { x = 0 y = 22 }
 		}
 		
 		ai_will_do = {
@@ -238,7 +241,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 6 y = 0 }
+			position = { x = 8 y = 0 }
 		}
 		
 		ai_will_do = {
@@ -261,7 +264,7 @@ technologies = {
 		start_year = 18
 		folder = {
 			name = armour_folder
-			position = { x = 5 y = 2 }
+			position = { x = 7 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -283,7 +286,7 @@ technologies = {
 		start_year = 18
 		folder = {
 			name = armour_folder
-			position = { x = 7 y = 2 }
+			position = { x = 9 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -311,7 +314,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 6 y = 6 }
+			position = { x = 8 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -339,7 +342,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 6 y = 12 }
+			position = { x = 8 y = 12 }
 		}
 		
 		ai_will_do = {
@@ -358,6 +361,34 @@ technologies = {
 			medium_cavalry_equipment_4
 		}
 		
+		path = {
+			leads_to_tech = medium_cavalry_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 18 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	medium_cavalry_5 = {
+
+		enable_equipments = {
+			medium_cavalry_equipment_5
+		}
+		
 		#path = {
 		#	leads_to_tech = medium_cavalry_4
 		#	research_cost_coeff = 1
@@ -367,7 +398,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 6 y = 18 }
+			position = { x = 8 y = 24 }
 		}
 		
 		ai_will_do = {
@@ -415,17 +446,12 @@ technologies = {
 			leads_to_tech = hcr_update_1
 			research_cost_coeff = 1
 		}
-
-		sub_technologies = {
-			heavy_bender
-			heavy_ranged
-		}
 		
 		research_cost = 2
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 12 y = 0 }
+			position = { x = 16 y = 0 }
 		}
 		
 		ai_will_do = {
@@ -435,47 +461,6 @@ technologies = {
 		categories = {
 			armor
 			cat_light_armor
-		}
-	}
-
-	heavy_bender = {
-		
-		enable_subunits = {
-			bender_komodo_rhinos
-		}
-		
-		research_cost = 1.5
-		
-		folder = {
-			name = armour_folder
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-	}
-	heavy_ranged = {
-		
-		enable_subunits = {
-			ranged_komodo_rhinos
-		}
-		
-		research_cost = 1.5
-		
-		folder = {
-			name = armour_folder
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 1
 		}
 	}
 
@@ -489,7 +474,7 @@ technologies = {
 		start_year = 18
 		folder = {
 			name = armour_folder
-			position = { x = 13 y = 2 }
+			position = { x = 17 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -511,7 +496,7 @@ technologies = {
 		start_year = 18
 		folder = {
 			name = armour_folder
-			position = { x = 11 y = 2 }
+			position = { x = 15 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -533,7 +518,7 @@ technologies = {
 		start_year = 18
 		folder = {
 			name = armour_folder
-			position = { x = 9 y = 2 }
+			position = { x = 13 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -562,7 +547,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 12 y = 8 }
+			position = { x = 16 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -590,7 +575,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 12 y = 14 }
+			position = { x = 16 y = 14 }
 		}
 		
 		ai_will_do = {
@@ -609,8 +594,36 @@ technologies = {
 			heavy_cavalry_equipment_4
 		}
 		
+		path = {
+			leads_to_tech = heavy_cavalry_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 10
+		folder = {
+			name = armour_folder
+			position = { x = 16 y = 20 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	heavy_cavalry_5 = {
+
+		enable_equipments = {
+			heavy_cavalry_equipment_5
+		}
+		
 		#path = {
-		#	leads_to_tech = heavy_cavalry_4
+		#	leads_to_tech = heavy_cavalry_5
 		#	research_cost_coeff = 1
 		#}
 		
@@ -618,7 +631,7 @@ technologies = {
 		start_year = 10
 		folder = {
 			name = armour_folder
-			position = { x = 12 y = 20 }
+			position = { x = 16 y = 26 }
 		}
 		
 		ai_will_do = {
@@ -630,168 +643,6 @@ technologies = {
 			cat_light_armor
 		}
 	}
-
-
-
-	armored_vehicle_prototype = {
-
-		enable_equipments = {
-			tank_equipment_1
-		}
-
-		enable_subunits = {
-			tundra_tank
-		}
-		
-		path = {
-			leads_to_tech = tank_prototype_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = armored_train_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 10
-		folder = {
-			name = armour_folder
-			position = { x = 0 y = 0 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-
-	tank_prototype_1
-
-		enable_equipments = {
-			tank_equipment_2
-		}
-		
-		path = {
-			leads_to_tech = tank_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = siege_tank_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = tundra_tank_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 10
-		folder = {
-			name = armour_folder
-			position = { x = 6 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-
-	tank_1
-
-		enable_equipments = {
-			tank_equipment_3
-		}
-		
-		path = {
-			leads_to_tech = tank_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 10
-		folder = {
-			name = armour_folder
-			position = { x = 6 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-
-	tank_2
-
-		enable_equipments = {
-			tank_equipment_4
-		}
-		
-		path = {
-			leads_to_tech = tank_3
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 10
-		folder = {
-			name = armour_folder
-			position = { x = 6 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-
-	siege_tank_1
-
-		enable_equipments = {
-			siege_tank_equipment_1
-		}
-		
-		path = {
-			leads_to_tech = siege_tank_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		start_year = 10
-		folder = {
-			name = armour_folder
-			position = { x = 3 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 1
-		}
-		
-		categories = {
-			armor
-			cat_light_armor
-		}
-	}
-
 
 
 }
