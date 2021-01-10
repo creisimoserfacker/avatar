@@ -102,11 +102,9 @@ technologies = {
 
 			forest = {
 				attack = 0.15
-				movement = 0.05
 			}
 			jungle = {
 				attack = 0.2
-				movement = 0.2
 			}
 		}
 		
@@ -145,7 +143,6 @@ technologies = {
 
 			marsh = {
 				attack = 0.2
-				movement = 0.2
 			}
 		}
 		
@@ -184,7 +181,6 @@ technologies = {
 
 			hills = {
 				attack = 0.15
-				movement = 0.05
 			}
 		}
 		
@@ -223,11 +219,9 @@ technologies = {
 
 			cliff = {
 				attack = 0.2
-				movement = 0.05
 			}
 			canyon = {
 				attack = 0.15
-				movement = 0.05
 			}
 		}
 		
@@ -266,17 +260,19 @@ technologies = {
 
 			mountain = {
 				attack = 0.25
-				movement = 0.05
 			}
 			high_mountain = {
 				attack = 0.25
-				movement = 0.05
 			}
 		}
 		
 		path = {
 			leads_to_tech = tech_combat_pioneers7
 			research_cost_coeff = 1
+		}
+
+		sub_technologies = {
+			siege_grappling_hook
 		}
 
 		research_cost = 2
@@ -302,6 +298,28 @@ technologies = {
 		}
 	}
 
+	siege_grappling_hook = {
+
+		enable_equipments = {
+			siege_equipment_1
+		}
+		enable_subunits = {
+			grappling_hook
+		}
+		
+		research_cost = 0.2
+
+		start_year = 7
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+
 	tech_combat_pioneers7 = {
 
 		combat_pioneer = {
@@ -318,6 +336,10 @@ technologies = {
 		path = {
 			leads_to_tech = tech_combat_pioneers8
 			research_cost_coeff = 1
+		}
+
+		sub_technologies = {
+			siege_ladder
 		}
 
 		research_cost = 2
@@ -343,14 +365,40 @@ technologies = {
 		}
 	}
 
+	siege_ladder = {
+
+		enable_equipments = {
+			siege_ladder_equipment_1
+		}
+		enable_subunits = {
+			ladder_battalion
+		}
+		
+		research_cost = 0.2
+
+		start_year = 7
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			artillery
+		}
+	}
+
 	tech_combat_pioneers8 = {
 
 		combat_pioneer = {
 			max_organisation = 3
 
 			fort = {
-				attack = 0.2
+				attack = 0.05
 			}
+		}
+
+		sub_technologies = {
+			siege_tower
 		}
 
 		research_cost = 2
@@ -373,6 +421,28 @@ technologies = {
 				is_major = yes
 			}
 
+		}
+	}
+
+	siege_tower = {
+
+		enable_equipments = {
+			siege_tower_equipment_1
+		}
+		enable_subunits = {
+			siege_towers
+		}
+		
+		research_cost = 0.2
+
+		start_year = 7
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			artillery
 		}
 	}
 

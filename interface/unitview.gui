@@ -1776,29 +1776,40 @@ guiTypes = {
 		}
 
 		containerWindowType = {
-			name = "adjuster_stats"
-			position = { x=10 y= 353 }
-			size = { width=515 height=50 }
-			clipping = no
-
-			gridboxtype = {
-				name = "stats_grid"
-				position = { x = 0 y = -2 }
-				size = { width = 100%% height = 100%% }
-				slotsize = { width = 110 height = 62 }
-				max_slots_horizontal = 5
-				max_slots_vertical = 2
-				format = "UPPER_LEFT"
-			}
-
+			name = "adjuster_container"
+			position = { x = 10 y = 336 }
+			
 			instantTextboxType = {
 				name = "adjuster_label"
-				position = { x = 10 y = -17 }
+				position = { x = 10 y = 0 }
 				font = "hoi_18mbs"
 				text = "PRODUCTION_ADJUSTERS_LABEL"
 				maxWidth = 150
 				maxHeight = 20
 				format = left
+			}
+			
+			containerWindowType = {
+				name = "adjuster_stats"
+				position = { x=0 y= 17 }
+				size = { width=545 height=132 }
+				clipping = yes
+				
+				verticalScrollbar = "right_vertical_slider"
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_tiled_window_transparent"
+				}
+				
+				gridboxtype = {
+					name = "stats_grid"
+					position = { x = 0 y = 0 }
+					size = { width = 100%% height = 100%% }
+					slotsize = { width = 110 height = 62 }
+					max_slots_horizontal = 5
+					format = "UPPER_LEFT"
+				}
 			}
 		}
 
@@ -1844,20 +1855,20 @@ guiTypes = {
 		iconType = {
 			name = "softness"
 			spriteType = "GFX_softness_ratio"
-			position = {x=287 y=330}
+			position = {x=243 y=326}
 		}
 
 		iconType = {
 			name = "softness_ratio_frame"
 			spriteType = "GFX_softness_ratio_frame"
-			position = {x=282 y=325}
+			position = {x=238 y=321}
 			allwaystransparent = yes
 		}
 
 		iconType = {
 			name = "armor_softness_icon"
 			spriteType = "GFX_armor_softness_icon"
-			position = {x=243 y=330}
+			position = {x=197 y=330}
 		}
 
 		iconType = {
