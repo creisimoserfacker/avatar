@@ -1,0 +1,378 @@
+earth_economic_buildup = {
+    populational_census = { 
+        cost = 25
+		days_remove = 100
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		modifier = {
+			political_power_gain = -0.15
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	patronise_local_entreprises = { 
+        icon = generic_construction
+		cost = 50
+		modifier = {
+			stability_weekly = 0.002
+			consumer_goods_factor = 0.05
+		}
+		days_remove = 75
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	rescue_struggling_artisans = {
+		icon = generic_construction
+        cost = 75
+		days_remove = 50
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		modifier = {
+			stability_weekly = 0.003
+			consumer_goods_factor = 0.1
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+
+	distribute_land_charters = { 
+		icon = generic_construction
+        cost = 100
+		days_remove = 25
+
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		modifier = {
+			consumer_goods_factor = 0.05
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	patrol_trade_routes = { 
+		icon = icon = generic_operation
+        cost = 50
+		days_remove = 50
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		complete_effect = {
+			add_equipment_to_stockpile = {
+			    type = spear_equipment
+			    amount = -200
+			}
+			add_equipment_to_stockpile = {
+			    type = heavy_armor_equipment
+			    amount = -100
+			}
+		}
+		modifier = {
+			weekly_manpower = -100
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	land_clearence = { 
+        icon = generic_construction
+		cost = 100
+		modifier = {
+			industrial_capacity_factory = -0.1
+			consumer_goods_factor = 0.1
+		}
+		days_remove = 150
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		
+        remove_effect = { 
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = yes
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+			random_owned_state = {
+				add_extra_state_shared_building_slots = 1
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+}
+earth_military_buildup = {
+
+	establish_local_arsenal = { 
+		icon = generic_industry
+        cost = 25
+		days_remove = 30
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}		
+			}
+			add_equipment_to_stockpile = {
+			    type = spear_equipment
+			    amount = 500
+			}
+			add_equipment_to_stockpile = {
+			    type = heavy_armor_equipment
+			    amount = 500
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	issue_equipment_quotas = { 
+        cost = 50
+		days_remove = 60
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+		modifier = {
+			stability_weekly = -0.001
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	mandate_universal_contributions  = { 
+		icon = generic_prepare_civil_war
+        cost = 75
+		days_remove = 90
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+        }
+		
+		modifier = {
+			stability_weekly = -0.002
+		}
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 2
+					instant_build = yes
+				}	
+			}
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+	
+	set_equipment_standards  = { 
+		icon = generic_industry
+        cost = 100
+		days_remove = 30
+        available = {
+            has_country_flag = Earth_Nation
+        }
+        visibility = { 
+          always = yes
+
+        }
+        remove_effect = { 
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}	
+			}
+			army_experience = 10
+        }
+        ai_will_do = {
+            factor = 0.05
+        }
+    }
+}
