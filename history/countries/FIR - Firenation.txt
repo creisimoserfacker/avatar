@@ -10,15 +10,6 @@
 capital = 417
 
 OOB = "FIR_12"
-
-set_country_flag = FIR_armor
-set_country_flag = FIR_navy
-set_country_flag = FIR_air_techs
-set_country_flag = FIR_special_forces
-set_country_flag = fire_nation
-
-set_country_flag = avatar_friendly
-
 if = {
 	limit = { has_dlc = "Man the Guns" }
 	set_naval_oob = "FIR_12_naval_mtg"
@@ -27,8 +18,16 @@ if = {
 	}
 }
 
-set_technology = {
+set_country_flag = FIR_armor
+set_country_flag = FIR_navy
+set_country_flag = FIR_air_techs
+set_country_flag = FIR_special_forces
+set_country_flag = fire_nation
+set_country_flag = avatar_friendly
 
+
+set_technology = {
+# infantry
 	basic_spear_1 = 1
 	spear_2 = 1
 	basic_sword_1 = 1
@@ -36,6 +35,7 @@ set_technology = {
 	basic_armor = 1
 	heavy_armor_1 = 1
 
+# ranged
 	ranged_weapons = 1
 	bow0 = 1
 	light_armor_0 = 1
@@ -45,44 +45,64 @@ set_technology = {
 	catapult0 = 1
 	projectile0 =1
 
+# support
 	tech_support = 1
 	tech_military_police = 1
 	tech_engineers = 1
 	tech_scouts = 1
 
+# mounted
 	light_cavalry_1 = 1
 	heavy_cavalry_1 = 1
 
+# special
 	firebender_equipment_1 = 1
 	marines = 1
 	trebuchets = 1
 
+# doctrine
 	power = 1
 
+# reform
 	reform_0 = 1
 	domestication_0 = 1
 
-
+# construction
 	infrastructure_1 = 1
 	infrastructure_2 = 1
 	port_1 = 1
 	port_2 = 1
+}
 
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		fire_sails_1 = 1
+		early_fire_galley = 1
+		early_fire_yacht = 1
+		light_engine_1 = 1
+		early_fire_cruiser = 1
+		early_fire_frigate = 1
+		fire_invasion_capacity_1 = 1
+		frigate_armor_1 = 1
+		cruiser_armor_1 = 1
+		
+		boarding_tech_1 = 1
+		light_ship_weapons = 1
+		heavy_ship_weapons = 1
+		ship_support_modules = 1
+	}
 
-	fire_sails_1 = 1
-	early_fire_galley = 1
-	early_fire_yacht = 1
-	light_engine_1 = 1
-	early_fire_cruiser = 1
-	early_fire_frigate = 1
-	fire_invasion_capacity_1 = 1
-	frigate_armor_1 = 1
-	cruiser_armor_1 = 1
-	
-	boarding_tech_1 = 1
-	light_ship_weapons = 1
-	heavy_ship_weapons = 1
-	ship_support_modules = 1
 }
 
 
