@@ -38,11 +38,15 @@ technologies = {
 
 		firebender = {
 			breakthrough = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
 		path = {
 			leads_to_tech = fire_training_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = trebuchets_1
 			research_cost_coeff = 1
 		}
 
@@ -67,7 +71,7 @@ technologies = {
 
 		firebender = {
 			breakthrough = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
 		path = {
@@ -121,7 +125,7 @@ technologies = {
 
 		firebender = {
 			breakthrough = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
 		path = { 
@@ -154,7 +158,7 @@ technologies = {
 		xor = { defense_training_fire }
 
 		firebender = {
-			ap_attack = 0.2
+			soft_attack = 0.2
 			air_attack = 0.2
 		}
 
@@ -215,7 +219,7 @@ technologies = {
 
 		firebender = {
 			breakthrough = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
 		path = {
@@ -244,7 +248,7 @@ technologies = {
 
 		firebender = {
 			breakthrough = 0.1
-			soft_attack = 0.1
+			hard_attack = 0.1
 		}
 
 		path = { 
@@ -277,7 +281,7 @@ technologies = {
 		xor = { defense_training_fire_2 }
 
 		firebender = {
-			ap_attack = 0.2
+			soft_attack = 0.2
 			air_attack = 0.2
 		}
 
@@ -339,7 +343,7 @@ technologies = {
 		xor = { fire_training_7 }
 	
 		firebender = {
-			ap_attack = 0.2
+			soft_attack = 0.2
 			air_attack = 0.2
 		}
 		
@@ -446,7 +450,7 @@ technologies = {
 
 
 
-	trebuchets = {
+	trebuchets_1 = {
 
 		enable_equipments = {
 			trebuchet_equipment_1
@@ -458,16 +462,140 @@ technologies = {
 			projectile0
 		}
 
-		#path = {
-		#	leads_to_tech = fire_training_1
-		#	research_cost_coeff = 1
-		#}
+		path = {
+			leads_to_tech = trebuchet_upgrade_1
+			research_cost_coeff = 1
+		}
 
 		research_cost = 2
 		start_year = 1
 		folder = {
 			name = fir_special_forces_folder
-			position = { x = 0 y = 0 }
+			position = { x = 4 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchet_upgrade_1 = {
+
+		trebuchet = {
+			breakthrough = 0.1
+			hard_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = trebuchets_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 6 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchets_2 = {
+
+		enable_equipments = {
+			trebuchet_equipment_2
+		}
+
+		sub_technologies = {
+			projectile1
+		}
+
+		path = {
+			leads_to_tech = trebuchet_upgrade_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchet_upgrade_2 = {
+
+		trebuchet = {
+			breakthrough = 0.1
+			hard_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = trebuchets_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchets_3 = {
+
+		enable_equipments = {
+			trebuchet_equipment_3
+		}
+		enable_subunits = {
+			trebuchet
+		}
+		sub_technologies = {
+			projectile2
+		}
+
+		path = {
+			leads_to_tech = trebuchet_upgrade_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 12 }
 		}
 		
 		categories = {

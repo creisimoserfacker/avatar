@@ -1,5 +1,595 @@
 technologies = {
+
+	###  # ###  ###
+	#  # # #  # #  #
+	###  # ###  ###
+	#  # # #  # #  #
+	###  # #  # ###
+
+	birb_tech_1 = {
+
+		enable_equipments = {
+			birb_equipment_1
+		}
+
+		path = {
+			leads_to_tech = birb_training
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	birb_training = {
+
+		category_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_message
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = birb_intercept
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	birb_intercept = {
+
+		category_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_range
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = -1 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	birb_message = {
+
+		category_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_range
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 1 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	birb_range = {
+
+		category_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_seeb
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	birb_seeb = {
+
+		category_birb = {
+			air_agility = 0.1
+		}
+
+		#path = {
+		#	leads_to_tech = birb_seeb
+		#	research_cost_coeff = 1
+		#}
+
+		research_cost = 2
+		start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+	###    ##  #    ##   ##  #   #
+	#  #  #  # #   #  # #  # ##  #
+	###   #### #   #  # #  # # # #
+	#  #  #  # #   #  # #  # #  ##
+	###   #  # ###  ##   ##  #   #
+
+
+	air_baloon_tech_1 = {
+
+		enable_equipments = {
+			air_baloon_equipment_1
+		}
+
+		path = {
+			leads_to_tech = airship_engine_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 100
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	airship_engine_1 = {
+
+
+
+		path = {
+			leads_to_tech = light_airship_tech_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = air_baloon_tech_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 110
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	air_baloon_tech_2 = {
+
+		enable_equipments = {
+			air_baloon_equipment_2
+		}
+
+		path = {
+			leads_to_tech = air_baloon_update_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 111
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	air_baloon_update_1 = {
+
+		category_air_baloon = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = air_baloon_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 112
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	air_baloon_tech_3 = {
+
+		enable_equipments = {
+			air_baloon_equipment_3
+		}
+
+		research_cost = 2
+		start_year = 113
+		folder = {
+			name = air_techs_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+	light_airship_tech_1 = {
+
+		enable_equipments = {
+			light_airship_equipment_1
+		}
+
+		path = {
+			leads_to_tech = light_airship_update_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = heavy_airship_tech_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 110
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	light_airship_update_1 = {
+
+		category_light_airship = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = light_airship_tech_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 111
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	light_airship_tech_2 = {
+
+		enable_equipments = {
+			light_airship_equipment_2
+		}
+
+		path = {
+			leads_to_tech = light_airship_update_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 112
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 6 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	light_airship_update_2 = {
+
+		category_light_airship = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = light_airship_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 113
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	light_airship_tech_3 = {
+
+		enable_equipments = {
+			light_airship_equipment_3
+		}
+
+		research_cost = 2
+		start_year = 114
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
 	
-	
+	heavy_airship_tech_1 = {
+
+		enable_equipments = {
+			heavy_airship_equipment_1
+		}
+
+		path = {
+			leads_to_tech = heavy_airship_update_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 110
+		folder = {
+			name = air_techs_folder
+			position = { x = 8 y = 2 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	heavy_airship_update_1 = {
+
+		category_heavy_airship = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = heavy_airship_tech_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 111
+		folder = {
+			name = air_techs_folder
+			position = { x = 8 y = 4 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	heavy_airship_tech_2 = {
+
+		enable_equipments = {
+			heavy_airship_equipment_2
+		}
+
+		path = {
+			leads_to_tech = heavy_airship_update_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 112
+		folder = {
+			name = air_techs_folder
+			position = { x = 8 y = 6 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	heavy_airship_update_2 = {
+
+		category_heavy_airship = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = heavy_airship_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 113
+		folder = {
+			name = air_techs_folder
+			position = { x = 8 y = 8 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	heavy_airship_tech_3 = {
+
+		enable_equipments = {
+			heavy_airship_equipment_3
+		}
+
+		research_cost = 2
+		start_year = 114
+		folder = {
+			name = air_techs_folder
+			position = { x = 8 y = 10 }
+		}
+		
+		categories = {
+			infantry_weapons
+			bender
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
 
 }

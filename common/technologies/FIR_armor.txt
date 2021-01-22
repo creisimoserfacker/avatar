@@ -12,7 +12,7 @@ technologies = {
 		}
 
 		enable_subunits = {
-			tundra_tank
+			fire_tank
 		}
 		
 		path = {
@@ -26,7 +26,7 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 10
+		start_year = 50
 		folder = {
 			name = fir_special_forces_folder
 			position = { x = 0 y = 0 }
@@ -42,7 +42,7 @@ technologies = {
 		}
 	}
 
-	tank_prototype_1
+	tank_prototype_1 = {
 
 		enable_equipments = {
 			tank_equipment_2
@@ -52,22 +52,12 @@ technologies = {
 			leads_to_tech = tank_1
 			research_cost_coeff = 1
 		}
-
-		path = {
-			leads_to_tech = siege_tank_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = tundra_tank_1
-			research_cost_coeff = 1
-		}
 		
 		research_cost = 2
-		start_year = 10
+		start_year = 60
 		folder = {
 			name = fir_special_forces_folder
-			position = { x = 6 y = 2 }
+			position = { x = 0 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -80,7 +70,7 @@ technologies = {
 		}
 	}
 
-	tank_1
+	tank_1 = {
 
 		enable_equipments = {
 			tank_equipment_3
@@ -90,12 +80,16 @@ technologies = {
 			leads_to_tech = tank_2
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = siege_tank
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 2
-		start_year = 10
+		start_year = 80
 		folder = {
 			name = fir_special_forces_folder
-			position = { x = 6 y = 4 }
+			position = { x = 0 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -108,7 +102,7 @@ technologies = {
 		}
 	}
 
-	tank_2
+	tank_2 = {
 
 		enable_equipments = {
 			tank_equipment_4
@@ -118,12 +112,20 @@ technologies = {
 			leads_to_tech = tank_3
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = train_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = tundra_tank_1
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 2
-		start_year = 10
+		start_year = 90
 		folder = {
 			name = fir_special_forces_folder
-			position = { x = 6 y = 6 }
+			position = { x = 0 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -136,10 +138,65 @@ technologies = {
 		}
 	}
 
-	siege_tank_1
+	tank_3 = {
 
 		enable_equipments = {
-			siege_tank_equipment_1
+			tank_equipment_5
+		}
+		
+		
+		research_cost = 2
+		start_year = 100
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 0 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	train_1 = {
+
+		enable_subunits = {
+			armored_train
+		}
+
+		enable_equipments = {
+			train_equipment_1
+		}
+		
+		research_cost = 2
+		start_year = 100
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = -4 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	siege_tundra_tank_1 = {
+
+		enable_subunits = {
+			siege_tundra_tank
+		}
+
+		enable_equipments = {
+			siege_tundra_tank_equipment_1
 		}
 		
 		path = {
@@ -148,10 +205,107 @@ technologies = {
 		}
 		
 		research_cost = 2
-		start_year = 10
+		start_year = 110
 		folder = {
 			name = fir_special_forces_folder
-			position = { x = 3 y = 4 }
+			position = { x = 4 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	siege_tank_1 = {
+
+		enable_subunits = {
+			siege_tank
+		}
+
+		enable_equipments = {
+			siege_tank_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = modern_tank_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = siege_tank_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 80
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = -4 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+
+	tundra_tank_1 = {
+
+		enable_subunits = {
+			tundra_tank
+		}
+
+		enable_equipments = {
+			tundra_tank_equipment_1
+		}
+		
+		path = {
+			leads_to_tech = tundra_tank_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 90
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+		
+		categories = {
+			armor
+			cat_light_armor
+		}
+	}
+
+	tundra_tank_2 = {
+
+		enable_equipments = {
+			tundra_tank_equipment_2
+		}
+
+		path = {
+			leads_to_tech = siege_tundra_tank_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
+		start_year = 100
+		folder = {
+			name = fir_special_forces_folder
+			position = { x = 4 y = 10 }
 		}
 		
 		ai_will_do = {

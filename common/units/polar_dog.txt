@@ -26,7 +26,7 @@ sub_units = {
 		combat_width = 3
 		
 		#Size Definitions
-		max_organisation = 15
+		max_organisation = 8
 		max_strength = 35
 		default_morale = 0.3
 		manpower = 80
@@ -41,12 +41,13 @@ sub_units = {
 		suppression = 2
 
 		# Equipment balancing
-		defense = -0.80
+		defense = -0.8
 		breakthrough = 0.4
-		soft_attack = -0.5
-		hard_attack = 25.0
+		soft_attack = 3
+		hard_attack = -0.5
 
-		ap_attack = 1
+		hardness = -0.5
+		ap_attack = -1
 
 		transport = polar_dog
 	
@@ -57,29 +58,48 @@ sub_units = {
 			medium_cavalry_equipment = 80
 		}
 
+		plains = {
+			attack = 0.4
+		}
+		wasteland = {
+			attack = 0.4
+		}
+		ice_desert = {
+			attack = 0.5
+			defense = 0.25
+			movement = 1
+		}
+
 		forest = {
-			attack = -0.05
+			attack = -0.6
 		}
-
-		hills = {
-			attack = -0.05
-		}
-
-		mountain = {
-			attack = -0.1
-			movement = -0.05
-		}
-
 		jungle = {
+			attack = -0.7
+		}
+		village = {
+			attack = -0.4
+		}
+		urban = {
+			attack = -0.5
+		}
+		hills = {
+			attack = -0.3
+		}
+		cliff = {
+			attack = -0.3
+		}
+		mountain = {
+			attack = -0.4
+		}
+		high_mountain = {
+			attack = -0.4
+		}
+
+		river = {
 			attack = -0.1
 		}
-
-		urban = {
-			attack = -0.05
-		}
-
 		amphibious = {
-			attack = -0.4
+			attack = -0.2
 		}
 	}
 	ranged_polar_dogs = {
@@ -119,17 +139,20 @@ sub_units = {
 		suppression = 2
 
 		# Equipment balancing
-		defense = -0.85
-		breakthrough = 0.2
-		soft_attack = -0.5
-		hard_attack = 25.0
+		defense = -0.5
+		breakthrough = 0.75
+		soft_attack = 0.5
+		hard_attack = 0.5
+
+		hardness = -1
+		armor_value = -1
 
 		transport = polar_dog
 	
 		need = {
 			polar_dog = 80
-			pike_equipment = 80
-			medium_armor_equipment = 80
+			javelin_equipment = 240
+			light_armor_equipment = 80
 			medium_cavalry_equipment = 80
 		}
 
@@ -195,10 +218,8 @@ sub_units = {
 		suppression = 2
 
 		# Equipment balancing
-		defense = -0.85
-		breakthrough = 0.2
-		soft_attack = -0.5
-		hard_attack = 25.0
+		hardness = -0.9
+		armor_value = -0.5
 
 		transport = polar_dog
 	

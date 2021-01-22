@@ -1,5 +1,14 @@
 sub_units = {
 
+	birb = {
+		sprite = light_plane
+		priority = 1
+		active = yes
+		type = { scout_plane }
+		need = { birb_equipment = 1 }
+		categories = { category_birb }
+	}
+
 	bison = {
 		sprite = light_plane
 		priority = 1
@@ -13,9 +22,36 @@ sub_units = {
 		sprite = light_plane
 		priority = 1
 		active = yes
-		type = { scout_plane }
+		type = { fighter scout_plane }
 		need = { glider_equipment = 1 }
 		categories = { category_glider }
+	}
+
+	air_baloon = {
+		sprite = light_plane
+		priority = 1
+		active = yes
+		type = { fighter tactical_bomber scout_plane }
+		need = { air_baloon_equipment = 1 }
+		categories = { category_air_baloon }
+	}
+
+	light_airship = {
+		sprite = light_plane
+		priority = 1
+		active = yes
+		type = { fighter tactical_bomber }
+		need = { light_airship_equipment = 1 }
+		categories = { category_light_airship }
+	}
+
+	heavy_airship = {
+		sprite = light_plane
+		priority = 1
+		active = yes
+		type = { fighter strategic_bomber air_transport }
+		need = { heavy_airship_equipment = 1 }
+		categories = { category_heavy_airship }
 	}
 	
 
