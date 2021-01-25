@@ -51,8 +51,12 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = { 
-					width = 1400 height = 1275
+					width = 2250 height = 3400
 					min = { width = 100%% height = 100%% }
+				}
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
 				}
 				clipping = no
 
@@ -60,6 +64,26 @@ guiTypes = {
 					name ="infantry_techtree_bg"
 					spriteType = "GFX_infantry_techtree_bg"
 					position = { x=0 y=0 }
+					allwaystransparent = yes
+				}
+				iconType = {
+					name ="infantry_techtree_bg2"
+					spriteType = "GFX_infantry_techtree_bg2"
+					position = { x=-958 y=800 }
+					Orientation = "UPPER_RIGHT"
+					allwaystransparent = yes
+				}
+				iconType = {
+					name ="infantry_techtree_bg3"
+					spriteType = "GFX_infantry_techtree_bg3"
+					position = { x=0 y=1600 }
+					allwaystransparent = yes
+				}
+				iconType = {
+					name ="infantry_techtree_bg4"
+					spriteType = "GFX_infantry_techtree_bg4"
+					position = { x=-958 y=2400 }
+					Orientation = "UPPER_RIGHT"
 					allwaystransparent = yes
 				}
 				
@@ -437,77 +461,93 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = { 
-					width = 1400 height = 1390 
+					width = 2000 height = 3600
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
+				}
 
 				iconType = {
 					name ="artillery_techtree_bg"
 					spriteType = "GFX_artillery_techtree_bg"
 					position = { x=0 y=0 }
 					allwaystransparent = yes
-				}				
+				}	
 
-			containerWindowType = {
-				name = "artillery_subtitles"
-				position = { x = 0 y = 50 }
-				size = { width = 200 height = 80% }				
-				orientation = center_up
-				origo = center_up
-			
+
 				instantTextBoxType = {
 					name = "artillery_subtitle_rocket"
-					position = { x = -400 y = 30 }
+					position = { x = 260 y = 80 }
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARTILLERY_TITLE_ROCKET"
+					text = "RANGED_SKIRMISHER_TITLE"
 					maxWidth = 210
 					maxHeight = 22
 					format = center
 					Orientation = "UPPER_LEFT"
-				}				
+					pdx_tooltip = "skirmisher_tech_desc"
+				}			
+				instantTextBoxType = {
+					name = "infantry_subtitle_armor"
+					position = { x = 580 y = 80 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "LIGHT_ARMOR"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "light_armor_desc"
+				}	
 
 				instantTextBoxType = {
 					name = "artillery_subtitle_anti_tank"
-					position = { x = 400 y = 30 }
+					position = { x = 860 y = 160 }
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARTILLERY_TITLE_AT"
+					text = "RANGED_ARCHER_TITLE"
 					maxWidth = 290
 					maxHeight = 62
 					format = center
 					Orientation = "UPPER_LEFT"
-				}					
-				
+					pdx_tooltip = "archer_desc"
+				}		
+
 				instantTextBoxType = {
 					name = "artillery_subtitle_artillery"
-					position = { x = 75 y = 30 }
+					position = { x = 1180 y = 440 }
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARTILLERY_TITLE"
+					text = "BALLISTA_TITLE"
 					maxWidth = 400
 					maxHeight = 62
 					format = center
 					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "ballista_desc"
 				}
 
 				instantTextBoxType = {
 					name = "artillery_subtitle_anti_air"
-					position = { x = -75 y = 30 }
+					position = { x = 1660 y = 580 }
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
-					text = "ARTILLERT_TITLE_AA"
+					text = "CATAPULT_TITLE"
 					maxWidth = 200
 					maxHeight = 62
 					format = center
 					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "catapult_desc"
 				}		
-			}					
+										
 				
 				instantTextBoxType = {
 					name = "artillery_year2"
@@ -824,13 +864,13 @@ guiTypes = {
 			
 			gridboxtype = {
 				name = "ranged_weapons_tree"
-				position = { x = 510 y = 190 }
+				position = { x = 510 y = 160 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "light_armor_0_tree"
-				position = { x = 510 y = 190 }
+				position = { x = 510 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -842,13 +882,13 @@ guiTypes = {
 			}
 			gridboxtype = {
 				name = "ballista0_tree"
-				position = { x = 230 y = 190 }
+				position = { x = 330 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "catapult0_tree"
-				position = { x = 370 y = 190 }
+				position = { x = 570 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -898,10 +938,14 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = { 
-					width = 1400 height = 1275
+					width = 1800 height = 1900
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
+				}
 
 				iconType = {
 					name ="firebender_techtree_bg"
@@ -1776,10 +1820,14 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = { 
-					width = 1450 height = 1090 
+					width = 1800 height = 2300 
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
+				}
 
 
 				iconType = {
@@ -1791,22 +1839,22 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "armour_year_right"
-					position = { x=10 y=140 }
+					position = { x=10 y=180 }
 					size = { width = 80 height = 100%% }
 					orientation = upper_left
 						
-					instantTextBoxType = {
-						name = "armour_year1"
-						position = { x = 30 y = -18 }
-						textureFile = ""
-						font = "hoi_36header"
-						borderSize = {x = 0 y = 4}
-						text = "Domestication"
-						maxWidth = 380
-						maxHeight = 32
-						format = left
-						Orientation = "UPPER_LEFT"
-					}
+					#instantTextBoxType = {
+					#	name = "armour_year1"
+					#	position = { x = 30 y = -18 }
+					#	textureFile = ""
+					#	font = "hoi_36header"
+					#	borderSize = {x = 0 y = 4}
+					#	text = "Domestication"
+					#	maxWidth = 380
+					#	maxHeight = 32
+					#	format = left
+					#	Orientation = "UPPER_LEFT"
+					#}
 	
 					instantTextBoxType = {
 						name = "armour_year2"
@@ -1984,7 +2032,7 @@ guiTypes = {
 			
 				instantTextBoxType = {
 					name = "armour_subtitle_cavalry"
-					position = { x = 60 y = 55 }
+					position = { x = 30 y = 80 }
 					textureFile = ""
 					font = "hoi_33"
 					borderSize = {x = 0 y = 4}
@@ -1993,6 +2041,21 @@ guiTypes = {
 					maxHeight = 62
 					format = center
 					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "cavalry_tech_desc"
+				}
+
+				instantTextBoxType = {
+					name = "domestication_cavalry_subtitel"
+					position = { x = 30 y = 160 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = {x = 0 y = 4}
+					text = "CAVALRY_DOMESTICATION_TITLE"
+					maxWidth = 200
+					maxHeight = 62
+					format = center
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "domestication_desc"
 				}				
 
 					
@@ -2000,7 +2063,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "light_tiled"
-				position = { x=180 y=156 }
+				position = { x=180 y=196 }
 				size = { width = 244 height = 200 }
 				clipping = no
 			
@@ -2011,7 +2074,7 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "medium_tiled"
-				position = { x=740 y=156 }
+				position = { x=740 y=196 }
 				size = { width = 244 height = 200 }
 				clipping = no
 			
@@ -2022,7 +2085,7 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "heavy_tiled"
-				position = { x=1300 y=156 }
+				position = { x=1300 y=196 }
 				size = { width = 244 height = 200 }
 				clipping = no
 			
@@ -2034,7 +2097,7 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "reform_0_tree"
-				position = { x = 300 y = 130 }
+				position = { x = 300 y = 170 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -2042,19 +2105,19 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "light_cavalry_1_tree"
-				position = { x = 300 y = 260 }
+				position = { x = 300 y = 300 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "medium_cavalry_1_tree"
-				position = { x = 300 y = 260 }
+				position = { x = 300 y = 300 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "heavy_cavalry_1_tree"
-				position = { x = 300 y = 260 }
+				position = { x = 300 y = 300 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -2081,10 +2144,14 @@ guiTypes = {
 				name = "techtree_stripes"
 				position = { x= 0 y= 0 }
 				size = { 
-					width = 1400 height = 800
+					width = 1400 height = 1400
 					min = { width = 100%% height = 100%% }
 				}
 				clipping = no
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
+				}
 
 				iconType = {
 					name ="infantry_techtree_bg"
@@ -2106,8 +2173,22 @@ guiTypes = {
 #					Orientation = "UPPER_LEFT"
 #				}
 				instantTextBoxType = {
+					name = "support_title"
+					position = { x = 100 y = 80 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "SUPPORT_TITLE"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "support_desc"
+				}
+
+				instantTextBoxType = {
 					name = "support_year3"
-					position = { x = 50 y = 257 }
+					position = { x = 50 y = 340 }
 					textureFile = ""
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
@@ -2119,7 +2200,7 @@ guiTypes = {
 				}
 				instantTextBoxType = {
 					name = "support_year5"
-					position = { x = 50 y = 397 }
+					position = { x = 50 y = 480 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "20"
@@ -2130,7 +2211,7 @@ guiTypes = {
 				}
 				instantTextBoxType = {
 					name = "support_year6"
-					position = { x = 50 y = 535 }
+					position = { x = 50 y = 620 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "30"
@@ -2141,7 +2222,7 @@ guiTypes = {
 				}
 				instantTextBoxType = {
 					name = "support_year7"
-					position = { x = 50 y = 675 }
+					position = { x = 50 y = 760 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "40"
@@ -2153,7 +2234,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "support_year8"
-					position = { x = 50 y = 790 }
+					position = { x = 50 y = 900 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "50"
@@ -2165,7 +2246,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "support_year9"
-					position = { x = 50 y = 943 }
+					position = { x = 50 y = 1040 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "60"
@@ -2177,7 +2258,7 @@ guiTypes = {
 
 				instantTextBoxType = {
 					name = "support_year10"
-					position = { x = 50 y = 1070 }
+					position = { x = 50 y = 1180 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "70"
@@ -2189,7 +2270,7 @@ guiTypes = {
 				
 				instantTextBoxType = {
 					name = "support_year11"
-					position = { x = 50 y = 1210 }
+					position = { x = 50 y = 1320 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "80"
@@ -2200,7 +2281,7 @@ guiTypes = {
 				}						
 				instantTextBoxType = {
 					name = "support_year12"
-					position = { x = 50 y = 1363 }
+					position = { x = 50 y = 1460 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "90"
@@ -2211,7 +2292,7 @@ guiTypes = {
 				}
 				instantTextBoxType = {
 					name = "support_year13"
-					position = { x = 50 y = 1490 }
+					position = { x = 50 y = 1600 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "100"
@@ -2222,7 +2303,7 @@ guiTypes = {
 				}
 				instantTextBoxType = {
 					name = "support_year14"
-					position = { x = 50 y = 1590 }
+					position = { x = 50 y = 1740 }
 					font = "hoi_36header"
 					borderSize = { x = 0 y = 0}
 					text = "110"
@@ -2236,7 +2317,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "tiled_research_bg2"
-				position = { x=470 y=160 }
+				position = { x=470 y=240 }
 				size = { width = 550 height = 1170 }
 				clipping = no
 			
@@ -2248,7 +2329,7 @@ guiTypes = {
 
 			containerWindowType = {
 				name = "tiled_research_bg"
-				position = { x=1020 y=160 }
+				position = { x=1020 y=240 }
 				size = { width = 300 height = 1170 }
 				clipping = no
 			
@@ -2260,19 +2341,19 @@ guiTypes = {
 
 			gridboxtype = {
 				name = "tech_support_tree"
-				position = { x = 680 y = 100 }
+				position = { x = 680 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "light_armor_0_tree"
-				position = { x = 748 y = 100 }
+				position = { x = 748 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "tech_transport_tree"
-				position = { x = 1168 y = 100 }
+				position = { x = 1168 y = 180 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
@@ -3985,62 +4066,61 @@ guiTypes = {
 				name = "tiled_window_transparent_transparent"
 				position = { x= 0 y= 0 }
 				size = { 
-					width=1700 height=1300 
+					width=3200 height=2750 
 					min = { width=100%% height=100%% }
 				}
 				clipping = no
-
 				background = {
 					name = "Background"
-					quadTextureSprite ="GFX_tiled_window_transparent_transparent"
+					quadTextureSprite ="GFX_techtree_stripes"
 				}
 			}
 
 			gridboxtype = {
 				name = "light_engine_1_tree"
-				position = { x = 1000 y = 120}
+				position = { x = 1000 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "boarding_tech_1_tree"
-				position = { x = 2100 y = 120}
+				position = { x = 2100 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "light_ship_weapons_tree"
-				position = { x = 2400 y = 120}
+				position = { x = 2400 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "heavy_ship_weapons_tree"
-				position = { x = 2700 y = 120}
+				position = { x = 2700 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "ship_support_modules_tree"
-				position = { x = 2900 y = 120}
+				position = { x = 2900 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "fire_sails_1_tree"
-				position = { x = 1700 y = 120}
+				position = { x = 1700 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
 			}
 			gridboxtype = {
 				name = "fire_oars_1_tree"
-				position = { x = 1700 y = 120}
+				position = { x = 1700 y = 180}
 				size = { width = 100 height = 140 }
 				slotsize = { width = 70 height = 70 }
 				format = "UP"
@@ -5283,8 +5363,13 @@ guiTypes = {
 				name = "size_filler"
 				position = { x=0 y=0 }
 				size = {
-					width = 1550 height = 1000 
+					width = 1700 height = 2450 
 					min = { width = 100%% height = 100%% }
+				}
+
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
 				}
 				
 				iconType = {
@@ -7526,7 +7611,7 @@ guiTypes = {
 			iconType = {
 				name = "picture"
 				position = { x=2 y=2 }
-				spriteType = "GFX_subtech_rocket"
+				spriteType = "GFX_subtech_armored"
 				alwaystransparent = yes
 			}
 		}		
