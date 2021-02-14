@@ -1385,11 +1385,19 @@ technologies = {
 
 		enable_building = {
 			building = scout_tower
-			level = 6
+			level = 1
+		}
+		enable_building = {
+			building = air_base
+			level = 1
 		}
 		
 		path = {
-			leads_to_tech = air_base_1
+			leads_to_tech = air_base_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = scout_tower_1
 			research_cost_coeff = 1
 		}
 
@@ -1421,45 +1429,11 @@ technologies = {
 		}	
 	}
 
-	air_base_1 = {
+	air_base_2 = {
 
 		dependencies = {
-			reform_3 = 1
+			reform_4 = 1
 		}
-
-		enable_building = {
-			building = air_base
-			level = 5
-		}
-		
-		path = {
-			leads_to_tech = air_base_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
-	air_base_2 = {
 
 		enable_building = {
 			building = air_base
@@ -1474,7 +1448,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = -1 y = 4 }
+			position = { x = 1 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -1508,7 +1482,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = -1 y = 6 }
+			position = { x = 1 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -1542,7 +1516,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = -1 y = 8 }
+			position = { x = 1 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -1568,6 +1542,175 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
+			position = { x = 1 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_1 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 1
+		}
+
+		path = {
+			leads_to_tech = scout_tower_2
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = -1 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_2 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 2
+		}
+
+		path = {
+			leads_to_tech = scout_tower_3
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = -1 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_3 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 3
+		}
+
+		path = {
+			leads_to_tech = scout_tower_4
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = -1 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_4 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 4
+		}
+
+		path = {
+			leads_to_tech = scout_tower_5
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = -1 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_5 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 5
+		}
+	
+		research_cost = 3
+		folder = {
+			name = construction_folder
 			position = { x = -1 y = 10 }
 		}
 		
@@ -1586,6 +1729,7 @@ technologies = {
 			air_construction
 		}	
 	}
+
 
 	anti_air_1 = {
 
@@ -1607,7 +1751,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 2 }
+			position = { x = 3 y = 0 }
 		}
 		
 		ai_will_do = {
@@ -1628,6 +1772,10 @@ technologies = {
 
 	anti_air_2 = {
 
+		dependencies = {
+			reform_4 = 1
+		}
+
 		enable_building = {
 			building = anti_air_building
 			level = 2
@@ -1642,7 +1790,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 4 }
+			position = { x = 3 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -1677,7 +1825,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 6 }
+			position = { x = 3 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -1712,7 +1860,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 8 }
+			position = { x = 3 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -1741,7 +1889,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 10 }
+			position = { x = 3 y = 10 }
 		}
 		
 		ai_will_do = {
