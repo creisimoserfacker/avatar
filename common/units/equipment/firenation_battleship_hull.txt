@@ -9,6 +9,13 @@ equipments = {
 		alias = battleship
 		priority = 1900
 
+		upgrades = {
+			ship_reliability_upgrade
+			ship_engine_upgrade
+			ship_armor_upgrade
+			ship_gun_upgrade
+		}
+
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
@@ -345,24 +352,30 @@ equipments = {
 			capital_ship
 			anti_air
 		}
-		upgrades = {
-			ship_reliability_upgrade
-			ship_engine_upgrade
-			ship_gun_upgrade
-			ship_anti_air_upgrade
-		}
+
 		module_slots = inherit
 		default_modules = {
-			fixed_ship_armor_slot = super_heavy_armor_plates_1
-			fixed_ship_crew_slot = ship_boarding_1
+			module_slots = {
+			fixed_ship_armor_slot = heavy_armor_plates_1
+			fixed_ship_crew_slot = ship_firebender_crew_1
 			fixed_ship_artillery_slot = ship_trebuchet_1
 			fixed_ship_bridge_slot = lookout_1
-			fixed_ship_storage_slot = storage_room_1
+			fixed_ship_storage_slot = storage_room _1
 			fixed_ship_crew_2_slot = ship_archers_1
 			fixed_ship_engine_slot = heavy_steam_engine_1
 			deck_1_custom_slot = ship_catapult_1
-			deck_2_custom_slot = ship_ballista_1
-			bridge_1_custom_slot = maintenance_crew_1
+			}
+			deck_2_custom_slot = deck_1_custom_slot
+			bridge_1_custom_slot = {
+				required = no
+				allowed_module_categories = {
+					storage_room
+					bridge
+					maintenance_crew
+					ship_boarding
+					ship_firebender_crew
+				}
+			}
 		}
 		lg_armor_piercing = 0
 		lg_attack = 0

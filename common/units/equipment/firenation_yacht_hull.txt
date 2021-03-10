@@ -10,6 +10,13 @@ equipments = {
 		alias = destroyer
 		priority = 1900
 
+		upgrades = {
+			ship_reliability_upgrade
+			ship_engine_upgrade
+			ship_gun_upgrade
+			ship_anti_air_upgrade
+		}
+
 		module_slots = {
 			fixed_ship_armor_slot = {
 				required = yes
@@ -224,25 +231,15 @@ equipments = {
 	firenation_yacht_1 = {
 		year = 1922
 		visual_level = 0
-		archetype = firenation_yacht
+		archetype = firenation_yacht_hull
 		priority = 1900
-		module_slots = inherit
 
-		type = { 
-			screen_ship
-		}
-		upgrades = {
-			ship_reliability_upgrade
-			ship_engine_upgrade
-			ship_gun_upgrade
-			ship_anti_air_upgrade
-		}
 		module_slots = inherit
 		
 		default_modules = {
-			fixed_ship_armor_slot = light_armor_plates_1
-			fixed_ship_crew_slot = ship_boarding_1
-			fixed_ship_bridge_slot = lookout_1
+			fixed_ship_armor_slot = medium_hull_reinforcement_1
+			fixed_ship_crew_slot = ship_firebender_crew_1
+			fixed_ship_bridge_slot = empty
 			fixed_ship_engine_slot = steam_engine_1
 		}
 		
@@ -262,17 +259,14 @@ equipments = {
 		naval_speed = 20
 		reliability = 0.8
 		resources = {
-			chromium = 2
-			aluminium = 2
-			tungsten = 1
-			oil = 1
+			aluminium = 1
 		}
 	}
 
 	firenation_yacht_2 = {
 		year = 1936
 		visual_level = 1
-		archetype = firenation_yacht
+		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_1
 		module_slots = inherit
@@ -319,7 +313,7 @@ equipments = {
 	firenation_yacht_3 = {
 		year = 1940
 		visual_level = 1
-		archetype = firenation_yacht
+		archetype = firenation_yacht_hull
 		priority = 1900
 		parent = firenation_yacht_2
 		module_slots = inherit
