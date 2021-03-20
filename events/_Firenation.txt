@@ -639,6 +639,7 @@ country_event = {
 	hidden = yes
 
 	trigger = {
+		tag = FIR
 		date > 32.1.1
 		has_country_leader = {
    			name = "Sozin"
@@ -675,4 +676,54 @@ country_event = {
 	option = {
 		name = firenation.11.a
 	}
+}
+
+# fall of taku
+country_event = {
+	id = firenation.12
+	title = firenation.12.t
+	desc = firenation.12.desc
+	picture = GFX_fall_of_taku
+
+	fire_only_once = yes
+
+	trigger = {
+		tag = FIR
+		FIR = {
+			controlls_state = 154
+		}
+	}
+
+	option = { #a great idea!
+		name = firenation.12.a
+		ai_chance = {
+			base = 100
+		}
+		154 = {
+			add_compliance = 20
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+					state = 154
+					}
+				}
+				add_dynamic_modifier = { modifier = destroyed_city }
+			}
+		}
+	}
+
+	option = { #rather not
+		name = firenation.12.b
+		ai_chance = {
+			base = 0
+		}
+		add_stability = -0.05
+		add_timed_idea = {
+			idea = unit_morale_dropped
+			days = 30
+		}
+	}
+
 }

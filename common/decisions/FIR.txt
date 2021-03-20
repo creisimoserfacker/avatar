@@ -293,41 +293,6 @@ FIR_conquest_category = {
 		}
 	}
 
-	victory = {
-
-		visible = {
-			FIR = {
-          		controls_state = 155
-       		}
-        }
-
-		#available = {
-        #    FIR = {
-        #    	controls_state = 155
-        #    }
-        #}
-
-		complete_effect = {
-			set_victory_points = {
-				province = 6682
-				value = 50
-			}
-		}
-
-		cost = 1#40
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				factor = 100
-			}
-		}
-	}
-
 	war_with_northern_watertribe = {
 
 		visible = {
@@ -393,26 +358,122 @@ FIR_civil_decision_category = {
 
 
 FIR_colonies_category = {
-	
-	pohuai = {
 
-		icon = aluminium
+	pohuai_buildup_1 = {
 
-		visible = {
-
-		}
+		icon = colony
 
 		highlight_state_targets = {
 			state = 155
+		}
+
+		visible = {
+			controls_state = 155
+		}
+
+		available = {
+			155 = {
+				infrastructure > 9
+			}
+		}
+
+		complete_effect = {
+			155 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
+	pohuai_buildup_2 = {
+
+		icon = colony
+
+		highlight_provinces = { 
+			6682 
+		}
+
+		visible = {
+			controls_state = 155
+		}
+
+		available = {
+			155 = {
+				any_province_building_level = {
+				    province = {
+						id = 6682
+						limit_to_border = no
+					}
+				    building = wall
+				    level > 9
+				}
+			}
+		}
+
+		complete_effect = {
+			set_victory_points = {
+				province = 6682
+				value = 30
+			}
+			155 = {
+				add_compliance = 10
+				resistance_target = 5
+			}
+		}
+		cost = 20
+		fire_only_once = yes
+	}
+
+	pohuai_buildup_3 = {
+
+		icon = colony
+
+		visible = {
+			controls_state = 155
+			155 = {
+				compliance > 50
+			}
+		}
+
+		available = {
+			155 = {
+				compliance > 50
+			}
+		}
+
+		complete_effect = {
+			FIR = { 
+				set_state_owner = 155
+				set_state_owner = 154
+			}
+		}
+		cost = 20
+		fire_only_once = yes
+	}
+	
+	pohuai_colony = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 155
+			state = 154
+		}
+
+		visible = {
+
 		}
 
 		available = {
 			has_government = imperialism
 			owns_state = 155
 			controls_state = 155
-			has_core_occupation_modifier = {
-				occupied_country_tag = POH
-				modifier = compliance_80
+			owns_state = 154
+			controls_state = 154
+			155 = {
+				compliance > 80
 			}
 		}
 
@@ -420,10 +481,13 @@ FIR_colonies_category = {
 
 			PFC = {
 				transfer_state = 155
+				transfer_state = 154
+				add_state_core = 155
+				add_state_core = 154
 				create_country_leader = {
-					name = "Marcell Davis"
+					name = "Superviser Ling"
 					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
+					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
 					expire = "120.1.1"
 					ideology = colonialism
 					traits = {
@@ -434,12 +498,14 @@ FIR_colonies_category = {
 			FIR = {
 				if = {
 					limit = {
-						has_dlc = "Together for Victory"
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+						puppet = PFC
 					}
-					puppet = PFC
-				}
-				else = {
-					set_autonomy = { target = PFC autonomy_state = autonomy_imperial_colony }
+					else = {
+						set_autonomy = { target = PFC autonomy_state = autonomy_imperial_colony }
+					}
 				}
 			}
 
@@ -449,85 +515,93 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
-	taku = {
+	yu_dao_buildup_1 = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 230
+		}
+
+		visible = {
+			controls_state = 230
+		}
+
+		available = {
+			230 = {
+				infrastructure > 9
+			}
+		}
+
+		complete_effect = {
+			230 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
+	yu_dao_colony = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 230
+			state = 184
+			state = 191
+		}
 
 		visible = {
 
-        }
+		}
 
 		available = {
-            has_completed_focus = FIR_installpuppetstates
-            has_government = imperialism
-            controls_state = 141
-            controls_state = 153
-            controls_state = 238
-            controls_state = 37
-            controls_state = 120
-        }
+			has_government = imperialism
+			owns_state = 230
+			controls_state = 230
+			owns_state = 184
+			controls_state = 184
+			owns_state = 191
+			controls_state = 191
+			230 = {
+				compliance > 80
+			}
+		}
 
 		complete_effect = {
-			if = {
-				limit = {
-					country_exists = TAK
-					NOT = { TAK = { has_government = imperialism } }
-				}
-				hidden_effect = {
-					TAK = {
-						set_state_controller = 141
-						set_state_controller = 153
-						set_state_controller = 238
-						set_state_controller = 37
-						set_state_controller = 120
-					}
-				}
-				TAK = {
-					start_civil_war = { ideology = imperialism size = 1 }
-				}
-				random_country = {
-					limit= {
-						original_tag = TAK
-						has_government = imperialism
-					}
-					transfer_state = 141
-					transfer_state = 153
-					transfer_state = 238
-					transfer_state = 37
-					transfer_state = 120
-					FIR = {
-						puppet = PREV
-						set_autonomy = { target = PREV autonomy_state = autonomy_imperial_dominion }
-					}
-					set_cosmetic_tag = TAK_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
-						}
+
+			YFC = {
+				transfer_state = 230
+				transfer_state = 184
+				transfer_state = 191
+				add_state_core = 230
+				add_state_core = 184
+				add_state_core = 191
+				create_country_leader = {
+					name = "Superviser Wan"
+					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
+					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
+					expire = "120.1.1"
+					ideology = colonialism
+					traits = {
 					}
 				}
 			}
-			else = {
-				TAK = {
-					transfer_state = 141
-					transfer_state = 153
-					transfer_state = 238
-					transfer_state = 37
-					transfer_state = 120
-					set_cosmetic_tag = TAK_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
 						}
+						puppet = YFC
+					}
+					else = {
+						set_autonomy = { target = YFC autonomy_state = autonomy_imperial_colony }
 					}
 				}
-				set_autonomy = { target = TAK autonomy_state = autonomy_imperial_dominion }
 			}
 
 		}
@@ -536,85 +610,65 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
-	makapu = {
+	makapu_colony = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 227
+			state = 204
+			state = 214
+		}
 
 		visible = {
 
-        }
+		}
 
 		available = {
-            has_completed_focus = FIR_installpuppetstates
-            has_government = imperialism
-            controls_state = 137
-            controls_state = 205
-            controls_state = 69
-            controls_state = 97
-            controls_state = 33
-        }
+			has_government = imperialism
+			owns_state = 227
+			controls_state = 227
+			owns_state = 204
+			controls_state = 204
+			owns_state = 214
+			controls_state = 214
+			227 = {
+				compliance > 80
+			}
+		}
 
 		complete_effect = {
-			if = {
-				limit = {
-					country_exists = MAK
-					NOT = { MAK = { has_government = imperialism } }
-				}
-				hidden_effect = {
-					MAK = {
-						set_state_controller = 137
-						set_state_controller = 205
-						set_state_controller = 69
-						set_state_controller = 97
-						set_state_controller = 33
-					}
-				}
-				MAK = {
-					start_civil_war = { ideology = imperialism size = 1 }
-				}
-				random_country = {
-					limit= {
-						original_tag = MAK
-						has_government = imperialism
-					}
-					transfer_state = 137
-					transfer_state = 205
-					transfer_state = 69
-					transfer_state = 97
-					transfer_state = 33
-					FIR = {
-						puppet = PREV
-						set_autonomy = { target = PREV autonomy_state = autonomy_imperial_dominion }
-					}
-					set_cosmetic_tag = MAK_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
-						}
+
+			MFC = {
+				transfer_state = 227
+				transfer_state = 204
+				transfer_state = 214
+				add_state_core = 227
+				add_state_core = 204
+				add_state_core = 214
+				create_country_leader = {
+					name = "Superviser Zu"
+					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
+					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
+					expire = "120.1.1"
+					ideology = colonialism
+					traits = {
 					}
 				}
 			}
-			else = {
-				MAK = {
-					transfer_state = 137
-					transfer_state = 205
-					transfer_state = 69
-					transfer_state = 97
-					transfer_state = 33
-					set_cosmetic_tag = MAK_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
 						}
+						puppet = MFC
+					}
+					else = {
+						set_autonomy = { target = MFC autonomy_state = autonomy_imperial_colony }
 					}
 				}
-				set_autonomy = { target = MAK autonomy_state = autonomy_imperial_dominion }
 			}
 
 		}
@@ -623,85 +677,132 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
-	wulong = {
+	tienhai_colony = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 171
+			state = 165
+			state = 220
+		}
 
 		visible = {
 
-        }
+		}
 
 		available = {
-            has_completed_focus = FIR_installpuppetstates
-            has_government = imperialism
-            controls_state = 149
-            controls_state = 158
-            controls_state = 150
-            controls_state = 136
-            controls_state = 148
-        }
+			has_government = imperialism
+			owns_state = 171
+			controls_state = 171
+			owns_state = 165
+			controls_state = 165
+			owns_state = 220
+			controls_state = 220
+			171 = {
+				compliance > 80
+			}
+		}
 
 		complete_effect = {
-			if = {
-				limit = {
-					country_exists = WUL
-					NOT = { WUL = { has_government = imperialism } }
-				}
-				hidden_effect = {
-					WUL = {
-						set_state_controller = 149
-						set_state_controller = 158
-						set_state_controller = 150
-						set_state_controller = 136
-						set_state_controller = 148
-					}
-				}
-				WUL = {
-					start_civil_war = { ideology = imperialism size = 1 }
-				}
-				random_country = {
-					limit= {
-						original_tag = WUL
-						has_government = imperialism
-					}
-					transfer_state = 149
-					transfer_state = 158
-					transfer_state = 150
-					transfer_state = 136
-					transfer_state = 148
-					FIR = {
-						puppet = PREV
-						set_autonomy = { target = PREV autonomy_state = autonomy_imperial_dominion }
-					}
-					set_cosmetic_tag = WUL_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
-						}
+
+			HFC = {
+				transfer_state = 171
+				transfer_state = 165
+				transfer_state = 220
+				add_state_core = 171
+				add_state_core = 165
+				add_state_core = 220
+				create_country_leader = {
+					name = "Superviser Tao"
+					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
+					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
+					expire = "120.1.1"
+					ideology = colonialism
+					traits = {
 					}
 				}
 			}
-			else = {
-				WUL = {
-					transfer_state = 149
-					transfer_state = 158
-					transfer_state = 150
-					transfer_state = 136
-					transfer_state = 148
-					set_cosmetic_tag = WUL_imperialcolony
-					create_country_leader = {
-						name = "Marcell Davis"
-						desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-						picture = "gfx/leaders/Europe/Portrait_Europe_Generic_5.dds"
-						expire = "120.1.1"
-						ideology = colonialism
-						traits = {
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
 						}
+						puppet = HFC
+					}
+					else = {
+						set_autonomy = { target = HFC autonomy_state = autonomy_imperial_colony }
 					}
 				}
-				set_autonomy = { target = WUL autonomy_state = autonomy_imperial_dominion }
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	han_tui_colony = {
+
+		icon = colony
+
+		highlight_state_targets = {
+			state = 280
+			state = 244
+			state = 270
+		}
+
+		visible = {
+
+		}
+
+		available = {
+			has_government = imperialism
+			owns_state = 280
+			controls_state = 280
+			owns_state = 244
+			controls_state = 244
+			owns_state = 270
+			controls_state = 270
+			280 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			KFC = {
+				transfer_state = 280
+				transfer_state = 244
+				transfer_state = 270
+				add_state_core = 280
+				add_state_core = 244
+				add_state_core = 270
+				create_country_leader = {
+					name = "Superviser Tao"
+					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
+					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
+					expire = "120.1.1"
+					ideology = colonialism
+					traits = {
+					}
+				}
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+						puppet = KFC
+					}
+					else = {
+						set_autonomy = { target = KFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
 			}
 
 		}

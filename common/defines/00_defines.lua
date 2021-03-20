@@ -418,7 +418,7 @@ NResistance = {
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
-	COMPLIANCE_GROWTH_BASE = 0.08, -- base compliance grow
+	COMPLIANCE_GROWTH_BASE = 0.04, -- base compliance grow
 	COMPLIANCE_GROWTH_MIN = -100.0, -- min compliance grow
 	COMPLIANCE_GROWTH_MAX = 100.0, -- max compliance grow
 	
@@ -692,7 +692,7 @@ NMilitary = {
 	SLOWEST_SPEED = 2,
 	REINFORCEMENT_REQUEST_MAX_WAITING_DAYS = 14,   -- Every X days the equipment will be sent, regardless if still didn't produced all that has been requested.
 	REINFORCEMENT_REQUEST_DAYS_FREQUENCY = 7,	   -- How many days must pass until we may give another reinforcement request
-	EXPERIENCE_COMBAT_FACTOR = 0.25,
+	EXPERIENCE_COMBAT_FACTOR = 0.05,
 	ALERT_VERY_LOW_SUPPLY_LEVEL = 0.3,			   -- At which point we show up the low and very low supply level alert. Value is in % of supplies supported vs required.
 	ALERT_LOW_SUPPLY_LEVEL = 0.9,
 	UNIT_DIGIN_CAP = 5,                           -- how "deep" you can dig you can dig in until hitting max bonus
