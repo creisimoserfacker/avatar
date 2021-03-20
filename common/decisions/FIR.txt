@@ -37,29 +37,39 @@ war_weariness = {
 }
 
 FIR_conquest_category = {
-	
-	war_with_earthkingdom = {
+
+	military_preparations = {
+
+		visible = {	
+			NOT = { 
+				has_war_with = EAR 
+			}
+		}
 
 		available = {
-            AND = {
-				country_exists = EAR		
-				NOT = { has_war_with = EAR }
+			NOT = { 
+				has_war_with = EAR 
 			}
         }
 
         modifier = {
 			political_power_gain = -1
+			civilian_factory_use = 5
+			production_speed_arms_factory_factor = 0.2
 		}
 
 		remove_effect = {
-			declare_war_on = {
-				target = EAR
-				type = puppet_wargoal_focus
+			add_tech_bonus = {
+				name = fir_invasion_tech
+				category = cat_power
+				bonus = 2.0
 			}
-			create_wargoal = { type = puppet_wargoal_focus target = EAR }
+			army_experience = 30
+			navy_experience = 20
+			set_country_flag = military_preparations_complete
 		}
 
-		days_remove = 30
+		days_remove = 120
 
 		cost = 0
         fire_only_once = yes
@@ -72,11 +82,224 @@ FIR_conquest_category = {
 		}
 	}
 
+	northern_attack_plan = {
+
+		visible = {	
+			NOT = { 
+				has_war_with = EAR 
+			}
+		}
+
+		available = {
+            AND = {
+				country_exists = EAR		
+				NOT = { 
+					AND = {
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+					}
+					OR = {
+						has_decision = central_attack_plan
+						has_decision = southern_attack_plan
+					}
+				}
+				has_country_flag = military_preparations_complete
+			}
+        }
+
+        modifier = {
+			command_power_gain = -1
+			consumer_goods_factor = 0.2
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = FIR_planned_invasion
+			set_country_flag = northern_attack_planned
+		}
+
+		days_remove = 120
+
+		cost = 0
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				has_war = yes
+				factor = 0
+			}
+		}
+	}
+
+	central_attack_plan = {
+
+		visible = {	
+			NOT = { 
+				has_war_with = EAR 
+			}
+		}
+
+		available = {
+            AND = {
+				country_exists = EAR		
+				NOT = { 
+					AND = {
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+					}
+					OR = {
+						has_decision = northern_attack_plan
+						has_decision = southern_attack_plan
+					}
+				}
+				has_country_flag = military_preparations_complete
+			}
+        }
+
+        modifier = {
+			command_power_gain = -1
+			consumer_goods_factor = 0.2
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = FIR_planned_invasion
+			set_country_flag = central_attack_planned
+		}
+
+		days_remove = 120
+
+		cost = 0
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+			modifier = {
+				has_war = yes
+				factor = 0
+			}
+		}
+	}
+
+	southern_attack_plan = {
+
+		visible = {	
+			NOT = { 
+				has_war_with = EAR 
+			}
+		}
+
+		available = {
+            AND = {
+				country_exists = EAR		
+				NOT = { 
+					AND = {
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+					}
+					OR = {
+						has_decision = central_attack_plan
+						has_decision = northern_attack_plan
+					}
+				}
+				has_country_flag = military_preparations_complete
+			}
+        }
+
+        modifier = {
+			command_power_gain = -1
+			consumer_goods_factor = 0.2
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = FIR_planned_invasion
+			set_country_flag = southern_attack_planned
+		}
+
+		days_remove = 120
+
+		cost = 0
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				has_war = yes
+				factor = 0
+			}
+		}
+	}
+	
+	war_with_earthkingdom = {
+
+		visible = {
+			NOT = { has_war_with = EAR }
+        }
+
+		available = {
+            AND = {
+				country_exists = EAR		
+				NOT = { 
+					AND = {
+						has_war_with = EAR 
+						has_decision = military_preparations
+						OR = {
+							has_decision = central_attack_plan
+							has_decision = southern_attack_plan
+							has_decision = northern_attack_plan
+						}
+					}
+				}
+			}
+        }
+
+        modifier = {
+			political_power_factor = -0.25
+		}
+
+		war_with_target_on_remove = yes
+
+		remove_effect = {
+			declare_war_on = {
+				target = EAR
+				type = annex_everything
+			}
+			if = {
+				limit = {
+					has_country_flag = northern_attack_planned
+				}
+				add_timed_idea = { idea = FIR_northern_plan days = 180 }
+			}
+			if = {
+				limit = {
+					has_country_flag = central_attack_planned
+				}
+				add_timed_idea = { idea = FIR_central_plan days = 180 }
+			}
+			if = {
+				limit = {
+					has_country_flag = southern_attack_planned
+				}
+				add_timed_idea = { idea = FIR_southern_plan days = 180 }
+			}
+		}
+
+		days_remove = 60
+
+		cost = 50
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 100
+			modifier = {
+				has_war = yes
+				factor = 0
+			}
+		}
+	}
+
 	victory = {
 
-		allowed = {
-			TAG = FIR
-		}
+		visible = {
+			FIR = {
+          		controls_state = 155
+       		}
+        }
 
 		#available = {
         #    FIR = {
@@ -108,12 +331,13 @@ FIR_conquest_category = {
 	war_with_northern_watertribe = {
 
 		visible = {
-
+			has_global_flag = air_nomad_genocide
         }
 
 		available = {
             date > 27.1.1
             has_war = yes
+            has_global_flag = air_nomad_genocide
         }
 
 		complete_effect = {
@@ -130,12 +354,13 @@ FIR_conquest_category = {
 	war_with_southern_watertribe = {
 
 		visible = {
-
+			has_global_flag = air_nomad_genocide
         }
 
 		available = {
             date > 27.1.1
             has_war = yes
+            has_global_flag = air_nomad_genocide
         }
 
 		complete_effect = {
@@ -495,6 +720,8 @@ air_genocide_category = {
 
 	arrival_of_the_great_comet = {
 
+		icon = mission_comet
+
 		allowed = {
 			TAG = FIR
 		}
@@ -597,6 +824,8 @@ air_genocide_category = {
 
 	commence_the_genocide = {
 
+		icon = generic_yes
+
 		available = {
 			hidden_trigger = {
 				NOT = {
@@ -630,6 +859,8 @@ air_genocide_category = {
 		}
 	}
 	spare_the_air_nomads = {
+
+		icon = generic_no
 
 		available = {
 			hidden_trigger = {

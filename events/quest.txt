@@ -1,0 +1,438 @@
+add_namespace = quest
+
+###Event: The Avatar's Quest Begins! 
+country_event = {
+	id = quest.0
+	title = quest.0.title
+	desc = quest.0.desc
+	picture = GFX_start_of_quest
+	fire_only_once = yes
+	is_triggered_only = yes
+	trigger = {
+		date > 111.10.28
+	}
+	immediate = {
+		SWT = { country_event = { id = quest.1 days = 62 } }
+		FIR = { country_event = { id = quest.2 days = 62 } }
+		}
+	option = {
+		name = quest.0.a
+		}
+}
+
+##Event: The Avatar Returns!
+country_event = {
+	id = quest.1
+	title = quest.1.title
+	desc = quest.1.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_the_avatar_returns-86212
+	trigger = {
+		SWT = { controls_state = 85}
+		tag = SWT
+	}
+	immediate = {
+			if = { limit = { SAT = { has_country_leader = { name = "Extincted Nation" ruling_only = yes } } }
+				FIR = { country_event = { id = quest.4 days = 14 } } }
+			else = { SAT = { country_event = { id = quest.5 days = 14 } } }
+		}
+	option = {
+		name = quest.1.a
+		ai_chance = { factor = 4}
+		###add Sokka and Kattara to the team, Update location
+	}
+	option = {
+		name = quest.1.b
+		ai_chance = { factor = 1}
+		###add Kattara to the team, Update location
+	}
+}
+
+
+##Event: The Avatar?
+country_event = {
+	id = quest.2
+	title = quest.2.title
+	desc = quest.2.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_the_avatar-86216
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.2.a
+		ai_chance = { factor = 4}
+		###a chance to kil sokka
+		news_event = { id = quest.3 days = 1 }
+	}
+	option = {
+		name = quest.2.b
+		ai_chance = { factor = 1}
+		##nothing happens
+		news_event = { id = quest.3 days = 1 }
+	}
+}
+
+
+##Event: After 100 Years, The Avatar Was Found!
+news_event = {
+	id = quest.3
+	title = quest.3.title
+	desc = quest.3.desc
+	picture = GFX_ep2_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.3.a
+		ai_chance = { factor = 1}
+	}
+}
+
+
+##Event: Mysterious Lights Have Appeared In The Fire Sage's Temple 
+country_event = {
+	id = quest.4
+	title = quest.4.title
+	desc = quest.4.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Aang_Goes_Into_The_Avatar_State
+	trigger = {
+		tag = FIR
+	}
+	immediate = {
+			#the kyoshi event will happen only if sokka is in the team
+			KYI = { country_event = { id = quest.7 days = 14 } } 
+			FIR = { country_event = { id = quest.8 days = 14 } } 
+		}
+	option = {
+		name = quest.4.a
+		news_event = { id = quest.6 days = 1 }
+	}
+}
+
+
+##Event: Aang Returnes Home
+country_event = {
+	id = quest.5
+	title = quest.5.title
+	desc = quest.5.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Aang_Returnes_Home
+	trigger = {
+		tag = SAT
+	}
+	immediate = {
+			#the kyoshi event will happen only if sokka is in the team
+			KYI = { country_event = { id = quest.7 days = 14 } } 
+			FIR = { country_event = { id = quest.8 days = 14 } } 
+		}
+	option = {
+		name = quest.5.a
+		ai_chance = { factor = 4}
+		###accept Aang's request 
+	}
+	option = {
+		name = quest.5.b
+		ai_chance = { factor = 1}
+		###no effect
+	}
+}
+
+
+##Event: Aang Goes Into The Avatar State
+news_event = {
+	id = quest.6
+	title = quest.6.title
+	desc = quest.6.desc
+	picture = GFX_ep3_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.6.a
+		ai_chance = { factor = 1}
+	}
+}
+
+##Event: The Avatar Came To Our Island!
+country_event = {
+	id = quest.7
+	title = quest.7.title
+	desc = quest.7.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_Came_To_Our_Island
+	trigger = {
+		tag = KYI
+	}
+	option = {
+		name = quest.7.a
+		ai_chance = { factor = 4}
+		###train sokka and buff him
+	}
+	option = {
+		name = quest.7.b
+		ai_chance = { factor = 1}
+		###no effect
+	}
+}
+
+
+##Event: The Avatar Is In Kyoshi Island?
+country_event = {
+	id = quest.8
+	title = quest.8.title
+	desc = quest.8.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_Is_In_Kyoshi_Island
+	trigger = {
+		tag = FIR
+	}
+	immediate = {
+			if = { limit = { OMS = { controls_state = 205 } } 
+				OMS = { country_event = { id = quest.10 days = 14 } } }
+			else = { FIR = { country_event = { id = quest.11 days = 14 } } }
+		}
+	option = {
+		name = quest.8.a
+		ai_chance = { factor = 4}
+		news_event = { id = quest.9 days = 1 }
+		###a chance to kill suki, weaken sokka, the news event will happen only if sokka is in the team
+	}
+	option = {
+		name = quest.8.b
+		ai_chance = { factor = 1}
+		###no effect
+	}
+}
+
+
+##Event: Battle In Kyoshi Island
+news_event = {
+	id = quest.9
+	title = quest.9.title
+	desc = quest.9.desc
+	picture = GFX_ep4_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.9.a
+		ai_chance = { factor = 1}
+	}
+}
+
+
+##Event: Aang Arrived In Omashu!
+country_event = {
+	id = quest.10
+	title = quest.10.title
+	desc = quest.10.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Aang_Arrived_In_Omashu
+	trigger = {
+		tag = OMS
+	}
+	immediate = {
+			if = { limit = { FMB = { has_capitulated = yes } } 
+				FIR = { country_event = { id = quest.13 days = 14 } } }
+			if = { limit = { HEB = { has_capitulated = yes } } 
+				FIR = { country_event = { id = quest.16 days = 28 } } }
+		}
+	option = {
+		name = quest.10.a
+		ai_chance = { factor = 4}
+		news_event = { id = quest.12 days = 1 }
+		###vatar gains influence
+	}
+	option = {
+		name = quest.10.b
+		ai_chance = { factor = 1}
+		###Avatar looses influence
+	}
+}
+
+
+##Event: Fate Of Bumi
+country_event = {
+	id = quest.11
+	title = quest.11.title
+	desc = quest.11.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Fate_Of_Bumi
+	trigger = {
+		tag = FIR
+	}
+	immediate = {
+			if = { limit = { FMB = { has_capitulated = yes } } 
+				FIR = { country_event = { id = quest.13 days = 14 } } }
+			if = { limit = { HEB = { has_capitulated = yes } } 
+				FIR = { country_event = { id = quest.16 days = 28 } } }
+		}
+	option = {
+		name = quest.11.a
+		ai_chance = { factor = 4}
+		###Gains Compliance
+	}
+	option = {
+		name = quest.11.b
+		ai_chance = { factor = 1}
+		###Weakens the White Lotus Rebelion, Gains Resistance
+	}
+}
+
+
+##Event: The Avatar Reunited With Bumi 
+news_event = {
+	id = quest.12
+	title = quest.12.title
+	desc = quest.12.desc
+	picture = GFX_ep5_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.12.a
+		ai_chance = { factor = 1}
+	}
+}
+
+
+##Event: The Earthbenders Dilemma
+country_event = {
+	id = quest.13
+	title = quest.13.title
+	desc = quest.13.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Earthbenders_Dilemma
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.13.a
+		ai_chance = { factor = 4}
+		FMB = { country_event = { id = quest.14 days = 1 } }
+		###imprison them- Economic boost, but Team Avatar will be able to release them for +influence (with the event)
+	}
+	option = {
+		name = quest.13.b
+		ai_chance = { factor = 1}
+		###don't imprison- no effect 
+	}
+}
+
+
+##Event: Save The Prisoners?
+country_event = {
+	id = quest.14
+	title = quest.14.title
+	desc = quest.14.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Save_The_Prisoners
+	trigger = {
+		tag = FMB
+	}
+	option = {
+		name = quest.14.a
+		ai_chance = { factor = 4}
+		news_event = { id = quest.15 days = 1 }
+		###the team will save Haru and the prisoners for +influence
+	}
+	option = {
+		name = quest.14.b
+		ai_chance = { factor = 1}
+		###reject helping- lose influence
+	}
+}
+
+
+##Event: A Rebelion In The Fire Nation's Coal Mine
+news_event = {
+	id = quest.15
+	title = quest.15.title
+	desc = quest.15.desc
+	picture = GFX_ep6_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.15.a
+		ai_chance = { factor = 1}
+	}
+}
+
+
+##Event: The Forest Of Hei Bai
+country_event = {
+	id = quest.16
+	title = quest.16.title
+	desc = quest.16.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Forest_Of_Hei_Bai
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.16.a
+		ai_chance = { factor = 4}
+		HEB = { country_event = { id = quest.17 days = 1 } }
+		###burn the forest- +Building Slots, Causing Aang to handle the Spirit crisis for +influence and +spirituality
+	}
+	option = {
+		name = quest.16.b
+		ai_chance = { factor = 1}
+		###don't burn- no effect 
+	}
+}
+
+
+##Event: A Spiritual Crisis
+country_event = {
+	id = quest.17
+	title = quest.17.title
+	desc = quest.17.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_A_Spiritual_Crisis
+	trigger = {
+		tag = HEB
+	}
+	option = {
+		name = quest.17.a
+		ai_chance = { factor = 4}
+		news_event = { id = quest.18 days = 1 }
+		###Aang helps for- +influence and +spirituality
+	}
+	option = {
+		name = quest.17.b
+		ai_chance = { factor = 1}
+		###does't help- no effect
+	}
+}
+
+
+##Event: The Avatar Ended The Spirit Crisis
+news_event = {
+	id = quest.18
+	title = quest.18.title
+	desc = quest.18.desc
+	picture = GFX_ep8_news
+	major = yes
+	fire_only_once = yes
+	is_triggered_only = yes
+	option = {
+		name = quest.18.a
+		ai_chance = { factor = 1}
+	}
+}
