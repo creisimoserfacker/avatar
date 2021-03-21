@@ -689,10 +689,17 @@ country_event = {
 
 	trigger = {
 		tag = FIR
-		FIR = {
-			controlls_state = 154
-		}
+		154 = { is_controlled_by = GER }
+		154 = { is_owned_by = TAK }
+		FIR = { has_war_with = TAK }
+		NOT = { has_global_flag = fall_of_taku }
 	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_taku
+		}
+ 	}
 
 	option = { #a great idea!
 		name = firenation.12.a

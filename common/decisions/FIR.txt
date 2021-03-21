@@ -228,6 +228,8 @@ FIR_conquest_category = {
 	
 	war_with_earthkingdom = {
 
+		icon = war
+
 		visible = {
 			NOT = { has_war_with = EAR }
         }
@@ -236,14 +238,12 @@ FIR_conquest_category = {
             AND = {
 				country_exists = EAR		
 				NOT = { 
-					AND = {
-						has_war_with = EAR 
-						has_decision = military_preparations
-						OR = {
-							has_decision = central_attack_plan
-							has_decision = southern_attack_plan
-							has_decision = northern_attack_plan
-						}
+					has_war_with = EAR 
+					has_decision = military_preparations
+					OR = {
+						has_decision = central_attack_plan
+						has_decision = southern_attack_plan
+						has_decision = northern_attack_plan
 					}
 				}
 			}
@@ -253,7 +253,7 @@ FIR_conquest_category = {
 			political_power_factor = -0.25
 		}
 
-		war_with_target_on_remove = yes
+		war_with_on_remove = EAR
 
 		remove_effect = {
 			declare_war_on = {
@@ -295,47 +295,69 @@ FIR_conquest_category = {
 
 	war_with_northern_watertribe = {
 
+		icon = war
+
 		visible = {
 			has_global_flag = air_nomad_genocide
+			NOT = { has_war_with = NWT }
         }
 
 		available = {
             date > 27.1.1
             has_war = yes
             has_global_flag = air_nomad_genocide
+            NOT = {
+            	has_war_with = NWT
+            }
         }
 
+		cost = 100
+		days_remove = 30
+		war_with_on_remove = NWT
 		complete_effect = {
+			
+		}
+		remove_effect = {
 			declare_war_on = {
 				target = NWT
 				type = annex_everything
 			}
 		}
 
-		cost = 100
         fire_only_once = yes
 	}
 
 	war_with_southern_watertribe = {
 
+		icon = war
+
 		visible = {
 			has_global_flag = air_nomad_genocide
+			NOT = { has_war_with = SWT }
         }
 
 		available = {
             date > 27.1.1
             has_war = yes
             has_global_flag = air_nomad_genocide
+            NOT = {
+				has_war_with = NWT
+			}
         }
 
+		cost = 100
+		days_remove = 30
+		war_with_on_remove = SWT
 		complete_effect = {
+			
+		}
+		remove_effect = {
 			declare_war_on = {
 				target = SWT
 				type = annex_everything
 			}
 		}
 
-		cost = 100
         fire_only_once = yes
 	}
 
@@ -361,7 +383,7 @@ FIR_colonies_category = {
 
 	pohuai_buildup_1 = {
 
-		icon = colony
+		icon = buildup
 
 		highlight_state_targets = {
 			state = 155
@@ -389,7 +411,7 @@ FIR_colonies_category = {
 
 	pohuai_buildup_2 = {
 
-		icon = colony
+		icon = fortify
 
 		highlight_provinces = { 
 			6682 
@@ -426,36 +448,69 @@ FIR_colonies_category = {
 		fire_only_once = yes
 	}
 
-	pohuai_buildup_3 = {
+	pohuai_occupation = {
 
-		icon = colony
+		icon = fir_occupy
+
+		highlight_state_targets = {
+			state = 155
+		}
 
 		visible = {
 			controls_state = 155
 			155 = {
-				compliance > 50
+				compliance > 60
 			}
 		}
 
 		available = {
 			155 = {
-				compliance > 50
+				compliance > 60
 			}
 		}
 
 		complete_effect = {
 			FIR = { 
 				set_state_owner = 155
+			}
+		}
+		cost = 50
+		fire_only_once = yes
+	}
+
+	taku_occupation = {
+
+		icon = fir_occupy
+
+		highlight_state_targets = {
+			state = 154
+		}
+
+		visible = {
+			controls_state = 154
+			154 = {
+				compliance > 60
+			}
+		}
+
+		available = {
+			154 = {
+				compliance > 60
+			}
+		}
+
+		complete_effect = {
+			FIR = { 
 				set_state_owner = 154
 			}
 		}
-		cost = 20
+		cost = 50
 		fire_only_once = yes
 	}
 	
 	pohuai_colony = {
 
-		icon = colony
+		icon = fir_colony
 
 		highlight_state_targets = {
 			state = 155
@@ -484,15 +539,6 @@ FIR_colonies_category = {
 				transfer_state = 154
 				add_state_core = 155
 				add_state_core = 154
-				create_country_leader = {
-					name = "Superviser Ling"
-					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
-					expire = "120.1.1"
-					ideology = colonialism
-					traits = {
-					}
-				}
 			}
 
 			FIR = {
@@ -517,7 +563,7 @@ FIR_colonies_category = {
 
 	yu_dao_buildup_1 = {
 
-		icon = colony
+		icon = buildup
 
 		highlight_state_targets = {
 			state = 230
@@ -543,9 +589,37 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
+	yu_dao_buildup_2 = {
+
+		icon = buildup
+
+		highlight_state_targets = {
+			state = 230
+		}
+
+		visible = {
+			controls_state = 230
+		}
+
+		available = {
+			230 = {
+				naval_base > 5
+			}
+		}
+
+		complete_effect = {
+			230 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
 	yu_dao_colony = {
 
-		icon = colony
+		icon = fir_colony
 
 		highlight_state_targets = {
 			state = 230
@@ -579,15 +653,6 @@ FIR_colonies_category = {
 				add_state_core = 230
 				add_state_core = 184
 				add_state_core = 191
-				create_country_leader = {
-					name = "Superviser Wan"
-					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
-					expire = "120.1.1"
-					ideology = colonialism
-					traits = {
-					}
-				}
 			}
 
 			FIR = {
@@ -612,7 +677,7 @@ FIR_colonies_category = {
 
 	makapu_colony = {
 
-		icon = colony
+		icon = fir_colony
 
 		highlight_state_targets = {
 			state = 227
@@ -646,15 +711,6 @@ FIR_colonies_category = {
 				add_state_core = 227
 				add_state_core = 204
 				add_state_core = 214
-				create_country_leader = {
-					name = "Superviser Zu"
-					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
-					expire = "120.1.1"
-					ideology = colonialism
-					traits = {
-					}
-				}
 			}
 
 			FIR = {
@@ -679,7 +735,7 @@ FIR_colonies_category = {
 
 	tienhai_colony = {
 
-		icon = colony
+		icon = fir_colony
 
 		highlight_state_targets = {
 			state = 171
@@ -713,15 +769,6 @@ FIR_colonies_category = {
 				add_state_core = 171
 				add_state_core = 165
 				add_state_core = 220
-				create_country_leader = {
-					name = "Superviser Tao"
-					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
-					expire = "120.1.1"
-					ideology = colonialism
-					traits = {
-					}
-				}
 			}
 
 			FIR = {
@@ -746,7 +793,7 @@ FIR_colonies_category = {
 
 	han_tui_colony = {
 
-		icon = colony
+		icon = fir_colony
 
 		highlight_state_targets = {
 			state = 280
@@ -780,15 +827,6 @@ FIR_colonies_category = {
 				add_state_core = 280
 				add_state_core = 244
 				add_state_core = 270
-				create_country_leader = {
-					name = "Superviser Tao"
-					desc = "POLITICS_JOSEF_TERBOVEN_DESC"
-					picture = "gfx/leaders/FIR/Portrait_Firenation_Generic2.dds"
-					expire = "120.1.1"
-					ideology = colonialism
-					traits = {
-					}
-				}
 			}
 
 			FIR = {
@@ -828,7 +866,7 @@ air_genocide_category = {
 		}
 
 		available = {
-			hidden_trigger = { always = no }
+			has_global_flag = air_nomad_genocide
 		}
 
         days_mission_timeout = 230
@@ -878,42 +916,42 @@ air_genocide_category = {
 				load_oob = "southern_firebender_army"
 				load_oob = "western_firebender_army"
 				load_oob = "eastern_firebender_army"
-				if = {
-					limit = {
-						check_variable = { genocide_preparation > 3 }
-					}
-					load_oob = "northern_firebender_army_extra"
-					load_oob = "southern_firebender_army_extra"
-					load_oob = "western_firebender_army_extra"
-					load_oob = "eastern_firebender_army_extra"
-				}
-				if = {
-					limit = {
-						check_variable = { genocide_preparation > 2 }
-					}
-					load_oob = "northern_firebender_army_extra"
-					load_oob = "southern_firebender_army_extra"
-					load_oob = "western_firebender_army_extra"
-					load_oob = "eastern_firebender_army_extra"
-				}
-				if = {
-					limit = {
-						check_variable = { genocide_preparation > 1 }
-					}
-					load_oob = "northern_firebender_army_extra"
-					load_oob = "southern_firebender_army_extra"
-					load_oob = "western_firebender_army_extra"
-					load_oob = "eastern_firebender_army_extra"
-				}
-				if = {
-					limit = {
-						check_variable = { genocide_preparation > 0 }
-					}
-					load_oob = "northern_firebender_army_extra"
-					load_oob = "southern_firebender_army_extra"
-					load_oob = "western_firebender_army_extra"
-					load_oob = "eastern_firebender_army_extra"
-				}
+				#if = {
+				#	limit = {
+				#		check_variable = { genocide_preparation > 40 }
+				#	}
+				#	load_oob = "northern_firebender_army_extra"
+				#	load_oob = "southern_firebender_army_extra"
+				#	load_oob = "western_firebender_army_extra"
+				#	load_oob = "eastern_firebender_army_extra"
+				#}
+				#if = {
+				#	limit = {
+				#		check_variable = { genocide_preparation > 30 }
+				#	}
+				#	load_oob = "northern_firebender_army_extra"
+				#	load_oob = "southern_firebender_army_extra"
+				#	load_oob = "western_firebender_army_extra"
+				#	load_oob = "eastern_firebender_army_extra"
+				#}
+				#if = {
+				#	limit = {
+				#		check_variable = { genocide_preparation > 20 }
+				#	}
+				#	load_oob = "northern_firebender_army_extra"
+				#	load_oob = "southern_firebender_army_extra"
+				#	load_oob = "western_firebender_army_extra"
+				#	load_oob = "eastern_firebender_army_extra"
+				#}
+				#if = {
+				#	limit = {
+				#		check_variable = { genocide_preparation > 10 }
+				#	}
+				#	load_oob = "northern_firebender_army_extra"
+				#	load_oob = "southern_firebender_army_extra"
+				#	load_oob = "western_firebender_army_extra"
+				#	load_oob = "eastern_firebender_army_extra"
+				#}
 			}
 		}
 
@@ -997,65 +1035,65 @@ air_genocide_category = {
 		}
 	}
 
-	prepare_the_genocide = {
-
-		available = {
-			NOT = {
-				has_global_flag = sozins_comet_first
-				has_global_flag = air_nomad_genocide
-				check_variable = { genocide_preparation > 4 }
-			}
-			has_global_flag = genocide_active
-			has_equipment = {
-    			firebender_equipment > 99
-			}
-        }
-
-		visible = {
-			always = yes
-		}
-
-		days_remove = 7
-
-		cost = 0
-
-		activation = {
-
-		}
-
-		is_good = yes
-
-		complete_effect = {
-			add_equipment_to_stockpile = {
-    			type = firebender_equipment
-    			amount = -100
-    			producer = FIR
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_variable = genocide_preparation
-					}
-				}
-				set_variable = {
-					var = genocide_preparation
-					value = 0
-				}
-			}
-		}
-
-		timeout_effect = {
-			add_to_variable = {
-				var = genocide_preparation
-				value = 1
-			}
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-
-	}
+#	prepare_the_genocide = {
+#
+#		available = {
+#			NOT = {
+#				has_global_flag = sozins_comet_first
+#				has_global_flag = air_nomad_genocide
+#				check_variable = { genocide_preparation > 50 }
+#			}
+#			has_global_flag = genocide_active
+#			has_equipment = {
+#    			firebender_equipment > 99
+#			}
+#        }
+#
+#		visible = {
+#			always = yes
+#		}
+#
+#		days_remove = 7
+#
+#		cost = 0
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = yes
+#
+#		complete_effect = {
+#			add_equipment_to_stockpile = {
+#    			type = firebender_equipment
+#    			amount = -100
+#    			producer = FIR
+#			}
+#			if = {
+#				limit = {
+#					NOT = {
+#						has_variable = genocide_preparation
+#					}
+#					set_variable = {
+#						var = genocide_preparation
+#						value = 10
+#					}
+#				}
+#			}
+#		}
+#
+#		timeout_effect = {
+#			add_to_variable = {
+#				var = genocide_preparation
+#				value = 10
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 100
+#		}
+#
+#	}
 	
 	eastern_temple = {
 
