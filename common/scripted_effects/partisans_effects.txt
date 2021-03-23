@@ -1,0 +1,15 @@
+create_partisan_units = {
+	if = {
+		limit = {
+			resistance > 50
+		}
+		create_unit = {
+			division = "name = \"Partisan\" division_template = \"Partisan\" start_experience_factor = 0.0" 
+			owner = ROOT
+		}
+		THIS = {
+		add_resistance = -5
+		}
+		create_partisan_units = yes
+	}
+}

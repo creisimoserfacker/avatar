@@ -1,0 +1,121 @@
+scripted_gui = {
+	
+	riseup_partisan = {
+		context_type = selected_state_context
+		
+		window_name = "riseup_partisan_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			is_owned_by = ROOT
+			controller = { has_war_with = ROOT }
+		}
+		
+		effects = {
+			state_riseup_partisan_click = {
+				controller = {
+					set_temp_variable = { original_controller = THIS }
+				}
+				ROOT = {
+					set_state_controller = PREV
+					if = {
+						limit = {
+							NOT = { has_template = "Partisan" }
+						}
+						division_template = {
+							name = "Partisan"
+							regiments = {
+								skirmishers = { x = 0 y = 0 }
+								skirmishers = { x = 0 y = 1 }
+
+								skirmishers = { x = 1 y = 0 }
+								skirmishers = { x = 1 y = 1 }
+							}
+						}
+						set_division_template_lock = { division_template = Partisan is_locked = yes }
+					}
+				}
+				create_partisan_units = yes
+				var:original_controller = {
+					set_state_controller = PREV
+				}
+			}
+		}
+		
+		triggers = {
+			state_riseup_partisan_click_enabled = {
+				resistance > 50
+				controller = {
+					core_resistance = {
+					    occupied_country_tag = ROOT
+					    value > 50
+					}
+				}
+			}
+		}
+		
+		ai_test_scopes = test_self_owned_states
+		ai_test_interval = 24
+		ai_test_variance = 0.2
+		
+		ai_enabled = {
+			always = yes
+		}
+        
+		ai_check = {
+			any_owned_state = {
+				NOT = { check_variable = { resistance < global.UPRISE_RESISTANCE?0.5 } }
+				check_variable = { risedup_day = 0 }
+			}
+			all_owned_state = {
+				set_temp_variable = { loop_resistance = resistance }
+				count_num_partisan = yes
+			}
+			set_temp_variable = { do_riseup = ai_random }
+		}
+        
+		ai_check_scope = {
+			NOT = { check_variable = { resistance < global.UPRISE_RESISTANCE?0.5 } }
+			check_variable = { risedup_day = 0 }
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			state_riseup_partisan_click = {
+				weight = 1
+				ai_will_do = {
+					factor = 0
+					modifier = {
+						check_variable = { ROOT.AI_CHARACTER = 1 }
+						add = 1
+					}
+					modifier = {
+						check_variable = { ROOT.AI_CHARACTER = 0 }
+						check_variable = { num_of_partisan > 3 }
+						add = 1
+					}
+					modifier = {
+						check_variable = { ROOT.AI_CHARACTER = 2 }
+						check_variable = { num_of_partisan > 5 }
+						any_neighbor_state = {
+							NOT = { check_variable = { resistance < global.UPRISE_RESISTANCE?0.5 } }
+							check_variable = { risedup_day = 0 }
+						}
+						add = 1
+					}
+					modifier = {
+						check_variable = { ROOT.AI_CHARACTER = 3 }
+						add = -0.9
+						add = do_riseup
+					}
+					modifier = {
+						check_variable = { num_of_partisan > 10 }
+						add = 1
+					}
+				}
+			}
+		}
+		
+	}
+	
+}

@@ -1,0 +1,10 @@
+count_num_partisan = {
+	if = {
+		limit = {
+			NOT = { check_variable = { loop_resistance < global.UPRISE_RESISTANCE?0.5 } }
+		}
+		add_to_temp_variable = { num_of_partisan = 1 }
+		subtract_from_temp_variable = { loop_resistance = 0.1 }
+		count_num_partisan = yes
+	}
+}

@@ -43,6 +43,18 @@ compliance_60 = {
 	state_modifier = {
 		recruitable_population_factor = 0.2
 	}
+
+	enabled = {
+		FROM = {
+			all_owned_state = {
+			    is_controlled_by = ROOT
+			}
+		}
+	}
+
+	on_enable = {
+		country_event = { id = occupation_mechanic.1 days = 2 }
+	}
 }
 compliance_80 = {
 	type = core_compliance_modifier

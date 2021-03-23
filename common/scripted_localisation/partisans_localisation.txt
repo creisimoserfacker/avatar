@@ -1,0 +1,55 @@
+defined_text = {
+	name = partisan_info
+
+	text = {
+		trigger = {
+			NOT = { is_core_of = ROOT }
+		}
+		localization_key = PARTISAN_INFO_NO1
+	}
+	text = {
+		trigger = {
+			check_variable = { risedup_day > 0 }
+		}
+		localization_key = PARTISAN_INFO_NO2
+	}
+	text = {
+		trigger = {
+			check_variable = { resistance < global.UPRISE_RESISTANCE?0.5 }
+		}
+		localization_key = PARTISAN_INFO_NO3
+	}
+	text = {
+		localization_key = PARTISAN_INFO_YES
+	}
+}
+
+defined_text = {
+	name = partisan_info_delayed
+	
+	text = {
+		trigger = {
+			check_variable = { risedup_day = 0 }
+			NOT = { check_variable = { resistance < global.UPRISE_RESISTANCE?0.5 } }
+		}
+		localization_key = PARTISANS_INFO_DELAYED_YES
+	}
+	text = {
+		localization_key = ""
+	}
+}
+
+defined_text = {
+	name = num_partisan
+	
+	text = {
+		trigger = {
+			set_temp_variable = { num_of_partisan = resistance - 50 }
+			set_temp_variable = { num_of_partisan = num_of_partisan / 5 }
+		}
+		localization_key = [?num_of_partisan|0]
+	}
+	text = {
+		localization_key = ""
+	}
+}

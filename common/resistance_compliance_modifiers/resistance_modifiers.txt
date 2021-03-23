@@ -72,6 +72,24 @@ resistance_50 = {
 	}
 }
 
+core_resistance_50 = {
+	type = core_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:3"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
+	threshold = 50
+	margin = 2
+	state_modifier = {
+		resistance_damage_to_garrison = 1
+	}
+
+	alert_level = high
+	alert_margin = 20
+
+	on_enable = {
+		custom_effect_tooltip = resistance_50_effect_tooltip
+	}
+}
+
 resistance_75 = {
 	type = state_resistance_modifier
 	icon = "GFX_occupation_resistance_modifier_strip:3"
@@ -104,7 +122,7 @@ resistance_90 = {
 		custom_effect_tooltip = resistance_90_effect_tooltip
 		hidden_effect = {
 			# avoid effects that can effect state controllers here
-			country_event = { id = occupied_countries.2 hours = 1 }
+			country_event = { id = occupation_mechanic.2 hours = 1 }
 		}
 	}
 }
