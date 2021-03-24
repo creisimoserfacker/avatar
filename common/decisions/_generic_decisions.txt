@@ -1,10 +1,11 @@
-recruitment_decisions = {
+recruitment_decision_category = {
 	
-	massive_recruitment_campaign = {
+	small_recruitment_campaign = {
 
 		available = {
 			any_owned_state = {
-				state_population > 1000000000
+				state_population > 5000
+				state_population < 10000
             }
 		}
 
@@ -12,12 +13,90 @@ recruitment_decisions = {
 			
 		}
 
+		days_re_enable = 360
+
 		complete_effect = {
-			any_owned_state = {
-				state_population = 10000000
+			#custom_effect_tooltip = recruitment_campaign_1_tt
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					THIS = {
+						state_population > 5000
+						state_population < 10000
+					}
+				}
+				add_manpower = -1000
 			}
 			add_manpower = 1000
 		}
+
+		cost = 10
+
+	}
+
+	medium_recruitment_campaign = {
+
+		available = {
+			any_owned_state = {
+				state_population > 10000
+				state_population < 20000
+            }
+		}
+
+		visible = {
+			
+		}
+
+		days_re_enable = 360
+
+		complete_effect = {
+			#custom_effect_tooltip = recruitment_campaign_1_tt
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					THIS = {
+						state_population > 10000
+						state_population < 20000
+					}
+				}
+				add_manpower = -2000
+			}
+			add_manpower = 2000
+		}
+		cost = 20
+
+	}
+
+	large_recruitment_campaign = {
+
+		available = {
+			any_owned_state = {
+				state_population > 20000
+				state_population < 50000
+            }
+		}
+
+		visible = {
+			
+		}
+
+		days_re_enable = 360
+
+		complete_effect = {
+			#custom_effect_tooltip = recruitment_campaign_1_tt
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					THIS = {
+						state_population > 20000
+						state_population < 50000
+					}
+				}
+				add_manpower = -4000
+			}
+			add_manpower = 4000
+		}
+		cost = 30
 
 	}
 
