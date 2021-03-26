@@ -10,26 +10,51 @@
 capital = 17
 
 OOB = "NWT_12"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "NWT_12_naval_mtg"
+	else = {
+		set_naval_oob = "NWT_12_naval_legacy"
+	}
+}
 
 set_country_flag = WAT_navy
 set_country_flag = water_nation 
 set_country_flag = WATER_special_forces
 
 set_technology = {
+# infantry
 	basic_armor = 1
 	basic_spear_1 = 1
 	basic_sword_1 = 1
-	ranged_weapons = 1
-	tech_support = 1
-	change = 1
-	reform_0 = 1
 	spear_update_1 = 1
 	sidearm_update_1 = 1
-	shield_upate_1 = 1
+	shield_update_1 = 1
+	armor_a_1 = 1
+	
+# ranged
+	ranged_weapons = 1
+	bow0 = 1
+	light_armor_0 = 1
+	arrow0 = 1
 	tip0 = 1
 	uniform0 = 1
 
+# support
+	tech_support = 1
+	tech_scavanger = 1
+	tech_scout = 1
+
+	change = 1
+	reform_0 = 1
+	domestication_0 = 1
+
 	waterbender_equipment_1 = 1
+
+# construction
+	infrastructure_1 = 1
+	infrastructure_2 = 1
+	port_1 = 1
 }
 
 if = {
@@ -52,7 +77,7 @@ if = {
 		raft_tech_1 = 1
 		cutter_ship_tech_1 = 1
 		cutter_armor_tech_1 = 1
-		explorer_tech = 1
+		water_explorer_tech = 1
 		hunter_tech = 1
 		water_naval_weaponry = 1
 		water_maintenance_1 = 1
@@ -68,7 +93,7 @@ set_convoys = 60
 
 set_politics = {
 	ruling_party = tribalism
-	last_election = "1926.5.8"
+	last_election = "11.5.8"
 	election_frequency = 120
 	elections_allowed = yes
 }
@@ -92,6 +117,42 @@ add_ideas = {
 
 create_faction = Water_Tribes
 add_to_faction = SWT
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+
+	create_equipment_variant = {
+		name = "Fisher Canoe"
+		type = watertribe_canoe_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = boarding_crew_1
+			fixed_ship_oars_slot = oars_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Expedition Cutter"
+		type = watertribe_cutter_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_waterbender_crew_1
+			fixed_ship_sails_slot = sails_1
+			fixed_ship_armor_slot = medium_hull_reinforcement_1
+			fixed_ship_oars_slot = oars_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Transport Raft"
+		type = watertribe_raft_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_waterbender_crew_1
+    	}
+	}
+
+}
 
 106.2.4 ={
 
