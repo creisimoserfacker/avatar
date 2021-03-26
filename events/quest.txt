@@ -41,6 +41,7 @@ country_event = {
 		name = quest.1.a
 		ai_chance = { factor = 4}
 		###add Sokka and Kattara to the team, Update location
+		set_global_flag = Sokka_in_the_team
 	}
 	option = {
 		name = quest.1.b
@@ -64,14 +65,14 @@ country_event = {
 	option = {
 		name = quest.2.a
 		ai_chance = { factor = 4}
+		set_global_flag = ep2_news_a
 		###a chance to kil sokka
-		news_event = { id = quest.3 days = 1 }
 	}
 	option = {
 		name = quest.2.b
 		ai_chance = { factor = 1}
+		set_global_flag = ep2_news_a
 		##nothing happens
-		news_event = { id = quest.3 days = 1 }
 	}
 }
 
@@ -83,11 +84,18 @@ news_event = {
 	desc = quest.3.desc
 	picture = GFX_ep2_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep2_news_a
+		NOT = { has_global_flag = ep2_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep2_news_b
+	}
 	option = {
 		name = quest.3.a
-		ai_chance = { factor = 1}
 	}
 }
 
@@ -105,12 +113,17 @@ country_event = {
 	}
 	immediate = {
 			#the kyoshi event will happen only if sokka is in the team
+			if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_in_the_team }
 			KYI = { country_event = { id = quest.7 days = 14 } } 
-			FIR = { country_event = { id = quest.8 days = 14 } } 
+			FIR = { country_event = { id = quest.8 days = 14 } } }
+			#omashu events:
+			if = { limit = { OMS = { controls_state = 205 } } 
+			OMS = { country_event = { id = quest.10 days = 28 } } }
+			else = { FIR = { country_event = { id = quest.11 days = 28 } } }
 		}
 	option = {
 		name = quest.4.a
-		news_event = { id = quest.6 days = 1 }
+		set_global_flag = ep3_news_a
 	}
 }
 
@@ -128,8 +141,13 @@ country_event = {
 	}
 	immediate = {
 			#the kyoshi event will happen only if sokka is in the team
+			if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_in_the_team }
 			KYI = { country_event = { id = quest.7 days = 14 } } 
-			FIR = { country_event = { id = quest.8 days = 14 } } 
+			FIR = { country_event = { id = quest.8 days = 14 } } }
+			#omashu events:
+			if = { limit = { OMS = { controls_state = 205 } } 
+			OMS = { country_event = { id = quest.10 days = 28 } } }
+			else = { FIR = { country_event = { id = quest.11 days = 28 } } } 
 		}
 	option = {
 		name = quest.5.a
@@ -151,11 +169,18 @@ news_event = {
 	desc = quest.6.desc
 	picture = GFX_ep3_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep3_news_a
+		NOT = { has_global_flag = ep3_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep3_news_b
+	}
 	option = {
 		name = quest.6.a
-		ai_chance = { factor = 1}
 	}
 }
 
@@ -194,15 +219,10 @@ country_event = {
 	trigger = {
 		tag = FIR
 	}
-	immediate = {
-			if = { limit = { OMS = { controls_state = 205 } } 
-				OMS = { country_event = { id = quest.10 days = 14 } } }
-			else = { FIR = { country_event = { id = quest.11 days = 14 } } }
-		}
 	option = {
 		name = quest.8.a
 		ai_chance = { factor = 4}
-		news_event = { id = quest.9 days = 1 }
+		set_global_flag = ep4_news_a
 		###a chance to kill suki, weaken sokka, the news event will happen only if sokka is in the team
 	}
 	option = {
@@ -220,11 +240,18 @@ news_event = {
 	desc = quest.9.desc
 	picture = GFX_ep4_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep4_news_a
+		NOT = { has_global_flag = ep4_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep4_news_b
+	}
 	option = {
 		name = quest.9.a
-		ai_chance = { factor = 1}
 	}
 }
 
@@ -241,15 +268,16 @@ country_event = {
 		tag = OMS
 	}
 	immediate = {
-			if = { limit = { FMB = { has_capitulated = yes } } 
+			if = { limit = { FIR = { controls_state = 304 } } 
 				FIR = { country_event = { id = quest.13 days = 14 } } }
-			if = { limit = { HEB = { has_capitulated = yes } } 
+			if = { limit = { FIR = { controls_state = 283 } } 
 				FIR = { country_event = { id = quest.16 days = 28 } } }
+			HAN = { country_event = { id = quest.19 days = 42 } }
 		}
 	option = {
 		name = quest.10.a
 		ai_chance = { factor = 4}
-		news_event = { id = quest.12 days = 1 }
+		set_global_flag = ep5_news_a
 		###vatar gains influence
 	}
 	option = {
@@ -272,10 +300,11 @@ country_event = {
 		tag = FIR
 	}
 	immediate = {
-			if = { limit = { FMB = { has_capitulated = yes } } 
+			if = { limit = { FIR = { controls_state = 304 } } 
 				FIR = { country_event = { id = quest.13 days = 14 } } }
-			if = { limit = { HEB = { has_capitulated = yes } } 
+			if = { limit = { FIR = { controls_state = 283 } } 
 				FIR = { country_event = { id = quest.16 days = 28 } } }
+			HAN = { country_event = { id = quest.19 days = 42 } }
 		}
 	option = {
 		name = quest.11.a
@@ -297,11 +326,18 @@ news_event = {
 	desc = quest.12.desc
 	picture = GFX_ep5_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep5_news_a
+		NOT = { has_global_flag = ep5_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep5_news_b
+	}
 	option = {
 		name = quest.12.a
-		ai_chance = { factor = 1}
 	}
 }
 
@@ -345,7 +381,7 @@ country_event = {
 	option = {
 		name = quest.14.a
 		ai_chance = { factor = 4}
-		news_event = { id = quest.15 days = 1 }
+		set_global_flag = ep6_news_a
 		###the team will save Haru and the prisoners for +influence
 	}
 	option = {
@@ -363,11 +399,18 @@ news_event = {
 	desc = quest.15.desc
 	picture = GFX_ep6_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep6_news_a
+		NOT = { has_global_flag = ep6_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep6_news_b
+	}
 	option = {
 		name = quest.15.a
-		ai_chance = { factor = 1}
 	}
 }
 
@@ -411,7 +454,7 @@ country_event = {
 	option = {
 		name = quest.17.a
 		ai_chance = { factor = 4}
-		news_event = { id = quest.18 days = 1 }
+		set_global_flag = ep8_news_a
 		###Aang helps for- +influence and +spirituality
 	}
 	option = {
@@ -429,10 +472,557 @@ news_event = {
 	desc = quest.18.desc
 	picture = GFX_ep8_news
 	major = yes
-	fire_only_once = yes
-	is_triggered_only = yes
+	trigger = {
+		has_global_flag = ep8_news_a
+		NOT = { has_global_flag = ep8_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep8_news_b
+	}
 	option = {
 		name = quest.18.a
+	}
+}
+
+
+##Event: The Water Bending Scroll
+country_event = {
+	id = quest.19
+	title = quest.19.title
+	desc = quest.19.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Water_Bending_Scroll
+	trigger = {
+		tag = HAN
+	}
+	immediate = {
+		#if Sokka is not in the team and not occupied, get on option to add Jet to the team:
+		if = { limit = { GDD = { controls_state = 205 } NOT = { has_global_flag = Sokka_in_the_team } } 
+			GDD = { country_event = { id = quest.22 days = 14 } } }
+		#else, continue with the historical:
+		else = { GDD = { country_event = { id = quest.23 days = 14 } } }
+		#great divide event:
+		if = { limit = { FIR = { controls_state = 252 } } 
+			GDD = { country_event = { id = quest.28 days = 28 } } }
+		#events of the storm (ep 12, if sokka is not in the team Kattara might go):
+		HAN = { country_event = { id = quest.30 days = 42 } }
+		FIR = { country_event = { id = quest.31 days = 42 } }  
+		}
+	option = {
+		name = quest.19.a
+		ai_chance = { factor = 4}
+		FIR = { country_event = { id = quest.20 days = 1 } }
+		###steal the scroll- buffing Katara and Aang's waterbending
+	}
+	option = {
+		name = quest.19.b
 		ai_chance = { factor = 1}
+		###dont steal- no effect
+	}
+}
+
+
+##Event: A Deal With The Pirates
+country_event = {
+	id = quest.20
+	title = quest.20.title
+	desc = quest.20.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_A_Deal_With_The_Pirates
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.20.a
+		ai_chance = { factor = 4}
+		set_global_flag = ep9_news_a
+		###Zuko forces the pirates to hunt for the Avatar (Low chance of killing a random member of the team, high chance of them escaping with the scroll)
+	}
+	option = {
+		name = quest.20.b
+		ai_chance = { factor = 1}
+		###Zuko returns the scroll to the Pirates
+	}
+}
+
+
+##Event: A Three Sided Battle
+news_event = {
+	id = quest.21
+	title = quest.21.title
+	desc = quest.21.desc
+	picture = GFX_ep9_news
+	major = yes
+	trigger = {
+		has_global_flag = ep9_news_a
+		NOT = { has_global_flag = ep9_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep9_news_b
+	}
+	option = {
+		name = quest.21.a
+	}
+}
+
+
+##Event:A New Member In The Avatar Team?
+country_event = {
+	id = quest.22
+	title = quest.22.title
+	desc = quest.22.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_A_New_Membe_In_The_Avatar_Team
+	trigger = {
+		tag = GDD
+	}
+	option = {
+		name = quest.22.a
+		ai_chance = { factor = 4}
+		set_global_flag = ep10_jet_joins_news_a
+		###Jet joins the team
+	}
+	option = {
+		name = quest.22.b
+		ai_chance = { factor = 1}
+		###Jet doesn't join
+	}
+}
+
+
+##Event: The Village Is In Danger!
+country_event = {
+	id = quest.23
+	title = quest.23.title
+	desc = quest.23.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Village_Is_In_Danger
+	trigger = {
+		tag = GDD
+	}
+	option = {
+		name = quest.23.a
+		ai_chance = { factor = 4}
+		GDD = { country_event = { id = quest.24 days = 1 } }
+		###help the village- if the village listens- gain influence from saving the village
+	}
+	option = {
+		name = quest.23.b
+		ai_chance = { factor = 1}
+		set_global_flag = ep10_villaged_destroyed_news_a
+		###abandon the village- Gets destroyed by the flood, damage to all buildings
+	}
+}
+
+
+##Event: Alert From The Avatar
+country_event = {
+	id = quest.24
+	title = quest.24.title
+	desc = quest.24.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Alert_From_The_Avatar
+	trigger = {
+		tag = GDD
+	}
+	option = {
+		name = quest.24.a
+		ai_chance = { factor = 4}
+		set_global_flag = ep10_villaged_saved_news_a
+		###the village listens- gain influence from saving the village
+	}
+	option = {
+		name = quest.24.b
+		ai_chance = { factor = 1}
+		set_global_flag = ep10_villaged_destroyed_news_a
+		###the village doesn't listen- Gets destroyed by the flood, damage to all buildings
+	}
+}
+
+
+##Event: A New Member In Team Avatar
+news_event = {
+	id = quest.25
+	title = quest.25.title
+	desc = quest.25.desc
+	picture = GFX_ep10_jet_joins_news
+	major = yes
+	trigger = {
+		has_global_flag = ep10_jet_joins_news_a
+		NOT = { has_global_flag = ep10_jet_joins_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep10_jet_joins_news_b
+	}
+	option = {
+		name = quest.25.a
+	}
+}
+
+##Event: Terror In The Village Of Gaipen
+news_event = {
+	id = quest.26
+	title = quest.26.title
+	desc = quest.26.desc
+	picture = GFX_ep10_villaged_destroyed_news
+	major = yes
+	trigger = {
+		has_global_flag = ep10_villaged_destroyed_news_a
+		NOT = { has_global_flag = ep10_villaged_destroyed_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep10_villaged_destroyed_news_b
+	}
+	option = {
+		name = quest.26.a
+	}
+}
+
+
+##Event: Team Avatar Saved The Villagers In Gaipen
+news_event = {
+	id = quest.27
+	title = quest.27.title
+	desc = quest.27.desc
+	picture = GFX_ep10_villaged_saved_news
+	major = yes
+	trigger = {
+		has_global_flag = ep10_villaged_saved_news_a
+		NOT = { has_global_flag = ep10_villaged_saved_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep10_villaged_saved_news_b
+	}
+	option = {
+		name = quest.27.a
+	}
+}
+
+
+##Event: The Great Divide
+country_event = {
+	id = quest.28
+	title = quest.28.title
+	desc = quest.28.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Great_Divide
+	trigger = {
+		tag = GDD
+	}
+	option = {
+		name = quest.28.a
+		ai_chance = { factor = 4}
+		set_global_flag = ep11_news_a
+		###settle the issue- gain influence
+	}
+	option = {
+		name = quest.28.b
+		ai_chance = { factor = 1}
+		###support the Gan Jins
+	}
+	option = {
+		name = quest.28.c
+		ai_chance = { factor = 1}
+		###support the Zhangs
+	}
+	option = {
+		name = quest.28.d
+		ai_chance = { factor = 1}
+		###leave them alone
+	}
+}
+
+
+##Event: The Avatar Settled A Conflict
+news_event = {
+	id = quest.29
+	title = quest.29.title
+	desc = quest.29.desc
+	picture = GFX_ep11_news
+	major = yes
+	trigger = {
+		has_global_flag = ep11_news_a
+		NOT = { has_global_flag = ep11_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep11_news_b
+	}
+	option = {
+		name = quest.29.a
+	}
+}
+
+
+##Event: Go Fishing With The Old Man?
+country_event = {
+	id = quest.30
+	title = quest.30.title
+	desc = quest.30.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Go_Fishing_With_The_Old_Man
+	trigger = {
+		tag = HAN
+	}
+	immediate = {
+		#Herbalist events (ep 13):
+		if = { limit = { TAK = { controls_state = 154 }  } 
+			TAK = { country_event = { id = quest.34 days = 14 } } }
+		else = { FIR = { country_event = { id = quest.33 days = 14 } } }
+	}
+	option = {
+		name = quest.30.a
+		ai_chance = { factor = 4}
+		###One member of the team goes fishing with the old man
+		FIR = { country_event = { id = quest.31 days = 1 } }
+	}
+	option = {
+		name = quest.30.b
+		ai_chance = { factor = 1}
+		###doesn't- no effect
+	}
+}
+
+##Event: We Spotted The Avatar In The Storm!
+country_event = {
+	id = quest.31
+	title = quest.31.title
+	desc = quest.31.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_We_Spotted_The_Avatar_In_The_Storm
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.31.a
+		ai_chance = { factor = 4}
+		###Zuko tends to his crew- increasing the probability of zuko switching sides
+		set_global_flag = ep12_news_a
+	}
+	option = {
+		name = quest.31.b
+		ai_chance = { factor = 1}
+		###Zuko pursues the avatar in the storm- no effect
+		set_global_flag = ep12_news_a
+	}
+}
+
+
+##Event: A Big Storm In The Harbor Town
+news_event = {
+	id = quest.32
+	title = quest.32.title
+	desc = quest.32.desc
+	picture = GFX_ep12_news
+	major = yes
+	trigger = {
+		has_global_flag = ep12_news_a
+		NOT = { has_global_flag = ep12_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep12_news_b
+	}
+	option = {
+		name = quest.32.a
+	}
+}
+
+
+##Event: Arrest The Herbalist?
+country_event = {
+	id = quest.33
+	title = quest.33.title
+	desc = quest.33.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Arrest_The_Herbalist
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.33.a
+		ai_chance = { factor = 4}
+		###don't arrest- Trickleback bonus
+		TAK = { country_event = { id = quest.34 days = 1 } }
+	}
+	option = {
+		name = quest.33.b
+		ai_chance = { factor = 1}
+		###Arrest her- Aang loses waterbending and a small chance of Sokka or Katara dying
+	}
+}
+
+##Event: The Herbalist
+country_event = {
+	id = quest.34
+	title = quest.34.title
+	desc = quest.34.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Herbalist
+	trigger = {
+		tag = TAK
+	}
+	immediate = {
+		#Decide if Use the Yuan (ep 13):
+		FIR = { country_event = { id = quest.35 days = 1 } } }
+	}
+	option = {
+		name = quest.34.a
+		ai_chance = { factor = 4}
+		###the Herbalist heals Katara and Sokka
+	}
+	option = {
+		name = quest.34.b
+		ai_chance = { factor = 1}
+		###doesn't heal- Aang loses a bit waterbending and there is a small chance either Sokka or Katara might die.
+	}
+}
+
+##Event: Use The Yuan?
+country_event = {
+	id = quest.35
+	title = quest.35.title
+	desc = quest.35.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Use_The_Yuan
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.35.a
+		ai_chance = { factor = 4}
+		###Use them (captures Yang, increasing Zuko's chance to switch sides), Decide if Zuko goes to free Aang (ep 13):
+		MER = { country_event = { id = quest.36 days = 1 } }
+	}
+	option = {
+		name = quest.35.b
+		ai_chance = { factor = 1}
+		###doesn't use the Yuyan (Aang gets +Waterbending from healing Katara quicker)
+	}
+}
+
+##Event: Rescue The Avatar?
+country_event = {
+	id = quest.36
+	title = quest.36.title
+	desc = quest.36.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Rescue_The_Avatar
+	trigger = {
+		tag = MER
+	}
+	option = {
+		name = quest.36.a
+		ai_chance = { factor = 4}
+		###Zuko go and rescue him- increasing the chances of him switching sides
+		FIR = { country_event = { id = quest.37 days = 1 } }
+		MAK = { country_event = { id = quest.38 days = 1 } }
+	}
+	option = {
+		name = quest.36.b
+		ai_chance = { factor = 1}
+		###Aang finds a way to escape without zuko (but won't gain skills for the duration of the imprisionment)
+	}
+}
+
+
+##Event: Choose A Target
+country_event = {
+	id = quest.37
+	title = quest.37.title
+	desc = quest.37.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Choose_A_Target
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.37.a
+		ai_chance = { factor = 4}
+		###Aim for Zuko- increases the chances of him switching sides
+	}
+	option = {
+		name = quest.37.b
+		ai_chance = { factor = 1}
+		###Aim for Aang- wound him, and prevent him from gaining any new skills for a few months
+	}
+}
+
+##Event: The Identity Of The Blue Spirit
+country_event = {
+	id = quest.38
+	title = quest.38.title
+	desc = quest.38.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Identity_Of_The_Blue_Spirit 
+	trigger = {
+		tag = MAK
+	}
+	option = {
+		name = quest.38.a
+		ai_chance = { factor = 4}
+		###Be friendly- increases Zuko's chance to switch sides
+		set_global_flag = ep13_news_a
+	}
+	option = {
+		name = quest.38.b
+		ai_chance = { factor = 1}
+		###Be hostile- no effect
+		set_global_flag = ep13_news_a
+	}
+}
+
+##Event: The Blue Spirit
+news_event = {
+	id = quest.39
+	title = quest.39.title
+	desc = quest.39.desc
+	picture = GFX_ep13_news
+	major = yes
+	trigger = {
+		has_global_flag = ep13_news_a
+		NOT = { has_global_flag = ep13_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep13_news_b
+	}
+	option = {
+		name = quest.39.a
 	}
 }
