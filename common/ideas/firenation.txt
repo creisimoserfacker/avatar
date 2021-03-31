@@ -3,9 +3,12 @@ ideas = {
 	country = {
 		national_prosperity = {
 
-			#available = {
-			#	has_stability > 0.99
-			#}
+			available = {
+				#has_stability > 0.99
+				NOT = {
+					has_war = yes
+				}
+			}
 			
 			allowed = {
 				always = no
@@ -221,7 +224,7 @@ ideas = {
 			}
 
 			modifier = {
-				political_power_factor = -0.1
+				political_power_cost = 0.1
 			}
 			
 			traits = { gifted_speaker }
@@ -236,11 +239,11 @@ ideas = {
 				original_tag = FIR
 			}
 			available = {
-				has_government = imperialism
+				
 			}
 
 			modifier = {
-				political_power_cost = 0.1
+				political_power_factor = -0.1
 			}
 			
 			traits = { close_to_the_people }
@@ -353,9 +356,9 @@ ideas = {
 	}
 	
 	minister_of_culture = {
-		generic_minister_of_culture = {
+		use_list_view = yes
 
-			cost = 150
+		fir_minister_of_culture_1 = {
 
 			allowed = {
 				original_tag = FIR
@@ -363,8 +366,88 @@ ideas = {
 			available = {
 
 			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
 			
-			traits = {  }
+			traits = { staunch_imperialist }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_culture_2 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { kingdom_advisor }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_culture_3 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { convinced_tribalist }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_culture_4 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { peaceful_pacifist }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_culture_5 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { freedom_politician }
 
 			ai_will_do = {
 				factor = 0.5
@@ -372,9 +455,9 @@ ideas = {
 		}
 	}
 	minister_of_justice = {
-		generic_minister_of_justice = {
+		use_list_view = yes
 
-			cost = 150
+		fir_minister_of_justice_1 = {
 
 			allowed = {
 				original_tag = FIR
@@ -382,8 +465,31 @@ ideas = {
 			available = {
 
 			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
 			
-			traits = {  }
+			traits = { neutral_lawyer }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_justice_2 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_factor = -0.1
+			}
+			
+			traits = { party_demagogue }
 
 			ai_will_do = {
 				factor = 0.5
@@ -655,8 +761,8 @@ ideas = {
 			}
 
 			modifier = {
-				political_power_cost = 0.1
 				stability_factor = 0.1
+				political_power_cost = 0.1
 			}
 			
 			traits = { service_to_the_avatar }

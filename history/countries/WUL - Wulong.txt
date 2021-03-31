@@ -1,6 +1,22 @@
+
+
+ ## #####  ##  ###  #####       #   ##
+#     #   #  # #  #   #        ##  #  #
+ #    #   #### ###    #       # #    #
+  #   #   #  # #  #   #         #   #
+##    #   #  # #  #   #         #  ####
+
+
 capital = 230
 
 OOB = "WUL_12"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "WUL_12_naval_mtg"
+	else = {
+		set_naval_oob = "WUL_12_naval_legacy"
+	}
+}
 
 set_country_flag = earth_nation 
 set_country_flag = EARTH_special_forces
@@ -9,10 +25,10 @@ set_technology = {
 # infantry
 	basic_armor = 1
 	heavy_armor_1 = 1
-	heavy_armor_2 = 1
 	basic_spear_1 = 1
+	spear_2 = 1
 	basic_sword_1 = 1
-	basic_polearm_1 = 1	
+	basic_polearm_1 = 1
 
 # ranged
 	ranged_weapons = 1
@@ -57,6 +73,10 @@ if = {
 		galley_tech_1 = 1
 		barque_tech_1 = 1
 		light_armor_tech_1 = 1
+		junk_tech_1 = 1
+		explorer_tech = 1
+		generic_hunter_tech = 1
+		naval_weaponry = 1
 	}
 
 }
@@ -95,6 +115,34 @@ add_ideas = {
 }
 
 set_cosmetic_tag = WUL_puppet
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+
+	create_equipment_variant = {
+		name = "Trading Class"
+		type = barque_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_archers_1
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_mast_slot = sails_1
+			fixed_ship_storage_slot = supplies_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Raider Class"
+		type = galley_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = boarding_crew_1
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_mast_slot = sails_1
+    	}
+	}
+
+}
 
 52.1.1 ={
 

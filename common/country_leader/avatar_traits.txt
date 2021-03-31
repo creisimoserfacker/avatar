@@ -68,7 +68,7 @@ leader_traits = {
 	gifted_speaker = {
 		random = no
 		sprite = 13
-		political_power_cost = -1
+		political_power_factor = 0.25
 
 		ai_will_do = {
 			factor = 1
@@ -77,7 +77,7 @@ leader_traits = {
 	close_to_the_people = {
 		random = no
 		sprite = 13
-		political_power_factor = 0.25
+		political_power_cost = -1
 
 		ai_will_do = {
 			factor = 1
@@ -135,22 +135,71 @@ leader_traits = {
 		}
 	}
 
-	kingdom_advisor = {
+	staunch_imperialist = {
 		random = no
 		sprite = 13
-		monarchism_drift = 0.05
-		stability_weekly = 0.0001
+		imperialism_drift = 0.05
+		war_support_factor = 0.05
 
 		ai_will_do = {
 			factor = 1
 		}
 	}
-	
+	kingdom_advisor = {
+		random = no
+		sprite = 13
+		monarchism_drift = 0.05
+		stability_factor = 0.05
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	convinced_tribalist = {
+		random = no
+		sprite = 13
+		tribalism_drift = 0.05
+		consumer_goods_factor = -0.05
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	peaceful_pacifist = {
+		random = no
+		sprite = 13
+		pacifism_drift = 0.05
+		enemy_justify_war_goal_time = 1
+		enemy_declare_war_tension = 1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	freedom_politician = {
 		random = no
 		sprite = 13
-		political_power_factor = 0.05
+		democratica_drift = 0.05
 		autonomy_gain = 2.5
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	neutral_lawyer = {
+		random = no
+		sprite = 2
+		stability_factor = 0.05
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	party_demagogue = {
+		random = no
+		sprite = 2
+		party_popularity_stability_factor = 0.15
 
 		ai_will_do = {
 			factor = 0
