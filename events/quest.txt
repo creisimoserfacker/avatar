@@ -869,14 +869,14 @@ country_event = {
 	}
 	option = {
 		name = quest.33.a
-		ai_chance = { factor = 4}
-		###don't arrest- Trickleback bonus
-		TAK = { country_event = { id = quest.34 days = 1 } }
+		ai_chance = { factor = 1}
+		###Arrest her- Aang loses waterbending and a small chance of Sokka or Katara dying
 	}
 	option = {
 		name = quest.33.b
-		ai_chance = { factor = 1}
-		###Arrest her- Aang loses waterbending and a small chance of Sokka or Katara dying
+		ai_chance = { factor = 4}
+		###don't arrest- Trickleback bonus
+		TAK = { country_event = { id = quest.34 days = 1 } }
 	}
 }
 
@@ -893,7 +893,7 @@ country_event = {
 	}
 	immediate = {
 		#Decide if Use the Yuan (ep 13):
-		FIR = { country_event = { id = quest.35 days = 1 } } }
+		FIR = { country_event = { id = quest.35 days = 1 } }
 	}
 	option = {
 		name = quest.34.a
@@ -917,6 +917,14 @@ country_event = {
 	picture = GFX_Use_The_Yuan
 	trigger = {
 		tag = FIR
+	}
+	immediate = {
+		#Events of The Fortuneteller (ep 14):
+		#if ocuppied, the FIR might evacuate the village:
+		if = { limit = { FIR = { controls_state = 204 } } 
+			FIR = { country_event = { id = quest.40 days = 14 } } }
+		#else, continue with the historical:
+		else = { MAK = { country_event = { id = quest.41 days = 14 } } }
 	}
 	option = {
 		name = quest.35.a
@@ -947,7 +955,7 @@ country_event = {
 		ai_chance = { factor = 4}
 		###Zuko go and rescue him- increasing the chances of him switching sides
 		FIR = { country_event = { id = quest.37 days = 1 } }
-		MAK = { country_event = { id = quest.38 days = 1 } }
+		POH = { country_event = { id = quest.38 days = 1 } }
 	}
 	option = {
 		name = quest.36.b
@@ -972,11 +980,13 @@ country_event = {
 		name = quest.37.a
 		ai_chance = { factor = 4}
 		###Aim for Zuko- increases the chances of him switching sides
+		set_global_flag = ep13_news_a
 	}
 	option = {
 		name = quest.37.b
 		ai_chance = { factor = 1}
 		###Aim for Aang- wound him, and prevent him from gaining any new skills for a few months
+		set_global_flag = ep13_news_a
 	}
 }
 
@@ -989,19 +999,17 @@ country_event = {
 	is_triggered_only = yes
 	picture = GFX_The_Identity_Of_The_Blue_Spirit 
 	trigger = {
-		tag = MAK
+		tag = POH
 	}
 	option = {
 		name = quest.38.a
 		ai_chance = { factor = 4}
 		###Be friendly- increases Zuko's chance to switch sides
-		set_global_flag = ep13_news_a
 	}
 	option = {
 		name = quest.38.b
 		ai_chance = { factor = 1}
 		###Be hostile- no effect
-		set_global_flag = ep13_news_a
 	}
 }
 
@@ -1024,5 +1032,221 @@ news_event = {
 	}
 	option = {
 		name = quest.39.a
+	}
+}
+
+
+##Event: Evacuate Makapu Village?
+country_event = {
+	id = quest.40
+	title = quest.40.title
+	desc = quest.40.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Evacuate_Makapu_Village
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.40.a
+		ai_chance = { factor = 4}
+		###the FIR does not evacuate- make the option for Aang to help them
+		MAK = { country_event = { id = quest.41 days = 1 } }
+	}
+	option = {
+		name = quest.40.b
+		ai_chance = { factor = 1}
+		###The FIR evacuates them- Costs political power and industry, but stops Aang from doing it himself
+		###ep 15 events:
+		#if ocuppied, the FIR can ambush and kill Bato:
+		if = { limit = { FIR = { controls_state = 171 } } 
+			FIR = { country_event = { id = quest.43 days = 14 } } }
+		#else, continue with the historical:
+		else = { YUE = { country_event = { id = quest.44 days = 14 } } }
+		###June decide if she hunts team Avatar (ep 15):
+		FIR = { country_event = { id = quest.45 days = 14 } }
+	}
+}
+
+
+##Event: Makapu Village Is In Danger!
+country_event = {
+	id = quest.41
+	title = quest.41.title
+	desc = quest.41.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Makapu_Village_Is_In_Danger
+	trigger = {
+		tag = MAK
+	}
+	immediate = {
+		###ep 15 events:
+		#if ocuppied, the FIR can ambush and kill Bato:
+		if = { limit = { FIR = { controls_state = 171 } } 
+			FIR = { country_event = { id = quest.43 days = 14 } } }
+		#else, continue with the historical:
+		else = { YUE = { country_event = { id = quest.44 days = 14 } } }
+		###June decide if she hunts team Avatar (ep 15):
+		FIR = { country_event = { id = quest.45 days = 14 } }
+	}
+	option = {
+		name = quest.41.a
+		ai_chance = { factor = 4}
+		###Aang gains influence and control over the avatar state for saving the village
+		set_global_flag = ep14_news_a
+		
+	}
+	option = {
+		name = quest.41.b
+		ai_chance = { factor = 1}
+		###Aang abandonds the village- big damage to the village
+	}
+}
+
+
+##Event: Team Avatar Saved Makapu Village!
+news_event = {
+	id = quest.42
+	title = quest.42.title
+	desc = quest.42.desc
+	picture = GFX_ep14_news
+	major = yes
+	trigger = {
+		has_global_flag = ep14_news_a
+		NOT = { has_global_flag = ep14_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep14_news_b
+	}
+	option = {
+		name = quest.42.a
+	}
+}
+
+
+##Event: We Spotted A Soldier From The Water Tribe!
+country_event = {
+	id = quest.43
+	title = quest.43.title
+	desc = quest.43.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_We_Spotted_A_Soldier_From_The_Water_Tribe
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.43.a
+		ai_chance = { factor = 4}
+		###they doesn't ambush Bato
+		YUE = { country_event = { id = quest.44 days = 1 } }
+	}
+	option = {
+		name = quest.43.b
+		ai_chance = { factor = 1}
+		###ambush him, a chance to kill him and not triggering this event:
+		YUE = { country_event = { id = quest.44 days = 1 } }
+	}
+}
+
+
+##Event: The decision of Sokka
+country_event = {
+	id = quest.44
+	title = quest.44.title
+	desc = quest.44.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_decision_of_Sokka
+	trigger = {
+		tag = YUE
+	}
+	option = {
+		name = quest.44.a
+		ai_chance = { factor = 4}
+		###Sokka chooses to continue with Aang
+	}
+	option = {
+		name = quest.44.b
+		ai_chance = { factor = 1}
+		###Sokka joins his father- lose Sokka untill the invasion
+	}
+}
+
+
+##Event: Hunt The Avatar?
+country_event = {
+	id = quest.45
+	title = quest.45.title
+	desc = quest.45.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Hunt_The_Avatar
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		name = quest.45.a
+		ai_chance = { factor = 4}
+		###June decides to hunt Aang- success chance depends on team avatar's strenght, if successfull- wounding Aang / killing one of the other members
+		NIX = country_event = { id = quest.46 days = 1 }
+	}
+	option = {
+		name = quest.45.b
+		ai_chance = { factor = 1}
+		###Doesn't hunt
+	}
+}
+
+
+##Event: The Avatar Needs Help From The Abbey
+country_event = {
+	id = quest.46
+	title = quest.46.title
+	desc = quest.46.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_Needs_Help_From_The_Abbey
+	trigger = {
+		tag = NIX
+	}
+	option = {
+		name = quest.46.a
+		ai_chance = { factor = 4}
+		###The people of abbey help
+		set_global_flag = ep15_news_a
+	}
+	option = {
+		name = quest.46.b
+		ai_chance = { factor = 1}
+		###The people of abbey doesn't help
+		set_global_flag = ep15_news_a
+	}
+}
+
+
+##Event: The Hunting Continues
+news_event = {
+	id = quest.47
+	title = quest.47.title
+	desc = quest.47.desc
+	picture = GFX_ep15_news
+	major = yes
+	trigger = {
+		has_global_flag = ep15_news_a
+		NOT = { has_global_flag = ep15_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep15_news_b
+	}
+	option = {
+		name = quest.47.a
 	}
 }
