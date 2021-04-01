@@ -842,15 +842,19 @@ air_genocide_category = {
 
 				EAT = {
 					country_event = { id = eastern.1 days = 1 }
+					set_major = yes
 				}
 				WAT = {
 					country_event = { id = western.1 days = 1 }
+					set_major = yes
 				}
 				NAT = {
 					country_event = { id = northern.1 days = 1 }
+					set_major = yes
 				}
 				SAT = {
 					country_event = { id = southern.1 days = 1 }
+					set_major = yes
 				}
 				load_oob = "northern_firebender_army"
 				load_oob = "southern_firebender_army"
@@ -1059,7 +1063,7 @@ air_genocide_category = {
 			FIR = {
 				country_event = { id = firenation.7 days = 7 }
 			}
-			set_global_flag = east_temple_survived
+			set_global_flag = east_temple_fallen
 		}
 
 		timeout_effect = {
@@ -1068,7 +1072,7 @@ air_genocide_category = {
 				give_military_access = FIR
 				leave_faction = yes
 			}
-			set_global_flag = east_temple_fallen
+			set_global_flag = east_temple_survived
 		}
 
         ai_will_do = {
@@ -1102,7 +1106,7 @@ air_genocide_category = {
 			FIR = {
 				country_event = { id = firenation.1 days = 7 }
 			}
-			set_global_flag = west_temple_survived
+			set_global_flag = west_temple_fallen
 		}
 
 		timeout_effect = {
@@ -1111,7 +1115,7 @@ air_genocide_category = {
 				give_military_access = FIR
 				leave_faction = yes
 			}
-			set_global_flag = west_temple_fallen
+			set_global_flag = west_temple_survived
 		}
 
         ai_will_do = {
@@ -1145,7 +1149,7 @@ air_genocide_category = {
 			FIR = {
 				country_event = { id = firenation.5 days = 7 }
 			}
-			set_global_flag = north_temple_survived
+			set_global_flag = north_temple_fallen
 		}
 
 		timeout_effect = {
@@ -1154,7 +1158,7 @@ air_genocide_category = {
 				give_military_access = FIR
 				leave_faction = yes
 			}
-			set_global_flag = north_temple_fallen
+			set_global_flag = north_temple_survived
 		}
 
         ai_will_do = {
@@ -1188,7 +1192,10 @@ air_genocide_category = {
 			FIR = {
 				country_event = { id = firenation.3 days = 7 }
 			}
-			set_global_flag = south_temple_survived
+			SAT = {
+				dismantle_faction = yes
+			}
+			set_global_flag = south_temple_fallen
 		}
 
 		timeout_effect = {
@@ -1197,7 +1204,7 @@ air_genocide_category = {
 				give_military_access = FIR
 				leave_faction = yes
 			}
-			set_global_flag = south_temple_fallen
+			set_global_flag = south_temple_survived
 		}
 
         ai_will_do = {

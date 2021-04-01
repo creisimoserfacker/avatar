@@ -1,0 +1,73 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+
+### air genocide outcomes
+
+defined_text = {
+	name = GetNorthOutcome
+	text = {
+		trigger = {
+			has_global_flag = north_temple_fallen
+		}
+		localization_key = nat_fallen_and_cant_get_up
+	}
+	text = {
+		trigger = {
+			has_global_flag = north_temple_survived
+		}
+		localization_key = nat_survived
+	}
+}
+defined_text = {
+	name = GetEastOutcome
+	text = {
+		trigger = {
+			has_global_flag = east_temple_fallen
+		}
+		localization_key = eat_fallen_and_cant_get_up
+	}
+	text = {
+		trigger = {
+			has_global_flag = east_temple_survived
+		}
+		localization_key = eat_survived
+	}
+}
+defined_text = {
+	name = GetSouthOutcome
+	text = {
+		trigger = {
+			has_global_flag = south_temple_fallen
+		}
+		localization_key = sat_fallen_and_cant_get_up
+	}
+	text = {
+		trigger = {
+			has_global_flag = south_temple_survived
+		}
+		localization_key = sat_survived
+	}
+}
+defined_text = {
+	name = GetWestOutcome
+	text = {
+		trigger = {
+			has_global_flag = west_temple_fallen
+		}
+		localization_key = wat_fallen_and_cant_get_up
+	}
+	text = {
+		trigger = {
+			has_global_flag = west_temple_survived
+		}
+		localization_key = wat_survived
+	}
+}
