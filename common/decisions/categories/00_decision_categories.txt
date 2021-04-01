@@ -10,7 +10,7 @@ war_weariness_category = {
 
 
 air_genocide_category = {
-	icon = ger_mefo_bills
+	icon = GFX_decision_category_genocide
 
 	picture = GFX_decision_cat_air_genocide
 
@@ -20,10 +20,14 @@ air_genocide_category = {
 			has_global_flag = air_nomad_genocide
 		}
 	}
+
+	priority = {
+		base =  100
+	}
 }
 
 recruitment_decision_category = {
-	icon = ger_mefo_bills
+	icon = GFX_decision_category_recruiting
 
 	picture = GFX_decision_cat_recruitment
 
@@ -31,10 +35,22 @@ recruitment_decision_category = {
 		#has_manpower < 2000
 	}
 
+	priority = {
+		base = -10
+		modifier = {
+			add = 11
+			has_manpower < 2000
+		}
+		modifier = {
+			factor = 10
+			has_war = yes
+		}
+	}
+
 }
 
 generic_research_slot_category = {
-	icon = ger_mefo_bills
+	icon = GFX_decision_category_research
 
 	picture = GFX_decision_cat_research
 
@@ -43,7 +59,7 @@ generic_research_slot_category = {
 	}
 
 	priority = {
-		base = -10
+		base = 0
 	}
 
 }
