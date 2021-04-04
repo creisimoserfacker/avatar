@@ -1,9 +1,10 @@
 SAT_upcoming_war_category = {
 
-	troubeling_signs = {
+	troubling_signs = {
 
 		allowed = {
 			TAG = SAT
+			#always = no
 		}
 
 		available = {
@@ -13,7 +14,7 @@ SAT_upcoming_war_category = {
 			}
         }
 
-        days_mission_timeout = 100
+        days_mission_timeout = 180
         is_good = no
 
 		complete_effect = {
@@ -46,6 +47,7 @@ SAT_upcoming_war_category = {
 
 		complete_effect = {
 			set_global_flag = monks_revealed_aang
+			custom_effect_tooltip = reveal_avatar_aang_tt
 		}
 
 		cost = 10
@@ -64,10 +66,21 @@ SAT_upcoming_war_category = {
 		available = {
 			AND = {
 				has_global_flag = monks_revealed_aang
+				NOT = {
+					has_global_flag = keep_aang_here
+				}
 			}
         }
+        visible = {
+			AND = {
+				has_global_flag = monks_revealed_aang
+				NOT = {
+					has_global_flag = keep_aang_here
+				}
+			}
+		}
 
-        days_remove = 21
+        days_remove = 30
 
 		complete_effect = {
 			set_global_flag = send_aang_away
@@ -86,14 +99,65 @@ SAT_upcoming_war_category = {
 						has_global_flag = gyatso_and_aang_flee
 					}
 				}
-				SAT = { news_event = { id = news.7 } }
+				random_list = {
+					25 = {
+						SAT = { news_event = { id = news.7 } }
+						modifier = {
+							add = 75
+							is_historical_focus_on = yes
+						}
+					}
+					75 = {
+						modifier = {
+							factor = 0
+							is_historical_focus_on = yes
+						}
+					}
+				}
+
 			}
 		}
 
-		cost = 10
+		cost = 50
         fire_only_once = yes
         ai_will_do = {
 			factor = 100
+		}
+	}
+
+	keep_avatar_aang_here = {
+
+		allowed = {
+			TAG = SAT
+		}
+
+		available = {
+			AND = {
+				has_global_flag = monks_revealed_aang
+				NOT = {
+					has_global_flag = send_aang_away
+				}
+			}
+        }
+        visible = {
+			AND = {
+				has_global_flag = monks_revealed_aang
+				NOT = {
+					has_global_flag = send_aang_away
+				}
+			}
+		}
+
+		complete_effect = {
+			set_global_flag = keep_aang_here
+			add_ideas = protecting_the_avatar
+		}
+
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 0
 		}
 	}
 
@@ -103,14 +167,35 @@ SAT_upcoming_war_category = {
 			TAG = SAT
 		}
 
+		visible = {
+			has_global_flag = send_aang_away
+		}
+
 		available = {
 			AND = {
 				has_global_flag = send_aang_away
+				has_decision = send_aang_to_the_eastern_temple
 			}
         }
 
 		complete_effect = {
-			set_global_flag = gyatso_and_aang_flee
+			random_list = {
+				25 = {
+					SAT = { news_event = { id = news.7 } }
+					modifier = {
+						add = 75
+						is_historical_focus_on = yes
+					}
+				}
+				75 = {
+					set_global_flag = gyatso_and_aang_flee
+					custom_effect_tooltip = gyatso_and_aang_tt
+					modifier = {
+						factor = 0
+						is_historical_focus_on = yes
+					}
+				}
+			}
 		}
 
 		cost = 10

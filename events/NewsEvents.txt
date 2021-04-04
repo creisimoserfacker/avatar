@@ -12,18 +12,11 @@ news_event = {
 	picture = GFX_avatar_news_event_001
 	is_triggered_only = yes
 
+	major = yes
+
 	immediate = {
 		hidden_effect = {
 			set_global_flag = sozins_comet_first
-		}
-	}
-
-	option = {
-		name = news.1.z
-		trigger = {
-			NOT = {
-				TAG = FIR
-			}
 		}
 	}
 
@@ -63,7 +56,7 @@ news_event = {
 	trigger = {
 		date > 12.8.6
 		date < 12.8.20
-		country_exists = FIR
+		#country_exists = FIR
 		NOT = { has_global_flag = sozins_comet_first }
 	}
 
@@ -236,8 +229,11 @@ news_event = {
 	picture = GFX_avatar_news_event_005
 	is_triggered_only = yes
 
+	major = yes
+
 	immediate = {
 		hidden_effect = {
+			clr_global_flag = avatar_sat
 			clr_global_flag = avatar_team_gyatso
 			set_global_flag = avatar_iceberg
 		}

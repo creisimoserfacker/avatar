@@ -118,6 +118,58 @@ on_actions = {
 
 			}
 
+			# Game Rules - United Watertribes
+			if = {
+				limit = {
+					has_game_rule = {
+						rule = watertribes_fragmentation_status
+						option = WATERTRIBES_UNITED
+					}
+				}
+				NWT = {
+					#set_cosmetic_tag = AIR_united
+
+					every_state = {
+						if = {
+							limit {
+								OR = {
+									is_owned_by = SWT
+								}
+							}
+							add_core_of = NWT
+						}
+					}
+
+					annex_country = { target = SWT transfer_troops = yes }
+					SWT = {
+						every_unit_leader = {
+							set_nationality = NWT
+						}
+					}
+				}
+
+			}
+
+			# Game Rules - Fire Colonies
+			if = {
+				limit = {
+					AND = {
+						has_game_rule = {
+							rule = firenation_colony_status
+							option = FIRENATION_COLONIES
+						}
+						has_start_date < 12.02.02
+					}
+				}
+				FIR = {
+					set_state_owner = 230
+					set_state_owner = 280
+					set_state_controller = 230
+					set_state_controller = 280
+				}
+
+			}
+
 		}
 	}
 
