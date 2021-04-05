@@ -63,6 +63,23 @@ ideas = {
 				#no_supply_grace = 2400
 			}
 		}
+
+		spirit_prince_azulon = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
 		
 		FIR_first_invasion = {
 			allowed = {
@@ -94,7 +111,9 @@ ideas = {
 
 			removal_cost = -1
 
-			invasion_preparation = -0.90
+			modifier = {
+				invasion_preparation = -0.90
+			}
 
 			targeted_modifier = {
 				tag = WUL
@@ -129,7 +148,9 @@ ideas = {
 
 			removal_cost = -1
 
-			invasion_preparation = -0.90
+			modifier = {
+				invasion_preparation = -0.90
+			}
 
 			targeted_modifier = {
 				tag = POH
@@ -164,7 +185,9 @@ ideas = {
 
 			removal_cost = -1
 
-			invasion_preparation = -0.90
+			modifier = {
+				invasion_preparation = -0.90
+			}
 
 			targeted_modifier = {
 				tag = HEB
@@ -497,9 +520,9 @@ ideas = {
 		}
 	}
 	minister_of_works = {
-		generic_minister_of_works = {
+		use_list_view = yes
 
-			cost = 150
+		fir_minister_of_works_1 = {
 
 			allowed = {
 				original_tag = FIR
@@ -507,8 +530,31 @@ ideas = {
 			available = {
 
 			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
 			
-			traits = {  }
+			traits = { cruel_supervisor }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_works_2 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { motivated_pioneer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -516,9 +562,9 @@ ideas = {
 		}
 	}
 	minister_of_rites = {
-		generic_minister_of_rites = {
+		use_list_view = yes
 
-			cost = 150
+		fir_minister_of_rites_1 = {
 
 			allowed = {
 				original_tag = FIR
@@ -526,8 +572,31 @@ ideas = {
 			available = {
 
 			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
 			
-			traits = {  }
+			traits = { warrior_culture }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+		fir_minister_of_rites_2 = {
+
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+
+			}
+
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { consumer_leader }
 
 			ai_will_do = {
 				factor = 0.5
@@ -536,6 +605,8 @@ ideas = {
 	}
 	
 	war_minister = {
+		use_list_view = yes
+
 		generic_war_minister = {
 
 			cost = 150
@@ -555,6 +626,8 @@ ideas = {
 		}
 	}
 	field_marshal = {
+		use_list_view = yes
+
 		generic_field_marshal = {
 
 			cost = 150
@@ -574,6 +647,8 @@ ideas = {
 		}
 	}
 	grand_admiral = {
+		use_list_view = yes
+
 		generic_grand_admiral = {
 
 			cost = 150
@@ -593,6 +668,8 @@ ideas = {
 		}
 	}
 	head_of_intelligence = {
+		use_list_view = yes
+
 		generic_head_of_intelligence = {
 
 			cost = 150
@@ -612,6 +689,8 @@ ideas = {
 		}
 	}
 	head_of_weaponry = {
+		use_list_view = yes
+
 		generic_head_of_weaponry = {
 
 			cost = 150
@@ -631,6 +710,8 @@ ideas = {
 		}
 	}
 	quartermaster = {
+		use_list_view = yes
+
 		generic_quartermaster = {
 
 			cost = 150
@@ -651,6 +732,8 @@ ideas = {
 	}
 
 	academia = {
+		use_list_view = yes
+
 		generic_academia = {
 
 			cost = 150
@@ -671,6 +754,8 @@ ideas = {
 	}
 
 	army = {
+		use_list_view = yes
+
 		generic_army = {
 
 			cost = 150
@@ -690,6 +775,8 @@ ideas = {
 		}
 	}
 	navy = {
+		use_list_view = yes
+
 		generic_navy = {
 
 			cost = 150
@@ -710,6 +797,8 @@ ideas = {
 	}
 	
 	law_enforcement = {
+		use_list_view = yes
+
 		generic_law_enforcement = {
 
 			cost = 150
@@ -729,6 +818,8 @@ ideas = {
 		}
 	}
 	martial_art = {
+		use_list_view = yes
+
 		generic_martial_art = {
 
 			cost = 150

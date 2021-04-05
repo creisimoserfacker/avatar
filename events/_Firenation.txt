@@ -631,6 +631,27 @@ country_event = {
 	}
 }
 
+#Azulon is born
+country_event = {
+	id = firenation.10
+	title = firenation.10.t
+	desc = firenation.10.d
+	picture = GFX_report_event_fir_birth
+
+	trigger = {
+		tag = FIR
+		date > 12.3.4
+		has_start_date < 13.01.01
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = firenation.10.a
+		add_ideas = spirit_prince_azulon
+	}
+}
+
 #Sozin Dies :´(
 country_event = {
 	id = firenation.11
@@ -638,7 +659,7 @@ country_event = {
 
 	trigger = {
 		tag = FIR
-		date > 32.1.1
+		date > 32.4.25
 		has_country_leader = {
    			name = "Sozin"
     		ruling_only = yes
@@ -651,7 +672,6 @@ country_event = {
 				set_country_flag = sozin_dead
 				kill_country_leader = yes
 				remove_unit_leader = 1
-				load_focus_tree = firenation_no_leader_sozin
 				create_country_leader = {
 					name = "Empty Throne"
 					desc = "POLITICS_ADOLF_HITLER_DESC"
@@ -680,24 +700,12 @@ country_event = {
 country_event = {
 	id = firenation.12
 	title = firenation.12.t
-	desc = firenation.12.desc
-	picture = GFX_fall_of_taku
+	desc = firenation.12.d
+	picture = GFX_report_event_fir_soldiers
 
 	fire_only_once = yes
 
-	trigger = {
-		tag = FIR
-		154 = { is_controlled_by = GER }
-		154 = { is_owned_by = TAK }
-		FIR = { has_war_with = TAK }
-		NOT = { has_global_flag = fall_of_taku }
-	}
-
-	immediate = {
- 		hidden_effect = {
- 			set_global_flag = fall_of_taku
-		}
- 	}
+	is_triggered_only = yes
 
 	option = { #a great idea!
 		name = firenation.12.a
@@ -706,6 +714,10 @@ country_event = {
 		}
 		154 = {
 			add_compliance = 20
+		}
+		add_named_threat = { 
+		    threat = 2 
+		    name = FIR_atrocity
 		}
 		hidden_effect = {
 			every_state = {
@@ -716,6 +728,10 @@ country_event = {
 				}
 				add_dynamic_modifier = { modifier = destroyed_city }
 			}
+			set_victory_points = {
+				province = 563
+				value = 10
+			}
 		}
 	}
 
@@ -724,10 +740,12 @@ country_event = {
 		ai_chance = {
 			base = 0
 		}
-		add_stability = -0.05
-		add_timed_idea = {
-			idea = unit_morale_dropped
-			days = 30
+		FIR = {
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = unit_morale_dropped
+				days = 30
+			}
 		}
 	}
 

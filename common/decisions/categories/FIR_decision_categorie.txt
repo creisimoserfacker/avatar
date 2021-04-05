@@ -29,6 +29,14 @@ FIR_outpost_category = {
 		original_tag = FIR
 	}
 
+	priority = {
+		base = 0
+		modifier = {
+			add = 60
+			has_war = yes
+		}
+	}
+
 	visible_when_empty = yes
 }
 
@@ -60,5 +68,30 @@ FIR_colonies_category = {
 		original_tag = FIR
 		has_government = imperialism
 		has_war_with = EAR
+	}
+}
+
+FIR_royal_family_category = {
+	icon = GFX_decision_category_royal_family
+
+	picture = GFX_decision_cat_fir_royal_family
+
+	allowed = {
+		original_tag = FIR
+	}
+
+	visible = {
+		original_tag = FIR
+	}
+
+	priority = {
+		base = 50
+		modifier = {
+			factor = 10
+			has_country_leader = {
+			    name = "Empty Throne"
+			    ruling_only = yes
+			}
+		}
 	}
 }

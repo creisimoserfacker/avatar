@@ -1,0 +1,53 @@
+
+add_namespace = far_news
+
+news_event = {
+	id = far_news.1
+	title = far_news.1.t
+	desc = far_news.1.d
+	picture = GFX_far_news_event_001
+	
+	major = yes
+	
+	trigger = {
+		154 = { is_controlled_by = FIR }
+		OR = {
+			154 = { is_owned_by = TAK }
+			154 = { is_owned_by = EAR }
+		}
+		OR = {
+			FIR = { has_war_with = TAK }
+			FIR = { has_war_with = EAR }
+		}
+		NOT = { has_global_flag = fall_of_taku }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_taku
+ 			FIR = { country_event = { hours = 12 id = firenation.12 } }
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = far_news.1.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+				has_country_flag = earth_nation
+			}
+		}
+	}
+	option = {
+		name = far_news.1.b
+		trigger = { TAG = FIR }
+	}
+	option = {
+		name = far_news.1.c
+		trigger = { has_country_flag = earth_nation }
+	}
+}

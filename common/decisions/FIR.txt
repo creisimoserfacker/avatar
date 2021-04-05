@@ -36,6 +36,47 @@ war_weariness_category = {
 
 }
 
+FIR_royal_family_category = {
+
+	crown_azulon = {
+
+		visible = {	
+			has_country_leader = {
+			    name = "Empty Throne"
+			    ruling_only = yes
+			}
+		}
+
+		available = {
+			has_country_leader = {
+			    name = "Empty Throne"
+			    ruling_only = yes
+			}
+			has_idea = spirit_prince_azulon
+        }
+
+		complete_effect = {
+			create_country_leader = {
+				name = "Azulon"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Firenation_Azulon2.dds"
+				expire = "200.1.1"
+				ideology = colonialism
+				traits = {
+					firelord
+				}
+			}
+			remove_ideas = spirit_prince_azulon
+		}
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 110
+		}
+	}
+}
+
 FIR_conquest_category = {
 
 	military_preparations = {
@@ -362,6 +403,54 @@ FIR_conquest_category = {
 	}
 
 
+
+}
+
+
+FIR_outpost_category = {
+	
+	boiling_rock_base = {
+
+		icon = buildup
+
+		highlight_state_targets = {
+			state = 264
+		}
+
+		visible = {
+			ships_in_area = { area = 36 size > 9 }
+		}
+
+		available = {
+			ships_in_area = { area = 36 size > 9 }
+		}
+
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		remove_effect = {
+			264 = {
+				add_building_construction = {
+					type = naval_base
+					level = 6
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			set_victory_points = {
+				province = 7281
+				value = 10
+			}
+		}
+
+		#cost = 20
+        fire_only_once = yes
+	}
 
 }
 
