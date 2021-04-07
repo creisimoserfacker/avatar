@@ -47,7 +47,12 @@ compliance_60 = {
 	enabled = {
 		FROM = {
 			all_owned_state = {
-			    is_controlled_by = ROOT
+				AND = {
+				    is_controlled_by = ROOT
+				    NOT = {
+				    	is_owned_by = ROOT
+				    }
+				}
 			}
 		}
 	}

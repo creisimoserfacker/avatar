@@ -32,7 +32,10 @@ recruitment_decision_category = {
 	picture = GFX_decision_cat_recruitment
 
 	visible = {
-		#has_manpower < 2000
+		OR = {
+			has_idea = all_adults_serve
+			has_idea = scraping_the_barrel
+		}
 	}
 
 	priority = {

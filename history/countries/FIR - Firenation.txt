@@ -352,6 +352,21 @@ if = {
 
 	add_political_power = 1198
 
+set_politics = {
+	ruling_party = imperialism
+	last_election = "10.1.1"
+	election_frequency = 120
+	elections_allowed = no
+}
+
+set_popularities = {
+	tribalism = 0
+	democratica = 0
+	imperialism = 100
+	monarchism = 0
+	pacifism = 0
+}
+
 add_ideas = {
 
 	war_weariness_2
@@ -362,6 +377,31 @@ add_ideas = {
 	economy_4
 	family_support_3
 	indoctrination
+}
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = YFC
+		autonomous_state = autonomy_imperial_colony
+	}
+	else = {
+		puppet = YFC
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = KFC
+		autonomous_state = autonomy_imperial_colony
+	}
+	else = {
+		puppet = KFC
+	}
 }
 
 
@@ -380,8 +420,8 @@ remove_unit_leader = 1
 
 	create_faction = Alliance_of_Fire
 	add_to_faction = FIR
-
-	unlock_national_focus = FIR_fireempire
+	add_to_faction = YFC
+	add_to_faction = KFC
 
 
 # WAR
@@ -397,223 +437,6 @@ remove_unit_leader = 1
 		target = SWT
 		type = annex_everything
 	}
-
-
-
-	XIN = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	WUL = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	NOW = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	MER = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	FMB = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	GDD = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	LAM = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	WBA = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	EBA = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	ECB = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	NCB = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	ISL = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	HEB = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	YII = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	ZIN = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	NAN = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	MPO = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	SWA = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	ZAO = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	YUE = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	GAR = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	HAN = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	OMS = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	GAO = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	CHN = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	NIX = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	MAK = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	POH = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	TAK = {
-		add_to_war = {
-			targeted_alliance = EAR
-			enemy = FIR
-		}
-	}
-	
-
-# DIPLOMACY	
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = POH
-		autonomous_state = autonomy_colony
-	}
-	set_autonomy = {
-		target = TAK
-		autonomous_state = autonomy_colony
-	}
-	set_autonomy = {
-		target = MAK
-		autonomous_state = autonomy_colony
-	}
-}
-if = {
-	limit = { 
-		not = {
-			has_dlc = "Together for Victory"
-		}
-	}
-	set_autonomy = {
-		target = POH
-		autonomous_state = autonomy_puppet
-	}
-	set_autonomy = {
-		target = TAK
-		autonomous_state = autonomy_puppet
-	}
-	set_autonomy = {
-		target = MAK
-		autonomous_state = autonomy_puppet
-	}
-}
-
 
 
 }
@@ -707,44 +530,6 @@ create_corps_commander = {
 		target = EAR
 		type = annex_everything
 	}
-
-# DIPLOMACY
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = XIN
-		autonomous_state = autonomy_colony
-	}
-	set_autonomy = {
-		target = WUL
-		autonomous_state = autonomy_colony
-	}
-	set_autonomy = {
-		target = NOW
-		autonomous_state = autonomy_colony
-	}
-}
-if = {
-	limit = { 
-		not = {
-			has_dlc = "Together for Victory"
-		}
-	}
-	set_autonomy = {
-		target = XIN
-		autonomous_state = autonomy_puppet
-	}
-	set_autonomy = {
-		target = WUL
-		autonomous_state = autonomy_puppet
-	}
-	set_autonomy = {
-		target = NOW
-		autonomous_state = autonomy_puppet
-	}
-}
 
 }
 
