@@ -79,11 +79,11 @@ set_politics = {
 }
 
 set_popularities = {
-	tribalism = 10
-	democratica = 30
-	imperialism = 5
-	monarchism = 40
-	pacifism = 15
+	tribalism = 0
+	democratica = 10
+	imperialism = 0
+	monarchism = 80
+	pacifism = 10
 }
 
 add_ideas = {
@@ -93,6 +93,31 @@ add_ideas = {
 	civilian_economy
 	family_support_3
 	no_education
+}
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = POH
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = POH
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = HAN
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = HAN
+	}
 }
 
 set_cosmetic_tag = TAK_puppet
@@ -115,6 +140,7 @@ create_country_leader = {
 
 	set_cosmetic_tag = TAK_puppet
 
+	
 
 }
 

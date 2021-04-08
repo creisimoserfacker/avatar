@@ -92,6 +92,44 @@ add_ideas = {
 }
 
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = NAN
+		autonomous_state = autonomy_royal_domain
+	}
+	else = {
+		puppet = NAN
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = ZIN
+		autonomous_state = autonomy_vassalage
+	}
+	else = {
+		puppet = ZIN
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = GAR
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = GAR
+	}
+}
+
+
 #
 
 
@@ -100,6 +138,11 @@ add_ideas = {
 52.1.1 ={
 
 	OOB = "GAO_52"
+
+	add_to_war = {
+		targeted_alliance = EAR
+		enemy = FIR
+	}
 
 }
 

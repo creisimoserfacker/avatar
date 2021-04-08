@@ -92,6 +92,44 @@ add_ideas = {
 }
 
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = ZAO
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = ZAO
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = CHN
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = CHN
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = HEB
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = HEB
+	}
+}
+
+
 #
 
 
@@ -116,6 +154,11 @@ create_country_leader = {
 52.1.1 ={
 
 	OOB = "OMS_52"
+
+	add_to_war = {
+		targeted_alliance = EAR
+		enemy = FIR
+	}
 
 }
 

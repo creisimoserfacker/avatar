@@ -79,9 +79,9 @@ set_politics = {
 set_popularities = {
 	tribalism = 5
 	democratica = 5
-	imperialism = 35
-	monarchism = 55
-	pacifism = 0
+	imperialism = 0
+	monarchism = 85
+	pacifism = 5
 }
 
 add_ideas = {
@@ -95,11 +95,39 @@ add_ideas = {
 
 set_cosmetic_tag = GAR_puppet
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = WUL
+		autonomous_state = autonomy_county
+	}
+	else = {
+		puppet = WUL
+	}
+}
+
+create_country_leader = {
+	name = "Bao"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Leader_1.dds"
+	expire = "90.4.7"
+	ideology = elective_monarchy
+	traits = {
+
+	}
+}
+
 52.1.1 ={
 
 	OOB = "XIN_52"
 
 	set_cosmetic_tag = GAR_puppet
+	add_to_war = {
+		targeted_alliance = EAR
+		enemy = FIR
+	}
 
 set_stability = 0.9 
 set_war_support = 0.5
@@ -156,7 +184,7 @@ set_technology = {
 create_country_leader = {
 	name = "Bao"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Leader_1.dds"
+	picture = "Portrait_Leader_2.dds"
 	expire = "90.4.7"
 	ideology = elective_monarchy
 	traits = {
@@ -166,7 +194,7 @@ create_country_leader = {
 
 create_field_marshal = {
 	name = "Bao"
-	picture = "Portrait_Leader_1.dds"
+	picture = "Portrait_Leader_2.dds"
 	traits = { skilled_staffer defensive_infantry consumed_by_grief }
 	skill = 5
 	attack_skill = 3
