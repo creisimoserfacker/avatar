@@ -246,10 +246,76 @@ leader_traits = {
 		}
 	}
 
+	aggressive_strategist = {
+		random = no
+		sprite = 7
+		
+		army_attack_factor = 0.05
+		breakthrough_factor = 0.05
+		required_garrison_factor = -0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	defensive_strategist = {
+		random = no
+		sprite = 7
+		
+		army_defence_factor = 0.05
+		dig_in_speed_factor = 0.15
+		max_dig_in_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	flexible_strategist = {
+		random = no
+		sprite = 7
+		
+		army_org_regain = 0.05
+		planning_speed = 0.2
+		org_loss_when_moving = -0.15
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	experienced_strategist = {
+		random = no
+		sprite = 7
+		
+		command_power_gain = 0.5
+		max_planning = 0.2
+		recon_factor_while_entrenched = 0.2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	assymetrical_strategist = {
+		random = no
+		sprite = 7
+		
+		pocket_penalty = -0.15
+		resistance_growth_on_our_occupied_states = 0.2
+		resistance_damage_to_garrison_on_our_occupied_states = 0.2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	logistician = {
 		random = no
 		sprite = 4
-		org_loss_when_moving = -0.05
+		
+		supply_consumption_factor = -0.1
 		base_fuel_gain_factor = 0.1
 		land_reinforce_rate = 0.05
 
@@ -446,6 +512,246 @@ leader_traits = {
 				instant = yes
 			}
 		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	bold_admiral = {
+		random = no
+		sprite = 1
+		
+		naval_has_potf_in_combat_attack = 0.1
+		ships_at_battle_start = 0.1
+		naval_critical_score_chance_factor 0.1
+		critical_receive_chance = 0.05
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	former_pirate = {
+		random = no
+		sprite = 1
+		
+		convoy_raiding_efficiency_factor = 0.1
+		spotting_chance = 0.1
+		naval_torpedo_cooldown_factor = -0.1
+		naval_torpedo_hit_chance_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	former_smuggler = {
+		random = no
+		sprite = 1
+		
+		navy_visibility = -0.15
+		convoy_escort_efficiency = 0.1
+		screening_efficiency = 0.1
+		convoy_retreat_speed 0.15
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	navigator = {
+		random = no
+		sprite = 1
+		
+		naval_attrition = -0.15
+		naval_coordination = 0.1
+		navy_fuel_consumption_factor = -0.1
+		naval_speed_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	cautious_admiral = {
+		random = no
+		sprite = 1
+		
+		naval_accidents_chance = -0.1
+		critical_receive_chance = -0.1
+		naval_critical_effect_factor = -0.05
+		naval_retreat_chance = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	naval_reformer = {
+		random = no
+		sprite = 1
+		
+		naval_morale_factor = 0.05
+		experience_gain_navy = 0.01
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	bending_master = {
+		random = no
+		sprite = 2
+		
+		category_bender_factor = 0.05
+		category_bender_defense_factor = 0.05
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	mechanized_commander = {
+		random = no
+		sprite = 8
+		
+		all_mechanized_attack_factor = 0.1
+		all_mechanized_speed_factor = 0.1
+		breakthrough_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	freedom_fighter = {
+		random = no
+		sprite = 5
+		
+		recon_factor = 0.2
+		terrain_penalty_reduction = -0.1
+		org_loss_when_moving = -0.15
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	veteran_warrior = {
+		random = no
+		sprite = 7
+		
+		melee_attack_factor = 0.075
+		melee_defense_factor = 0.075
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	army_reformer = {
+		random = no
+		sprite = 5
+		
+		army_org_factor = 0.05
+		experience_gain_army = 0.01
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	veteran_rider = {
+		random = no
+		sprite = 9
+		
+		all_cavalry_attack_factor = 0.1
+		all_cavalry_defense_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	veteran_marksmen = {
+		random = no
+		sprite = 10
+		
+		ranged_attack_factor = 0.1
+		ranged_defense_factor = 0.1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	spymaster = {
+		random = no
+		sprite = 1
+		
+		defense_impact_on_blueprint_stealing = -0.2
+		intel_network_gain_factor = 0.25
+		intel_from_operatives_factor = 0.25
+		encryption = 1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	secret_police = {
+		random = no
+		sprite = 1
+		
+		occupation_cost = -0.25
+		root_out_resistance_effectiveness_factor = 0.3
+		enemy_operative_detection_chance_factor = 0.25
+		intelligence_agency_defense = 0.15
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	head_censor = {
+		random = no
+		sprite = 1
+			
+		stability_factor = 0.05
+		navy_intel_to_others = -10
+		airforce_intel_to_others = -10
+		civilian_intel_to_others = -10
+		army_intel_to_others = -10
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	master_torturer = {
+		random = no
+		sprite = 1
+		
+		decryption = 1
+		enemy_operative_harmed_time_factor = 0.25
+		enemy_operative_intel_extraction_rate = 0.25
+		enemy_operative_capture_chance_factor = 0.25
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	master_assassin = {
+		random = no
+		sprite = 1
+		
+		political_power_factor = 0.05
+		subversive_activites_upkeep = -0.25
+		operation_outcome = 0.25
+		operative_death_on_capture_chance = 0.1
+		
 
 		ai_will_do = {
 			factor = 0
