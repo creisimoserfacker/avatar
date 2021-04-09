@@ -1093,7 +1093,7 @@ equipment_modules = {
 		sfx = sfx_ui_sd_module_sonar
 		
 		add_stats = {
-			build_cost_ic = 1800
+			build_cost_ic = 1860
 			surface_detection = 8
 		}
 	}
@@ -1118,7 +1118,7 @@ equipment_modules = {
 		add_stats = {
 			
 			surface_detection = 16
-			build_cost_ic = 2040
+			build_cost_ic = 1980
 		}
 		can_convert_from = {
 			module = lookout_2
@@ -1135,11 +1135,47 @@ equipment_modules = {
 
 		add_stats = {
 			
-			build_cost_ic = 2160
+			build_cost_ic = 2040
 			surface_detection = 20
 		}
 		can_convert_from = {
 			module = lookout_3
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = bridge
+			convert_cost_ic = 90
+		}
+	}
+	lookout_5 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			
+			build_cost_ic = 2100
+			surface_detection = 24
+		}
+		can_convert_from = {
+			module = lookout_4
+			convert_cost_ic = 30
+		}
+		can_convert_from = {
+			module_category = bridge
+			convert_cost_ic = 90
+		}
+	}
+	lookout_6 = {
+		category = bridge
+		sfx = sfx_ui_sd_module_sonar
+
+		add_stats = {
+			
+			build_cost_ic = 2160
+			surface_detection = 28
+		}
+		can_convert_from = {
+			module = lookout_5
 			convert_cost_ic = 30
 		}
 		can_convert_from = {
@@ -1231,6 +1267,52 @@ equipment_modules = {
 		multiply_stats = {
 			fuel_consumption = 1.8
 			naval_range = 2.6
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = storage_room_4
+			convert_cost_ic = 45
+		}
+	}
+	storage_room_5 = {
+		category = storage_room
+		parent = storage_room_4
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 1200
+		}
+		multiply_stats = {
+			fuel_consumption = 2.0
+			naval_range = 3.0
+		}
+		dismantle_cost_ic = 700
+
+		can_convert_from = {
+			module_category = storage_room
+			convert_cost_ic = 120
+		}
+		can_convert_from = {
+			module = storage_room_4
+			convert_cost_ic = 45
+		}
+	}
+	storage_room_6 = {
+		category = storage_room
+		parent = storage_room_5
+		sfx = sfx_ui_sd_module_engine
+		
+		add_stats = {
+			build_cost_ic = 1400
+		}
+		multiply_stats = {
+			fuel_consumption = 2.2
+			naval_range = 3.4
 		}
 		dismantle_cost_ic = 700
 
