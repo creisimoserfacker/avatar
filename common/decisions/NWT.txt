@@ -1,0 +1,352 @@
+NWT_war_prep = {
+	Propaganda = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			#custom_effect_tooltip = "The was has gone on for far too long and we have lost too many #souls, yet we can not let ourselves lose hope. We shall encourage the public!"
+			#add_war_support = 0.05
+		}
+	}
+
+	NWT_wood = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 100
+
+		complete_effect = {
+			custom_effect_tooltip = "If we plan for war we will need supplies."
+			add_resource = {
+				type = aluminium
+				amount = 5
+				state = 17
+				}
+		}
+	}
+
+	NWT_steel = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 100
+
+		complete_effect = {
+			custom_effect_tooltip = "If we plan for war we will need supplies."
+			add_resource = {
+				type = steel
+				amount = 5
+				state = 17
+			}
+		}
+	}
+
+	NWT_iron = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 100
+
+		complete_effect = {
+			custom_effect_tooltip = "If we plan for war we will need supplies."
+			add_resource = {
+				type = iron
+				amount = 5
+				state = 17
+			}
+		}
+	}
+
+}
+
+NWT_war = {
+	NWT_War_Weariness = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "As the war rages on our troops have lost resources and materials, we should rearm them."
+			custom_effect_tooltip = war_weariness_remove_2
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_200 }
+			add_war_support = -0.025
+		}
+	}
+
+	NWT_train = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 100
+
+		complete_effect = {
+			custom_effect_tooltip = "Our soldiers require training if they want to fight."
+			army_experience = 15
+		}
+	}
+
+	NWT_support_earth = {
+
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			EAR = { country_event = { id = basingse.1 }}
+		}
+	}
+
+}
+
+NWT_relations = {
+	NWT_sw = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "This war has us thinking that we should work with our sister tribe."
+			add_opinion = NWT SWT 50
+			add_opinion SWT NWT 25
+		}
+	}
+
+	NWT_condem_sw = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 30
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "The Northern Tribe has different plans for the Southern Tribe."
+			add_opinion NWT SWT -50
+			add_opinion SWT NWT -25
+		}
+	}
+
+	NWT_fire = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 1
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "The war looks in favor of The Fire Nation, we wouldn't want to be on their bad side."
+			add_opinion NWT FIR 50
+			add_opinion FIR NWT 25
+		}
+	}
+
+	NWT_condem_fire = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 1
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "The tyranny of The Fire Nation must be ended!"
+			add_opinion NWT FIR -50
+			add_opinion FIR NWT -25
+		}
+	}
+	
+	NWT_earth = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 1
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "The Earth Kingdom needs our support, we shall give it."
+			add_opinion NWT BSS 50
+			add_opinion BSS NWT 25
+		}
+	}
+
+	NWT_condem_earth = {
+	
+		icon = GFX_decision_icon_default
+		
+		available = {
+			tag = NWT
+		}
+		
+		fire_only_once = no
+		days_re_enable = 1
+
+		visible = {
+			ROOT = {
+				is_ai = no
+			}
+		}		
+
+		cost = 75
+
+		complete_effect = {
+			custom_effect_tooltip = "The monarchy must end!"
+			add_opinion NWT BSS -50
+			add_opinion BSS NWT -25
+		}
+	}
+
+}
