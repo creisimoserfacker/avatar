@@ -914,6 +914,15 @@ country_event = {
 		name = quest.33.a
 		ai_chance = { base = 1}
 		###Arrest her- Aang loses waterbending and a small chance of Sokka or Katara dying
+		
+		hidden_effect = {
+			#Events of The Fortuneteller (ep 14):
+			#if ocuppied, the FIR might evacuate the village:
+			if = { limit = { FIR = { controls_state = 204 } } 
+				FIR = { country_event = { id = quest.40 days = 14 } } }
+			#else, continue with the historical:
+			else = { MAK = { country_event = { id = quest.41 days = 14 } } }
+		}
 	}
 	option = {
 		name = quest.33.b
@@ -1112,7 +1121,7 @@ country_event = {
 		ai_chance = { base = 1}
 		###The FIR evacuates them- Costs political power and industry, but stops Aang from doing it himself
 		
-		###ep 14 events:
+		###ep 15 events:
 		hidden_effect = {
 			#if ocuppied, the FIR can ambush and kill Bato:
 			if = { limit = { FIR = { controls_state = 171 } } 
@@ -1139,7 +1148,7 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
-			###ep 14 events:
+			###ep 15 events:
 			#if ocuppied, the FIR can ambush and kill Bato:
 			if = { limit = { FIR = { controls_state = 171 } } 
 				FIR = { country_event = { id = quest.43 days = 14 } } }
