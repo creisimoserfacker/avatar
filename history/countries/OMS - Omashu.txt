@@ -1,6 +1,13 @@
 capital = 205
 
 OOB = "OMS_12"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "OMS_12_naval_mtg"
+	else = {
+		set_naval_oob = "OMS_12_naval_legacy"
+	}
+}
 
 set_country_flag = earth_nation 
 set_country_flag = EARTH_special_forces
@@ -9,10 +16,10 @@ set_technology = {
 # infantry
 	basic_armor = 1
 	heavy_armor_1 = 1
-	heavy_armor_2 = 1
 	basic_spear_1 = 1
+	spear_2 = 1
 	basic_sword_1 = 1
-	basic_polearm_1 = 1	
+	basic_polearm_1 = 1
 
 # ranged
 	ranged_weapons = 1
@@ -24,6 +31,9 @@ set_technology = {
 	tech_support = 1
 	tech_scavengers = 1
 	tech_scouts = 1
+
+# mounted
+	medium_cavalry_1 = 1
 
 # special
 	earthbender_equipment_1 = 1
@@ -37,6 +47,8 @@ set_technology = {
 
 # reform
 	reform_0 = 1
+	domestication_0 = 1
+	domestication_1 = 1
 }
 
 if = {
@@ -44,7 +56,9 @@ if = {
 		not = { has_dlc = "Man the Guns" }
 	}
 	set_technology = {
-		
+		galley_ship_tech_1 = 1
+		barque_ship_tech_1 = 1
+		junk_ship_tech_1 = 1
 	}
 }
 if = {
@@ -57,6 +71,11 @@ if = {
 		galley_tech_1 = 1
 		barque_tech_1 = 1
 		light_armor_tech_1 = 1
+		junk_tech_1 = 1
+		explorer_tech = 1
+		generic_hunter_tech = 1
+		naval_weaponry = 1
+		maintenance_1 = 1
 	}
 
 }
@@ -92,43 +111,84 @@ add_ideas = {
 }
 
 
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = ZAO
-		autonomous_state = autonomy_county
-	}
-	else = {
-		puppet = ZAO
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = CHN
-		autonomous_state = autonomy_county
-	}
-	else = {
-		puppet = CHN
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = HEB
-		autonomous_state = autonomy_county
-	}
-	else = {
-		puppet = HEB
-	}
-}
+#if = {
+#	limit = {
+#		has_dlc = "Together for Victory"
+#	}
+#	set_autonomy = {
+#		target = ZAO
+#		autonomous_state = autonomy_county
+#	}
+#	else = {
+#		puppet = ZAO
+#	}
+#}
+#if = {
+#	limit = {
+#		has_dlc = "Together for Victory"
+#	}
+#	set_autonomy = {
+#		target = CHN
+#		autonomous_state = autonomy_county
+#	}
+#	else = {
+#		puppet = CHN
+#	}
+#}
+#if = {
+#	limit = {
+#		has_dlc = "Together for Victory"
+#	}
+#	set_autonomy = {
+#		target = HEB
+#		autonomous_state = autonomy_county
+#	}
+#	else = {
+#		puppet = HEB
+#	}
+#}
 
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+
+	create_equipment_variant = {
+		name = "Combat Class"
+		type = junk_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_archers_1
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_mast_slot = crows_nest_1
+			fixed_ship_sails_slot = sails_1
+			aftercastle_custom_slot = boarding_crew_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Trading Class"
+		type = barque_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_archers_1
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_mast_slot = sails_1
+			fixed_ship_storage_slot = supplies_1
+    	}
+	}
+
+	create_equipment_variant = {
+		name = "Raider Class"
+		type = galley_hull_1
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = boarding_crew_1
+			fixed_ship_armor_slot = light_hull_reinforcement_1
+			fixed_ship_mast_slot = sails_1
+    	}
+	}
+
+}
 
 #
 

@@ -102,9 +102,14 @@ set_cosmetic_tag = NOW_puppet
 
 	OOB = "NOW_52"
 
-	add_to_war = {
-		targeted_alliance = EAR
-		enemy = FIR
+	if = {
+		limit = {
+			has_start_date < 80.01.01
+		}
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
 	}
 
 }
