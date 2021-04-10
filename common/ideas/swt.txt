@@ -1,247 +1,38 @@
 ideas = {
 
 	country = {
-		national_prosperity = {
 
-			available = {
-				#has_stability > 0.99
+	    SWT_Research_Modifier = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
 				NOT = {
-					has_war = yes
+					has_army_manpower = { size > 1 }
 				}
 			}
+
+			picture = swt_research_bonus
 			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
 			removal_cost = -1
 			
 			modifier = {
-				#bad
-				war_support_factor = -0.35
-				war_support_weekly = -0.005
-				consumer_goods_factor = 0.2
-
-				#good
-				research_speed_factor = 0.15
-				production_speed_infrastructure_factor = 0.15
-				production_speed_industrial_complex_factor = 0.15
-				industrial_capacity_factory = 0.1
+				research_speed_factor = 0.07
 			}
 		}
-		
-
-		sozins_comet_1 = {
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				modifier_army_sub_unit_firebender_attack_factor = 4
-				modifier_army_sub_unit_firebender_defence_factor = 2
-				modifier_army_sub_unit_firebender_speed_factor = 1
-
-				war_support_factor = 0.2
-
-				#stability_factor = 0.5
-				#army_speed_factor = 2
-				#attrition = -0.2
-				#supply_consumption_factor = -1
-				#out_of_supply_factor = -2
-				#army_morale_factor = 2.0
-				#no_supply_grace = 2400
-			}
-		}
-
-		spirit_prince_azulon = {
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = 0.05
-			}
-		}
-		
-		FIR_first_invasion = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			targeted_modifier = {
-				tag = EAR
-
-				attack_bonus_against = 0.10
-				#defense_bonus_against = 0.05
-			}
-		}
-
-		FIR_northern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				invasion_preparation = -0.90
-			}
-
-			targeted_modifier = {
-				tag = WUL
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = NOW
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = XIN
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = NIX
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = YUE
-				attack_bonus_against = 0.10
-			}
-		}
-
-		FIR_central_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				invasion_preparation = -0.90
-			}
-
-			targeted_modifier = {
-				tag = POH
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = TAK
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = HAN
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = MAK
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = MER
-				attack_bonus_against = 0.10
-			}
-		}
-
-		FIR_southern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
-
-			removal_cost = -1
-
-			modifier = {
-				invasion_preparation = -0.90
-			}
-
-			targeted_modifier = {
-				tag = HEB
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = OMS
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = CHN
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = ZAO
-				attack_bonus_against = 0.10
-			}
-			targeted_modifier = {
-				tag = GAO
-				attack_bonus_against = 0.10
-			}
-		}
-
-		FIR_military_school = {	
-			picture = usa_war_department
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				max_command_power = 25	
-			}
-		}
-
 	}
-
-
-
-	### ministry
 	
 	minister_of_personnel = {
 		use_list_view = yes
 
-		fir_minister_of_personnel_1 = {
+		swt_minister_of_personnel_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
+			
 			available = {
 				
 			}
@@ -256,10 +47,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_personnel_2 = {
+		swt_minister_of_personnel_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 				
@@ -281,10 +72,10 @@ ideas = {
 	minister_of_finance = {
 		use_list_view = yes
 
-		fir_minister_of_finance_1 = {
+		swt_minister_of_finance_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -300,10 +91,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_finance_2 = {
+		swt_minister_of_finance_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -319,10 +110,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_finance_3 = {
+		swt_minister_of_finance_3 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -338,10 +129,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_finance_4 = {
+		swt_minister_of_finance_4 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -357,10 +148,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_finance_5 = {
+		swt_minister_of_finance_5 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -381,10 +172,10 @@ ideas = {
 	minister_of_culture = {
 		use_list_view = yes
 
-		fir_minister_of_culture_1 = {
+		swt_minister_of_culture_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -400,10 +191,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_culture_2 = {
+		swt_minister_of_culture_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -419,10 +210,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_culture_3 = {
+		swt_minister_of_culture_3 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -438,10 +229,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_culture_4 = {
+		swt_minister_of_culture_4 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 				
@@ -457,10 +248,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_culture_5 = {
+		swt_minister_of_culture_5 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -480,10 +271,10 @@ ideas = {
 	minister_of_justice = {
 		use_list_view = yes
 
-		fir_minister_of_justice_1 = {
+		swt_minister_of_justice_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -499,10 +290,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_justice_2 = {
+		swt_minister_of_justice_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -522,10 +313,10 @@ ideas = {
 	minister_of_works = {
 		use_list_view = yes
 
-		fir_minister_of_works_1 = {
+		swt_minister_of_works_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -541,10 +332,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_works_2 = {
+		swt_minister_of_works_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -564,10 +355,10 @@ ideas = {
 	minister_of_rites = {
 		use_list_view = yes
 
-		fir_minister_of_rites_1 = {
+		swt_minister_of_rites_1 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -583,10 +374,10 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_minister_of_rites_2 = {
+		swt_minister_of_rites_2 = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -607,12 +398,12 @@ ideas = {
 	war_minister = {
 		use_list_view = yes
 
-		fir_war_minister_1 = {
+		swt_field_marshal_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -624,12 +415,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_war_minister_2 = {
+		swt_field_marshal_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -641,12 +432,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_war_minister_3 = {
+		swt_field_marshal_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -658,12 +449,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_war_minister_4 = {
+		swt_field_marshal_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -675,12 +466,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_war_minister_5 = {
+		swt_field_marshal_5 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -695,12 +486,12 @@ ideas = {
 	}
 	field_marshal = {
 		use_list_view = yes
-		fir_field_marshal_1 = {
+		swt_field_marshal_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -712,12 +503,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_field_marshal_2 = {
+		swt_field_marshal_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -729,12 +520,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_field_marshal_3 = {
+		swt_field_marshal_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -746,12 +537,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_field_marshal_4 = {
+		swt_field_marshal_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -763,12 +554,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_field_marshal_5 = {
+		swt_field_marshal_5 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -780,12 +571,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_field_marshal_6 = {
+		swt_field_marshal_6 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -801,12 +592,12 @@ ideas = {
 	grand_admiral = {
 		use_list_view = yes
 
-		fir_grand_admiral_1 = {
+		swt_grand_admiral_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -818,12 +609,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_grand_admiral_2 = {
+		swt_grand_admiral_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -835,12 +626,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_grand_admiral_3 = {
+		swt_grand_admiral_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -852,12 +643,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_grand_admiral_4 = {
+		swt_grand_admiral_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -869,12 +660,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_grand_admiral_5 = {
+		swt_grand_admiral_5 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -886,12 +677,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_grand_admiral_6 = {
+		swt_grand_admiral_6 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -907,12 +698,12 @@ ideas = {
 	head_of_intelligence = {
 		use_list_view = yes
 
-		fir_head_of_intelligence_1 = {
+		swt_head_of_intelligence_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -924,29 +715,28 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_head_of_intelligence_2 = {
+		swt_head_of_intelligence_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
 			}
-			
 			traits = { secret_police }
 
 			ai_will_do = {
 				factor = 0.5
 			}
 		}
-		fir_head_of_intelligence_3 = {
+		swt_head_of_intelligence_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -958,12 +748,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_head_of_intelligence_4 = {
+		swt_head_of_intelligence_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -975,12 +765,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_head_of_intelligence_5 = {
+		swt_head_of_intelligence_5 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -996,12 +786,12 @@ ideas = {
 	head_of_weaponry = {
 		use_list_view = yes
 
-		fir_head_of_weaponry_1 = {
+		swt_head_of_weaponry_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1014,12 +804,12 @@ ideas = {
 			}
 		}
 		
-		fir_head_of_weaponry_2 = {
+		swt_head_of_weaponry_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1032,12 +822,12 @@ ideas = {
 			}
 		}
 		
-		fir_head_of_weaponry_3 = {
+		swt_head_of_weaponry_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1050,12 +840,12 @@ ideas = {
 			}
 		}
 		
-		fir_head_of_weaponry_4 = {
+		swt_head_of_weaponry_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1068,12 +858,12 @@ ideas = {
 			}
 		}
 		
-		fir_head_of_weaponry_5 = {
+		swt_head_of_weaponry_5 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1086,12 +876,12 @@ ideas = {
 			}
 		}
 		
-		fir_head_of_weaponry_6 = {
+		swt_head_of_weaponry_6 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1108,12 +898,12 @@ ideas = {
 	quartermaster = {
 		use_list_view = yes
 
-		fir_quartermaster_1 = {
+		swt_quartermaster_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1126,12 +916,12 @@ ideas = {
 			}
 		}
 		
-		fir_quartermaster_2 = {
+		swt_quartermaster_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1144,12 +934,12 @@ ideas = {
 			}
 		}
 		
-		fir_quartermaster_3 = {
+		swt_quartermaster_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1162,12 +952,12 @@ ideas = {
 			}
 		}
 		
-		fir_quartermaster_4 = {
+		swt_quartermaster_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1184,16 +974,14 @@ ideas = {
 	academia = {
 		use_list_view = yes
 
-		fir_academia_1 = {
+		swt_academia_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
-			available = {
-
-			}
+			available = { }
 			
 			traits = { research_academia }
 
@@ -1201,12 +989,11 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_academia_2 = {
+		swt_academia_2 = {
 
 			cost = 150
-
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1218,12 +1005,11 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_academia_3 = {
+		swt_academia_3 = {
 
 			cost = 150
-
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1235,12 +1021,11 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_academia_4 = {
+		swt_academia_4 = {
 
 			cost = 150
-
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1252,18 +1037,17 @@ ideas = {
 				factor = 0.5
 			}
 		}
-
 	}
 
 	army = {
 		use_list_view = yes
 
-		fir_army_1 = {
+		swt_army_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1280,12 +1064,12 @@ ideas = {
 			}
 		}
 		
-		fir_army_2 = {
+		swt_army_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1302,12 +1086,12 @@ ideas = {
 			}
 		}
 		
-		fir_army_3 = {
+		swt_army_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1324,12 +1108,12 @@ ideas = {
 			}
 		}
 		
-		fir_army_4 = {
+		swt_army_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1349,12 +1133,12 @@ ideas = {
 	navy = {
 		use_list_view = yes
 
-		fir_navy_1 = {
+		swt_navy_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1370,12 +1154,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_navy_2 = {
+		swt_navy_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1391,12 +1175,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_navy_3 = {
+		swt_navy_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1412,12 +1196,12 @@ ideas = {
 				factor = 0.5
 			}
 		}
-		fir_navy_4 = {
+		swt_navy_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1438,12 +1222,12 @@ ideas = {
 	law_enforcement = {
 		use_list_view = yes
 
-		fir_law_enforcement_1 = {
+		swt_law_enforcement_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1456,12 +1240,12 @@ ideas = {
 			}
 		}
 		
-		fir_law_enforcement_2 = {
+		swt_law_enforcement_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1474,12 +1258,12 @@ ideas = {
 			}
 		}
 		
-		fir_law_enforcement_3 = {
+		swt_law_enforcement_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1492,12 +1276,12 @@ ideas = {
 			}
 		}
 		
-		fir_law_enforcement_4 = {
+		swt_law_enforcement_4 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1513,12 +1297,12 @@ ideas = {
 	martial_art = {
 		use_list_view = yes
 
-		fir_martial_art_1 = {
+		swt_martial_art_1 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1531,12 +1315,12 @@ ideas = {
 			}
 		}
 		
-		fir_martial_art_2 = {
+		swt_martial_art_2 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1549,12 +1333,12 @@ ideas = {
 			}
 		}
 	
-		fir_martial_art_3 = {
+		swt_martial_art_3 = {
 
 			cost = 150
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1574,7 +1358,7 @@ ideas = {
 		sun_sages = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1590,7 +1374,7 @@ ideas = {
 		bhanti_sages = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1603,10 +1387,10 @@ ideas = {
 			}
 		}
 		
-		fire_sages = {
+		earth_sages = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
@@ -1619,10 +1403,10 @@ ideas = {
 			}
 		}
 		
-		reformed_fire_sages = {
+		reformed_earth_sages = {
 
 			allowed = {
-				original_tag = FIR
+				original_tag = SWT
 			}
 			available = {
 
