@@ -50,14 +50,33 @@ on_actions = {
 	                add_to_variable = { war_exhaustion_variable = -50 }
 				}
 
+				### advisors
 				if = {
 					limit = { has_idea_with_trait = warrior_culture }
-					add_to_variable = { war_exhaustion_variable = -50 }
+					add_to_variable = { war_exhaustion_variable = -20 }
+				}
+				if = {
+					limit = { has_idea_with_trait = civil_law }
+					add_to_variable = { war_exhaustion_variable = -10 }
+				}
+				if = {
+					limit = { has_idea_with_trait = alms_and_pacification }
+					add_to_variable = { war_exhaustion_variable = -5 }
 				}
 
 					#### occupation ###
 
 				set_variable = { occupation_war_exhaustion = num_occupied_states }
+
+				### occupation advisors
+				if = {
+					limit = { has_idea_with_trait = custumary_law }
+					add_to_variable = { num_occupied_states = -5 }
+				}
+				if = {
+					limit = { has_idea_with_trait = secret_police }
+					add_to_variable = { num_occupied_states = -10 }
+				}
 
 				if = {
 					limit = { num_occupied_states > 0 }
