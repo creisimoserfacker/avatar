@@ -83,7 +83,11 @@ if = {
 		not = { has_dlc = "Man the Guns" }
 	}
 	set_technology = {
-		
+		firenation_yacht_tech_1 = 1
+		firenation_frigate_tech_1 = 1
+		left_bonus_frigate_1 = 1
+		firenation_cruiser_tech_1 = 1
+		firenation_heavy_cruiser_tech_1 = 1
 	}
 }
 if = {
@@ -387,21 +391,15 @@ if = {
 		target = YFC
 		autonomous_state = autonomy_imperial_colony
 	}
-	else = {
-		puppet = YFC
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
 	set_autonomy = {
 		target = KFC
 		autonomous_state = autonomy_imperial_colony
 	}
 	else = {
+		puppet = YFC
 		puppet = KFC
 	}
+
 }
 
 
@@ -457,9 +455,30 @@ remove_unit_leader = 1
 
 	add_political_power = 1198
 
-	add_to_faction = XIN
-	add_to_faction = WUL
-	add_to_faction = NOW
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = PFC
+		autonomous_state = autonomy_imperial_colony
+	}
+	set_autonomy = {
+		target = HFC
+		autonomous_state = autonomy_imperial_colony
+	}
+	set_autonomy = {
+		target = MFC
+		autonomous_state = autonomy_imperial_colony
+	}
+	else = {
+		puppet = PFC
+		puppet = HFC
+		puppet = MFC
+	}
+
+}
 
 
 create_country_leader = {
@@ -526,10 +545,10 @@ create_corps_commander = {
 
 
 # WAR
-	declare_war_on = {
-		target = EAR
-		type = annex_everything
-	}
+	#declare_war_on = {
+	#	target = EAR
+	#	type = annex_everything
+	#}
 
 }
 
@@ -637,10 +656,10 @@ create_corps_commander = {
 
 
 # WAR
-	declare_war_on = {
-		target = EAR
-		type = annex_everything
-	}
+	#declare_war_on = {
+	#	target = EAR
+	#	type = annex_everything
+	#}
 
 # DIPLOMACY
 	

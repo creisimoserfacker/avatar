@@ -95,18 +95,18 @@ add_ideas = {
 
 set_cosmetic_tag = GAR_puppet
 
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = WUL
-		autonomous_state = autonomy_county
-	}
-	else = {
-		puppet = WUL
-	}
-}
+#if = {
+#	limit = {
+#		has_dlc = "Together for Victory"
+#	}
+#	set_autonomy = {
+#		target = WUL
+#		autonomous_state = autonomy_county
+#	}
+#	else = {
+#		puppet = WUL
+#	}
+#}
 
 create_country_leader = {
 	name = "Bao"
@@ -124,9 +124,14 @@ create_country_leader = {
 	OOB = "XIN_52"
 
 	set_cosmetic_tag = GAR_puppet
-	add_to_war = {
-		targeted_alliance = EAR
-		enemy = FIR
+	if = {
+		limit = {
+			has_start_date < 80.01.01
+		}
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
 	}
 
 set_stability = 0.9 

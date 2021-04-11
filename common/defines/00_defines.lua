@@ -1381,8 +1381,8 @@ NNavy = {
 		1.0, -- NAVAL_INVASION_SUPPORT
 	},
 	
-	SUPREMACY_PER_SHIP_PER_MANPOWER = 0.05,							-- supremacy of a ship is calculated using its IC, manpower and a base define
-	SUPREMACY_PER_SHIP_PER_IC = 0.005,
+	SUPREMACY_PER_SHIP_PER_MANPOWER = 0.5,							-- supremacy of a ship is calculated using its IC, manpower and a base define
+	SUPREMACY_PER_SHIP_PER_IC = 0.0005,
 	SUPREMACY_PER_SHIP_BASE = 100.0,
 
 	NAVAL_MINES_IN_REGION_MAX = 1000.0,								-- Max number of mines that can be layed by the ships. The value should be hidden from the user, as we present % so it's an abstract value that should be used for balancing.
