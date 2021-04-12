@@ -81,6 +81,8 @@ FIR_conquest_category = {
 
 	military_preparations = {
 
+		icon = military_buildup
+
 		visible = {	
 			NOT = { 
 				has_war_with = EAR 
@@ -125,6 +127,8 @@ FIR_conquest_category = {
 
 	northern_attack_plan = {
 
+		icon = attack_plan
+
 		visible = {	
 			NOT = { 
 				has_war_with = EAR 
@@ -156,9 +160,10 @@ FIR_conquest_category = {
 		remove_effect = {
 			custom_effect_tooltip = FIR_planned_invasion
 			set_country_flag = northern_attack_planned
+			set_country_flag = FIR_attack_plan_made
 		}
 
-		days_remove = 120
+		days_remove = 100
 
 		cost = 0
         fire_only_once = yes
@@ -172,6 +177,8 @@ FIR_conquest_category = {
 	}
 
 	central_attack_plan = {
+
+		icon = attack_plan
 
 		visible = {	
 			NOT = { 
@@ -204,9 +211,10 @@ FIR_conquest_category = {
 		remove_effect = {
 			custom_effect_tooltip = FIR_planned_invasion
 			set_country_flag = central_attack_planned
+			set_country_flag = FIR_attack_plan_made
 		}
 
-		days_remove = 120
+		days_remove = 100
 
 		cost = 0
         fire_only_once = yes
@@ -220,6 +228,8 @@ FIR_conquest_category = {
 	}
 
 	southern_attack_plan = {
+
+		icon = attack_plan
 
 		visible = {	
 			NOT = { 
@@ -252,9 +262,10 @@ FIR_conquest_category = {
 		remove_effect = {
 			custom_effect_tooltip = FIR_planned_invasion
 			set_country_flag = southern_attack_planned
+			set_country_flag = FIR_attack_plan_made
 		}
 
-		days_remove = 120
+		days_remove = 100
 
 		cost = 0
         fire_only_once = yes
@@ -277,7 +288,8 @@ FIR_conquest_category = {
 
 		available = {
             AND = {
-				country_exists = EAR		
+				country_exists = EAR
+				has_country_flag = FIR_attack_plan_made		
 				NOT = { 
 					has_war_with = EAR 
 					has_decision = military_preparations

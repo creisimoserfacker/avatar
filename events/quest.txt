@@ -955,9 +955,33 @@ country_event = {
 	option = {
 		name = quest.34.b
 		ai_chance = { base = 1}
-		###doesn't heal- Aang loses a bit waterbending and there is a small chance either Sokka or Katara might die.
-		#Decide if Use the Yuan (ep 13):
+		###doesn't heal- Aang loses a bit waterbending and there is a chance of weakening either Sokka or Katara.
+		custom_effect_tooltip = quest.34.b.tooltip
 		hidden_effect = {
+			if = { limit = { has_global_flag = Sokka_in_the_team }
+				random_list = {
+					25 = {
+						set_global_flag = Sokka_Weaken
+					}
+					25 = {
+						set_global_flag = Kattara_Weaken
+					}
+					50 = {
+						set_global_flag = p
+					}
+				}
+			}
+			else = {
+				random_list = {
+					25 = {
+						set_global_flag = Kattara_Weaken
+					}
+					75 = {
+						set_global_flag = p
+					}
+				}
+			}
+			#Decide if Use the Yuan (ep 13):
 			FIR = { country_event = { id = quest.35 days = 0 } }
 		}
 	}
@@ -1219,7 +1243,15 @@ country_event = {
 		ai_chance = { base = 1}
 		###ambush him, a chance to kill him and not triggering this event:
 		hidden_effect = {
-			YUE = { country_event = { id = quest.44 days = 0 } }
+			random_list = {
+				40 = {
+					if = { limit = { has_global_flag = Sokka_in_the_team } 
+						YUE = { country_event = { id = quest.44 days = 0 } } }
+				}
+				60 = {
+					set_global_flag = Bato_Died
+				}
+			}
 		}
 	}
 }
@@ -1655,23 +1687,36 @@ country_event = {
 	trigger = {
 		tag = FIR
 	}
-	immediate = {
-		hidden_effect = {
-			###ep 20 event:
-			NWT = { country_event = { id = quest.60 days = 14 } }
-		}
-	 }
 	option = {
 		name = quest.59.a
 		ai_chance = { base = 4}
 		###Attempt to murder Zuko if sucessfull he dies, if not increases change of him switching sides
 		set_global_flag = ep19_news_a
+		custom_effect_tooltip = quest.59.a.tooltip
+		hidden_effect = {
+			random_list = {
+				20 = {
+					###if he dies:
+					set_global_flag = Zuko_Died
+					###siege event, 20 days of the scripted battle (begin the battle 14 days after this option):
+					NWT = { country_event = { id = quest.62 days = 35 } }
+				}
+				80 = {
+					###if he survives:
+					###ep 20 event:
+					NWT = { country_event = { id = quest.60 days = 14 } }
+				}
+			}
+		}
 	}
 	option = {
 		name = quest.59.b
 		ai_chance = { base = 1}
 		###don't assassinate- no effect
-		set_global_flag = ep19_news_a
+		hidden_effect = {
+			###ep 20 event:
+			NWT = { country_event = { id = quest.60 days = 14 } }
+		}
 	}
 }
 
@@ -1686,10 +1731,11 @@ country_event = {
 	picture = GFX_Abandon_Zuko_In_The_Waste
 	trigger = {
 		tag = NWT
+		NOT = { has_global_flag = Zuko_Died }
 	}
 	immediate = {
 		hidden_effect = {
-			###siege event (ep 20), 20 days of the scripted battle:
+			###siege event, 20 days of the scripted battle:
 			NWT = { country_event = { id = quest.62 days = 21 } }
 		}
 	}
@@ -1741,6 +1787,15 @@ country_event = {
 	trigger = {
 		tag = NWT
 	}
+	immediate = {
+		###ep 21 events:
+		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.64 days = 14 } } }
+		if = { limit = { HEB = { controls_state = 283 } }
+			HEB = { country_event = { id = quest.65 days = 14 } } }
+
+		###ep 22 events:	
+	}
 	option = {
 		name = quest.62.a
 		###Huge damage to the northern water tribe, the damage will be In proportion to the amount of land the Fire Nation conqered
@@ -1768,5 +1823,83 @@ news_event = {
 	}
 	option = {
 		name = quest.63.a
+	}
+}
+
+
+#########################################################################################################################################################################################################################
+#########################################################################################################################################################################################################################
+#########################################################################################################################################################################################################################
+
+
+##Event: The Mission Of Azula
+country_event = {
+	id = quest.64
+	title = quest.64.title
+	desc = quest.64.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Mission_Of_Azula
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.64.a
+		###try to trick him (Greatly influences his chance of switching sides)
+		set_global_flag = ep21_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.64.b
+		###Pardon Zuko (He joins the Fire Nation)
+		set_global_flag = Zuko_Joined_FN
+	}
+}
+
+
+##Event: The Avatar State
+country_event = {
+	id = quest.65
+	title = quest.65.title
+	desc = quest.65.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_State
+	trigger = {
+		tag = HEB
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.65.a
+		###Fong's plan- Try to trigger the Avatar State (spirituality boost)
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.65.b
+		###Fong Abandons his plan
+	}
+}
+
+
+##Event: A Royal Visit
+news_event = {
+	id = quest.66
+	title = quest.66.title
+	desc = quest.66.desc
+	picture = GFX_ep21_news
+	major = yes
+	trigger = {
+		has_global_flag = ep21_news_a
+		NOT = { has_global_flag = ep21_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep21_news_b
+	}
+	option = {
+		name = quest.66.a
 	}
 }
