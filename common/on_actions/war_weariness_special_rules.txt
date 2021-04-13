@@ -52,8 +52,24 @@ on_actions = {
 
 				### advisors
 				if = {
+					limit = { has_idea_with_trait = cruel_supervisor }
+					add_to_variable = { war_exhaustion_variable = 5 }
+				}
+				if = {
+					limit = { has_idea_with_trait = workers_syndicat }
+					add_to_variable = { war_exhaustion_variable = -5 }
+				}
+				if = {
 					limit = { has_idea_with_trait = warrior_culture }
-					add_to_variable = { war_exhaustion_variable = -20 }
+					add_to_variable = { war_exhaustion_variable = -10 }
+				}
+				if = {
+					limit = { has_idea_with_trait = aggressive_strategist }
+					add_to_variable = { war_exhaustion_variable = 10 }
+				}
+				if = {
+					limit = { has_idea_with_trait = head_censor }
+					add_to_variable = { war_exhaustion_variable = -5 }
 				}
 				if = {
 					limit = { has_idea_with_trait = civil_law }
@@ -70,8 +86,12 @@ on_actions = {
 
 				### occupation advisors
 				if = {
+					limit = { has_idea_with_trait = recreation_provider }
+					add_to_variable = { num_occupied_states = -12 }
+				}
+				if = {
 					limit = { has_idea_with_trait = custumary_law }
-					add_to_variable = { num_occupied_states = -5 }
+					add_to_variable = { num_occupied_states = -10 }
 				}
 				if = {
 					limit = { has_idea_with_trait = secret_police }

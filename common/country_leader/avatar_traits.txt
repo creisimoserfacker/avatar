@@ -67,7 +67,13 @@ leader_traits = {
 	prime_minister = {
 		random = no
 		sprite = 1
-		political_advisor_cost_factor = -0.25
+		
+		minister_of_personnel_cost_factor = -0.25
+		minister_of_finance_cost_factor = -0.25
+		minister_of_culture_cost_factor = -0.25
+		minister_of_justice_cost_factor = -0.25
+		minister_of_works_cost_factor = -0.25
+		minister_of_rites_cost_factor = -0.25
 
 		ai_will_do = {
 			factor = 1
@@ -76,7 +82,13 @@ leader_traits = {
 	administrator = {
 		random = no
 		sprite = 1
-		institutions_cost_factor = -0.25
+
+		academia_cost_factor = -0.25
+		army_cost_factor = -0.25
+		navy_cost_factor = -0.25
+		law_enforcement_cost_factor = -0.25
+		martial_art_cost_factor = -0.25
+		clergy_cost_factor = -0.25
 
 		ai_will_do = {
 			factor = 1
@@ -85,7 +97,13 @@ leader_traits = {
 	lawgiver = {
 		random = no
 		sprite = 1
-		laws_cost_factor = -0.25
+
+		mobilization_laws_cost_factor = -0.25
+		bender_laws_cost_factor = -0.25
+		trade_laws_cost_factor = -0.25
+		economy_cost_factor = -0.25
+		family_support_cost_factor = -0.25
+		education_laws_cost_factor = -0.25
 
 		ai_will_do = {
 			factor = 1
@@ -264,8 +282,9 @@ leader_traits = {
 	non_bender_activist = {
 		random = no
 		sprite = 2
-		army_org_factor = 0.03
-		surrender_limit = 10
+		army_org_factor = 0.05
+		surrender_limit = 0.1
+		stability_factor = -0.05
 
 		ai_will_do = {
 			factor = 0
@@ -274,7 +293,8 @@ leader_traits = {
 	feminist = {
 		random = no
 		sprite = 2
-		may_recruit_women
+		
+		women_recruitment_modifier = 1
 
 		ai_will_do = {
 			factor = 0
@@ -296,7 +316,7 @@ leader_traits = {
 		sprite = 14
 		production_factory_efficiency_gain_factor = 0.25
 		stability_factor = -0.05
-		monthly_war_weariness = 6
+		monthly_war_weariness = 5
 
 		ai_will_do = {
 			factor = 0
@@ -307,7 +327,7 @@ leader_traits = {
 		sprite = 14
 		industrial_capacity_factory = -0.1
 		industrial_capacity_dockyard = -0.1
-		monthly_war_weariness = -4
+		monthly_war_weariness = -5
 
 		ai_will_do = {
 			factor = 0
@@ -364,7 +384,7 @@ leader_traits = {
 		random = no
 		sprite = 12
 		research_speed_factor = -0.1
-		monthly_war_weariness = -12
+		monthly_war_weariness = -10
 
 		ai_will_do = {
 			factor = 0
@@ -397,7 +417,7 @@ leader_traits = {
 		sprite = 12
 		
 		war_support_factor = 0.1
-		monthly_war_weariness = -2
+		#monthly_war_weariness = -2
 		justify_war_goal_time = -0.25
 
 		ai_will_do = {
@@ -421,7 +441,7 @@ leader_traits = {
 		random = no
 		sprite = 12
 		surrender_limit = 0.2
-		army_org = 0.05
+		army_org = 5
 
 		ai_will_do = {
 			factor = 0
@@ -435,7 +455,7 @@ leader_traits = {
 		army_attack_factor = 0.05
 		breakthrough_factor = 0.05
 		offensive_war_stability_factor = 0.05
-		monthly_war_weariness = 8
+		monthly_war_weariness = 10
 
 		ai_will_do = {
 			factor = 0
@@ -599,9 +619,9 @@ leader_traits = {
 		sprite = 9
 		
 		equipment_bonus = {
-			infantry_equipment = {
-				build_cost_ic = -0.1
+			infantry = {
 				instant = yes
+				build_cost_ic = -0.05
 			}
 		}
 
@@ -615,9 +635,9 @@ leader_traits = {
 		sprite = 9
 		
 		equipment_bonus = {
-			nav_wooden_equipment = {
-				build_cost_ic = -0.1
+			screen_ship = {
 				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -631,9 +651,9 @@ leader_traits = {
 		sprite = 9
 		
 		equipment_bonus = {
-			nav_ironclad_equipment = {
-				build_cost_ic = -0.1
+			capital_ship = {
 				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -659,9 +679,17 @@ leader_traits = {
 		sprite = 9
 		
 		equipment_bonus = {
-			airship_equipment = {
-				build_cost_ic = -0.1
+			air_balloon_equipment = {
 				instant = yes
+				build_cost_ic = -0.1
+			}
+			light_airship_equipment = {
+				instant = yes
+				build_cost_ic = -0.1
+			}
+			heavy_airship_equipment = {
+				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -686,9 +714,17 @@ leader_traits = {
 		sprite = 9
 		
 		equipment_bonus = {
-			cavalry_equipment = {
-				build_cost_ic = -0.1
+			light_cavalry_equipment = {
 				instant = yes
+				build_cost_ic = -0.1
+			}
+			medium_cavalry_equipment = {
+				instant = yes
+				build_cost_ic = -0.1
+			}
+			heavy_cavalry_equipment = {
+				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -703,8 +739,8 @@ leader_traits = {
 		
 		equipment_bonus = {
 			siege_equipment = {
-				build_cost_ic = -0.1
 				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -719,8 +755,8 @@ leader_traits = {
 		
 		equipment_bonus = {
 			tank_equipment = {
-				build_cost_ic = -0.1
 				instant = yes
+				build_cost_ic = -0.1
 			}
 		}
 
@@ -966,7 +1002,7 @@ leader_traits = {
 		sprite = 15
 			
 		
-		monthly_war_weariness = -8
+		monthly_war_weariness = -5
 		research_speed_factor = -0.1
 		navy_intel_to_others = -10
 		airforce_intel_to_others = -10
@@ -1011,7 +1047,7 @@ leader_traits = {
 		random = no
 		
 		army_leader_start_attack_level = 1
-		experience_gain_army = 0.1
+		experience_gain_army = 0.05
 		
 		ai_will_do = {
 			factor = 1
@@ -1021,7 +1057,7 @@ leader_traits = {
 		random = no
 		
 		army_leader_start_defense_level = 1
-		experience_gain_army = 0.1
+		experience_gain_army = 0.05
 
 		ai_will_do = {
 			factor = 1
@@ -1031,7 +1067,7 @@ leader_traits = {
 		random = no
 		
 		army_leader_start_logistics_level = 1
-		experience_gain_army = 0.1
+		experience_gain_army = 0.05
 
 		ai_will_do = {
 			factor = 1
@@ -1041,7 +1077,7 @@ leader_traits = {
 		random = no
 
 		army_leader_start_planning_level = 1
-		experience_gain_navy = 0.1
+		experience_gain_navy = 0.05
 		
 		ai_will_do = {
 			factor = 1
@@ -1051,7 +1087,7 @@ leader_traits = {
 		random = no
 		
 		navy_leader_start_attack_level = 1
-		experience_gain_navy = 0.1
+		experience_gain_navy = 0.05
 
 		ai_will_do = {
 			factor = 1
@@ -1061,7 +1097,7 @@ leader_traits = {
 		random = no
 		
 		navy_leader_start_defense_level = 1
-		experience_gain_navy = 0.1
+		experience_gain_navy = 0.05
 		
 		
 		ai_will_do = {
@@ -1072,7 +1108,7 @@ leader_traits = {
 		random = no
 		
 		navy_leader_start_maneuvering_level = 1
-		experience_gain_army = 0.1
+		experience_gain_army = 0.05
 
 		ai_will_do = {
 			factor = 1
@@ -1082,7 +1118,7 @@ leader_traits = {
 		random = no
 		
 		navy_leader_start_coordination_level = 1
-		experience_gain_navy = 0.1
+		experience_gain_navy = 0.05
 
 		ai_will_do = {
 			factor = 1
@@ -1103,7 +1139,7 @@ leader_traits = {
 	civil_law = {
 		random = no
 		
-		monthly_war_weariness = -6
+		monthly_war_weariness = -10
 
 		ai_will_do = {
 			factor = 1
@@ -1124,7 +1160,7 @@ leader_traits = {
 	custumary_law = {
 		random = no
 		
-		compliance_growth = -0.15
+		compliance_growth = -0.1
 		monthly_occupation_war_weariness = -10
 
 		ai_will_do = {
@@ -1135,10 +1171,7 @@ leader_traits = {
 	long_fist = {
 		random = no
 		
-		firebender = {
-			breakthrough = 0.05
-			hard_attack = 0.05
-		}
+		modifier_army_sub_unit_firebender_attack_factor = 0.1
 		
 		ai_will_do = {
 			factor = 1
@@ -1147,9 +1180,7 @@ leader_traits = {
 	seven_stars = {
 		random = no
 		
-		firebender = {
-			organisation = 0.075
-		}
+		modifier_army_sub_unit_firebender_defence_factor = 0.1
 		experience_gain_firebender_training_factor = 0.2
 		
 		ai_will_do = {
@@ -1334,9 +1365,11 @@ leader_traits = {
 
 	alms_and_pacification = {
 		random = no
+
+		avatar_opinion_modifier = 0
 	
 		consumer_goods_factor = 0.05
-		monthly_war_weariness = -6
+		monthly_war_weariness = -5
 		stability_factor = 0.10
 
 		ai_will_do = {
@@ -1347,6 +1380,8 @@ leader_traits = {
 	philosophical_principles = {
 		random = no
 
+		avatar_opinion_modifier = 1
+
 		research_speed_factor = 0.1
 		
 		ai_will_do = {
@@ -1356,7 +1391,7 @@ leader_traits = {
 
 	indoctrinal_service = {
 		random = no
-		avatar_opinion_modifier = 1
+		avatar_opinion_modifier = 0
 
 		offensive_war_stability_factor = 0.1
 		political_power_factor = 0.1
