@@ -1,4 +1,218 @@
 
+FIR_industrialistation_category = {
+
+	cultural_change = {
+
+		icon = research_boost
+
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+		}
+
+		complete_effect = {
+			add_tech_bonus = {
+				name = FIR_cultural_change
+				ahead_reduction = 50
+				uses = 10
+				category = society_reforms
+			}
+		}
+
+		modifier = {
+			stability_factor = -0.7
+			pacifism_drift = 0.02
+			tribalism_drift = 0.02
+			democratica_drift = 0.02
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = industry_unlock_tt
+		}
+
+		custom_cost_trigger = {
+			has_stability > 0.7
+		}
+		custom_cost_text = stability_70
+		fire_only_once = yes
+		days_remove = 730
+
+        ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	dockyard_construction_efforts = {
+
+		icon = military_buildup
+
+		visible = {
+			has_start_date < 14.01.01
+			has_tech = reform_2
+		}
+		available = {
+			hidden_trigger = {
+				has_start_date < 14.01.01
+				has_tech = reform_2
+			}
+		}
+
+		modifier = {
+			stability_weekly_factor = -0.005
+			production_speed_dockyard_factor = 0.1
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				limit = { 
+					is_core_of = ROOT 
+					THIS = {
+						free_building_slots = {
+						    building = dockyard
+						    size > 0
+						    include_locked = yes
+						}
+					}
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+			}
+			random_owned_state = {
+				limit = { 
+					is_core_of = ROOT 
+					THIS = {
+						free_building_slots = {
+						    building = dockyard
+						    size > 0
+						    include_locked = yes
+						}
+					}
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+				}
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+		days_remove = 180
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	industry_research_efforts = {
+
+		icon = research_boost
+
+		visible = {
+			has_start_date < 60.01.01
+			has_tech = reform_2
+		}
+		available = {
+			hidden_trigger = {
+				has_start_date < 60.01.01
+				has_tech = reform_2
+			}
+		}
+
+		modifier = {
+			civilian_factory_use = 5
+		}
+
+		remove_effect = {
+			add_tech_bonus = {
+				bonus = 1
+				uses = 1
+				category = industry_tech
+			}
+		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 4
+		}
+		custom_cost_text = manufactory_5
+		#fire_only_once = yes
+		days_remove = 40
+		days_re_enable = 140
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	experimental_factories = {
+
+		icon = buildup
+
+		visible = {
+			has_tech = reform_3
+		}
+
+		available = {
+			any_owned_state = {
+				arms_factory > 0
+				industrial_complex > 0
+				dockyard > 0
+				factory < 3
+			}
+			has_tech = reform_3
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				limit = { 
+					is_core_of = ROOT 
+					THIS = {
+						arms_factory > 0
+						industrial_complex > 0
+						dockyard > 0
+						factory < 3
+					}
+				}
+				add_building_construction = {
+					type = factory
+					level = 1
+					instant_build = yes
+				}
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				remove_building = {
+					type = industrial_complex
+					level = 1
+				}
+				remove_building = {
+					type = dockyard
+					level = 1
+				}
+			}
+		}
+
+		cost = 50
+        #fire_only_once = yes
+        days_remove = 30
+        days_re_enable = 30
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+}
+
 war_weariness_category = {
 	
 	victory_ek_1 = {
@@ -77,6 +291,252 @@ FIR_royal_family_category = {
 	}
 }
 
+FIR_dragon_category = {
+
+	start_dragon_hunting = {
+
+		visible = {	
+			has_country_leader = {
+			    name = "Sozin"
+			    ruling_only = yes
+			}
+			NOT = {
+				has_country_flag = befriend_dragons
+			}
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = befriend_dragons
+			}
+        }
+
+		complete_effect = {
+			custom_effect_tooltip = dragons_angry_tt
+			set_country_flag = hunting_dragons
+		}
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	dragon_hunt = {
+
+		visible = {	
+			has_country_flag = hunting_dragons
+			any_state = {
+				NOT = {
+					state = 302
+				}
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+		}
+
+		available = {
+			has_country_flag = hunting_dragons
+			any_state = {
+				NOT = {
+					state = 302
+				}
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+		}
+
+		complete_effect = {
+			add_manpower = -1000
+		}
+
+		remove_effect = {
+			random_list = {
+				60 = {
+					custom_effect_tooltip = hunt_successful
+					add_stability = 0.025
+					custom_effect_tooltip = war_weariness_remove_2
+					add_to_variable = { war_exhaustion_variable = -200 }
+					add_manpower = 600
+					random_list = {
+						25 = {
+							random_army_leader = {
+								limit = {
+									NOT = {
+										has_unit_leader_trait = dragon_of_the_west
+									}
+									skill > 2
+								}
+								unit_leader_event = {
+									id = generic.22
+								}
+							}
+							hidden_effect = {
+								random_list = {
+									10 = {
+										95 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											95 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+									10 = {
+										323 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											323 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+									10 = {
+										326 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											326 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+									10 = {
+										264 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											264 = { NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+									10 = {
+										167 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											167 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+									10 = {
+										181 = { remove_dynamic_modifier = { modifier = dragon_herd } }
+										modifier = {
+											add = -10
+											181 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
+										}
+									}
+								}
+							}
+						}
+						75 = {
+						}
+					}
+				}
+				40 = {
+					custom_effect_tooltip = hunt_failed
+					add_manpower = 100
+					add_stability = -0.05
+					add_war_support = -0.05
+				}
+			}
+		}
+
+		days_remove = 1
+		days_re_enable = 0
+
+		custom_cost_trigger = {
+			has_manpower > 1000
+		}
+		custom_cost_text = manpower_10
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+	
+	#iroh_general = {
+#
+	#	visible = {	
+	#		
+	#	}
+#
+	#	available = {
+	#		
+    #    }
+#
+	#	complete_effect = {
+	#		create_field_marshal = {
+	#			name = "Iroh"
+	#			picture = "Portrait_Firenation_Iroh1.dds"
+	#			traits = { supply_organisation besieger defensive_infantry thorough_planner }
+	#			skill = 3
+	#			attack_skill = 3
+	#			defense_skill = 3
+	#			planning_skill = 1
+	#			logistics_skill = 2
+	#			id = 7
+	#		}
+	#	}
+#
+	#	cost = 100
+    #    fire_only_once = yes
+    #    ai_will_do = {
+	#		factor = 10
+	#	}
+	#}
+
+	the_dragon_of_the_west_is_born = {
+
+		visible = {	
+			has_country_flag = hunting_dragons
+			302 = {
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+			has_unit_leader = 7
+		}
+
+		available = {
+			has_unit_leader = 7
+        }
+
+		complete_effect = {
+			random_army_leader = { 
+				limit = {
+					has_id = 7
+				}
+				unit_leader_event = {
+					id = generic.22
+				}
+			}
+		}
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	alliance_with_the_dragons = {
+
+		visible = {	
+			NOT = {
+				has_country_flag = hunting_dragons
+			}
+		}
+
+		available = {
+			NOT = {
+				has_war = yes
+				has_global_flag = air_nomad_genocide
+				has_country_flag = hunting_dragons
+			}
+			has_global_flag = sozins_comet_first
+        }
+
+		complete_effect = {
+			custom_effect_tooltip = dragons_friendly_tt
+			set_country_flag = befriend_dragons
+		}
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+}
+
 FIR_conquest_category = {
 
 	military_preparations = {
@@ -114,7 +574,11 @@ FIR_conquest_category = {
 
 		days_remove = 120
 
-		cost = 0
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 4
+		}
+		custom_cost_text = manufactory_5
+
         fire_only_once = yes
         ai_will_do = {
 			factor = 100
@@ -153,7 +617,7 @@ FIR_conquest_category = {
         }
 
         modifier = {
-			command_power_gain = -1
+			command_power_gain = -0.5
 			consumer_goods_factor = 0.2
 		}
 
@@ -165,7 +629,11 @@ FIR_conquest_category = {
 
 		days_remove = 100
 
-		cost = 0
+		custom_cost_trigger = {
+			command_power_daily > 0.5
+		}
+		custom_cost_text = honour_cost_1
+
         fire_only_once = yes
         ai_will_do = {
 			factor = 0
@@ -204,7 +672,7 @@ FIR_conquest_category = {
         }
 
         modifier = {
-			command_power_gain = -1
+			command_power_gain = -0.5
 			consumer_goods_factor = 0.2
 		}
 
@@ -216,7 +684,11 @@ FIR_conquest_category = {
 
 		days_remove = 100
 
-		cost = 0
+		custom_cost_trigger = {
+			command_power_daily > 0.5
+		}
+		custom_cost_text = honour_cost_1
+
         fire_only_once = yes
         ai_will_do = {
 			factor = 100
@@ -255,7 +727,7 @@ FIR_conquest_category = {
         }
 
         modifier = {
-			command_power_gain = -1
+			command_power_gain = -0.5
 			consumer_goods_factor = 0.2
 		}
 
@@ -267,7 +739,11 @@ FIR_conquest_category = {
 
 		days_remove = 100
 
-		cost = 0
+		custom_cost_trigger = {
+			command_power_daily > 0.5
+		}
+		custom_cost_text = honour_cost_1
+
         fire_only_once = yes
         ai_will_do = {
 			factor = 0
@@ -1172,7 +1648,7 @@ air_genocide_category = {
 
 		complete_effect = {
 			FIR = {
-				country_event = { id = firenation.7 days = 7 }
+				country_event = { id = firenation.4 days = 7 }
 			}
 			set_global_flag = east_temple_fallen
 		}
@@ -1258,7 +1734,7 @@ air_genocide_category = {
 
 		complete_effect = {
 			FIR = {
-				country_event = { id = firenation.5 days = 7 }
+				country_event = { id = firenation.3 days = 7 }
 			}
 			set_global_flag = north_temple_fallen
 		}
@@ -1301,7 +1777,7 @@ air_genocide_category = {
 
 		complete_effect = {
 			FIR = {
-				country_event = { id = firenation.3 days = 7 }
+				country_event = { id = firenation.2 days = 7 }
 			}
 			SAT = {
 				dismantle_faction = yes
