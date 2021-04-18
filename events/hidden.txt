@@ -1,0 +1,279 @@
+add_namespace = hidden
+
+country_event = {
+	id = hidden.1
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#SWT event and Zuko's event:
+		SWT = { country_event = { id = quest.1 days = 0 } }
+		FIR = { country_event = { id = quest.2 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.3
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Aang arrived to the SAT:
+		if = { limit = { SAT = { has_country_leader = { name = "Extinct Nation" ruling_only = yes } } }
+			FIR = { country_event = { id = quest.4 days = 0 } } }
+		else = { SAT = { country_event = { id = quest.5 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.4
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Kyosi events:
+		if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_in_the_team }
+			KYI = { country_event = { id = quest.7 days = 0 } } }
+		if = { limit = { KYI = { controls_state = 105 } }
+			FIR = { country_event = { id = quest.8 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.5
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Bumi events:
+		if = { limit = { OMS = { controls_state = 205 } } 
+			OMS = { country_event = { id = quest.10 days = 0 } } }
+		else = { FIR = { country_event = { id = quest.11 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.6
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Prisoners event:
+		if = { limit = { FIR = { controls_state = 304 } } 
+			FIR = { country_event = { id = quest.13 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.7
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#The Hei-Bai forest event:
+		if = { limit = { FIR = { controls_state = 283 } } 
+			FIR = { country_event = { id = quest.16 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.9
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Waterbending scroll:
+		HAN = { country_event = { id = quest.19 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.10
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#if Sokka is not in the team and not occupied, get on option to add Jet to the team. else, continue with the historical:
+		if = { limit = { GDD = { controls_state = 205 } NOT = { has_global_flag = Sokka_in_the_team } } 
+			GDD = { country_event = { id = quest.22 days = 0 } } }
+		else = { GDD = { country_event = { id = quest.23 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.11
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#great divide event:
+		if = { limit = { FIR = { controls_state = 252 } } 
+			GDD = { country_event = { id = quest.28 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.12
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#events of the storm (if sokka is not in the team Kattara might go):
+		HAN = { country_event = { id = quest.30 days = 0 } }
+		FIR = { country_event = { id = quest.31 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.13
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Herbalist events:
+		if = { limit = { TAK = { controls_state = 154 }  } 
+			TAK = { country_event = { id = quest.34 days = 0 } } }
+		else = { FIR = { country_event = { id = quest.33 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.14
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Events of The Fortuneteller: if ocuppied, the FIR might evacuate the village. else, continue with the historical:
+		if = { limit = { FIR = { controls_state = 204 } } 
+			FIR = { country_event = { id = quest.40 days = 0 } } }
+		else = { MAK = { country_event = { id = quest.41 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.15
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Bato events: if ocuppied, the FIR can ambush and kill Bato. else, continue historical. Also, June decide if she hunts Aang:
+		if = { limit = { FIR = { controls_state = 171 } } 
+			FIR = { country_event = { id = quest.43 days = 0 } } }
+		else = { YUE = { country_event = { id = quest.44 days = 0 } } }
+		FIR = { country_event = { id = quest.45 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.16
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Jeong Jeong events:
+		NIX = { country_event = { id = quest.48 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.17
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#if the nomads didn't survive, the FIR will be able to employee the mechanist. else, the nomads will be able to train Aang:
+		if = { limit = { NAT = { has_country_leader = { name = "Extinct Nation" ruling_only = yes } } }
+			FIR = { country_event = { id = quest.51 days = 0 } } }
+		else = { NAT = { country_event = { id = quest.52 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.18
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Paku events: If occupied, the FIR will be able to arrest Paku. else, historical: 
+		if = { limit = { FIR = { controls_state = 17 } } 
+			FIR = { country_event = { id = quest.56 days = 0 } } }
+		else = { NWT = { country_event = { id = quest.57 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.19
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Assassinate Zuko?
+		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.59 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.20
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#siege event, after 20 days of the scripted battle, Abandon Zuko event:
+		NWT = { country_event = { id = quest.62 days = 0 } }
+		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.60 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.21
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Azula's mission, general Fong event:
+		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.64 days = 0 } } }
+		if = { limit = { HEB = { controls_state = 283 } }
+			HEB = { country_event = { id = quest.65 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.22
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#The Cave Of Two Lovers:
+		if = { limit = { FIR = { controls_state = 322 } }
+			FIR = { country_event = { id = quest.67 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.23
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Bumi event and pentapox event:
+		if = { limit = { NOT =  { has_global_flag = Bumi_Died } }
+			OMS = { country_event = { id = quest.70 days = 0 } } }
+		if = { limit = { FIR = { controls_state = 205 } } 
+			FIR = { country_event = { id = quest.71 days = 0 } } }	
+	}
+}
+
+country_event = {
+	id = hidden.24
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Swamp event, Azula's team event:
+		SWA = { country_event = { id = quest.74 days = 0 } } }
+		FIR = { country_event = { id = quest.75 days = 0 } } }	
+	}
+}
