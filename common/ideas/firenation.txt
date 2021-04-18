@@ -21,7 +21,7 @@ ideas = {
 			removal_cost = -1
 
 			research_bonus = {
-				society_reforms = 2
+				society_reforms = 1.5
 			}
 			
 			modifier = {
@@ -35,6 +35,28 @@ ideas = {
 				production_speed_infrastructure_factor = 0.15
 				production_speed_industrial_complex_factor = 0.15
 				industrial_capacity_factory = 0.1
+			}
+		}
+
+		promote_war_support = {
+
+			available = {
+				has_war_support < 1
+				has_idea = national_prosperity
+			}
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_weekly = 0.005
 			}
 		}
 		

@@ -353,12 +353,12 @@ FIR_dragon_category = {
 			random_list = {
 				60 = {
 					custom_effect_tooltip = hunt_successful
-					add_stability = 0.025
-					custom_effect_tooltip = war_weariness_remove_2
-					add_to_variable = { war_exhaustion_variable = -200 }
+					add_stability = 0.05
 					add_manpower = 600
 					random_list = {
 						25 = {
+							custom_effect_tooltip = war_weariness_remove_2
+							add_to_variable = { war_exhaustion_variable = -200 }
 							random_army_leader = {
 								limit = {
 									NOT = {
@@ -425,13 +425,13 @@ FIR_dragon_category = {
 					custom_effect_tooltip = hunt_failed
 					add_manpower = 100
 					add_stability = -0.05
-					add_war_support = -0.05
+					add_war_support = -0.025
 				}
 			}
 		}
 
-		days_remove = 1
-		days_re_enable = 0
+		days_remove = 45
+		days_re_enable = 30
 
 		custom_cost_trigger = {
 			has_manpower > 1000
@@ -442,6 +442,7 @@ FIR_dragon_category = {
 			factor = 10
 		}
 	}
+
 	
 	#iroh_general = {
 #
@@ -596,6 +597,7 @@ FIR_conquest_category = {
 		visible = {	
 			NOT = { 
 				has_war_with = EAR 
+				has_country_flag = FIR_attack_plan_made
 			}
 		}
 
@@ -606,10 +608,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-					}
-					OR = {
-						has_decision = central_attack_plan
-						has_decision = southern_attack_plan
+						OR = {
+							has_decision = central_attack_plan
+							has_decision = southern_attack_plan
+						}
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -651,6 +653,7 @@ FIR_conquest_category = {
 		visible = {	
 			NOT = { 
 				has_war_with = EAR 
+				has_country_flag = FIR_attack_plan_made
 			}
 		}
 
@@ -661,10 +664,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-					}
-					OR = {
-						has_decision = northern_attack_plan
-						has_decision = southern_attack_plan
+						OR = {
+							has_decision = northern_attack_plan
+							has_decision = southern_attack_plan
+						}
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -706,6 +709,7 @@ FIR_conquest_category = {
 		visible = {	
 			NOT = { 
 				has_war_with = EAR 
+				has_country_flag = FIR_attack_plan_made
 			}
 		}
 
@@ -716,10 +720,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-					}
-					OR = {
-						has_decision = central_attack_plan
-						has_decision = northern_attack_plan
+						OR = {
+							has_decision = central_attack_plan
+							has_decision = northern_attack_plan
+						}
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -793,19 +797,19 @@ FIR_conquest_category = {
 				limit = {
 					has_country_flag = northern_attack_planned
 				}
-				add_timed_idea = { idea = FIR_northern_plan days = 180 }
+				add_timed_idea = { idea = FIR_northern_plan days = 365 }
 			}
 			if = {
 				limit = {
 					has_country_flag = central_attack_planned
 				}
-				add_timed_idea = { idea = FIR_central_plan days = 180 }
+				add_timed_idea = { idea = FIR_central_plan days = 365 }
 			}
 			if = {
 				limit = {
 					has_country_flag = southern_attack_planned
 				}
-				add_timed_idea = { idea = FIR_southern_plan days = 180 }
+				add_timed_idea = { idea = FIR_southern_plan days = 365 }
 			}
 		}
 
@@ -947,7 +951,22 @@ FIR_civil_decision_category = {
 	
 	increase_war_support = {
 
+		available = {
+			has_war = yes
+		}
 
+		days_remove = 30
+
+		modifier = {
+			war_support_weekly = 0.007
+		}
+
+		remove_effect = {
+			add_ideas = promote_war_support
+		}
+
+		cost = 100
+		fire_only_once = yes
 	
 	}
 

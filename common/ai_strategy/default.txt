@@ -18,7 +18,12 @@
 default_unit_production = {
 	enable = {
 		always = yes
-		NOT = { original_tag = FIR }
+		NOT = { 
+			OR = {
+				original_tag = FIR 
+				original_tag = EAR
+			}
+		}
 	}
 
 	ai_strategy = {
