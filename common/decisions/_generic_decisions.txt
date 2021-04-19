@@ -19,7 +19,7 @@ recruitment_decision_category = {
 			#custom_effect_tooltip = recruitment_campaign_1_tt
 			random_owned_state = {
 				limit = { 
-					is_fully_controlled_by = ROOT 
+					is_core_of = ROOT 
 					THIS = {
 						state_population > 5000
 						state_population < 10000
@@ -53,7 +53,7 @@ recruitment_decision_category = {
 			#custom_effect_tooltip = recruitment_campaign_1_tt
 			random_owned_state = {
 				limit = { 
-					is_fully_controlled_by = ROOT 
+					is_core_of = ROOT 
 					THIS = {
 						state_population > 10000
 						state_population < 20000
@@ -86,7 +86,7 @@ recruitment_decision_category = {
 			#custom_effect_tooltip = recruitment_campaign_1_tt
 			random_owned_state = {
 				limit = { 
-					is_fully_controlled_by = ROOT 
+					is_core_of = ROOT 
 					THIS = {
 						state_population > 20000
 						state_population < 50000
@@ -108,6 +108,8 @@ generic_research_slot_category = {
 	
 	2nd_extra_research_slot = {
 
+		icon = research_slot
+
 		visible = {
 			amount_research_slots < 2
 		}
@@ -118,7 +120,7 @@ generic_research_slot_category = {
 			}
 			AND = {
 				num_of_civilian_factories > 10
-				num_of_available_civilian_factories > 5
+				#num_of_available_civilian_factories > 5
 				num_of_naval_factories > 10
 				has_equipment = {
 					convoy_1 > 10
@@ -143,9 +145,16 @@ generic_research_slot_category = {
 		cost = 0
         fire_only_once = yes
 
+        custom_cost_trigger = {
+			num_of_available_civilian_factories > 4
+		}
+		custom_cost_text = manufactory_5
+
 	}
 
 	3rd_extra_research_slot = {
+
+		icon = research_slot
 
 		visible = {
 			amount_research_slots < 3
@@ -159,7 +168,7 @@ generic_research_slot_category = {
 			}
 			AND = {
 				num_of_civilian_factories > 25
-				num_of_available_civilian_factories > 10
+				#num_of_available_civilian_factories > 10
 				has_idea = average_education
 				OR = {
 					has_tech = progressive_education_1
@@ -178,9 +187,16 @@ generic_research_slot_category = {
 			add_research_slot = 1
 		}
 
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 9
+		}
+		custom_cost_text = manufactory_10
+
 	}
 
 	4th_extra_research_slot = {
+
+		icon = research_slot
 
 		visible = {
 			amount_research_slots < 4
@@ -194,7 +210,7 @@ generic_research_slot_category = {
 			}
 			AND = {
 				num_of_civilian_factories > 50
-				num_of_available_civilian_factories > 20
+				#num_of_available_civilian_factories > 20
 				has_idea = mandatory_education
 				OR = {
 					has_tech = progressive_education_2
@@ -212,6 +228,11 @@ generic_research_slot_category = {
 		remove_effect = {
 			add_research_slot = 1
 		}
+
+		custom_cost_trigger = {
+			num_of_available_civilian_factories > 19
+		}
+		custom_cost_text = manufactory_20
 
 	}
 

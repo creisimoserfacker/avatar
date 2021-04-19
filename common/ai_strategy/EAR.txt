@@ -1,0 +1,125 @@
+
+EAR_unit_production = {
+	enable = {
+		original_tag = EAR
+	}
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = defender
+		value = 80
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = offensive
+		value = 20
+	}
+	
+	
+	# Naval unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 10
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 0
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 100
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 15
+	}
+	
+}
+
+FIR_area_priority = {
+	enable = {
+		original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = firelands #homeland
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = earth_plate
+		value = 120
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = northpole
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = southpole
+		value = 10
+	}
+}
+
+
+earth_decentralised_warfare = {
+
+	allowed = {
+		has_country_flag = earth_nation
+	}
+	enable = {
+		has_country_flag = earth_nation
+	}
+
+	ai_strategy = {
+		type = spare_unit_factor
+		value = -90
+	}
+}
+
+# ba sing se, not na sing se
+
+ba_sing_se_defenders = {
+	enable = {
+		original_tag = EAR
+		has_army_manpower = {
+			type = infantry
+			size < 30000 
+        }
+	}
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 100
+	}
+	
+}
+defender_defense_dafending = {
+	enable = {
+		original_tag = EAR
+		has_war_with = FIR
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+		ratio = 0.9
+		area = ba_sing_se
+	}
+	
+}
