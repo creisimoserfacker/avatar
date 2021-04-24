@@ -1,11 +1,11 @@
 on_actions = {
 
 	on_startup = {
-		effect = {
-			every_country = {
-				set_variable = { atla_legitimacy = 3 }
-			}
-		}
+		#effect = {
+		#	every_country = {
+		#		set_variable = { atla_legitimacy = 3 }
+		#	}
+		#}
 		effect = {
 			#### animal population ####
 			
@@ -182,6 +182,70 @@ on_actions = {
 				264 = { add_dynamic_modifier = { modifier = dragon_herd } }
 				167 = { add_dynamic_modifier = { modifier = dragon_herd } }
 				181 = { add_dynamic_modifier = { modifier = dragon_herd } }
+
+			}
+
+			if = {
+				limit = {
+					has_start_date > 20.01.01
+				}
+				every_state = {
+					limit = {
+						OR = {
+							state = 167
+							state = 232
+							state = 181
+							state = 200
+							state = 175
+							state = 222
+							state = 148
+							state = 123
+							state = 112
+							state = 208
+							state = 118
+							state = 111
+							state = 100
+							state = 82
+
+							state = 242
+							state = 319
+							state = 274
+							state = 297
+							state = 137
+							state = 203
+							state = 134
+							state = 236
+							state = 329
+							state = 239
+							state = 296
+							state = 125
+							state = 356
+							state = 357
+							state = 258
+							state = 285
+							state = 228
+							state = 260
+
+							state = 320
+							state = 371
+							state = 373
+							state = 247
+							state = 447
+							state = 188
+							state = 22
+							state = 106
+							state = 24
+						}
+					}
+					add_dynamic_modifier = { modifier = genocide_state }
+				}
+				if = {
+					limit = {
+						has_start_date < 110.01.01
+					}
+					316 = {add_dynamic_modifier = { modifier = genocide_state }}
+					34 = {add_dynamic_modifier = { modifier = genocide_state }}
+				}
 			}
 			
 		}

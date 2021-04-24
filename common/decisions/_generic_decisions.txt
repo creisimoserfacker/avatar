@@ -103,6 +103,46 @@ recruitment_decision_category = {
 }
 
 
+war_weariness_category = {
+	
+	hospital_support = {
+
+		available = {
+            casualties > 5000
+        }
+
+        days_remove = 70
+
+        modifier = {
+        	war_support_weekly_factor = 0.004
+        	stability_weekly_factor = -0.002
+			consumer_goods_factor = 0.02
+        }
+
+		remove_effect = {
+			custom_effect_tooltip = war_weariness_remove_2
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_200 }
+		}
+
+		cost = 100
+
+		days_re_enable = 295
+
+        ai_will_do = {
+			factor = 00
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+
+}
+
+
 
 generic_research_slot_category = {
 	

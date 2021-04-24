@@ -121,9 +121,25 @@ autonomy_state = {
 
 	allowed = {
 		has_dlc = "Together for Victory"
-		OR = {
-			is_subject = no
-			has_autonomy_state = autonomy_tributary
+		#has_autonomy_state = autonomy_tributary
+		OVERLORD = {
+			OR = {
+				has_government = imperialism
+				has_government = monarchism
+			}
+		}
+		NOT = {
+			OR = {
+				has_autonomy_state = autonomy_imperial_colony
+				has_autonomy_state = autonomy_imperial_dominion
+				has_autonomy_state = autonomy_imperial_subject
+
+				has_autonomy_state = autonomy_military_state
+				has_autonomy_state = autonomy_kingdom
+				has_autonomy_state = autonomy_county
+				has_autonomy_state = autonomy_vassalage
+				has_autonomy_state = autonomy_royal_domain
+			}
 		}
 	}
 

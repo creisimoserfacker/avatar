@@ -82,24 +82,30 @@ on_actions = {
 
 					#### occupation ###
 
-				set_variable = { occupation_war_exhaustion = num_occupied_states }
+				set_temp_variable = { occupied_states_variable = num_of_controlled_states }
+				subtract_from_temp_variable = { occupied_states_variable = num_core_states }
+				multiply_temp_variable = { occupied_states_variable = 1 }		### severeness modifier
+
+				set_variable = { occupation_war_exhaustion = occupied_states_variable }
 
 				### occupation advisors
-				if = {
-					limit = { has_idea_with_trait = recreation_provider }
-					add_to_variable = { num_occupied_states = -12 }
-				}
-				if = {
-					limit = { has_idea_with_trait = custumary_law }
-					add_to_variable = { num_occupied_states = -10 }
-				}
-				if = {
-					limit = { has_idea_with_trait = secret_police }
-					add_to_variable = { num_occupied_states = -10 }
-				}
 
 				if = {
 					limit = { num_occupied_states > 0 }
+
+					if = {
+						limit = { has_idea_with_trait = recreation_provider }
+						add_to_variable = { occupation_war_exhaustion = -12 }
+					}
+					if = {
+						limit = { has_idea_with_trait = custumary_law }
+						add_to_variable = { occupation_war_exhaustion = -10 }
+					}
+					if = {
+						limit = { has_idea_with_trait = secret_police }
+						add_to_variable = { occupation_war_exhaustion = -10 }
+					}
+
 	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
 				}
 
@@ -123,7 +129,20 @@ on_actions = {
     					var = actual_casualties
     					value = 1
 					}
+					set_temp_variable = { ttcv = actual_casualties }
+					multiply_temp_variable = { ttcv = 50 }
+					set_variable = { tooltip_casualties = ttcv }
 				}
+			}
+		}
+	}
+
+	on_peaceconference_ended = {
+		effect = {
+            if = {
+				limit = { country_has_war_exhaustion = yes }
+
+				set_variable = { tooltip_casualties = 0 }
 			}
 		}
 	}

@@ -140,7 +140,7 @@ FIR_industrialistation_category = {
 		}
 
 		custom_cost_trigger = {
-			num_of_available_civilian_factories > 4
+			num_of_civilian_factories > 4
 		}
 		custom_cost_text = manufactory_5
 		#fire_only_once = yes
@@ -215,38 +215,7 @@ FIR_industrialistation_category = {
 
 war_weariness_category = {
 	
-	victory_ek_1 = {
-
-		allowed = {
-			TAG = FIR
-		}
-
-		available = {
-            FIR = {
-            	controls_state = 155
-            }
-        }
-
-		complete_effect = {
-			custom_effect_tooltip = war_weariness_remove_2
-			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_200 }
-			add_war_support = 0.025
-			add_stability = 0.005
-		}
-
-		cost = 100#40
-        #fire_only_once = yes
-        ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				factor = 100
-			}
-		}
-	}
+	
 
 }
 
@@ -576,13 +545,13 @@ FIR_conquest_category = {
 		days_remove = 120
 
 		custom_cost_trigger = {
-			num_of_available_civilian_factories > 4
+			num_of_civilian_factories > 4
 		}
 		custom_cost_text = manufactory_5
 
         fire_only_once = yes
         ai_will_do = {
-			factor = 100
+			factor = 1000
 			modifier = {
 				has_war = yes
 				factor = 0
@@ -953,6 +922,9 @@ FIR_civil_decision_category = {
 
 		available = {
 			has_war = yes
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
 		}
 
 		days_remove = 30

@@ -2,25 +2,35 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				limit = {
-					country_has_war_exhaustion = yes
-				}
 				set_variable = { war_exhaustion_variable = 0 }
 				set_variable = { war_exhaustion_daily = 1 }
 				set_variable = { peace_exhaustion_daily = -5 }
 				set_variable = { war_exhaustion_max = 9000 }
-			}
-		}
-	}
-
-	on_monthly = {
-		effect = {
-            if = {
-				limit = { country_has_war_exhaustion = yes }
+				set_variable = { war_exhaustion_next = 200 }
 
 				if = {
-					limit = { has_war = yes }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+					limit = {
+						AND = {
+							has_start_date > 12.02.02
+							has_start_date < 60.02.02
+							tag = FIR
+						}
+					}
+					set_variable = { war_exhaustion_variable = 650 }
+					set_variable = { war_exhaustion_next = 1200 }
+					set_variable = { war_exhaustion_prev = 600 }
+				}
+				if = {
+					limit = {
+						AND = {
+							has_start_date > 60.02.02
+							has_start_date < 110.02.02
+							tag = FIR
+						}
+					}
+					set_variable = { war_exhaustion_variable = 1400 }
+					set_variable = { war_exhaustion_next = 2000 }
+					set_variable = { war_exhaustion_prev = 1200 }
 				}
 			}
 		}
@@ -29,11 +39,13 @@ on_actions = {
 	on_daily = {
 		effect = {
             if = {
-				limit = { country_has_war_exhaustion = yes }
-
 				if = {
 					limit = { has_war = no }
 					add_to_variable = { war_exhaustion_variable = peace_exhaustion_daily }
+				}
+				if = {
+					limit = { has_war = yes }
+	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
 				}
 
                 clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
@@ -44,8 +56,6 @@ on_actions = {
     on_daily = {
 		effect = {
             if = {
-				limit = { country_has_war_exhaustion = yes }
-
 				if = {
 					limit = {
 						check_variable = { war_exhaustion_variable < 200 }
@@ -72,6 +82,9 @@ on_actions = {
 					remove_ideas = war_weariness_8
 					remove_ideas = war_weariness_9
 					remove_ideas = war_weariness_10
+
+					set_variable = { war_exhaustion_next = 200 }
+					clr_variable = { war_exhaustion_prev }
 				}
 
 
@@ -118,6 +131,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_1
+
+					set_variable = { war_exhaustion_next = 600 }
+					set_variable = { war_exhaustion_prev = 200 }
 				}
 
 				if = {
@@ -163,6 +179,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_2
+
+					set_variable = { war_exhaustion_next = 1200 }
+					set_variable = { war_exhaustion_prev = 600 }
 				}
 
 				if = {
@@ -208,6 +227,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_3
+
+					set_variable = { war_exhaustion_next = 2000 }
+					set_variable = { war_exhaustion_prev = 1200 }
 				}
 
 				if = {
@@ -253,6 +275,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_4
+
+					set_variable = { war_exhaustion_next = 3200 }
+					set_variable = { war_exhaustion_prev = 2000 }
 				}
 
 				if = {
@@ -298,6 +323,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_5
+
+					set_variable = { war_exhaustion_next = 4500 }
+					set_variable = { war_exhaustion_prev = 3200 }
 				}
 
 				if = {
@@ -343,6 +371,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_6
+
+					set_variable = { war_exhaustion_next = 6000 }
+					set_variable = { war_exhaustion_prev = 4500 }
 				}
 
 				if = {
@@ -388,6 +419,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_7
+
+					set_variable = { war_exhaustion_next = 7000 }
+					set_variable = { war_exhaustion_prev = 6000 }
 				}
 
 				if = {
@@ -433,6 +467,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_8
+
+					set_variable = { war_exhaustion_next = 7600 }
+					set_variable = { war_exhaustion_prev = 7000 }
 				}
 
 				if = {
@@ -478,6 +515,9 @@ on_actions = {
 						remove_ideas = war_weariness_10
 					}
 					add_ideas = war_weariness_9
+
+					set_variable = { war_exhaustion_next = 8000 }
+					set_variable = { war_exhaustion_prev = 7600 }
 				}
 
 				if = {
@@ -486,6 +526,10 @@ on_actions = {
 						NOT = { has_idea =  war_weariness_10 }
 					}
 					add_ideas =  war_weariness_10
+
+					clr_variable = { war_exhaustion_next }
+					set_variable = { war_exhaustion_prev = 8000 }
+
 					if = {
 						limit = { 	has_idea = war_weariness_1	}
 						remove_ideas = war_weariness_1

@@ -48,8 +48,8 @@ set_country_flag = AIR_air_techs
 
 set_politics = {
 	ruling_party = pacifism
-	last_election = "1926.5.8"
-	election_frequency = 120
+	last_election = "12.5.8"
+	election_frequency = 12
 	elections_allowed = yes
 }
 
@@ -60,6 +60,19 @@ set_popularities = {
 	monarchism = 0
 	pacifism = 70
 }
+
+create_country_leader = {
+	name = "Northern Monk"
+	desc = "POLITICS_ADOLF_HITLER_DESC"
+	picture = "Portrait_Northernairtemple_Generic.dds"
+	expire = "35.2.14"
+	ideology = active_pacifism
+	traits = {
+		
+	}
+}
+
+
 add_ideas = {
 	limited_exports
 	civilian_economy
@@ -71,7 +84,9 @@ add_ideas = {
 
 52.1.1 ={
 	
-
+set_rule = {
+	can_join_factions = no
+}
 
 
 create_country_leader = {
@@ -88,17 +103,57 @@ create_country_leader = {
 }
 
 
+ ## #####  ##  ###  #####       #   #   #
+#     #   #  # #  #   #        ##  ##  ##
+ #    #   #### ###    #       # # # # # #
+  #   #   #  # #  #   #         #   #   #
+##    #   #  # #  #   #         #   #   #
 
 
+
+111.10.30 = {
+
+set_rule = {
+	can_join_factions = yes
+}
+
+	OOB = "NAT_111"
+	
+	add_political_power = 650
 
 
 create_country_leader = {
-	name = "Northern Monk"
+	name = "Mechanist"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Northernairtemple_Generic.dds"
-	expire = "35.2.14"
-	ideology = active_pacifism
+	picture = "Portrait_Northernairtemple_Mechanist.dds"
+	expire = "138.1.1"
+	ideology = liberalism
 	traits = {
-		
+		mechanist
 	}
+}
+
+set_research_slots = 4
+
+clr_country_flag = air_nation
+set_country_flag = earth_nation
+clr_country_flag = AIR_special_forces
+
+set_politics = {
+	ruling_party = tribalism
+	last_election = "110.2.2"
+	election_frequency = 12
+	elections_allowed = yes
+}
+
+set_popularities = {
+	tribalism = 70
+	democratica = 0
+	imperialism = 0
+	monarchism = 30
+	pacifism = 0
+}
+
+
+
 }

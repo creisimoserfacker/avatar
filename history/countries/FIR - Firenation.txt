@@ -23,6 +23,7 @@ set_country_flag = FIR_navy
 set_country_flag = FIR_air_techs
 set_country_flag = FIR_special_forces
 set_country_flag = fire_nation
+
 set_country_flag = avatar_friendly
 
 
@@ -358,9 +359,11 @@ if = {
 
 52.1.1 ={
 	
-	OOB = "FIR_52"
+OOB = "FIR_52"
 
-	add_political_power = 1198
+add_political_power = 1198
+
+set_country_flag = hunting_dragons
 
 set_politics = {
 	ruling_party = imperialism
@@ -387,6 +390,10 @@ add_ideas = {
 	economy_4
 	family_support_3
 	indoctrination
+}
+
+remove_ideas = {
+	national_prosperity
 }
 
 if = {
@@ -574,6 +581,21 @@ create_corps_commander = {
 	OOB = "FIR_111"
 	
 	add_political_power = 1198
+
+
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = NAT
+		autonomous_state = autonomy_tributary
+	}
+	else = {
+		puppet = NAT
+	}
+
+}
 
 
 create_country_leader = {
