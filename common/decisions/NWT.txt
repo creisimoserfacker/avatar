@@ -1,391 +1,116 @@
-NWT_war_prep = {
-	NWT_Propaganda = {
+WATER_industry = {
 
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 30
+	extra_water_wood = {
+
+		icon = wood
 
 		visible = {
-			ROOT = {
-				is_ai = no
+			OR = {
+				tag = NWT
+				tag = SWT
 			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			#custom_effect_tooltip = "The was has gone on for far too long and we have lost too many #souls, yet we can not let ourselves lose hope. We shall encourage the public!"
-			#add_war_support = 0.05
 		}
-	}
-
-	NWT_wood = {
-
-		icon = GFX_decision_icon_default
 		
 		available = {
-			tag = NWT
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
 		}
 		
-		fire_only_once = yes
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
+		fire_only_once = yes		
 
 		cost = 100
 
-		complete_effect = {
-			add_resource = {
-				type = aluminium
-				amount = 5
-				state = 17
+		days_remove = 90
+
+		modifier = {
+			industrial_capacity_factory = -0.3
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				add_resource = {
+					type = aluminium
+					amount = 5
+					state = THIS
 				}
+			}
 		}
 	}
 
-	NWT_steel = {
+	extra_water_textile = {
 
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = yes
-		days_re_enable = 30
+		icon = textile
 
 		visible = {
-			ROOT = {
-				is_ai = no
+			OR = {
+				tag = NWT
+				tag = SWT
 			}
-		}		
+		}
+		
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+		}
+		
+		fire_only_once = yes		
 
 		cost = 100
 
-		complete_effect = {
-			add_resource = {
-				type = steel
-				amount = 5
-				state = 17
+		days_remove = 90
+
+		modifier = {
+			industrial_capacity_factory = -0.3
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				add_resource = {
+					type = tungsten
+					amount = 5
+					state = THIS
+				}
 			}
 		}
 	}
 
-	NWT_iron = {
+	extra_water_iron = {
 
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = yes
-		days_re_enable = 30
+		icon = iron
 
 		visible = {
-			ROOT = {
-				is_ai = no
+			OR = {
+				tag = NWT
+				tag = SWT
 			}
-		}		
+		}
+		
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+		}
+		
+		fire_only_once = yes		
 
 		cost = 100
 
-		complete_effect = {
-			add_resource = {
-				type = iron
-				amount = 5
-				state = 17
+		days_remove = 90
+
+		modifier = {
+			industrial_capacity_factory = -0.3
+		}
+
+		remove_effect = {
+			random_owned_state = {
+				add_resource = {
+					type = iron
+					amount = 5
+					state = THIS
+				}
 			}
-		}
-	}
-
-}
-
-NWT_war = {
-	NWT_War_Weariness = {
-
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			custom_effect_tooltip = war_weariness_remove_2
-			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_200 }
-			add_war_support = -0.025
-		}
-	}
-
-	NWT_train = {
-
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 100
-
-		complete_effect = {
-			army_experience = 15
-		}
-	}
-}
-
-NWT_navy = {
-	NWT_dockyard = {
-
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = yes
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 100
-
-		complete_effect = {
-			add_building_construction = {
-				type = dockyard
-				province = 5957
-				level = 5
-			}
-		}
-	}
-	
-	NWT_start_navy = {
-
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = yes
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 100
-
-		complete_effect = {
-			add_building_construction = {
-				type = dockyard
-				province = 5957
-				level = 5
-			}
-		}
-	}
-	
-	NWT_navy_exercise = {
-
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-	
-		fire_only_once = no
-		days_re_enable = 60
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 100
-
-		complete_effect = {
-			navy_experience = 15
-		}
-	}
-}
-
-NWT_relations = {
-	NWT_sw = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = SWT modifier = small_increase }
-		}
-	}
-	
-	NWT_condem_sw = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 30
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = SWT modifier = small_decrease }
-		}
-	}
-
-	NWT_fire = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 1
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = FIR modifier = small_increase }
-		}
-	}
-
-	NWT_condem_fire = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 1
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = FIR modifier = small_decrease }
-		}
-	}
-	
-	NWT_earth = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 1
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = BSS modifier = small_increase }
-		}
-	}
-
-	NWT_condem_earth = {
-	
-		icon = GFX_decision_icon_default
-		
-		available = {
-			tag = NWT
-		}
-		
-		fire_only_once = no
-		days_re_enable = 1
-
-		visible = {
-			ROOT = {
-				is_ai = no
-			}
-		}		
-
-		cost = 75
-
-		complete_effect = {
-			add_opinion_modifier = { target = BSS modifier = small_decrease }
 		}
 	}
 
