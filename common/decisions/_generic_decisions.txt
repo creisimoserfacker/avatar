@@ -108,7 +108,7 @@ war_weariness_category = {
 	hospital_support = {
 
 		available = {
-            casualties > 5000
+            has_idea = free_trade
         }
 
         days_remove = 70
@@ -142,6 +142,837 @@ war_weariness_category = {
 
 }
 
+taxation_category = {
+	
+	research_investment_very_low = {
+
+		icon = research_boost
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	research_speed_factor = 0.05
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 2
+		}
+	}
+	family_investment_very_low = {
+
+		icon = icon = buildup
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	MONTHLY_POPULATION = 0.4
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	morale_investment_very_low = {
+
+		icon = war
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	monthly_war_weariness = -5
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	construction_focus_very_low = {
+
+		icon = buildup
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	production_speed_buildings_factor = 0.05
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = no
+				}
+				add = 10
+			}
+		}
+	}
+	resource_focus_very_low = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	local_resources_factor = 0.1
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	production_investment_very_low = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_5
+        }
+		visible = {
+			has_idea = family_support_5
+		}
+        days_remove = 365
+
+        modifier = {
+        	industrial_capacity_factory = 0.05
+			industrial_capacity_dockyard = 0.05
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 199 }
+				}
+				add = 100
+			}
+		}
+	}
+
+	research_investment_low = {
+
+		icon = research_boost
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	research_speed_factor = 0.125
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 2
+		}
+	}
+	family_investment_low = {
+
+		icon = icon = buildup
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	MONTHLY_POPULATION = 0.8
+        }
+		
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	morale_investment_low = {
+
+		icon = war
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	monthly_war_weariness = -5
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	construction_focus_low = {
+
+		icon = buildup
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	production_speed_buildings_factor = 0.25
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = no
+				}
+				add = 10
+			}
+		}
+	}
+	resource_focus_low = {
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	local_resources_factor = 0.3
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	production_investment_low = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_4
+        }
+		visible = {
+			has_idea = family_support_4
+		}
+        days_remove = 365
+
+        modifier = {
+        	industrial_capacity_factory = 0.1
+			industrial_capacity_dockyard = 0.1
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	
+	research_investment_average = {
+
+		icon = research_boost
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	research_speed_factor = 0.20
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 2
+		}
+	}
+	family_investment_average = {
+
+		icon = icon = buildup
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	MONTHLY_POPULATION = 1.2
+        }
+		
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	morale_investment_average = {
+
+		icon = war
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	monthly_war_weariness = -20
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	construction_focus_average = {
+
+		icon = buildup
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	production_speed_buildings_factor = 0.4
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = no
+				}
+				add = 10
+			}
+		}
+	}
+	resource_focus_average = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	local_resources_factor = 0.5
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	production_investment_average = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_3
+        }
+		visible = {
+			has_idea = family_support_3
+		}
+        days_remove = 365
+
+        modifier = {
+        	industrial_capacity_factory = 0.15
+			industrial_capacity_dockyard = 0.15
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	
+	research_investment_high = {
+
+		icon = research_boost
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+
+        modifier = {
+        	research_speed_factor = 0.275
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 2
+		}
+	}
+	family_investment_high = {
+
+		icon = icon = buildup
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+
+        modifier = {
+        	MONTHLY_POPULATION = 1.6
+        }
+		
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	morale_investment_high = {
+
+		icon = war
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+
+        modifier = {
+        	monthly_war_weariness = -35
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	construction_focus_high = {
+
+		icon = buildup
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+
+        modifier = {
+        	production_speed_buildings_factor = 0.55
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = no
+				}
+				add = 10
+			}
+		}
+	}
+	resource_focus_high = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+
+        modifier = {
+        	local_resources_factor = 0.8
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	production_investment_high = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_2
+        }
+		visible = {
+			has_idea = family_support_2
+		}
+        days_remove = 365
+		
+        modifier = {
+        	industrial_capacity_factory = 0.2
+			industrial_capacity_dockyard = 0.2
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	
+	research_investment_very_high = {
+
+		icon = research_boost
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	research_speed_factor = 0.35
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 2
+		}
+	}
+	family_investment_very_high = {
+
+		icon = icon = buildup
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	MONTHLY_POPULATION = 2
+        }
+		
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	morale_investment_very_high = {
+
+		icon = war
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	monthly_war_weariness = -50
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+	construction_focus_very_high = {
+
+		icon = buildup
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	production_speed_buildings_factor = 0.7
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = no
+				}
+				add = 10
+			}
+		}
+	}
+	resource_focus_very_high = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	local_resources_factor = 1
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 1
+		}
+	}
+	production_investment_very_high = {
+
+		icon = military_buildup
+
+		available = {
+            has_idea = family_support_1
+        }
+		visible = {
+			has_idea = family_support_1
+		}
+        days_remove = 365
+
+        modifier = {
+        	industrial_capacity_factory = 0.25
+			industrial_capacity_dockyard = 0.25
+        }
+
+		cost = 5
+
+		days_re_enable = 365
+
+        ai_will_do = {
+			factor = 0
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 199 }
+				}
+				add = 100
+			}
+		}
+	}
+
+}
 
 
 generic_research_slot_category = {
