@@ -150,6 +150,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
@@ -157,13 +160,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	research_speed_factor = 0.05
+        	research_speed_factor = 0.025
+			political_power_factor = 0.025
         }
 
 		cost = 5
 
 		days_re_enable = 365
-
+		
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 2
 		}
@@ -174,14 +185,26 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
 		}
         days_remove = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         modifier = {
-        	MONTHLY_POPULATION = 0.4
+        	MONTHLY_POPULATION = 0.2
+			sickness_chance = -0.1
+			experience_loss_factor = -0.05
         }
 
 		cost = 5
@@ -198,16 +221,31 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
 		}
         days_remove = 365
 
+		research_bonus = {
+			society_reforms = 0.05
+		}
+		
         modifier = {
         	monthly_war_weariness = -5
+			stability_factor = 0.02
         }
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
 		cost = 5
 
 		days_re_enable = 365
@@ -229,6 +267,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
@@ -237,12 +278,20 @@ taxation_category = {
 
         modifier = {
         	production_speed_buildings_factor = 0.05
+			industry_repair_factor = 0.05
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -259,6 +308,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
@@ -266,13 +318,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	local_resources_factor = 0.1
+        	fuel_gain_factor_from_states = 0.05
+			MONTHLY_POPULATION = 0.05
+			production_speed_infrastructure_factor = 0.05 
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -283,15 +344,26 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_5
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_5
 		}
         days_remove = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         modifier = {
         	industrial_capacity_factory = 0.05
 			industrial_capacity_dockyard = 0.05
+			war_support_factor = 0.03
         }
 
 		cost = 5
@@ -316,6 +388,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
@@ -323,13 +398,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	research_speed_factor = 0.125
+        	research_speed_factor = 0.075
+			political_power_factor = 0.05
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 2
 		}
@@ -340,6 +423,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
@@ -347,13 +433,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	MONTHLY_POPULATION = 0.8
+        	MONTHLY_POPULATION = 0.5
+			sickness_chance = -0.2
+			experience_loss_factor = -0.1
         }
 		
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -364,20 +459,35 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
 		}
         days_remove = 365
 
+		research_bonus = {
+			society_reforms = 0.10
+		}
+		
         modifier = {
         	monthly_war_weariness = -5
+			stability_factor = 0.06
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -395,6 +505,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
@@ -402,13 +515,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	production_speed_buildings_factor = 0.25
+        	production_speed_buildings_factor = 0.1
+			industry_repair_factor = 0.1
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -423,6 +544,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
@@ -430,13 +554,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	local_resources_factor = 0.3
+        	fuel_gain_factor_from_states = 0.1
+			MONTHLY_POPULATION = 0.1
+			production_speed_infrastructure_factor = 0.1
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -447,6 +580,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_4
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_4
@@ -456,12 +592,20 @@ taxation_category = {
         modifier = {
         	industrial_capacity_factory = 0.1
 			industrial_capacity_dockyard = 0.1
+			war_support_factor = 0.06
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -480,6 +624,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
@@ -487,13 +634,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	research_speed_factor = 0.20
+        	research_speed_factor = 0.15
+			political_power_factor = 0.1
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 2
 		}
@@ -504,6 +659,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
@@ -511,13 +669,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	MONTHLY_POPULATION = 1.2
+        	MONTHLY_POPULATION = 0.8
+			sickness_chance = -0.3
+			experience_loss_factor = -0.15
         }
 		
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -528,20 +695,36 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
 		}
         days_remove = 365
-
+		
+		research_bonus = {
+			society_reforms = 0.15
+		}
+		
         modifier = {
         	monthly_war_weariness = -20
+			stability_factor = 0.1
+			
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -559,6 +742,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
@@ -566,13 +752,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	production_speed_buildings_factor = 0.4
+        	production_speed_buildings_factor = 0.2
+			industry_repair_factor = 0.2
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -589,6 +783,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
@@ -596,13 +793,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	local_resources_factor = 0.5
+        	fuel_gain_factor_from_states = 0.15
+			MONTHLY_POPULATION = 0.2
+			production_speed_infrastructure_factor = 0.2
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -613,6 +819,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_3
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_3
@@ -622,12 +831,20 @@ taxation_category = {
         modifier = {
         	industrial_capacity_factory = 0.15
 			industrial_capacity_dockyard = 0.15
+			war_support_factor = 0.09
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -646,6 +863,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
@@ -653,13 +873,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	research_speed_factor = 0.275
+        	research_speed_factor = 0.225
+			political_power_factor = 0.15
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 2
 		}
@@ -670,6 +898,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
@@ -677,13 +908,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	MONTHLY_POPULATION = 1.6
+        	MONTHLY_POPULATION = 1.1
+			sickness_chance = -0.4
+			experience_loss_factor = -0.2
         }
 		
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -694,20 +934,35 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
 		}
         days_remove = 365
 
+		research_bonus = {
+			society_reforms = 0.2
+		}
+		
         modifier = {
         	monthly_war_weariness = -35
+			stability_factor = 0.14
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -725,6 +980,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
@@ -732,13 +990,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	production_speed_buildings_factor = 0.55
+        	production_speed_buildings_factor = 0.3
+			industry_repair_factor = 0.3
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -755,14 +1021,26 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
 		}
         days_remove = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         modifier = {
-        	local_resources_factor = 0.8
+        	fuel_gain_factor_from_states = 0.2
+			MONTHLY_POPULATION = 0.3
+			production_speed_infrastructure_factor = 0.3
         }
 
 		cost = 5
@@ -779,6 +1057,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_2
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_2
@@ -788,12 +1069,20 @@ taxation_category = {
         modifier = {
         	industrial_capacity_factory = 0.2
 			industrial_capacity_dockyard = 0.2
+			war_support_factor = 0.12
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -812,6 +1101,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
@@ -819,13 +1111,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	research_speed_factor = 0.35
+        	research_speed_factor = 0.3
+			political_power_factor = 0.2
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 2
 		}
@@ -836,6 +1136,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
@@ -843,13 +1146,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	MONTHLY_POPULATION = 2
+        	MONTHLY_POPULATION = 1.4
+			sickness_chance = -0.5
+			experience_loss_factor = -0.25
         }
 		
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -860,20 +1172,35 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
 		}
         days_remove = 365
 
+		research_bonus = {
+				society_reforms = 0.25
+		}
+
         modifier = {
         	monthly_war_weariness = -50
+			stability_factor = 0.18
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -891,6 +1218,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
@@ -898,13 +1228,21 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	production_speed_buildings_factor = 0.7
+        	production_speed_buildings_factor = 0.4
+			industry_repair_factor = 0.4
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -921,6 +1259,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
@@ -928,13 +1269,22 @@ taxation_category = {
         days_remove = 365
 
         modifier = {
-        	local_resources_factor = 1
+        	fuel_gain_factor_from_states = 0.25
+			MONTHLY_POPULATION = 0.4
+			production_speed_infrastructure_factor = 0.4
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 1
 		}
@@ -945,6 +1295,9 @@ taxation_category = {
 
 		available = {
             has_idea = family_support_1
+			NOT = { 
+			has_country_flag = public_funding
+			}
         }
 		visible = {
 			has_idea = family_support_1
@@ -954,12 +1307,20 @@ taxation_category = {
         modifier = {
         	industrial_capacity_factory = 0.25
 			industrial_capacity_dockyard = 0.25
+			war_support_factor = 0.15
         }
 
 		cost = 5
 
 		days_re_enable = 365
 
+		complete_effect = {
+			set_country_flag = public_funding
+		}
+		remove_effect = {
+			clr_country_flag = public_funding
+		}
+		
         ai_will_do = {
 			factor = 0
 			modifier = {
