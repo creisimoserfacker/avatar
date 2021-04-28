@@ -105,18 +105,23 @@ recruitment_decision_category = {
 
 war_weariness_category = {
 	
-	hospital_support = {
+	rotate_frontlines = {
 
 		available = {
-            casualties > 5000
+            casualties > 200
         }
 
-        days_remove = 70
+        days_remove = 30
+		days_re_enable = 150
 
         modifier = {
-        	war_support_weekly_factor = 0.004
-        	stability_weekly_factor = -0.002
-			consumer_goods_factor = 0.02
+        	stability_weekly_factor = 0.005
+			army_org_factor = 0.05
+			army_org_regain = 0.1
+			army_attack_factor -0.25
+			army_defence_factor = -0.25
+			experience_gain_army_unit_factor = -0.5
+			land_reinforce_rate =  -0.015
         }
 
 		remove_effect = {
@@ -126,7 +131,91 @@ war_weariness_category = {
 
 		cost = 100
 
-		days_re_enable = 295
+        ai_will_do = {
+			factor = 00
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+
+	campaign_season = {
+
+		icon = attack_plan
+
+		available = {
+            has_war = yes
+			NOT = { 
+			has_country_flag = military_campaign
+			}
+        }
+
+        days_remove = 100
+
+        modifier = {
+			monthly_war_weariness = 10
+        	army_attack_factor = 0.05
+			army_speed_factor = 0.05
+			land_reinforce_rate = 0.01
+        }
+
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = military_campaign
+		}
+		remove_effect = {
+			clr_country_flag = military_campaign
+		}
+		
+        ai_will_do = {
+			factor = 00
+			modifier = {
+				AND = {
+					has_war = yes
+					original_tag = FIR
+					check_variable = { war_exhaustion_variable < 300 }
+				}
+				add = 50
+			}
+		}
+	}
+
+	gathering_season = {
+
+		icon = attack_plan
+
+		available = {
+            has_war = yes
+			NOT = { 
+			has_country_flag = military_campaign
+			}
+        }
+
+        days_remove = 100
+
+        modifier = {
+        	max_planning_factor = 0.1
+			max_dig_in_factor = 0.1
+			army_attack_factor = -0.15
+			army_speed_factor = -0.15
+			breakthrough_factor = -0.15
+        }
+
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = military_campaign
+		}
+		remove_effect = {
+			clr_country_flag = military_campaign
+			custom_effect_tooltip = war_weariness_remove_1
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_100 }
+		}
 
         ai_will_do = {
 			factor = 00
@@ -134,6 +223,85 @@ war_weariness_category = {
 				AND = {
 					has_war = yes
 					check_variable = { war_exhaustion_variable > 199 }
+				}
+				add = 100
+			}
+		}
+	}
+
+	guerrilla_campaign = {
+
+		icon = attack_plan
+
+		available = {
+            has_war = yes
+			NOT = { 
+			has_country_flag = military_campaign
+			}
+        }
+
+        days_remove = 100
+
+
+        modifier = {
+			army_attack_factor = -0.1
+        	resistance_damage_to_garrison_on_our_occupied_states = 0.05
+			war_support_weekly_factor = 0.01
+			army_core_defence_factor = 0.05
+			org_loss_when_moving = 0.05
+        }
+
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = military_campaign
+		}
+		remove_effect = {
+			clr_country_flag = military_campaign
+		}
+		
+        ai_will_do = {
+			factor = 02
+		}
+	}
+
+	raiding_campaign = {
+
+		icon = attack_plan
+
+		available = {
+            has_war = yes
+			NOT = { 
+			has_country_flag = military_campaign
+			}
+        }
+
+        days_remove = 100
+
+        modifier = {
+			monthly_war_weariness = 5
+        	dont_lose_dig_in_on_attack
+			breakthrough_factor = 0.1
+			fortification_collateral_chance = 0.25
+			land_night_attack = 0.1
+        }
+
+		cost = 100
+		
+		complete_effect = {
+			set_country_flag = military_campaign
+		}
+		remove_effect = {
+			clr_country_flag = military_campaign
+		}
+		
+        ai_will_do = {
+			factor = 00
+			modifier = {
+				AND = {
+					original_tag = FIR
+					has_war = yes
+					check_variable = { war_exhaustion_variable < 300 }
 				}
 				add = 100
 			}
@@ -165,8 +333,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 		
 		complete_effect = {
 			set_country_flag = public_funding
@@ -210,8 +376,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
         ai_will_do = {
 			factor = 1
 		}
@@ -249,8 +413,6 @@ taxation_category = {
 		
 		cost = 5
 
-		days_re_enable = 365
-
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -283,8 +445,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -325,8 +485,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -369,8 +527,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
         ai_will_do = {
 			factor = 0
 			modifier = {
@@ -405,8 +561,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -420,7 +574,7 @@ taxation_category = {
 	}
 	family_investment_low = {
 
-		icon = icon = buildup
+		icon = buildup
 
 		available = {
             has_idea = family_support_4
@@ -441,8 +595,6 @@ taxation_category = {
         }
 		
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -480,8 +632,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -523,8 +673,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -563,8 +711,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -598,8 +744,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -642,8 +786,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -678,8 +820,6 @@ taxation_category = {
         }
 		
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -718,8 +858,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -761,8 +899,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -803,8 +939,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -838,8 +972,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -882,8 +1014,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -918,8 +1048,6 @@ taxation_category = {
         }
 		
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -957,8 +1085,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -999,8 +1125,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -1049,8 +1173,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
         ai_will_do = {
 			factor = 1
 		}
@@ -1077,8 +1199,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -1121,8 +1241,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -1157,8 +1275,6 @@ taxation_category = {
         }
 		
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -1196,8 +1312,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -1239,8 +1353,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -1281,8 +1393,6 @@ taxation_category = {
 
 		cost = 5
 
-		days_re_enable = 365
-
 		complete_effect = {
 			set_country_flag = public_funding
 		}
@@ -1316,8 +1426,6 @@ taxation_category = {
         }
 
 		cost = 5
-
-		days_re_enable = 365
 
 		complete_effect = {
 			set_country_flag = public_funding
@@ -1472,5 +1580,6 @@ generic_research_slot_category = {
 		custom_cost_text = manufactory_20
 
 	}
+	
 
 }
