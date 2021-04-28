@@ -1,0 +1,260 @@
+
+### recalc
+
+NWT_recalc_unity_icon_frames = {
+
+	set_temp_variable = { unity_temp = NWT_unity_support }
+	divide_temp_variable = { unity_temp = NWT_unity_total }
+	multiply_temp_variable = { unity_temp = 16 }
+	if = {
+		limit = { check_variable = { unity_temp > 0 } }
+		clamp_temp_variable = {
+			var = unity_temp
+			min = 1
+			max = 16
+		}
+	}
+	else = {
+		set_temp_variable = { unity_temp = 1 }
+	}
+	set_variable = { nwt_current_unity_icon_frame = unity_temp }
+	
+}
+
+NWT_recalc_spirit = {
+		
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_confederation
+				check_variable = { NWT_unity_support > 19 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_confederation
+			add_idea = united_confederation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_confederation
+				check_variable = { NWT_unity_support > 39 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_confederation
+			add_idea = loose_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_federation
+				check_variable = { NWT_unity_support > 59 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_federation
+			add_idea = united_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_federation
+				check_variable = { NWT_unity_support > 79 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_federation
+			add_idea = one_tribe
+		}
+	}
+
+	if = {
+		limit = { 
+			AND = {
+				has_idea = one_tribe
+				check_variable = { NWT_unity_support < 80 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = one_tribe
+			add_idea = united_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_federation
+				check_variable = { NWT_unity_support < 60 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_federation
+			add_idea = loose_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_federation
+				check_variable = { NWT_unity_support < 40 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_federation
+			add_idea = united_confederation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_confederation
+				check_variable = { NWT_unity_support < 20 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_confederation
+			add_idea = loose_confederation
+		}
+	}
+
+}
+
+SWT_recalc_unity_icon_frames = {
+
+	set_temp_variable = { unity_temp = SWT_unity_support }
+	divide_temp_variable = { unity_temp = SWT_unity_total }
+	multiply_temp_variable = { unity_temp = 16 }
+	if = {
+		limit = { check_variable = { unity_temp > 0 } }
+		clamp_temp_variable = {
+			var = unity_temp
+			min = 1
+			max = 16
+		}
+	}
+	else = {
+		set_temp_variable = { unity_temp = 1 }
+	}
+	set_variable = { swt_current_unity_icon_frame = unity_temp }
+
+}
+
+SWT_recalc_spirit = {
+		
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_confederation
+				check_variable = { SWT_unity_support > 20 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_confederation
+			add_idea = united_confederation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_confederation
+				check_variable = { SWT_unity_support > 40 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_confederation
+			add_idea = loose_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_federation
+				check_variable = { SWT_unity_support > 60 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_federation
+			add_idea = united_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_federation
+				check_variable = { SWT_unity_support > 80 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_federation
+			add_idea = one_tribe
+		}
+	}
+
+	if = {
+		limit = { 
+			AND = {
+				has_idea = one_tribe
+				check_variable = { SWT_unity_support < 80 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = one_tribe
+			add_idea = united_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_federation
+				check_variable = { SWT_unity_support < 60 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_federation
+			add_idea = loose_federation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = loose_federation
+				check_variable = { SWT_unity_support < 40 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = loose_federation
+			add_idea = united_confederation
+		}
+	}
+	if = {
+		limit = { 
+			AND = {
+				has_idea = united_confederation
+				check_variable = { SWT_unity_support < 20 } 
+			}
+		}
+		swap_ideas = {
+			remove_idea = united_confederation
+			add_idea = loose_confederation
+		}
+	}
+
+}
+
+
+######## effects
+
+
+WATER_unity_small_support = {
+	custom_effect_tooltip = water_unity_small_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 5 }
+	add_to_variable = { unity_support = temp_factor }
+	round_variable = unity_support
+	clamp_variable = { var = unity_support max = senators_total min = 0 }
+	WATER_recalc_unity_icon_frames = yes
+}

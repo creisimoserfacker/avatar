@@ -1,14 +1,18 @@
-WATER_industry = {
 
-	extra_water_wood = {
+NWT_tribe_union = {
 
-		icon = wood
+	NWT_capital_development = {
+
+		icon = buildup
+
+		#on_map_mode = map_only
+
+		highlight_state_targets = {
+			state = 17
+		}
 
 		visible = {
-			OR = {
-				tag = NWT
-				tag = SWT
-			}
+			tag = NWT
 		}
 		
 		available = {
@@ -17,99 +21,16 @@ WATER_industry = {
 			}
 		}
 		
-		fire_only_once = yes		
+		#fire_only_once = yes		
 
-		cost = 100
+		#cost = 100
 
-		days_remove = 90
+		#days_remove = 120
 
-		modifier = {
-			industrial_capacity_factory = -0.3
-		}
-
-		remove_effect = {
-			random_owned_state = {
-				add_resource = {
-					type = aluminium
-					amount = 5
-					state = THIS
-				}
-			}
-		}
-	}
-
-	extra_water_textile = {
-
-		icon = textile
-
-		visible = {
-			OR = {
-				tag = NWT
-				tag = SWT
-			}
-		}
-		
-		available = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 100
-
-		days_remove = 90
-
-		modifier = {
-			industrial_capacity_factory = -0.3
-		}
-
-		remove_effect = {
-			random_owned_state = {
-				add_resource = {
-					type = tungsten
-					amount = 5
-					state = THIS
-				}
-			}
-		}
-	}
-
-	extra_water_iron = {
-
-		icon = iron
-
-		visible = {
-			OR = {
-				tag = NWT
-				tag = SWT
-			}
-		}
-		
-		available = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 100
-
-		days_remove = 90
-
-		modifier = {
-			industrial_capacity_factory = -0.3
-		}
-
-		remove_effect = {
-			random_owned_state = {
-				add_resource = {
-					type = iron
-					amount = 5
-					state = THIS
-				}
+		complete_effect = {
+			NWT_recalc_unity_icon_frames = yes
+			NWT={
+			NWT_recalc_spirit = yes
 			}
 		}
 	}
