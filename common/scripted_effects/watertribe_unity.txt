@@ -252,13 +252,192 @@ SWT_recalc_spirit = {
 
 ######## effects
 
+### NWT
 
-WATER_unity_small_support = {
+NWT_unity_small_support = {
 	custom_effect_tooltip = water_unity_small_support_tt
 	set_temp_variable = { temp_factor = random }
 	multiply_temp_variable = { temp_factor = 5 }
-	add_to_variable = { unity_support = temp_factor }
-	round_variable = unity_support
-	clamp_variable = { var = unity_support max = senators_total min = 0 }
-	WATER_recalc_unity_icon_frames = yes
+	add_to_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+NWT_unity_small_opposition = {
+	custom_effect_tooltip = water_unity_small_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 5 }
+	subtract_from_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+
+NWT_unity_medium_support = {
+	custom_effect_tooltip = water_unity_medium_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 10 }
+	add_to_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+NWT_unity_medium_opposition = {
+	custom_effect_tooltip = water_unity_medium_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 10 }
+	subtract_from_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+
+NWT_unity_large_support = {
+	custom_effect_tooltip = water_unity_large_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 25 }
+	add_to_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+NWT_unity_large_opposition = {
+	custom_effect_tooltip = water_unity_large_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 25 }
+	subtract_from_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+
+NWT_unity_extreme_support = {
+	custom_effect_tooltip = water_unity_extreme_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 50 }
+	add_to_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+NWT_unity_extreme_opposition = {
+	custom_effect_tooltip = water_unity_extreme_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 50 }
+	subtract_from_variable = { NWT_unity_support = temp_factor }
+	round_variable = NWT_unity_support
+	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
+	
+	NWT_recalc_unity_icon_frames = yes
+	NWT_recalc_spirit = yes
+}
+
+
+
+### SWT
+
+SWT_unity_small_support = {
+	custom_effect_tooltip = water_unity_small_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 5 }
+	add_to_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+SWT_unity_small_opposition = {
+	custom_effect_tooltip = water_unity_small_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 5 }
+	subtract_from_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+
+SWT_unity_medium_support = {
+	custom_effect_tooltip = water_unity_medium_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 10 }
+	add_to_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+SWT_unity_medium_opposition = {
+	custom_effect_tooltip = water_unity_medium_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 10 }
+	subtract_from_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+
+SWT_unity_large_support = {
+	custom_effect_tooltip = water_unity_large_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 25 }
+	add_to_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+SWT_unity_large_opposition = {
+	custom_effect_tooltip = water_unity_large_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 25 }
+	subtract_from_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+
+SWT_unity_extreme_support = {
+	custom_effect_tooltip = water_unity_extreme_support_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 50 }
+	add_to_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
+}
+SWT_unity_extreme_opposition = {
+	custom_effect_tooltip = water_unity_extreme_opposition_tt
+	set_temp_variable = { temp_factor = random }
+	multiply_temp_variable = { temp_factor = 50 }
+	subtract_from_variable = { SWT_unity_support = temp_factor }
+	round_variable = SWT_unity_support
+	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
+	
+	SWT_recalc_unity_icon_frames = yes
+	SWT_recalc_spirit = yes
 }
