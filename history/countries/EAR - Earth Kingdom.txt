@@ -166,7 +166,7 @@ if = {
 	}
 	set_autonomy = {
 		target = SWA
-		autonomous_state = autonomy_kingdom
+		autonomous_state = autonomy_tributary
 	}
 	set_autonomy = {
 		target = TAK
@@ -404,18 +404,6 @@ if = {
 		puppet = OMS
 	}
 }
-if = {
-	limit = {
-		has_dlc = "Together for Victory"
-	}
-	set_autonomy = {
-		target = SWA
-		autonomous_state = autonomy_kingdom
-	}
-	else = {
-		puppet = SWA
-	}
-}
 
 create_faction = Earth_Kingdom
 add_to_faction = EAR
@@ -452,6 +440,18 @@ add_to_faction = ZIN
 add_to_faction = YII
 
 
+
+create_country_leader = {
+	name = "Zaifeng"
+	desc = "51st Earthking"
+	picture = "Portrait_Earthkingdom_51.dds"
+	expire = "91.1.1"
+	ideology = constitutional_monarchy
+}
+
+
+
+
 52.1.1 ={
 	
 	OOB = "EAR_52"
@@ -479,7 +479,7 @@ if = {
 	
 
 create_country_leader = {
-	name = "Earthking Kuei"
+	name = "Kuei"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
 	picture = "Portrait_Earthkingdom_Kuei.dds"
 	expire = "130.1.1"
@@ -495,7 +495,7 @@ create_country_leader = {
 	add_political_power = 1198
 
 create_country_leader = {
-	name = "Earthking Kuei"
+	name = "Kuei"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
 	picture = "Portrait_Earthkingdom_Kuei.dds"
 	expire = "130.1.1"
@@ -504,14 +504,3 @@ create_country_leader = {
 
 }
 
-
-#
-
-
-create_country_leader = {
-	name = "51st Earthking"
-	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Earthkingdom_46.dds"
-	expire = "91.1.1"
-	ideology = constitutional_monarchy
-}

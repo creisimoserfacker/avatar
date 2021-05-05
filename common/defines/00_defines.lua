@@ -1158,7 +1158,7 @@ NNavy = {
 	COMBAT_TORPEDO_CRITICAL_CHANCE = 0.8,							-- chance for critical hit from torpedo.
 	COMBAT_TORPEDO_CRITICAL_DAMAGE_MULT = 3.0,						-- multiplier to damage when got critical hit from torpedo. (Critical hits are devastating as usualy torpedo_attack are pretty high base values).
 	
-	COMBAT_DAMAGE_TO_STR_FACTOR = 0.25,								-- casting damage value to ship strength multiplier. Use it ot balance the game difficulty.
+	COMBAT_DAMAGE_TO_STR_FACTOR = 0.5,								-- casting damage value to ship strength multiplier. Use it ot balance the game difficulty.
 	COMBAT_DAMAGE_TO_ORG_FACTOR = 2.0,							-- casting damage value to ship organisation multiplier. Use it to balance the game difficulty.
 	
 	NAVY_MAX_XP = 100,
@@ -1454,8 +1454,8 @@ NNavy = {
 	INTEL_LEVEL_LOW_STRENGTH_ESTIMATE_HALF_RANGE_PERCENTAGE = 20,					-- Integer representing the maximum offset of the estimated enemy strength to the original, in percentage (divided by 100 in code). For spotting level "low".
 	INTEL_LEVEL_MEDIUM_STRENGTH_ESTIMATE_HALF_RANGE_PERCENTAGE = 10,					-- Same as above for spotting level "medium"
 	BASE_SPOTTING_SPEED = 0.0,										-- daily base spotting speed
-	BASE_ESCAPE_SPEED = 0.045,										-- daily base escape speed (gained as percentagE)
-	SPEED_TO_ESCAPE_SPEED = 0.95,									-- ratio to converstion from ship speed to escape speed (divided by hundred)
+	BASE_ESCAPE_SPEED = 0.025,										-- daily base escape speed (gained as percentagE)
+	SPEED_TO_ESCAPE_SPEED = 0.75,									-- ratio to converstion from ship speed to escape speed (divided by hundred)
 	ESCAPE_SPEED_PER_COMBAT_DAY = 0.01,								-- daily increase in escape speed during combat duration
 	MAX_ESCAPE_SPEED_FROM_COMBAT_DURATION = 0.15,					-- max escape speed that will be gained from combat duration
 	ESCAPE_SPEED_SUB_BASE = 0.08,									-- subs get faster escape speed. gets replaced by hidden version below if hidden
@@ -2066,7 +2066,7 @@ NAI = {
 	MIN_PLAN_VALUE_TO_MICRO_INACTIVE = 0.2,				-- The AI will not consider members of groups which plan is not activated AND evaluates lower than this.
 	
 	MAX_UNITS_FACTOR_AREA_ORDER = 1.0,					-- Factor for max number of units to assign to area defense orders
-	DESIRED_UNITS_FACTOR_AREA_ORDER = 1.0,				-- Factor for desired number of units to assign to area defense orders
+	DESIRED_UNITS_FACTOR_AREA_ORDER = 4.0,				-- Factor for desired number of units to assign to area defense orders
 	MIN_UNITS_FACTOR_AREA_ORDER = 1.0,					-- Factor for min number of units to assign to area defense orders
 
 	MAX_UNITS_FACTOR_FRONT_ORDER = 1.5,					-- Factor for max number of units to assign to area front orders
@@ -2077,7 +2077,7 @@ NAI = {
 	DESIRED_UNITS_FACTOR_INVASION_ORDER = 2.0,			-- Factor for desired number of units to assign to naval invasion orders
 	MIN_UNITS_FACTOR_INVASION_ORDER = 1.0,				-- Factor for min number of units to assign to naval invasion orders
 	
-	FRONT_UNITS_CAP_FACTOR = 15.0,						-- A factor applied to total front size and supply use. Primarily effects small fronts
+	FRONT_UNITS_CAP_FACTOR = 2.0,						-- A factor applied to total front size and supply use. Primarily effects small fronts
 	MAX_DIST_PORT_RUSH = 20.0,							-- If a unit is in enemy territory with no supply it will consider nearby ports within this distance.
 	
 	MIN_FIELD_STRENGTH_TO_BUILD_UNITS = 0.7,			-- Cancel unit production if below this to get resources out to units in the field
