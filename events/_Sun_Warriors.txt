@@ -1,0 +1,41 @@
+#####################
+# Sun Warrior Events
+#####################
+
+add_namespace = sun
+
+#Sun Warriors Revealed
+news_event = {
+	id = sun.1
+	title = sun.1.t
+	desc = sun.1.d
+	picture = GFX_Sun_Warriors_Revealed
+	
+	trigger = {
+		has_global_flag = sun_warriors_revealed
+		NOT = { has_global_flag = sun_warriors_revealed_n}
+	}
+
+	immediate = {
+        set_global_flag = sun_warriors_revealed_n
+    }
+	
+	major = yes
+
+	mean_time_to_happen = {
+        days = 2
+    }
+	
+	option = {
+		name = sun.1.a
+		trigger = {
+			NOT = {
+				TAG = SNW
+			}
+		}
+	}
+	option = {
+		name = sun.1.b
+		trigger = { TAG = SNW }
+	}
+}
