@@ -61,10 +61,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		3167 = { is_controlled_by = FIR }
+		230 = { is_controlled_by = FIR }
 		OR = {
-			3167 = { is_owned_by = WUL }
-			3167 = { is_owned_by = EAR }
+			230 = { is_owned_by = WUL }
+			230 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = WUL }
@@ -111,10 +111,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		5449 = { is_controlled_by = FIR }
+		124 = { is_controlled_by = FIR }
 		OR = {
-			5449 = { is_owned_by = XIN }
-			5449 = { is_owned_by = EAR }
+			124 = { is_owned_by = XIN }
+			124 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = XIN }
@@ -161,10 +161,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		6807b= { is_controlled_by = FIR }
+		171 = { is_controlled_by = FIR }
 		OR = {
-			6807 = { is_owned_by = YUE }
-			6807 = { is_owned_by = EAR }
+			171 = { is_owned_by = YUE }
+			171 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = YUE }
@@ -211,10 +211,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		2719 = { is_controlled_by = FIR }
+		243 = { is_controlled_by = FIR }
 		OR = {
-			2719 = { is_owned_by = HAN }
-			2719 = { is_owned_by = EAR }
+			243 = { is_owned_by = HAN }
+			243 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = HAN }
@@ -261,10 +261,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		3242 = { is_controlled_by = FIR }
+		276 = { is_controlled_by = FIR }
 		OR = {
-			3242 = { is_owned_by = GDD }
-			3242 = { is_owned_by = EAR }
+			276 = { is_owned_by = GDD }
+			276 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = GDD }
@@ -310,10 +310,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		3127 = { is_controlled_by = FIR }
+		29 = { is_controlled_by = FIR }
 		OR = {
-			3127 = { is_owned_by = GAO }
-			3127 = { is_owned_by = EAR }
+			29 = { is_owned_by = GAO }
+			29 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = GAO }
@@ -359,10 +359,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		154 = { is_controlled_by = FIR }
+		205 = { is_controlled_by = FIR }
 		OR = {
-			154 = { is_owned_by = OMS }
-			154 = { is_owned_by = EAR }
+			205 = { is_owned_by = OMS }
+			205 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = OMS }
@@ -408,10 +408,10 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		922 = { is_controlled_by = FIR }
+		434 = { is_controlled_by = FIR }
 		OR = {
-			922 = { is_owned_by = YII }
-			922 = { is_owned_by = EAR }
+			434 = { is_owned_by = YII }
+			434 = { is_owned_by = EAR }
 		}
 		OR = {
 			FIR = { has_war_with = YII }
@@ -457,8 +457,8 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		10462 = { is_controlled_by = FIR }
-		10462 = { is_owned_by = EAR }
+		179 = { is_controlled_by = FIR }
+		179 = { is_owned_by = EAR }
 		FIR = { has_war_with = EAR }
 		NOT = { has_global_flag = fall_of_basingse }
 	}
@@ -502,18 +502,12 @@ news_event = {
 	
 	trigger = {
 		OR = {
-			EAR= { owns_state = 40}
-			FIR = { controls_state = 40}
-		}
-		OR = {
-			EAR = { owns_state = 63}
-			FIR = { controls_state = 63}
-		}
-		OR = {
-			EAR = { owns_state = 115}
-			FIR = { controls_state = 115}
+			40 = { is_controlled_by = FIR }
+			63 = { is_controlled_by = FIR }
+			115 = { is_controlled_by = FIR }
 		}
 		FIR = { has_war_with = EAR }
+		NOT = { has_global_flag = crossing_the_taihua }
 	}
 
 	immediate = {
@@ -554,10 +548,9 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		7259 = { is_controlled_by = FIR }
-		7259 = { is_owned_by = EAR }
+		233 = { is_controlled_by = FIR }
 		FIR = { has_war_with = EAR }
-		NOT = { has_global_flag = fall_of_basingse }
+		NOT = { has_global_flag = crossing_the_pass }
 	}
 
 	immediate = {
@@ -599,31 +592,19 @@ news_event = {
 	
 	trigger = {
 		OR = {
-			EAR = { owns_state = 399}
-			FIR = { controls_state = 399}
-		}
-		OR = {
-			EAR = { owns_state = 195}
-			FIR = { controls_state = 195}
-		}
-		OR = {
-			EAR = { owns_state = 132}
-			FIR = { controls_state = 132}
-		}
-		OR = {
-			EAR = { owns_state = 186}
-			FIR = { controls_state = 186}
-		}
-		OR = {
-			EAR = { owns_state = 358}
-			FIR = { controls_state = 358}
+			399 = { is_controlled_by = FIR }
+			195 = { is_controlled_by = FIR }
+			132 = { is_controlled_by = FIR }
+			186 = { is_controlled_by = FIR }
+			358 = { is_controlled_by = FIR }
 		}
 		FIR = { has_war_with = EAR }
+		NOT = { has_global_flag = crossing_the_siwong }
 	}
 
 	immediate = {
  		hidden_effect = {
- 			set_global_flag = crossing_the_si_wong
+ 			set_global_flag = crossing_the_siwong
 		}
  	}
 	
@@ -632,7 +613,7 @@ news_event = {
 	}
 	
 	option = {
-		name = far_news.10.a
+		name = far_news.13.a
 		trigger = {
 			NOT = {
 				TAG = FIR
@@ -641,11 +622,11 @@ news_event = {
 		}
 	}
 	option = {
-		name = far_news.10.b
+		name = far_news.13.b
 		trigger = { TAG = FIR }
 	}
 	option = {
-		name = far_news.10.c
+		name = far_news.13.c
 		trigger = { has_country_flag = earth_nation }
 	}
 }
