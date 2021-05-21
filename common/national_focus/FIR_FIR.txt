@@ -1,0 +1,2837 @@
+focus_tree = {
+	id = FIR
+	country = {
+		factor = 0
+		modifier = {
+			add = 10
+			tag = FIR
+		}
+	}
+	#Focus for Route of War
+	focus = {
+		id = FIR_route_of_war
+		icon = GFX_goal_generic_major_war
+		x = 5
+		y = 0
+		cost = 0.7
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 16
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_idea = closed_economy }
+				}
+				add_ideas = closed_economy
+			}
+ 			add_war_support = 0.1
+		}
+	}
+
+	#Focus for The Right To Rule
+	focus = {
+		id = FIR_the_right_to_rule
+		icon = GFX_goal_generic_demand_territory
+		x = 27
+		y = 0
+		cost = 0.7
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 120  add_stability= 0.05
+		}
+	}
+	#Focus for Mobilize The Economy
+	focus = {
+		id = FIR_mobilize_the_economy
+		icon = GFX_focus_hol_abandon_the_gold_standard
+		x = 27
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_economic_protectionism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			if = {
+				limit = {
+					NOT = { has_idea = economy_3 }
+					NOT = { has_idea = economy_4 }
+					NOT = { has_idea = economy_5 }
+				}
+				add_ideas = economy_3        
+			}
+			else_if = {
+				limit = {
+					NOT = { has_idea = economy_4 }
+					NOT = { has_idea = economy_5 }
+				}
+				add_ideas = economy_4       
+			}
+            	else = {
+                	add_political_power = 150
+            	}
+		}
+	}
+	#Focus for Economic Protectionism
+	focus = {
+		id = FIR_economic_protectionism
+		icon = GFX_goal_generic_consumer_goods
+		x = 27
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_the_right_to_rule }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Economic_Reforms
+		}
+	}
+
+	#Focus for Victory Parade
+	focus = {
+		id = FIR_victory_parade
+		icon = GFX_focus_spr_the_anti_fascist_workers_revolution
+		x = 12
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_homefront }
+		available = {
+			has_offensive_war_with = EAR
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_Victory_Parade
+			set_country_flag = war_weariness
+		}
+	}
+
+	#Focus for National Community
+	focus = {
+		id = FIR_national_community
+		icon = GFX_goal_generic_alliance
+		x = 16
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_improved_farming_tools }
+		completion_reward = {
+			random_owned_controlled_state = {
+ add_extra_state_shared_building_slots = 2 
+}
+random_owned_controlled_state = {
+ add_extra_state_shared_building_slots = 2 
+}
+random_owned_controlled_state = {
+ add_extra_state_shared_building_slots = 2 
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 3 
+category = society_reforms
+}
+		}
+	}
+
+	#Focus for Air Nomads Genocide
+	focus = {
+		id = FIR_air_nomads_genocide
+		icon = GFX_goal_generic_secret_weapon
+		x = 8
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		ai_will_do = {
+			factor = 18
+		}
+		prerequisite = { focus = FIR_route_of_war }
+		bypass = {
+			OR = {
+				NOT = { country_exists = NAT }
+				NOT = { country_exists = EAT }
+				NOT = { country_exists = SAT }
+				NOT = { country_exists = WAT }
+				has_war_with = NAT
+				has_war_with = EAT
+				has_war_with = SAT
+				has_war_with = WAT
+			}
+		}
+		available = {
+			is_puppet = no
+			NOT = { is_in_faction_with = NAT }
+			NOT = { is_in_faction_with = EAT }
+			NOT = { is_in_faction_with = SAT }
+			NOT = { is_in_faction_with = WAT }
+			date < 12.8.21
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_Genocide
+			set_country_flag = Genocide
+		}
+	}
+
+	#Focus for Harbor Expansion
+	focus = {
+		id = FIR_harbor_expansion
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 2
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_conquest_plans }
+		completion_reward = {
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = dockyard
+					level = 2
+					instant_build = yes
+				}
+				set_state_flag = GER_naval_rearmament_2dockyards
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = GER_naval_rearmament_1dockyard
+			}
+			random_owned_controlled_state = {
+				limit = {
+					dockyard > 0
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 1
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+				set_state_flag = GER_naval_rearmament_1dockyard
+			}
+		}
+	}
+
+	#Focus for Blacksmith Support
+	focus = {
+		id = FIR_blacksmith_support
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 6
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_conquest_plans }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Landforce
+	focus = {
+		id = FIR_landforce
+		icon = GFX_focus_generic_little_entente
+		x = 6
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_blacksmith_support }
+		completion_reward = {
+			army_experience= 20  add_ideas= FIR_mobilize_the_masses
+		}
+	}
+	#Focus for Navy Recruitment
+	focus = {
+		id = FIR_navy_recruitment
+		icon = GFX_goal_generic_navy_battleship
+		x = 2
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_harbor_expansion }
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_invasion
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_crew
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_tactics
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_navigation
+}
+		}
+	}
+	
+	#Focus for Homefront
+	focus = {
+		id = FIR_homefront
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 15
+		y = 0
+		cost = 0.7
+		available_if_capitulated = yes
+		available = {
+			has_war= yes
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_Homefront
+			hidden_effect = { add_command_power = 100 }  add_war_support= 0.05
+		}
+	}
+	
+	#Focus for Conquest Plans
+	focus = {
+		id = FIR_conquest_plans
+		icon = GFX_goal_generic_position_armies
+		x = 4
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_route_of_war }
+		completion_reward = {
+			add_political_power = 200 
+
+			hidden_effect = {
+				load_oob = "firebender_army_1"
+			}
+		}
+	}
+	#Focus for Manipulation
+	focus = {
+		id = FIR_manipulation
+		icon = GFX_goal_generic_propaganda
+		x = 11
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_victory_parade }
+		completion_reward = {
+			add_ideas= why_we_fight_focus
+		}
+	}
+	
+	#Focus for The New Firelord
+	focus = {
+		id = FIR_the_new_firelord
+		icon = GFX_goal_tfv_strengthen_commonwealth_ties
+		x = 27
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_colonial_empire }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		available = {
+			OR = {
+				date > 30.1.1
+				has_country_flag = sozin_dead
+			}
+		}
+		completion_reward = {
+			retire_country_leader = yes
+			create_country_leader = {
+				name = "Azulon"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Firenation_Azulon2.dds"
+				expire = "120.1.1"
+				ideology = colonialism
+				traits = {
+					firelord
+				}
+			}
+		}
+	}
+
+	#Focus for Improved Farming Tools
+	focus = {
+		id = FIR_improved_farming_tools
+		icon = GFX_goal_generic_army_tanks
+		x = 16
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_support__the_farmers }
+		completion_reward = {
+			add_ideas= FIR_Better_Farming_Tools
+		}
+	}
+
+	#Focus for Found a Research Company
+	focus = {
+		id = FIR_found_a_research_company
+		icon = GFX_focus_research2
+		x = 19
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		available = { amount_research_slots> 4 }
+		prerequisite = { 
+			focus = FIR_industry_boost 
+		}
+		prerequisite = { 
+			focus = FIR_consumer_goods_reduction 
+		}
+		completion_reward = {
+			add_research_slot = 1
+		}
+	}
+
+	#Focus for Colonization of the World
+	focus = {
+		id = FIR_colonization_of_the_world
+		icon = GFX_focus_CZE_german_puppet
+		x = 27
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_the_home_islands 
+		}
+		prerequisite = { 
+			focus = FIR_a_national_budget 
+		}
+		prerequisite = { 
+			focus = FIR_imperial_conscription 
+		}
+		available = {
+			has_war_with = EAR
+		}
+		completion_reward = {
+			set_country_flag = FIR_colonies_category
+			add_manpower = 5000
+			add_war_support = 0.05
+			custom_effect_tooltip = FIR_Colonization_of_the_World
+		}
+	}
+	
+	#Focus for Support  the Farmers
+	focus = {
+		id = FIR_support__the_farmers
+		icon = GFX_goal_generic_positive_trade_relations
+		x = 16
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_infrastructure_program }
+		completion_reward = {
+			add_ideas= FIR_Supported_Farmers
+		}
+	}
+
+	#Focus for Local Specialisation
+	focus = {
+		id = FIR_local_specialisation
+		icon = GFX_goal_generic_construction2
+		x = 18
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_civil_factory_upgrade }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = industrial_complex
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Consumer Goods Reduction
+	focus = {
+		id = FIR_consumer_goods_reduction
+		icon = GFX_goal_generic_neutrality_focus
+		x = 18
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_local_specialisation }
+		completion_reward = {
+			add_ideas= FIR_Consumer_Goods_Reduction
+		}
+	}
+
+	#Focus for Industry Boost
+	focus = {
+		id = FIR_industry_boost
+		icon = GFX_goal_generic_production2
+		x = 20
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_locate_intellectuals }
+		completion_reward = {
+			add_ideas= FIR_Industry_Boost
+		}
+	}
+	#Focus for Research Center
+	focus = {
+		id = FIR_research_center
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 20
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_infrastructure_program }
+		completion_reward = {
+			set_country_flag = 4th_Extra_Research_Slot
+			custom_effect_tooltip = 4th_Extra_Research_Slot
+		} 
+	}
+	#Focus for Locate Intellectuals
+	focus = {
+		id = FIR_locate_intellectuals
+		icon = GFX_goal_generic_scientific_exchange
+		x = 20
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_research_center }
+		add_ideas = FIR_Located_Intellectuals
+		completion_reward = {
+			add_ideas = FIR_Located_Intellectuals
+		} 
+	}
+	#Focus for Civil Factory Upgrade
+	focus = {
+		id = FIR_civil_factory_upgrade
+		icon = GFX_goal_generic_construct_civ_factory
+		x = 18
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_infrastructure_program }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = industrial_complex
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+	#Focus for Military Youth
+	focus = {
+		id = FIR_military_youth
+		icon = GFX_goal_generic_political_pressure
+		x = 12
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_manipulation 
+			focus = FIR_update_the_history_books 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		completion_reward = {
+			add_ideas = military_youth_focus
+		}
+	}
+	#Focus for Update the History Books
+	focus = {
+		id = FIR_update_the_history_books
+		icon = GFX_focus_generic_treaty
+		x = 13
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_victory_parade }
+		completion_reward = {
+			add_ideas= indoctrination_focus
+		}
+	}
+	#Focus for Invasion Fleet
+	focus = {
+		id = FIR_invasion_fleet
+		icon = GFX_goal_generic_amphibious_assault
+		x = 2
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_endless_sea }
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_heavy_weapons
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_light_weapons
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_mines 
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 2 
+category = nav_invasion 
+}
+		}
+	}
+		#Focus for Secret Plans
+	focus = {
+		id = FIR_secret_plans
+		icon = GFX_goal_generic_position_armies
+		x = 3
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_methodical_approach }
+		completion_reward = {
+			add_political_power= 50  add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = light_armor
+}
+  add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = heavy_armor
+}
+		}
+	}
+
+	#Focus for Battle Of Han Tui
+	focus = {
+		id = FIR_battle_of_han_tui
+		icon = GFX_focus_RAJ_lions_of_the_great_war
+		x = 5
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_army_preperation }
+		available = {
+			controls_state = 243
+		}
+		completion_reward = {
+			add_war_support= 0.05  army_experience= 50  
+			random_unit_leader = { add_unit_leader_trait = aggressive_strategist }
+			random_unit_leader = { add_unit_leader_trait = brave }
+		}
+	}
+
+	#Focus for New Generals
+	focus = {
+		id = FIR_new_generals
+		icon = GFX_goal_generic_wolf_pack
+		x = 3
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_veteran_navy 
+			focus = FIR_military_academies 
+		}
+		completion_reward = {
+			create_corps_commander = {
+				name = "Konran"
+				picture = "Portrait_Firenation_Generic4.dds"
+				traits = { ruthless aggressive_strategist politically_connected }
+				skill = 4
+				id = 2
+				attack_skill = 2
+				defense_skill = 3
+				planning_skill = 2
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				name = "Shyu"
+				picture = "Portrait_Firenation_Generic12.dds"
+				traits = { loyal calm brave brilliant_tactician }
+				skill = 4
+				id = 3
+				attack_skill = 3
+				defense_skill = 1
+				planning_skill = 3
+				logistics_skill = 3
+			}
+			create_corps_commander = {
+				name = "Yao"
+				picture = "Portrait_Firenation_Generic6.dds"
+				traits = { defensive_strategist brilliant_strategist }
+				skill = 4
+				id = 4
+				attack_skill = 2
+				defense_skill = 4
+				planning_skill = 1
+				logistics_skill = 2
+			}
+		}
+	}
+	#Focus for Army Preperation
+	focus = {
+		id = FIR_army_preperation
+		icon = GFX_goal_generic_small_arms
+		x = 5
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_prince_azulon }
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = cat_power 
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = cat_substance
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = cat_change
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = cat_freedom
+}
+		}
+	}
+
+	#Focus for United Population
+	focus = {
+		id = FIR_united_population
+		icon = GFX_goal_generic_improve_relations
+		x = 17
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_national_community 
+		}
+		prerequisite = { 
+			focus = FIR_consumer_goods_reduction 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_United_Population
+		}
+	}
+
+	#Focus for Prince Azulon
+	focus = {
+		id = FIR_prince_azulon
+		icon = GFX_focus_hun_elect_a_king
+		x = 5
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_experience_of_war 
+			focus = FIR_military_academies 
+		}
+		completion_reward = {
+			create_field_marshal = {
+				name = "Prince Azulon"
+				picture = "Portrait_Firenation_Azulon2.dds"
+				traits = {  offensive_doctrine armor_officer }
+				skill = 3
+				id = 1
+				attack_skill = 3
+				defense_skill = 2
+				planning_skill = 2
+				logistics_skill = 3
+			}
+		}
+	}
+		#Focus for Military Academies
+	focus = {
+		id = FIR_military_academies
+		icon = GFX_goal_rhineland
+		x = 4
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_landforce 
+		}
+		prerequisite = { 
+			focus = FIR_navy_recruitment 
+		}
+		prerequisite = { 
+			focus = FIR_better_uniforms 
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = basic_weapons 
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = sword 
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = spear
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = pike
+}
+		}
+	}
+
+	#Focus for Naval Research
+	focus = {
+		id = FIR_naval_research
+		icon = GFX_goal_tfv_generic_tech_sharing
+		x = 0
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_endless_sea }
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_patrol
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_raid
+}
+add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_wooden
+}
+add_tech_bonus= {
+ bonus = 1
+uses = 1 
+category = nav_ironclad
+}
+		}
+	}
+	#Focus for Infrastructure Program
+	focus = {
+		id = FIR_infrastructure_program
+		icon = GFX_goal_generic_construct_infrastructure
+		x = 18
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_homefront }
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		completion_reward = {
+			random_owned_controlled_state= {
+add_building_construction = {type = infrastructure level = 3
+instant_build = yes}
+
+}
+  random_owned_controlled_state= {
+add_building_construction = {type = infrastructure level = 3
+instant_build = yes}
+
+}
+  random_owned_controlled_state= {
+add_building_construction = {type = infrastructure level = 3
+instant_build = yes}
+
+}
+		}
+	}
+	#Focus for Veteran Navy
+	focus = {
+		id = FIR_veteran_navy
+		icon = GFX_goal_generic_navy_doctrines_tactics
+		x = 2
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_navy_recruitment }
+		completion_reward = {
+			navy_experience= 25  add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_screen 
+}
+  add_tech_bonus= {
+ bonus = 1 
+uses = 1 
+category = nav_capital 
+}
+		}
+	}
+	#Focus for Experience of War
+	focus = {
+		id = FIR_experience_of_war
+		icon = GFX_goal_generic_axis_build_infantry
+		x = 6
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_landforce }
+		completion_reward = {
+			army_experience= 25  add_tech_bonus= {
+ bonus = 1 
+uses = 2 
+category = military_doctrine 
+}
+		}
+	}
+
+	#Focus for Decentralized Industry
+	focus = {
+		id = FIR_decentralized_industry
+		icon = GFX_goal_generic_fortify_city
+		x = 17
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_war_industry }
+		mutually_exclusive = { focus = FIR_centralized_industry }
+		completion_reward = {
+			add_ideas= FIR_Local_Self_Management
+		}
+	}
+	#Focus for Centralized Industry
+	focus = {
+		id = FIR_centralized_industry
+		icon = GFX_goal_generic_construct_military
+		x = 13
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_war_industry }
+		mutually_exclusive = { focus = FIR_decentralized_industry }
+		completion_reward = {
+			add_ideas= FIR_Central_Management
+		}
+	}
+	#Focus for Dry The Swamps
+	focus = {
+		id = FIR_dry_the_swamps
+		icon = GFX_goal_generic_construct_civilian
+		x = 18
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_decentralized_industry }
+		completion_reward = {
+			random_owned_controlled_state = {
+	add_resource = {
+		type = oil
+		amount = 16
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = chromium
+		amount = 8
+	}
+}
+		}
+	}
+
+	#Focus for Fortification Studies
+	focus = {
+		id = FIR_fortification_studies
+		icon = GFX_goal_generic_defence
+		x = 7
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_experience_of_war }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Fortification_Focus
+		}
+	}
+
+	#Focus for Defend The Coasts
+	focus = {
+		id = FIR_defend_the_coasts
+		icon = GFX_goal_generic_navy_cruiser
+		x = 7
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_fortification_studies }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Defend_The_Coasts
+		}
+	}
+	#Focus for Better Defences
+	focus = {
+		id = FIR_better_defences
+		icon = GFX_goal_generic_build_tank
+		x = 7
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_defend_the_coasts }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_tech_bonus= {
+ bonus = 1 
+uses = 2 
+category = fort_construction 
+}
+  add_war_support= 0.05
+		}
+	}
+
+	#Focus for War Industry
+	focus = {
+		id = FIR_war_industry
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 15
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_military_youth 
+			focus = FIR_national_community 
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Expand The Mining Industry
+	focus = {
+		id = FIR_expand_the_mining_industry
+		icon = GFX_goal_generic_construction2
+		x = 12
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_centralized_industry }
+		completion_reward = {
+			random_owned_controlled_state = {
+	add_resource = {
+		type = stone
+		amount = 8
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = rubber
+		amount = 8
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = iron
+		amount = 8
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = steel
+		amount = 8
+	}
+}
+		}
+	}
+
+	#Focus for Dragons
+	focus = {
+		id = FIR_dragons
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		x = 2
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_route_of_war }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_Dragons
+			set_country_flag= Dragons
+		}
+	}
+
+	#Focus for Weaken The Firelord
+	focus = {
+		id = FIR_weaken_the_firelord
+		icon = GFX_focus_rom_handle_king
+		x = 32
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_the_nations_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = imperialism 
+popularity = -0.10 
+}
+		}
+	}
+	
+	#Focus for Imperial Conscription
+	focus = {
+		id = FIR_imperial_conscription
+		icon = GFX_focus_chi_army_reform
+		x = 25
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_strengthen_the_firelord 
+		}
+		prerequisite = { 
+			focus = FIR_mobilize_the_economy 
+		}
+		search_filters = { FOCUS_FILTER_MANPOWER } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= militarism_focus
+		}
+	}
+	#Focus for Imperial Industry
+	focus = {
+		id = FIR_imperial_industry
+		icon = GFX_focus_generic_industry_3
+		x = 21
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_industry_boost 
+		}
+		search_filters = { FOCUS_FILTER_INDUSTRY } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = industrial_complex
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = industrial_complex
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 1
+ add_building_construction = {
+ type = arms_factory
+ level = 1
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+	#Focus for A New Unity
+	focus = {
+		id = FIR_a_new_unity
+		icon = GFX_goal_generic_national_unity
+		x = 31
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_strengthen_the_firelord 
+			focus = FIR_weaken_the_firelord 
+		}
+		mutually_exclusive = { focus = FIR_oppose_the_royale_dictatorship }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 19
+		}
+		completion_reward = {
+			add_political_power= 150  add_war_support= 0.1
+		}
+	}
+	#Focus for Strengthen The Firelord
+	focus = {
+		id = FIR_strengthen_the_firelord
+		icon = GFX_focus_generic_home_defense
+		x = 30
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_the_firelords_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		available = { has_government= imperialism }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05
+			add_country_leader_trait = warrior_culture  
+		}
+	}
+	#Focus for Form A Cabinet
+	focus = {
+		id = FIR_form_a_cabinet
+		icon = GFX_goal_generic_cavalry
+		x = 31
+		y = 0
+		cost = 0.7
+		available_if_capitulated = yes
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_political_power= 100
+		}
+	}
+
+	#Focus for The Firelord's Cabinet
+	focus = {
+		id = FIR_the_firelords_cabinet
+		icon = GFX_focus_generic_monarchy_1
+		x = 30
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_form_a_cabinet }
+		mutually_exclusive = { focus = FIR_the_nations_cabinet }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = imperialism 
+popularity = 0.1 
+}
+  add_war_support= 0.05
+		}
+	}
+	
+	#Focus for A Cultural Change
+	focus = {
+		id = FIR_a_cultural_change
+		icon = GFX_focus_generic_support_the_left_right
+		x = 30
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_new_unity }
+		prerequisite = { focus = FIR_the_home_islands }
+		search_filters = { FOCUS_FILTER_POLITICAL } 
+		ai_will_do = {
+			factor = 1
+		}
+		complete_tooltip = {
+			Unlocks cultural change decisions
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_A_Caltural_Change
+			set_country_flag = FIR_A_Caltural_Change
+		}
+	}
+	
+	#Focus for A National Budget
+	focus = {
+		id = FIR_a_national_budget
+		icon = GFX_focus_usa_reestablish_the_gold_standard
+		x = 27
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_strengthen_the_firelord 
+		}
+		prerequisite = { 
+			focus = FIR_mobilize_the_economy 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			custom_effect_tooltip = FIR_A_National_Budget
+			set_country_flag = Taxation_Decisions
+		}
+	}
+	#Focus for The Home Islands
+	focus = {
+		id = FIR_the_home_islands
+		icon = GFX_focus_generic_self_management
+		x = 29
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_strengthen_the_firelord 
+		}
+		prerequisite = { 
+			focus = FIR_mobilize_the_economy 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			set_country_flag = FIR_Home_Islands
+			custom_effect_tooltip = FIR_Home_Islands
+		}
+	}
+
+	#Focus for Wartime Industry
+	focus = {
+		id = FIR_wartime_industry
+		icon = GFX_focus_generic_aluminum
+		x = 9
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_new_industry_towns }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Wartime_Industry
+		}
+	}
+
+	#Focus for Aggressive Army
+	focus = {
+		id = FIR_aggressive_army
+		icon = GFX_goal_generic_occupy_states_ongoing_war
+		x = 8
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_propaganda_against_the_nomads 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Army_Of_Aggression
+		}
+	}
+	#Focus for Industrial Heartlands
+	focus = {
+		id = FIR_industrial_heartlands
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 9
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_aggressive_army }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+	#Focus for New Industry Towns
+	focus = {
+		id = FIR_new_industry_towns
+		icon = GFX_goal_generic_construct_mil_factory
+		x = 9
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_industrial_heartlands }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = arms_factory
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = arms_factory
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Secure The Shipping Routes
+	focus = {
+		id = FIR_secure_the_shipping_routes
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 1
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_naval_effort }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+  
+
+random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+	#Focus for Naval Effort
+	focus = {
+		id = FIR_naval_effort
+		icon = GFX_goal_generic_construct_naval_dockyard
+		x = 1
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_veteran_navy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			navy_experience= 50  random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 3
+ add_building_construction = {
+ type = dockyard
+ level = 3
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+		}
+	}
+
+	#Focus for Endless Sea
+	focus = {
+		id = FIR_endless_sea
+		icon = GFX_focus_generic_coastal_fort
+		x = 1
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_secure_the_shipping_routes }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state={
+ limit = {
+ free_building_slots = {
+ building = dockyard
+ size > 0
+ include_locked = yes
+ }
+
+ }
+
+ add_extra_state_shared_building_slots = 2
+ add_building_construction = {
+ type = dockyard
+ level = 2
+ instant_build = yes
+ }
+
+ set_state_flag = REPLACE_ME_WITH_UNIQUE_IDENTIFIER
+ }
+add_ideas = FIR_Endless_Sea
+		}
+	}
+
+	#Focus for Hire More Lumberjacks
+	focus = {
+		id = FIR_hire_more_lumberjacks
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 14
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_decentralized_industry 
+			focus = FIR_centralized_industry 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+	add_resource = {
+		type = aluminium
+		amount = 8
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = aluminium
+		amount = 8
+	}
+}
+		}
+	}
+	#Focus for Expand The Textile Production
+	focus = {
+		id = FIR_expand_the_textile_production
+		icon = GFX_goal_generic_trade
+		x = 16
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_decentralized_industry 
+			focus = FIR_centralized_industry 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			random_owned_controlled_state = {
+	add_resource = {
+		type = tungsten
+		amount = 8
+	}
+}
+random_owned_controlled_state = {
+	add_resource = {
+		type = tungsten
+		amount = 8
+	}
+}
+		}
+	}
+	#Focus for A Methodical Approach
+	focus = {
+		id = FIR_a_methodical_approach
+		icon = GFX_goal_generic_more_territorial_claims
+		x = 3
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_new_generals }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_A_Methodical_Approach
+		}
+	}
+	#Focus for Trained Firebenders
+	focus = {
+		id = FIR_trained_firebenders
+		icon = GFX_focus_prc_infiltration
+		x = 4
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_conquest_plans }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Trained_Firebenders
+		}
+	}
+	#Focus for Better Uniforms
+	focus = {
+		id = FIR_better_uniforms
+		icon = GFX_focus_usa_honor_the_confederacy
+		x = 4
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_trained_firebenders }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas= FIR_Better_Uniforms
+		}
+	}
+
+	#Focus for Pohuai Colony
+	focus = {
+		id = FIR_pohuai_colony
+		icon = GFX_goal_anschluss
+		x = 23
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_pohuai_buildup }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 155
+		}
+		completion_reward = {
+			set_country_flag= FIR_Pohuai_Colony
+			custom_effect_tooltip = FIR_Pohuai_Colony
+		}
+	}
+	#Focus for Han Tui Buildup
+	focus = {
+		id = FIR_han_tui_buildup
+		icon = GFX_goal_generic_air_production
+		x = 31
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_colonization_of_the_world }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 244
+		}
+		completion_reward = {
+			set_country_flag= FIR_Han_Tui_Buildup
+			custom_effect_tooltip = FIR_Han_Tui_Buildup
+		}
+	}
+	#Focus for Makapu Colony
+	focus = {
+		id = FIR_makapu_colony
+		icon = GFX_goal_anschluss
+		x = 25
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_makapu_bulidup }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 227
+		}
+		completion_reward = {
+			set_country_flag= FIR_Makapu_Colony
+			custom_effect_tooltip = FIR_Makapu_Colony
+		}
+	}
+	#Focus for Tienhai Colony
+	focus = {
+		id = FIR_tienhai_colony
+		icon = GFX_goal_anschluss
+		x = 29
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_tienhai_buildup }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 171
+		}
+		completion_reward = {
+			set_country_flag= FIR_Tienhai_Colony
+			custom_effect_tooltip = FIR_Tienhai_Colony
+		}
+	}
+	#Focus for Yu Dao Buildup
+	focus = {
+		id = FIR_yu_dao_buildup
+		icon = GFX_goal_generic_air_production
+		x = 27
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_colonization_of_the_world }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 230
+		}
+		completion_reward = {
+			set_country_flag= FIR_Yu_Dao_Buildup
+			custom_effect_tooltip = FIR_Yu_Dao_Buildup
+		}
+	}
+	#Focus for Yu Dao Colony
+	focus = {
+		id = FIR_yu_dao_colony
+		icon = GFX_goal_anschluss
+		x = 27
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_yu_dao_buildup }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 230
+		}
+		completion_reward = {
+			set_country_flag= FIR_Yu_Dao_Colony
+			custom_effect_tooltip = FIR_Yu_Dao_Colony
+		}
+	}
+	#Focus for Tienhai Buildup
+	focus = {
+		id = FIR_tienhai_buildup
+		icon = GFX_goal_generic_air_production
+		x = 29
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_colonization_of_the_world }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 171
+		}
+		completion_reward = {
+			set_country_flag= FIR_Tienhai_Buildup
+			custom_effect_tooltip = FIR_Tienhai_Buildup
+		}
+	}
+	#Focus for Makapu Bulidup
+	focus = {
+		id = FIR_makapu_bulidup
+		icon = GFX_goal_generic_air_production
+		x = 25
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_colonization_of_the_world }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 227
+		}
+		completion_reward = {
+			set_country_flag= FIR_Makapu_Buildup
+			custom_effect_tooltip = FIR_Makapu_Buildup
+		}
+	}
+	#Focus for Pohuai Buildup
+	focus = {
+		id = FIR_pohuai_buildup
+		icon = GFX_goal_generic_air_production
+		x = 23
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_colonization_of_the_world }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 155
+		}
+		completion_reward = {
+			set_country_flag= FIR_Pohuai_Buildup
+			custom_effect_tooltip = FIR_Pohuai_Buildup
+		}
+	}
+	#Focus for Han Tui Colony
+	focus = {
+		id = FIR_han_tui_colony
+		icon = GFX_goal_anschluss
+		x = 31
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_han_tui_buildup }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 244
+		}
+		completion_reward = {
+			set_country_flag= FIR_Han_Tui_Colony
+			custom_effect_tooltip = FIR_Han_Tui_Colony
+		}
+	}
+	#Focus for A Colonial Empire
+	focus = {
+		id = FIR_a_colonial_empire
+		icon = GFX_focus_spa_strengthen_the_supreme_reality_of_spain
+		x = 27
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_han_tui_colony 
+		}
+		prerequisite = { 
+			focus = FIR_yu_dao_colony 
+		}
+		prerequisite = { 
+			focus = FIR_tienhai_colony 
+		}
+		prerequisite = { 
+			focus = FIR_makapu_colony 
+		}
+		prerequisite = { 
+			focus = FIR_pohuai_colony 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1  add_stability= 0.1  add_political_power= 200
+		}
+	}
+
+	#Focus for Propaganda Against The Nomads
+	focus = {
+		id = FIR_propaganda_against_the_nomads
+		icon = GFX_goal_tfv_saf_anti_colonialist_crusade
+		x = 8
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_report_from_kaja }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.1
+		}
+	}
+	#Focus for Seal The Catacombs
+	focus = {
+		id = FIR_seal_the_catacombs
+		icon = GFX_focus_generic_military_academy
+		x = 12
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_military_youth }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100  add_stability= 0.05
+		}
+	}
+
+	#Focus for Destroy Taku
+	focus = {
+		id = FIR_destroy_taku
+		icon = GFX_goal_generic_attack_allies
+		x = 23
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_pohuai_colony }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 154
+		}
+		completion_reward = {
+			154 = {
+damage_building= { 
+type = industrial_complex 
+damage = 1 
+}
+damage_building= { 
+type = arms_factory
+damage = 1 
+}
+damage_building= { 
+type = infrastructure
+damage = 1 
+}
+add_manpower = -20000
+}
+		}
+	}
+	#Focus for Purge Han Tui
+	focus = {
+		id = FIR_purge_han_tui
+		icon = GFX_goal_generic_attack_allies
+		x = 31
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_han_tui_colony }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 243
+		}
+		completion_reward = {
+			243 = {
+damage_building= { 
+type = industrial_complex 
+damage = 1 
+}
+damage_building= { 
+type = arms_factory
+damage = 1 
+}
+damage_building= { 
+type = infrastructure
+damage = 1 
+}
+add_manpower = -20000
+}
+		}
+	}
+	#Focus for A Report From Kaja
+	focus = {
+		id = FIR_a_report_from_kaja
+		icon = GFX_focus_hol_the_foundations_of_defense
+		x = 8
+		y = 2
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_air_nomads_genocide }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= -0.05  add_political_power= 150  add_war_support= -0.05
+		}
+	}
+	#Focus for Use The Education For Propaganda
+	focus = {
+		id = FIR_use_the_education_for_propaganda
+		icon = GFX_goal_generic_propaganda
+		x = 12
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_seal_the_catacombs }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= 0.05
+			if = {
+				limit = {
+					NOT = { has_idea = mandatory_education }
+					NOT = { has_idea = indoctrination }
+				}
+				add_ideas = mandatory_education        
+			}
+			else_if = {
+				limit = {
+					NOT = { has_idea = indoctrination }
+				}
+				add_ideas = indoctrination       
+			}
+            	else = {
+                	add_political_power = 150
+            	}
+		}
+	}
+	#Focus for Battle Of Hu Xin
+	focus = {
+		id = FIR_battle_of_hu_xin
+		icon = GFX_focus_focus_fra_fascist_threat
+		x = 6
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_battle_of_han_tui }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 62
+		}
+		completion_reward = {
+			add_stability= 0.05  add_war_support= 0.05  
+			random_unit_leader = { add_unit_leader_trait = stoic }
+			random_unit_leader = { add_unit_leader_trait = reckless }
+		}
+	}
+	#Focus for Battle Of Garsai
+	focus = {
+		id = FIR_battle_of_garsai
+		icon = GFX_focus_eng_special_air_service
+		x = 4
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_battle_of_han_tui }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			controls_state = 124
+		}
+		completion_reward = {
+			army_experience= 25  add_political_power= 100 
+			random_unit_leader = { add_unit_leader_trait = ruthless }
+			random_unit_leader = { add_unit_leader_trait = defensive_strategist }
+		}
+	}
+		#Focus for Oppose The Royale Dictatorship
+	focus = {
+		id = FIR_oppose_the_royale_dictatorship
+		icon = GFX_focus_rom_abdicate
+		x = 37
+		y = 3
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_weaken_the_firelord }
+		mutually_exclusive = { focus = FIR_a_new_unity }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = imperialism 
+popularity = -0.10 
+}
+		}
+	}
+	#Focus for A Royal Wedding
+	focus = {
+		id = FIR_a_royal_wedding
+		icon = GFX_focus_generic_royal_wedding
+		x = 36
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_the_crownation }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			monarchism > 0.4
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = monarchism
+popularity = 0.1 
+}
+add_stability= 0.2  add_political_power= 100
+add_war_support= 0.05
+		}
+	}
+	#Focus for Resist The War
+	focus = {
+		id = FIR_resist_the_war
+		icon = GFX_goal_continuous_boost_freedom
+		x = 40
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_oppose_the_royale_dictatorship }
+		mutually_exclusive = { 
+			focus = FIR_inspiration_from_the_tribes 
+		}
+		mutually_exclusive = { 
+			focus = FIR_a_new_monarchy 
+		}
+		mutually_exclusive = { 
+			focus = FIR_establish_a_democratic_movement 
+		}
+		mutually_exclusive = { 
+			focus = FIR_ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_war= yes
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = pacifism 
+popularity = 0.15 
+}
+#unlock advisor!!!!
+		}
+	}
+	#Focus for Establish A Democratic Movement
+	focus = {
+		id = FIR_establish_a_democratic_movement
+		icon = GFX_goal_support_democracy
+		x = 34
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_oppose_the_royale_dictatorship }
+		mutually_exclusive = { 
+			focus = FIR_inspiration_from_the_tribes 
+		}
+		mutually_exclusive = { 
+			focus = FIR_a_new_monarchy 
+		}
+		mutually_exclusive = { 
+			focus = FIR_resist_the_war 
+		}
+		mutually_exclusive = { 
+			focus = FIR_ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratica
+popularity = 0.15 
+}
+#unlock advisor!!!!
+		}
+	}
+	#Focus for A New Monarchy
+	focus = {
+		id = FIR_a_new_monarchy
+		icon = GFX_focus_por_the_kingdom_reunited
+		x = 36
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_oppose_the_royale_dictatorship }
+		mutually_exclusive = { 
+			focus = FIR_inspiration_from_the_tribes 
+		}
+		mutually_exclusive = { 
+			focus = FIR_establish_a_democratic_movement 
+		}
+		mutually_exclusive = { 
+			focus = FIR_resist_the_war 
+		}
+		mutually_exclusive = { 
+			focus = FIR_ 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = monarchism 
+popularity = 0.15 
+}
+#unlock advisor!!!!
+		}
+	}
+	#Focus for Inspiration From The Tribes
+	focus = {
+		id = FIR_inspiration_from_the_tribes
+		icon = GFX_goal_continuous_increase_nu
+		x = 38
+		y = 4
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_oppose_the_royale_dictatorship }
+		mutually_exclusive = { 
+			focus = FIR_establish_a_democratic_movement 
+		}
+		mutually_exclusive = { 
+			focus = FIR_a_new_monarchy 
+		}
+		mutually_exclusive = { 
+			focus = FIR_resist_the_war 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = tribalism 
+popularity = 0.15 
+}
+#unlock advisor!!!!
+		}
+	}
+	#Focus for Strengthen The Real Ruler
+	focus = {
+		id = FIR_strengthen_the_real_ruler
+		icon = GFX_focus_por_remember_olivenca
+		x = 36
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_new_monarchy }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_political_power= 100  add_ideas= FIR_Strengthen_The_Real_Ruler
+		}
+	}
+	#Focus for A Democratic Party
+	focus = {
+		id = FIR_a_democratic_party
+		icon = GFX_focus_generic_the_giant_wakes
+		x = 34
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_establish_a_democratic_movement }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_stability= 0.05  add_ideas= FIR_A_Democratic_Party
+		}
+	}
+	#Focus for Anti War Force
+	focus = {
+		id = FIR_anti_war_force
+		icon = GFX_focus_generic_diplomatic_treaty
+		x = 40
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_resist_the_war }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_war_support= -0.1  add_political_power= 120  add_ideas= FIR_Anti_War_Force
+		}
+	}
+	#Focus for Demand A Referendum
+	focus = {
+		id = FIR_demand_a_referendum
+		icon = GFX_goal_demand_sudetenland
+		x = 34
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_democratic_party }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			democratica > 0.4
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = democratica 
+elections_allowed = yes 
+}
+add_stability= 0.1
+		}
+	}
+	#Focus for Write A Constitution
+	focus = {
+		id = FIR_write_a_constitution
+		icon = GFX_focus_generic_treaty
+		x = 34
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_demand_a_referendum }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			democratica > 0.4
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = democratica 
+popularity = 0.2 
+}
+  add_stability= 0.2  add_political_power= 200
+		}
+	}
+	#Focus for The Crownation
+	focus = {
+		id = FIR_the_crownation
+		icon = GFX_focus_por_reclaim_crown_jewel
+		x = 36
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_strengthen_the_real_ruler }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			monarchism > 0.4
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = monarchism
+elections_allowed = no
+}
+add_political_power= 100
+		}
+	}
+	#Focus for A Nonviolent Struggle
+	focus = {
+		id = FIR_a_nonviolent_struggle
+		icon = GFX_goal_generic_major_alliance
+		x = 40
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_anti_war_force }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			pacifism > 0.4
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = pacifism
+elections_allowed = no
+}
+add_stability= 0.1
+		}
+	}
+	#Focus for End The Wars
+	focus = {
+		id = FIR_end_the_wars
+		icon = GFX_focus_spr_torchbearers_of_tomorrow
+		x = 40
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_a_nonviolent_struggle }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			has_offensive_war= yes
+		}
+		completion_reward = {
+			white_peace = NWT
+white_peace = SWT 
+white_peace = NAT 
+white_peace = EAT
+white_peace = SAT 
+white_peace = WAT 
+white_peace = SNW
+white_peace = EAR
+white_peace = KYI
+white_peace = OMS
+white_peace = BSS
+white_peace = GAO
+white_peace = POH
+white_peace = TAK
+white_peace = XIN
+white_peace = WUL
+white_peace = MAK
+white_peace = NOW
+white_peace = HAN
+white_peace = GAR
+white_peace = NIX
+white_peace = YUE
+white_peace = CHN
+white_peace = ZAO
+white_peace = SWA
+white_peace = MPO
+white_peace = NAN
+white_peace = ZIN
+white_peace = YII
+white_peace = HEB 
+white_peace = ISL
+white_peace = NCB
+white_peace = ECB
+white_peace = EBA
+white_peace = WBA
+white_peace = LAM
+white_peace = GDD
+white_peace = FMB
+white_peace = MER
+white_peace = PIR
+		}
+	}
+	#Focus for Tribalism Is The True Way
+	focus = {
+		id = FIR_tribalism_is_the_true_way
+		icon = GFX_goal_tripartite_pact
+		x = 38
+		y = 5
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_inspiration_from_the_tribes }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_ideas = FIR_Tribalism_Is_The_True_Way
+add_stability= 0.05
+		}
+	}
+	#Focus for The Fire Tribe
+	focus = {
+		id = FIR_the_fire_tribe
+		icon = GFX_focus_smiling_buddha
+		x = 38
+		y = 6
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_tribalism_is_the_true_way }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			tribalism > 0.4
+		}
+		completion_reward = {
+			set_politics= {
+ ruling_party = tribalism
+elections_allowed = no
+}
+add_stability= 0.1
+		}
+	}
+	#Focus for A New Tribal Calture
+	focus = {
+		id = FIR_a_new_tribal_calture
+		icon = GFX_goal_generic_neutrality_focus
+		x = 38
+		y = 7
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_the_fire_tribe }
+		ai_will_do = {
+			factor = 1
+		}
+		available = {
+			tribalism > 0.4
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = tribalism
+popularity = 0.15 
+}
+add_stability= 0.3
+		}
+	}
+	#Focus for Attack The Real Enemies
+	focus = {
+		id = FIR_attack_the_real_enemies
+		icon = GFX_focus_generic_air_defense
+		x = 36
+		y = 8
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { 
+			focus = FIR_a_new_tribal_calture 
+			focus = FIR_a_royal_wedding 
+			focus = FIR_write_a_constitution 
+		}
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			if = { limit = { tribalism > 0.4 } 
+	create_wargoal = { type = annex_everything target = EAR } }
+if = { limit = { democratica > 0.4 } 
+	create_wargoal = { type = annex_everything target = NWT }
+	create_wargoal = { type = annex_everything target = EAR } }
+if = { limit = { monarchism > 0.4 } 
+	create_wargoal = { type = annex_everything target = NWT } }
+		}
+	}
+	
+	#Focus for The Nation's Cabinet
+	focus = {
+		id = FIR_the_nations_cabinet
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		x = 32
+		y = 1
+		cost = 0.7
+		available_if_capitulated = yes
+		prerequisite = { focus = FIR_form_a_cabinet }
+		mutually_exclusive = { focus = FIR_the_firelords_cabinet }
+		ai_will_do = {
+			factor = 1
+		}
+		completion_reward = {
+			add_popularity= { 
+ideology = imperialism 
+popularity = -0.05 
+}
+add_stability= 0.05  add_political_power= 100
+		}
+	}
+
+
+#end
+ }

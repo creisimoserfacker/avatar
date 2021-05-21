@@ -7,5 +7,1061 @@ focus_tree = {
 			tag = NWT
 		}
 	}
-	default = no
+	focus = {
+		id = NWT_Industrial_Expansion
+		text = Industrial_Expansion
+		icon = GFX_goal_generic_construction
+		cost = 10.00
+		x = 2
+		y = 0
+        ai_will_do = { 
+ 			factor = 5
+ 		} 
+	completion_reward = {
+ 		  random_owned_controlled_state = {
+		  limit = {
+		  manufactory  > 0
+		  free_building_slots = {
+						building = manufactory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = manufactory
+					level = 2
+					instant_build = yes
+				    
+				} 
+			}
+			 manufactory  > 0
+		  free_building_slots = {
+						building = manufactory
+						size > 1
+						include_locked = yes
+					}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = manufactory
+					level = 2
+					instant_build = yes
+				    }
+				} 
+			}
+	
+	
+	focus = {
+		id = NWT_Military_Expansion
+		text = Military_Expansion
+		icon = GFX_goal_generic_construct_mil_factory
+		cost = 10.00
+		x = 9
+		y = 0
+        ai_will_do = { 
+ 			factor = 100
+ 		} 
+
+ 		completion_reward = {
+		random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	
+	
+	focus = {
+		id = NWT_Second_Expansion
+		text = Second_Expansion
+		icon = GFX_goal_generic_construction2
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Industrial_Expansion
+		}
+		x = 4
+		y = 2
+        ai_will_do = { 
+ 			factor = 20
+ 		} 
+
+ 		completion_reward = {
+        random_owned_controlled_state = {
+		  limit = {
+		  manufactory  > 0
+		  free_building_slots = {
+						building = manufactory
+						size > 1
+						include_locked = yes
+					}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = manufactory
+					level = 2
+					instant_build = yes
+				    
+				} 
+			 manufactory  > 0
+		  free_building_slots = {
+						building = manufactory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = manufactory
+					level = 2
+					instant_build = yes
+				    
+				} 
+			}
+		}
+	}
+		
+		
+	focus = {
+		id = NWT_Call_For_Elections
+		text = Call_For_Elections
+		icon = GFX_goal_support_democracy
+		cost = 10.00
+		x = 17
+		y = 0
+        ai_will_do = { 
+ 	    factor = 100
+ 		} 
+
+ 		completion_reward = {
+		add_political_power = 200
+		}
+	}
+
+
+	focus = {
+		id = NWT_Ship_Effort
+		text = Ship_Effort
+		icon = GFX_focus_generic_cruiser2
+		cost = 10.00
+		x = 26
+		y = 0
+        ai_will_do = {
+		factor = 1
+		completion_reward = {
+		}
+	}
+
+
+	focus = {
+		id = NWT_Army_Effort
+		text = Army_Effort
+		icon = GFX_focus_generic_license_production
+		cost = 10.00
+		x = 26
+		y = 6
+                ai_will_do = { 
+ 	    factor = 5
+ 		} 
+
+ 		completion_reward = {
+		add_tech_bonus = {
+				name = spear_equipment
+				bonus = 2.0
+				uses = 1
+				category = infarty_equipment
+			}
+		}
+	}
+		
+
+	focus = {
+		id = NWT_Election_Day
+		text = Election_Day
+		icon = GFX_goal_tripartite_pact
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Call_For_Elections
+		}
+		x = 0
+		y = 2
+		relative_position_id = NWT_Call_For_Elections
+		ai_will_do = {
+			factor = 100
+		}	
+		completion_reward = {
+			country_event = { id = Ideologies_Change }
+
+			}
+		}
+	
+
+
+	focus = {
+		id = NWT_Second_Military_Expansion
+		text = Second_Military_Expansion
+		icon = GFX_goal_generic_army_tanks
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Military_Expansion
+		}
+		x = 8
+		y = 2
+       ai_will_do = {
+	      factor = 50
+		}
+	   completion_reward = {
+		random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 1
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			random_owned_controlled_state = {
+				limit = {
+					factory > 0
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_extra_state_shared_building_slots = 2
+				add_building_construction = {
+					type = factory
+					level = 2
+					instant_build = yes
+				}
+			}
+			
+		}
+	}
+	
+	focus = {
+		id = NWT_Opening_New_Ports
+		text = Opening_New_Ports
+		icon = GFX_goal_generic_construct_naval_dockyard
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Second_Industrial_Expan.
+		}
+		prerequisite = {
+			focus = NWT_Second_Military_Expansion
+		}
+		x = 6
+		y = 3
+		completion_reward = {
+		  1 = {
+				add_building_construction = {
+					type = naval_base
+					province = 3449
+					level = 5
+					instant_build = yes
+				}
+			}
+		}
+
+	}
+	focus = {
+		id = NWT_University
+		text = University_of_Ours
+		icon = GFX_goal_generic_scientific_exchange
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Opening_New_Ports
+		}
+		x = 2
+		y = 1
+		completion_reward = {
+		 add_research_slot = 1
+		}
+	}
+
+	focus = {
+		id = NWT_Open_More_Jobs
+		text = Open_More_Jobs
+		icon = GFX_focus_generic_industry_3
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Opening_New_Ports
+		}
+		x = 4
+		y = 4
+		completion_reward = { 
+		add_ideas = More_Jobs
+		}
+
+	}
+	focus = {
+		id = NWT_Construction_Of_Roads
+		text = Construction_of_Roads
+		icon = GFX_goal_generic_construct_infrastructure
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Opening_New_Ports
+		}
+		x = 6
+		y = 5
+		ai_will_do = {
+			factor = 12
+		}
+
+		available = {
+			OR = {
+				has_full_control_of_state = 93
+				has_full_control_of_state = 90
+				has_full_control_of_state = 91
+				has_full_control_of_state = 95
+			}
+		}
+		completion_reward = {
+			custom_effect_tooltip = GER_autobahn_tt
+			hidden_effect = {
+				93 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				90 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				91 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+				95 = {
+					if = {
+						limit = { is_controlled_by = ROOT }
+						add_building_construction = {
+							type = infrastructure
+							level = 5
+							instant_build = yes
+						}
+					}
+				}
+			}		
+		}
+	}
+
+	focus = {
+		id = NWT_Military_Focus
+		text = Military_Focus
+		icon = GFX_focus_generic_combined_arms
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Second_Military_Expansion
+		}
+		x = 10
+		y = 3
+		ai_will_do = {
+			factor = 20
+		}
+
+		available_if_capitulated = yes
+
+		completion_reward = {
+			
+			army_experience = 20
+
+			
+			add_tech_bonus = {
+				name = sword_equipment
+				bonus = 1.0
+				uses = 2
+				category = infarty_equipment
+			}
+		}
+	}
+
+
+	focus = {
+		id = NWT_Call_For_Imperialism
+		text = Call_For_Imperialism
+		icon = GFX_goal_generic_political_pressure
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Election_Day
+		}
+		mutually_exclusive = {
+			focus = NWT_Call_For_King
+		}
+		x = 13
+		y = 4
+        ai_will_do = {
+		 factor = 100
+	}
+	completion_reward = {
+	 add_popularity = {
+             ideology = imperialism
+             popularity = 0.15
+    }
 }
+}
+
+	focus = {
+		id = NWT_Make_Imperialist_Lord
+		text = Make_Imperialist_Lord
+		icon = GFX_focus_eng_organise_the_blackshirts
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Call_For_Imperialism
+		}
+		x = 13
+		y = 6
+       ai_will_do = {
+	   factor = 100
+	   }
+	   completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			hidden_effect = {
+				kill_country_leader = yes
+			}
+			set_politics = { ruling_party = imperialism elections_allowed = no }
+			add_popularity = { ideology = imperialism popularity = 0.20 }
+			create_country_leader = {
+				name = "Zunio-Oi"
+				desc = "POLITICS_EDWARD_EDWARD_DESC"
+				picture = "GFX_goal_unknown"
+				expire = "1965.1.1"
+				ideology = imperialism
+				traits = {
+					autocratic_imperialist
+					dictator
+					warmonger
+				}
+			}
+		}	
+	    }
+	 focus = {
+		id = NWT_Call_For_King
+		text = Call_For_King
+		icon = GFX_goal_tfv_sever_ties_with_uk
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Election_Day
+		}
+		mutually_exclusive = {
+			focus = NWT_Call_For_Imperialism
+			focus = NWT_Call_For_Democrats
+		}
+		x = 17
+		y = 4
+        ai_will_do = {
+		factor = 1
+		}
+		        completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			hidden_effect = {
+				kill_country_leader = yes
+			}
+			set_politics = { ruling_party = monarchism elections_allowed = no }
+			add_popularity = { ideology = monarchism popularity = 0.20 }
+			create_country_leader = {
+				name = "Quo-Ma"
+				desc = "POLITICS_EDWARD_EDWARD_DESC"
+				picture = "GFX_goal_unknown"
+				expire = "1965.1.1"
+				ideology = monarchism
+				traits = {
+					dictator
+					headstrong
+					
+				}
+			}
+		}
+
+	}
+	
+	focus = {
+		id = NWT_Form_Kingdoom
+		text = Form_Kingdoom
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Call_For_King
+		}
+		x = 17
+		y = 6
+		ai_will_do = {
+		factor = 20
+		}
+		completion_reward = {
+		add_ideas = Form_Kingdoom
+		}
+	}
+     
+		
+
+	focus = {
+		id = NWT_Our_Decision
+		text = Our_Decision
+		icon = GFX_focus_hol_the_foundations_of_defense
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Make_Imperialist_Lord
+			focus = NWT_Form_Kingdoom
+		}
+		mutually_exclusive = {
+			focus = NWT_Don't do anything
+		}
+		x = 15
+		y = 8
+		ai_will_do = {
+		factor = 100 
+		}
+		completion_reward = { add_political_power 100 }
+	    }
+		
+	
+
+	}
+	focus = {
+		id = NWT_Help_Earth_Kingdoom
+		text = Help_Earth_Kingdoom
+		icon = GFX_focus_generic_support_the_left_right
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Our_Decision
+		}
+		mutually_exclusive = {
+			focus = NWT_Help_Fire_Nation
+		}
+		x = 12
+		y = 10
+		ai_will_do = {
+		factor = 10
+		}
+		completion_reward = {
+		add_ideas = With_Earth_Kingdoom
+		}
+	}
+		
+
+	focus = {
+		id = NWT_Send_Troops_In_EAR
+		text = Send_Troops_In_EAR
+		icon = GFX_focus_eng_move_to_secure_the_dominions
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Help_Earth_Kingdoom
+		}
+		x = 10
+		y = 11
+		ai_will_do = { factor = 1 }
+		completion_reward = {
+		army_experience = 20
+		}
+	}
+
+	focus = {
+		id = NWT_Call_For_Democrats
+		text = Call_for_Democracy
+		icon = GFX_focus_rom_parties_end
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Election_Day
+		}
+		mutually_exclusive = {
+			focus = NWT_Call_For_King
+		}
+		x = 21
+		y = 4
+		  ai_will_do = {
+		 factor = 100
+	}
+	completion_reward = {
+	 add_popularity = {
+             ideology = democratica
+             popularity = 0.20
+        }
+    }
+	}
+	
+	
+	focus = {
+		id = NWT_Form_Democratic_Regime
+		text = Form_Democratic_Regime
+		icon = GFX_goal_continuous_boost_freedom
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Call_For_Democrats
+		}
+		x = 21
+		y = 6
+		 ai_will_do = {
+		factor = 1
+		}
+		        completion_reward = {
+			set_rule = { can_send_volunteers = yes }
+			hidden_effect = {
+				kill_country_leader = yes
+			}
+			set_politics = { ruling_party = democratica elections_allowed = yes }
+			add_popularity = { ideology = democratica popularity = 0.20 }
+			create_country_leader = {
+				name = "Muo-Sho"
+				desc = "POLITICS_EDWARD_EDWARD_DESC"
+				picture = "GFX_goal_unknown"
+				expire = "1965.1.1"
+				ideology = despotism
+				traits = {
+					headstrong
+					
+				}
+			}
+		}
+
+        
+	}
+	focus = {
+		id = NWT_Don't_do_anything
+		text = Don't_do_anything
+		icon = GFX_goal_continuous_def_against_influence
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Form_Kingdoom
+			focus = NWT_Form_Democratic_Regime
+		}
+		mutually_exclusive = {
+			focus = NWT_Our_Decision
+		}
+		x = 19
+		y = 8
+		ai_will_do = { 
+		factor = 1 
+		}
+		completion_reward = {
+		add_political_power 100
+		}
+	}
+	
+	
+	focus = {
+		id = NWT_Study_Forein_Weapons
+		text = Study_Forein_Weapons
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Our_Decision
+			focus = NWT_Don't do anything
+		}
+		x = 17
+		y = 9
+		ai_will_do = {
+		factor = 20 
+		}
+		completion_reward = {
+			
+			army_experience = 20
+
+			
+			add_tech_bonus = {
+				name = sword_equipment
+				bonus = 1.0
+				uses = 2
+				category = infarty_equipment
+			}
+		}
+	}
+       
+
+	focus = {
+		id = NWT_Cruiser_Effort
+		text = Cruiser_Effort
+		icon = GFX_goal_generic_navy_battleship
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Ship_Effort
+		}
+		x = 24
+		y = 1
+        }
+
+	focus = {
+		id = NWT_Cruiser_Effort_2
+		text = Cruiser_Effort_2
+		icon = GFX_goal_generic_amphibious_assault
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Cruiser_Effort
+		}
+		x = 24
+		y = 3
+        }
+
+	focus = {
+		id = NWT_New_Armor
+		text = New_Armor
+		icon = GFX_goal_generic_small_arms
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Army_Effort
+		}
+		x = 24
+		y = 8
+				ai_will_do = {
+		factor = 20 
+		}
+		completion_reward = {
+			
+			army_experience = 20
+
+			
+			add_tech_bonus = {
+				name = light_armor_equipment
+				bonus = 1.0
+				uses = 1
+				category = infarty_equipment
+			}
+		}
+	}
+       
+
+
+	focus = {
+		id = NWT_Frigate_Effort
+		text = Frigate_Effort
+		icon = GFX_goal_generic_navy_carrier
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Ship_Effort
+		}
+		x = 26
+		y = 2
+        }
+
+
+	focus = {
+		id = NWT_New_Bending_Equipment
+		text = New_Bending_Equipment
+		icon = GFX_focus_RAJ_indian_gurkhas
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Army_Effort
+		}
+		x = 26
+		y = 9
+				ai_will_do = {
+		factor = 20 
+		}
+		completion_reward = {
+			
+			army_experience = 20
+
+			
+			add_tech_bonus = {
+				name = heavy_armor_equipment
+				bonus = 1.0
+				uses = 1
+				category = infarty_equipment
+			}
+		}
+	}
+
+
+	focus = {
+		id = NWT_Research_Compabilities
+		text = Research_Compabilities
+		icon = GFX_goal_continuous_research
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Second_Expansion.
+		}
+		x = 2
+		y = 3
+		ai_will_do = {
+		factor = 100
+		}
+		completion_reward = {
+		add_ideas = Research_Modifier
+		}
+	}
+
+
+	focus = {
+		id = NWT_Help_Fire_Nation
+		text = Help_Fire_Nation
+		icon = GFX_goal_generic_forceful_treaty
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Our_Decision
+		}
+		mutually_exclusive = {
+			focus = NWT_Help_Earth_Kingdoom
+		}
+		x = 15
+		y = 10
+		ai_will_do = { 
+		factor = 100
+		}
+		completion_reward = {
+		add_ideas = With_Fire_Nation
+		}
+	}
+
+
+	focus = {
+		id = NWT_Operaton_Unthinkable
+		text = Operation_Unthinkable
+		icon = GFX_focus_generic_strike_at_democracy1
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Help_Earth_Kingdoom
+		}
+		x = 12
+		y = 12
+        ai_will_do = {
+		factor = 1 
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = FIR
+			}
+		}
+	}
+
+	focus = {
+		id = NWT_Send_Troops_In_FIR
+		text = Send_Troops_In_FIR
+		icon = GFX_focus_eng_expose_the_belly_of_the_bear
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Help_Fire_Nation
+		}
+		x = 17
+		y = 11
+        ai_will_do = {
+		factor = 100
+		}
+		completion_reward = {
+          army_experience = 20
+		 
+			}
+		}
+
+	focus = {
+		id = NWT_Operation_Chaos
+		text = Operation_Chaos
+		icon = GFX_focus_generic_little_entente
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Help_Fire_Nation
+		}
+		x = 15
+		y = 12
+		ai_will_do = {
+		factor = 100 
+		}
+		completion_reward = {
+			create_wargoal = {
+				type = annex_everything
+				target = EAR
+			}
+		}
+	}
+
+
+	focus = {
+		id = NWT_Ban_War_Media
+		text = Ban_War_Media
+		icon = GFX_goal_continuous_boost_freedom
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Don't do anything
+		}
+		x = 19
+		y = 10
+		ai_will_do = {
+		factor = 1
+		}
+		completion_reward = { add_political_power = 100 }
+
+	}
+	focus = {
+		id = NWT_Canoe_Effort
+		text = Canoe_Effort
+		icon = GFX_goal_generic_navy_anti_submarine
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Ship_Effort
+		}
+		x = 28
+		y = 1
+		}
+
+	focus = {
+		id = NWT_Long_Boat_Effort
+		text = Long_Boat_Effort
+		icon = GFX_focus_generic_destroyer
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Canoe_Effort
+		}
+		x = 28
+		y = 3
+		}
+
+
+	focus = {
+		id = NWT_Submarine_Effort
+		text = Submarine_Effort
+		icon = GFX_goal_generic_navy_submarine
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Frigate_Effort
+		}
+		x = 0
+		y = 2
+		relative_position_id = NWT_Frigate_Effort
+		}
+
+
+	focus = {
+		id = NWT_New_Spears
+		text = New_Spears
+		icon = GFX_focus_generic_army_tanks2
+		cost = 10.00
+		prerequisite = {
+			focus = NWT_Army_Effort
+		}
+		x = 28
+		y = 8
+		               ai_will_do = { 
+ 	    factor = 5
+ 		} 
+
+ 		completion_reward = {
+		add_tech_bonus = {
+				name = spear_equipment
+				bonus = 2.0
+				uses = 1
+				category = infarty_equipment
+            }
+	    }
+    }
+}
+
+
+	
+
