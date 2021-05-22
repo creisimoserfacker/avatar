@@ -51,6 +51,8 @@ country_event = {
 			FIR = { country_event = { id = hidden.39 days = 526 } }
 			FIR = { country_event = { id = hidden.40 days = 540 } }
 			FIR = { country_event = { id = hidden.41 days = 554 } }
+			FIR = { country_event = { id = hidden.42 days = 568 } }
+			FIR = { country_event = { id = hidden.43 days = 582 } }
 		}
 	}
 	option = {
@@ -2997,6 +2999,7 @@ country_event = {
 		name = quest.117.a
 		###Join Azula- leading to Iroh's decision. If Aang didn't unlock the 7th chakra, he will get a small buff for the Avatar state control
 		EAR = { country_event = { id = quest.118 days = 0 } }
+		set_global_flag = Zuko_Joined_FN
 	}
 	option = {
 		ai_chance = { base = 1}
@@ -3147,5 +3150,101 @@ news_event = {
 	}
 	option = {
 		name = quest.123.a
+	}
+}
+
+
+##Event: Send Combustion Man?
+country_event = {
+	id = quest.124
+	title = quest.124.title
+	desc = quest.124.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Send_Combustion_Man
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.124.a
+		###send him
+		set_global_flag = Combustion_Man
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.124.b
+		###don't send him
+	}
+}
+
+
+##Event: The Headband
+news_event = {
+	id = quest.125
+	title = quest.125.title
+	desc = quest.125.desc
+	picture = GFX_ep42_news
+	major = yes
+	trigger = {
+		has_global_flag = ep42_news_a
+		NOT = { has_global_flag = ep42_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep42_news_b
+	}
+	option = {
+		name = quest.125.a
+	}
+}
+
+
+##Event: Attack Jang Hui?
+country_event = {
+	id = quest.126
+	title = quest.126.title
+	desc = quest.126.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Attack_Jang_Hui
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.126.a
+		###Attack - small chance of wounding Aang for 2 months, high chance of Aang gaining spiritual boost
+		set_global_flag = ep43_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.126.b
+		###Don't attack - Aang gains spiritual boost
+	}
+}
+
+
+##Event: The Painted Lady
+news_event = {
+	id = quest.127
+	title = quest.127.title
+	desc = quest.127.desc
+	picture = GFX_ep43_news
+	major = yes
+	trigger = {
+		has_global_flag = ep43_news_a
+		NOT = { has_global_flag = ep43_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep43_news_b
+	}
+	option = {
+		name = quest.127.a
 	}
 }

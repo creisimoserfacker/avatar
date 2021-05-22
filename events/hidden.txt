@@ -477,3 +477,30 @@ country_event = {
 		ISL = { country_event = { id = quest.122 days = 0 } }
 	}
 }
+
+country_event = {
+	id = hidden.42
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Zuko Decides if he sends Combustion man after Aang:
+		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.124 days = 0 } } }
+		#News event of the episode (Aang joins the Fire Nation's school):
+		set_global_flag = ep42_news_a
+	}
+}
+
+country_event = {
+	id = hidden.43
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Decide if attack the village after the Factory is destroyed:
+		if = { limit = { has_global_flag = Kattara_In_Team }
+			FIR = { country_event = { id = quest.126 days = 0 } } }
+	}
+}
+
