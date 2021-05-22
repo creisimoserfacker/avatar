@@ -7,6 +7,129 @@
 
 ideologies = {
 
+######################## tribalism #####################
+
+	tribalism = {
+	
+		types = {
+		
+			liberalism  = {
+			}
+			
+			comunism = {
+			}
+
+			elective_chiefdom = {
+			}
+
+			theocratic_chiefdom = {
+			}
+
+			martial_chiefdom = {
+			}
+
+		}
+
+		dynamic_faction_names = {
+			"FACTION_NAME_NONALIGNED_1"
+			"FACTION_NAME_NONALIGNED_2"
+			"FACTION_NAME_NONALIGNED_3"
+			"FACTION_NAME_NONALIGNED_4"
+			"FACTION_NAME_NONALIGNED_5"
+		}
+		
+		color = { 20 80 180 } #17 37 195 / 38 151 173
+		
+		
+		war_impact_on_world_tension = 0.25		#no major danger
+		faction_impact_on_world_tension = 0.1
+		
+		rules = {
+			can_force_government = no
+			can_puppet = yes
+			can_send_volunteers = yes
+		}
+		
+		modifiers = {
+			#increased_influence_factor = 0.3 #30% easier to influence
+			#generate_wargoal_tension = 0.5
+			join_faction_tension = 0.4
+			lend_lease_tension = 0.4
+			send_volunteers_tension = 0.4
+			guarantee_tension = 0.4
+			drift_defence_factor = -0.3	
+
+			civilian_intel_to_others = 2.5
+			army_intel_to_others = 20.0
+			navy_intel_to_others = 5.0
+			airforce_intel_to_others = 10.0
+		}
+		
+		faction_modifiers = {
+		}
+
+		can_be_boosted = no
+		can_collaborate = yes
+
+		ai_neutral = yes # 
+	}
+
+####################### monarchism #####################
+
+	monarchism = {
+		
+		types = {
+		
+			absolute_monarchie = {
+			}
+			
+			constitutional_monarchy = {
+			}
+
+			elective_monarchy = {
+			}
+		}
+		
+		dynamic_faction_names = {
+			"FACTION_NAME_COMMUNIST_1"
+			"FACTION_NAME_COMMUNIST_2"
+			"FACTION_NAME_COMMUNIST_3"
+			"FACTION_NAME_COMMUNIST_4"
+			"FACTION_NAME_COMMUNIST_5"
+		}
+		
+		color = { 0 119 0 }
+		
+		war_impact_on_world_tension = 0.75		#Commie less threatening
+		faction_impact_on_world_tension = 0.5
+		
+		ai_communist = yes # uses the commie AI behaviour
+		
+		rules = {
+			can_force_government = yes
+			can_send_volunteers = yes
+			can_puppet = yes
+		}
+
+		can_collaborate = yes
+		can_host_government_in_exile = yes
+		
+		modifiers = {
+			puppet_cost_factor = -0.3
+			hidden_modifier = { join_faction_tension = -0.1 }
+
+			civilian_intel_to_others = 5.0
+			army_intel_to_others = 10.0
+			navy_intel_to_others = 15.0
+			airforce_intel_to_others = 10.0
+		}
+		
+		faction_modifiers = {
+			
+		}
+
+	}
+
 ################### imperialism #####################
 
 	imperialism = {
@@ -54,129 +177,6 @@ ideologies = {
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
 
-####################### monarchism #####################
-
-	monarchism = {
-		
-		types = {
-		
-			absolute_monarchie = {
-			}
-			
-			constitutional_monarchy = {
-			}
-
-			elective_monarchy = {
-			}
-		}
-		
-		dynamic_faction_names = {
-			"FACTION_NAME_COMMUNIST_1"
-			"FACTION_NAME_COMMUNIST_2"
-			"FACTION_NAME_COMMUNIST_3"
-			"FACTION_NAME_COMMUNIST_4"
-			"FACTION_NAME_COMMUNIST_5"
-		}
-		
-		color = { 3 99 10 }
-		
-		war_impact_on_world_tension = 0.75		#Commie less threatening
-		faction_impact_on_world_tension = 0.5
-		
-		ai_communist = yes # uses the commie AI behaviour
-		
-		rules = {
-			can_force_government = yes
-			can_send_volunteers = yes
-			can_puppet = yes
-		}
-
-		can_collaborate = yes
-		can_host_government_in_exile = yes
-		
-		modifiers = {
-			puppet_cost_factor = -0.3
-			hidden_modifier = { join_faction_tension = -0.1 }
-
-			civilian_intel_to_others = 5.0
-			army_intel_to_others = 10.0
-			navy_intel_to_others = 15.0
-			airforce_intel_to_others = 10.0
-		}
-		
-		faction_modifiers = {
-			
-		}
-
-	}
-	
-######################## tribalism #####################
-
-	tribalism = {
-	
-		types = {
-		
-			liberalism  = {
-			}
-			
-			comunism = {
-			}
-
-			elective_chiefdom = {
-			}
-
-			theocratic_chiefdom = {
-			}
-
-			martial_chiefdom = {
-			}
-
-		}
-
-		dynamic_faction_names = {
-			"FACTION_NAME_NONALIGNED_1"
-			"FACTION_NAME_NONALIGNED_2"
-			"FACTION_NAME_NONALIGNED_3"
-			"FACTION_NAME_NONALIGNED_4"
-			"FACTION_NAME_NONALIGNED_5"
-		}
-		
-		color = { 38 151 173 }
-		
-		
-		war_impact_on_world_tension = 0.25		#no major danger
-		faction_impact_on_world_tension = 0.1
-		
-		rules = {
-			can_force_government = no
-			can_puppet = yes
-			can_send_volunteers = yes
-		}
-		
-		modifiers = {
-			#increased_influence_factor = 0.3 #30% easier to influence
-			#generate_wargoal_tension = 0.5
-			join_faction_tension = 0.4
-			lend_lease_tension = 0.4
-			send_volunteers_tension = 0.4
-			guarantee_tension = 0.4
-			drift_defence_factor = -0.3	
-
-			civilian_intel_to_others = 2.5
-			army_intel_to_others = 20.0
-			navy_intel_to_others = 5.0
-			airforce_intel_to_others = 10.0
-		}
-		
-		faction_modifiers = {
-		}
-
-		can_be_boosted = no
-		can_collaborate = yes
-
-		ai_neutral = yes # 
-	}
-
 ######################## pacifism ####################
 
 	pacifism = {
@@ -199,7 +199,7 @@ ideologies = {
 			"FACTION_NAME_DEMOCRATIC_6"
 		}
 		
-		color = { 227 168 45 }
+		color = { 255 255 255 }
 		
 		rules = {
 			can_create_collaboration_government = no
@@ -273,7 +273,7 @@ ideologies = {
 			"FACTION_NAME_FASCIST_5"
 		}
 		
-		color = { 25 25 25 }
+		color = { 65 65 65 }
 		
 		rules = {
 			can_create_collaboration_government = no
