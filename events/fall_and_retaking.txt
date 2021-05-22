@@ -630,3 +630,178 @@ news_event = {
 		trigger = { has_country_flag = earth_nation }
 	}
 }
+
+news_event = {
+	id = far_news.14
+	title = far_news.14.t
+	desc = far_news.14.d
+	picture = GFX_far_news_event_013
+	
+	major = yes
+	
+	trigger = {
+		85 = { is_owned_by = SWT }
+		85 = { is_controlled_by = FIR }
+		FIR = { has_war_with = SWT }
+		NOT = { has_global_flag = fall_of_the_south }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_the_south
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = far_news.14.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+				TAG = SWT
+			}
+		}
+	}
+	option = {
+		name = far_news.14.b
+		trigger = { TAG = FIR }
+	}
+	option = {
+		name = far_news.14.c
+		trigger = { TAG = SWT }
+	}
+}
+
+news_event = {
+	id = far_news.15
+	title = far_news.15.t
+	desc = far_news.15.d
+	picture = GFX_far_news_event_015
+	
+	major = yes
+	
+	trigger = {
+		17 = { is_owned_by = NWT }
+		17 = { is_controlled_by = FIR }
+		FIR = { has_war_with = NWT }
+		NOT = { has_global_flag = fall_of_the_north }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_the_north
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = far_news.15.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+				TAG = NWT
+			}
+		}
+	}
+	option = {
+		name = far_news.15.b
+		trigger = { TAG = FIR }
+	}
+	option = {
+		name = far_news.15.c
+		trigger = { TAG = NWT }
+	}
+}
+
+news_event = {
+	id = far_news.16
+	title = far_news.16.t
+	desc = far_news.16.d
+	picture = GFX_far_news_event_016
+	
+	major = yes
+	
+	trigger = {
+		105 = { is_owned_by = KYI }
+		105 = { is_controlled_by = FIR }
+		FIR = { has_war_with = KYI }
+		NOT = { has_global_flag = fall_of_kyoshi }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_kyoshi
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = far_news.16.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+				TAG = KYI
+			}
+		}
+	}
+	option = {
+		name = far_news.16.b
+		trigger = { TAG = FIR }
+	}
+	option = {
+		name = far_news.16.c
+		trigger = { TAG = KYI }
+	}
+}
+news_event = {
+	id = far_news.17
+	title = far_news.17.t
+	desc = far_news.17.d
+	picture = GFX_far_news_event_017
+	
+	major = yes
+	
+	trigger = {
+		117 = { is_owned_by = SWA }
+		117 = { is_controlled_by = FIR }
+		FIR = { has_war_with = KYI }
+		NOT = { has_global_flag = fall_of_swamp }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_swAMP
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
+	
+	option = {
+		name = far_news.16.a
+		trigger = {
+			NOT = {
+				TAG = FIR
+				TAG = SWA
+			}
+		}
+	}
+	option = {
+		name = far_news.16.b
+		trigger = { TAG = FIR }
+	}
+	option = {
+		name = far_news.16.c
+		trigger = { TAG = SWA }
+	}
+}
