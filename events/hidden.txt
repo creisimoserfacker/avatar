@@ -32,7 +32,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Kyosi events:
-		if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_in_the_team }
+		if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_In_Team }
 			KYI = { country_event = { id = quest.7 days = 0 } } }
 		if = { limit = { KYI = { controls_state = 105 } }
 			FIR = { country_event = { id = quest.8 days = 0 } } }
@@ -94,7 +94,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#if Sokka is not in the team and not occupied, get on option to add Jet to the team. else, continue with the historical:
-		if = { limit = { GDD = { controls_state = 205 } NOT = { has_global_flag = Sokka_in_the_team } } 
+		if = { limit = { GDD = { controls_state = 205 } NOT = { has_global_flag = Sokka_In_Team } } 
 			GDD = { country_event = { id = quest.22 days = 0 } } }
 		else = { GDD = { country_event = { id = quest.23 days = 0 } } }
 	}
@@ -273,7 +273,207 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Swamp event, Azula's team event:
-		SWA = { country_event = { id = quest.74 days = 0 } } }
-		FIR = { country_event = { id = quest.75 days = 0 } } }	
+		SWA = { country_event = { id = quest.74 days = 0 } } 
+		FIR = { country_event = { id = quest.75 days = 0 } } 	
+	}
+}
+
+country_event = {
+	id = hidden.25
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Chin events (FN will be able to send the rinohs only if Aang didn't escape from the trial):
+		if = { limit = { CHN = { controls_state = 109 } } 
+			CHN = { country_event = { id = quest.77 days = 0 } } }	
+	}
+}
+
+country_event = {
+	id = hidden.26
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#FN will be able to stop the ring, team Avatar will be able to add Toph or the Boulder to the team.
+		if = { limit = { FIR = { controls_state = 29 } } 
+			FIR = { country_event = { id = quest.80 days = 0 } } }
+		if = { limit = { NOT = { has_global_flag = Bumi_In_Team } } 
+			GAO = { country_event = { id = quest.81 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.27
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Zuko alone
+		if = { limit = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } } 
+			FIR = { country_event = { id = quest.84 days = 0 } } 
+			MPO = { country_event = { id = quest.85 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.28
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Toph's conversation with Iroh, Azula's target:
+		if = { limit = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } has_global_flag = Toph_In_Team }  
+			ZIN = { country_event = { id = quest.87 days = 0 } } }
+		FIR = { country_event = { id = quest.88 days = 0 } } 
+	}
+}
+
+
+country_event = {
+	id = hidden.29
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Aang's training, Zuko's lightningbending
+		if = { limit = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } }  
+			FIR = { country_event = { id = quest.90 days = 0 } } }
+		YII = { country_event = { id = quest.91 days = 0 } } 
+	}
+}
+
+
+country_event = {
+	id = hidden.30
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Fire Nation will be able to destroy the library, if they won't Aang will go there:
+		if = { limit = { FIR = { controls_state = 159 } } 
+			FIR = { country_event = { id = quest.93 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.31
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Try to save Appa? Sell him to the circus?
+		if = { limit = { NOT = { has_global_flag = Library_Destroyed } }
+			MPO = { country_event = { id = quest.96 days = 0 } }
+			FIR = { country_event = { id = quest.97 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.32
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Blockade the strait? (Aang will be able to gain influence)
+		if = { limit = { FIR = { controls_state = 301 } }
+			FIR = { country_event = { id = quest.99 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.33
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#FN will have the option to use the drill
+		if = { limit = { FIR = { controls_state = 138 } }
+			FIR = { country_event = { id = quest.102 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.36
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Appa's lost days- the Kioshy Warriors will be able to help, or escape from Azula instead
+		EBA = { country_event = { id = quest.105 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.37
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Zuko will be able to kill Appa if FN didn't take him from the circus:
+		if = { limit = { NOT = { has_global_flag = Appa_In_FN } }
+			EAR = { country_event = { id = quest.108 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.38
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Azula will be able to infiltrates the Dai-Li only if she won against the Kyosi Warriors, and if BSS in not occupied:
+		if = { limit = { has_global_flag = ep36_news_a EAR = { controls_state = 179 } }
+			FIR = { country_event = { id = quest.110 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.39
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#If the genocide happened, Aang will meet the leader of the temple, else he will meet pathic
+		if = { limit = { SAT = { has_country_leader = { name = "Extinct Nation" ruling_only = yes } } }
+			EAT = { country_event = { id = quest.113 days = 0 } } }
+		else = { EAT = { country_event = { id = quest.112 days = 0 } } }
+		
+		#Sokka convinces the Water tribes to join the invasion:
+		if = { limit = { has_global_flag = Sokka_In_Team }
+			NCB = { country_event = { id = quest.114 days = 0 } } }
+		
+		#Toph is captured (if she is in the team):
+		if = { limit = { has_global_flag = Toph_In_Team }
+			ECB = { country_event = { id = quest.115 days = 0 } } }
+	}
+}
+
+
+country_event = {
+	id = hidden.40
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Zuko's choice:
+		if = { limit = { NOT = { has_global_flag = Zuko_Joined_FN has_global_flag = Zuko_Died } }
+			FIR = { country_event = { id = quest.117 days = 0 } } }
+	}
+}
+
+
+country_event = {
+	id = hidden.41
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#The team will be forced to escape and take the ship only if BSS is ocuppied:
+		if = { limit = { FIR = { controls_state = 179 } }
+			FIR = { country_event = { id = quest.121 days = 0 } } }
+		#Decides if Aang will remain hidden or declare himself alive:
+		ISL = { country_event = { id = quest.122 days = 0 } }
 	}
 }

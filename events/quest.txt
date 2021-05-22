@@ -36,6 +36,21 @@ country_event = {
 			FIR = { country_event = { id = hidden.22 days = 308 } }
 			FIR = { country_event = { id = hidden.23 days = 322 } }
 			FIR = { country_event = { id = hidden.24 days = 336 } }
+			FIR = { country_event = { id = hidden.25 days = 350 } }
+			FIR = { country_event = { id = hidden.26 days = 364 } }
+			FIR = { country_event = { id = hidden.27 days = 378 } }
+			FIR = { country_event = { id = hidden.28 days = 392 } }
+			FIR = { country_event = { id = hidden.29 days = 404 } }
+			FIR = { country_event = { id = hidden.30 days = 418 } }
+			FIR = { country_event = { id = hidden.31 days = 432 } }
+			FIR = { country_event = { id = hidden.32 days = 446 } }
+			FIR = { country_event = { id = hidden.33 days = 460 } }
+			FIR = { country_event = { id = hidden.36 days = 484 } }
+			FIR = { country_event = { id = hidden.37 days = 498 } }
+			FIR = { country_event = { id = hidden.38 days = 512 } }
+			FIR = { country_event = { id = hidden.39 days = 526 } }
+			FIR = { country_event = { id = hidden.40 days = 540 } }
+			FIR = { country_event = { id = hidden.41 days = 554 } }
 		}
 	}
 	option = {
@@ -1261,7 +1276,7 @@ country_event = {
 	}
 	immediate = {
 		hidden_effect = {
-			FIR = country_event = { id = quest.49 days = 1 }
+			FIR = { country_event = { id = quest.49 days = 1 } }
 		}
 	}
 	option = {
@@ -1981,5 +1996,1156 @@ news_event = {
 	}
 	option = {
 		name = quest.76.a
+	}
+}
+
+
+##Event: Escape From The Trial?
+country_event = {
+	id = quest.77
+	title = quest.77.title
+	desc = quest.77.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Escape_From_The_Trial
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.77.a
+		###Stay- Gain spirituality for talking to Kioshy
+		FIR = { country_event = { id = quest.78 days = 1 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.77.b
+		###Escape- lose influence
+	}
+}
+
+
+##Event: Send The Rhinos?
+country_event = {
+	id = quest.78
+	title = quest.78.title
+	desc = quest.78.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Send_The_Rhinos
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.78.a
+		###Attack the village- Aang will gain influence, chance to hurt him or kill a random member
+		set_global_flag = ep25_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.78.b
+		###Don't attack- no effect
+	}
+}
+
+
+##Event: The Avatar Day
+news_event = {
+	id = quest.79
+	title = quest.79.title
+	desc = quest.79.desc
+	picture = GFX_ep25_news
+	major = yes
+	trigger = {
+		has_global_flag = ep25_news_a
+		NOT = { has_global_flag = ep25_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep25_news_b
+	}
+	option = {
+		name = quest.79.a
+	}
+}
+
+
+##Event: Stop The Earth Rumble?
+country_event = {
+	id = quest.80
+	title = quest.80.title
+	desc = quest.80.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Stop_The_Earth_Rumble
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.80.a
+		###Allow the ring to operate- buffs toph, gain compliance
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.80.b
+		###Stop it- Weakens Toph, gain resistance
+	}
+}
+
+##Event: And The New Member Is:
+country_event = {
+	id = quest.81
+	title = quest.81.title
+	desc = quest.81.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_And_The_New_Member_Is
+	trigger = {
+		tag = GAO
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.81.a
+		###Toph Joins
+		set_global_flag = ep26_Toph_news_a
+		set_global_flag = Toph_In_Team
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.81.b
+		###The Boulder Joins
+		set_global_flag = ep26_Boulder_news_a
+		set_global_flag = Boulder_In_Team
+	}
+}
+
+##Event: The Boulder Joined The Team!
+news_event = {
+	id = quest.82
+	title = quest.82.title
+	desc = quest.82.desc
+	picture = GFX_ep26_Boulder_news
+	major = yes
+	trigger = {
+		has_global_flag = ep26_Boulder_news_a
+		NOT = { has_global_flag = ep26_Boulder_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep26_Boulder_news_b
+	}
+	option = {
+		name = quest.82.a
+	}
+}
+
+
+##Event: The Blind Bandit
+news_event = {
+	id = quest.83
+	title = quest.83.title
+	desc = quest.83.desc
+	picture = GFX_ep26_Toph_news
+	major = yes
+	trigger = {
+		has_global_flag = ep26_Toph_news_a
+		NOT = { has_global_flag = ep26_Toph_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep26_Toph_news_b
+	}
+	option = {
+		name = quest.83.a
+	}
+}
+
+
+##Event: Zuko Alone
+country_event = {
+	id = quest.84
+	title = quest.84.title
+	desc = quest.84.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Zuko_Alone
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.84.a
+		###Violent occupation of cities- increases Zuko's chance to switch sides
+		set_global_flag = ep27_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.84.b
+		###Honourable occupation- no effect
+		set_global_flag = ep27_news_a
+	}
+}
+
+
+##Event: Zuko's Journey
+country_event = {
+	id = quest.85
+	title = quest.85.title
+	desc = quest.85.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Zuko's_Journey
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.85.a
+		###Zuko's voyage effects makes him pitty- increases Zuko's chance to switch sides
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.85.b
+		###He feels disdain- no effect
+	}
+}
+
+
+##Event: The Exiled Prince Is Alive!
+news_event = {
+	id = quest.86
+	title = quest.86.title
+	desc = quest.86.desc
+	picture = GFX_ep27_news
+	major = yes
+	trigger = {
+		has_global_flag = ep27_news_a
+		NOT = { has_global_flag = ep27_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep27_news_b
+	}
+	option = {
+		name = quest.86.a
+	}
+}
+
+
+##Event: A Mysterious Stranger
+country_event = {
+	id = quest.87
+	title = quest.87.title
+	desc = quest.87.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_A_Mysterious_Stranger
+	trigger = {
+		tag = ZIN
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.87.a
+		###Toph is friendly to Iroh- they save Aang and increase Zuko's chance to switch sides
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.87.b
+		###Hostile- hostile Azula will injure a random member of team avatar
+	}
+}
+
+
+##Event: Who Azula strikes?
+country_event = {
+	id = quest.88
+	title = quest.88.title
+	desc = quest.88.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Who_Azula_strikes
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 8}
+		name = quest.88.a
+		###Iroh
+		trigger = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } }
+		set_global_flag = ep28_news_a
+	}
+	option = {
+		ai_chance = { base = 2}
+		name = quest.88.b
+		###Zuko
+		trigger = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } }
+		set_global_flag = ep28_news_a
+	}
+	option = {
+		ai_chance = { base = 2}
+		name = quest.88.c
+		###Aang
+		set_global_flag = ep28_news_a
+	}
+}
+
+
+##Event: The Chase
+news_event = {
+	id = quest.89
+	title = quest.89.title
+	desc = quest.89.desc
+	picture = GFX_ep28_news
+	major = yes
+	trigger = {
+		has_global_flag = ep28_news_a
+		NOT = { has_global_flag = ep28_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep28_news_b
+	}
+	option = {
+		name = quest.89.a
+	}
+}
+
+
+##Event: Teach Zuko Lightningbending?
+country_event = {
+	id = quest.90
+	title = quest.90.title
+	desc = quest.90.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Teach_Zuko_Lightningbending
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.90.a
+		###Teach Zuko lightningbending- Increase his skill
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.90.b
+		###Don't teach- No effect
+	}
+}
+
+
+##Event: The Avatar Began His Earthbending Training!
+country_event = {
+	id = quest.91
+	title = quest.91.title
+	desc = quest.91.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_Began_His_Earthbending_Training
+	trigger = {
+		tag = YII
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.91.a
+		###Toph is dedicated- increases the amount of Earthbending Aang gets
+		set_global_flag = ep29_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.91.b
+		###Toph is impatient- decreases the amount of Earthbending Aang gets
+		set_global_flag = ep29_news_a
+	}
+}
+
+
+##Event: Bitter Work
+news_event = {
+	id = quest.92
+	title = quest.92.title
+	desc = quest.92.desc
+	picture = GFX_ep29_news
+	major = yes
+	trigger = {
+		has_global_flag = ep29_news_a
+		NOT = { has_global_flag = ep29_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep29_news_b
+	}
+	option = {
+		name = quest.92.a
+	}
+}
+
+
+##Event: Destroy The Library?
+country_event = {
+	id = quest.93
+	title = quest.93.title
+	desc = quest.93.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Destroy_The_Library
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.93.a
+		###Destroy- lock the black sun invesion
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.93.b
+		###Don't destroy- Aang will be able to go there
+		MPO = { country_event = { id = quest.94 days = 0 } }
+		set_global_flag = Library_Destroyed
+	}
+}
+
+
+##Event: Return To The Planetatium?
+country_event = {
+	id = quest.94
+	title = quest.94.title
+	desc = quest.94.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Return_To_The_Planetatium
+	trigger = {
+		tag = MPO
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.94.a
+		###Return- Unlocks Black Sun Invasion
+		set_global_flag = Black_Sun_Invesion_Unlocked
+		set_global_flag = ep30_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.94.b
+		###Escape- no effect
+		set_global_flag = ep30_news_a
+	}
+}
+
+
+##Event: The Library
+news_event = {
+	id = quest.95
+	title = quest.95.title
+	desc = quest.95.desc
+	picture = GFX_ep30_news
+	major = yes
+	trigger = {
+		has_global_flag = ep30_news_a
+		NOT = { has_global_flag = ep30_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep30_news_b
+	}
+	option = {
+		name = quest.95.a
+	}
+}
+
+
+##Event: Hold Up The Libraray Or Save Appa?
+country_event = {
+	id = quest.96
+	title = quest.96.title
+	desc = quest.96.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Hold_Up_The_Libraray_Or_Save_Appa
+	trigger = {
+		tag = MPO
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.96.a
+		###Save the team
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.96.b
+		###Try to save Appa- there is a small chance the team might just die
+	}
+}
+
+
+##Event: Fate Of Appa
+country_event = {
+	id = quest.97
+	title = quest.97.title
+	desc = quest.97.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Fate_Of_Appa
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.97.a
+		###Use Appa for the circus (Appa will be gone untill the crossroads of destiny)
+		set_global_flag = ep31_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.97.b
+		###Deliver Appa to the Fire Nation (Appa will be gone untill the Black Sun Invasion)
+		set_global_flag = ep31_news_a
+		set_global_flag = Appa_In_FN
+	}
+}
+
+
+##Event: The Avatar Lost His Bison!
+news_event = {
+	id = quest.98
+	title = quest.98.title
+	desc = quest.98.desc
+	picture = GFX_ep31_news
+	major = yes
+	trigger = {
+		has_global_flag = ep31_news_a
+		NOT = { has_global_flag = ep31_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep31_news_b
+	}
+	option = {
+		name = quest.98.a
+	}
+}
+
+
+##Event: Blockade The Lakes?
+country_event = {
+	id = quest.99
+	title = quest.99.title
+	desc = quest.99.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Blockade_The_Lakes
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.99.a
+		###Blockede- Aang will be able to help the pregnant couple for influence
+		wba = { country_event = { id = quest.100 days = 0 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.99.b
+		###Don't blockade- no effect
+	}
+}
+
+
+##Event: Help The Pregnant Couple?
+country_event = {
+	id = quest.100
+	title = quest.100.title
+	desc = quest.100.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Help_The_Pregnant_Couple
+	trigger = {
+		tag = WBA
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.100.a
+		###Help- gain influence
+		set_global_flag = ep32_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.100.b
+		###Refuse- no effect
+	}
+}
+
+
+##Event: The Serpent's Pass
+news_event = {
+	id = quest.101
+	title = quest.101.title
+	desc = quest.101.desc
+	picture = GFX_ep32_news
+	major = yes
+	trigger = {
+		has_global_flag = ep32_news_a
+		NOT = { has_global_flag = ep32_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep32_news_b
+	}
+	option = {
+		name = quest.101.a
+	}
+}
+
+
+##Event: Use The Drill?
+country_event = {
+	id = quest.102
+	title = quest.102.title
+	desc = quest.102.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Use_The_Drill
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.102.a
+		###Use- gives Aang influence but damages the wall of Ba Sing Se
+		WBA = { country_event = { id = quest.103 days = 0 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.102.b
+		###Don't Use- no change
+	}
+}
+
+
+##Event: A Giant Drill!
+country_event = {
+	id = quest.103
+	title = quest.103.title
+	desc = quest.103.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_A_Giant_Drill
+	trigger = {
+		tag = WBA
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.103.a
+		###Destroy it from the inside- The Team will sucesfully destroy the drill and win influence
+		set_global_flag = ep33_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.103.b
+		###Try to stop it from the outside- More damage to the wall, Aang gets wounded for 6 months
+	}
+}
+
+
+##Event: The Drill
+news_event = {
+	id = quest.104
+	title = quest.104.title
+	desc = quest.104.desc
+	picture = GFX_ep33_news
+	major = yes
+	trigger = {
+		has_global_flag = ep33_news_a
+		NOT = { has_global_flag = ep33_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep33_news_b
+	}
+	option = {
+		name = quest.104.a
+	}
+}
+
+
+##Event: Help Appa Or Escape From Azula?
+country_event = {
+	id = quest.105
+	title = quest.105.title
+	desc = quest.105.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Help_Appa_Or_Escape_From_Azula
+	trigger = {
+		tag = EBA
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.105.a
+		###Help Appa- Azula will be able to attack, Appa will survive
+		FIR = { country_event = { id = quest.106 days = 0 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.105.b
+		###Don't help- Azula won't attack, big potential for Appa to die from his wounds
+	}
+}
+
+
+##Event: Attack The Kyoshi Warriors?
+country_event = {
+	id = quest.106
+	title = quest.106.title
+	desc = quest.106.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Attack_The_Kyoshi_Warriors
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.106.a
+		###Attack- a big chance of winning (Imprisoning Suki, triggering the Boiling Rock event)
+		set_global_flag = ep36_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.106.b
+		###Don't attack- the Boiling Rock event won't event happen
+	}
+}
+
+
+##Event: Appa's Lost Days
+news_event = {
+	id = quest.107
+	title = quest.107.title
+	desc = quest.107.desc
+	picture = GFX_ep36_news
+	major = yes
+	trigger = {
+		has_global_flag = ep36_news_a
+		NOT = { has_global_flag = ep36_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep36_news_b
+	}
+	option = {
+		name = quest.107.a
+	}
+}
+
+
+##Event: Kill The Bison?
+country_event = {
+	id = quest.108
+	title = quest.108.title
+	desc = quest.108.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Kill_The_Bison
+	trigger = {
+		tag = EAR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.108.a
+		###Zuko listens to Iroh and frees Appa, a massive influence on Zuko's side-switching
+		set_global_flag = ep37_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.108.b
+		###He kills Appa- a massive drop of the chances
+	}
+}
+
+
+##Event: Lake Laogai
+news_event = {
+	id = quest.109
+	title = quest.109.title
+	desc = quest.109.desc
+	picture = GFX_ep37_news
+	major = yes
+	trigger = {
+		has_global_flag = ep37_news_a
+		NOT = { has_global_flag = ep37_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep37_news_b
+	}
+	option = {
+		name = quest.109.a
+	}
+}
+
+
+##Event: Infiltrate The Dai-Li?
+country_event = {
+	id = quest.110
+	title = quest.110.title
+	desc = quest.110.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Infiltrate_The_Dai_Li
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.110.a
+		###Infiltrate- Will lead to crossroads of destiny
+		set_global_flag = ep38_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.110.b
+		###Search for Zuko instead- no crossroads of destiny, a small chance to kill Zuko
+	}
+}
+
+
+##Event: Ba Sing Se Is In A Big Danger!
+news_event = {
+	id = quest.111
+	title = quest.111.title
+	desc = quest.111.desc
+	picture = GFX_ep38_news
+	major = yes
+	trigger = {
+		has_global_flag = ep38_news_a
+		NOT = { has_global_flag = ep38_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep38_news_b
+	}
+	option = {
+		name = quest.111.a
+	}
+}
+
+
+##Event: The Avatar Arrived In The Eastern Temple
+country_event = {
+	id = quest.112
+	title = quest.112.title
+	desc = quest.112.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Avatar_Arrived_In_The_Eastern_Temple
+	trigger = {
+		tag = EAT
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.112.a
+		###Aang blocks or the 7th chakra- affects Avatar state control
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.112.b
+		###Aang unlocks or the 7th chakra- affects Avatar state control
+	}
+}
+
+##Event: Guru Pathic
+country_event = {
+	id = quest.113
+	title = quest.113.title
+	desc = quest.113.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Guru_Pathic
+	trigger = {
+		tag = EAT
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.113.a
+		###Aang blocks or the 7th chakra- affects Avatar state control
+		set_global_flag = ep39_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.113.b
+		###Aang unlocks or the 7th chakra- affects Avatar state control
+	}
+}
+
+##Event: Sokka Found His Father!
+country_event = {
+	id = quest.114
+	title = quest.114.title
+	desc = quest.114.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Sokka_Found_His_Father
+	trigger = {
+		tag = NCB
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.114.a
+		###The SWT joins the invasion- strenghtens the invesion
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.114.b
+		###The SWT refuses- weaken the invesions
+	}
+}
+
+##Event: Toph Is Abducted!
+country_event = {
+	id = quest.115
+	title = quest.115.title
+	desc = quest.115.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Toph_Is_Abducted
+	trigger = {
+		tag = ECB
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.115.a
+		###Metal cage- She learns metalbending, becoming stronger
+		set_global_flag = ep39_news_c
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.115.b
+		###Wooden jail (She finds a way to escape without metalbending)
+		set_global_flag = ep39_news_c
+	}
+}
+
+
+##Event: The Guru
+news_event = {
+	id = quest.116
+	title = quest.116.title
+	desc = quest.116.desc
+	picture = GFX_ep39_news
+	major = yes
+	trigger = {
+		has_global_flag = ep39_news_a
+		has_global_flag = ep39_news_c
+		NOT = { has_global_flag = ep39_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep39_news_b
+	}
+	option = {
+		name = quest.116.a
+	}
+}
+
+
+##Event: Zuko's Decision
+country_event = {
+	id = quest.117
+	title = quest.117.title
+	desc = quest.117.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Zuko's_decision
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.117.a
+		###Join Azula- leading to Iroh's decision. If Aang didn't unlock the 7th chakra, he will get a small buff for the Avatar state control
+		EAR = { country_event = { id = quest.118 days = 0 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.117.b
+		###Join Aang- Zuko and Iroh will join team Avatar
+		set_global_flag = ep40_2_news_a
+	}
+}
+
+
+##Event: Iroh's Decision
+country_event = {
+	id = quest.118
+	title = quest.118.title
+	desc = quest.118.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Iroh's_Decision
+	trigger = {
+		tag = EAR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.118.a
+		###Help Aang- increases Zuko's chance of switiching sides
+		set_global_flag = ep40_1_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.118.b
+		###Team up with Zuko and Azula- decreases Zuko's chance of switiching sides
+	}
+}
+
+
+##Event: The Crossroads of Destiny
+news_event = {
+	id = quest.119
+	title = quest.119.title
+	desc = quest.119.desc
+	picture = GFX_ep40_1_news
+	major = yes
+	trigger = {
+		has_global_flag = ep40_1_news_a
+		NOT = { has_global_flag = ep40_1_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep40_1_news_b
+	}
+	option = {
+		name = quest.119.a
+	}
+}
+
+
+##Event: The Crossroads of Destiny
+news_event = {
+	id = quest.120
+	title = quest.120.title
+	desc = quest.120.desc
+	picture = GFX_ep40_2_news
+	major = yes
+	trigger = {
+		has_global_flag = ep40_2_news_a
+		NOT = { has_global_flag = ep40_2_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep40_2_news_b
+	}
+	option = {
+		name = quest.120.a
+	}
+}
+
+
+##Event: Issue Orders Of Inspection On Our Ships?
+country_event = {
+	id = quest.121
+	title = quest.121.title
+	desc = quest.121.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Issue_Orders_Of_Inspection_On_Our_Ships
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.121.a
+		###don't mind the issue- no effect
+		set_global_flag = ep41_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.121.b
+		###Do it- lose political power, chance of wounding a random member of team avatar
+		set_global_flag = ep41_news_a
+	}
+}
+
+
+##Event: The Awakening
+country_event = {
+	id = quest.122
+	title = quest.122.title
+	desc = quest.122.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_The_Awakening
+	trigger = {
+		tag = ISL
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.122.a
+		###Aang will remain hidden (Will increase the chances of a sucesfull invasion)
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.122.b
+		###Aang declares himself alive (Will gain influence and force Zuko into exile)
+	}
+}
+
+
+##Event: The Avatar Team Stole A Fire Nation's Ship
+news_event = {
+	id = quest.123
+	title = quest.123.title
+	desc = quest.123.desc
+	picture = GFX_ep41_news
+	major = yes
+	trigger = {
+		has_global_flag = ep41_news_a
+		NOT = { has_global_flag = ep41_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep41_news_b
+	}
+	option = {
+		name = quest.123.a
 	}
 }
