@@ -7,4 +7,37 @@ focus_tree = {
 			tag = FIR
 		}
 	}
+
+	focus = {
+		id = fir_obligatory
+		icon = GFX_goal_generic_intelligence_exchange
+		x = 4
+		y = 0
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 0
+		}
+
+		available = {
+			focus_progress = {
+			    focus = fir_obligatory
+			    progress < 0.01
+			}
+		}
+
+		bypass = {
+
+		}
+
+		cancel_if_invalid = yes
+		continue_if_invalid = no
+		available_if_capitulated = yes
+
+		#search_filters = { FOCUS_FILTER_POLITICAL }
+		completion_reward = {
+			
+		}
+	}
  }

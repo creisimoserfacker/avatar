@@ -310,1143 +310,1143 @@ war_weariness_category = {
 
 }
 
-taxation_category = {
-	
-	research_investment_very_low = {
-
-		icon = research_boost
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-        modifier = {
-        	research_speed_factor = 0.025
-			political_power_factor = 0.025
-        }
-
-		cost = 5
-		
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 2
-		}
-	}
-	family_investment_very_low = {
-
-		icon = icon = buildup
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        modifier = {
-        	MONTHLY_POPULATION = 0.2
-			sickness_chance = -0.1
-			casualty_trickleback = 0.04
-			experience_loss_factor = -0.05
-        }
-
-		cost = 5
-
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	morale_investment_very_low = {
-
-		icon = war
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-		research_bonus = {
-			society_reforms = 0.05
-		}
-		
-        modifier = {
-        	monthly_war_weariness = -5
-			stability_factor = 0.02
-        }
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-		cost = 5
-
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	construction_focus_very_low = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-        modifier = {
-        	production_speed_buildings_factor = 0.05
-			industry_repair_factor = 0.05
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = no
-				}
-				add = 10
-			}
-		}
-	}
-	resource_focus_very_low = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-        modifier = {
-        	fuel_gain_factor_from_states = 0.05
-			MONTHLY_POPULATION = 0.05
-			production_speed_infrastructure_factor = 0.05 
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	production_investment_very_low = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_5
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_5
-		}
-        days_remove = 365
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        modifier = {
-        	industrial_capacity_factory = 0.025
-			industrial_capacity_dockyard = 0.025
-			war_support_factor = 0.03
-        }
-
-		cost = 5
-
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable < 199 }
-				}
-				add = 100
-			}
-		}
-	}
-
-	research_investment_low = {
-
-		icon = research_boost
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-        modifier = {
-        	research_speed_factor = 0.075
-			political_power_factor = 0.05
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 2
-		}
-	}
-	family_investment_low = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-        modifier = {
-        	MONTHLY_POPULATION = 0.5
-			sickness_chance = -0.2
-			experience_loss_factor = -0.1
-			casualty_trickleback = 0.08
-        }
-		
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	morale_investment_low = {
-
-		icon = war
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-		research_bonus = {
-			society_reforms = 0.10
-		}
-		
-        modifier = {
-        	monthly_war_weariness = -5
-			stability_factor = 0.06
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	construction_focus_low = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-        modifier = {
-        	production_speed_buildings_factor = 0.1
-			industry_repair_factor = 0.1
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = no
-				}
-				add = 10
-			}
-		}
-	}
-	resource_focus_low = {
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-        modifier = {
-        	fuel_gain_factor_from_states = 0.1
-			MONTHLY_POPULATION = 0.1
-			production_speed_infrastructure_factor = 0.1
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	production_investment_low = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_4
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_4
-		}
-        days_remove = 365
-
-        modifier = {
-        	industrial_capacity_factory = 0.05
-			industrial_capacity_dockyard = 0.05
-			war_support_factor = 0.06
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable < 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	
-	research_investment_average = {
-
-		icon = research_boost
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-
-        modifier = {
-        	research_speed_factor = 0.15
-			political_power_factor = 0.1
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 2
-		}
-	}
-	family_investment_average = {
-
-		icon = icon = buildup
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-
-        modifier = {
-        	MONTHLY_POPULATION = 0.8
-			sickness_chance = -0.3
-			experience_loss_factor = -0.15
-			casualty_trickleback = 0.12
-        }
-		
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	morale_investment_average = {
-
-		icon = war
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-		
-		research_bonus = {
-			society_reforms = 0.15
-		}
-		
-        modifier = {
-        	monthly_war_weariness = -20
-			stability_factor = 0.1
-			
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	construction_focus_average = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-
-        modifier = {
-        	production_speed_buildings_factor = 0.2
-			industry_repair_factor = 0.2
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = no
-				}
-				add = 10
-			}
-		}
-	}
-	resource_focus_average = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-
-        modifier = {
-        	fuel_gain_factor_from_states = 0.15
-			MONTHLY_POPULATION = 0.2
-			production_speed_infrastructure_factor = 0.2
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	production_investment_average = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_3
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_3
-		}
-        days_remove = 365
-
-        modifier = {
-        	industrial_capacity_factory = 0.1
-			industrial_capacity_dockyard = 0.1
-			war_support_factor = 0.09
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable < 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	
-	research_investment_high = {
-
-		icon = research_boost
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-
-        modifier = {
-        	research_speed_factor = 0.225
-			political_power_factor = 0.15
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 2
-		}
-	}
-	family_investment_high = {
-
-		icon = icon = buildup
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-
-        modifier = {
-        	MONTHLY_POPULATION = 1.1
-			sickness_chance = -0.4
-			experience_loss_factor = -0.2
-			casualty_trickleback = 0.16
-        }
-		
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	morale_investment_high = {
-
-		icon = war
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-
-		research_bonus = {
-			society_reforms = 0.2
-		}
-		
-        modifier = {
-        	monthly_war_weariness = -35
-			stability_factor = 0.14
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	construction_focus_high = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-
-        modifier = {
-        	production_speed_buildings_factor = 0.3
-			industry_repair_factor = 0.3
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = no
-				}
-				add = 10
-			}
-		}
-	}
-	resource_focus_high = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        modifier = {
-        	fuel_gain_factor_from_states = 0.2
-			MONTHLY_POPULATION = 0.3
-			production_speed_infrastructure_factor = 0.3
-        }
-
-		cost = 5
-
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	production_investment_high = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_2
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_2
-		}
-        days_remove = 365
-		
-        modifier = {
-        	industrial_capacity_factory = 0.15
-			industrial_capacity_dockyard = 0.15
-			war_support_factor = 0.12
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable < 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	
-	research_investment_very_high = {
-
-		icon = research_boost
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-        modifier = {
-        	research_speed_factor = 0.3
-			political_power_factor = 0.2
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 2
-		}
-	}
-	family_investment_very_high = {
-
-		icon = icon = buildup
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-        modifier = {
-        	MONTHLY_POPULATION = 1.4
-			sickness_chance = -0.5
-			experience_loss_factor = -0.25
-			casualty_trickleback = 0.2
-        }
-		
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	morale_investment_very_high = {
-
-		icon = war
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-		research_bonus = {
-				society_reforms = 0.25
-		}
-
-        modifier = {
-        	monthly_war_weariness = -50
-			stability_factor = 0.18
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
-	construction_focus_very_high = {
-
-		icon = buildup
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-        modifier = {
-        	production_speed_buildings_factor = 0.4
-			industry_repair_factor = 0.4
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = no
-				}
-				add = 10
-			}
-		}
-	}
-	resource_focus_very_high = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-        modifier = {
-        	fuel_gain_factor_from_states = 0.25
-			MONTHLY_POPULATION = 0.4
-			production_speed_infrastructure_factor = 0.4
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 1
-		}
-	}
-	production_investment_very_high = {
-
-		icon = military_buildup
-
-		available = {
-            has_idea = family_support_1
-			NOT = { 
-			has_country_flag = public_funding
-			}
-        }
-		visible = {
-			has_idea = family_support_1
-		}
-        days_remove = 365
-
-        modifier = {
-        	industrial_capacity_factory = 0.2
-			industrial_capacity_dockyard = 0.2
-			war_support_factor = 0.15
-        }
-
-		cost = 5
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		remove_effect = {
-			clr_country_flag = public_funding
-		}
-		
-        ai_will_do = {
-			factor = 0
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable < 199 }
-				}
-				add = 100
-			}
-		}
-	}
-
-}
+#taxation_category = {
+#	
+#	research_investment_very_low = {
+#
+#		icon = research_boost
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	research_speed_factor = 0.025
+#			political_power_factor = 0.025
+#        }
+#
+#		cost = 5
+#		
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 2
+#		}
+#	}
+#	family_investment_very_low = {
+#
+#		icon = icon = buildup
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        modifier = {
+#        	MONTHLY_POPULATION = 0.2
+#			sickness_chance = -0.1
+#			casualty_trickleback = 0.04
+#			experience_loss_factor = -0.05
+#        }
+#
+#		cost = 5
+#
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	morale_investment_very_low = {
+#
+#		icon = war
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#		research_bonus = {
+#			society_reforms = 0.05
+#		}
+#		
+#        modifier = {
+#        	monthly_war_weariness = -5
+#			stability_factor = 0.02
+#        }
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#		cost = 5
+#
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable > 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	construction_focus_very_low = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	production_speed_buildings_factor = 0.05
+#			industry_repair_factor = 0.05
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = no
+#				}
+#				add = 10
+#			}
+#		}
+#	}
+#	resource_focus_very_low = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	fuel_gain_factor_from_states = 0.05
+#			MONTHLY_POPULATION = 0.05
+#			production_speed_infrastructure_factor = 0.05 
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	production_investment_very_low = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_5
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_5
+#		}
+#        days_remove = 365
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        modifier = {
+#        	industrial_capacity_factory = 0.025
+#			industrial_capacity_dockyard = 0.025
+#			war_support_factor = 0.03
+#        }
+#
+#		cost = 5
+#
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable < 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#
+#	research_investment_low = {
+#
+#		icon = research_boost
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	research_speed_factor = 0.075
+#			political_power_factor = 0.05
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 2
+#		}
+#	}
+#	family_investment_low = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	MONTHLY_POPULATION = 0.5
+#			sickness_chance = -0.2
+#			experience_loss_factor = -0.1
+#			casualty_trickleback = 0.08
+#        }
+#		
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	morale_investment_low = {
+#
+#		icon = war
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#		research_bonus = {
+#			society_reforms = 0.10
+#		}
+#		
+#        modifier = {
+#        	monthly_war_weariness = -5
+#			stability_factor = 0.06
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable > 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	construction_focus_low = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	production_speed_buildings_factor = 0.1
+#			industry_repair_factor = 0.1
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = no
+#				}
+#				add = 10
+#			}
+#		}
+#	}
+#	resource_focus_low = {
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	fuel_gain_factor_from_states = 0.1
+#			MONTHLY_POPULATION = 0.1
+#			production_speed_infrastructure_factor = 0.1
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	production_investment_low = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_4
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_4
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	industrial_capacity_factory = 0.05
+#			industrial_capacity_dockyard = 0.05
+#			war_support_factor = 0.06
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable < 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	
+#	research_investment_average = {
+#
+#		icon = research_boost
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	research_speed_factor = 0.15
+#			political_power_factor = 0.1
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 2
+#		}
+#	}
+#	family_investment_average = {
+#
+#		icon = icon = buildup
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	MONTHLY_POPULATION = 0.8
+#			sickness_chance = -0.3
+#			experience_loss_factor = -0.15
+#			casualty_trickleback = 0.12
+#        }
+#		
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	morale_investment_average = {
+#
+#		icon = war
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#		
+#		research_bonus = {
+#			society_reforms = 0.15
+#		}
+#		
+#        modifier = {
+#        	monthly_war_weariness = -20
+#			stability_factor = 0.1
+#			
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable > 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	construction_focus_average = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	production_speed_buildings_factor = 0.2
+#			industry_repair_factor = 0.2
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = no
+#				}
+#				add = 10
+#			}
+#		}
+#	}
+#	resource_focus_average = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	fuel_gain_factor_from_states = 0.15
+#			MONTHLY_POPULATION = 0.2
+#			production_speed_infrastructure_factor = 0.2
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	production_investment_average = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_3
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_3
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	industrial_capacity_factory = 0.1
+#			industrial_capacity_dockyard = 0.1
+#			war_support_factor = 0.09
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable < 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	
+#	research_investment_high = {
+#
+#		icon = research_boost
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	research_speed_factor = 0.225
+#			political_power_factor = 0.15
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 2
+#		}
+#	}
+#	family_investment_high = {
+#
+#		icon = icon = buildup
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	MONTHLY_POPULATION = 1.1
+#			sickness_chance = -0.4
+#			experience_loss_factor = -0.2
+#			casualty_trickleback = 0.16
+#        }
+#		
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	morale_investment_high = {
+#
+#		icon = war
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#
+#		research_bonus = {
+#			society_reforms = 0.2
+#		}
+#		
+#        modifier = {
+#        	monthly_war_weariness = -35
+#			stability_factor = 0.14
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable > 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	construction_focus_high = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	production_speed_buildings_factor = 0.3
+#			industry_repair_factor = 0.3
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = no
+#				}
+#				add = 10
+#			}
+#		}
+#	}
+#	resource_focus_high = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        modifier = {
+#        	fuel_gain_factor_from_states = 0.2
+#			MONTHLY_POPULATION = 0.3
+#			production_speed_infrastructure_factor = 0.3
+#        }
+#
+#		cost = 5
+#
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	production_investment_high = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_2
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_2
+#		}
+#        days_remove = 365
+#		
+#        modifier = {
+#        	industrial_capacity_factory = 0.15
+#			industrial_capacity_dockyard = 0.15
+#			war_support_factor = 0.12
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable < 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	
+#	research_investment_very_high = {
+#
+#		icon = research_boost
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	research_speed_factor = 0.3
+#			political_power_factor = 0.2
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 2
+#		}
+#	}
+#	family_investment_very_high = {
+#
+#		icon = icon = buildup
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	MONTHLY_POPULATION = 1.4
+#			sickness_chance = -0.5
+#			experience_loss_factor = -0.25
+#			casualty_trickleback = 0.2
+#        }
+#		
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	morale_investment_very_high = {
+#
+#		icon = war
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#		research_bonus = {
+#				society_reforms = 0.25
+#		}
+#
+#        modifier = {
+#        	monthly_war_weariness = -50
+#			stability_factor = 0.18
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable > 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#	construction_focus_very_high = {
+#
+#		icon = buildup
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	production_speed_buildings_factor = 0.4
+#			industry_repair_factor = 0.4
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = no
+#				}
+#				add = 10
+#			}
+#		}
+#	}
+#	resource_focus_very_high = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	fuel_gain_factor_from_states = 0.25
+#			MONTHLY_POPULATION = 0.4
+#			production_speed_infrastructure_factor = 0.4
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 1
+#		}
+#	}
+#	production_investment_very_high = {
+#
+#		icon = military_buildup
+#
+#		available = {
+#            has_idea = family_support_1
+#			NOT = { 
+#			has_country_flag = public_funding
+#			}
+#        }
+#		visible = {
+#			has_idea = family_support_1
+#		}
+#        days_remove = 365
+#
+#        modifier = {
+#        	industrial_capacity_factory = 0.2
+#			industrial_capacity_dockyard = 0.2
+#			war_support_factor = 0.15
+#        }
+#
+#		cost = 5
+#
+#		complete_effect = {
+#			set_country_flag = public_funding
+#		}
+#		remove_effect = {
+#			clr_country_flag = public_funding
+#		}
+#		
+#        ai_will_do = {
+#			factor = 0
+#			modifier = {
+#				AND = {
+#					has_war = yes
+#					check_variable = { war_exhaustion_variable < 199 }
+#				}
+#				add = 100
+#			}
+#		}
+#	}
+#
+#}
 
 
 generic_research_slot_category = {
