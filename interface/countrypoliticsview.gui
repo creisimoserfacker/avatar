@@ -150,11 +150,21 @@ guiTypes = {
 #				maxWidth = 155
 #				maxHeight = 20
 #			}
+
+			instantTextboxType = {
+				name = "culture"
+				position = { x = 9 y = 0 }
+				font = "hoi_18mbs"
+				text = "culture_info"
+				maxWidth = 155
+				maxHeight = 20
+				pdx_tooltip = "CULTURE_TTP"
+			}
 			
 			instantTextboxType = {
 				name = "ideology"
-				position = { x = 9 y = 8 }
-				font = "hoi_18mbs"
+				position = { x = 9 y = 24 }
+				font = "hoi_16mbs"
 				text = "ideology"
 				maxWidth = 155
 				maxHeight = 20
@@ -162,7 +172,7 @@ guiTypes = {
 			
 			instantTextboxType = {
 				name = "elections"
-				position = { x = 9 y = 34 }
+				position = { x = 9 y = 44 }
 				font = "hoi_16mbs"
 				text = "elections"
 				maxWidth = 155
@@ -282,7 +292,7 @@ guiTypes = {
 		
 		containerWindowType = {
 			name = "active_goal"
-			position = { x = 179 y = 48 }
+			position = { x = -1179 y = 48 }
 			size = { width = 330 height = 50 }
 			clipping = no
 						
@@ -384,9 +394,29 @@ guiTypes = {
 				alwaystransparent = yes
 			}			
 		}
+
+		#containerWindowType = {
+		#	name = "legitimacy_container"
+		#	position = { x = 179 y = 48 }
+		#	size = { width = 330 height = 50 }
+		#	clipping = no
+		#				
+		#	background = {
+		#		name = "Background"		
+		#		spriteType ="GFX_legitimacy_bg"
+		#	}
+		#	
+		#	buttonType = {
+		#		name = "increase_legitimacy"
+		#		position = { x = 0 y = 12 }
+		#		spriteType = "GFX_FIR_low_legitimacy"
+		#		clicksound = click_default
+		#	}		
+		#}
+
 		containerWindowType = {
 			name = "national_spirit"
-			position = { x = 81 y = 153 }
+			position = { x = 81 y = 63 }
 			size = { width = 360 height = 50 }
 			clipping = no
 						
@@ -403,8 +433,8 @@ guiTypes = {
 			
 			containerWindowType = {
 				name = "national_spirit_container"
-				position = { x = 90 y = 19 }
-				size = { width = 365 height = 68 }
+				position = { x = 90 y = 15 }
+				size = { width = 365 height = 162 }
 				
 				verticalScrollbar = "right_vertical_slider"
 				
@@ -424,7 +454,7 @@ guiTypes = {
 				gridboxtype = {
 					name = "spirit_grid_over_defined"
 					size = { width = 350 height = 100%% }
-					slotsize = { width = 33 height = 32 }
+					slotsize = { width = 33 height = 35 }
 					max_slots_horizontal = 10
 					format = "UPPER_LEFT"
 				}
@@ -974,19 +1004,19 @@ guiTypes = {
 
 		iconType = {
 			name = "leading_pol_party_bg"
-			position = { x = 60 y = 5 }
+			position = { x = 60 y = 1 }
 			spriteType = "GFX_leading_pol_party_bg"
 		}		
 		
 		iconType = {
 			name = "color_block_bg"
-			position = { x = 60 y = 2 }
+			position = { x = 60 y = -2 }
 			spriteType = "GFX_pol_party_colour_bg"
 		}
 		
 		iconType = {
 			name = "color_block"
-			position = { x = 64 y = 6 }
+			position = { x = 64 y = 2 }
 			spriteType = "GFX_pol_party_colour"
 		}
 		
@@ -1001,7 +1031,7 @@ guiTypes = {
 			
 		instantTextboxType = {
 			name = "name"
-			position = { x = 82 y = 4 }
+			position = { x = 82 y = 0 }
 			font = "hoi_16mbs"
 			text = "party name"
 			fixedsize = yes
