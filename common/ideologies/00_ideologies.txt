@@ -7,6 +7,118 @@
 
 ideologies = {
 
+################### imperialism #####################
+
+	imperialism = {
+	
+		types = {
+		
+			colonialism = {
+			}
+			
+			nationalism = {
+			}
+
+			fire_tribes = {
+			}
+		}
+		
+		dynamic_faction_names = {
+			"FACTION_NAME_FASCIST_1"
+			"FACTION_NAME_FASCIST_2"
+			"FACTION_NAME_FASCIST_3"
+			"FACTION_NAME_FASCIST_4"
+			"FACTION_NAME_FASCIST_5"
+		}
+		
+		color = { 158 0 0 }
+		
+		war_impact_on_world_tension = 0.75			#evil!
+		faction_impact_on_world_tension = 0.5
+		
+		rules = {
+			can_force_government = yes
+			can_send_volunteers = yes
+			can_puppet = yes
+		}
+		
+		can_collaborate = yes
+		
+		modifiers = {
+			justify_war_goal_when_in_major_war_time = -0.50
+			hidden_modifier = { join_faction_tension = -0.1 }
+
+			civilian_intel_to_others = 15.0
+			army_intel_to_others = 2.5
+			navy_intel_to_others = 25.0
+			airforce_intel_to_others = 5.0
+		}
+
+		ai_fascist = yes # uses the fascist AI behaviour
+	}
+
+####################### monarchism #####################
+
+	monarchism = {
+		
+		types = {
+		
+			absolute_monarchie = {
+			}
+			
+			constitutional_monarchy = {
+			}
+
+			elective_monarchy = {
+			}
+
+			earth_tribe = {
+			}
+
+			comunism = {
+			}
+		}
+		
+		dynamic_faction_names = {
+			"FACTION_NAME_COMMUNIST_1"
+			"FACTION_NAME_COMMUNIST_2"
+			"FACTION_NAME_COMMUNIST_3"
+			"FACTION_NAME_COMMUNIST_4"
+			"FACTION_NAME_COMMUNIST_5"
+		}
+		
+		color = { 0 119 0 }
+		
+		war_impact_on_world_tension = 0.75		#Commie less threatening
+		faction_impact_on_world_tension = 0.5
+		
+		ai_communist = yes # uses the commie AI behaviour
+		
+		rules = {
+			can_force_government = yes
+			can_send_volunteers = yes
+			can_puppet = yes
+		}
+
+		can_collaborate = yes
+		can_host_government_in_exile = yes
+		
+		modifiers = {
+			puppet_cost_factor = -0.3
+			hidden_modifier = { join_faction_tension = -0.1 }
+
+			civilian_intel_to_others = 5.0
+			army_intel_to_others = 10.0
+			navy_intel_to_others = 15.0
+			airforce_intel_to_others = 10.0
+		}
+		
+		faction_modifiers = {
+			
+		}
+
+	}
+
 ######################## tribalism #####################
 
 	tribalism = {
@@ -14,9 +126,6 @@ ideologies = {
 		types = {
 		
 			liberalism  = {
-			}
-			
-			comunism = {
 			}
 
 			elective_chiefdom = {
@@ -72,109 +181,6 @@ ideologies = {
 		can_collaborate = yes
 
 		ai_neutral = yes # 
-	}
-
-####################### monarchism #####################
-
-	monarchism = {
-		
-		types = {
-		
-			absolute_monarchie = {
-			}
-			
-			constitutional_monarchy = {
-			}
-
-			elective_monarchy = {
-			}
-		}
-		
-		dynamic_faction_names = {
-			"FACTION_NAME_COMMUNIST_1"
-			"FACTION_NAME_COMMUNIST_2"
-			"FACTION_NAME_COMMUNIST_3"
-			"FACTION_NAME_COMMUNIST_4"
-			"FACTION_NAME_COMMUNIST_5"
-		}
-		
-		color = { 0 119 0 }
-		
-		war_impact_on_world_tension = 0.75		#Commie less threatening
-		faction_impact_on_world_tension = 0.5
-		
-		ai_communist = yes # uses the commie AI behaviour
-		
-		rules = {
-			can_force_government = yes
-			can_send_volunteers = yes
-			can_puppet = yes
-		}
-
-		can_collaborate = yes
-		can_host_government_in_exile = yes
-		
-		modifiers = {
-			puppet_cost_factor = -0.3
-			hidden_modifier = { join_faction_tension = -0.1 }
-
-			civilian_intel_to_others = 5.0
-			army_intel_to_others = 10.0
-			navy_intel_to_others = 15.0
-			airforce_intel_to_others = 10.0
-		}
-		
-		faction_modifiers = {
-			
-		}
-
-	}
-
-################### imperialism #####################
-
-	imperialism = {
-	
-		types = {
-		
-			colonialism = {
-			}
-			
-			nationalism = {
-			}
-		}
-		
-		dynamic_faction_names = {
-			"FACTION_NAME_FASCIST_1"
-			"FACTION_NAME_FASCIST_2"
-			"FACTION_NAME_FASCIST_3"
-			"FACTION_NAME_FASCIST_4"
-			"FACTION_NAME_FASCIST_5"
-		}
-		
-		color = { 158 0 0 }
-		
-		war_impact_on_world_tension = 0.75			#evil!
-		faction_impact_on_world_tension = 0.5
-		
-		rules = {
-			can_force_government = yes
-			can_send_volunteers = yes
-			can_puppet = yes
-		}
-		
-		can_collaborate = yes
-		
-		modifiers = {
-			justify_war_goal_when_in_major_war_time = -0.50
-			hidden_modifier = { join_faction_tension = -0.1 }
-
-			civilian_intel_to_others = 15.0
-			army_intel_to_others = 2.5
-			navy_intel_to_others = 25.0
-			airforce_intel_to_others = 5.0
-		}
-
-		ai_fascist = yes # uses the fascist AI behaviour
 	}
 
 ######################## pacifism ####################
@@ -245,9 +251,6 @@ ideologies = {
 		
 			republican = {
 			}
-			
-			liberalisma = {
-			}
 
 			democracy = {
 			}
@@ -273,7 +276,7 @@ ideologies = {
 			"FACTION_NAME_FASCIST_5"
 		}
 		
-		color = { 65 65 65 }
+		color = { 50 50 50 }
 		
 		rules = {
 			can_create_collaboration_government = no
