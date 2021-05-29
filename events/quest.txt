@@ -53,6 +53,7 @@ country_event = {
 			FIR = { country_event = { id = hidden.41 days = 554 } }
 			FIR = { country_event = { id = hidden.42 days = 568 } }
 			FIR = { country_event = { id = hidden.43 days = 582 } }
+			FIR = { country_event = { id = hidden.44 days = 596 } }
 		}
 	}
 	option = {
@@ -3246,5 +3247,129 @@ news_event = {
 	}
 	option = {
 		name = quest.127.a
+	}
+}
+
+
+##Event: Go For Piandao?
+country_event = {
+	id = quest.128
+	title = quest.128.title
+	desc = quest.128.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Go_For_Piandao
+	trigger = {
+		tag = SWT
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.128.a
+		###Go For him- massive boost on Sokka's skill
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.128.b
+		###Don't go for- No effect
+		set_global_flag = ep45_news_a
+		set_global_flag = ep47_news_a
+	}
+}
+
+##Event: Arrest Piandao?
+country_event = {
+	id = quest.129
+	title = quest.129.title
+	desc = quest.129.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Arrest_Piandao
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.129.a
+		###Dont arrest- no effect
+		set_global_flag = ep44_news_a
+		set_global_flag = ep45_news_a
+		set_global_flag = ep47_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.129.b
+		###Arrest him- lowers the strength of the uprising in BSS
+		set_global_flag = ep44_news_a
+		set_global_flag = ep45_news_a
+		set_global_flag = ep47_news_a
+	}
+}
+
+
+##Event: The Sword Master
+news_event = {
+	id = quest.130
+	title = quest.130.title
+	desc = quest.130.desc
+	picture = GFX_ep44_news
+	major = yes
+	trigger = {
+		has_global_flag = ep44_news_a
+		NOT = { has_global_flag = ep44_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep44_news_b
+	}
+	option = {
+		name = quest.130.a
+	}
+}
+
+
+##Event: The Beach
+news_event = {
+	id = quest.131
+	title = quest.131.title
+	desc = quest.131.desc
+	picture = GFX_ep45_news
+	major = yes
+	trigger = {
+		has_global_flag = ep45_news_a
+		NOT = { has_global_flag = ep45_news_b }
+	}
+	mean_time_to_happen = {
+		days = 8
+	}
+	immediate = {
+		set_global_flag = ep45_news_b
+	}
+	option = {
+		name = quest.131.a
+	}
+}
+
+
+##Event: The Runaway
+news_event = {
+	id = quest.132
+	title = quest.132.title
+	desc = quest.132.desc
+	picture = GFX_ep47_news
+	major = yes
+	trigger = {
+		has_global_flag = ep47_news_a
+		NOT = { has_global_flag = ep47_news_b }
+	}
+	mean_time_to_happen = {
+		days = 18
+	}
+	immediate = {
+		set_global_flag = ep47_news_b
+	}
+	option = {
+		name = quest.132.a
 	}
 }
