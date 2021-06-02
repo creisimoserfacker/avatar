@@ -9,30 +9,17 @@ buildings = {
 		base_cost = 300
 		per_level_extra_cost = 100
 		icon_frame = 13
-		local_building_slots = 0.2
 		infrastructure = yes
-		max_level = 25
+		max_level = 10
 		value = 6
 
 		show_modifier = yes
 		max_fuel_building = 0.75 #k
+		#local_manpower = 0.05
+		local_building_slots = 1
 	}
 
-	supply_depot = {
-		show_on_map = 1
-		base_cost = 900
-		icon_frame = 14
-		#max_level = 1
-		#shares_slots = yes
-		value = 1
-		infrastructure_construction_effect = yes
-		fuel_silo = yes
-		
-		show_modifier = yes
-		max_fuel_building = 100.0 #k
-	}
-
-	commandpost = {
+	settlement = {
 		show_on_map = 3
 		base_cost = 1800
 		per_level_extra_cost = 200
@@ -47,6 +34,20 @@ buildings = {
 		disabled_in_dmz = yes
 		max_level = 10 # This is the max unlock level
 		value = 1
+	}
+
+	granary = {
+		show_on_map = 1
+		base_cost = 900
+		icon_frame = 14
+		#max_level = 1
+		#shares_slots = yes
+		value = 1
+		infrastructure_construction_effect = yes
+		fuel_silo = yes
+		
+		show_modifier = yes
+		max_fuel_building = 100.0 #k
 	}
 
 	scout_tower = {
@@ -237,6 +238,47 @@ buildings = {
 		refinery = yes
 	}
 
+	road = {
+		show_on_map = 1
+		#has_destroyed_mesh = yes
+		base_cost = 100
+		per_level_extra_cost = 100
+		provincial = yes
+		disabled_in_dmz = no
+		icon_frame = 21
+		#land_fort = 1
+		#infrastructure = yes
+		max_level = 2
+		value = 10
+	}
+
+	supply_depot = {
+		show_on_map = 1
+		#has_destroyed_mesh = yes
+		base_cost = 100
+		per_level_extra_cost = 100
+		provincial = yes
+		disabled_in_dmz = no
+		icon_frame = 22
+		#land_fort = 1
+		#infrastructure = yes
+		max_level = 2
+		value = 10
+	}
+
+	wall = {
+		show_on_map = 1
+		has_destroyed_mesh = yes
+		base_cost = 300
+		per_level_extra_cost = 300
+		provincial = yes
+		disabled_in_dmz = yes
+		icon_frame = 7
+		land_fort = 1
+		max_level = 40
+		value = 2
+	}
+
 	harbor = {
 		show_on_map = 1
 		show_on_map_meshes = 3
@@ -265,19 +307,6 @@ buildings = {
 		value = 2
 	}
 
-	wall = {
-		show_on_map = 1
-		has_destroyed_mesh = yes
-		base_cost = 300
-		per_level_extra_cost = 300
-		provincial = yes
-		disabled_in_dmz = yes
-		icon_frame = 7
-		land_fort = 1
-		max_level = 40
-		value = 2
-	}
-
 	coastal_fortress = {
 		show_on_map = 1
 		has_destroyed_mesh = yes
@@ -291,19 +320,5 @@ buildings = {
 		max_level = 40
 		value = 1
 	}
-
-	#road = {
-	#	show_on_map = 1
-	#	#has_destroyed_mesh = yes
-	#	base_cost = 100
-	#	per_level_extra_cost = 100
-	#	provincial = yes
-	#	disabled_in_dmz = no
-	#	icon_frame = 16
-	#	#land_fort = 1
-	#	#infrastructure = yes
-	#	max_level = 20
-	#	value = 10
-	#}
 
 }

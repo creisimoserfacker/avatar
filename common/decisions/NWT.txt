@@ -1,23 +1,20 @@
 
 NWT_tribe_union = {
 
-	NWT_capital_development = {
+	NWT_small_development = {
 
-		icon = buildup
-
-		#on_map_mode = map_only
-
-		highlight_state_targets = {
-			state = 17
-		}
+		icon = unity_1
 
 		visible = {
 			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
 		}
 		
 		available = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
 			}
 		}
 		
@@ -25,30 +22,29 @@ NWT_tribe_union = {
 
 		#cost = 100
 
-		#days_remove = 120
+		#days_re_enable = 10
 
 		complete_effect = {
-			NWT_unity_extreme_support = yes
+			set_country_flag = unity_buildup_in_progress
+			set_country_flag = small_unity_buildup
+			set_variable = { support_goal = 10 }
 		}
 	}
 
-	NWT_oposition = {
+	NWT_medium_development = {
 
-		icon = buildup
-
-		#on_map_mode = map_only
-
-		highlight_state_targets = {
-			state = 17
-		}
+		icon = unity_2
 
 		visible = {
 			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
 		}
 		
 		available = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
 			}
 		}
 		
@@ -56,10 +52,131 @@ NWT_tribe_union = {
 
 		#cost = 100
 
-		#days_remove = 120
+		#days_re_enable = 10
 
 		complete_effect = {
-			NWT_unity_small_opposition = yes
+			set_country_flag = unity_buildup_in_progress
+		}
+	}
+
+	NWT_large_development = {
+
+		icon = unity_3
+
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		#fire_only_once = yes		
+
+		#cost = 100
+
+		#days_re_enable = 10
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
+			random_list = {
+				10 = {
+					modifier = {
+						NOT = {
+							any_owned_state = {
+								is_core_of = ROOT
+								is_controlled_by = ROOT
+								free_building_slots = {
+									building = industrial_complex
+									size > 0
+									include_locked = no
+								}
+							}
+						}
+						factor = 0
+					}
+					random_owned_state = {
+						limit = {
+							is_core_of = ROOT
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = no
+							}
+						}
+						set_state_flag = NWT_build_factory
+						set_variable = { factory_goal = industrial_complex_level }
+						add_to_variable = { factory_goal = 1 }
+						custom_effect_tooltip = manufactory_mission_tt
+					}
+				}
+
+				10 = {
+					modifier = {
+						NOT = {
+							any_owned_state = {
+								is_core_of = ROOT
+								is_controlled_by = ROOT
+								free_building_slots = {
+									building = arms_factory
+									size > 0
+									include_locked = no
+								}
+							}
+						}
+						factor = 0
+					}
+					random_owned_state = {
+						limit = {
+							is_core_of = ROOT
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = no
+							}
+						}
+						set_state_flag = NWT_build_smithy
+						set_variable = { smithy_goal = arms_factory_level }
+						add_to_variable = { smithy_goal = 1 }
+						custom_effect_tooltip = smithy_mission_tt
+					}
+				}
+			}
+		}
+	}
+
+	NWT_extreme_development = {
+
+		icon = unity_4
+
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		#fire_only_once = yes		
+
+		#cost = 100
+
+		#days_re_enable = 10
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
 		}
 	}
 

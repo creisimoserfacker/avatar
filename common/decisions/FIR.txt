@@ -1438,6 +1438,11 @@ air_genocide_category = {
 				load_oob = "southern_firebender_army"
 				load_oob = "western_firebender_army"
 				load_oob = "eastern_firebender_army"
+				hidden_effect = {
+					remove_decision = spare_the_air_nomads
+					remove_decision = commence_the_genocide
+				}
+				add_war_support = 0.05
 				#if = {
 				#	limit = {
 				#		check_variable = { genocide_preparation > 40 }
@@ -1475,6 +1480,13 @@ air_genocide_category = {
 				#	load_oob = "eastern_firebender_army_extra"
 				#}
 			}
+			else = {
+				hidden_effect = {
+					remove_decision = spare_the_air_nomads
+					remove_decision = commence_the_genocide
+				}
+				add_stability = 0.05
+			}
 		}
 
         fire_only_once = yes
@@ -1490,30 +1502,35 @@ air_genocide_category = {
 		available = {
 			hidden_trigger = {
 				NOT = {
-					has_global_flag = genocide_active
 					has_global_flag = sozins_comet_first
 				}
+				has_global_flag = genocide_active
 			}
         }
 
 		visible = {
 			hidden_trigger = {
 				NOT = {
-					has_global_flag = genocide_active
 					has_global_flag = sozins_comet_first
 				}
+				has_global_flag = genocide_active
 			}
 		}
 
 		cost = 0
 
-		is_good = yes
+		days_remove = -1
+
+		modifier = {
+			stability_factor = 0.05
+		}
 
 		complete_effect = {
-			set_global_flag = genocide_active
-			hidden_effect = {
-				load_oob = "special_attack_forces"
+			clr_global_flag = genocide_active
+			delete_unit_template_and_units = {
+				division_template = "Special Attack Forces"
 			}
+			remove_decision = commence_the_genocide
 		}
         ai_will_do = {
 			factor = 100
@@ -1526,30 +1543,35 @@ air_genocide_category = {
 		available = {
 			hidden_trigger = {
 				NOT = {
+					has_global_flag = genocide_active
 					has_global_flag = sozins_comet_first
 				}
-				has_global_flag = genocide_active
 			}
         }
 
 		visible = {
 			hidden_trigger = {
 				NOT = {
+					has_global_flag = genocide_active
 					has_global_flag = sozins_comet_first
 				}
-				has_global_flag = genocide_active
 			}
 		}
 
 		cost = 0
 
-		is_good = yes
+		days_remove = -1
+
+		modifier = {
+			war_support_factor = 0.05
+		}
 
 		complete_effect = {
-			clr_global_flag = genocide_active
-			delete_unit_template_and_units = {
-				division_template = "Special Attack Forces"
+			set_global_flag = genocide_active
+			hidden_effect = {
+				load_oob = "special_attack_forces"
 			}
+			remove_decision = spare_the_air_nomads
 		}
 
         ai_will_do = {
