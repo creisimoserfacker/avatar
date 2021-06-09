@@ -2461,10 +2461,10 @@ NAI = {
 },
 
 NFocus = {
-	FOCUS_POINT_DAYS = 1,						-- Each point takes a day
-	FOCUS_PROGRESS_PEACE = 1,					-- Progress during peace
-	FOCUS_PROGRESS_WAR = 0.5,					-- Progress during war
-	MAX_SAVED_FOCUS_PROGRESS = 30,				-- This much progress can be saved while not having a focus selected
+	FOCUS_POINT_DAYS = 100,						-- Each point takes 1000 days
+	FOCUS_PROGRESS_PEACE = 100,					-- Progress during peace
+	FOCUS_PROGRESS_WAR = 100,					-- Progress during war
+	MAX_SAVED_FOCUS_PROGRESS = 0,				-- This much progress can be saved while not having a focus selected
 },
 
 NOperatives = {
@@ -2875,9 +2875,9 @@ NIntel = {
 
 	CIVILIAN_INTEL_NEEDED_TO_SHOW_ANTI_AIR_REDUCTION = 0.3, -- minimum value to show anti air damage reduction
 
-	CIVILIAN_INTEL_NEEDED_TO_SHOW_FOCUS_TREE = 0.7, -- min required intel to focus tree with taken focuses
-	CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS = 0.3,  -- min required intel to show currently focus
-	CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS_PROGRESS = 0.5,  -- min required intel to show current focus progress
+	CIVILIAN_INTEL_NEEDED_TO_SHOW_FOCUS_TREE = 0.0, -- min required intel to focus tree with taken focuses
+	CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS = 0.0,  -- min required intel to show currently focus
+	CIVILIAN_INTEL_NEEDED_TO_SHOW_CURRENT_FOCUS_PROGRESS = 0.0,  -- min required intel to show current focus progress
 	
 	CIVILIAN_MIN_INTEL_TO_SHOW_INDUSTRY_GRAPH = 0.30,
 	CIVILIAN_MIN_INTEL_TO_SHOW_CONVOYS_GRAPH = 0.70,
