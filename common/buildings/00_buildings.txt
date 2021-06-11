@@ -87,35 +87,41 @@ buildings = {
 	industrial_complex = {
 		show_on_map = 6
 		base_cost = 2400
-		per_level_extra_cost = -10
-		base_cost_conversion = 2600
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
 		general_production = 1
 		icon_frame = 2
 		max_level = 50
 		shares_slots = yes
 		value = 5
 		infrastructure_construction_effect = yes
+
+		civilian_capacity_modifier = 1
+		show_modifier = yes
 	}
 
 	#smithy
 	arms_factory = {
 		show_on_map = 6
 		base_cost = 4200
-		per_level_extra_cost = -20
-		base_cost_conversion = 400
+		#per_level_extra_cost = -20
+		base_cost_conversion = 2600
 		military_production = 1
 		icon_frame = 1
 		max_level = 50
 		shares_slots = yes
 		value = 3
 		infrastructure_construction_effect = yes
+
+		military_capacity_modifier = 1
+		show_modifier = yes
 	}
 
 	dockyard = {
 		show_on_map = 1
 		show_on_map_meshes = 3
 		base_cost = 3600
-		per_level_extra_cost = -50
+		#per_level_extra_cost = -50
 		only_costal = yes
 		naval_production = 1
 		icon_frame = 4
@@ -126,6 +132,8 @@ buildings = {
 
 		show_modifier = yes
 		fuel_gain_from_states = 1.0 #per hour
+
+		naval_capacity_modifier = 1
 	}
 
 	#factory1 = {
@@ -160,6 +168,7 @@ buildings = {
 	lumber_mill = {
 		show_on_map = 1
 		base_cost = 600
+		per_level_extra_cost = 540
 		icon_frame = 15
 		local_resources_aluminium = 6
 		max_level = 4 # This is the max unlock level
@@ -172,6 +181,7 @@ buildings = {
 	quarry = {
 		show_on_map = 1
 		base_cost = 580
+		per_level_extra_cost = 640
 		icon_frame = 18
 		local_resources_stone = 10
 		#local_resources_aluminium = -1000
@@ -197,6 +207,7 @@ buildings = {
 	mine = {
 		show_on_map = 1
 		base_cost = 1100
+		per_level_extra_cost = 380
 		icon_frame = 10
 		local_resources_rubber = 2
 		local_resources_iron = 2
@@ -225,7 +236,7 @@ buildings = {
 	factory = {
 		show_on_map = 1
 		base_cost = 6000
-		per_level_extra_cost = -500
+		#per_level_extra_cost = -500
 		icon_frame = 3
 		naval_production = 1
 		military_production = 1
@@ -236,6 +247,10 @@ buildings = {
 		value = 5
 		infrastructure_construction_effect = yes
 		refinery = yes
+
+		military_capacity_modifier = 1
+		naval_capacity_modifier = 1
+		show_modifier = yes
 	}
 
 	road = {
