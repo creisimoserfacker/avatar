@@ -9,10 +9,18 @@ FIR_industrialistation_category = {
 			hidden_trigger = {
 				has_start_date < 13.01.01
 			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+				has_decision = reform_from_above
+			}
 		}
 		visible = {
 			hidden_trigger = {
 				has_start_date < 13.01.01
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+				has_decision = reform_from_above
 			}
 		}
 
@@ -34,6 +42,7 @@ FIR_industrialistation_category = {
 
 		remove_effect = {
 			custom_effect_tooltip = industry_unlock_tt
+			set_country_flag = fire_industrialisation
 		}
 
 		custom_cost_trigger = {
@@ -42,6 +51,58 @@ FIR_industrialistation_category = {
 		custom_cost_text = stability_70
 		fire_only_once = yes
 		days_remove = 730
+
+        ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	reform_from_above = {
+
+		#icon = research_boost
+
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+				has_decision = cultural_change
+			}
+		}
+		visible = {
+			hidden_trigger = {
+				has_start_date < 13.01.01
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+				has_decision = cultural_change
+			}
+		}
+
+		complete_effect = {
+			add_tech_bonus = {
+				name = FIR_cultural_change
+				ahead_reduction = 40
+				uses = 8
+				category = society_conservative
+			}
+		}
+
+		modifier = {
+			political_power_factor = -0.9
+			stability_weekly_factor = 0.005
+			imperialism_drift = 0.05
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = industry_unlock_tt
+			set_country_flag = fire_industrialisation
+		}
+
+		cost = 500
+		fire_only_once = yes
+		days_remove = 1095
 
         ai_will_do = {
 			factor = 1000
@@ -880,21 +941,40 @@ FIR_outpost_category = {
 
 		visible = {
 			ships_in_area = { area = 36 size > 9 }
+			NOT = {
+				any_province_building_level = {
+				    province = {
+				        id = 7281
+				    }
+				    building = naval_base
+				    level > 5
+				}
+			}
 		}
 
 		available = {
 			ships_in_area = { area = 36 size > 9 }
+			NOT = {
+				any_province_building_level = {
+				    province = {
+				        id = 7281
+				    }
+				    building = naval_base
+				    level > 5
+				}
+			}
 		}
 
 		days_remove = 120
 
 		modifier = {
 			civilian_factory_use = 4
+			weekly_manpower = -20
 		}
 
 		remove_effect = {
 			264 = {
-				add_building_construction = {
+				set_building_level = {
 					type = naval_base
 					level = 6
 					instant_build = yes
@@ -909,7 +989,7 @@ FIR_outpost_category = {
 			}
 		}
 
-		#cost = 20
+		cost = 50
         fire_only_once = yes
 	}
 
@@ -1442,7 +1522,7 @@ air_genocide_category = {
 					remove_decision = spare_the_air_nomads
 					remove_decision = commence_the_genocide
 				}
-				add_war_support = 0.05
+				#add_war_support = 0.05
 				#if = {
 				#	limit = {
 				#		check_variable = { genocide_preparation > 40 }
@@ -1485,7 +1565,7 @@ air_genocide_category = {
 					remove_decision = spare_the_air_nomads
 					remove_decision = commence_the_genocide
 				}
-				add_stability = 0.05
+				#add_stability = 0.05
 			}
 		}
 
@@ -1513,7 +1593,7 @@ air_genocide_category = {
 				NOT = {
 					has_global_flag = sozins_comet_first
 				}
-				has_global_flag = genocide_active
+				#has_global_flag = genocide_active
 			}
 		}
 
@@ -1521,9 +1601,9 @@ air_genocide_category = {
 
 		days_remove = -1
 
-		modifier = {
-			stability_factor = 0.05
-		}
+		#modifier = {
+		#	stability_factor = 0.05
+		#}
 
 		complete_effect = {
 			clr_global_flag = genocide_active
@@ -1562,9 +1642,9 @@ air_genocide_category = {
 
 		days_remove = -1
 
-		modifier = {
-			war_support_factor = 0.05
-		}
+		#modifier = {
+		#	war_support_factor = 0.05
+		#}
 
 		complete_effect = {
 			set_global_flag = genocide_active
