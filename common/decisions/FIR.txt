@@ -11,7 +11,6 @@ FIR_industrialistation_category = {
 			}
 			NOT = {
 				has_country_flag = fire_industrialisation
-				has_decision = reform_from_above
 			}
 		}
 		visible = {
@@ -20,7 +19,6 @@ FIR_industrialistation_category = {
 			}
 			NOT = {
 				has_country_flag = fire_industrialisation
-				has_decision = reform_from_above
 			}
 		}
 
@@ -51,58 +49,6 @@ FIR_industrialistation_category = {
 		custom_cost_text = stability_70
 		fire_only_once = yes
 		days_remove = 730
-
-        ai_will_do = {
-			factor = 1000
-		}
-	}
-
-	reform_from_above = {
-
-		#icon = research_boost
-
-		available = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
-			}
-			NOT = {
-				has_country_flag = fire_industrialisation
-				has_decision = cultural_change
-			}
-		}
-		visible = {
-			hidden_trigger = {
-				has_start_date < 13.01.01
-			}
-			NOT = {
-				has_country_flag = fire_industrialisation
-				has_decision = cultural_change
-			}
-		}
-
-		complete_effect = {
-			add_tech_bonus = {
-				name = FIR_cultural_change
-				ahead_reduction = 40
-				uses = 8
-				category = society_conservative
-			}
-		}
-
-		modifier = {
-			political_power_factor = -0.9
-			stability_weekly_factor = 0.005
-			imperialism_drift = 0.05
-		}
-
-		remove_effect = {
-			custom_effect_tooltip = industry_unlock_tt
-			set_country_flag = fire_industrialisation
-		}
-
-		cost = 500
-		fire_only_once = yes
-		days_remove = 1095
 
         ai_will_do = {
 			factor = 1000
