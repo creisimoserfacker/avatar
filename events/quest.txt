@@ -54,6 +54,9 @@ country_event = {
 			FIR = { country_event = { id = hidden.42 days = 568 } }
 			FIR = { country_event = { id = hidden.43 days = 582 } }
 			FIR = { country_event = { id = hidden.44 days = 596 } }
+			FIR = { country_event = { id = hidden.48 days = 610 } }
+			FIR = { country_event = { id = hidden.49 days = 624 } }
+			FIR = { country_event = { id = hidden.50 days = 626 } }
 		}
 	}
 	option = {
@@ -2341,6 +2344,7 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.90.a
 		###Teach Zuko lightningbending- Increase his skill
+		set_global_flag = Zuko_Knows_lightningbending
 	}
 	option = {
 		ai_chance = { base = 1}
@@ -3371,5 +3375,239 @@ news_event = {
 	}
 	option = {
 		name = quest.132.a
+	}
+}
+
+
+##Teach Kattara Bloodbending?
+country_event = {
+	id = quest.133
+	title = quest.133.title
+	desc = quest.133.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Teach_Kattara_Bloodbending
+	trigger = {
+		tag = SWT
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.133.a
+		###Teach Kattara
+		FIR = { country_event = { id = quest.134 days = 0 } }
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.133.b
+		###Don't Teach
+	}
+}
+
+
+##Accept To Learn Bloodbending?
+country_event = {
+	id = quest.134
+	title = quest.134.title
+	desc = quest.134.desc
+	fire_only_once = yes
+	is_triggered_only = yes
+	picture = GFX_Accept_To_Learn_Bloodbending
+	trigger = {
+		tag = FIR
+	}
+	option = {
+		ai_chance = { base = 4}
+		name = quest.134.a
+		###Rejects Bloodbending- big buff
+		set_global_flag = ep48_news_a
+	}
+	option = {
+		ai_chance = { base = 1}
+		name = quest.134.b
+		###Embraces Bloodbending- small buff
+	}
+}
+
+
+##The Puppetmaster
+news_event = {
+	id = quest.135
+	title = quest.135.title
+	desc = quest.135.desc
+	picture = GFX_ep48_news
+	major = yes
+	trigger = {
+		has_global_flag = ep48_news_a
+		NOT = { has_global_flag = ep48_news_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = ep48_news_b
+	}
+	option = {
+		name = quest.135.a
+	}
+}
+
+
+##Zuko's Second War Meeting
+news_event = {
+	id = quest.136
+	title = quest.136.title
+	desc = quest.136.desc
+	picture = GFX_ep49_news
+	major = yes
+	trigger = {
+		has_global_flag = ep49_news_a
+		NOT = { has_global_flag = ep49_news_b }
+	}
+	mean_time_to_happen = {
+		days = 18
+	}
+	immediate = {
+		set_global_flag = ep49_news_b
+	}
+	option = {
+		name = quest.136.a
+	}
+}
+
+
+##Black Sun Invasion Succeeded
+news_event = {
+	id = quest.137
+	title = quest.137.title
+	desc = quest.137.desc
+	picture = GFX_Eclipse_Invasion_Succeeded
+	major = yes
+	trigger = {
+		has_global_flag = Eclipse_Invasion_Succeeded
+		NOT = { has_global_flag = Eclipse_Invasion_Succeeded_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Eclipse_Invasion_Succeeded_b
+	}
+	option = {
+		name = quest.137.a
+	}
+}
+
+
+##Black Sun Invasion Failed
+news_event = {
+	id = quest.138
+	title = quest.138.title
+	desc = quest.138.desc
+	picture = GFX_Eclipse_Invasion_Failed
+	major = yes
+	trigger = {
+		has_global_flag = Eclipse_Invasion_Failed
+		NOT = { has_global_flag = Eclipse_Invasion_Failed_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Eclipse_Invasion_Failed_b
+	}
+	option = {
+		name = quest.138.a
+	}
+}
+
+
+##Zuko's New Destiny
+news_event = {
+	id = quest.139
+	title = quest.139.title
+	desc = quest.139.desc
+	picture = GFX_Eclipse_Zuko_Joind_Aang
+	major = yes
+	trigger = {
+		has_global_flag = Eclipse_Zuko_Joind_Aang
+		NOT = { has_global_flag = Eclipse_Zuko_Joind_Aang_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Eclipse_Zuko_Joind_Aang_b
+	}
+	option = {
+		name = quest.139.a
+	}
+}
+
+
+##Ozai Killed Zuko!
+news_event = {
+	id = quest.140
+	title = quest.140.title
+	desc = quest.140.desc
+	picture = GFX_Ozai_Killed_Zuko
+	major = yes
+	trigger = {
+		has_global_flag = Ozai_Killed_Zuko
+		NOT = { has_global_flag = Ozai_Killed_Zuko_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Ozai_Killed_Zuko_b
+	}
+	option = {
+		name = quest.140.a
+	}
+}
+
+
+##Zuko Joined His Nation
+news_event = {
+	id = quest.141
+	title = quest.141.title
+	desc = quest.141.desc
+	picture = GFX_Eclipse_Zuko_Joind_FN
+	major = yes
+	trigger = {
+		has_global_flag = Eclipse_Zuko_Joind_FN
+		NOT = { has_global_flag = Eclipse_Zuko_Joind_FN_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Eclipse_Zuko_Joind_FN_b
+	}
+	option = {
+		name = quest.141.a
+	}
+}
+
+
+##Iroh Escaped From Prison
+news_event = {
+	id = quest.142
+	title = quest.142.title
+	desc = quest.142.desc
+	picture = GFX_Iroh_Escaped_From_Prison
+	major = yes
+	trigger = {
+		has_global_flag = Iroh_Escaped_From_Prison
+		NOT = { has_global_flag = Iroh_Escaped_From_Prison_b }
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = Iroh_Escaped_From_Prison_b
+	}
+	option = {
+		name = quest.142.a
 	}
 }

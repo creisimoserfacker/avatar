@@ -1,5 +1,6 @@
 
 FIR_unit_production = {
+	date < 105.1.1
 	enable = {
 		original_tag = FIR
 	}
@@ -68,6 +69,7 @@ FIR_naval_role_ratios_historical = {
 
 FIR_area_priority = {
 	enable = {
+		date < 105.1.1
 		original_tag = FIR
 	}
 
@@ -185,6 +187,7 @@ FIR_far_waters = {
 	enable = {
 		original_tag = FIR
 		has_war_with = EAR
+		NOT = { has_war_with = NWT }
 	}
 	abort_when_not_enabled = yes
 	
@@ -215,6 +218,7 @@ FIR_far_waters = {
 # lets make sure the earthkingdom is properly invaded
 pohuai_taku_invasions = {
 	enable = {
+		date < 105.1.1
 		original_tag = FIR
 	}
 
@@ -279,6 +283,127 @@ pohuai_taku_invasions = {
 		type = invade
 		id = "NIX"
 		value = -100000
+	}
+	
+}
+
+
+deploy_some_units = {
+	enable = {
+		original_tag = EAR
+		has_army_manpower = {
+			type = infantry
+			size < 100000
+        }
+	}
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 100
+	}
+	
+}
+
+Siege_Invasions = {
+	enable = {
+		date > 105.1.1
+		date < 107.7.7
+		original_tag = FIR
+	}
+	ai_strategy = {
+		type = conquer
+		id = "EAR"			
+		value = 10000
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "HEB"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "NAT"			
+		value = -10000
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "OMS"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "NWT"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "FMB"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = EAR
+		ratio = 1
+		priority = 100
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = EAR
+		value = 775
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = HEB
+		value = 180
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = FMB
+		value = 180
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = OMS
+		value = 100
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = MPO
+		value = 80
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = ECB
+		value = 60
+		priority = 400
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = EBA
+		value = 100
+		priority = 400
 	}
 	
 }
