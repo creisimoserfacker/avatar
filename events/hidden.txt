@@ -516,3 +516,56 @@ country_event = {
 	}
 }
 
+
+country_event = {
+	id = hidden.48
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Decides if Hamma teaches Katara bloodbending, Zuko's Second War Meeting:
+		if = { limit = { has_global_flag = Kattara_In_Team }
+			SWT = { country_event = { id = quest.133 days = 0 } } }
+		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { Zuko_Died } }
+			set_global_flag = ep49_news_a }
+	}
+}
+
+
+country_event = {
+	id = hidden.49
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#After The Black Sun Invasion scripted battle:
+		#Success: continue as usual:
+		set_global_flag = Eclipse_Invasion_Succeeded
+		#Failure: Aang wounded for 2 months, some non-essential member is killed:
+		set_global_flag = Eclipse_Invasion_Failed
+	}
+}
+
+
+country_event = {
+	id = hidden.50
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#After The Black Sun Invasion scripted battle:
+		#Event: The Eclipse- If Zuko chose to Join Aang (also a chance that Ozai will kill him):
+		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { Zuko_Died } }
+			if = { limit = { has_global_flag = Zuko_Knows_lightningbending } set_global_flag = Eclipse_Zuko_Joind_Aang }
+			else = { random_list = {
+			70 = { set_global_flag = Eclipse_Zuko_Joind_Aang }
+			30 = { set_global_flag = Ozai_Killed_Zuko } } } }
+		#If Zuko decides to fully embrace the Fire Nation:
+		set_global_flag = Eclipse_Zuko_Joind_FN
+		#If Iroh Helped Aang in BSS, He will escape from prison:
+		if = { limit = { has_global_flag = ep40_1_news_a } set_global_flag = Iroh_Escaped_From_Prison }
+	}
+}
+
+
+
