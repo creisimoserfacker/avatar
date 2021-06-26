@@ -1,6 +1,6 @@
 
 FIR_unit_production = {
-	date < 105.1.1
+	OR = { date < 105.2.4 date > 107.6.19 }
 	enable = {
 		original_tag = FIR
 	}
@@ -69,7 +69,7 @@ FIR_naval_role_ratios_historical = {
 
 FIR_area_priority = {
 	enable = {
-		date < 105.1.1
+		OR = { date < 105.2.4 date > 107.6.19 }
 		original_tag = FIR
 	}
 
@@ -218,7 +218,7 @@ FIR_far_waters = {
 # lets make sure the earthkingdom is properly invaded
 pohuai_taku_invasions = {
 	enable = {
-		date < 105.1.1
+		date < 105.2.4
 		original_tag = FIR
 	}
 
@@ -306,14 +306,9 @@ deploy_some_units = {
 
 Siege_Invasions = {
 	enable = {
-		date > 105.1.1
-		date < 107.7.7
+		date > 105.2.4
+		date < 107.6.19
 		original_tag = FIR
-	}
-	ai_strategy = {
-		type = conquer
-		id = "EAR"			
-		value = 10000
 	}
 	
 	ai_strategy = {
@@ -355,6 +350,24 @@ Siege_Invasions = {
 		execution_type = rush
 		execute_order = yes
 		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = SWT
+		ratio = 1
+		priority = 400
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = SWT
+		value = 75
+		priority = 400
 	}
 	
 	ai_strategy = {
