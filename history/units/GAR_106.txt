@@ -9,6 +9,20 @@ division_template = {
 }
 
 division_template = {
+	name = "Infantry Banner"
+
+	regiments = {
+		pikemen = { x = 0 y = 0 }
+		pikemen = { x = 0 y = 1 }
+		pikemen = { x = 1 y = 0 }
+		pikemen = { x = 1 y = 1 }
+		archers = { x = 2 y = 0 }
+		archers = { x = 2 y = 1 }
+	}
+
+}
+
+division_template = {
 	name = "Town Guard"
 
 	regiments = {
@@ -21,12 +35,15 @@ division_template = {
 }
 
 division_template = {
-	name = "Militia Brigade"
+	name = "Archer Brigade"
 
 	regiments = {
-		spearmen = { x = 0 y = 0 }
-		swordsmen = { x = 1 y = 0 }
-		swordsmen = { x = 1 y = 1 }
+		spearmen = { x = 1 y = 0 }
+		spearmen = { x = 1 y = 1 }
+		archers = { x = 0 y = 0 }
+		archers = { x = 0 y = 1 }
+		archers = { x = 0 y = 2 }
+		archers = { x = 0 y = 3 }
 	}
 }
 
@@ -37,7 +54,7 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2971
+		location = 9247
 		division_template = "Earthbender Brigade"
 		start_experience_factor = 0.05
 		start_equipment_factor = 0.5
@@ -48,18 +65,7 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 615
-		division_template = "Earthbender Brigade"
-		start_experience_factor = 0.05
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 2567
+		location = 1530
 		division_template = "Earthbender Brigade"
 		start_experience_factor = 0.05
 		start_equipment_factor = 0.5
@@ -69,27 +75,7 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5264
-		division_template = "Earthbender Brigade"
-		start_experience_factor = 0.05
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 5191
-		division_template = "Earthbender Brigade"
-		start_experience_factor = 0.05
-		start_equipment_factor = 0.5
-	}
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 9284
+		location = 9251
 		division_template = "Town Guard"
 		start_experience_factor = 0.1
 		start_equipment_factor = 0.8
@@ -99,19 +85,29 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 9284
-		division_template = "Militia Brigade"
+		location = 9251
+		division_template = "Archer Brigade"
 		start_experience_factor = 0.08
-		start_equipment_factor = 0.75
+		start_equipment_factor = 0.6
 	}
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4560
-		division_template = "Militia Brigade"
+		location = 2154
+		division_template = "Archer Brigade"
 		start_experience_factor = 0.08
-		start_equipment_factor = 0.75
+		start_equipment_factor = 0.6
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2154
+		division_template = "Infantry Banner"
+		start_experience_factor = 0.15
+		start_equipment_factor = 0.8
 	}
 }
