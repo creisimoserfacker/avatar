@@ -27,7 +27,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = loose_confederation
-				check_variable = { NWT_unity_support > 19 } 
+				check_variable = { NWT_unity_support > 24 } 
 			}
 		}
 		swap_ideas = {
@@ -39,7 +39,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = united_confederation
-				check_variable = { NWT_unity_support > 39 } 
+				check_variable = { NWT_unity_support > 49 } 
 			}
 		}
 		swap_ideas = {
@@ -51,7 +51,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = loose_federation
-				check_variable = { NWT_unity_support > 59 } 
+				check_variable = { NWT_unity_support > 74 } 
 			}
 		}
 		swap_ideas = {
@@ -63,21 +63,24 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = united_federation
-				check_variable = { NWT_unity_support > 79 } 
+				check_variable = { NWT_unity_support > 99 } 
 			}
 		}
 		swap_ideas = {
 			remove_idea = united_federation
 			add_idea = one_tribe
 		}
-		NWT = { drop_cosmetic_tag = NWT_tribes }
+		NWT = { 
+			drop_cosmetic_tag = NWT_tribes
+			country_event = { id = nwt.3 days = 1 }
+		}
 	}
 
 	if = {
 		limit = { 
 			AND = {
 				has_idea = one_tribe
-				check_variable = { NWT_unity_support < 80 } 
+				check_variable = { NWT_unity_support < 90 } 
 			}
 		}
 		swap_ideas = {
@@ -90,7 +93,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = united_federation
-				check_variable = { NWT_unity_support < 60 } 
+				check_variable = { NWT_unity_support < 75 } 
 			}
 		}
 		swap_ideas = {
@@ -102,7 +105,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = loose_federation
-				check_variable = { NWT_unity_support < 40 } 
+				check_variable = { NWT_unity_support < 50 } 
 			}
 		}
 		swap_ideas = {
@@ -114,7 +117,7 @@ NWT_recalc_spirit = {
 		limit = { 
 			AND = {
 				has_idea = united_confederation
-				check_variable = { NWT_unity_support < 20 } 
+				check_variable = { NWT_unity_support < 25 } 
 			}
 		}
 		swap_ideas = {
@@ -256,9 +259,7 @@ SWT_recalc_spirit = {
 
 NWT_unity_small_support = {
 	custom_effect_tooltip = water_unity_small_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 5 }
-	add_to_variable = { NWT_unity_support = temp_factor }
+	add_to_variable = { NWT_unity_support = 1 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -267,9 +268,7 @@ NWT_unity_small_support = {
 }
 NWT_unity_small_opposition = {
 	custom_effect_tooltip = water_unity_small_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 5 }
-	subtract_from_variable = { NWT_unity_support = temp_factor }
+	subtract_from_variable = { NWT_unity_support = 1 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -279,9 +278,7 @@ NWT_unity_small_opposition = {
 
 NWT_unity_medium_support = {
 	custom_effect_tooltip = water_unity_medium_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 10 }
-	add_to_variable = { NWT_unity_support = temp_factor }
+	add_to_variable = { NWT_unity_support = 5 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -290,9 +287,7 @@ NWT_unity_medium_support = {
 }
 NWT_unity_medium_opposition = {
 	custom_effect_tooltip = water_unity_medium_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 10 }
-	subtract_from_variable = { NWT_unity_support = temp_factor }
+	subtract_from_variable = { NWT_unity_support = 5 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -302,9 +297,7 @@ NWT_unity_medium_opposition = {
 
 NWT_unity_large_support = {
 	custom_effect_tooltip = water_unity_large_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 25 }
-	add_to_variable = { NWT_unity_support = temp_factor }
+	add_to_variable = { NWT_unity_support = 10 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -313,9 +306,7 @@ NWT_unity_large_support = {
 }
 NWT_unity_large_opposition = {
 	custom_effect_tooltip = water_unity_large_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 25 }
-	subtract_from_variable = { NWT_unity_support = temp_factor }
+	subtract_from_variable = { NWT_unity_support = 10 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -325,9 +316,7 @@ NWT_unity_large_opposition = {
 
 NWT_unity_extreme_support = {
 	custom_effect_tooltip = water_unity_extreme_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 50 }
-	add_to_variable = { NWT_unity_support = temp_factor }
+	add_to_variable = { NWT_unity_support = 15 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -336,9 +325,7 @@ NWT_unity_extreme_support = {
 }
 NWT_unity_extreme_opposition = {
 	custom_effect_tooltip = water_unity_extreme_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 50 }
-	subtract_from_variable = { NWT_unity_support = temp_factor }
+	subtract_from_variable = { NWT_unity_support = 15 }
 	round_variable = NWT_unity_support
 	clamp_variable = { var = NWT_unity_support max = NWT_unity_total min = 0 }
 	
@@ -352,9 +339,7 @@ NWT_unity_extreme_opposition = {
 
 SWT_unity_small_support = {
 	custom_effect_tooltip = water_unity_small_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 5 }
-	add_to_variable = { SWT_unity_support = temp_factor }
+	add_to_variable = { SWT_unity_support = 1 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -363,9 +348,7 @@ SWT_unity_small_support = {
 }
 SWT_unity_small_opposition = {
 	custom_effect_tooltip = water_unity_small_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 5 }
-	subtract_from_variable = { SWT_unity_support = temp_factor }
+	subtract_from_variable = { SWT_unity_support = 1 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -375,9 +358,7 @@ SWT_unity_small_opposition = {
 
 SWT_unity_medium_support = {
 	custom_effect_tooltip = water_unity_medium_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 10 }
-	add_to_variable = { SWT_unity_support = temp_factor }
+	add_to_variable = { SWT_unity_support = 5 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -386,9 +367,7 @@ SWT_unity_medium_support = {
 }
 SWT_unity_medium_opposition = {
 	custom_effect_tooltip = water_unity_medium_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 10 }
-	subtract_from_variable = { SWT_unity_support = temp_factor }
+	subtract_from_variable = { SWT_unity_support = 5 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -398,9 +377,7 @@ SWT_unity_medium_opposition = {
 
 SWT_unity_large_support = {
 	custom_effect_tooltip = water_unity_large_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 25 }
-	add_to_variable = { SWT_unity_support = temp_factor }
+	add_to_variable = { SWT_unity_support = 10 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -409,9 +386,7 @@ SWT_unity_large_support = {
 }
 SWT_unity_large_opposition = {
 	custom_effect_tooltip = water_unity_large_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 25 }
-	subtract_from_variable = { SWT_unity_support = temp_factor }
+	subtract_from_variable = { SWT_unity_support = 10 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -421,9 +396,7 @@ SWT_unity_large_opposition = {
 
 SWT_unity_extreme_support = {
 	custom_effect_tooltip = water_unity_extreme_support_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 50 }
-	add_to_variable = { SWT_unity_support = temp_factor }
+	add_to_variable = { SWT_unity_support = 15 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	
@@ -432,9 +405,7 @@ SWT_unity_extreme_support = {
 }
 SWT_unity_extreme_opposition = {
 	custom_effect_tooltip = water_unity_extreme_opposition_tt
-	set_temp_variable = { temp_factor = random }
-	multiply_temp_variable = { temp_factor = 50 }
-	subtract_from_variable = { SWT_unity_support = temp_factor }
+	subtract_from_variable = { SWT_unity_support = 15 }
 	round_variable = SWT_unity_support
 	clamp_variable = { var = SWT_unity_support max = SWT_unity_total min = 0 }
 	

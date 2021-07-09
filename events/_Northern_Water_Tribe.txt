@@ -1,0 +1,215 @@
+###########################
+# Northern Watertribe Events
+###########################
+
+add_namespace = nwt
+add_namespace = nwt_treaty
+
+
+#   #  #     #  #####
+##  #  #  #  #    #
+# # #  #  #  #    #
+#  ##  #  #  #    #
+#   #   ## ##     #
+
+#Speech Riots
+country_event = {
+	id = nwt.1
+	title = nwt.1.t
+	desc = nwt.1.d
+	picture = GFX_report_event_nwt_riots
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = {
+		name = nwt.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		NWT_unity_small_opposition = yes
+		random_owned_state = {
+			add_dynamic_modifier = { modifier = watertribe_riots }
+		}
+	}
+
+}
+
+#Speech supported
+country_event = {
+	id = nwt.2
+	title = nwt.2.t
+	desc = nwt.2.d
+	picture = GFX_report_event_nwt_support
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = {
+		name = nwt.2.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		NWT_unity_medium_support = yes
+		add_political_power = 20
+	}
+
+}
+
+#Tribe Unification
+country_event = {
+	id = nwt.3
+	title = nwt.3.t
+	desc = nwt.3.d
+	picture = GFX_report_event_tribe_unification
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = nwt.3.a
+		ai_chance = { 
+			factor = 100
+		}
+	}
+
+}
+
+#Tech Trade
+country_event = {
+	id = nwt.4
+	title = nwt.4.t
+	desc = nwt.4.d
+	picture = GFX_report_event_tribe_unification
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = nwt.3.a
+		ai_chance = { 
+			factor = 100
+		}
+	}
+
+}
+
+
+
+
+#Approach the earth kingdom
+country_event = {
+	id = nwt_treaty.1
+	title = nwt_treaty.1.t
+	desc = nwt_treaty.1.d
+	picture = GFX_report_event_nwt_riots
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Accept
+		name = nwt_treaty.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		hidden_effect = {
+			NWT = { set_country_flag = EAR_accepts_cooperation }
+		}
+		NWT = {
+			diplomatic_relation = {
+			    country = EAR
+			    relation = non_aggression_pact
+			    active = yes
+			}
+		}
+	}
+	option = { #Refuse
+		name = nwt_treaty.1.b
+		ai_chance = { 
+			factor = 0
+		}
+
+		
+	}
+
+}
+
+#earth kingdom xp trade
+country_event = {
+	id = nwt_treaty.2
+	title = nwt_treaty.2.t
+	desc = nwt_treaty.2.d
+	picture = GFX_report_event_nwt_riots
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = { #Accept
+		name = nwt_treaty.2.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		NWT = {
+			army_experience = 20
+			navy_experience = -20
+		}
+		EAR = {
+			navy_experience = 20
+			army_experience = -20
+			add_political_power = 20
+		}
+	}
+	option = { #Refuse
+		name = nwt_treaty.2.b
+		ai_chance = { 
+			factor = 0
+		}
+
+		
+	}
+
+}
+
+
+#earth kingdom tech trade
+country_event = {
+	id = nwt_treaty.3
+	title = nwt_treaty.3.t
+	desc = nwt_treaty.3.d
+	picture = GFX_report_event_nwt_riots
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = { #Accept
+		name = nwt_treaty.3.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_timed_idea = { idea = water_payments days = 210 }
+		NWT = {
+			add_timed_idea = { idea = water_debts days = 210 }
+			country_event = { id = nwt.4 hours = 1 }
+		}
+	}
+	option = { #Refuse
+		name = nwt_treaty.3.b
+		ai_chance = { 
+			factor = 0
+		}
+
+		add_political_power = -20
+	}
+
+}
