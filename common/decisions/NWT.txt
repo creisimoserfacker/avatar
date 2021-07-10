@@ -1,9 +1,9 @@
 
 NWT_tribe_union = {
 
-	NWT_hold_unification_speech = {
+	NWT_small_development = {
 
-		icon = water_speech
+		icon = unity_1
 
 		visible = {
 			tag = NWT
@@ -20,235 +20,75 @@ NWT_tribe_union = {
 		
 		#fire_only_once = yes		
 
-		cost = 10
+		#cost = 100
+
+		#days_re_enable = 10
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
+			set_country_flag = small_unity_buildup
+			set_variable = { support_goal = 10 }
+		}
+	}
+
+	NWT_medium_development = {
+
+		icon = unity_2
+
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		#fire_only_once = yes		
+
+		#cost = 100
+
+		#days_re_enable = 10
 
 		complete_effect = {
 			set_country_flag = unity_buildup_in_progress
 		}
+	}
 
-		days_remove = 14
+	NWT_large_development = {
 
-		days_re_enable = 120
+		icon = unity_3
 
-		modifier = {
-			political_power_gain = -0.15
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
 		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		#fire_only_once = yes		
 
-		remove_effect = {
+		#cost = 100
+
+		#days_re_enable = 10
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
 			random_list = {
-				40 = {
-					country_event = { id = nwt.1 days = 1 }
-				}
-				0 = {
-					clr_country_flag = unity_buildup_in_progress
-					country_event = { id = nwt.2 days = 1 }
-				}
-			}
-		}
-	}
-
-	NWT_united_hunter_organisation = {
-
-		icon = water_hunters
-
-		visible = {
-			tag = NWT
-			NOT = {
-				has_country_flag = unity_buildup_in_progress
-			}
-		}
-		
-		available = {
-			NOT = {
-				has_country_flag = unity_buildup_in_progress
-			}
-		}
-		
-		#fire_only_once = yes		
-
-		cost = 10
-
-		complete_effect = {
-			set_country_flag = unity_buildup_in_progress
-			set_country_flag = united_hunter_organisation_in_progress
-			custom_effect_tooltip = hunter_orga_tt
-		}
-
-		days_re_enable = 760
-
-	}
-
-	NWT_hunters_mission = {
-		icon = water_hunters
-		available = {
-			always = no
-		}
-		days_mission_timeout = 180
-		is_good = yes
-		activation = {
-			has_country_flag = united_hunter_organisation_in_progress
-		}
-		timeout_effect = {
-			clr_country_flag = unity_buildup_in_progress
-			clr_country_flag = united_hunter_organisation_in_progress
-		}
-	}
-	NWT_hunters_10 = {
-		icon = water_hunters_2
-
-		highlight_state_targets = {
-			state = 10
-		}
-		on_map_mode = map_only
-		visible = {
-			has_country_flag = united_hunter_organisation_in_progress
-		}
-		available = {
-			has_country_flag = united_hunter_organisation_in_progress
-			has_equipment = { spear_equipment > 99 }
-			has_equipment = { heavy_armor_equipment > 99 }
-		}
-		custom_cost_trigger = {
-			has_equipment = { spear_equipment > 99 }
-			has_equipment = { heavy_armor_equipment > 99 }
-		}
-		custom_cost_text = spearmen_100
-
-		days_remove = 7
-
-		complete_effect = {
-			add_equipment_to_stockpile = {
-				type = spear_equipment
-				amount = -100
-				producer = NWT
-			}
-			add_equipment_to_stockpile = {
-				type = heavy_armor_equipment
-				amount = -100
-				producer = NWT
-			}
-		}
-
-		remove_effect = {
-			add_political_power = 10
-			NWT_unity_small_support = yes
-		}
-	}
-
-	NWT_fight_riot_mission = {
-		icon = riot
-		available = {
-			NOT = {
-				any_owned_state = {
-					has_dynamic_modifier = { modifier = watertribe_riots }
-				}
-			}
-		}
-		days_mission_timeout = 21
-		is_good = no
-		activation = {
-			any_owned_state = {
-				has_dynamic_modifier = { modifier = watertribe_riots }
-			}
-		}
-		timeout_effect = {
-			random_owned_state = {
-				limit = {
-					NOT = {
-						has_dynamic_modifier = { modifier = watertribe_riots }
-					}
-				}
-				add_dynamic_modifier = { modifier = watertribe_riots }
-			}
-			NWT_unity_small_opposition = yes
-		}
-		complete_effect = {
-			clr_country_flag = unity_buildup_in_progress
-		}
-	}
-
-	NWT_suppress_riots = {
-		icon = water_anti_riot
-		available = {
-			any_owned_state = {
-				has_dynamic_modifier = { modifier = watertribe_riots }
-			}
-
-			has_equipment = { spear_equipment > 199 }
-			has_equipment = { heavy_armor_equipment > 199 }
-		}
-		visible = {
-			any_owned_state = {
-				has_dynamic_modifier = { modifier = watertribe_riots }
-			}
-		}
-		highlight_states = {
-			has_dynamic_modifier = { modifier = watertribe_riots }
-		}
-
-		days_remove = 7
-
-		custom_cost_trigger = {
-			has_equipment = { spear_equipment > 199 }
-			has_equipment = { heavy_armor_equipment > 199 }
-		}
-		custom_cost_text = spearmen_200
-		
-		remove_effect = {
-			random_owned_state = {
-				limit = {
-					has_dynamic_modifier = { modifier = watertribe_riots }
-				}
-				remove_dynamic_modifier = { modifier = watertribe_riots }
-			}
-		}
-	}
-
-	NWT_factory_investment = {
-
-		icon = water_factory
-
-		visible = {
-			tag = NWT
-			NOT = {
-				has_country_flag = unity_buildup_in_progress
-			}
-		}
-		
-		available = {
-			NOT = {
-				has_country_flag = unity_buildup_in_progress
-			}
-		}
-		
-		#fire_only_once = yes		
-
-		cost = 20
-
-		days_re_enable = 740
-
-		complete_effect = {
-			set_country_flag = unity_buildup_in_progress
-			custom_effect_tooltip = NWT_factory_investment_tt
-			hidden_effect = {
-				random_list = {
-					10 = {
-						modifier = {
-							NOT = {
-								any_owned_state = {
-									is_core_of = ROOT
-									is_controlled_by = ROOT
-									free_building_slots = {
-										building = industrial_complex
-										size > 0
-										include_locked = no
-									}
-								}
-							}
-							factor = 0
-						}
-						random_owned_state = {
-							limit = {
+				10 = {
+					modifier = {
+						NOT = {
+							any_owned_state = {
 								is_core_of = ROOT
 								is_controlled_by = ROOT
 								free_building_slots = {
@@ -257,29 +97,30 @@ NWT_tribe_union = {
 									include_locked = no
 								}
 							}
-							set_state_flag = NWT_build_factory
-							set_variable = { factory_goal = industrial_complex_level }
-							add_to_variable = { factory_goal = 1 }
 						}
+						factor = 0
 					}
-	
-					10 = {
-						modifier = {
-							NOT = {
-								any_owned_state = {
-									is_core_of = ROOT
-									is_controlled_by = ROOT
-									free_building_slots = {
-										building = arms_factory
-										size > 0
-										include_locked = no
-									}
-								}
+					random_owned_state = {
+						limit = {
+							is_core_of = ROOT
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = industrial_complex
+								size > 0
+								include_locked = no
 							}
-							factor = 0
 						}
-						random_owned_state = {
-							limit = {
+						set_state_flag = NWT_build_factory
+						set_variable = { factory_goal = industrial_complex_level }
+						add_to_variable = { factory_goal = 1 }
+						custom_effect_tooltip = manufactory_mission_tt
+					}
+				}
+
+				10 = {
+					modifier = {
+						NOT = {
+							any_owned_state = {
 								is_core_of = ROOT
 								is_controlled_by = ROOT
 								free_building_slots = {
@@ -288,173 +129,32 @@ NWT_tribe_union = {
 									include_locked = no
 								}
 							}
-							set_state_flag = NWT_build_smithy
-							set_variable = { smithy_goal = arms_factory_level }
-							add_to_variable = { smithy_goal = 1 }
 						}
+						factor = 0
+					}
+					random_owned_state = {
+						limit = {
+							is_core_of = ROOT
+							is_controlled_by = ROOT
+							free_building_slots = {
+								building = arms_factory
+								size > 0
+								include_locked = no
+							}
+						}
+						set_state_flag = NWT_build_smithy
+						set_variable = { smithy_goal = arms_factory_level }
+						add_to_variable = { smithy_goal = 1 }
+						custom_effect_tooltip = smithy_mission_tt
 					}
 				}
 			}
 		}
 	}
 
-	NWT_invest_in_state_factory = {
-		icon = buildup
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = NWT_invest_in_state_factory_tt
-				any_owned_state = {
-					has_state_flag = NWT_build_factory
-					check_variable = { factory_goal = industrial_complex_level }
-				}
-			}
-		}
-		highlight_states = {
-			has_state_flag = NWT_build_factory
-		}
-		days_mission_timeout = 360
-		is_good = no
-		activation = {
-			any_owned_state = {
-				has_state_flag = NWT_build_factory
-			}
-		}
-		timeout_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_factory
-				}
-				clr_state_flag = NWT_build_factory
-				clear_variable = factory_goal
-			}
-			
-			NWT_unity_medium_opposition = yes 
-			clr_country_flag = unity_buildup_in_progress
-		}
-		complete_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_factory
-				}
-				clr_state_flag = NWT_build_factory
-				clear_variable = factory_goal
-			}
-			ROOT = {
-				NWT_unity_extreme_support = yes
-				clr_country_flag = unity_buildup_in_progress
-			}
-			
-		}
-	}
+	NWT_extreme_development = {
 
-	NWT_invest_in_state_smithy = {
-		icon = military_buildup
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = NWT_invest_in_state_smithy_tt
-				any_owned_state = {
-					has_state_flag = NWT_build_smithy
-					check_variable = { smithy_goal = arms_factory_level }
-				}
-			}
-		}
-		highlight_states = {
-			has_state_flag = NWT_build_smithy
-		}
-		days_mission_timeout = 360
-		is_good = no
-		activation = {
-			any_owned_state = {
-				has_state_flag = NWT_build_smithy
-			}
-		}
-		timeout_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_smithy
-				}
-				clr_state_flag = NWT_build_smithy
-				clear_variable = smithy_goal
-			}
-			
-			NWT_unity_medium_opposition = yes 
-			clr_country_flag = unity_buildup_in_progress
-		}
-		complete_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_smithy
-				}
-				clr_state_flag = NWT_build_smithy
-				clear_variable = factory_goal
-			}
-			ROOT = {
-				NWT_unity_extreme_support = yes
-				clr_country_flag = unity_buildup_in_progress
-			}
-			
-		}
-	}
-
-	NWT_focused_construction = {
-		icon = water_focus
-		available = {
-			any_owned_state = {
-				OR = {
-					has_state_flag = NWT_build_smithy
-					has_state_flag = NWT_build_factory
-				}
-			}
-		}
-		visible = {
-			any_owned_state = {
-				OR = {
-					has_state_flag = NWT_build_smithy
-					has_state_flag = NWT_build_factory
-				}
-			}
-		}
-		highlight_states = {
-			has_state_flag = NWT_build_smithy
-			has_state_flag = NWT_build_factory
-			
-		}
-
-		days_remove = 45
-
-		modifier = {
-			stability_weekly = -0.005
-			production_speed_buildings_factor = -0.5
-		}
-
-		cost = 25
-
-		complete_effect = {
-			random_owned_state = {
-				limit = {
-					OR = {
-						has_state_flag = NWT_build_smithy
-						has_state_flag = NWT_build_factory
-					}
-				}
-				add_dynamic_modifier = { modifier = focused_construction }
-			}
-		}
-		
-		remove_effect = {
-			random_owned_state = {
-				limit = {
-					has_dynamic_modifier = { modifier = focused_construction }
-				}
-				remove_dynamic_modifier = { modifier = focused_construction }
-			}
-		}
-	}
-
-
-	NWT_appoint_unification_minister = {
-
-		icon = water_minister
+		icon = unity_4
 
 		visible = {
 			tag = NWT
@@ -469,423 +169,15 @@ NWT_tribe_union = {
 			}
 		}
 		
-		fire_only_once = yes		
+		#fire_only_once = yes		
 
-		cost = 150
+		#cost = 100
+
+		#days_re_enable = 10
 
 		complete_effect = {
 			set_country_flag = unity_buildup_in_progress
 		}
-
-		days_remove = 90
-
-		modifier = {
-			political_power_gain = -0.1
-		}
-
-		remove_effect = {
-			set_country_flag = NWT_unification_minister
-			custom_effect_tooltip = NWT_appoint_minister_tt
-		}
-	}
-
-	
-
-}
-
-
-
-
-NWT_isolation_policies = {
-
-	NWT_revisit_isolation_policies = {
-
-		icon = rewriting
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation
-		}
-		
-		available = {
-			has_idea = remote_isolation
-		}
-		
-		#fire_only_once = yes		
-
-		cost = 50
-
-		days_remove = 120
-
-		remove_effect = {
-			custom_effect_tooltip = allow_faction_join_tt
-			hidden_effect = {
-				swap_ideas = {
-					remove_idea = remote_isolation
-					add_idea = remote_isolation_1
-				}
-			}
-		}
-
-		modifier = {
-			political_power_gain = -0.1
-		}
-
-	}
-
-	NWT_approach_earth_kingdom = {
-
-		icon = water_and_earth_flag
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_firenation
-					has_country_flag = approach_airnomads
-					has_country_flag = FIR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-		}
-		
-		available = {
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_firenation
-					has_country_flag = approach_airnomads
-					has_country_flag = FIR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-			EAR = {
-				has_opinion = {
-					target = NWT
-					value > 49
-				}
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 25
-
-		complete_effect = {
-			set_country_flag = approach_earthkingdom
-		}
-
-		days_remove = 30
-
-		remove_effect = {
-			clr_country_flag = approach_earthkingdom
-
-			EAR = { country_event = { id = nwt_treaty.1 hours = 1 } }
-			if = {
-				limit = {
-					EAR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-			EAR = {
-				add_opinion_modifier = {
-				    target = NWT
-				    modifier = friendly_approach
-				}
-			}
-		}
-
-	}
-
-	NWT_open_for_trade = {
-
-		icon = trade_icon
-
-		visible = {
-			tag = NWT
-			has_country_flag = EAR_accepts_cooperation
-			has_idea = remote_isolation_1
-		}
-		
-		available = {
-			has_country_flag = EAR_accepts_cooperation
-			has_idea = remote_isolation_1
-		}
-		
-		fire_only_once = yes		
-
-		cost = 150
-
-		days_remove = 90
-
-		complete_effect = {
-
-			swap_ideas = {
-				remove_idea = remote_isolation_1
-				add_idea = remote_isolation_2
-			}
-		}
-
-		remove_effect = {
-
-			swap_ideas = {
-				remove_idea = closed_economy
-				add_idea = free_trade
-			}
-		}
-
-	}
-
-	NWT_buy_earth_technologies = {
-
-		icon = research_boost
-
-		visible = {
-			tag = NWT
-			has_country_flag = EAR_accepts_cooperation
-			has_idea = remote_isolation_2
-			NOT = {
-				has_idea = water_debts
-			}
-		}
-		
-		available = {
-			has_country_flag = EAR_accepts_cooperation
-			NOT = {
-				has_idea = water_debts
-			}
-			has_idea = remote_isolation_2
-		}
-		
-		#fire_only_once = yes		
-
-		cost = 50
-
-		days_remove = 30
-
-		remove_effect = {
-			EAR = { country_event = { id = nwt_treaty.3 hours = 1 } }
-			if = {
-				limit = {
-					EAR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-		}
-
-	}
-
-	NWT_earth_xp_exchange = {
-
-		icon = xp_change
-
-		visible = {
-			tag = NWT
-			has_country_flag = EAR_accepts_cooperation
-		}
-		
-		available = {
-			has_country_flag = EAR_accepts_cooperation
-			has_navy_experience > 20
-		}
-		
-		#fire_only_once = yes		
-
-		cost = 20
-
-		days_re_enable = 180
-
-		complete_effect = {
-
-			EAR = { country_event = { id = nwt_treaty.2 hours = 12 } }
-			if = {
-				limit = {
-					EAR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_earth_xp_trade_main_factors_tt
-			}
-		}
-
-	}
-
-	NWT_approach_air_nomads = {
-
-		icon = air_and_water_flag
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_firenation
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = FIR_accepts_cooperation
-				}
-			}
-		}
-		
-		available = {
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_firenation
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = FIR_accepts_cooperation
-				}
-			}
-			NAT = {
-				has_opinion = {
-					target = NWT
-					value > 49
-				}
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 30
-
-		complete_effect = {
-			set_country_flag = approach_airnomads
-		}
-
-		days_remove = 30
-
-		remove_effect = {
-			NAT = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
-			if = {
-				limit = {
-					NAR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-		}
-
-	}
-
-	NWT_approach_fire_nation = {
-
-		icon = fire_and_water_flag
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_airnomads
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-		}
-		
-		available = {
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_airnomads
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-			FIR = {
-				has_opinion = {
-					target = NWT
-					value > 49
-				}
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 35
-
-		complete_effect = {
-			set_country_flag = approach_firenation
-		}
-
-		days_remove = 30
-
-		remove_effect = {
-			FIR = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
-			if = {
-				limit = {
-					FIR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-		}
-
-	}
-
-	NWT_protective_isolation_spirit = {
-
-		icon = water_protective
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_3
-		}
-		
-		available = {
-			has_idea = remote_isolation_3
-			has_defensive_war = yes
-		}
-		
-		fire_only_once = yes		
-
-		cost = 200
-
-		complete_effect = {
-
-			swap_ideas = {
-				remove_idea = remote_isolation_3
-				add_idea = remote_isolation_4
-			}
-		}
-
-	}
-
-	NWT_intervention_spirit = {
-
-		icon = water_intervention
-
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_3
-		}
-		
-		available = {
-			has_idea = remote_isolation_3
-			has_idea = economy_4
-			has_idea = one_tribe
-			has_navy_size = {
-			    size > 9
-			    type = capital_ship
-			}
-			has_army_manpower = {
-    			size > 10000
-    		}
-			has_offensive_war = yes
-		}
-		
-		fire_only_once = yes		
-
-		cost = 200
-
-		complete_effect = {
-
-			swap_ideas = {
-				remove_idea = remote_isolation_3
-				add_idea = remote_isolation_5
-			}
-		}
-
 	}
 
 }
