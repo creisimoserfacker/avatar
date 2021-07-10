@@ -38,6 +38,134 @@ ideas = {
 				trade_opinion_factor = -0.25
 				min_export = -0.1
 			}
+
+			rule = {
+				can_join_factions = no
+			}
+		}
+
+		remote_isolation_1 = {
+			picture = remote_isolation_1
+			name = remote_isolation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = -0.2
+				stability_factor = 0.1
+				trade_opinion_factor = -0.25
+				min_export = -0.1
+			}
+			rule = {
+				can_join_factions = yes
+			}
+		}
+
+		remote_isolation_2 = {
+			picture = remote_isolation_2
+			name = remote_isolation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = -0.2
+				stability_factor = 0.1
+			}
+		}
+		remote_isolation_3 = {
+			picture = remote_isolation_3
+			name = remote_isolation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+		remote_isolation_4 = {
+			picture = protective_isolation
+			name = protective_isolation
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.2
+				army_core_defence_factor = 0.2
+			}
+		}
+		remote_isolation_5 = {
+			picture = water_intervention
+			name = water_intervention
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				war_support_factor = 0.2
+				army_attack_factor = 0.1
+			}
+		}
+
+		water_debts = {
+			
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+
+			on_remove = {
+				if = {
+					limit = {
+						has_idea = remote_isolation_2
+					}
+					swap_ideas = {
+						remove_idea = remote_isolation_2
+						add_idea = remote_isolation_3
+					}
+				}
+			}
+			
+			modifier = {
+				consumer_goods_factor = 0.1
+			}
 		}
 		
 		loose_confederation = {
