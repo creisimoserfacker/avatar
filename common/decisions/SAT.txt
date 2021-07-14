@@ -207,5 +207,27 @@ SAT_upcoming_war_category = {
 }
 
 SAT_council_category = {
-
+	upcoming_meeting = {
+		visible = {
+			has_country_flag = SAT_council_active
+		}
+		available = {
+			has_country_flag = meetings_disrupted
+		}
+		days_mission_timeout = 30
+		days_re_enable = 0
+		days_remove = 0
+		is_good = yes
+		priority = 1000
+		
+		timeout_effect = {
+			custom_effect_tooltip = "The Council meets once again!"
+		}
+	}
+	increase_priorities = {
+		cost = 50
+	}
+	decrease_priorities = {
+		cost = 50
+	}
 }

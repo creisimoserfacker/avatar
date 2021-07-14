@@ -1,7 +1,29 @@
 
 ### recalc
 
-SAT_recalc_council_symbol_frames = {
-	set_temp_variable = { support_temp = SAT_council_support }
+SAT_recalc_council_support = {
+	set_temp_variable = { support_temp = SAT_council_member_1 }
+	add_to_temp_variable = { support_temp = SAT_council_member_2 }
+	add_to_temp_variable = { support_temp = SAT_council_member_3 }
+	add_to_temp_variable = { support_temp = SAT_council_member_4 }
+	add_to_temp_variable = { support_temp = SAT_council_member_5 }
+	divide_temp_variable = { support_temp = 5}
+	round_temp_variable = support_temp
+	if = {
+		limit = { check_variable = { support_temp > 0 } }
+		clamp_temp_variable = {
+			var = support_temp
+			min = 1
+			max = 5
+		}
+	}
+	else = { set_temp_variable = { support_temp = 1 } }
 	set_variable = { sat_current_council_symbol_frame = support_temp }
+	set_variable = { SAT_council_support = support_temp }
+	set_variable = { sat_current_member_1_frame = SAT_council_member_1 }
+	set_variable = { sat_current_member_2_frame = SAT_council_member_2 }
+	set_variable = { sat_current_member_3_frame = SAT_council_member_3 }
+	set_variable = { sat_current_member_4_frame = SAT_council_member_4 }
+	set_variable = { sat_current_member_5_frame = SAT_council_member_5 }
+	
 }
