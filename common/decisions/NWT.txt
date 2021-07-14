@@ -26,26 +26,22 @@ NWT_tribe_union = {
 			set_country_flag = unity_buildup_in_progress
 		}
 
-		days_remove = 21
+		days_remove = 14
 
-		days_re_enable = 210
+		days_re_enable = 120
 
 		modifier = {
 			political_power_gain = -0.15
 		}
 
 		remove_effect = {
-			NWT_unity_medium_support = yes
 			random_list = {
 				40 = {
-					random_owned_state = {
-						add_dynamic_modifier = { modifier = watertribe_riots }
-					}
 					country_event = { id = nwt.1 days = 1 }
 				}
-				60 = {
+				0 = {
 					clr_country_flag = unity_buildup_in_progress
-					add_political_power = 20
+					country_event = { id = nwt.2 days = 1 }
 				}
 			}
 		}
@@ -104,6 +100,9 @@ NWT_tribe_union = {
 			state = 10
 		}
 		on_map_mode = map_only
+		visible = {
+			has_country_flag = united_hunter_organisation_in_progress
+		}
 		available = {
 			has_country_flag = united_hunter_organisation_in_progress
 			has_equipment = { spear_equipment > 99 }
@@ -145,7 +144,7 @@ NWT_tribe_union = {
 				}
 			}
 		}
-		days_mission_timeout = 120
+		days_mission_timeout = 21
 		is_good = no
 		activation = {
 			any_owned_state = {
@@ -452,6 +451,44 @@ NWT_tribe_union = {
 		}
 	}
 
+
+	NWT_appoint_unification_minister = {
+
+		icon = water_minister
+
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		fire_only_once = yes		
+
+		cost = 150
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
+		}
+
+		days_remove = 90
+
+		modifier = {
+			political_power_gain = -0.1
+		}
+
+		remove_effect = {
+			set_country_flag = NWT_unification_minister
+			custom_effect_tooltip = NWT_appoint_minister_tt
+		}
+	}
+
 	
 
 }
@@ -507,6 +544,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_firenation
 					has_country_flag = approach_airnomads
+					has_country_flag = FIR_accepts_cooperation
+					has_country_flag = AIR_accepts_cooperation
 				}
 			}
 		}
@@ -517,6 +556,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_firenation
 					has_country_flag = approach_airnomads
+					has_country_flag = FIR_accepts_cooperation
+					has_country_flag = AIR_accepts_cooperation
 				}
 			}
 			EAR = {
@@ -538,12 +579,131 @@ NWT_isolation_policies = {
 		days_remove = 30
 
 		remove_effect = {
-			EAR = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
+			clr_country_flag = approach_earthkingdom
+
+			EAR = { country_event = { id = nwt_treaty.1 hours = 1 } }
 			if = {
 				limit = {
 					EAR = { is_ai = yes }
 				}
 				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
+			}
+			EAR = {
+				add_opinion_modifier = {
+				    target = NWT
+				    modifier = friendly_approach
+				}
+			}
+		}
+
+	}
+
+	NWT_open_for_trade = {
+
+		icon = trade_icon
+
+		visible = {
+			tag = NWT
+			has_country_flag = EAR_accepts_cooperation
+			has_idea = remote_isolation_1
+		}
+		
+		available = {
+			has_country_flag = EAR_accepts_cooperation
+			has_idea = remote_isolation_1
+		}
+		
+		fire_only_once = yes		
+
+		cost = 150
+
+		days_remove = 90
+
+		complete_effect = {
+
+			swap_ideas = {
+				remove_idea = remote_isolation_1
+				add_idea = remote_isolation_2
+			}
+		}
+
+		remove_effect = {
+
+			swap_ideas = {
+				remove_idea = closed_economy
+				add_idea = free_trade
+			}
+		}
+
+	}
+
+	NWT_buy_earth_technologies = {
+
+		icon = research_boost
+
+		visible = {
+			tag = NWT
+			has_country_flag = EAR_accepts_cooperation
+			has_idea = remote_isolation_2
+			NOT = {
+				has_idea = water_debts
+			}
+		}
+		
+		available = {
+			has_country_flag = EAR_accepts_cooperation
+			NOT = {
+				has_idea = water_debts
+			}
+			has_idea = remote_isolation_2
+		}
+		
+		#fire_only_once = yes		
+
+		cost = 50
+
+		days_remove = 30
+
+		remove_effect = {
+			EAR = { country_event = { id = nwt_treaty.3 hours = 1 } }
+			if = {
+				limit = {
+					EAR = { is_ai = yes }
+				}
+				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
+			}
+		}
+
+	}
+
+	NWT_earth_xp_exchange = {
+
+		icon = xp_change
+
+		visible = {
+			tag = NWT
+			has_country_flag = EAR_accepts_cooperation
+		}
+		
+		available = {
+			has_country_flag = EAR_accepts_cooperation
+			has_navy_experience > 20
+		}
+		
+		#fire_only_once = yes		
+
+		cost = 20
+
+		days_re_enable = 180
+
+		complete_effect = {
+
+			EAR = { country_event = { id = nwt_treaty.2 hours = 12 } }
+			if = {
+				limit = {
+					EAR = { is_ai = yes }
+				}
+				custom_effect_tooltip = NWT_earth_xp_trade_main_factors_tt
 			}
 		}
 
@@ -560,6 +720,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_earthkingdom
 					has_country_flag = approach_firenation
+					has_country_flag = EAR_accepts_cooperation
+					has_country_flag = FIR_accepts_cooperation
 				}
 			}
 		}
@@ -570,6 +732,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_earthkingdom
 					has_country_flag = approach_firenation
+					has_country_flag = EAR_accepts_cooperation
+					has_country_flag = FIR_accepts_cooperation
 				}
 			}
 			NAT = {
@@ -613,6 +777,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_earthkingdom
 					has_country_flag = approach_airnomads
+					has_country_flag = EAR_accepts_cooperation
+					has_country_flag = AIR_accepts_cooperation
 				}
 			}
 		}
@@ -623,6 +789,8 @@ NWT_isolation_policies = {
 				OR = {
 					has_country_flag = approach_earthkingdom
 					has_country_flag = approach_airnomads
+					has_country_flag = EAR_accepts_cooperation
+					has_country_flag = AIR_accepts_cooperation
 				}
 			}
 			FIR = {
@@ -650,6 +818,71 @@ NWT_isolation_policies = {
 					FIR = { is_ai = yes }
 				}
 				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
+			}
+		}
+
+	}
+
+	NWT_protective_isolation_spirit = {
+
+		icon = water_protective
+
+		visible = {
+			tag = NWT
+			has_idea = remote_isolation_3
+		}
+		
+		available = {
+			has_idea = remote_isolation_3
+			has_defensive_war = yes
+		}
+		
+		fire_only_once = yes		
+
+		cost = 200
+
+		complete_effect = {
+
+			swap_ideas = {
+				remove_idea = remote_isolation_3
+				add_idea = remote_isolation_4
+			}
+		}
+
+	}
+
+	NWT_intervention_spirit = {
+
+		icon = water_intervention
+
+		visible = {
+			tag = NWT
+			has_idea = remote_isolation_3
+		}
+		
+		available = {
+			has_idea = remote_isolation_3
+			has_idea = economy_4
+			has_idea = one_tribe
+			has_navy_size = {
+			    size > 9
+			    type = capital_ship
+			}
+			has_army_manpower = {
+    			size > 10000
+    		}
+			has_offensive_war = yes
+		}
+		
+		fire_only_once = yes		
+
+		cost = 200
+
+		complete_effect = {
+
+			swap_ideas = {
+				remove_idea = remote_isolation_3
+				add_idea = remote_isolation_5
 			}
 		}
 

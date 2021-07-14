@@ -944,10 +944,11 @@ FIR_outpost_category = {
 
 FIR_civil_decision_category = {
 	
-	increase_war_support = {
+	increase_war_support_with_prosperity = {
 
 		available = {
 			has_war = yes
+			has_idea = national_prosperity
 			hidden_trigger = {
 				has_start_date < 13.01.01
 			}
@@ -966,6 +967,51 @@ FIR_civil_decision_category = {
 		cost = 100
 		fire_only_once = yes
 	
+	}
+
+	the_great_gates = {
+
+		icon = mission_gates
+
+		available = {
+			imperialism > 0.5
+			#enemies_naval_strength_ratio > 0.25
+		}
+
+		visible = {
+			imperialism > 0.4
+			not = {
+				has_active_mission = the_great_gates_mission
+			}
+		}
+
+		complete_effect = {
+			activate_mission = the_great_gates_mission
+		}
+
+		cost = 100
+		fire_only_once = no
+	
+	}
+
+	the_great_gates_mission = {
+		icon = mission_gates
+		available = {
+			always = no
+		}
+		days_mission_timeout = 180
+		is_good = yes
+		allowed = {
+			always = no
+		}
+		complete_effect = {
+			clr_country_flag = unity_buildup_in_progress
+			clr_country_flag = united_hunter_organisation_in_progress
+		}
+		timeout_effect = {
+			clr_country_flag = unity_buildup_in_progress
+			clr_country_flag = united_hunter_organisation_in_progress
+		}
 	}
 
 }
@@ -1405,8 +1451,8 @@ air_genocide_category = {
 
 		icon = mission_comet
 
-		allowed = {
-			always = no
+		activation = {
+			has_country_flag = arrival_of_the_great_comet_mission
 		}
 
 		available = {
@@ -1417,6 +1463,7 @@ air_genocide_category = {
         is_good = yes
 
 		timeout_effect = {
+			clr_country_flag = arrival_of_the_great_comet_mission
 			if = {
 				limit = {
 					has_global_flag = genocide_active
@@ -1523,7 +1570,7 @@ air_genocide_category = {
 
 	spare_the_air_nomads = {
 
-		icon = generic_no
+		icon = spare_the_nomads
 
 		available = {
 			hidden_trigger = {
@@ -1547,9 +1594,9 @@ air_genocide_category = {
 
 		days_remove = -1
 
-		#modifier = {
-		#	stability_factor = 0.05
-		#}
+		modifier = {
+			
+		}
 
 		complete_effect = {
 			clr_global_flag = genocide_active
@@ -1564,7 +1611,7 @@ air_genocide_category = {
 	}
 	commence_the_genocide = {
 
-		icon = generic_yes
+		icon = fire_violence
 
 		available = {
 			hidden_trigger = {

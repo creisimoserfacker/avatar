@@ -1,10 +1,16 @@
 
 defender_defense_dafending = {
 	enable = {
-		date > 105.1.1
-		date < 107.7.7
 		original_tag = EAR
-		has_war_with = FIR
+		controls_state = 193
+		controls_state = 213
+		controls_state = 178
+		controls_state = 145
+		controls_state = 126
+		controls_state = 129
+		controls_state = 149
+		NOT = { AND = { controls_state = 138 controls_state = 231 controls_state = 116 controls_state = 80  controls_state = 99 } }
+		
 	}
 	
 	ai_strategy = {
@@ -39,7 +45,63 @@ defender_defense_dafending = {
 		execute_order = no
 		manual_attack = no
 	}
-	
+}
+
+defender_defense_dafending2 = {
+
+	enable = {
+		original_tag = EAR
+		has_war_with = FIR
+		AND = { has_full_control_of_state = 161 has_full_control_of_state = 162 has_full_control_of_state = 187 has_full_control_of_state = 189 }
+		NOT = { AND = { controls_state = 193 controls_state = 213 controls_state = 178 controls_state = 145 controls_state = 126 controls_state = 129 controls_state = 149 } }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 0
+		states = { 
+			161
+			162
+			187
+			189
+		}
+		ratio = 1
+		subtract_invasions_from_need = yes
+ 		subtract_fronts_from_need = yes
+		priority = 400
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = FIR
+		value = -10000
+		priority = 400
+	}
+
+}
+
+defender_defense_dafending3 = {
+
+	enable = {
+		original_tag = EAR
+		has_war_with = FIR
+		NOT = { AND = { has_full_control_of_state = 161 has_full_control_of_state = 162 has_full_control_of_state = 187 has_full_control_of_state = 189 } }
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = FIR
+		value = -10000
+		priority = 400
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 0
+		states = { 
+			179
+		}
+		ratio = 1
+		subtract_invasions_from_need = yes
+ 		subtract_fronts_from_need = yes
+		priority = 400
+	}
 }
 
 EAR_unit_production = {
