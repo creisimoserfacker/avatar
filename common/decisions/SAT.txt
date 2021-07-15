@@ -208,13 +208,11 @@ SAT_upcoming_war_category = {
 
 SAT_council_category = {
 	upcoming_meeting = {
-		visible = {
-			has_country_flag = SAT_council_active
-		}
+		visible = { has_country_flag = SAT_council_active }
 		available = {
 			has_country_flag = meetings_disrupted
 		}
-		days_mission_timeout = 30
+		days_mission_timeout = 10
 		days_re_enable = 0
 		days_remove = 0
 		is_good = yes
@@ -222,12 +220,50 @@ SAT_council_category = {
 		
 		timeout_effect = {
 			custom_effect_tooltip = "The Council meets once again!"
+			SAT_mission_type_generator = yes
+			SAT = { country_event = { id = SAT_council.1 } }
 		}
 	}
-	increase_priorities = {
+	
+	# increase / decrease decisions
+	increase_military_priorities = {
+		visible = { has_country_flag = SAT_council_active }
 		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			SAT = { country_event = { id = SAT_council.2}}
+		}
 	}
-	decrease_priorities = {
+	increase_civilian_priorities = {
+		visible = { has_country_flag = SAT_council_active }
 		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			SAT = { country_event = { id = SAT_council.3}}
+		}
+	}
+	decrease_military_priorities = {
+		visible = { has_country_flag = SAT_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			SAT = { country_event = { id = SAT_council.4}}
+		}
+	}
+	decrease_civilian_priorities = {
+		visible = { has_country_flag = SAT_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			SAT = { country_event = { id = SAT_council.5}}
+		}
 	}
 }
