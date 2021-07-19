@@ -208,6 +208,10 @@ SAT_upcoming_war_category = {
 
 SAT_council_category = {
 	upcoming_meeting = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
 		visible = { has_country_flag = SAT_council_active }
 		available = {
 			has_country_flag = meetings_disrupted
@@ -220,13 +224,17 @@ SAT_council_category = {
 		
 		timeout_effect = {
 			custom_effect_tooltip = "The Council meets once again!"
-			SAT_mission_type_generator = yes
+			SAT_generate_missions = yes
 			SAT = { country_event = { id = SAT_council.1 } }
 		}
 	}
 	
 	# increase / decrease decisions
 	increase_military_priorities = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
 		visible = { has_country_flag = SAT_council_active }
 		cost = 50
 		days_re_enable = 0
@@ -237,6 +245,10 @@ SAT_council_category = {
 		}
 	}
 	increase_civilian_priorities = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
 		visible = { has_country_flag = SAT_council_active }
 		cost = 50
 		days_re_enable = 0
@@ -247,6 +259,10 @@ SAT_council_category = {
 		}
 	}
 	decrease_military_priorities = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
 		visible = { has_country_flag = SAT_council_active }
 		cost = 50
 		days_re_enable = 0
@@ -257,6 +273,10 @@ SAT_council_category = {
 		}
 	}
 	decrease_civilian_priorities = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
 		visible = { has_country_flag = SAT_council_active }
 		cost = 50
 		days_re_enable = 0
@@ -264,6 +284,34 @@ SAT_council_category = {
 		
 		complete_effect = {
 			SAT = { country_event = { id = SAT_council.5}}
+		}
+	}
+	
+	SAT_mission_nr1 = {
+		allowed = { AND = {
+			tag = SAT
+			has_country_flag = SAT_council_active
+		}}
+		activation = {
+			has_country_flag = SAT_mission_nr1
+		}
+		available = {
+			has_war_with = FIR
+		}
+		
+		is_good = yes
+		days_mission_timeout = 5
+		days_remove = 0
+		selectable_mission = yes
+		
+		timeout_effect = {
+			SAT_council_extreme_opposition = yes
+			clr_country_flag = SAT_mission_nr1
+		}
+		
+		complete_effect = {
+			pp = 100
+			clr_country_flag = SAT_mission_nr1
 		}
 	}
 }
