@@ -1,28 +1,23 @@
 ideas = {
+	
+	hidden_ideas = {
+		fire_supremacy_spirit = {
 
-	country = {
-		FIR_Lu_Ten's_Death_Effects = {
 			allowed = {
-				original_tag = FIR
-			}
-
-			removal_cost = -1
-
-			picture = anti_soviet_pact
-
-			targeted_modifier = {
-				tag = EAR
-				defense_bonus_against = -0.4
-			}
-			targeted_modifier = {
-				tag = EAR
-				attack_bonus_against = -0.4
-			}
-			modifier = {
-				army_morale_factor = -0.5
+				always = no
 			}
 			
+			removal_cost = -1
+			
+			modifier = {
+				imperialism_drift = 0.02
+				army_morale_factor = 0.5
+				offensive_war_stability_factor = 0.35
+			}
 		}
+	}
+
+	country = {
 		
 		national_prosperity = {
 
@@ -43,8 +38,13 @@ ideas = {
 
 			removal_cost = -1
 
+			on_add = {
+				add_to_variable = { consumer_good_demand_factor = 0.2 }
+			}
+
 			on_remove = {
 				remove_ideas = promote_war_support
+				subtract_from_variable = { consumer_good_demand_factor = 0.2 }
 			}
 
 			research_bonus = {
@@ -55,7 +55,7 @@ ideas = {
 				#bad
 				war_support_factor = -0.35
 				war_support_weekly = -0.005
-				consumer_goods_factor = 0.2
+				consumer_goods_demand = 0.2
 
 				#good
 				#research_speed_factor = 0.15
@@ -278,6 +278,29 @@ ideas = {
 			modifier = {
 				max_command_power = 25	
 			}
+		}
+
+		FIR_Lu_Ten's_Death_Effects = {
+			allowed = {
+				original_tag = FIR
+			}
+
+			removal_cost = -1
+
+			picture = anti_soviet_pact
+
+			targeted_modifier = {
+				tag = EAR
+				defense_bonus_against = -0.4
+			}
+			targeted_modifier = {
+				tag = EAR
+				attack_bonus_against = -0.4
+			}
+			modifier = {
+				army_morale_factor = -0.5
+			}
+			
 		}
 
 	}

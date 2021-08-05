@@ -1,0 +1,456 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				set_variable = { legitimacy_var_max = 240 }
+				if = {
+					limit = {
+						NOT = {
+							has_idea = state_1
+							has_idea = state_2
+							has_idea = state_3
+							has_idea = state_4
+							has_idea = state_5
+						}
+					}
+					add_ideas = state_3
+				}
+			}
+			clamp_variable = { var = legitimacy_var min = 0 max = legitimacy_var_max }
+
+			set_temp_variable = { liberty_temp = legitimacy_var }
+			divide_temp_variable = { liberty_temp = legitimacy_var_max }
+			multiply_temp_variable = { liberty_temp = 100 }
+			set_variable = { current_liberty = liberty_temp }
+
+			set_temp_variable = { authority_temp = 100 }
+			subtract_from_temp_variable = { authority_temp = liberty_temp }
+			set_variable = { current_authority = authority_temp }
+
+			
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_1
+						check_variable = { authority_temp > 20 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_1
+					add_idea = state_2
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_2
+						check_variable = { authority_temp > 40 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_2
+					add_idea = state_3
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_3
+						check_variable = { authority_temp > 60 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_3
+					add_idea = state_4
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_4
+						check_variable = { authority_temp > 80 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_4
+					add_idea = state_5
+				}
+			}
+			
+
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_5
+						check_variable = { liberty_temp > 20 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_5
+					add_idea = state_4
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_4
+						check_variable = { liberty_temp > 40 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_4
+					add_idea = state_3
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_3
+						check_variable = { liberty_temp > 60 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_3
+					add_idea = state_2
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_2
+						check_variable = { liberty_temp > 80 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_2
+					add_idea = state_1
+				}
+			}
+		}
+	}
+
+	on_weekly = {
+		effect = {
+
+			set_variable = { law_level_average = 0 }
+			set_variable = { law_count = 0 }
+
+			###education
+			if = {
+				limit = { has_idea = no_education }
+				add_to_variable = { law_level_average = 1 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { 
+					OR = { 
+						has_idea = average_education 
+						has_idea = tribal_education 
+					} 
+				}
+				add_to_variable = { law_level_average = 2 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = mandatory_education }
+				add_to_variable = { law_level_average = 3 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = elite_education }
+				add_to_variable = { law_level_average = 4 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = { 
+				limit = { has_idea = indoctrination }
+				add_to_variable = { law_level_average = 5 }
+				add_to_variable = { law_count = 1 }
+			}
+
+			###tax
+			if = {
+				limit = { has_idea = family_support_5 }
+				add_to_variable = { law_level_average = 1 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = family_support_4 }
+				add_to_variable = { law_level_average = 2 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = family_support_3 }
+				add_to_variable = { law_level_average = 3 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = family_support_2 }
+				add_to_variable = { law_level_average = 4 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = { 
+				limit = { has_idea = family_support_1 }
+				add_to_variable = { law_level_average = 5 }
+				add_to_variable = { law_count = 1 }
+			}
+
+			###trade
+			if = {
+				limit = { has_idea = free_trade }
+				add_to_variable = { law_level_average = 1 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = export_focus }
+				add_to_variable = { law_level_average = 2 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = regulated_trade }
+				add_to_variable = { law_level_average = 3 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = limited_exports }
+				add_to_variable = { law_level_average = 4 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = { 
+				limit = { has_idea = closed_economy }
+				add_to_variable = { law_level_average = 5 }
+				add_to_variable = { law_count = 1 }
+			}
+
+			###economy
+			if = {
+				limit = { has_idea = economy_1 }
+				add_to_variable = { law_level_average = 1 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = economy_2 }
+				add_to_variable = { law_level_average = 2 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = economy_3 }
+				add_to_variable = { law_level_average = 3 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = economy_4 }
+				add_to_variable = { law_level_average = 4 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = { 
+				limit = { has_idea = economy_5 }
+				add_to_variable = { law_level_average = 5 }
+				add_to_variable = { law_count = 1 }
+			}
+
+
+			divide_variable = { law_level_average = law_count }
+			round_variable = law_level_average
+
+			if = { 
+				limit = {
+					check_variable = { law_level_average = 1 }
+				}
+				add_to_variable = { legitimacy_var = 2 }
+			}
+			if = { 
+				limit = {
+					check_variable = { law_level_average = 2 }
+				}
+				if = { 
+					limit = {
+						OR =  {
+							has_idea = state_3
+							has_idea = state_4
+							has_idea = state_5
+						}
+					}
+					add_to_variable = { legitimacy_var = 2 }
+				}
+				if = { 
+					limit = {
+						has_idea = state_1
+					}
+					add_to_variable = { legitimacy_var = -2 }
+				}
+			}
+			if = { 
+				limit = {
+					check_variable = { law_level_average = 3 }
+				}
+				if = { 
+					limit = {
+						OR =  {
+							has_idea = state_4
+							has_idea = state_5
+						}
+					}
+					add_to_variable = { legitimacy_var = 2 }
+				}
+				if = { 
+					limit = {
+						OR =  {
+							has_idea = state_1
+							has_idea = state_2
+						}
+					}
+					add_to_variable = { legitimacy_var = -2 }
+				}
+			}
+			if = { 
+				limit = {
+					check_variable = { law_level_average = 4 }
+				}
+				if = { 
+					limit = {
+						OR =  {
+							has_idea = state_5
+						}
+					}
+					add_to_variable = { legitimacy_var = 2 }
+				}
+				if = { 
+					limit = {
+						OR =  {
+							has_idea = state_1
+							has_idea = state_2
+							has_idea = state_3
+						}
+					}
+					add_to_variable = { legitimacy_var = -2 }
+				}
+			}
+			if = { 
+				limit = {
+					check_variable = { law_level_average = 5 }
+				}
+				add_to_variable = { legitimacy_var = -2 }
+			}
+		}
+	}
+
+
+	on_daily = {
+		effect = {
+			clamp_variable = { var = legitimacy_var min = 0 max = legitimacy_var_max }
+
+			set_temp_variable = { liberty_temp = legitimacy_var }
+			divide_temp_variable = { liberty_temp = legitimacy_var_max }
+			multiply_temp_variable = { liberty_temp = 100 }
+			round_temp_variable = liberty_temp
+			set_variable = { current_liberty = liberty_temp }
+
+			set_temp_variable = { authority_temp = 100 }
+			subtract_from_temp_variable = { authority_temp = liberty_temp }
+			set_variable = { current_authority = authority_temp }
+
+			
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_1
+						check_variable = { authority_temp > 20 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_1
+					add_idea = state_2
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_2
+						check_variable = { authority_temp > 40 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_2
+					add_idea = state_3
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_3
+						check_variable = { authority_temp > 60 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_3
+					add_idea = state_4
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_4
+						check_variable = { authority_temp > 80 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_4
+					add_idea = state_5
+				}
+			}
+			
+
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_5
+						check_variable = { liberty_temp > 20 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_5
+					add_idea = state_4
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_4
+						check_variable = { liberty_temp > 40 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_4
+					add_idea = state_3
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_3
+						check_variable = { liberty_temp > 60 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_3
+					add_idea = state_2
+				}
+			}
+			if = {
+				limit = { 
+					AND = {
+						has_idea = state_2
+						check_variable = { liberty_temp > 80 } 
+					}
+				}
+				swap_ideas = {
+					remove_idea = state_2
+					add_idea = state_1
+				}
+			}
+
+		}
+	}
+
+	
+}

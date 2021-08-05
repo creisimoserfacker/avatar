@@ -16,7 +16,7 @@ NGame = {
 	EVENT_TIMEOUT_DEFAULT = 13,						-- Default days before an event times out if not scripted
 	MISSION_REMOVE_FROM_INTERFACE_DEFAULT = 13,		-- Default days before a mission is removed from the interface after having failed or completed
 	DECISION_ALERT_TIMEOUT_DAYS = 30,				-- Days left when player will be alerted about timing out events or decisions
-	FUEL_RESOURCE = "oil",							-- resource that will give country fuel
+	FUEL_RESOURCE = "rubber",							-- resource that will give country fuel
 	MAX_EFFECT_ITERATION = 1000,					-- maximum allowed iteration for loop effects
 	MAX_SCRIPTED_LOC_RECURSION = 30,				-- max recursion for scripted localizations
 	HANDS_OFF_START_TAG = "SNW",					-- tag for player country for -hands_off runs. use an existing tag that is less likely to affect the game
@@ -317,7 +317,7 @@ NCountry = {
 	STARTING_FUEL_RATIO = 0.25,						-- starting fuel ratio compared to max fuel for countries
 	BASE_FUEL_GAIN_PER_OIL = 2,						-- base amount of fuel gained hourly per excess oil
 	BASE_FUEL_GAIN = 2.0,							-- base amount of fuel gained hourly, independent of excess oil
-	BASE_FUEL_CAPACITY = 100000,						-- base amount of fuel capacity
+	BASE_FUEL_CAPACITY = 50000,						-- base amount of fuel capacity
 
 	COUNTRY_MANPOWER_CAPITULATED_FREE_POOL_FACTOR = 0.1,	-- Factor on amount of normal manpower left for an exiled nation with no territory.
 	COUNTRY_MANPOWER_CAPITULATED_CORE_GAIN_FACTOR = 0.001,	-- Factor on amount of normal manpower gained for the exile nation. From owned states that are controlled by an enemy. State manpower reduced by factor 1000 in code.
@@ -612,9 +612,9 @@ NMilitary = {
 	BASE_DIVISION_BRIGADE_CHANGE_COST = 10,	--Base cost to change a regiment column.
 	BASE_DIVISION_SUPPORT_SLOT_COST = 5, 	--Base cost to unlock a support slot
 	
-	MAX_ARMY_EXPERIENCE = 1000,			--Max army experience a country can store
-	MAX_NAVY_EXPERIENCE = 1000,			--Max navy experience a country can store
-	MAX_AIR_EXPERIENCE = 1000,				--Max air experience a country can store
+	MAX_ARMY_EXPERIENCE = 999,			--Max army experience a country can store
+	MAX_NAVY_EXPERIENCE = 999,			--Max navy experience a country can store
+	MAX_AIR_EXPERIENCE = 999,				--Max air experience a country can store
 	
 	COMBAT_MINIMUM_TIME = 6,			-- Shortest time possible for a combat in hours
 	SPOTTING_QUALITY_DROP_HOURS = 4, 	-- Each X hours the intel quality drops after unit was spotted.
@@ -923,25 +923,25 @@ NMilitary = {
 
 	UNIT_UPKEEP_ATTRITION = 0.00,							--Constant attrition value applied to armies.
 
-	FUEL_PENALTY_START_RATIO = 0.10,				-- ratio of fuel in an army to start getting penalties
+	FUEL_PENALTY_START_RATIO = 0.25,				-- ratio of fuel in an army to start getting penalties
 
 	SURPLUS_SUPPLY_RATIO_FOR_ZERO_FUEL_FLOW = 0.5,		-- if a supply chunk has more supply needed than this ratio + 1 compared to its max supply flow, the units inside the chiunk will get no fuel 
 	
 	ARMY_MAX_FUEL_FLOW_MULT = 2.0,					-- max fuel ratio that an army can get per hour, multiplied by supply situation
 	
 	ARMY_FUEL_COST_MULT = 0.5,						-- fuel cost multiplier for all army related stuff
-	ARMY_COMBAT_FUEL_MULT =   0.2,					-- fuel consumption ratio in combat (plus ARMY_MOVEMENT_FUEL_MULT if you are also moving. ie offensive combat)
-	ARMY_TRAINING_FUEL_MULT = 0.6,					-- fuel consumption ratio while training
+	ARMY_COMBAT_FUEL_MULT =   1.0,					-- fuel consumption ratio in combat (plus ARMY_MOVEMENT_FUEL_MULT if you are also moving. ie offensive combat)
+	ARMY_TRAINING_FUEL_MULT = 1.0,					-- fuel consumption ratio while training
 	ARMY_MOVEMENT_FUEL_MULT = 1.0,					-- fuel consumption ratio while moving
-	ARMY_NAVAL_TRANSFER_FUEL_MULT = 1.0,			-- fuel consumption ratio while naval transferring
-	ARMY_STRATEGIC_DEPLOYMENT_FUEL_MULT = 0.1,		-- fuel consumption ratio while doing strategic deployment
+	ARMY_NAVAL_TRANSFER_FUEL_MULT = 0.0,			-- fuel consumption ratio while naval transferring
+	ARMY_STRATEGIC_DEPLOYMENT_FUEL_MULT = 0.0,		-- fuel consumption ratio while doing strategic deployment
 	ARMY_IDLE_FUEL_MULT = 0.0,						-- fuel consumption ratio while just existing
 	FUEL_EFFICIENCY_RAID_MULTIPLIER = 1.0,			-- convoy raid multiplier for fuel sunk
 	
 	FUEL_FLOW_PENALTY_FOR_SUPPLY_CHUNK_EDGE_RATIO = 0.5, -- supply flow that is limited by control of incoming edge provinces will have lesser effect on fuel flow
 	
-	OUT_OF_FUEL_EQUIPMENT_MULT = 0.5,				-- ratio of the stats that you get from equipments that uses fuel and you lack it
-	OUT_OF_FUEL_SPEED_MULT = 0.5,					-- speed mult that armies get when out of fuel
+	OUT_OF_FUEL_EQUIPMENT_MULT = 0.1,				-- ratio of the stats that you get from equipments that uses fuel and you lack it
+	OUT_OF_FUEL_SPEED_MULT = 0.4,					-- speed mult that armies get when out of fuel
 	OUT_OF_FUEL_TRAINING_XP_GAIN_MULT = 0.0,		-- xp gain mult from training when a unit is out of fuel
 	FUEL_CAPACITY_DEFAULT_HOURS = 96               -- default capacity if not specified
 },
@@ -1275,11 +1275,11 @@ NNavy = {
 	
 	HOLD_MISSION_MOVEMENT_COST = 1.0,								-- ships on hold cost this much fuel while moving
 	ON_BASE_FUEL_COST = 0.0,										-- ships that waits at naval bases cost this ratio
-	IN_COMBAT_FUEL_COST = 1.5,										-- ships in combat will get this ratio for fuel cost
+	IN_COMBAT_FUEL_COST = 2.0,										-- ships in combat will get this ratio for fuel cost
 	TRAINING_FUEL_COST_FOR_ESCORT_SHIPS = 0.15,						-- ships that are on training mission but not training (ie they are at max xp and training will cancel at max xp) will consume this ratio of fuel
-
+	
 	MAX_FUEL_FLOW_MULT = 2.0, -- max fuel flow ratio for ships, which will be multiplied by supply
-	FUEL_COST_MULT = 0.0050, -- fuel multiplier for all naval missions
+	FUEL_COST_MULT = 0.10, -- fuel multiplier for all naval missions
 	
 	OUT_OF_FUEL_SPEED_FACTOR = -0.75,
 	OUT_OF_FUEL_RANGE_FACTOR = -0.75,

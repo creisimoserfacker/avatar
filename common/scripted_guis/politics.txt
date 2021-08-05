@@ -1,0 +1,82 @@
+scripted_gui = {
+
+	major_spirit_container = {
+		context_type = player_context
+		
+		window_name = "majorspiritcontainer"
+		parent_window_token = politics_tab
+		
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
+			fire_supremacy_visible = {
+				TAG = FIR
+				has_idea = fire_supremacy_spirit
+			}
+		}
+		
+	}
+	
+	political_ideology_new = {
+		context_type = player_context
+		
+		window_name = "countrypoliticsnew"
+		parent_window_token = politics_tab
+		
+		visible = {
+			always = yes
+		}
+		
+		properties = {
+			state_indicator = {
+				x = legitimacy_var
+			}
+		}
+
+		triggers = {
+			fir_legit_bg_visible = {
+				has_government = imperialism
+			}
+			fir_high_legitimacy_visible = {
+				has_government = imperialism
+			}
+			fir_low_legitimacy_visible = {
+				has_government = imperialism
+			}
+
+			ear_legit_bg_visible = {
+				has_government = monarchism
+			}
+			ear_high_legitimacy_visible = {
+				has_government = monarchism
+			}
+			ear_low_legitimacy_visible = {
+				has_government = monarchism
+			}
+
+			water_legit_bg_visible = {
+				has_government = tribalism
+			}
+			water_high_legitimacy_visible = {
+				has_government = tribalism
+			}
+			water_low_legitimacy_visible = {
+				has_government = tribalism
+			}
+
+			air_legit_bg_visible = {
+				has_government = pacifism
+			}
+			air_high_legitimacy_visible = {
+				has_government = pacifism
+			}
+			air_low_legitimacy_visible = {
+				has_government = pacifism
+			}
+		}
+		
+	}
+	
+}

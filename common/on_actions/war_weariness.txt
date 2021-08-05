@@ -2,36 +2,10 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				set_variable = { war_exhaustion_variable = 0 }
 				set_variable = { war_exhaustion_daily = 1 }
 				set_variable = { peace_exhaustion_daily = -5 }
 				set_variable = { war_exhaustion_max = 9000 }
 				set_variable = { war_exhaustion_next = 200 }
-
-				if = {
-					limit = {
-						AND = {
-							has_start_date > 12.02.02
-							has_start_date < 60.02.02
-							tag = FIR
-						}
-					}
-					set_variable = { war_exhaustion_variable = 650 }
-					set_variable = { war_exhaustion_next = 1200 }
-					set_variable = { war_exhaustion_prev = 600 }
-				}
-				if = {
-					limit = {
-						AND = {
-							has_start_date > 60.02.02
-							has_start_date < 110.02.02
-							tag = FIR
-						}
-					}
-					set_variable = { war_exhaustion_variable = 1400 }
-					set_variable = { war_exhaustion_next = 2000 }
-					set_variable = { war_exhaustion_prev = 1200 }
-				}
 			}
 		}
 	}

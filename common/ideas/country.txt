@@ -26,6 +26,37 @@ ideas = {
 			}
 		}
 
+		food_shortages = {
+			allowed = { always = yes }
+
+			picture = famine
+
+			available = {
+				AND = {
+					check_variable = { food_supply < food_demand }
+					check_variable = { food_supply > half_food_demand }
+				}
+			}
+
+			modifier = {
+				MONTHLY_POPULATION = -0.5
+				stability_factor = -0.5
+			}
+		}
+
+		famine = {
+			allowed = { always = yes }
+
+			available = {
+				check_variable = { food_supply < half_food_demand }
+			}
+
+			modifier = {
+				MONTHLY_POPULATION = -2
+				stability_factor = -1
+			}
+		}
+
 
 	}
 }

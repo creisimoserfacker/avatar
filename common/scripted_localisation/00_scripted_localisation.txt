@@ -283,6 +283,90 @@ defined_text = {
 
 }
 
+#### economy
+
+defined_text = {
+	name = GetFoodSurplus
+	text = {
+		trigger = {
+			check_variable = { food_supply < food_demand }
+		}
+		localization_key = food_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { food_supply = food_demand }
+		}
+		localization_key = enough_food
+	}
+	text = {
+		trigger = {
+			check_variable = { food_supply > food_demand }
+		}
+		localization_key = food_surplus
+	}
+}
+defined_text = {
+	name = GetResourceSurplus
+	text = {
+		trigger = {
+			check_variable = { resource_surplus < 0 }
+		}
+		localization_key = resouce_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { resource_surplus = 0 }
+		}
+		localization_key = enough_resource
+	}
+	text = {
+		trigger = {
+			check_variable = { resource_surplus > 0 }
+		}
+		localization_key = resouce_surplus
+	}
+}
+
+
+#### legitimacy
+
+
+defined_text = {
+    name = get_state_type_modifiers
+    
+    text = {
+        trigger = {
+            has_idea = state_1
+        }
+        localization_key = "state_1_modifiers"
+    }
+    text = {
+        trigger = {
+            has_idea = state_2
+        }
+        localization_key = "state_2_modifiers"
+    }
+    text = {
+        trigger = {
+            has_idea = state_3
+        }
+        localization_key = "state_3_modifiers"
+    }
+    text = {
+        trigger = {
+            has_idea = state_4
+        }
+        localization_key = "state_4_modifiers"
+    }
+    text = {
+        trigger = {
+            has_idea = state_5
+        }
+        localization_key = "state_5_modifiers"
+    }
+}
+
 ### Air Council
 
 defined_text = {
