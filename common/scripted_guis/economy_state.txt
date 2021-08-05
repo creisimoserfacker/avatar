@@ -1,0 +1,232 @@
+
+scripted_gui = {
+
+	economy_state_ui = {
+		context_type = selected_state_context
+		
+		window_name = "economy_state_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			is_controlled_by = ROOT
+		}
+
+		effects = {
+			urban_type_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { show_construction = 1 }
+						}
+					}
+					set_variable = { show_construction = 1 }
+				}
+				else = {
+					set_variable = { show_construction = 0 }
+				}
+			}
+			forest_type_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { show_construction = 2 }
+						}
+					}
+					set_variable = { show_construction = 2 }
+				}
+				else = {
+					set_variable = { show_construction = 0 }
+				}
+			}
+			mountain_type_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { show_construction = 3 }
+						}
+					}
+					set_variable = { show_construction = 3 }
+				}
+				else = {
+					set_variable = { show_construction = 0 }
+				}
+			}
+			field_type_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { show_construction = 4 }
+						}
+					}
+					set_variable = { show_construction = 4 }
+				}
+				else = {
+					set_variable = { show_construction = 0 }
+				}
+			}
+			water_type_click = {
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { show_construction = 5 }
+						}
+					}
+					set_variable = { show_construction = 5 }
+				}
+				else = {
+					set_variable = { show_construction = 0 }
+				}
+			}
+		}
+
+		triggers = {
+			increase_infra_click_enabled = {
+				check_variable = { state_development < state_potential }
+			}
+			send_settlers_visible = {
+				NOT = {
+					is_core_of = ROOT
+				}
+				is_controlled_by = ROOT
+			}
+
+			urban_type_click_enabled = {
+				has_variable = urban_tiles
+			}
+			forest_type_click_enabled = {
+				has_variable = forest_tiles
+			}
+			mountain_type_click_enabled = {
+				has_variable = mountain_tiles
+			}
+			field_type_click_enabled = {
+				has_variable = field_tiles
+			}
+			water_type_click_enabled = {
+				has_variable = water_tiles
+			}
+		}
+
+		properties = {
+			
+		}
+	}
+	urban_construction_ui = {
+		context_type = selected_state_context
+		
+		window_name = "urban_construction_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			check_variable = { show_construction = 1 }
+		}
+
+		triggers = {
+			build_carpentry_click_enabled = {
+				not = {
+					has_state_flag = carpentry_in_construction
+					check_variable = {
+						var = ROOT.used_construction_capacity
+						value = ROOT.construction_capacity
+						compare = greater_than_or_equals
+					}
+				}
+			}
+		}
+
+		effects = {
+			build_carpentry_click = {
+				carpentry_construction = yes
+			}
+			close_window_click = {
+				set_variable = { show_construction = 0 }
+			}
+		}
+
+	}
+	forest_construction_ui = {
+		context_type = selected_state_context
+		
+		window_name = "forest_construction_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			check_variable = { show_construction = 2 }
+		}
+
+		triggers = {
+			
+		}
+
+		effects = {
+			close_window_click = {
+				set_variable = { show_construction = 0 }
+			}
+		}
+
+	}
+	mountain_construction_ui = {
+		context_type = selected_state_context
+		
+		window_name = "mountain_construction_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			check_variable = { show_construction = 3 }
+		}
+
+		triggers = {
+			
+		}
+
+		effects = {
+			close_window_click = {
+				set_variable = { show_construction = 0 }
+			}
+		}
+
+	}
+	field_construction_ui = {
+		context_type = selected_state_context
+		
+		window_name = "field_construction_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			check_variable = { show_construction = 4 }
+		}
+
+		triggers = {
+			
+		}
+
+		effects = {
+			close_window_click = {
+				set_variable = { show_construction = 0 }
+			}
+		}
+
+	}
+	water_construction_ui = {
+		context_type = selected_state_context
+		
+		window_name = "water_construction_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			check_variable = { show_construction = 5 }
+		}
+
+		triggers = {
+			
+		}
+
+		effects = {
+			close_window_click = {
+				set_variable = { show_construction = 0 }
+			}
+		}
+
+	}
+	
+}

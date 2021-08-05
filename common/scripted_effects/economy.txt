@@ -1,0 +1,77 @@
+
+extra_factory_output = {
+
+	set_temp_variable = { factories_temp = factory_count }
+	multiply_temp_variable = { factories_temp = 4 }
+	set_variable = { factory_duplicator = factories_temp }
+	if = {
+		limit = {
+			check_variable = { extra_mils < factory_duplicator }
+		}
+		ROOT = {
+			add_offsite_building = { type = arms_factory level = 1 }
+		}
+		add_to_variable = { extra_mils = 1 }
+	}
+	else = {
+		limit = {
+			check_variable = { extra_mils > factory_duplicator }
+		}
+		ROOT = {
+			add_offsite_building = { type = arms_factory level = -1 }
+		}
+		add_to_variable = { extra_mils = -1 }
+	}
+	
+}
+
+extra_dockyard_output = {
+
+	set_temp_variable = { dockyards_temp = dockyard_count }
+	#multiply_temp_variable = { dockyards_temp = 2 }
+	set_variable = { dockyard_duplicator = dockyards_temp }
+	if = {
+		limit = {
+			check_variable = { extra_docks < dockyard_count }
+		}
+		ROOT = {
+			add_offsite_building = { type = harbour level = 1 }
+		}
+		add_to_variable = { extra_docks = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { extra_docks > dockyard_count }
+		}
+		ROOT = {
+			add_offsite_building = { type = harbour level = -1 }
+		}
+		add_to_variable = { extra_docks = -1 }
+	}
+	
+}
+
+
+carpentry_construction = {
+
+	THIS = {
+		set_state_flag = carpentry_in_construction
+	}
+	add_to_variable = { ROOT.used_construction_capacity = 1 }
+	
+}
+add_carpentry = {
+
+	THIS = {
+		add_building_construction = {
+			type = carpentry
+			level = 1
+			instant_build = yes
+		}
+
+		clr_state_flag = carpentry_in_construction
+		set_variable = { carpentry_ic = 0 }
+	}
+	subtract_from_variable = { ROOT.used_construction_capacity = 1 }
+	
+}

@@ -49,9 +49,23 @@ country_event = {
 	
 	option = {
 		name = SAT_council.1.a
-		
-		trigger = {
-		}
+		set_variable = { SAT_choosen_mission = 1 }
+		SAT_start_mission = yes
+	}
+	option = {
+		name = SAT_council.1.b
+		set_variable = { SAT_choosen_mission = 2 }
+		SAT_start_mission = yes
+	}
+	option = {
+		name = SAT_council.1.c
+		set_variable = { SAT_choosen_mission = 3 }
+		SAT_start_mission = yes
+	}
+	option = {
+		name = SAT_council.1.e
+		set_variable = { SAT_choosen_mission = 4 }
+		SAT_start_mission = yes
 	}
 }
 
@@ -166,17 +180,17 @@ country_event = {
 		name = SAT_council.5.a
 		
 		trigger = {
-				check_variable = { SAT_council_contsruction > 25 }
+				check_variable = { SAT_council_research > 25 }
 		}
-		add_to_variable = { SAT_council_contsruction = -25 }
+		add_to_variable = { SAT_council_research = -25 }
 	}
 	option = {
 		name = SAT_council.5.b
 		
 		trigger = {
-				check_variable = { SAT_council_research > 25 }
+				check_variable = { SAT_council_construction > 25 }
 		}
-		add_to_variable = { SAT_council_research = -25 }
+		add_to_variable = { SAT_council_construction = -25 }
 	}
 	option = {
 		name = SAT_council.5.c
