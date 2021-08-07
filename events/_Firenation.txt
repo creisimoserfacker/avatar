@@ -709,6 +709,27 @@ country_event = {
 				set_state_controller = 398
 				set_state_controller = 291
 			}
+			
+			
+			EAR = {
+				if = {
+					limit = {
+						has_dlc = "Together for Victory"
+					}
+					set_autonomy = {
+						target = WBA
+						autonomous_state = autonomy_royal_domain
+					}
+					set_autonomy = {
+						target = EBA
+						autonomous_state = autonomy_royal_domain
+					}
+				}
+				else = {
+					puppet = WBA
+					puppet = EBA
+				}
+			}
 		}
 	}
 }

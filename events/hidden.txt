@@ -7,8 +7,8 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#SWT event and Zuko's event:
-		SWT = { country_event = { id = quest.1 days = 0 } }
 		FIR = { country_event = { id = quest.2 days = 0 } }
+		set_global_flag = avatar_sat
 	}
 }
 
@@ -44,7 +44,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Kyosi events:
-		if = { limit = { KYI = { controls_state = 105 } has_global_flag = Sokka_In_Team }
+		if = { limit = { KYI = { controls_state = 105 } has_global_flag = avatar_team_sokka }
 			KYI = { country_event = { id = quest.7 days = 0 } } }
 		if = { limit = { KYI = { controls_state = 105 } }
 			FIR = { country_event = { id = quest.8 days = 0 } } }
@@ -106,7 +106,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#if Sokka is not in the team and not occupied, get on option to add Jet to the team. else, continue with the historical:
-		if = { limit = { GDD = { controls_state = 205 } NOT = { has_global_flag = Sokka_In_Team } } 
+		if = { limit = { GDD = { controls_state = 276 } NOT = { has_global_flag = avatar_team_sokka } } 
 			GDD = { country_event = { id = quest.22 days = 0 } } }
 		else = { GDD = { country_event = { id = quest.23 days = 0 } } }
 	}
@@ -222,6 +222,8 @@ country_event = {
 		#Assassinate Zuko?
 		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
 			FIR = { country_event = { id = quest.59 days = 0 } } }
+		#scripted battle:
+		if = { limit = { NOT = { FIR = { controls_state = 17 controls_state = 21 } } } FIR = { country_event = { id = quest.161 days = 0 } }
 	}
 }
 
@@ -232,6 +234,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#siege event, after 20 days of the scripted battle, Abandon Zuko event:
+		if = { limit = { FIR = { controls_state = 17 } } set_global_flag = FIR_NORTH_WON }
 		NWT = { country_event = { id = quest.62 days = 0 } }
 		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
 			FIR = { country_event = { id = quest.60 days = 0 } } }
@@ -311,7 +314,8 @@ country_event = {
 		#FN will be able to stop the ring, team Avatar will be able to add Toph or the Boulder to the team.
 		if = { limit = { FIR = { controls_state = 29 } } 
 			FIR = { country_event = { id = quest.80 days = 0 } } }
-		if = { limit = { NOT = { has_global_flag = Bumi_In_Team } } 
+		else = { hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = 20 } } } }
+		if = { limit = { NOT = { has_global_flag = avatar_team_bumi } } 
 			GAO = { country_event = { id = quest.81 days = 0 } } }
 	}
 }
@@ -336,7 +340,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Toph's conversation with Iroh, Azula's target:
-		if = { limit = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } has_global_flag = Toph_In_Team }  
+		if = { limit = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } has_global_flag = avatar_team_toph }  
 			ZIN = { country_event = { id = quest.87 days = 0 } } }
 		FIR = { country_event = { id = quest.88 days = 0 } } 
 	}
@@ -453,11 +457,11 @@ country_event = {
 		else = { EAT = { country_event = { id = quest.112 days = 0 } } }
 		
 		#Sokka convinces the Water tribes to join the invasion:
-		if = { limit = { has_global_flag = Sokka_In_Team }
+		if = { limit = { has_global_flag = avatar_team_sokka }
 			NCB = { country_event = { id = quest.114 days = 0 } } }
 		
 		#Toph is captured (if she is in the team):
-		if = { limit = { has_global_flag = Toph_In_Team }
+		if = { limit = { has_global_flag = avatar_team_toph }
 			ECB = { country_event = { id = quest.115 days = 0 } } }
 	}
 }
@@ -511,7 +515,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Decide if attack the village after the Factory is destroyed:
-		if = { limit = { has_global_flag = Kattara_In_Team }
+		if = { limit = { has_global_flag = avatar_team_katara }
 			FIR = { country_event = { id = quest.126 days = 0 } } }
 	}
 }
@@ -523,7 +527,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Sokka goes for Piandao's help:
-		if = { limit = { has_global_flag = Sokka_In_Team }
+		if = { limit = { has_global_flag = avatar_team_sokka }
 			SWT = { country_event = { id = quest.128 days = 0 } } }
 	}
 }
@@ -536,10 +540,12 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Decides if Hamma teaches Katara bloodbending, Zuko's Second War Meeting:
-		if = { limit = { has_global_flag = Kattara_In_Team }
+		if = { limit = { has_global_flag = avatar_team_katara }
 			SWT = { country_event = { id = quest.133 days = 0 } } }
-		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { Zuko_Died } }
+		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { has_global_flag = Zuko_Died } }
 			set_global_flag = ep49_news_a }
+		#start the Black Sun Invasion scripted battle:
+		set_global_flag = Black_Sun_Invasion_Started
 	}
 }
 
@@ -565,12 +571,14 @@ country_event = {
 	fire_only_once = yes
 	hidden = yes
 	immediate = {
+		#add sokka:
+		if = { limit = { NOT = { has_global_flag = Sokka_Died } } set_global_flag = avatar_team_sokka }
 		#After The Black Sun Invasion scripted battle:
 		#Event: The Eclipse- If Zuko chose to Join Aang (also a chance that Ozai will kill him):
-		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { Zuko_Died } }
-			if = { limit = { has_global_flag = Zuko_Knows_lightningbending } set_global_flag = Eclipse_Zuko_Joind_Aang }
+		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { has_global_flag = Zuko_Died } }
+			if = { limit = { has_global_flag = Zuko_Knows_lightningbending } set_global_flag = avatar_team_zuko }
 			else = { random_list = {
-			70 = { set_global_flag = Eclipse_Zuko_Joind_Aang }
+			70 = { set_global_flag = avatar_team_zuko }
 			30 = { set_global_flag = Ozai_Killed_Zuko } } } }
 		#If Zuko decides to fully embrace the Fire Nation:
 		set_global_flag = Eclipse_Zuko_Joind_FN
@@ -579,5 +587,144 @@ country_event = {
 	}
 }
 
+country_event = {
+	id = hidden.52
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#combustion man:
+		if = { limit = { has_global_flag = Combustion_Man has_global_flag = avatar_team_sokka }
+			WAT = { country_event = { id = quest.143 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.53
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Sun warriors event:
+		if = { limit = { FIR = { controls_state = 302 } } FIR = { country_event = { id = quest.145 days = 0 } } }
+		else = { if = { limit = { has_global_flag = avatar_team_zuko }
+			SNW = { country_event = { id = quest.146 days = 0 } } } }
+	}
+}
+
+country_event = {
+	id = hidden.54
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Decides if Azula cuts the ropes:
+		if = { limit = { has_global_flag = avatar_team_zuko has_global_flag = avatar_team_sokka  }
+			FIR = { country_event = { id = quest.148 days = 0 } } }
+	}
+}
 
 
+country_event = {
+	id = hidden.56
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#Kill Yon Ra?
+		if = { limit = { has_global_flag = avatar_team_zuko has_global_flag = avatar_team_katara }
+			SWT = { country_event = { id = quest.150 days = 0 } } }
+	}
+}
+
+country_event = {
+	id = hidden.57
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#If Spiritual Balance is under 50%, the Lion Turtle will teach Aang spiritbending (Maxing his spiritualtity):
+		if = { limit = { threat < 0.5 }
+			set_global_flag = ep57_news_a }
+	}
+}
+
+country_event = {
+	id = hidden.58
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		#the commet arrives:
+		set_global_flag = Commet_Arrived_Aang
+		#Team avatar decides either to help Aang or to destroy the airships:
+		SAT = { country_event = { id = quest.153 days = 0 } }
+		#Ozai engages Aang 1v1 or Ozai's guards attempt to help him:
+		FIR = { country_event = { id = quest.154 days = 0 } }
+	}
+}
+
+country_event = {
+	id = hidden.59
+	trigger = {
+		has_global_flag = hidden_59_a
+		has_global_flag = hidden_59_b
+		NOT = { has_global_flag = hidden_59_c }
+		tag = FIR
+	}
+	mean_time_to_happen = {
+		days = 2
+	}
+	immediate = {
+		set_global_flag = hidden_59_c
+	}
+	immediate = {
+		#BSS REBELION:
+		set_global_flag = bss_rebelion_news
+		if = { limit = { has_global_flag = avatar_team_zuko has_global_flag = avatar_team_katara }
+			#if Zuko and Kattara win:
+			set_global_flag = azula_lost_news
+			#if Zuko and Kattara lose:
+			set_global_flag = azula_won_news
+		}
+		#Wulong Battle:
+		#if Aang wins:
+			set_global_flag = ozai_lost_news
+			#Zuko becomes the new firelord:
+			if = { limit = { has_global_flag = avatar_team_zuko } set_global_flag = Zuko's_Coronation }
+		#if Aang loses:
+			set_global_flag = ozai_won_news
+	}
+}
+
+
+
+
+
+
+
+
+
+#debug event:
+
+country_event = {
+	id = hidden.999
+	is_triggered_only = yes
+	fire_only_once = yes
+	hidden = yes
+	immediate = {
+		set_global_flag = avatar_team_appa
+		set_global_flag = avatar_team_momo
+		set_global_flag = avatar_team_hawky
+		set_global_flag = avatar_team_sokka
+		set_global_flag = avatar_team_suki
+		set_global_flag = avatar_team_iroh
+		set_global_flag = avatar_team_katara
+		#set_global_flag = avatar_team_toph
+		set_global_flag = avatar_team_zuko
+		set_global_flag = avatar_team_gyatso
+		set_global_flag = avatar_team_boulder
+		set_global_flag = avatar_team_jet
+		set_global_flag = avatar_team_bumi
+	}
+}
