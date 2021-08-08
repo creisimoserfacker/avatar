@@ -56,9 +56,14 @@ carpentry_construction = {
 
 	THIS = {
 		set_state_flag = carpentry_in_construction
+		set_state_flag = construction
 	}
-	add_to_variable = { ROOT.used_construction_capacity = 1 }
-	
+	set_variable = { resource_progress = -100 }
+	set_variable = { show_progress = -100 }
+	set_variable = { required_ic = ROOT.carpentry_cost }
+
+	set_variable = { planks_required = 542 }
+	set_variable = { brickd_required = 260 }
 }
 add_carpentry = {
 
@@ -70,8 +75,10 @@ add_carpentry = {
 		}
 
 		clr_state_flag = carpentry_in_construction
-		set_variable = { carpentry_ic = 0 }
+		clr_state_flag = construction
+		set_variable = { construction_ic = 0 }
 	}
+	add_to_variable = { urban_tiles_used = 1 }
 	subtract_from_variable = { ROOT.used_construction_capacity = 1 }
 	
 }

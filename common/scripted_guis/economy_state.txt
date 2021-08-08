@@ -111,6 +111,25 @@ scripted_gui = {
 			
 		}
 	}
+	construction = {
+		context_type = selected_state_context
+		
+		window_name = "building_progress_bar"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			has_state_flag = construction
+		}
+		
+		properties = {
+			resource_bar = {
+				x = resource_progress
+			}
+			construction_bar = {
+				x = show_progress
+			}
+		}
+	}
 	urban_construction_ui = {
 		context_type = selected_state_context
 		
@@ -124,7 +143,37 @@ scripted_gui = {
 		triggers = {
 			build_carpentry_click_enabled = {
 				not = {
-					has_state_flag = carpentry_in_construction
+					has_state_flag = construction
+					check_variable = {
+						var = ROOT.used_construction_capacity
+						value = ROOT.construction_capacity
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			build_masonry_click_enabled = {
+				not = {
+					has_state_flag = construction
+					check_variable = {
+						var = ROOT.used_construction_capacity
+						value = ROOT.construction_capacity
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			build_pottery_click_enabled = {
+				not = {
+					has_state_flag = construction
+					check_variable = {
+						var = ROOT.used_construction_capacity
+						value = ROOT.construction_capacity
+						compare = greater_than_or_equals
+					}
+				}
+			}
+			build_clothing_factory_click_enabled = {
+				not = {
+					has_state_flag = construction
 					check_variable = {
 						var = ROOT.used_construction_capacity
 						value = ROOT.construction_capacity

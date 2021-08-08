@@ -43,7 +43,7 @@ guiTypes = {
 				name = "consumer_goods_title"
 				position = {x = 98 y = 4}
 				font = "hoi_18mbs"
-				text = "consumer_goods_supply"
+				text = "consumer_goods_count"
 				maxWidth = 42
 				maxHeight = 20
 				format = center
@@ -52,45 +52,87 @@ guiTypes = {
 			}
 
 			iconType ={
-				name ="construction_resource_icon"
+				name ="luxury_goods_icon"
 				spriteType = "GFX_economy_resources_strip"
 				frame = 3
 				position = { x= 140 y = 0 }
 				Orientation = "UPPER_LEFT"
-				pdx_tooltip = "construction_resource"
-				pdx_tooltip_delayed = "construction_resource_delayed"
+				pdx_tooltip = "luxury_goods"
+				pdx_tooltip_delayed = "luxury_goods_delayed"
 			}
 			instantTextboxType = {
-				name = "construction_resource_title"
+				name = "luxury_goods_title"
 				position = {x = 168 y = 4}
 				font = "hoi_18mbs"
-				text = "construction_resource"
+				text = "luxury_goods_count"
 				maxWidth = 42
 				maxHeight = 20
 				format = center
-				pdx_tooltip = "construction_resource"
-				pdx_tooltip_delayed = "construction_resource_delayed"
+				pdx_tooltip = "luxury_goods"
+				pdx_tooltip_delayed = "luxury_goods_delayed"
 			}
 
 			iconType ={
-				name ="production_icon"
+				name ="plank_icon"
 				spriteType = "GFX_economy_resources_strip"
 				frame = 4
 				position = { x= 210 y = 0 }
 				Orientation = "UPPER_LEFT"
-				pdx_tooltip = "consumer_goods"
-				pdx_tooltip_delayed = "consumer_goods_delayed"
+				pdx_tooltip = "plank"
+				pdx_tooltip_delayed = "plank_delayed"
 			}
 			instantTextboxType = {
-				name = "production_title"
+				name = "plank_title"
 				position = {x = 238 y = 4}
 				font = "hoi_18mbs"
-				text = "production"
+				text = "plank_count"
 				maxWidth = 42
 				maxHeight = 20
 				format = center
-				pdx_tooltip = "production"
-				pdx_tooltip_delayed = "production_delayed"
+				pdx_tooltip = "plank"
+				pdx_tooltip_delayed = "plank_delayed"
+			}
+
+			iconType ={
+				name ="brick_icon"
+				spriteType = "GFX_economy_resources_strip"
+				frame = 5
+				position = { x= 284 y = 0 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "brick"
+				pdx_tooltip_delayed = "brick_delayed"
+			}
+			instantTextboxType = {
+				name = "brick_title"
+				position = {x = 310 y = 4}
+				font = "hoi_18mbs"
+				text = "brick_count"
+				maxWidth = 42
+				maxHeight = 20
+				format = center
+				pdx_tooltip = "brick"
+				pdx_tooltip_delayed = "brick_delayed"
+			}
+
+			iconType ={
+				name ="steel_beam_icon"
+				spriteType = "GFX_economy_resources_strip"
+				frame = 6
+				position = { x= 354 y = 0 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "steel_beam"
+				pdx_tooltip_delayed = "steel_beam_delayed"
+			}
+			instantTextboxType = {
+				name = "steel_beam_title"
+				position = {x = 376 y = 4}
+				font = "hoi_18mbs"
+				text = "steel_beam_count"
+				maxWidth = 42
+				maxHeight = 20
+				format = center
+				pdx_tooltip = "steel_beam"
+				pdx_tooltip_delayed = "steel_beam_delayed"
 			}
 
 		}
@@ -177,7 +219,7 @@ guiTypes = {
 				name = "consumer_goods_count"
 				position = {x = 216 y = 76}
 				font = "hoi_18mbs"
-				text = "consumer_goods_count"
+				text = "consumer_goods_supply"
 				maxWidth = 250
 				maxHeight = 20
 				format = left
@@ -266,6 +308,8 @@ guiTypes = {
 				position = { x= 48 y = 72 }
 				Orientation = "UPPER_LEFT"
 				scale = 0.65
+				pdx_tooltip = "employed_tooltip"
+				pdx_tooltip_delayed = "employed_tooltip_delayed"
 			}
 			instantTextboxType = {
 				name = "employed_title"
@@ -275,6 +319,8 @@ guiTypes = {
 				maxWidth = 250
 				maxHeight = 20
 				format = right
+				pdx_tooltip = "employed_tooltip"
+				pdx_tooltip_delayed = "employed_tooltip_delayed"
 			}
 			instantTextboxType = {
 				name = "employed_count"
@@ -434,7 +480,7 @@ guiTypes = {
 				buttonType = {
 					name ="fishing_stand_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 10
+					frame = 11
 					position = { x = 14 y = 60 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -468,7 +514,7 @@ guiTypes = {
 					pdx_tooltip = "farm"
 				}
 				buttonType = {
-					name ="mine_construction"
+					name ="iron_mine_construction"
 					spriteType = "GFX_buildings_strip"
 					frame = 7
 					position = { x = 14 y = 260 }
@@ -477,7 +523,7 @@ guiTypes = {
 					pdx_tooltip = "farm"
 				}
 				buttonType = {
-					name ="weaving_construction"
+					name ="coal_mine_construction"
 					spriteType = "GFX_buildings_strip"
 					frame = 8
 					position = { x = 14 y = 310 }
@@ -486,10 +532,19 @@ guiTypes = {
 					pdx_tooltip = "farm"
 				}
 				buttonType = {
-					name ="steelworks_construction"
+					name ="weaving_construction"
 					spriteType = "GFX_buildings_strip"
 					frame = 9
 					position = { x = 14 y = 360 }
+					Orientation = "UPPER_LEFT"
+					clicksound = click_default
+					pdx_tooltip = "farm"
+				}
+				buttonType = {
+					name ="steelworks_construction"
+					spriteType = "GFX_buildings_strip"
+					frame = 10
+					position = { x = 14 y = 410 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
 					pdx_tooltip = "farm"
@@ -533,7 +588,7 @@ guiTypes = {
 				buttonType = {
 					name ="smithy_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 20
+					frame = 21
 					position = { x = 14 y = 10 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -542,7 +597,7 @@ guiTypes = {
 				buttonType = {
 					name ="factory_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 21
+					frame = 22
 					position = { x = 14 y = 60 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -551,7 +606,7 @@ guiTypes = {
 				buttonType = {
 					name ="harbour_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 22
+					frame = 23
 					position = { x = 14 y = 110 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -560,8 +615,26 @@ guiTypes = {
 				buttonType = {
 					name ="naval_base_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 23
+					frame = 24
 					position = { x = 14 y = 160 }
+					Orientation = "UPPER_LEFT"
+					clicksound = click_default
+					pdx_tooltip = "farm"
+				}
+				buttonType = {
+					name ="consumer_goods_factory_construction"
+					spriteType = "GFX_buildings_strip"
+					frame = 28
+					position = { x = 14 y = 210 }
+					Orientation = "UPPER_LEFT"
+					clicksound = click_default
+					pdx_tooltip = "carpentry_extended"
+				}
+				buttonType = {
+					name ="luxury_goods_factory_construction"
+					spriteType = "GFX_buildings_strip"
+					frame = 27
+					position = { x = 14 y = 260 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
 					pdx_tooltip = "farm"
@@ -569,35 +642,26 @@ guiTypes = {
 				buttonType = {
 					name ="carpentry_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 25
-					position = { x = 14 y = 210 }
-					Orientation = "UPPER_LEFT"
-					clicksound = click_default
-					pdx_tooltip = "farm"
-				}
-				buttonType = {
-					name ="masonry_construction"
-					spriteType = "GFX_buildings_strip"
-					frame = 24
-					position = { x = 14 y = 260 }
-					Orientation = "UPPER_LEFT"
-					clicksound = click_default
-					pdx_tooltip = "farm"
-				}
-				buttonType = {
-					name ="pottery_construction"
-					spriteType = "GFX_buildings_strip"
 					frame = 26
 					position = { x = 14 y = 310 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
+					pdx_tooltip = "carpentry_extended"
+				}
+				buttonType = {
+					name ="masonry_construction"
+					spriteType = "GFX_buildings_strip"
+					frame = 25
+					position = { x = 14 y = 360 }
+					Orientation = "UPPER_LEFT"
+					clicksound = click_default
 					pdx_tooltip = "farm"
 				}
 				buttonType = {
-					name ="clothing_factory_construction"
+					name ="steel_beam_factory_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 27
-					position = { x = 14 y = 360 }
+					frame = 29
+					position = { x = 14 y = 410 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
 					pdx_tooltip = "farm"
@@ -652,7 +716,7 @@ guiTypes = {
 				buttonType = {
 					name ="scout_tower_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 16
+					frame = 17
 					position = { x = 14 y = 24 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -681,7 +745,7 @@ guiTypes = {
 				buttonType = {
 					name ="fuel_depot_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 19
+					frame = 20
 					position = { x = 14 y = 116 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -702,7 +766,7 @@ guiTypes = {
 				buttonType = {
 					name ="anti_air_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 17
+					frame = 18
 					position = { x = 14 y = 208 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -723,7 +787,7 @@ guiTypes = {
 				buttonType = {
 					name ="air_field_construction"
 					spriteType = "GFX_buildings_strip"
-					frame = 18
+					frame = 19
 					position = { x = 14 y = 300 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -922,6 +986,70 @@ guiTypes = {
 	}
 
 	containerWindowType = {
+		name = "building_progress_bar"
+		position = {x=444 y=50}
+		size = { width=780 height=496 }
+
+		iconType = {
+			name = "resource_gathered"
+			spriteType = "allresources"
+			position = { x = -130 y = -4 }
+			scale = 0.8
+			pdx_tooltip = "resource_gathered_info"
+		}
+
+		iconType = {
+			name = "resource_bar_bg"
+			spriteType = "GFX_building_progress_bar_bg"
+			position = { x = -100 y = 0 }
+			pdx_tooltip = "resource_gathered_info"
+		}
+		containerWindowType = {
+			name = "resource_bg"
+			position = {x=-99 y=0}
+			size = { width=100 height=17 }
+			orientation = upper_left
+			clipping = yes
+			
+			iconType = {
+				name = "resource_bar"
+				spriteType = "GFX_building_progress_bar"
+				position = { x=-99 y=0 }
+				alwaystransparent = yes
+			}
+		}
+
+		iconType = {
+			name = "construction_team"
+			spriteType = "GFX_construction_capacity"
+			position = { x = -28 y = -4 }
+			scale = 0.7
+			pdx_tooltip = "construction_bar_info"
+		}
+		
+		iconType = {
+			name = "construction_bar_bg"
+			spriteType = "GFX_building_progress_bar_bg"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "construction_bar_info"
+		}
+		containerWindowType = {
+			name = "construction_bg"
+			position = {x=1 y=0}
+			size = { width=100 height=17 }
+			orientation = upper_left
+			clipping = yes
+			
+			iconType = {
+				name = "construction_bar"
+				spriteType = "GFX_building_progress_bar"
+				position = { x=-1 y=0 }
+				alwaystransparent = yes
+			}
+		}
+	}
+
+	containerWindowType = {
 		name = "urban_construction_ui_window"
 		position = {x=16 y=-46}
 		size = { width=286 height=196 }
@@ -964,7 +1092,7 @@ guiTypes = {
 				buttonType = {
 					name ="build_carpentry"
 					spriteType = "GFX_buildings_strip"
-					frame = 25
+					frame = 26
 					position = { x = 14 y = 10 }
 					Orientation = "UPPER_LEFT"
 					clicksound = click_default
@@ -1003,7 +1131,7 @@ guiTypes = {
 			buttonType = {
 				name ="build_masonry"
 				spriteType = "GFX_buildings_strip"
-				frame = 24
+				frame = 25
 				position = { x = 14 y = 58 }
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
@@ -1012,7 +1140,7 @@ guiTypes = {
 			buttonType = {
 				name ="build_pottery"
 				spriteType = "GFX_buildings_strip"
-				frame = 26
+				frame = 28
 				position = { x = 14 y = 106 }
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
@@ -1021,7 +1149,7 @@ guiTypes = {
 			buttonType = {
 				name ="build_clothing_factory"
 				spriteType = "GFX_buildings_strip"
-				frame = 27
+				frame = 29
 				position = { x = 14 y = 154 }
 				Orientation = "UPPER_LEFT"
 				clicksound = click_default
