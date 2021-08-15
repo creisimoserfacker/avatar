@@ -6,7 +6,7 @@ on_actions = {
 				set_variable = { working_percentage = 0.55 }
 				set_variable = { consumer_good_demand_factor = 1 }
 
-				set_variable = { carpentry_cost = 1000 }
+				set_variable = { carpentry_cost = 260 }
 				set_variable = { construction_capacity = 1 }
 
 				if = {
@@ -320,8 +320,14 @@ on_actions = {
 
 			set_variable = { steel_beams = 0 }
 
+			####construction capacity
 			set_variable = { construction_capacity = 1 }
 			add_to_variable = { construction_capacity = tech_construction_capacity }
+
+			set_variable = { employed_population_10k = employed_population_k }
+			divide_variable = { employed_population_10k = 10 }
+			round_variable = employed_population_10k
+			add_to_variable = { construction_capacity = employed_population_10k }
 
 			###extra factories
 			if = {
@@ -337,6 +343,9 @@ on_actions = {
 				extra_dockyard_output = yes
 			}
 
+			#### costruction speed
+			set_variable = { construction_speed = 1 }
+			add_to_variable = { construction_speed = modifier@production_speed_buildings_factor }
 			#### construction
 			every_owned_state = {
 				if = {
@@ -346,7 +355,8 @@ on_actions = {
 							has_state_flag = gathering
 						}
 					}
-					add_to_variable = { construction_ic = ROOT.construction_capacity }
+					construction_resource_calculation = yes
+					add_to_variable = { construction_ic = ROOT.construction_speed }
 
 					set_variable = { show_progress = construction_ic }
 					divide_variable = { show_progress = required_ic }

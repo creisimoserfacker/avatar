@@ -58,12 +58,17 @@ carpentry_construction = {
 		set_state_flag = carpentry_in_construction
 		set_state_flag = construction
 	}
-	set_variable = { resource_progress = -100 }
 	set_variable = { show_progress = -100 }
 	set_variable = { required_ic = ROOT.carpentry_cost }
+	add_to_variable = { ROOT.used_construction_capacity = 1 }
 
-	set_variable = { planks_required = 542 }
-	set_variable = { brickd_required = 260 }
+	set_variable = { planks_required = 54 }
+	set_variable = { bricks_required = 26 }
+
+	add_to_array = {
+		array = ROOT.construction_sites
+		value = state_id
+	}
 }
 add_carpentry = {
 
@@ -79,6 +84,47 @@ add_carpentry = {
 		set_variable = { construction_ic = 0 }
 	}
 	add_to_variable = { urban_tiles_used = 1 }
+	subtract_from_variable = { ROOT.used_construction_capacity = 1 }
+
+	remove_from_array = {
+		array = ROOT.construction_sites
+		value = state_id
+	}
+	
+}
+
+construction_resource_calculation = {
+
+	for_each_scope_loop = {
+		array = ROOT.construction_sites
+		break = break
+		
+		set_variable = { planks_gathered = planks_required }
+		set_variable = { bricks_gathered = bricks_required }
+		set_variable = { steel_beams_gathered = steel_beams_required }
+		subtract_from_variable = { ROOT.planks = planks_gathered }
+		subtract_from_variable = { ROOT.bricks = bricks_gathered }
+		subtract_from_variable = { ROOT.steel_beams = steel_beams_gathered }
+		if = {
+			limit = {
+				check_variable = {
+					var = ROOT.planks
+					value = 0
+					compare = less_than_or_equals
+				}
+			}
+			clear_temp_variable = break
+		}
+	}
+}
+
+cancel_construction = {
+
+	THIS = {
+		clr_state_flag = carpentry_in_construction
+		clr_state_flag = construction
+		set_variable = { construction_ic = 0 }
+	}
 	subtract_from_variable = { ROOT.used_construction_capacity = 1 }
 	
 }
