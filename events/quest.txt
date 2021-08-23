@@ -292,7 +292,7 @@ country_event = {
 			}
 			add_manpower = -200
 		}
-		every_country = { add_to_variable = { Sokka_Strength = -5 } }
+		hidden_effect = { every_country = { add_to_variable = { Sokka_Strength = -5 } } }
 	}
 	option = {
 		name = quest.8.b
@@ -370,14 +370,14 @@ country_event = {
 		name = quest.11.a
 		ai_chance = { base = 4}
 		###Don't kill Bumi- Gains Compliance
-		OMS = { add_compliance = 20 }
+		205 = { add_compliance = 20 }
 	}
 	option = {
 		name = quest.11.b
 		ai_chance = { base = 1}
 		###Kill Bumi- Weakens the White Lotus Rebelion, Gains Resistance
 		set_global_flag = Bumi_Died
-		OMS = { add_resistance = 30 }
+		205 = { add_resistance = 30 }
 		custom_effect_tooltip = quest.11.b.tooltip
 	}
 }
@@ -421,7 +421,8 @@ country_event = {
 		name = quest.13.a
 		ai_chance = { base = 4}
 		custom_effect_tooltip = quest.13.a.tooltip
-		FMB = { country_event = { id = quest.14 days = 1 }  add_resistance = -30 }
+		FMB = { country_event = { id = quest.14 days = 1 } }
+		301 = { add_resistance = -30 }
 		###imprison them- Economic boost, but Team Avatar will be able to release them for +influence (with the event)
 	}
 	option = {
@@ -508,7 +509,7 @@ country_event = {
 		name = quest.16.b
 		ai_chance = { base = 1}
 		###don't burn- no effect
-		HEB = { add_compliance = 15 }
+		391 = { add_compliance = 15 }
 	}
 }
 
@@ -670,7 +671,7 @@ country_event = {
 		ai_chance = { base = 4}
 		set_global_flag = ep10_jet_joins_news_a
 		set_global_flag = avatar_team_jet
-		hidden_effect = { every_country = { add_to_variable = { JET_Strength = 15 } } }
+		hidden_effect = { every_country = { add_to_variable = { Jet_Strength = 15 } } }
 		###Jet joins the team
 		custom_effect_tooltip = quest.22.a.tooltip
 	}
@@ -1013,16 +1014,16 @@ country_event = {
 			}
 			80 = { }
 		}
-		TAK = { add_resistance = 30 }
+		154 = { add_resistance = 30 }
 	}
 	option = {
 		name = quest.33.b
 		ai_chance = { base = 4}
 		###don't arrest- Trickleback bonus
 		TAK = {
-			add_compliance = 20
 			country_event = { id = quest.34 days = 1 } 
 		}
+		154 = { add_compliance = 20 }
 	}
 }
 
@@ -1763,8 +1764,10 @@ country_event = {
 		name = quest.56.a
 		ai_chance = { base = 4}
 		###don't arrest- gains compliance, able to train Kattara and Aang
-		NWT = { add_compliance = 20 }
+		17 = { add_compliance = 20 }
+		custom_effect_tooltip = quest.56.a.tooltip
 		hidden_effect = {
+			every_country = { add_to_variable = { White_Lotus_strenght = -5 } }
 			NWT = { country_event = { id = quest.57 days = 1 } }
 		}
 	}
@@ -1772,7 +1775,7 @@ country_event = {
 		name = quest.56.b
 		ai_chance = { base = 1}
 		###arrest- doesn't help Katara and Aang, causes resistance, lowers the White Lotus strenght
-		NWT = { add_resistance = 30 }
+		17 = { add_resistance = 30 }
 		add_political_power = 20
 	}
 }
@@ -2084,9 +2087,6 @@ news_event = {
 }
 
 
-#########################################################################################################################################################################################################################
-#########################################################################################################################################################################################################################
-#########################################################################################################################################################################################################################
 
 
 ##Event: The Mission Of Azula
@@ -2279,6 +2279,7 @@ country_event = {
 	option = {
 		ai_chance = { base = 1}
 		name = quest.70.b
+		hidden_effect = { every_country = { add_to_variable = { White_Lotus_strenght = -5 } } }	
 		###Bumi joins- locking Toph, and nerfing the White Lotus uprising
 		set_global_flag = avatar_team_bumi
 		custom_effect_tooltip = quest.70.b.tooltip
@@ -2301,13 +2302,13 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.71.a
 		###Allow the sick people to leave the city (nothing changes)
-		OMS = { add_compliance = 30 }
+		205 = { add_compliance = 30 }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.71.b
 		###Don't allow it (Starts Rebelion in Omashu, chance to injure Aang or kill a random member).
-		OMS = { add_resistance = 100 }
+		205 = { add_resistance = 100 }
 		add_political_power = 30
 		random_list = {
 			20 = {
@@ -2550,7 +2551,7 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.80.a
 		###Allow the ring to operate- buffs toph, gain compliance
-		GAO = { add_compliance = 30 }
+		29 = { add_compliance = 30 }
 		add_political_power = 50
 		hidden_effect = { every_country = { add_to_variable = { Toph_Strength = 20 } } }
 		hidden_effect = { every_country = { add_to_variable = { Boulder_Strength = 20 } } }
@@ -2562,7 +2563,7 @@ country_event = {
 		###Stop it- Weakens Toph, gain resistance
 		hidden_effect = { every_country = { add_to_variable = { Boulder_Strength = 10 } } }
 		hidden_effect = { every_country = { add_to_variable = { Toph_Strength = 10 } } }
-		GAO = { add_resistance = 20 }
+		29 = { add_resistance = 20 }
 	}
 }
 
@@ -2657,12 +2658,18 @@ country_event = {
 		name = quest.84.a
 		###Violent occupation of cities- increases Zuko's chance to switch sides
 		set_global_flag = ep27_news_a
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 10 } } }
+		custom_effect_tooltip = quest.31.a.tooltip
+		391 = { add_resistance = -30 }
+		205 = { add_resistance = -30 }
+		132 = { add_resistance = -30 }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.84.b
 		###Honourable occupation- no effect
 		set_global_flag = ep27_news_a
+		add_political_power = -50
 	}
 }
 
@@ -2682,11 +2689,14 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.85.a
 		###Zuko's voyage effects makes him pitty- increases Zuko's chance to switch sides
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 10 } } }
+		custom_effect_tooltip = quest.31.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.85.b
 		###He feels disdain- no effect
+		add_stability = -0.03
 	}
 }
 
@@ -2729,11 +2739,16 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.87.a
 		###Toph is friendly to Iroh- they save Aang and increase Zuko's chance to switch sides
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 10 } } }
+		custom_effect_tooltip = quest.36.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.87.b
 		###Hostile- hostile Azula will injure a random member of team avatar
+		custom_effect_tooltip = quest.87.b.tooltip
+		hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = -5 } } }
+		
 	}
 }
 
@@ -2750,24 +2765,35 @@ country_event = {
 		tag = FIR
 	}
 	option = {
-		ai_chance = { base = 8}
+		ai_chance = { base = 4}
 		name = quest.88.a
 		###Iroh
 		trigger = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } }
 		set_global_flag = ep28_news_a
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 10 } } }
+		hidden_effect = { every_country = { add_to_variable = { Iroh_Strength = -5 } } }
+		custom_effect_tooltip = quest.31.a.tooltip
+		custom_effect_tooltip = quest.88.a.tooltip
 	}
 	option = {
-		ai_chance = { base = 2}
+		ai_chance = { base = 1}
 		name = quest.88.b
 		###Zuko
 		trigger = { NOT = { has_global_flag = Zuko_Died has_global_flag = Zuko_Joined_FN } }
 		set_global_flag = ep28_news_a
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 10 } } }
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Strength = -5 } } }
+		custom_effect_tooltip = quest.31.a.tooltip
+		custom_effect_tooltip = quest.31.b.tooltip
 	}
 	option = {
-		ai_chance = { base = 2}
+		ai_chance = { base = 1}
 		name = quest.88.c
 		###Aang
 		set_global_flag = ep28_news_a
+		hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = -5 } } }
+		custom_effect_tooltip = quest.33.a.tooltip
+		
 	}
 }
 
@@ -2811,11 +2837,14 @@ country_event = {
 		name = quest.90.a
 		###Teach Zuko lightningbending- Increase his skill
 		set_global_flag = Zuko_Knows_lightningbending
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Strength = 15 } } }
+		custom_effect_tooltip = quest.90.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.90.b
 		###Don't teach- No effect
+		add_political_power = 10
 	}
 }
 
@@ -2836,12 +2865,16 @@ country_event = {
 		name = quest.91.a
 		###Toph is dedicated- increases the amount of Earthbending Aang gets
 		set_global_flag = ep29_news_a
+		hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = 30 } } }
+		custom_effect_tooltip = quest.91.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.91.b
 		###Toph is impatient- decreases the amount of Earthbending Aang gets
 		set_global_flag = ep29_news_a
+		hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = 20 } } }
+		custom_effect_tooltip = quest.91.b.tooltip
 	}
 }
 
@@ -2881,16 +2914,20 @@ country_event = {
 		tag = FIR
 	}
 	option = {
-		ai_chance = { base = 4}
+		ai_chance = { base = 1}
 		name = quest.93.a
 		###Destroy- lock the black sun invesion
+		add_political_power = -200
+		add_stability = -0.1
+		custom_effect_tooltip = quest.93.a.tooltip
+		set_global_flag = Black_Sun_Invasion_Locked
+		
 	}
 	option = {
-		ai_chance = { base = 1}
+		ai_chance = { base = 4}
 		name = quest.93.b
 		###Don't destroy- Aang will be able to go there
 		MPO = { country_event = { id = quest.94 days = 0 } }
-		set_global_flag = Library_Destroyed
 	}
 }
 
@@ -2910,14 +2947,18 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.94.a
 		###Return- Unlocks Black Sun Invasion
-		set_global_flag = Black_Sun_Invesion_Unlocked
 		set_global_flag = ep30_news_a
+		custom_effect_tooltip = quest.94.a.tooltip
+		
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.94.b
 		###Escape- no effect
 		set_global_flag = ep30_news_a
+		set_global_flag = Black_Sun_Invasion_Locked
+		hidden_effect = { every_country = { add_to_variable = { avatar_spirituality = 6 } } }
+		custom_effect_tooltip = quest.17.a.tooltip
 	}
 }
 
@@ -2960,11 +3001,24 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.96.a
 		###Save the team
+		custom_effect_tooltip = quest.96.a.tooltip
+		clr_global_flag = avatar_team_appa
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.96.b
 		###Try to save Appa- there is a small chance the team might just die
+		custom_effect_tooltip = quest.96.b.tooltip
+		clr_global_flag = avatar_team_appa
+		random_list = {
+			30 = {
+				hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = -5 } } }
+				custom_effect_tooltip = quest.87.b.tooltip
+			}
+			70 = {
+				
+			}
+		}
 	}
 }
 
@@ -2985,6 +3039,7 @@ country_event = {
 		name = quest.97.a
 		###Use Appa for the circus (Appa will be gone untill the crossroads of destiny)
 		set_global_flag = ep31_news_a
+		custom_effect_tooltip = quest.97.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
@@ -2992,6 +3047,8 @@ country_event = {
 		###Deliver Appa to the Fire Nation (Appa will be gone untill the Black Sun Invasion)
 		set_global_flag = ep31_news_a
 		set_global_flag = Appa_In_FN
+		add_political_power = -30
+		custom_effect_tooltip = quest.97.b.tooltip
 	}
 }
 
@@ -3034,14 +3091,16 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.99.a
 		###Blockede- Aang will be able to help the pregnant couple for influence
-		wba = { country_event = { id = quest.100 days = 0 } }
+		WBA = { country_event = { id = quest.100 days = 0 } }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.99.b
 		###Don't blockade- no effect
+		301 = { add_resistance = 30 }
 	}
 }
+
 
 
 ##Event: Help The Pregnant Couple?
@@ -3060,11 +3119,15 @@ country_event = {
 		name = quest.100.a
 		###Help- gain influence
 		set_global_flag = ep32_news_a
+		WBA = { add_to_variable = { avatar_influence = 25 } add_war_support = 0.05 }
+		custom_effect_tooltip = quest.10.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.100.b
 		###Refuse- no effect
+		WBA = { add_to_variable = { avatar_influence = -25 } add_stability = 0.05 }
+		custom_effect_tooltip = quest.10.b.tooltip
 	}
 }
 
@@ -3113,6 +3176,7 @@ country_event = {
 		ai_chance = { base = 1}
 		name = quest.102.b
 		###Don't Use- no change
+		add_war_support = 0.03
 	}
 }
 
@@ -3133,11 +3197,20 @@ country_event = {
 		name = quest.103.a
 		###Destroy it from the inside- The Team will sucesfully destroy the drill and win influence
 		set_global_flag = ep33_news_a
+		WBA = { add_to_variable = { avatar_influence = 25 } add_war_support = 0.05 }
+		custom_effect_tooltip = quest.10.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.103.b
 		###Try to stop it from the outside- More damage to the wall, Aang gets wounded for 6 months
+		193 = {
+			damage_building= { 
+				type = wall
+				damage = 10
+			}
+			add_manpower = -200
+		}
 	}
 }
 
@@ -3186,6 +3259,13 @@ country_event = {
 		ai_chance = { base = 1}
 		name = quest.105.b
 		###Don't help- Azula won't attack, big potential for Appa to die from his wounds
+		random_list = {
+			80 = { 
+				set_global_flag = Appa_Died
+				custom_effect_tooltip = quest.105.b 
+			}
+			20 = {  }
+		}
 	}
 }
 
@@ -3205,13 +3285,20 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.106.a
 		###Attack- a big chance of winning (Imprisoning Suki, triggering the Boiling Rock event)
-		set_global_flag = Suki_Imprisoned
+		random_list = {
+			80 = { 
+				set_global_flag = Suki_Imprisoned
+				custom_effect_tooltip = quest.106.a.tooltip
+			}
+			20 = {  }
+		}
 		set_global_flag = ep36_news_a
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.106.b
 		###Don't attack- the Boiling Rock event won't event happen
+		add_political_power = -20
 	}
 }
 
@@ -3255,11 +3342,18 @@ country_event = {
 		name = quest.108.a
 		###Zuko listens to Iroh and frees Appa, a massive influence on Zuko's side-switching
 		set_global_flag = ep37_news_a
+		custom_effect_tooltip = quest.108.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 20 } } }
+		custom_effect_tooltip = quest.36.a.tooltip
+		if = { limit = { NOT = { has_global_flag = Appa_In_FN has_global_flag = Appa_Died } } set_global_flag = avatar_team_appa }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.108.b
 		###He kills Appa- a massive drop of the chances
+		set_global_flag = Appa_Died
+		custom_effect_tooltip = quest.108.b.tooltip
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = -30 } } }
 	}
 }
 
@@ -3303,11 +3397,16 @@ country_event = {
 		name = quest.110.a
 		###Infiltrate- Will lead to crossroads of destiny
 		set_global_flag = ep38_news_a
+		custom_effect_tooltip = quest.110.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.110.b
 		###Search for Zuko instead- no crossroads of destiny, a small chance to kill Zuko
+		random_list = {
+			20 = { set_global_flag = Zuko_Died custom_effect_tooltip = quest.60.b.tooltip }
+			80 = {  }
+		}
 	}
 }
 
@@ -3350,11 +3449,15 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.112.a
 		###Aang blocks or the 7th chakra- affects Avatar state control
+		custom_effect_tooltip = quest.112.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { avatar_state = -10 } } }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.112.b
 		###Aang unlocks or the 7th chakra- affects Avatar state control
+		custom_effect_tooltip = quest.41.a.tooltip.1
+		hidden_effect = { every_country = { add_to_variable = { avatar_state = 20 } } }
 	}
 }
 
@@ -3374,11 +3477,15 @@ country_event = {
 		name = quest.113.a
 		###Aang blocks or the 7th chakra- affects Avatar state control
 		set_global_flag = ep39_news_a
+		custom_effect_tooltip = quest.112.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { avatar_state = -10 } } }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.113.b
 		###Aang unlocks or the 7th chakra- affects Avatar state control
+		custom_effect_tooltip = quest.41.a.tooltip.1
+		hidden_effect = { every_country = { add_to_variable = { avatar_state = 20 } } }
 	}
 }
 
@@ -3397,11 +3504,14 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.114.a
 		###The SWT joins the invasion- strenghtens the invesion
+		custom_effect_tooltip = quest.74.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { Black_Sun_Invasion = 5 } } }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.114.b
 		###The SWT refuses- weaken the invesions
+		add_political_power = -50
 	}
 }
 
@@ -3421,12 +3531,16 @@ country_event = {
 		name = quest.115.a
 		###Metal cage- She learns metalbending, becoming stronger
 		set_global_flag = ep39_news_c
+		hidden_effect = { every_country = { add_to_variable = { Toph_Strength = 30 } } }
+		custom_effect_tooltip = quest.115.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.115.b
 		###Wooden jail (She finds a way to escape without metalbending)
 		set_global_flag = ep39_news_c
+		add_stability = -0.03
+		custom_effect_tooltip = quest.115.b.tooltip
 	}
 }
 
@@ -3470,8 +3584,14 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.117.a
 		###Join Azula- leading to Iroh's decision. If Aang didn't unlock the 7th chakra, he will get a small buff for the Avatar state control
+		custom_effect_tooltip = quest.117.a.tooltip
+		if = { limit = { has_global_flag = ep39_news_a }  
+			hidden_effect = { every_country = { add_to_variable = { avatar_state = 10 } } }
+			custom_effect_tooltip = quest.117.a.tooltip.2
+		}
 		EAR = { country_event = { id = quest.118 days = 0 } }
 		set_global_flag = Zuko_Joined_FN
+		add_political_power = -100
 	}
 	option = {
 		ai_chance = { base = 1}
@@ -3480,6 +3600,8 @@ country_event = {
 		set_global_flag = ep40_2_news_a
 		set_global_flag = avatar_team_zuko
 		set_global_flag = avatar_team_iroh
+		add_stability = -0.2
+		custom_effect_tooltip = quest.117.b.tooltip
 	}
 }
 
@@ -3500,12 +3622,17 @@ country_event = {
 		name = quest.118.a
 		###Help Aang- increases Zuko's chance of switiching sides
 		set_global_flag = ep40_1_news_a
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = 20 } } }
+		custom_effect_tooltip = quest.36.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.118.b
 		###Team up with Zuko and Azula- decreases Zuko's chance of switiching sides
 		set_global_flag = ep40_1_news_a
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Chance = -20 } } }
+		custom_effect_tooltip = quest.118.b.tooltip
+		add_war_support = 0.03
 	}
 }
 
@@ -3556,9 +3683,6 @@ news_event = {
 }
 
 
-#########################################################################################################################################################################################################################
-#########################################################################################################################################################################################################################
-#########################################################################################################################################################################################################################
 
 
 ##Event: Issue Orders Of Inspection On Our Ships?
@@ -3577,12 +3701,22 @@ country_event = {
 		name = quest.121.a
 		###don't mind the issue- no effect
 		set_global_flag = ep41_news_a
+		add_political_power = 10
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.121.b
 		###Do it- lose political power, chance of wounding a random member of team avatar
 		set_global_flag = ep41_news_a
+		random_list = {
+			20 = {
+				hidden_effect = { every_country = { add_to_variable = { avatar_firebender_skill = -5 } } }
+				custom_effect_tooltip = quest.121.b.tooltip
+			}
+			80 = {
+			
+			}
+		}
 	}
 }
 
@@ -3602,11 +3736,15 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.122.a
 		###Aang will remain hidden (Will increase the chances of a sucesfull invasion)
+		hidden_effect = { every_country = { add_to_variable = { Black_Sun_Invasion = 5 } } }
+		custom_effect_tooltip = quest.122.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.122.b
 		###Aang declares himself alive (Will gain influence and force Zuko into exile)
+		FIR = { add_war_support = -0.1 clr_global_flag = Zuko_Joined_FN }
+		custom_effect_tooltip = quest.122.b.tooltip
 	}
 }
 
@@ -3650,11 +3788,13 @@ country_event = {
 		name = quest.124.a
 		###send him
 		set_global_flag = Combustion_Man
+		custom_effect_tooltip = quest.124.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.124.b
 		###don't send him
+		add_political_power = -10
 	}
 }
 
@@ -3698,11 +3838,25 @@ country_event = {
 		name = quest.126.a
 		###Attack - small chance of wounding Aang for 2 months, high chance of Aang gaining spiritual boost
 		set_global_flag = ep43_news_a
+		random_list = {
+			20 = {
+				hidden_effect = { every_country = { add_to_variable = { avatar_firebender_skill = -5 } } }
+				custom_effect_tooltip = quest.121.b.tooltip
+			}
+			80 = {
+				custom_effect_tooltip = quest.126.b.tooltip
+				hidden_effect = { every_country = { add_to_variable = { avatar_spirituality = 10 } } }
+			}
+		}
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.126.b
 		###Don't attack - Aang gains spiritual boost
+		add_political_power = 50
+		add_manpower = 200
+		hidden_effect = { every_country = { add_to_variable = { avatar_spirituality = 10 } } }
+		custom_effect_tooltip = quest.126.b.tooltip
 	}
 }
 
@@ -3745,6 +3899,9 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.128.a
 		###Go For him- massive boost on Sokka's skill
+		custom_effect_tooltip = quest.7.a.tooltip
+		every_country = { add_to_variable = { Sokka_Strength = 35 } }
+		FIR = { country_event = { id = quest.129 days = 0 } }
 	}
 	option = {
 		ai_chance = { base = 1}
@@ -3752,6 +3909,7 @@ country_event = {
 		###Don't go for- No effect
 		set_global_flag = ep45_news_a
 		set_global_flag = ep47_news_a
+		add_political_power = -20
 	}
 }
 
@@ -3770,6 +3928,7 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.129.a
 		###Dont arrest- no effect
+		add_stability = 0.03
 		set_global_flag = ep44_news_a
 		set_global_flag = ep45_news_a
 		set_global_flag = ep47_news_a
@@ -3778,6 +3937,8 @@ country_event = {
 		ai_chance = { base = 1}
 		name = quest.129.b
 		###Arrest him- lowers the strength of the uprising in BSS
+		custom_effect_tooltip = quest.56.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { White_Lotus_strenght = -5 } } }
 		set_global_flag = ep44_news_a
 		set_global_flag = ep45_news_a
 		set_global_flag = ep47_news_a
@@ -3875,6 +4036,7 @@ country_event = {
 		ai_chance = { base = 1}
 		name = quest.133.b
 		###Don't Teach
+		add_stability = 0.05
 	}
 }
 
@@ -3895,11 +4057,16 @@ country_event = {
 		name = quest.134.a
 		###Rejects Bloodbending- big buff
 		set_global_flag = ep48_news_a
+		hidden_effect = { every_country = { add_to_variable = { Kattara_Strength = 25 } } } 
+		custom_effect_tooltip = quest.134.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.134.b
 		###Embraces Bloodbending- small buff
+		add_war_support = 0.05
+		hidden_effect = { every_country = { add_to_variable = { Kattara_Strength = 10 } } } 
+		custom_effect_tooltip = quest.134.b.tooltip
 	}
 }
 
@@ -4104,12 +4271,17 @@ country_event = {
 		name = quest.143.a
 		###Sokka kills- gets his skills boosted
 		set_global_flag = ep52_news_a
+		custom_effect_tooltip = quest.7.a.tooltip
+		every_country = { add_to_variable = { Sokka_Strength = 10 } }
+		
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.143.b
 		###Aang kills by going into avatar state- gets avatar control
 		set_global_flag = ep52_news_a
+		custom_effect_tooltip = quest.41.a.tooltip.1
+		hidden_effect = { every_country = { add_to_variable = { avatar_state = 10 } } }
 	}
 }
 
@@ -4159,6 +4331,7 @@ country_event = {
 		ai_chance = { base = 1}
 		name = quest.145.b
 		###Kill the dragons
+		add_stability = -0.1
 	}
 }
 
@@ -4179,12 +4352,15 @@ country_event = {
 		name = quest.146.a
 		###teach them- teach fire to Aang and buff Zuko
 		set_global_flag = ep53_news_a
-		
+		custom_effect_tooltip = quest.146.a.tooltip
+		hidden_effect = { every_country = { add_to_variable = { avatar_firebender_skill = 45 } } }
+		hidden_effect = { every_country = { add_to_variable = { Zuko_Strength = 45 } } }
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.146.b
 		###reject them both
+		add_political_power = -100
 	}
 }
 
@@ -4231,9 +4407,20 @@ country_event = {
 			90 = {
 				set_global_flag = ep54_news_a 
 				#High chance of getting betrayed and going insane
+				custom_effect_tooltip = quest.148.a.tooltip
+				clr_global_flag = ep24_news_a
 			}
 			10 = {
 				#Small chance of killing Zuko, Sokka and Suki
+				custom_effect_tooltip = quest.148.a.tooltip.2
+				every_country = {
+					set_variable = { Zuko_Strength = 0 }
+					set_variable = { Sokka_Strength = 0 }
+					set_variable = { Suki_Strength = 0 }
+					clr_global_flag = avatar_team_suki
+					clr_global_flag = avatar_team_sokka
+					clr_global_flag = avatar_team_zuko
+				}
 			}
 		}
 		
@@ -4243,6 +4430,7 @@ country_event = {
 		name = quest.148.b
 		###Don't cut them- they will escape, but Azula won't be weaker
 		set_global_flag = ep54_news_a 
+		add_political_power = 50
 	}
 }
 
@@ -4285,12 +4473,16 @@ country_event = {
 		ai_chance = { base = 4}
 		name = quest.150.a
 		###Don't kill
-		set_global_flag = ep56_news_a 
+		set_global_flag = ep56_news_a
+		add_stability = 0.05
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.150.b
 		###Kill him- Boosts Katara
+		hidden_effect = { every_country = { add_to_variable = { Kattara_Strength = 10 } } } 
+		custom_effect_tooltip = quest.134.b.tooltip
+		add_stability = -0.05
 	}
 }
 
@@ -4356,12 +4548,31 @@ country_event = {
 		name = quest.153.a
 		###Don't help- Twarths the Scorching of the E.K regardless of the outcome of the Battle
 		set_global_flag = hidden_59_a
+		custom_effect_tooltip = quest.153.a.tooltip
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.153.b
 		###help- Massive boost to Aang's strength
 		set_global_flag = hidden_59_a
+		add_to_variable = { Aang_Final_Strength = 120 }
+		custom_effect_tooltip = quest.153.b.tooltip
+		every_state = {
+			limit = { owner = { has_country_flag = earth_nation  } }
+			damage_building= { 
+				type = industrial_complex 
+				damage = 10
+			}
+			damage_building= { 
+				type = arms_factory
+				damage = 10 
+			}
+			damage_building= { 
+				type = infrastructure
+				damage = 10 
+			}
+			add_manpower = -5000
+		}
 	}
 }
 
@@ -4382,12 +4593,15 @@ country_event = {
 		name = quest.154.a
 		###Go for the 1v1- no effect
 		set_global_flag = hidden_59_b
+		add_war_support = 0.05
 	}
 	option = {
 		ai_chance = { base = 1}
 		name = quest.154.b
 		###Request help from the air ships-  Twarths the Scorching of the E.K regardless of the outcome of the Battle, small boost to Ozai
 		set_global_flag = hidden_59_b
+		add_to_variable = { Ozai_Final_Strength = 30 }
+		custom_effect_tooltip = quest.154.b.tooltip
 	}
 }
 
