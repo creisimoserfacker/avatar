@@ -9,6 +9,7 @@ country_event = {
 		#SWT event and Zuko's event:
 		FIR = { country_event = { id = quest.2 days = 0 } }
 		set_global_flag = avatar_sat
+		clr_global_flag = avatar_iceberg
 	}
 }
 
@@ -223,7 +224,7 @@ country_event = {
 		if = { limit = { NOT = { has_global_flag = Zuko_Died } }
 			FIR = { country_event = { id = quest.59 days = 0 } } }
 		#scripted battle:
-		if = { limit = { NOT = { FIR = { controls_state = 17 controls_state = 21 } } } FIR = { country_event = { id = quest.161 days = 0 } }
+		if = { limit = { NOT = { FIR = { controls_state = 17 controls_state = 21 } } } FIR = { country_event = { id = quest.161 days = 0 } }}
 	}
 }
 
@@ -417,7 +418,8 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Appa's lost days- the Kioshy Warriors will be able to help, or escape from Azula instead
-		EBA = { country_event = { id = quest.105 days = 0 } }
+		if = { limit = { NOT = { has_global_flag = Appa_In_FN has_global_flag = Appa_Died } }
+			EBA = { country_event = { id = quest.105 days = 0 } } }
 	}
 }
 
@@ -428,7 +430,7 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Zuko will be able to kill Appa if FN didn't take him from the circus:
-		if = { limit = { NOT = { has_global_flag = Appa_In_FN } }
+		if = { limit = { NOT = { has_global_flag = Appa_In_FN has_global_flag = Appa_Died } }
 			EAR = { country_event = { id = quest.108 days = 0 } } }
 	}
 }
@@ -440,8 +442,23 @@ country_event = {
 	hidden = yes
 	immediate = {
 		#Azula will be able to infiltrates the Dai-Li only if she won against the Kyosi Warriors, and if BSS in not occupied:
-		if = { limit = { has_global_flag = ep36_news_a EAR = { controls_state = 179 } }
-			FIR = { country_event = { id = quest.110 days = 0 } } }
+		if = { 
+			limit = {
+				has_global_flag = ep36_news_a
+				EAR = { controls_state = 179 }
+				FIR = {
+					has_war_with = EAR
+					OR = {
+						controls_state = 138
+						controls_state = 231
+						controls_state = 116
+						controls_state = 80
+						controls_state = 99
+					}
+				}
+			}
+			FIR = { country_event = { id = quest.110 days = 0 } } 
+		}
 	}
 }
 
@@ -473,6 +490,39 @@ country_event = {
 	fire_only_once = yes
 	hidden = yes
 	immediate = {
+		#BBS coup:
+		if = {
+			limit = {
+				has_global_flag = ep38_news_a
+				FIR = {
+					has_war_with = EAR
+					OR = {
+						controls_state = 138
+						controls_state = 231
+						controls_state = 116
+						controls_state = 80
+						controls_state = 99
+					}
+				}
+			}
+			OMS = { set_major = yes }
+			GAO = { set_major = yes }
+			HEB = { set_major = yes }
+			every_country = { limit = { is_puppet_of = EAR }
+				set_autonomy = {
+					target = THIS
+					autonomy_state = autonomy_free
+				}
+			}
+			FIR = {
+				annex_country = {
+					target = EAR
+					transfer_troops = no
+				} 
+			}
+			every_state = { limit = { is_core_of = EAR } add_resistance = 30 }
+			set_global_flag = BSS_Coup
+		}
 		#Zuko's choice:
 		if = { limit = { NOT = { has_global_flag = Zuko_Joined_FN has_global_flag = Zuko_Died } }
 			FIR = { country_event = { id = quest.117 days = 0 } } }
@@ -545,7 +595,13 @@ country_event = {
 		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { has_global_flag = Zuko_Died } }
 			set_global_flag = ep49_news_a }
 		#start the Black Sun Invasion scripted battle:
-		set_global_flag = Black_Sun_Invasion_Started
+		if = { limit = { NOT = { has_global_flag = Black_Sun_Invasion_Locked } } 
+			set_global_flag = Black_Sun_Invasion_Started
+			417 = { teleport_armies = { limit = { tag = FIR } to_state = 321 } }
+			SWT = { load_oob = "Black_Sun_Invasion_SWT" }
+			SWA = { load_oob = "Black_Sun_Invasion_SWA" }
+			FIR = { load_oob = "Black_Sun_Invasion_FIR" }
+		}
 	}
 }
 
@@ -558,9 +614,16 @@ country_event = {
 	immediate = {
 		#After The Black Sun Invasion scripted battle:
 		#Success: continue as usual:
-		set_global_flag = Eclipse_Invasion_Succeeded
-		#Failure: Aang wounded for 2 months, some non-essential member is killed:
-		set_global_flag = Eclipse_Invasion_Failed
+		if = { limit = { NOT = { FIR = { controls_state = 417 } } }
+			#Appa returns
+			if = { limit = { has_global_flag = Appa_In_FN NOT = { has_global_flag = Appa_Died } } set_global_flag = avatar_team_appa }
+			set_global_flag = Eclipse_Invasion_Succeeded
+		}
+		#Failure: Aang wounded:
+		else = {
+			set_global_flag = Eclipse_Invasion_Failed
+			every_country = { add_to_variable = { avatar_firebender_skill = -5 } }
+		}
 	}
 }
 
@@ -575,13 +638,13 @@ country_event = {
 		if = { limit = { NOT = { has_global_flag = Sokka_Died } } set_global_flag = avatar_team_sokka }
 		#After The Black Sun Invasion scripted battle:
 		#Event: The Eclipse- If Zuko chose to Join Aang (also a chance that Ozai will kill him):
-		if = { limit = { has_global_flag = Zuko_Joined_FN NOT = { has_global_flag = Zuko_Died } }
+		if = { limit = { has_global_flag = Zuko_Joined_FN check_variable = { Zuko's chances > 90 } NOT = { has_global_flag = Zuko_Died } }
 			if = { limit = { has_global_flag = Zuko_Knows_lightningbending } set_global_flag = avatar_team_zuko }
 			else = { random_list = {
 			70 = { set_global_flag = avatar_team_zuko }
 			30 = { set_global_flag = Ozai_Killed_Zuko } } } }
 		#If Zuko decides to fully embrace the Fire Nation:
-		set_global_flag = Eclipse_Zuko_Joind_FN
+		else = { set_global_flag = Eclipse_Zuko_Joind_FN }
 		#If Iroh Helped Aang in BSS, He will escape from prison:
 		if = { limit = { has_global_flag = ep40_1_news_a } set_global_flag = Iroh_Escaped_From_Prison }
 	}
@@ -645,6 +708,7 @@ country_event = {
 	immediate = {
 		#If Spiritual Balance is under 50%, the Lion Turtle will teach Aang spiritbending (Maxing his spiritualtity):
 		if = { limit = { threat < 0.5 }
+			set_variable = { avatar_spirituality = 100 }
 			set_global_flag = ep57_news_a }
 	}
 }
@@ -657,6 +721,16 @@ country_event = {
 	immediate = {
 		#the commet arrives:
 		set_global_flag = Commet_Arrived_Aang
+		set_variable = { Aang_Final_Strength = 0 }
+		set_variable = { Ozai_Final_Strength = 300 }
+		if = { limit = { has_global_flag = ep24_news_a } set_variable = { Azula_Final_Strength = 100 } }
+		else = { set_variable = { Azula_Final_Strength = 70 } }
+		add_to_variable = { Aang_Final_Strength = avatar_spirituality }
+		add_to_variable = { Aang_Final_Strength = avatar_state }
+		add_to_variable = { Aang_Final_Strength = avatar_airbender_skill }
+		add_to_variable = { Aang_Final_Strength = avatar_waterbender_skill }
+		add_to_variable = { Aang_Final_Strength = avatar_earthbender_skill }
+		add_to_variable = { Aang_Final_Strength = avatar_firebender_skill }
 		#Team avatar decides either to help Aang or to destroy the airships:
 		SAT = { country_event = { id = quest.153 days = 0 } }
 		#Ozai engages Aang 1v1 or Ozai's guards attempt to help him:
@@ -677,23 +751,52 @@ country_event = {
 	}
 	immediate = {
 		set_global_flag = hidden_59_c
-	}
-	immediate = {
 		#BSS REBELION:
 		set_global_flag = bss_rebelion_news
+		178 = { add_resistance = 100 }
+		126 = { add_resistance = 100 }
+		193 = { add_resistance = 100 }
+		EAR = { transfer_state = 179 transfer_state = 174 transfer_state = 173 }
 		if = { limit = { has_global_flag = avatar_team_zuko has_global_flag = avatar_team_katara }
+			set_variable = { Kattara_Zuko_Final_Strength = 0 }
+			add_to_variable = { Kattara_Zuko_Final_Strength = Kattara_Strength }
+			add_to_variable = { Kattara_Zuko_Final_Strength = Zuko_Strength }
 			#if Zuko and Kattara win:
-			set_global_flag = azula_lost_news
+			if = { limit = { check_variable = { Kattara_Zuko_Final_Strength > Azula_Final_Strength } }
+			set_global_flag = azula_lost_news }
 			#if Zuko and Kattara lose:
-			set_global_flag = azula_won_news
+			else = {
+				set_global_flag = azula_won_news
+				clr_global_flag = avatar_team_zuko
+				clr_global_flag = avatar_team_katara
+			}
 		}
 		#Wulong Battle:
+		if = {
+		limit = { check_variable = { Aang_Final_Strength > Ozai_Final_Strength } }
 		#if Aang wins:
+			EAR = { annex_country = { target = FIR transfer_troops = no } release = FIR }
+			FIR = { set_politics= { ruling_party = imperialism elections_allowed = no } }
 			set_global_flag = ozai_lost_news
 			#Zuko becomes the new firelord:
 			if = { limit = { has_global_flag = avatar_team_zuko } set_global_flag = Zuko's_Coronation }
-		#if Aang loses:
+			retire_ideology_leader = imperialism
+			create_country_leader = {
+				name = "Zuko"
+				desc = "POLITICS_ADOLF_HITLER_DESC"
+				picture = "Portrait_Firenation_Zuko.dds"
+				expire = "172.4.7"
+				ideology = colonialism
+				traits = {
+					firelord
+				}
+			}
+		}
+		else = {
+			#if Aang loses:
 			set_global_flag = ozai_won_news
+			FIR = { annex_country = { target = every_country transfer_troops = no } }
+		}
 	}
 }
 
