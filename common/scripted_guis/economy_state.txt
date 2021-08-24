@@ -8,73 +8,25 @@ scripted_gui = {
 		parent_window_token = selected_state_view
 
 		visible = {
-			is_controlled_by = ROOT
+			always = yes
 		}
 
 		effects = {
-			urban_type_click = {
+			open_construction_click = {
 				if = {
 					limit = {
-						NOT = {
-							check_variable = { show_construction = 1 }
-						}
+						check_variable = { close_construction = 0 }
+					}
+					set_variable = { close_construction = 1 }
+				}
+				else = {
+					set_variable = { close_construction = 0 }
+				}
+				if = {
+					limit = {
+						check_variable = { show_construction < 1 }
 					}
 					set_variable = { show_construction = 1 }
-				}
-				else = {
-					set_variable = { show_construction = 0 }
-				}
-			}
-			forest_type_click = {
-				if = {
-					limit = {
-						NOT = {
-							check_variable = { show_construction = 2 }
-						}
-					}
-					set_variable = { show_construction = 2 }
-				}
-				else = {
-					set_variable = { show_construction = 0 }
-				}
-			}
-			mountain_type_click = {
-				if = {
-					limit = {
-						NOT = {
-							check_variable = { show_construction = 3 }
-						}
-					}
-					set_variable = { show_construction = 3 }
-				}
-				else = {
-					set_variable = { show_construction = 0 }
-				}
-			}
-			field_type_click = {
-				if = {
-					limit = {
-						NOT = {
-							check_variable = { show_construction = 4 }
-						}
-					}
-					set_variable = { show_construction = 4 }
-				}
-				else = {
-					set_variable = { show_construction = 0 }
-				}
-			}
-			water_type_click = {
-				if = {
-					limit = {
-						NOT = {
-							check_variable = { show_construction = 5 }
-						}
-					}
-					set_variable = { show_construction = 5 }
-				}
-				else = {
-					set_variable = { show_construction = 0 }
 				}
 			}
 		}
@@ -90,201 +42,431 @@ scripted_gui = {
 				is_controlled_by = ROOT
 			}
 
-			urban_type_click_enabled = {
-				has_variable = urban_tiles
+			open_construction_visible = {
+				is_controlled_by = ROOT
 			}
-			forest_type_click_enabled = {
-				has_variable = forest_tiles
+
+			forest_icon_visible = {
+				has_variable = forest
 			}
-			mountain_type_click_enabled = {
-				has_variable = mountain_tiles
+			forest_visible = {
+				has_variable = forest
 			}
-			field_type_click_enabled = {
-				has_variable = field_tiles
+			mountain_icon_visible = {
+				has_variable = mountain
 			}
-			water_type_click_enabled = {
-				has_variable = water_tiles
+			mountain_visible = {
+				has_variable = mountain
+			}
+			field_icon_visible = {
+				has_variable = field
+			}
+			field_visible = {
+				has_variable = field
+			}
+			water_icon_visible = {
+				has_variable = water
+			}
+			water_visible = {
+				has_variable = water
+			}
+			stonefield_icon_visible = {
+				has_variable = stonefield
+			}
+			stonefield_visible = {
+				has_variable = stonefield
+			}
+			animal_icon_visible = {
+				has_variable = animal
+			}
+			animal_visible = {
+				has_variable = animal
 			}
 		}
 
 		properties = {
-			
+			#mountain_icon = {
+			#	x = mountain_position
+			#}
 		}
 	}
-	construction = {
+	resource_construction_ui = {
 		context_type = selected_state_context
 		
-		window_name = "building_progress_bar"
-		parent_window_token = selected_state_view
-		
-		visible = {
-			has_state_flag = construction
-		}
-
-		triggers = {
-			carpentry_in_construction = {
-				set_state_flag = carpentry_in_construction
-			}
-		}
-
-		effects = {
-			cancel_construction_click = {
-				cancel_construction = yes
-			}
-		}
-		
-		properties = {
-			resource_bar = {
-				x = resource_progress
-			}
-			construction_bar = {
-				x = show_progress
-			}
-		}
-	}
-	urban_construction_ui = {
-		context_type = selected_state_context
-		
-		window_name = "urban_construction_ui_window"
+		window_name = "resource_construction_ui_window"
 		parent_window_token = selected_state_view
 
 		visible = {
 			check_variable = { show_construction = 1 }
+			NOT = {
+				check_variable = { close_construction = 1 }
+			}
+			is_controlled_by = ROOT
 		}
 
 		triggers = {
-			build_carpentry_click_enabled = {
-				not = {
-					has_state_flag = construction
-					check_variable = {
-						var = ROOT.used_construction_capacity
-						value = ROOT.construction_capacity
-						compare = greater_than_or_equals
-					}
+			build_farm_click_enabled = {
+				free_building_slots = {
+					building = farm
+					size > 0
+					include_locked = yes
+				}
+				has_variable = field
+			}
+			build_fishing_stand_click_enabled = {
+				free_building_slots = {
+					building = fishing_stand
+					size > 0
+					include_locked = yes
+				}
+				has_variable = water
+			}
+			build_ranch_click_enabled = {
+				free_building_slots = {
+					building = ranch
+					size > 0
+					include_locked = yes
+				}
+				has_variable = animal
+			}
+			build_lumber_mill_click_enabled = {
+				free_building_slots = {
+					building = lumber_mill
+					size > 0
+					include_locked = yes
+				}
+				has_variable = forest
+			}
+			build_quarry_click_enabled = {
+				free_building_slots = {
+					building = quarry
+					size > 0
+					include_locked = yes
+				}
+				has_variable = stonefield
+			}
+			build_mine_click_enabled = {
+				free_building_slots = {
+					building = mine
+					size > 0
+					include_locked = yes
+				}
+				has_variable = mountain
+			}
+			build_crop_weaving_click_enabled = {
+				free_building_slots = {
+					building = crop_weaving
+					size > 0
+					include_locked = no
 				}
 			}
-			build_masonry_click_enabled = {
-				not = {
-					has_state_flag = construction
-					check_variable = {
-						var = ROOT.used_construction_capacity
-						value = ROOT.construction_capacity
-						compare = greater_than_or_equals
-					}
+			build_animal_weaving_click_enabled = {
+				free_building_slots = {
+					building = animal_weaving
+					size > 0
+					include_locked = no
 				}
 			}
-			build_pottery_click_enabled = {
-				not = {
-					has_state_flag = construction
-					check_variable = {
-						var = ROOT.used_construction_capacity
-						value = ROOT.construction_capacity
-						compare = greater_than_or_equals
-					}
-				}
-			}
-			build_clothing_factory_click_enabled = {
-				not = {
-					has_state_flag = construction
-					check_variable = {
-						var = ROOT.used_construction_capacity
-						value = ROOT.construction_capacity
-						compare = greater_than_or_equals
-					}
+			build_steelworks_click_enabled = {
+				free_building_slots = {
+					building = steelworks
+					size > 0
+					include_locked = no
 				}
 			}
 		}
 
 		effects = {
-			build_carpentry_click = {
-				carpentry_construction = yes
+			resource_buildings_click = {
+				set_variable = { show_construction = 1 }
 			}
+			factory_buildings_click = {
+				set_variable = { show_construction = 2 }
+			}
+			misc_buildings_click = {
+				set_variable = { show_construction = 3 }
+			}
+
+			build_farm_click = {
+				add_farm = yes
+			}
+			build_farm_right_click = {
+				remove_farm = yes
+			}
+			build_mill_click = {
+				add_mill = yes
+			}
+			build_mill_right_click = {
+				remove_mill = yes
+			}
+			build_fishing_stand_click = {
+				add_fishing_stand = yes
+			}
+			build_fishing_stand_right_click = {
+				remove_fishing_stand = yes
+			}
+			build_ranch_click = {
+				add_ranch = yes
+			}
+			build_ranch_right_click = {
+				remove_ranch = yes
+			}
+			build_lumber_mill_click = {
+				add_lumber_mill = yes
+			}
+			build_lumber_mill_right_click = {
+				remove_lumber_mill = yes
+			}
+			build_quarry_click = {
+				add_quarry = yes
+			}
+			build_quarry_right_click = {
+				remove_quarry = yes
+			}
+			build_mine_click = {
+				add_mine = yes
+			}
+			build_mine_right_click = {
+				remove_mine = yes
+			}
+			build_crop_weaving_click = {
+				add_crop_weaving = yes
+			}
+			build_crop_weaving_right_click = {
+				remove_crop_weaving = yes
+			}
+			build_animal_weaving_click = {
+				add_animal_weaving = yes
+			}
+			build_animal_weaving_right_click = {
+				remove_animal_weaving = yes
+			}
+			build_steelworks_click = {
+				add_steelworks = yes
+			}
+			build_steelworks_right_click = {
+				remove_steelworks = yes
+			}
+
 			close_window_click = {
-				set_variable = { show_construction = 0 }
+				set_variable = { close_construction = 1 }
 			}
 		}
 
 	}
-	forest_construction_ui = {
+	factory_construction_ui = {
 		context_type = selected_state_context
 		
-		window_name = "forest_construction_ui_window"
+		window_name = "factory_construction_ui_window"
 		parent_window_token = selected_state_view
 
 		visible = {
 			check_variable = { show_construction = 2 }
+			NOT = {
+				check_variable = { close_construction = 1 }
+			}
+			is_controlled_by = ROOT
 		}
 
 		triggers = {
-			
+			build_smithy_click_enabled = {
+				free_building_slots = {
+					building = smithy
+					size > 0
+					include_locked = no
+				}
+			}
+			build_factory_click_enabled = {
+				free_building_slots = {
+					building = factory
+					size > 0
+					include_locked = no
+				}
+			}
+			build_harbour_click_enabled = {
+				free_building_slots = {
+					building = harbour
+					size > 0
+					include_locked = no
+				}
+				is_coastal = yes
+			}
+			build_dockyard_click_enabled = {
+				free_building_slots = {
+					building = dockyard
+					size > 0
+					include_locked = no
+				}
+				is_coastal = yes
+			}
+			build_consumer_good_factory_click_enabled = {
+				free_building_slots = {
+					building = consumer_good_factory
+					size > 0
+					include_locked = no
+				}
+			}
+			build_luxury_good_factory_click_enabled = {
+				free_building_slots = {
+					building = luxury_good_factory
+					size > 0
+					include_locked = no
+				}
+			}
+			build_carpentry_click_enabled = {
+				free_building_slots = {
+					building = carpentry
+					size > 0
+					include_locked = no
+				}
+			}
+			build_masonry_click_enabled = {
+				free_building_slots = {
+					building = masonry
+					size > 0
+					include_locked = no
+				}
+			}
+			build_steel_beam_factory_click_enabled = {
+				free_building_slots = {
+					building = steel_beam_factory
+					size > 0
+					include_locked = no
+				}
+			}
 		}
 
 		effects = {
+			resource_buildings_click = {
+				set_variable = { show_construction = 1 }
+			}
+			factory_buildings_click = {
+				set_variable = { show_construction = 2 }
+			}
+			misc_buildings_click = {
+				set_variable = { show_construction = 3 }
+			}
+
+			build_smithy_click = {
+				add_smithy = yes
+			}
+			build_factory_click = {
+				add_factory = yes
+			}
+			build_harbour_click = {
+				add_harbour = yes
+			}
+			build_dockyard_click = {
+				add_dockyard = yes
+			}
+			build_consumer_good_factory_click = {
+				add_consumer_good_factory = yes
+			}
+			build_consumer_good_factory_right_click = {
+				remove_consumer_good_factory = yes
+			}
+			build_luxury_good_factory_click = {
+				add_luxury_good_factory = yes
+			}
+			build_luxury_good_factory_right_click = {
+				remove_luxury_good_factory = yes
+			}
+			build_carpentry_click = {
+				add_carpentry = yes
+			}
+			build_carpentry_right_click = {
+				remove_carpentry = yes
+			}
+			build_masonry_click = {
+				add_masonry = yes
+			}
+			build_masonry_right_click = {
+				remove_masonry = yes
+			}
+			build_steel_beam_factory_click = {
+				add_steel_beam_factory = yes
+			}
+			build_steel_beam_factory_right_click = {
+				remove_steel_beam_factory = yes
+			}
+
 			close_window_click = {
-				set_variable = { show_construction = 0 }
+				set_variable = { close_construction = 1 }
 			}
 		}
 
 	}
-	mountain_construction_ui = {
+	misc_construction_ui = {
 		context_type = selected_state_context
 		
-		window_name = "mountain_construction_ui_window"
+		window_name = "misc_construction_ui_window"
 		parent_window_token = selected_state_view
 
 		visible = {
 			check_variable = { show_construction = 3 }
+			NOT = {
+				check_variable = { close_construction = 1 }
+			}
+			is_controlled_by = ROOT
 		}
 
 		triggers = {
-			
-		}
-
-		effects = {
-			close_window_click = {
-				set_variable = { show_construction = 0 }
+			build_fuel_repository_click_enabled = {
+				free_building_slots = {
+					building = fuel_repository
+					size > 0
+					include_locked = no
+				}
+			}
+			build_scout_tower_click_enabled = {
+				free_building_slots = {
+					building = scout_tower
+					size > 0
+					include_locked = no
+				}
+			}
+			build_anti_air_building_click_enabled = {
+				free_building_slots = {
+					building = anti_air_building
+					size > 0
+					include_locked = no
+				}
+			}
+			build_air_base_click_enabled = {
+				free_building_slots = {
+					building = air_base
+					size > 0
+					include_locked = no
+				}
 			}
 		}
 
-	}
-	field_construction_ui = {
-		context_type = selected_state_context
-		
-		window_name = "field_construction_ui_window"
-		parent_window_token = selected_state_view
-
-		visible = {
-			check_variable = { show_construction = 4 }
-		}
-
-		triggers = {
-			
-		}
-
 		effects = {
-			close_window_click = {
-				set_variable = { show_construction = 0 }
+			resource_buildings_click = {
+				set_variable = { show_construction = 1 }
 			}
-		}
+			factory_buildings_click = {
+				set_variable = { show_construction = 2 }
+			}
+			misc_buildings_click = {
+				set_variable = { show_construction = 3 }
+			}
 
-	}
-	water_construction_ui = {
-		context_type = selected_state_context
-		
-		window_name = "water_construction_ui_window"
-		parent_window_token = selected_state_view
+			build_fuel_repository_click = {
+				add_fuel_repository = yes
+			}
+			build_scout_tower_click = {
+				add_scout_tower = yes
+			}
+			build_anti_air_building_click = {
+				add_anti_air_building = yes
+			}
+			build_air_base_click = {
+				add_air_base = yes
+			}
 
-		visible = {
-			check_variable = { show_construction = 5 }
-		}
-
-		triggers = {
-			
-		}
-
-		effects = {
 			close_window_click = {
-				set_variable = { show_construction = 0 }
+				set_variable = { close_construction = 1 }
 			}
 		}
 

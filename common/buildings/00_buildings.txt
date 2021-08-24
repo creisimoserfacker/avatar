@@ -44,113 +44,182 @@ buildings = {
 		#per_level_extra_cost = -10
 		base_cost_conversion = 400
 		general_production = 1
-		icon_frame = 0
-		max_level = 50
+		icon_frame = 46
+		max_level = 0
 		shares_slots = yes
 		value = 5
 		infrastructure_construction_effect = yes
+	}
 
-		province_capacity_modifier = 1
+	farm = {
+		show_on_map = 1
+		base_cost = 3700
+		icon_frame = 3
+		max_level = 50
+		shares_slots = yes
+		value = 9
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		local_resources_oil = 3
+
 		show_modifier = yes
+		manpower_requirement = 60
+	}
+
+	ranch = {
+		show_on_map = 1
+		base_cost = 4000
+		icon_frame = 6
+		max_level = 50
+		shares_slots = yes
+		value = 6
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		local_resources_chromium = 2
+
+		show_modifier = yes
+		manpower_requirement = 60
+	}
+
+	fishing_stand = {
+		show_on_map = 1
+		base_cost = 740
+		icon_frame = 11
+		max_level = 50
+		shares_slots = yes
+		value = 7
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		show_modifier = yes
+		manpower_requirement = 60
+	}
+
+	lumber_mill = {
+		show_on_map = 1
+		base_cost = 3000
+		per_level_extra_cost = 540
+		icon_frame = 4
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 12
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		local_resources_aluminium = 4
+
+		show_modifier = yes
+		manpower_requirement = 30
+	}
+
+	quarry = {
+		show_on_map = 1
+		base_cost = 2900
+		per_level_extra_cost = 640
+		icon_frame = 5
+		#local_resources_aluminium = -1000
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 16
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		local_resources_stone = 6
+
+		show_modifier = yes
+		fuel_gain_from_states = 1.0 #per hour
+	}
+
+	crop_weaving = {
+		show_on_map = 1
+		base_cost = 4100
+		icon_frame = 9
+		max_level = 50
+		shares_slots = yes
+		value = 4
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		country_resource_cost_oil = 3
+		local_resources_tungsten = 3
+	}
+
+	animal_weaving = {
+		show_on_map = 1
+		base_cost = 4100
+		icon_frame = 9
+		max_level = 50
+		shares_slots = yes
+		value = 4
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		country_resource_cost_chromium = 2
+		local_resources_tungsten = 3
+	}
+
+	mine = {
+		show_on_map = 1
+		base_cost = 1100
+		per_level_extra_cost = 380
+		icon_frame = 7
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 8
+		infrastructure_construction_effect = yes
+		refinery = yes
+
+		local_resources_iron = 2
+		local_resources_rubber = 1
+
+		show_modifier = yes
+		fuel_gain_from_states = 3.0 #per hour
 	}
 
 	mill = {
 		show_on_map = 6
-		base_cost = 2400
+		base_cost = 1200
 		#per_level_extra_cost = -10
 		base_cost_conversion = 400
 		icon_frame = 30
 		max_level = 50
 		shares_slots = yes
-		value = 5
+		value = 3
 		infrastructure_construction_effect = yes
 
-		civilian_capacity_modifier = 1
-		show_modifier = yes
-	}
-	consumer_good_factory = {
-		show_on_map = 6
-		base_cost = 2400
-		#per_level_extra_cost = -10
-		base_cost_conversion = 400
-		icon_frame = 28
-		max_level = 50
-		shares_slots = yes
-		value = 5
-		infrastructure_construction_effect = yes
+		country_resource_cost_oil = 4
 
-		civilian_capacity_modifier = 1
-		show_modifier = yes
-	}
-	luxury_good_factory = {
-		show_on_map = 6
-		base_cost = 2400
-		#per_level_extra_cost = -10
-		base_cost_conversion = 400
-		icon_frame = 27
-		max_level = 50
-		shares_slots = yes
-		value = 5
-		infrastructure_construction_effect = yes
-
-		civilian_capacity_modifier = 1
 		show_modifier = yes
 	}
 
-	carpentry = {
-		show_on_map = 6
-		base_cost = 2400
-		#per_level_extra_cost = -10
-		base_cost_conversion = 400
-		icon_frame = 26
-		max_level = 50
+	steelworks = {
+		show_on_map = 1
+		base_cost = 18000
+		icon_frame = 10
+		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 5
 		infrastructure_construction_effect = yes
-
-		civilian_capacity_modifier = 1
+		refinery = yes
 		show_modifier = yes
-	}
-	masonry = {
-		show_on_map = 6
-		base_cost = 2400
-		#per_level_extra_cost = -10
-		base_cost_conversion = 400
-		general_production = 1
-		icon_frame = 25
-		max_level = 50
-		shares_slots = yes
-		value = 5
-		infrastructure_construction_effect = yes
 
-		civilian_capacity_modifier = 1
-		show_modifier = yes
-	}
-	steel_beam_factory = {
-		show_on_map = 6
-		base_cost = 2400
-		#per_level_extra_cost = -10
-		base_cost_conversion = 400
-		icon_frame = 29
-		max_level = 50
-		shares_slots = yes
-		value = 5
-		infrastructure_construction_effect = yes
-
-		civilian_capacity_modifier = 1
-		show_modifier = yes
+		country_resource_cost_iron = 20
+		country_resource_cost_stone = 1
+		local_resources_steel = 10
 	}
 
 	smithy = {
 		show_on_map = 6
-		base_cost = 4200
+		base_cost = 22000
 		#per_level_extra_cost = -20
 		base_cost_conversion = 2600
 		military_production = 1
 		icon_frame = 21
 		max_level = 50
 		shares_slots = yes
-		value = 3
+		value = 6
 		infrastructure_construction_effect = yes
 
 		military_capacity_modifier = 20
@@ -158,194 +227,11 @@ buildings = {
 		show_modifier = yes
 	}
 
-	harbour = {
-		show_on_map = 1
-		show_on_map_meshes = 3
-		base_cost = 3600
-		#per_level_extra_cost = -50
-		only_costal = yes
-		naval_production = 1
-		icon_frame = 23
-		max_level = 50
-		shares_slots = yes
-		value = 2
-		infrastructure_construction_effect = yes
-
-		show_modifier = yes
-
-		naval_capacity_modifier = 10
-	}
-
-	dockyard = {
-		show_on_map = 1
-		show_on_map_meshes = 3
-		base_cost = 3600
-		#per_level_extra_cost = -50
-		only_costal = yes
-		naval_production = 1
-		icon_frame = 24
-		max_level = 50
-		shares_slots = yes
-		value = 2
-		infrastructure_construction_effect = yes
-
-		show_modifier = yes
-
-		naval_capacity_modifier = 20
-	}
-
-	#factory1 = {
-	#	show_on_map = 6
-	#	base_cost = 20000
-	#	base_cost_conversion = 4000
-	#	general_production = 1
-	#	military_production = 1
-	#	icon_frame = 3
-	#	max_level = 10
-	#	shares_slots = yes
-	#	value = 4
-	#	infrastructure_construction_effect = yes
-	#}
-
-	farm = {
-		show_on_map = 1
-		base_cost = 740
-		icon_frame = 3
-		local_resources_oil = 2
-		local_resources_chromium = 1
-		max_level = 50
-		shares_slots = yes
-		value = 9
-		infrastructure_construction_effect = yes
-		refinery = yes
-	}
-
-	hunting_stand = {
-		show_on_map = 1
-		base_cost = 740
-		icon_frame = 6
-		local_resources_oil = 1
-		local_resources_chromium = 2
-		max_level = 50
-		shares_slots = yes
-		value = 9
-		infrastructure_construction_effect = yes
-		refinery = yes
-	}
-
-	fishing_stand = {
-		show_on_map = 1
-		base_cost = 740
-		icon_frame = 11
-		local_resources_oil = 2
-		local_resources_chromium = 1
-		max_level = 50
-		shares_slots = yes
-		value = 9
-		infrastructure_construction_effect = yes
-		refinery = yes
-	}
-
-	lumber_mill = {
-		show_on_map = 1
-		base_cost = 600
-		per_level_extra_cost = 540
-		icon_frame = 4
-		local_resources_aluminium = 6
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 8
-		infrastructure_construction_effect = yes
-		refinery = yes
-	}
-
-	quarry = {
-		show_on_map = 1
-		base_cost = 580
-		per_level_extra_cost = 640
-		icon_frame = 5
-		local_resources_stone = 10
-		#local_resources_aluminium = -1000
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 10
-		infrastructure_construction_effect = yes
-		refinery = yes
-
-		show_modifier = yes
-		fuel_gain_from_states = 1.0 #per hour
-	}
-
-	weaving = {
-		show_on_map = 1
-		base_cost = 820
-		icon_frame = 9
-		local_resources_tungsten = 2
-		max_level = 50
-		shares_slots = yes
-		value = 4
-		infrastructure_construction_effect = yes
-		refinery = yes
-	}
-
-	coal_mine = {
-		show_on_map = 1
-		base_cost = 1100
-		per_level_extra_cost = 380
-		icon_frame = 7
-		local_resources_rubber = 1
-		local_resources_iron = 2
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 6
-		infrastructure_construction_effect = yes
-		refinery = yes
-
-		show_modifier = yes
-		fuel_gain_from_states = 3.0 #per hour
-	}
-
-	iron_mine = {
-		show_on_map = 1
-		base_cost = 1100
-		per_level_extra_cost = 380
-		icon_frame = 8
-		local_resources_rubber = 1
-		local_resources_iron = 2
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 6
-		infrastructure_construction_effect = yes
-		refinery = yes
-
-		show_modifier = yes
-		fuel_gain_from_states = 3.0 #per hour
-	}
-
-	steelworks = {
-		show_on_map = 1
-		base_cost = 1800
-		icon_frame = 10
-		#local_resources_iron = -10
-		local_resources_steel = 8
-		country_resource_cost_iron = 10
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 5
-		infrastructure_construction_effect = yes
-		refinery = yes
-		show_modifier = yes
-	}
-
 	factory = {
 		show_on_map = 1
-		base_cost = 6000
+		base_cost = 60000
 		#per_level_extra_cost = -500
 		icon_frame = 22
-		naval_production = 1
-		military_production = 1
-		local_resources_steel = 2
-		only_costal = yes
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 5
@@ -357,10 +243,126 @@ buildings = {
 		show_modifier = yes
 	}
 
+	harbour = {
+		show_on_map = 1
+		show_on_map_meshes = 3
+		base_cost = 14000
+		#per_level_extra_cost = -50
+		only_costal = yes
+		naval_production = 1
+		icon_frame = 23
+		max_level = 50
+		shares_slots = yes
+		value = 3
+		infrastructure_construction_effect = yes
+
+		show_modifier = yes
+
+		naval_capacity_modifier = 10
+	}
+
+	dockyard = {
+		show_on_map = 1
+		show_on_map_meshes = 3
+		base_cost = 20000
+		#per_level_extra_cost = -50
+		only_costal = yes
+		naval_production = 1
+		icon_frame = 24
+		max_level = 50
+		shares_slots = yes
+		value = 4
+		infrastructure_construction_effect = yes
+
+		show_modifier = yes
+
+		naval_capacity_modifier = 20
+	}
+
+	consumer_good_factory = {
+		show_on_map = 6
+		base_cost = 12000
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
+		icon_frame = 28
+		max_level = 50
+		shares_slots = yes
+		value = 4
+		infrastructure_construction_effect = yes
+
+		country_resource_cost_aluminium = 2
+		country_resource_cost_tungsten = 2
+
+		show_modifier = yes
+	}
+	luxury_good_factory = {
+		show_on_map = 6
+		base_cost = 20000
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
+		icon_frame = 27
+		max_level = 50
+		shares_slots = yes
+		value = 4
+		infrastructure_construction_effect = yes
+
+		country_resource_cost_iron = 2
+		country_resource_cost_stone = 1
+
+		show_modifier = yes
+	}
+
+	carpentry = {
+		show_on_map = 6
+		base_cost = 22000
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
+		icon_frame = 26
+		max_level = 50
+		shares_slots = yes
+		value = 6
+		infrastructure_construction_effect = yes
+
+		country_resource_cost_aluminium = 2
+
+		show_modifier = yes
+		manpower_requirement = 60
+	}
+	masonry = {
+		show_on_map = 6
+		base_cost = 22000
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
+		icon_frame = 25
+		max_level = 50
+		shares_slots = yes
+		value = 7
+		infrastructure_construction_effect = yes
+
+		country_resource_cost_stone = 2
+
+		show_modifier = yes
+	}
+	steel_beam_factory = {
+		show_on_map = 6
+		base_cost = 24000
+		#per_level_extra_cost = -10
+		base_cost_conversion = 400
+		icon_frame = 29
+		max_level = 50
+		shares_slots = yes
+		value = 6
+		infrastructure_construction_effect = yes
+
+		country_resource_cost_steel = 6
+
+		show_modifier = yes
+	}
+
 
 	fuel_repository = {
 		show_on_map = 1
-		base_cost = 900
+		base_cost = 9000
 		icon_frame = 20
 		max_level = 50
 		shares_slots = yes
@@ -374,8 +376,8 @@ buildings = {
 
 	scout_tower = {
 		show_on_map = 1
-		base_cost = 120
-		per_level_extra_cost = 120
+		base_cost = 1200
+		per_level_extra_cost = 1200
 		icon_frame = 17
 		radar = yes
 		#max_level = 50 # max: 5
@@ -387,7 +389,7 @@ buildings = {
 
 	anti_air_building = {
 		show_on_map = 3
-		base_cost = 200
+		base_cost = 2000
 		icon_frame = 18
 		anti_air = yes
 		disabled_in_dmz = yes
@@ -400,7 +402,7 @@ buildings = {
 
 	air_base = {
 		show_on_map = 1
-		base_cost = 240
+		base_cost = 2400
 		icon_frame = 19
 		air_base = yes
 		max_level = 50
@@ -412,8 +414,8 @@ buildings = {
 	road = {
 		show_on_map = 1
 		#has_destroyed_mesh = yes
-		base_cost = 100
-		per_level_extra_cost = 100
+		base_cost = 500
+		per_level_extra_cost = 500
 		provincial = yes
 		disabled_in_dmz = no
 		icon_frame = 16
@@ -426,8 +428,8 @@ buildings = {
 	supply_depot = {
 		show_on_map = 1
 		#has_destroyed_mesh = yes
-		base_cost = 100
-		per_level_extra_cost = 100
+		base_cost = 500
+		per_level_extra_cost = 500
 		provincial = yes
 		disabled_in_dmz = no
 		icon_frame = 15
@@ -440,8 +442,8 @@ buildings = {
 	wall = {
 		show_on_map = 1
 		has_destroyed_mesh = yes
-		base_cost = 300
-		per_level_extra_cost = 300
+		base_cost = 1500
+		per_level_extra_cost = 1500
 		provincial = yes
 		disabled_in_dmz = yes
 		icon_frame = 13
@@ -454,8 +456,8 @@ buildings = {
 		show_on_map = 1
 		show_on_map_meshes = 3
 		always_shown = yes
-		base_cost = 220
-		per_level_extra_cost = 120
+		base_cost = 1100
+		per_level_extra_cost = 600
 		provincial = yes
 		only_costal = yes
 		is_port = yes
@@ -467,8 +469,8 @@ buildings = {
 	coastal_fortress = {
 		show_on_map = 1
 		has_destroyed_mesh = yes
-		base_cost = 240
-		per_level_extra_cost = 240
+		base_cost = 1200
+		per_level_extra_cost = 1200
 		provincial = yes
 		disabled_in_dmz = yes
 		only_costal = yes
@@ -478,4 +480,133 @@ buildings = {
 		value = 1
 	}
 
+
+
+	#    ####      ####      ####  
+	#   #    #    #    #    #    # 
+	#  #      #  #      #  #      #
+	#  #      #  #      #  #      #
+	#   #    #    #    #    #    # 
+	#    ####      ####      ####  
+
+	farm_ooo = {
+		show_on_map = 1
+		base_cost = 3700
+		icon_frame = 31
+		max_level = 50
+		shares_slots = yes
+		value = 9
+	}
+	ranch_ooo = {
+		show_on_map = 1
+		base_cost = 4000
+		icon_frame = 34
+		max_level = 50
+		shares_slots = yes
+		value = 6
+	}
+	fishing_stand_ooo = {
+		show_on_map = 1
+		base_cost = 740
+		icon_frame = 39
+		max_level = 50
+		shares_slots = yes
+		value = 7
+	}
+	lumber_mill_ooo = {
+		show_on_map = 1
+		base_cost = 3000
+		icon_frame = 32
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 12
+	}
+	quarry_ooo = {
+		show_on_map = 1
+		base_cost = 2900
+		icon_frame = 33
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 16
+	}
+	crop_weaving_ooo = {
+		show_on_map = 1
+		base_cost = 4100
+		icon_frame = 36
+		max_level = 50
+		shares_slots = yes
+		value = 4
+	}
+	animal_weaving_ooo = {
+		show_on_map = 1
+		base_cost = 4100
+		icon_frame = 37
+		max_level = 50
+		shares_slots = yes
+		value = 4
+	}
+	mine_ooo = {
+		show_on_map = 1
+		base_cost = 1100
+		icon_frame = 35
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 8
+	}
+	mill_ooo = {
+		show_on_map = 6
+		base_cost = 1200
+		icon_frame = 45
+		max_level = 50
+		shares_slots = yes
+		value = 3
+	}
+	steelworks_ooo = {
+		show_on_map = 1
+		base_cost = 18000
+		icon_frame = 38
+		max_level = 50 # This is the max unlock level
+		shares_slots = yes
+		value = 5
+	}
+	consumer_good_factory_ooo = {
+		show_on_map = 6
+		base_cost = 12000
+		icon_frame = 43
+		max_level = 50
+		shares_slots = yes
+		value = 4
+	}
+	luxury_good_factory_ooo = {
+		show_on_map = 6
+		base_cost = 20000
+		icon_frame = 42
+		max_level = 50
+		shares_slots = yes
+		value = 4
+	}
+	carpentry_ooo = {
+		show_on_map = 6
+		base_cost = 22000
+		icon_frame = 41
+		max_level = 50
+		shares_slots = yes
+		value = 6
+	}
+	masonry_ooo = {
+		show_on_map = 6
+		base_cost = 22000
+		icon_frame = 40
+		max_level = 50
+		shares_slots = yes
+		value = 7
+	}
+	steel_beam_factory_ooo = {
+		show_on_map = 6
+		base_cost = 24000
+		icon_frame = 44
+		max_level = 50
+		shares_slots = yes
+		value = 6
+	}
 }
