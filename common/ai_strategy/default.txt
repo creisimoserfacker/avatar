@@ -15,52 +15,33 @@
 # contain
 # area_priority
 
-default_unit_production = {
+GEN_unit_production = {
 	enable = {
-		always = yes
-		NOT = { 
-			OR = {
-				original_tag = FIR 
-				original_tag = EAR
-			}
+		NOT = {
+			tag = FIR
 		}
+		OR = { date < 105.2.4 date > 107.6.19 }
 	}
-
+	abort = {
+		always = no
+	}
+	
 	ai_strategy = {
 		type = role_ratio
 		id = defender
 		value = 80
 	}
-	
-	#Air unit factors
+
 	ai_strategy = {
-		type = unit_ratio
-		id = fighter
-		value = 80
+		type = role_ratio
+		id = landing_troops
+		value = 20
 	}
-	
+
 	ai_strategy = {
-		type = unit_ratio
-		id = cas
-		value = 5
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = tactical_bomber
-		value = 5
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = strategic_bomber
-		value = 5
-	}
-	
-	ai_strategy = {
-		type = unit_ratio
-		id = naval_bomber
-		value = 5
+		type = role_ratio
+		id = offensive
+		value = 60
 	}
 	
 	
@@ -74,13 +55,13 @@ default_unit_production = {
 	ai_strategy = {
 		type = unit_ratio
 		id = submarine
-		value = 10
+		value = 0
 	}
 
 	ai_strategy = {
 		type = unit_ratio
 		id = screen_ship
-		value = 40
+		value = 100
 	}
 
 	ai_strategy = {
@@ -88,128 +69,22 @@ default_unit_production = {
 		id = convoy
 		value = 15
 	}
-	
-	ai_strategy = {
-		type = equipment_production_factor
-		id = fighter
-		value = 35
-	}
-	
-	ai_strategy = {
-		type = equipment_production_factor
-		id = infantry
-		value = 40
-	}
-	
-	ai_strategy = {
-		type = equipment_production_factor
-		id = artillery
-		value = 25
-	}
-}
 
-default_role_ratios = {
-	enable = {
-		not = {
-			has_dlc = "Man the Guns"
-		}
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_capital
-		value = 100
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_carrier
-		value = 100
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_sub
-		value = 100
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_screen
-		value = 100
-	}
 }
 
 default_role_ratios = {
 	enable = {
 		has_dlc = "Man the Guns"
-		not = {
-			OR = {
-				original_tag = FIR
-			}
-		}
+		original_tag = FIR
 	}
 
 	ai_strategy = {
 		type = role_ratio
-		id = naval_capital_bb
-		value = -80
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_capital_bc
-		value = -20
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_carrier
-		value = -70
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_submarine
+		id = cruiser
 		value = 100
 	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_screen
-		value = 65
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_escort
-		value = 35
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_cruiser_light
-		value = 25
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_cruiser_heavy
-		value = 20
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_mine_sweeper
-		value = 15
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = naval_mine_layer
-		value = 20
-	}
 }
+
 
 default_pp_spend_amount = {
 	enable = {
@@ -225,177 +100,22 @@ default_pp_spend_amount = {
 	ai_strategy = {
 		type = pp_spend_amount
 		id = decision
+		value = 150
+	}
+}
+
+deploy_some_units = {
+	enable = {
+		date > 20.1.1
+		NOT = { original_tag = FIR }
+		manpower_per_military_factory > 650
+	}
+
+	ai_strategy = {
+		type = force_build_armies
 		value = 100
 	}
-}
-
-default_paratroopers_production = {
-	enable = {
-		ai_wants_divisions >  12 #Massively decreasing the amount of paratroopers the AI wants
-	}
-	abort = {
-		ai_wants_divisions < 13 #Massively decreasing the amount of paratroopers the AI wants
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = paratroopers
-		value = 0
-	}
-}
-
-default_garrison_production = {
-	enable = {
-		ai_wants_divisions >  12 #Massively decreasing the amount of garrison and suppression the AI wants
-		is_major = yes
-	}
-	abort = {
-		ai_wants_divisions < 13 #Massively decreasing the amount of garrison and suppression the AI wants
-		is_major = no
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = garrison
-		value = 5
-	}
 	
-	ai_strategy = {
-		type = role_ratio
-		id = suppression
-		value = 2
-	}
-}
-
-default_mountaineers_production = {
-	enable = {
-		ai_wants_divisions > 11 #Decreasing the amount of mountaineers the AI wants
-	}
-	abort = {
-		ai_wants_divisions < 12 #Decreasing the amount of mountaineers the AI wants
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = mountaineers
-		value = 3
-	}
-}
-
-default_marines_production = {
-	enable = {
-		ai_wants_divisions > 49
-	}
-	abort = {
-		ai_wants_divisions < 50
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = marines
-		value = 0
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = infantry
-		value = 0
-	}
-}
-
-
-
-default_armored_production = {
-	enable = {
-		ai_wants_divisions > 49
-	}
-	abort = {
-		ai_wants_divisions < 50
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = armor
-		value = 2
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = infantry
-		value = 0
-	}
-}
-
-highered_armored_production = {
-	enable = {
-		num_of_military_factories > 69
-	}
-	abort = {
-		num_of_military_factories < 70
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = armor
-		value = 5
-	}
-}
-
-slightly_naval_focused_nation = {
-
-	ai_strategy = {
-		type = unit_ratio
-		id = capital_ship
-		value = 1
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = submarine
-		value = 1
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = screen_ship
-		value = 1
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = convoy
-		value = 1
-	}
-}
-
-more_naval_focused_nation = {
-	enable = {
-		date > "1941.1.1" #Delaying it by a couple of years
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = capital_ship
-		value = 2		 #1 to 2
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = submarine
-		value = 1
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = screen_ship
-		value = 1
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = convoy
-		value = 1
-	}
 }
 
 
@@ -411,126 +131,6 @@ default_area_priority = {
 	}
 }
 
-default_stockpile_management = {
-	enable = {
-		num_divisions > 150
-	}
-
-	abort = {
-		num_divisions < 130
-	}
-
-	ai_strategy = {
-		type = equipment_stockpile_surplus_ratio
-		value = 35 # double base stockpile #from 25 to 35
-	}
-}
-
-
-DEFAULT_template_design = {
-	enable = {
-		date < 1940.1.1				
-	}
-	abort = { 
-		date > 1940.1.1
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = motorized
-		value = 10
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = cavalry
-		value = -100
-	}
-	
-	ai_strategy = {
-		type = template_prio
-		id = light_armor
-		value = 50
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = medium_armor
-		value = -10
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = heavy_armor
-		value = -50
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = paratroopers
-		value = -50
-	}
-	
-	ai_strategy = {
-		type = template_prio
-		id = infantry
-		value = 60
-	}
-}
-
-DEFAULT_template_design = {
-	enable = {
-		date > 1940.1.1				
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = mechanized
-		value = 10
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = cavalry
-		value = -100
-	}
-	
-	ai_strategy = {
-		type = template_prio
-		id = light_armor
-		value = 10
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = medium_armor
-		value = 20
-	}
-	
-	ai_strategy = {
-		type = template_prio
-		id = modern_armor
-		value = 50
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = heavy_armor
-		value = 10
-	}
-
-	ai_strategy = {
-		type = template_prio
-		id = paratroopers
-		value = -50
-	}
-	
-	ai_strategy = {
-		type = template_prio
-		id = infantry
-		value = 10
-	}
-}
 
 save_admiral_pp_for_later = {
 	enable = {

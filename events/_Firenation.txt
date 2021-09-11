@@ -614,6 +614,10 @@ country_event = {
 		#disband Iroh, teleport 
 		every_unit_leader = { limit = { has_id = 7 } retire = yes }
 		hidden_effect = {
+			delete_unit_template_and_units = {
+				division_template = "Siege Force"
+				disband = yes
+			}
 			if = { limit = { controls_state = 44 } add_to_array = { array = siege_ereas value = 44 } }
 			if = { limit = { controls_state = 57 } add_to_array = { array = siege_ereas value = 57 } }
 			if = { limit = { controls_state = 93 } add_to_array = { array = siege_ereas value = 93 } }
