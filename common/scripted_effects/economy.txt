@@ -86,6 +86,210 @@ extra_dockyard_output = {
 	
 }
 
+
+remove_crop_consumer = {
+	random_list = {
+		50 = {
+			random_owned_state = {
+				limit = {
+					mill > 0
+				}
+				remove_building = {
+				    type = mill
+				    level = 1
+				}
+				add_building_construction = {
+					type = mill_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { crop_weaving_count < mill_count }
+			}
+		}
+		50 = {
+			random_owned_state = {
+				limit = {
+					crop_weaving > 0
+				}
+				remove_building = {
+				    type = crop_weaving
+				    level = 1
+				}
+				add_building_construction = {
+					type = crop_weaving_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { mill_count < crop_weaving_count }
+			}
+		}
+	}
+}
+
+remove_textile_consumer = {
+	random_owned_state = {
+		limit = {
+			consumer_good_factory > 0
+		}
+		remove_building = {
+		    type = consumer_good_factory
+		    level = 1
+		}
+		add_building_construction = {
+			type = consumer_good_factory_ooo
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+remove_animal_consumer = {
+	random_owned_state = {
+		limit = {
+			animal_weaving > 0
+		}
+		remove_building = {
+		    type = animal_weaving
+		    level = 1
+		}
+		add_building_construction = {
+			type = animal_weaving_ooo
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+remove_steel_consumer = {
+	random_owned_state = {
+		limit = {
+			steel_beam_factory > 0
+		}
+		remove_building = {
+		    type = steel_beam_factory
+		    level = 1
+		}
+		add_building_construction = {
+			type = steel_beam_factory_ooo
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+remove_stone_consumer = {
+	random_owned_state = {
+		limit = {
+			masonry > 0
+		}
+		remove_building = {
+		    type = masonry
+		    level = 1
+		}
+		add_building_construction = {
+			type = masonry_ooo
+			level = 1
+			instant_build = yes
+		}
+	}
+}
+
+remove_wood_consumer = {
+	random_list = {
+		50 = {
+			random_owned_state = {
+				limit = {
+					consumer_good_factory > 0
+				}
+				remove_building = {
+				    type = consumer_good_factory
+				    level = 1
+				}
+				add_building_construction = {
+					type = consumer_good_factory_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { carpentry_count < consumer_good_factory_count }
+			}
+		}
+		50 = {
+			random_owned_state = {
+				limit = {
+					carpentry > 0
+				}
+				remove_building = {
+				    type = carpentry
+				    level = 1
+				}
+				add_building_construction = {
+					type = carpentry_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { consumer_good_factory_count < carpentry_count }
+			}
+		}
+	}
+}
+
+remove_iron_consumer = {
+	random_list = {
+		50 = {
+			random_owned_state = {
+				limit = {
+					steelworks > 0
+				}
+				remove_building = {
+				    type = steelworks
+				    level = 1
+				}
+				add_building_construction = {
+					type = steelworks_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { luxury_good_factory_count < steelworks_count }
+			}
+		}
+		50 = {
+			random_owned_state = {
+				limit = {
+					luxury_good_factory > 0
+				}
+				remove_building = {
+				    type = luxury_good_factory
+				    level = 1
+				}
+				add_building_construction = {
+					type = luxury_good_factory_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { steelworks_count < luxury_good_factory_count }
+			}
+		}
+	}
+}
+
 add_farm = {
 	if = {
 		limit = {
@@ -173,7 +377,7 @@ remove_farm = {
 			    level = 1
 			}
 			add_building_construction = {
-				type = farm _ooo
+				type = farm_ooo
 				level = 1
 				instant_build = yes
 			}
@@ -1100,7 +1304,10 @@ add_dockyard_random = {
 add_consumer_good_factory = {
 	if = {
 		limit = {
-			consumer_good_factory_ooo > 0
+			AND = {
+				consumer_good_factory_ooo > 0
+				check_variable = { resource@tungsten > 0 }
+			}
 		}
 		THIS = {
 			remove_building = {
@@ -1127,8 +1334,11 @@ add_consumer_good_factory = {
 add_consumer_good_factory_random = {
 	if = {
 		limit = {
-			any_owned_state = {
-				consumer_good_factory_ooo > 0
+			AND = {
+				any_owned_state = {
+					consumer_good_factory_ooo > 0
+				}
+				check_variable = { resource@tungsten > 0 }
 			}
 		}
 		random_owned_state = {

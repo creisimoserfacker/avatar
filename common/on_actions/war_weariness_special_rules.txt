@@ -55,6 +55,10 @@ on_actions = {
 
 				### advisors
 				if = {
+					limit = { has_idea_with_trait = close_to_the_people }
+					add_to_variable = { war_exhaustion_variable = -5 }
+				}
+				if = {
 					limit = { has_idea_with_trait = cruel_supervisor }
 					add_to_variable = { war_exhaustion_variable = 5 }
 				}
@@ -83,6 +87,16 @@ on_actions = {
 					add_to_variable = { war_exhaustion_variable = -5 }
 				}
 
+				### decisions
+				if = {
+					limit = { has_decision = campaign_season }
+					add_to_variable = { war_exhaustion_variable = 10 }
+				}
+				if = {
+					limit = { has_decision = raiding_campaign }
+					add_to_variable = { war_exhaustion_variable = 5 }
+				}
+
 					#### occupation ###
 
 				set_temp_variable = { occupied_states_variable = num_of_controlled_states }
@@ -102,11 +116,7 @@ on_actions = {
 					}
 					if = {
 						limit = { has_idea_with_trait = custumary_law }
-						add_to_variable = { occupation_war_exhaustion = -10 }
-					}
-					if = {
-						limit = { has_idea_with_trait = secret_police }
-						add_to_variable = { occupation_war_exhaustion = -10 }
+						add_to_variable = { occupation_war_exhaustion = -20 }
 					}
 
 	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
@@ -166,6 +176,8 @@ on_actions = {
 					set_variable = { tooltip_casualties = ttcv }
 				}
 			}
+
+			clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
 		}
 	}
 

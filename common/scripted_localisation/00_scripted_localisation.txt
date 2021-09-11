@@ -328,6 +328,27 @@ defined_text = {
 	}
 }
 defined_text = {
+	name = GetLuxurySurplus
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply < luxury_good_demand }
+		}
+		localization_key = consumer_good_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply = luxury_good_demand }
+		}
+		localization_key = enough_consumer_good
+	}
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply > luxury_good_demand }
+		}
+		localization_key = consumer_good_surplus
+	}
+}
+defined_text = {
 	name = GetResourceSurplus
 	text = {
 		trigger = {

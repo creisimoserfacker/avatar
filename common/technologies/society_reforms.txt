@@ -209,7 +209,7 @@ technologies = {
 		}
 		
 		political_power_gain = 0.3
-		max_command_power_mult = 0.1
+		max_command_power = 10
 		
 		research_cost = 2.5
 		start_year = 4
@@ -308,8 +308,16 @@ technologies = {
 	
 	progressive_resources_0 = {
 	
-		fuel_gain_factor_from_states = 0.05
-		local_resources_factor = 0.04
+		on_research_complete = {
+			modify_building_resources = {
+				building = farm
+				resource = oil
+				amount = 5
+			}
+			add_to_variable = { farm_output = 5 }
+		}
+
+		local_resources_factor = 0.06
 
 		research_cost = 2.5
 		start_year = 8
@@ -331,7 +339,9 @@ technologies = {
 		categories = {
 			society_reforms
 			society_progressive
-		}	
+		}
+
+		show_effect_as_desc = yes
 	}
 	
 	progressive_education_0 = {
@@ -396,8 +406,7 @@ technologies = {
 	
 	conservative_resources_0 = {
 		
-		fuel_gain_factor = 0.05
-		local_resources_factor = 0.04
+		local_resources_factor = 0.12
 
 		research_cost = 2.5
 		start_year = 8
@@ -476,7 +485,7 @@ technologies = {
 			position = { x = 1 y = 8 }
 		}
 		folder = {
-			name = infantry_folder
+			name = construction_folder
 			position = { x = 0 y = 0 }
 		}
 		
@@ -558,7 +567,7 @@ technologies = {
 		}
 		
 		political_power_gain = 0.5
-		conversion_cost_civ_to_mil_factor = -0.15
+		max_command_power = 20
 		
 		research_cost = 2.5
 		start_year = 20
@@ -613,8 +622,8 @@ technologies = {
 	
 	progressive_resources_1 = {
 	
-		fuel_gain_factor = 0.05
-		local_resources_factor = 0.04
+		fuel_gain_factor = 0.06
+		production_lack_of_resource_penalty_factor = -0.5
 
 		research_cost = 2.5
 		start_year = 24
@@ -701,7 +710,7 @@ technologies = {
 	
 	conservative_resources_1 = {
 
-		local_resources_factor = 0.06
+		local_resources_factor = 0.12
 
 		research_cost = 2.5
 		start_year = 24
@@ -913,8 +922,7 @@ technologies = {
 	
 	progressive_resources_2 = {
 	
-		fuel_gain_factor = 0.05
-		local_resources_factor = 0.04
+		local_resources_factor = 0.12
 
 		research_cost = 2.5
 		start_year = 40
@@ -1004,6 +1012,11 @@ technologies = {
 
 		local_resources_factor = 0.06
 
+		on_research_complete = {
+			custom_effect_tooltip = food_production_bonus
+			add_to_variable = { food_production_bonus = 0.1 }
+		}
+
 		research_cost = 2.5
 		start_year = 40
 		folder = {
@@ -1025,6 +1038,8 @@ technologies = {
 			society_reforms
 			society_conservative
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	conservative_education_2 = {
@@ -1079,10 +1094,6 @@ technologies = {
 		folder = {
 			name = electronics_folder
 			position = { x = 1 y = 24 }
-		}
-		folder = {
-			name = infantry_folder
-			position = { x = 0 y = 16 }
 		}
 		
 		ai_will_do = {
@@ -1218,8 +1229,7 @@ technologies = {
 	
 	progressive_resources_3 = {
 	
-		fuel_gain_factor = 0.05
-		local_resources_factor = 0.04
+		local_resources_factor = 0.12
 
 		research_cost = 2.5
 		start_year = 56
@@ -1307,6 +1317,7 @@ technologies = {
 	conservative_resources_3 = {
 
 		local_resources_factor = 0.06
+		fuel_gain_factor = 0.2
 
 		research_cost = 2.5
 		start_year = 56
@@ -1387,7 +1398,7 @@ technologies = {
 
 		folder = {
 			name = construction_folder
-			position = { x = 0 y = 0 }
+			position = { x = 35 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -1424,7 +1435,7 @@ technologies = {
 		}
 		
 		political_power_gain = 0.6
-		conversion_cost_mil_to_civ_factor = -0.2
+		refit_ic_cost = -0.5
 		equipment_conversion_speed = 0.2
 		
 		research_cost = 2.5
@@ -1525,8 +1536,11 @@ technologies = {
 	
 	progressive_resources_4 = {
 	
-		fuel_gain_factor = 0.05
-		local_resources_factor = 0.04
+		on_research_complete = {
+			custom_effect_tooltip = food_production_bonus
+			add_to_variable = { food_production_bonus = 0.1 }
+		}
+		local_resources_factor = 0.06
 
 		research_cost = 2.5
 		start_year = 72
@@ -1549,6 +1563,8 @@ technologies = {
 			society_reforms
 			society_progressive
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	progressive_education_4 = {
@@ -1613,7 +1629,7 @@ technologies = {
 	
 	conservative_resources_4 = {
 
-		local_resources_factor = 0.06
+		local_resources_factor = 0.12
 
 		research_cost = 2.5
 		start_year = 72
@@ -1682,9 +1698,10 @@ technologies = {
 			name = electronics_folder
 			position = { x = 1 y = 40 }
 		}
+
 		folder = {
-			name = infantry_folder
-			position = { x = 0 y = 24 }
+			name = construction_folder
+			position = { x = 11 y = 11 }
 		}
 		
 		ai_will_do = {
