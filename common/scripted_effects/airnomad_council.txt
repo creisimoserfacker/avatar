@@ -121,13 +121,13 @@ SAT_mission_type_generator = {
 	if {
 		limit = { check_variable = { probability_temp > 0} }
 		set_variable = { SAT_mission_type = 3}
-	subtract_from_temp_variable = { probability_temp = SAT_council_air }
 	}
+	subtract_from_temp_variable = { probability_temp = SAT_council_air }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
 		set_variable = { SAT_mission_type = 4}
-	subtract_from_temp_variable = { probability_temp = SAT_council_research }
 	}
+	subtract_from_temp_variable = { probability_temp = SAT_council_research }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
 		set_variable = { SAT_mission_type = 5}
@@ -143,72 +143,261 @@ SAT_mission_type_generator = {
 SAT_generate_specific_mission = {
 	if {
 		limit = { check_variable = { SAT_mission_type = 1}}
-		set_variable = { SAT_specific_mission = 1 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 3.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 1 }}
+				}}
+				set_variable = { sat_specific_mission = 1 }
+				set_variable = { break = 1 }
+			}
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 2 }
+					Not = { is_in_array = { sat_current_missions = 2 }}
+				}}
+				set_variable = { sat_specific_mission = 2 }
+				set_variable = { break = 1 }
+			}
+			if {
+            	limit = { AND = {
+            		check_variable = { specific_mission = 3 }
+            		Not = { is_in_array = { sat_current_missions = 3 }}
+            	}}
+            	set_variable = { sat_specific_mission = 3 }
+            	set_variable = { break = 1 }
+            }
+		}
 	}
 	if {
 		limit = { check_variable = { SAT_mission_type = 2}}
-		set_variable = { SAT_specific_mission = 2 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 1.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 6 }}
+				}}
+				set_variable = { sat_specific_mission = 6 }
+				set_variable = { break = 1 }
+			}
+		}
 	}
 	if {
 		limit = { check_variable = { SAT_mission_type = 3}}
-		set_variable = { SAT_specific_mission = 3 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 1.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 11 }}
+				}}
+				set_variable = { sat_specific_mission = 11 }
+				set_variable = { break = 1 }
+			}
+		}
 	}
 	if {
 		limit = { check_variable = { SAT_mission_type = 4}}
-		set_variable = { SAT_specific_mission = 4 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			set_variable = { break = 1 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 2.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 16 }}
+				}}
+				set_variable = { sat_specific_mission = 16 }
+				set_variable = { break = 1 }
+			}
+            if {
+				limit = { AND = {
+					check_variable = { specific_mission = 2 }
+					Not = { is_in_array = { sat_current_missions = 17 }}
+				}}
+				set_variable = { sat_specific_mission = 17 }
+				set_variable = { break = 1 }
+			}
+		}
 	}
 	if {
 		limit = { check_variable = { SAT_mission_type = 5}}
-		set_variable = { SAT_specific_mission = 5 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 1.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 21 }}
+				}}
+				set_variable = { sat_specific_mission = 21 }
+				set_variable = { break = 1 }
+			}
+		}
 	}
 	if {
 		limit = { check_variable = { SAT_mission_type = 6}}
-		set_variable = { SAT_specific_mission = 6 }
+		while_loop_effect = {
+			break = break
+			limit = { 0 = 0 }
+			
+			randomize_temp_variable = {
+				var = specific_mission
+				distribution = uniform
+				min = 0.6
+				max = 3.4
+			}
+			round_temp_variable = specific_mission
+			if {
+				limit = { AND = {
+					check_variable = { specific_mission = 1 }
+					Not = { is_in_array = { sat_current_missions = 26 }}
+				}}
+				set_variable = { sat_specific_mission = 26 }
+				set_variable = { break = 1 }
+			}
+			if {
+            	limit = { AND = {
+            		check_variable = { specific_mission = 2 }
+            		Not = { is_in_array = { sat_current_missions = 28 }}
+            	}}
+            	set_variable = { sat_specific_mission = 28 }
+         		set_variable = { break = 1 }
+            }
+            if {
+            	limit = { AND = {
+            		check_variable = { specific_mission = 3 }
+            		Not = { is_in_array = { sat_current_missions = 29 }}
+            	}}
+            	set_variable = { sat_specific_mission = 29 }
+         		set_variable = { break = 1 }
+            }
+		}
 	}
 }
 
 SAT_generate_missions = {
 	SAT_mission_type_generator = yes
 	SAT_generate_specific_mission = yes
-	set_variable = { SAT_mission_1 = SAT_specific_mission }
+	set_variable = { sat_mission_1 = sat_specific_mission }
 	
 	SAT_mission_type_generator = yes
 	SAT_generate_specific_mission = yes
-	set_variable = { SAT_mission_2 = SAT_specific_mission }
+	set_variable = { sat_mission_2 = sat_specific_mission }
 	
 	SAT_mission_type_generator = yes
 	SAT_generate_specific_mission = yes
-	set_variable = { SAT_mission_3 = SAT_specific_mission }
+	set_variable = { sat_mission_3 = sat_specific_mission }
 	
 	SAT_mission_type_generator = yes
 	SAT_generate_specific_mission = yes
-	set_variable = { SAT_mission_4 = SAT_specific_mission }
+	set_variable = { sat_mission_4 = sat_specific_mission }
 }
 
-SAT_start_mission {
-	# find out what mission was choosen
+SAT_start_mission = {
 	if {
 		limit = { check_variable = { SAT_choosen_mission = 1 }}
-		set_temp_variable = { sat_new_mission = SAT_mission_1 }
+		set_temp_variable = { sat_new_mission = sat_mission_1 }
 	}
 	if {
 		limit = { check_variable = { SAT_choosen_mission = 2 }}
-		set_temp_variable = { sat_new_mission = SAT_mission_2 }
+		set_temp_variable = { sat_new_mission = sat_mission_2 }
 	}
 	if {
 		limit = { check_variable = { SAT_choosen_mission = 3 }}
-		set_temp_variable = { sat_new_mission = SAT_mission_3 }
+		set_temp_variable = { sat_new_mission = sat_mission_3 }
 	}
 	if {
 		limit = { check_variable = { SAT_choosen_mission = 4 }}
-		set_temp_variable = { sat_new_mission = SAT_mission_4 }
+		set_temp_variable = { sat_new_mission = sat_mission_4 }
 	}
 	
-	# add country flag to start mission
 	if {
 		limit = { check_variable = { sat_new_mission = 1 }}
-		set_country_flag = SAT_mission_nr1
+		add_to_array = { sat_current_missions = 1 }
 	}
+	if {
+		limit = { check_variable = { sat_new_mission = 2 }}
+		add_to_array = { sat_current_missions = 2 }
+	}
+	if {
+    	limit = { check_variable = { sat_new_mission = 3 }}
+    	add_to_array = { sat_current_missions = 3 }
+    }
+	if {
+		limit = { check_variable = { sat_new_mission = 6 }}
+		add_to_array = { sat_current_missions = 6 }
+	}
+	if {
+		limit = { check_variable = { sat_new_mission = 11 }}
+		add_to_array = { sat_current_missions = 11 }
+	}
+	if {
+		limit = { check_variable = { sat_new_mission = 16 }}
+		add_to_array = { sat_current_missions = 16 }
+	}
+    if {
+		limit = { check_variable = { sat_new_mission = 17 }}
+		add_to_array = { sat_current_missions = 17 }
+	}
+	if {
+		limit = { check_variable = { sat_new_mission = 26 }}
+		add_to_array = { sat_current_missions = 26 }
+	}
+	if {
+    	limit = { check_variable = { sat_new_mission = 28 }}
+    	add_to_array = { sat_current_missions = 28 }
+    }
+    if {
+       limit = { check_variable = { sat_new_mission = 29 }}
+       add_to_array = { sat_current_missions = 29 }
+    }
 }
 
 ##### council support calculations
@@ -395,4 +584,16 @@ SAT_council_extreme_opposition = {
 		subtract_from_variable = { SAT_council_member_5 = 1}
 	}
 	SAT_recalc_council_support = yes
+}
+
+### Sat Missions
+
+SAT_start_mission_1 = {
+	set_variable = { sat_mission_1_reward = sat_new_mission_reward }
+	set_variable = { sat_mission_1_size = sat_new_mission_size }
+	set_variable = { sat_mission_1_amount = 0 }
+	multiply_variable = { sat_mission_1_size = 100 }
+	subtract_from_variable = { sat_mission_1_amount = sat_mission_1_size }
+	set_variable = { sat_mission_1_size = sat_new_mission_size }
+	add_to_array = { SAT_current_missions = 1 }
 }
