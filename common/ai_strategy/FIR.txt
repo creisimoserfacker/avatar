@@ -1,7 +1,7 @@
 
 FIR_unit_production = {
-	OR = { date < 105.2.4 date > 107.6.19 }
 	enable = {
+		OR = { date < 105.2.4 date > 107.6.19 }
 		original_tag = FIR
 	}
 	abort = {
@@ -290,7 +290,7 @@ pohuai_taku_invasions = {
 
 deploy_some_units = {
 	enable = {
-		original_tag = EAR
+		original_tag = FIR
 		has_army_manpower = {
 			type = infantry
 			size < 100000
@@ -357,7 +357,6 @@ Siege_Invasions = {
 		type = front_control
 		tag = HEB
 		ratio = 1
-		priority = 400
 		ordertype = front 
 		execution_type = careful
 		execute_order = no
@@ -368,7 +367,6 @@ Siege_Invasions = {
 		type = front_control
 		tag = FMB
 		ratio = 1
-		priority = 400
 		ordertype = front 
 		execution_type = careful
 		execute_order = no
@@ -379,7 +377,26 @@ Siege_Invasions = {
 		type = front_control
 		tag = SWT
 		ratio = 1
-		priority = 400
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = WBA
+		ratio = 1
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = EBA
+		ratio = 1
 		ordertype = front 
 		execution_type = rush
 		execute_order = yes
@@ -390,56 +407,48 @@ Siege_Invasions = {
 		type = front_unit_request
 		tag = SWT
 		value = 75
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = EAR
 		value = 950
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = HEB
 		value = 420
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = FMB
 		value = 550
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = OMS
 		value = 140
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = MPO
 		value = 140
-		priority = 400
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = ECB
-		value = 120
-		priority = 400
+		value = 150
 	}
 	
 	ai_strategy = {
 		type = front_unit_request
 		tag = EBA
-		value = 150
-		priority = 400
+		value = 170
 	}
 	
 }

@@ -1,22 +1,30 @@
 technologies = {
-	infrastructure_1 = {
+
+	farm_1 = {
 
 		enable_building = {
-			building = infrastructure
+			building = farm
 			level = 10
 		}
 
-		path = {
-			leads_to_tech = infrastructure_2
-			research_cost_coeff = 1
+		on_research_complete = {
+			add_to_variable = { farm_level = 10 }
 		}
 		
 		path = {
-			leads_to_tech = granary_1
+			leads_to_tech = mill_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = crop_weaving_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = farm_united
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2.5
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 0 }
@@ -34,19 +42,36 @@ technologies = {
 		
 		categories = {
 			construction
-			infra_construction
-			civil_construction
+			resource_construction
+			farm_construction
 		}	
 	}
 
-	granary_1 = {
+	ranch_1 = {
 
 		enable_building = {
-			building = granary
-			level = 3
+			building = ranch
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { ranch_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = animal_weaving_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = fishing_stand_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = farm_united
+			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2.5
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 0 }
@@ -64,67 +89,32 @@ technologies = {
 		
 		categories = {
 			construction
-			civil_construction
+			resource_construction
+			ranch_construction
 		}	
 	}
 
-	infrastructure_2 = {
+	mill_1 = {
+
+		dependencies = {
+			reform_1 = 1
+		}
+
+		on_research_complete = {
+			add_to_variable = { mill_level = 10 }
+		}
 
 		enable_building = {
-			building = infrastructure
-			level = 15
-		}
-
-		path = {
-			leads_to_tech = infrastructure_3
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = port_1
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = fort_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 0 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			infra_construction
-		}	
-	}
-
-	port_1 = {
-
-		enable_building = {
-			building = naval_base
+			building = mill
 			level = 10
 		}
-
+		
 		path = {
-			leads_to_tech = port_2
+			leads_to_tech = mill_2
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2.5
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 2 }
@@ -132,34 +122,27 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			infra_construction
+			resource_construction
+			mill_construction
 		}	
 	}
-
-	port_2 = {
+	mill_2 = {
 
 		enable_building = {
-			building = naval_base
-			level = 20
+			building = mill
+			level = 50
 		}
 
-		path = {
-			leads_to_tech = port_3
-			research_cost_coeff = 1
+		on_research_complete = {
+			add_to_variable = { mill_level = 40 }
 		}
-
+		
 		path = {
-			leads_to_tech = coastal_fort_1
+			leads_to_tech = mill_3
 			research_cost_coeff = 1
 		}
 		
@@ -171,33 +154,24 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			infra_construction
+			resource_construction
+			mill_construction
 		}	
 	}
+	mill_3 = {
 
-	port_3 = {
-
-		enable_building = {
-			building = naval_base
-			level = 30
-		}
+		production_speed_mill_factor = 0.1
 
 		path = {
-			leads_to_tech = port_4
+			leads_to_tech = mill_4
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 6 }
@@ -205,33 +179,19 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			infra_construction
+			resource_construction
+			mill_construction
 		}	
 	}
+	mill_4 = {
 
-	port_4 = {
-
-		enable_building = {
-			building = naval_base
-			level = 40
-		}
-
-		path = {
-			leads_to_tech = port_5
-			research_cost_coeff = 1
-		}
+		production_speed_mill_factor = 0.15
 		
-		research_cost = 1.8
+		research_cost = 2
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 8 }
@@ -239,62 +199,86 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			infra_construction
+			resource_construction
+			mill_construction
 		}	
 	}
 
-	port_5 = {
+	farm_united = {
 
-		production_speed_naval_base_factor = 0.1
+		dependencies = {
+			farm_1 = 1
+			ranch_1 = 1
+			reform_1 = 1
+		}
+
+		on_research_complete = {
+			add_to_variable = { farm_level = 40 }
+		}
+		on_research_complete = {
+			add_to_variable = { ranch_level = 40 }
+		}
+
+		enable_building = {
+			building = farm
+			level = 50
+		}
+		enable_building = {
+			building = ranch
+			level = 50
+		}
 		
-		research_cost = 1.8
+		path = {
+			leads_to_tech = farm_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = ranch_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2
 		folder = {
 			name = construction_folder
-			position = { x = -2 y = 10 }
+			position = { x = 1 y = 2 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			infra_construction
+			resource_construction
+			farm_construction
+			ranch_construction
 		}	
 	}
 
-	fort_1 = {
+	crop_weaving_1 = {
 
 		enable_building = {
-			building = wall
+			building = crop_weaving
 			level = 10
 		}
 
+		on_research_complete = {
+			add_to_variable = { crop_weaving_level = 10 }
+		}
+		
 		path = {
-			leads_to_tech = fort_2
+			leads_to_tech = crop_weaving_2
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2.5
 		folder = {
 			name = construction_folder
-			position = { x = -6 y = 2 }
+			position = { x = -4 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -309,152 +293,24 @@ technologies = {
 		
 		categories = {
 			construction
-			fort_construction
+			resource_construction
+			farm_construction
 		}	
 	}
 
-	fort_2 = {
+	crop_weaving_2 = {
 
 		enable_building = {
-			building = wall
-			level = 20
+			building = crop_weaving
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { crop_weaving_level = 40 }
 		}
 
 		path = {
-			leads_to_tech = fort_3
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = coastal_fort_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -6 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			fort_construction
-		}	
-	}
-
-	fort_3 = {
-
-		enable_building = {
-			building = wall
-			level = 30
-		}
-
-		path = {
-			leads_to_tech = fort_4
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -6 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			fort_construction
-		}	
-	}
-
-	fort_4 = {
-
-		enable_building = {
-			building = wall
-			level = 40
-		}
-
-		path = {
-			leads_to_tech = fort_5
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -6 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			fort_construction
-		}	
-	}
-
-	fort_5 = {
-
-		production_speed_wall_factor = 0.1
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -6 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			fort_construction
-		}	
-	}
-
-	coastal_fort_1 = {
-
-		enable_building = {
-			building = coastal_fortress
-			level = 5
-		}
-
-		path = {
-			leads_to_tech = coastal_fort_2
+			leads_to_tech = crop_weaving_3
 			research_cost_coeff = 1
 		}
 		
@@ -476,19 +332,16 @@ technologies = {
 		
 		categories = {
 			construction
-			fort_construction
+			resource_construction
+			mill_construction
 		}	
 	}
+	crop_weaving_3 = {
 
-	coastal_fort_2 = {
-
-		enable_building = {
-			building = coastal_fortress
-			level = 10
-		}
+		production_speed_crop_weaving_factor = 0.1
 
 		path = {
-			leads_to_tech = coastal_fort_3
+			leads_to_tech = crop_weaving_4
 			research_cost_coeff = 1
 		}
 		
@@ -500,32 +353,18 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			fort_construction
+			resource_construction
+			mill_construction
 		}	
 	}
+	crop_weaving_4 = {
 
-	coastal_fort_3 = {
+		production_speed_crop_weaving_factor = 0.15
 
-		enable_building = {
-			building = coastal_fortress
-			level = 15
-		}
-
-		path = {
-			leads_to_tech = coastal_fort_4
-			research_cost_coeff = 1
-		}
-		
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
@@ -534,63 +373,21 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			fort_construction
+			resource_construction
+			mill_construction
 		}	
 	}
 
-	coastal_fort_4 = {
+	farm_2 = {
 
-		enable_building = {
-			building = coastal_fortress
-			level = 20
-		}
+		production_speed_farm_factor = 0.1
 		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -4 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			fort_construction
-		}	
-	}
-
-	infrastructure_3 = {
-
-		enable_building = {
-			building = infrastructure
-			level = 20
-		}
-
 		path = {
-			leads_to_tech = infrastructure_4
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = settlement_1
+			leads_to_tech = farm_3
 			research_cost_coeff = 1
 		}
 		
@@ -612,152 +409,14 @@ technologies = {
 		
 		categories = {
 			construction
-			infra_construction
-			civil_construction
+			resource_construction
+			farm_construction
 		}	
 	}
 
-	settlement_1 = {
+	farm_3 = {
 
-		enable_building = {
-			building = settlement
-			level = 5
-		}
-
-		path = {
-			leads_to_tech = settlement_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 2 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			civil_construction
-		}	
-	}
-
-	settlement_2 = {
-
-		enable_building = {
-			building = settlement
-			level = 10
-		}
-
-		path = {
-			leads_to_tech = settlement_3
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 2 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			civil_construction
-		}	
-	}
-
-	settlement_3 = {
-
-		production_speed_settlement_factor = 0.05
-
-		path = {
-			leads_to_tech = settlement_4
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 2 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			civil_construction
-		}	
-	}
-
-	settlement_4 = {
-
-		production_speed_settlement_factor = 0.1
-
-		path = {
-			leads_to_tech = settlement_4
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 2 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			civil_construction
-		}	
-	}
-
-	infrastructure_4 = {
-
-		enable_building = {
-			building = infrastructure
-			level = 25
-		}
-
-		path = {
-			leads_to_tech = infrastructure_5
-			research_cost_coeff = 1
-		}
+		production_speed_farm_factor = 0.15
 		
 		research_cost = 1.8
 		folder = {
@@ -777,19 +436,77 @@ technologies = {
 		
 		categories = {
 			construction
-			infra_construction
-			civil_construction
+			resource_construction
+			farm_construction
 		}	
 	}
 
-	infrastructure_5 = {
+	ranch_2 = {
 
-		production_speed_infrastructure_factor = 0.1
+		production_speed_ranch_factor = 0.1
+
+		path = {
+			leads_to_tech = ranch_3
+			research_cost_coeff = 1
+		}
 		
-		research_cost = 1.8
+		research_cost = 2
 		folder = {
 			name = construction_folder
-			position = { x = 0 y = 8 }
+			position = { x = 2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
+		}	
+	}
+	ranch_3 = {
+
+		production_speed_ranch_factor = 0.15
+		
+		research_cost = 2
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
+		}	
+	}
+
+	animal_weaving_1 = {
+
+		enable_building = {
+			building = animal_weaving
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { animal_weaving_level = 10 }
+		}
+		
+		path = {
+			leads_to_tech = animal_weaving_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -804,8 +521,202 @@ technologies = {
 		
 		categories = {
 			construction
-			infra_construction
-			civil_construction
+			resource_construction
+			farm_construction
+		}	
+	}
+	animal_weaving_2 = {
+
+		enable_building = {
+			building = animal_weaving
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { animal_weaving_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = animal_weaving_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			mill_construction
+		}	
+	}
+	animal_weaving_3 = {
+
+		production_speed_animal_weaving_factor = 0.1
+
+		path = {
+			leads_to_tech = animal_weaving_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			mill_construction
+		}	
+	}
+	animal_weaving_4 = {
+
+		production_speed_animal_weaving_factor = 0.15
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			mill_construction
+		}	
+	}
+
+	fishing_stand_1 = {
+
+		enable_building = {
+			building = fishing_stand
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { fishing_stand_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = fishing_stand_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
+		}	
+	}
+
+	fishing_stand_2 = {
+
+		enable_building = {
+			building = fishing_stand
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { fishing_stand_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = fishing_stand_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
+		}	
+	}
+	fishing_stand_3 = {
+
+		production_speed_fishing_stand_factor = 0.1
+
+		path = {
+			leads_to_tech = fishing_stand_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
+		}	
+	}
+	fishing_stand_4 = {
+
+		production_speed_fishing_stand_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			ranch_construction
 		}	
 	}
 
@@ -815,31 +726,31 @@ technologies = {
 
 
 
-
-
-	farm_and_lumber = {
-
-		enable_building = {
-			building = farm
-			level = 1
-		}
+	lumber_1 = {
 
 		enable_building = {
 			building = lumber_mill
-			level = 1
-		}
-		
-		path = {
-			leads_to_tech = farm_1
-			research_cost_coeff = 1
+			level = 10
 		}
 
+		on_research_complete = {
+			add_to_variable = { lumber_mill_level = 10 }
+		}
+		
 		path = {
-			leads_to_tech = lumber_1
+			leads_to_tech = lumber_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = carpentry_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = harbour_1
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2.5
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 0 }
@@ -848,7 +759,6 @@ technologies = {
 		ai_will_do = {
 			factor = 100
 			
-			
 			modifier = {
 				factor = 3
 				date > "2.1.1"
@@ -858,274 +768,114 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			farm_construction
 			wood_construction
 		}	
 	}
-
-	farm_1 = {
-
-		enable_building = {
-			building = farm
-			level = 2
-		}
-		
-		path = {
-			leads_to_tech = farm_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			farm_construction
-		}	
-	}
-
-	farm_2 = {
-
-		enable_building = {
-			building = farm
-			level = 4
-		}
-		
-		path = {
-			leads_to_tech = farm_3
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = weaving_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			farm_construction
-		}	
-	}
-
-	weaving_1 = {
-
-		enable_building = {
-			building = weaving
-			level = 2
-		}
-
-		path = {
-			leads_to_tech = weaving_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -3 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			mill_construction
-		}	
-	}
-
-	weaving_2 = {
-
-		enable_building = {
-			building = weaving
-			level = 4
-		}
-
-		path = {
-			leads_to_tech = weaving_3
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -3 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			mill_construction
-		}	
-	}
-
-	weaving_3 = {
-
-		enable_building = {
-			building = weaving
-			level = 6
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -3 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			mill_construction
-		}	
-	}
-
-	farm_3 = {
-
-		enable_building = {
-			building = farm
-			level = 6
-		}
-		
-		path = {
-			leads_to_tech = farm_4
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			farm_construction
-		}	
-	}
-
-	farm_4 = {
-
-		production_speed_farm_factor = 0.05
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			resource_construction
-			farm_construction
-		}	
-	}
-
-	lumber_1 = {
+	lumber_2 = {
 
 		enable_building = {
 			building = lumber_mill
-			level = 4
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { lumber_mill_level = 40 }
 		}
 		
 		path = {
-			leads_to_tech = lumber_2
-			research_cost_coeff = 1
-		}
-
-		path = {
-			leads_to_tech = quarry_1
+			leads_to_tech = lumber_3
 			research_cost_coeff = 1
 		}
 		
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 2 }
+			position = { x = 0 y = 2 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
+
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	lumber_3 = {
+
+		production_speed_lumber_mill_factor = 0.1
+
+		path = {
+			leads_to_tech = lumber_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	lumber_4 = {
+
+		production_speed_lumber_mill_factor = 0.15
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+
+	carpentry_1 = {
+
+		enable_building = {
+			building = carpentry
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { carpentry_level = 10 }
+		}
+		
+		path = {
+			leads_to_tech = carpentry_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
 			
 			modifier = {
 				factor = 3
@@ -1139,28 +889,244 @@ technologies = {
 			wood_construction
 		}	
 	}
+	carpentry_2 = {
+
+		enable_building = {
+			building = carpentry
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { carpentry_level = 40 }
+		}
+		
+		path = {
+			leads_to_tech = carpentry_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	carpentry_3 = {
+
+		production_speed_carpentry_factor = 0.1
+
+		path = {
+			leads_to_tech = carpentry_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	carpentry_4 = {
+
+		production_speed_carpentry_factor = 0.15
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+
+	harbour_1 = {
+
+		enable_building = {
+			building = harbour
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { harbour_level = 10 }
+		}
+		
+		path = {
+			leads_to_tech = harbour_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	harbour_2 = {
+
+		enable_building = {
+			building = harbour
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { harbour_level = 40 }
+		}
+		
+		path = {
+			leads_to_tech = harbour_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	harbour_3 = {
+
+		production_speed_harbour_factor = 0.1
+		
+		path = {
+			leads_to_tech = harbour_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+	harbour_4 = {
+
+		production_speed_harbour_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			wood_construction
+		}	
+	}
+
+
+
+
+
+
 
 	quarry_1 = {
 
 		enable_building = {
 			building = quarry
-			level = 2
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { quarry_level = 10 }
 		}
 
 		path = {
 			leads_to_tech = quarry_2
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = mine_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = masonry_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = coastal_fortress_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = wall_1
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 2 }
+			position = { x = 2 y = 0 }
+		}
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 0 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
 			
 			modifier = {
 				factor = 3
@@ -1179,23 +1145,1028 @@ technologies = {
 
 		enable_building = {
 			building = quarry
-			level = 6
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { quarry_level = 40 }
 		}
 
 		path = {
-			leads_to_tech = mine_1
+			leads_to_tech = quarry_3
 			research_cost_coeff = 1
 		}
 		
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 4 }
+			position = { x = 2 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	quarry_3 = {
+
+		production_speed_quarry_factor = 0.1
+
+		path = {
+			leads_to_tech = quarry_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	quarry_4 = {
+
+		production_speed_quarry_factor = 0.15
+
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	masonry_1 = {
+
+		enable_building = {
+			building = masonry
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { masonry_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = masonry_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	masonry_2 = {
+
+		enable_building = {
+			building = masonry
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { masonry_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = masonry_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	masonry_3 = {
+
+		production_speed_masonry_factor = 0.1
+
+		path = {
+			leads_to_tech = masonry_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	masonry_4 = {
+
+		production_speed_masonry_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	mine_1 = {
+
+		enable_building = {
+			building = mine
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { mine_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = mine_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = steelworks_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = smithy_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 2 }
+		}
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 16 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	mine_2 = {
+
+		enable_building = {
+			building = mine
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { mine_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = mine_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	mine_3 = {
+
+		production_speed_mine_factor = 0.1
+
+		path = {
+			leads_to_tech = mine_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	mine_4 = {
+
+		production_speed_mine_factor = 0.15
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -2 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	smithy_1 = {
+
+		enable_building = {
+			building = smithy
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { smithy_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = smithy_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	smithy_2 = {
+
+		enable_building = {
+			building = smithy
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { smithy_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = smithy_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	smithy_3 = {
+
+		production_speed_smithy_factor = 0.1
+
+		path = {
+			leads_to_tech = smithy_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	smithy_4 = {
+
+		production_speed_smithy_factor = 0.15
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 0 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	steelworks_1 = {
+
+		enable_building = {
+			building = steelworks
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { steelworks_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = steelworks_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -4 y = 2 }
+		}
+		folder = {
+			name = infantry_folder
+			position = { x = 0 y = 24 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steelworks_2 = {
+
+		enable_building = {
+			building = steelworks
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { steelworks_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = steelworks_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -4 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steelworks_3 = {
+
+		production_speed_steelworks_factor = 0.1
+
+		path = {
+			leads_to_tech = steelworks_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -4 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steelworks_4 = {
+
+		production_speed_steelworks_factor = 0.15
+
+		path = {
+			leads_to_tech = steel_beam_factory_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = -4 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	steel_beam_factory_1 = {
+
+		dependencies = {
+			reform_5 = 1
+		}
+
+		enable_building = {
+			building = steel_beam_factory
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { steel_beam_factory_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = factory_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = dockyard_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = steel_beam_factory_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steel_beam_factory_2 = {
+
+		enable_building = {
+			building = steel_beam_factory
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { steel_beam_factory_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = steel_beam_factory_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steel_beam_factory_3 = {
+
+		production_speed_steel_beam_factory_factor = 0.1
+
+		path = {
+			leads_to_tech = steel_beam_factory_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	steel_beam_factory_4 = {
+
+		production_speed_steel_beam_factory_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -6 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	factory_1 = {
+
+		dependencies = {
+			reform_5 = 1
+		}
+
+		enable_building = {
+			building = factory
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { factory_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = factory_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -8 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	factory_2 = {
+
+		enable_building = {
+			building = factory
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { factory_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = factory_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -8 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	factory_3 = {
+
+		production_speed_factory_factor = 0.1
+
+		path = {
+			leads_to_tech = factory_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -8 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	factory_4 = {
+
+		production_speed_factory_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -8 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	dockyard_1 = {
+
+		dependencies = {
+			reform_5 = 1
+		}
+
+		enable_building = {
+			building = dockyard
+			level = 10
+		}
+
+		on_research_complete = {
+			add_to_variable = { dockyard_level = 10 }
+		}
+
+		path = {
+			leads_to_tech = dockyard_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -10 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	dockyard_2 = {
+
+		enable_building = {
+			building = dockyard
+			level = 50
+		}
+
+		on_research_complete = {
+			add_to_variable = { dockyard_level = 40 }
+		}
+
+		path = {
+			leads_to_tech = dockyard_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -10 y = 10 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	dockyard_3 = {
+
+		production_speed_dockyard_factor = 0.1
+
+		path = {
+			leads_to_tech = dockyard_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -10 y = 12 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	dockyard_4 = {
+
+		production_speed_dockyard_factor = 0.15
+		
+		research_cost = 2.5
+		folder = {
+			name = construction_folder
+			position = { x = -10 y = 14 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	coastal_fortress_1 = {
+
+		enable_building = {
+			building = coastal_fortress
+			level = 10
+		}
+
+		path = {
+			leads_to_tech = coastal_fortress_2
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 2 }
 		}
 		
 		ai_will_do = {
 			factor = 100
 			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	coastal_fortress_2 = {
+
+		enable_building = {
+			building = coastal_fortress
+			level = 20
+		}
+
+		path = {
+			leads_to_tech = coastal_fortress_3
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	coastal_fortress_3 = {
+
+		enable_building = {
+			building = coastal_fortress
+			level = 30
+		}
+
+		path = {
+			leads_to_tech = coastal_fortress_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	coastal_fortress_4 = {
+
+		enable_building = {
+			building = coastal_fortress
+			level = 40
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+
+
+
+
+	depot_1 = {
+
+		enable_building = {
+			building = fuel_repository
+			level = 50
+		}
+
+		#path = {
+		#	leads_to_tech = depot_2
+		#	research_cost_coeff = 1
+		#}
+		
+		research_cost = 1.0
+		folder = {
+			name = construction_folder
+			position = { x = 12 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
 			
 			modifier = {
 				factor = 3
@@ -1210,27 +2181,35 @@ technologies = {
 		}	
 	}
 
-	lumber_2 = {
+
+	road_1 = {
 
 		enable_building = {
-			building = lumber_mill
-			level = 8
+			building = road
+			level = 1
 		}
-		
+
 		path = {
-			leads_to_tech = mine_1
+			leads_to_tech = depot_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = road_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = wall_1
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 4 }
+			position = { x = 10 y = 0 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
 			
 			modifier = {
 				factor = 3
@@ -1241,141 +2220,369 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			wood_construction
+			stone_construction
+		}	
+	}
+	road_2 = {
+
+		enable_building = {
+			building = road
+			level = 2
+		}
+
+		path = {
+			leads_to_tech = road_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = granary_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.0
+		folder = {
+			name = construction_folder
+			position = { x = 10 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	road_3 = {
+
+		enable_building = {
+			building = road
+			level = 3
+		}
+
+		path = {
+			leads_to_tech = road_4
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.0
+		folder = {
+			name = construction_folder
+			position = { x = 10 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	wall_1 = {
+
+		dependencies = {
+			road_1 = 1
+			quarry_1 = 1
+		}
+
+		enable_building = {
+			building = wall
+			level = 10
+		}
+
+		path = {
+			leads_to_tech = wall_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = scout_tower_1
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 7 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	wall_2 = {
+
+		enable_building = {
+			building = wall
+			level = 20
+		}
+
+		path = {
+			leads_to_tech = wall_3
+			research_cost_coeff = 1
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 8 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	wall_3 = {
+
+		enable_building = {
+			building = wall
+			level = 30
+		}
+
+		path = {
+			leads_to_tech = wall_4
+			research_cost_coeff = 1
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 8 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	wall_4 = {
+
+		enable_building = {
+			building = wall
+			level = 40
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 8 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
 		}	
 	}
 
-	mine_1 = {
+
+	granary_1 = {
 
 		enable_building = {
-			building = mine
+			building = supply_depot
+			level = 20
+		}
+
+		path = {
+			leads_to_tech = granary_2
+			research_cost_coeff = 1
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 12 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+
+	scout_tower_1 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 1
+		}
+
+		path = {
+			leads_to_tech = scout_tower_2
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_2 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 2
+		}
+
+		path = {
+			leads_to_tech = scout_tower_3
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_3 = {
+
+		enable_building = {
+			building = scout_tower
+			level = 3
+		}
+
+		path = {
+			leads_to_tech = scout_tower_4
+			research_cost_coeff = 1
+		}
+
+		
+		research_cost = 3
+		folder = {
+			name = construction_folder
+			position = { x = 6 y = 8 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			air_construction
+		}	
+	}
+
+	scout_tower_4 = {
+
+		enable_building = {
+			building = scout_tower
 			level = 4
 		}
-		
+
 		path = {
-			leads_to_tech = mine_2
+			leads_to_tech = scout_tower_5
 			research_cost_coeff = 1
 		}
-		
-		research_cost = 1.8
+
+		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 2 y = 6 }
+			position = { x = 6 y = 10 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			resource_construction
-			iron_construction
+			air_construction
 		}	
 	}
 
-	mine_2 = {
+	scout_tower_5 = {
 
 		enable_building = {
-			building = mine
-			level = 6
+			building = scout_tower
+			level = 5
 		}
-		
-			path = {
-			leads_to_tech = steelworks_1
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = factory_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 1.8
+	
+		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 2 y = 8 }
+			position = { x = 6 y = 12 }
 		}
 		
 		ai_will_do = {
 			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
 		}
 		
 		categories = {
 			construction
-			resource_construction
-			iron_construction
+			air_construction
 		}	
 	}
 
-	steelworks_1 = {
-
-		enable_building = {
-			building = steelworks
-			level = 10
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 1 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			factory_construction
-		}	
-	}
-
-	factory_1 = {
-
-		enable_building = {
-			building = factory
-			level = 10
-		}
-		
-		research_cost = 1.8
-		folder = {
-			name = construction_folder
-			position = { x = 3 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			factory_construction
-		}	
-	}
 
 
 
@@ -1392,10 +2599,6 @@ technologies = {
 			leads_to_tech = air_base_2
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = scout_tower_1
-			research_cost_coeff = 1
-		}
 
 		path = {
 			leads_to_tech = anti_air_1
@@ -1406,7 +2609,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 0 y = 0 }
+			position = { x = 1 y = 0 }
 		}
 		
 		ai_will_do = {
@@ -1557,175 +2760,6 @@ technologies = {
 		}	
 	}
 
-	scout_tower_1 = {
-
-		enable_building = {
-			building = scout_tower
-			level = 1
-		}
-
-		path = {
-			leads_to_tech = scout_tower_2
-			research_cost_coeff = 1
-		}
-
-		
-		research_cost = 3
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 2 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
-	scout_tower_2 = {
-
-		enable_building = {
-			building = scout_tower
-			level = 2
-		}
-
-		path = {
-			leads_to_tech = scout_tower_3
-			research_cost_coeff = 1
-		}
-
-		
-		research_cost = 3
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 4 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
-	scout_tower_3 = {
-
-		enable_building = {
-			building = scout_tower
-			level = 3
-		}
-
-		path = {
-			leads_to_tech = scout_tower_4
-			research_cost_coeff = 1
-		}
-
-		
-		research_cost = 3
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 6 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
-	scout_tower_4 = {
-
-		enable_building = {
-			building = scout_tower
-			level = 4
-		}
-
-		path = {
-			leads_to_tech = scout_tower_5
-			research_cost_coeff = 1
-		}
-
-		
-		research_cost = 3
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 8 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
-	scout_tower_5 = {
-
-		enable_building = {
-			building = scout_tower
-			level = 5
-		}
-	
-		research_cost = 3
-		folder = {
-			name = construction_folder
-			position = { x = -1 y = 10 }
-		}
-		
-		ai_will_do = {
-			factor = 100
-			
-			
-			modifier = {
-				factor = 3
-				date > "2.1.1"
-			}
-		}
-		
-		categories = {
-			construction
-			air_construction
-		}	
-	}
-
 
 	anti_air_1 = {
 
@@ -1747,7 +2781,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 0 }
+			position = { x = 3 y = 2 }
 		}
 		
 		ai_will_do = {

@@ -7,18 +7,26 @@
  industrial_complex_plural:0 "Manufactories"
  industrial_complex_desc:0 "This building provides the state with a small amount of civilian capacity." #\n\nCost:(£civ_factory_output -§Y10§! per existing §YManufactory§! level)
  
- arms_factory:0 "Smithy"
- arms_factory_plural:0 "Smithies"
- arms_factory_desc:0 "This building provides the state with a small amount of military capacity." # \n\nCost:(£civ_factory_output -§Y20§! per existing §YSmithy§! level)
+ smithy:0 "Smithy"
+ smithy_plural:0 "Smithies"
+ smithy_desc:0 "This building provides the state with a small amount of military capacity." # \n\nCost:(£civ_factory_output -§Y20§! per existing §YSmithy§! level)
+ smithy_extended:0 "§YSmithy§! \nA weapons workshop with low output, but every weapon is made with love. \n\nMax Level: §Y50§! \nHealth: §Y6§! \nEmployees: §Y40§!\n \nDaily Fuel Burning: §R-24§! \nOutput: §G+[?ROOT.smithy_output]§! £mil_factory \n\nCost: £civ_factory_output §Y22000§!"
 
  factory:0 "Factory"
  factory_plural:0 "Factories"
  factory_desc:0 "This building is viable for any kind of military production. It has to be build near rivers or oceans." # \n\nCost:(£civ_factory_output -§Y500§! per existing §YFactory§! level) \n\nIt provides the state with:\n
-
- dockyard:0 "Naval Dockyard"
- dockyard_plural:0 "Naval Dockyards"
- dockyard_desc:0 "This building provides the state with industry for building new ships. It also is a great fishing spot." # \n\nCost:(£civ_factory_output -§Y50§! per existing §YNaval Dockyard§! level)
+ factory_extended:0 "§YFactory§! \nMass production of military equipment and heavy material. \n\nMax Level: §Y[?factory_level]§! \nHealth: §Y5§! \nEmployees: §Y500§!\n \nDaily Fuel Burning: §R-120§! \nOutput: §G+[?ROOT.factory_output]§! £mil_factory \n\nCost: £civ_factory_output §Y60000§!"
  
+ harbour:0 "Harbour"
+ harbour_plural:0 "Harbours"
+ harbour_desc:0 "A cheap docking spot for ships and convoys. Allows supply to pass."
+ harbour_extended:0 "§YHarbour§! \nA basic shipyard. \n\nMax Level: §Y[?harbour_level]§! \nHealth: §Y3§! \nEmployees: §Y100§!\n\nOutput: §G+[?ROOT.harbour_output]§! £dockyard_texticon \n\nCost: £civ_factory_output §Y14000§!"
+
+ dockyard:0 "Dockyard"
+ dockyard_plural:0 "Dockyards"
+ dockyard_desc:0 "This building provides the state with industry for building new ships. It also is a great fishing spot." # \n\nCost:(£civ_factory_output -§Y50§! per existing §YNaval Dockyard§! level)
+ dockyard_extended:0 "§YDockyard§! \nA heavy shipyard for advanced naval production. \n\nMax Level: §Y[?dockyard_level]§! \nHealth: §Y4§! \nEmployees: §Y200§!\n\nOutput: §G+[?ROOT.dockyard_output]§! £dockyard_texticon \n\nCost: £civ_factory_output §Y20000§!"
+
  granary:0 "Granary"
  granary_plural:0 "Granaries"
  granary_desc:0 "This building increases the storage capacity for rations."
@@ -26,18 +34,17 @@
  fuel_repository:0 "Fuel Storage"
  fuel_repository_plural:0 "Fuel Storages"
  fuel_repository_desc:0 "This building increases the storage capacity for fuel."
+ fuel_repository_extended:0 "§YFuel Storage§! \nScouts allow you to gain intel on enemy troops in nearby states.\nA higher scout level in a state increases the effective range of the scouts.\nScouts also provides the state with better detection of enemy air forces, giving your air forces a better chance to engage them.\nIn addition the scouts are increasing detection of enemy fleets at sea."
 
  air_base:0 "Air Base"
  air_base_plural:0 "Air Bases"
  air_base_desc:0 "This building provides the state with deployment for your air forces."
+ air_base_extended:0 "§YAir Base§! \nScouts allow you to gain intel on enemy troops in nearby states.\nA higher scout level in a state increases the effective range of the scouts.\nScouts also provides the state with better detection of enemy air forces, giving your air forces a better chance to engage them.\nIn addition the scouts are increasing detection of enemy fleets at sea."
 
  anti_air_building:0 "Air Defense"
  anti_air_building_plural:0 "Air Defences"
  anti_air_building_desc:0 "This building protects the state from strategical bombardements."
- 
- harbor:0 "Harbour"
- harbor_plural:0 "Harbours"
- harbor_desc:1 "A cheap docking spot for ships and convoys. Allows supply to pass."
+ anti_air_building_extended:0 "§YAir Defense§! \nScouts allow you to gain intel on enemy troops in nearby states.\nA higher scout level in a state increases the effective range of the scouts.\nScouts also provides the state with better detection of enemy air forces, giving your air forces a better chance to engage them.\nIn addition the scouts are increasing detection of enemy fleets at sea."
 
  naval_base:0 "Naval Base"
  naval_base_plural:0 "Naval Bases"
@@ -69,37 +76,84 @@
  mine:0 "Mine"
  mine_plural:0 "Mines"
  mine_desc:0 "This building provides the state with:\n" 
+ mine_extended:0 "§YMine§! \nDeep in the mines, hidden in the dark, there lie metals and fossile fuels of utmost value. \n\nMax Level: §Y[?mine_level]§! \nHealth: §Y8§! \nEmployees: §Y100§!\n\nRequirements: §R-1§!£resource_deposites|2 \nOutput: §G+[?ROOT.mine_output1]§! £resources_strip|7 §G+[?ROOT.mine_output2]§! £resources_strip|6  \n\nCost: £civ_factory_output §Y2900§!"
 
  lumber_mill:0 "Lumber Mill"
  lumber_mill_plural:0 "Lumber Mills"
  lumber_mill_desc:0 "This building provides the state with:\n"
+ lumber_mill_extended:0 "§YLumber Mill§! \nA workplace for lumberjacks to produce wood. \n\nMax Level: §Y[?lumber_mill_level]§! \nHealth: §Y12§! \nEmployees: §Y30§!\n\nRequirements: §R-1§!£resource_deposites|1 \nOutput: §G+[?ROOT.lumber_mill_output]§! £resources_strip|4 \n\nCost: £civ_factory_output §Y3000§!"
 
  quarry:0 "Quarry"
  quarry_plural:0 "Quarries"
  quarry_desc:0 "This building provides the state with:\n"
+ quarry_extended:0 "§YQuarry§! \nQuarries are the most basic mineral source. They can be buit alost everywhere. \n\nMax Level: §Y[?quarry_level]§! \nHealth: §Y16§! \nEmployees: §Y120§!\n\nRequirements: §R-1§!£resource_deposites|5 \nOutput: §G+[?ROOT.quarry_output]§! £resources_strip|5 \n\nCost: £civ_factory_output §Y2900§!"
 
- weaving:0 "Weaving Mill"
- weaving_plural:0 "Weaving Mills"
- weaving_desc:0 "This building provides the state with:\n"
+ crop_weaving:0 "Crop Weaving Mill"
+ crop_weaving_plural:0 "Crop Weaving Mills"
+ crop_weaving_desc:0 "This building provides the state with:\n"
+ crop_weaving_extended:0 "§YCrop Weaving Mill§! \nA Weaving that uses cotton or silk to produce textile. \n\nMax Level: §Y[?crop_weaving_level]§! \nHealth: §Y4§! \nEmployees: §Y70§!\n\nRequirements: §R-6§!£resources_strip|1 \nOutput: §G+[?ROOT.crop_weaving_output]§! £resources_strip|3 \n\nCost: £civ_factory_output §Y4100§!"
 
- steelworks:0 "Steelworks"
- steelworks_plural:0 "Steelworks"
+ animal_weaving:0 "Animal Product Weaving Mill"
+ animal_weaving_plural:0 "Animal Product Weaving Mills"
+ animal_weaving_desc:0 "This building provides the state with:\n"
+ animal_weaving_extended:0 "§YAnimal Product Weaving Mill§! \nA Weaving that uses hides or wool to produce textile. \n\nMax Level: §Y[?animal_weaving_level]§! \nHealth: §Y4§! \nEmployees: §Y70§!\n\nRequirements: §R-5§!£resources_strip|2 \nOutput: §G+[?ROOT.animal_weaving_output]§! £resources_strip|3 \n\nCost: £civ_factory_output §Y4100§!"
+
+ steelworks:0 "Smelting"
+ steelworks_plural:0 "Smeltings"
  steelworks_desc:0 "This building produces:\n"
- 
+ steelworks_extended:0 "§YSmelting§! \nA factory that is used to produce steel. \n\nMax Level: §Y[?steelworks_level]§! \nHealth: §Y5§! \nEmployees: §Y200§!\n\nRequirements: §R-20§!£resources_strip|7  §R-1§!£resources_strip|5 \nDaily Fuel Burning: §R-240§! \nOutput: §G+[?ROOT.steelworks_output]§! £resources_strip|8 \n\nCost: £civ_factory_output §Y18000§!"
+
  scout_tower:0 "Scout Tower"
  scout_tower_plural:0 "Scout Towers"
  scout_tower_desc:0 "Scouts allow you to gain intel on enemy troops in nearby states.\nA higher scout level in a state increases the effective range of the scouts.\nScouts also provides the state with better detection of enemy air forces, giving your air forces a better chance to engage them.\nIn addition the scouts are increasing detection of enemy fleets at sea."
  scout_tower_extended:0 "§YScout Tower§! \nScouts allow you to gain intel on enemy troops in nearby states.\nA higher scout level in a state increases the effective range of the scouts.\nScouts also provides the state with better detection of enemy air forces, giving your air forces a better chance to engage them.\nIn addition the scouts are increasing detection of enemy fleets at sea."
  
+ consumer_good_factory:0 "Shop"
+ consumer_good_factory_plural:0 "Shops"
+ consumer_good_factory_desc:0 "This building provides the state with: \n"
+ consumer_good_factory_extended:0 "§YShop§! \nBasic supplies for consumers everyday needs. \n\nMax Level: §Y[?consumer_good_factory_level]§! \nHealth: §Y4§! \nEmployees: §Y20§!\n\nRequirements: §R-2§!£resources_strip|3 §R-2§!£resources_strip|4 \nOutput: §G+[?ROOT.consumer_good_factory_output]§! £economy_resources|2 \n\nCost: £civ_factory_output §Y12000§!"
+ 
+ luxury_good_factory:0 "Luxury Store"
+ luxury_good_factory_plural:0 "Luxury Stores"
+ luxury_good_factory_desc:0 "This building provides the state with: \n"
+ luxury_good_factory_extended:0 "§YLuxury Store§! \nA Shop for the upper class of society. \n\nMax Level: §Y[?luxury_good_factory_level]§! \nHealth: §Y4§! \nEmployees: §Y20§!\n\nRequirements: §R-2§!£resources_strip|7 §R-1§!£resources_strip|5 \nOutput: §G+[?ROOT.luxury_good_factory_output]§! £economy_resources|3 \n\nCost: £civ_factory_output §Y20000§!"
+
  carpentry:0 "Carpentry"
  carpentry_plural:0 "Carpentries"
  carpentry_desc:0 "Carpentry"
- carpentry_extended:0 "§YCarpentry§! \n£population_texticon  Employees: §Y+100§!"
- carpentry_cost:0 "Cost: £construction_capacity_texticon  [?ROOT.carpentry_cost|Y0]"
+ carpentry_extended:0 "§YCarpentry§! \nThe best of all buildings. \n\nMax Level: §Y[?carpentry_level]§! \nHealth: §Y6§! \nEmployees: §Y30§!\n\nRequirements: §R-2§!£resources_strip|4 \nOutput: §G+[?ROOT.carpentry_output]§! £economy_resources|4 \n\nCost: £civ_factory_output §Y22000§!"
+
+ masonry:0 "Masonry"
+ masonry_plural:0 "Masonries"
+ masonry_desc:0 "Masonry"
+ masonry_extended:0 "§YMasonry§! \nMasons produce bricks here. \n\nMax Level: §Y[?masonry_level]§! \nHealth: §Y7§! \nEmployees: §Y40§!\n\nRequirements: §R-3§!£resources_strip|5 \nOutput: §G+[?ROOT.masonry_output]§! £economy_resources|5 \n\nCost: £civ_factory_output §Y22000§!"
+
+ steel_beam_factory:0 "Steel Beam Factory"
+ steel_beam_factory_plural:0 "Steel Beam Factories"
+ steel_beam_factory_desc:0 "Steel Beam Factory"
+ steel_beam_factory_extended:0 "§YSteel Beam Factory§! \nSteel beams are an advanced building material. \n\nMax Level: §Y[?steel_beam_factory_level]§! \nHealth: §Y6§! \nEmployees: §Y100§!\n\nRequirements: §R-6§!£resources_strip|8 \nDaily Fuel Burning: §R-48§! \nOutput: §G+[?ROOT.steel_beam_factory_output]§! £economy_resources|6 \n\nCost: £civ_factory_output §Y24000§!"
 
  farm:0 "Farm"
  farm_plural:0 "Farms"
  farm_desc:0 "This building provides the state with: \n"
+ farm_extended:0 "§YFarm§! \nFarms are the oldest and most fundamental invention of civilisation. \n\nMax Level: §Y[?farm_level]§! \nHealth: §Y9§! \nEmployees: §Y60§!\n\nRequirements: §R-1§!£resource_deposites|3 \nOutput: §G+[?ROOT.farm_output]§! £resources_strip|1 \n\nCost: £civ_factory_output §Y3700§!"
+ 
+ mill:0 "Mill"
+ mill_plural:0 "Mills"
+ mill_desc:0 "This building provides the state with:\n"
+ mill_extended:0 "§YMill§! \nWater- or Windpowered constructions to turn crops into food. \n\nMax Level: §Y[?mill_level]§! \nHealth: §Y3§! \nEmployees: §Y40§!\n\nRequirements: §R-4§!£resources_strip|1 \nOutput: §G+[?ROOT.mill_output]§! £economy_resources|1 \n\nCost: £civ_factory_output §Y1200§!"
+
+ ranch:0 "Ranch"
+ ranch_plural:0 "Ranches"
+ ranch_desc:0 "This building provides the state with: \n"
+ ranch_extended:0 "§YRanch§! \nUsed to keep animals. \n\nMax Level: §Y[?ranch_level]§! \nHealth: §Y6§! \nEmployees: §Y60§!\n\nRequirements: §R-1§!£resource_deposites|6 \nOutput: §G+[?ROOT.ranch_output]§! £resources_strip|2 \n\nCost: £civ_factory_output §Y4000§!"
+
+ fishing_stand:0 "Fishing Stand"
+ fishing_stand_plural:0 "Fishing Stands"
+ fishing_stand_desc:0 "This building provides the state with: \n"
+ fishing_stand_extended:0 "§YFishing Stand§! \nFishing Stands are used for fishing. \n\nMax Level: §Y[?fishing_stand_level]§! \nHealth: §Y7§! \nEmployees: §Y50§!\n\nRequirements: §R-1§!£resource_deposites|4 \nOutput: §G+[?ROOT.fishing_stand_output]§! £economy_resources|1 \n\nCost: £civ_factory_output §Y3700§!"
+ 
+ construction_extended_ttp:0 "§GClick§! to start construction in a random appropriate state. \n§GShift + Click§! will start 5 constructions. \n§RDeactivated Buildings§! will be §YReactivated§! first."
 
  BUILDING_BOMBED:0 "$BUILDING$ bombed!"
  BUILDING_SABOTAGED:0 "$BUILDING$ sabotaged!"

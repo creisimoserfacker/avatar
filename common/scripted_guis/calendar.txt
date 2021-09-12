@@ -7,33 +7,14 @@ scripted_gui = {
 
 		effects = {
 			calendar_button_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar }
-				set_variable = { show_calendar = show }
 				if = {
 					limit = {
-						check_variable = { show_calendar_list > 0.0 }
+						check_variable = { show_calendar = 0 }
 					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_list }
-					set_variable = { show_calendar_list = show }
+					set_variable = { show_calendar = 1 }
 				}
-				if = {
-					limit = {
-						check_variable = { show_calendar_effects > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_effects }
-					set_variable = { show_calendar_effects = show }
-				}
-
-				if = {
-					limit = {
-						check_variable = { show_avatar > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_avatar }
-					set_variable = { show_avatar = show }
+				else = {
+					set_variable = { show_calendar = 0 }
 				}
 			}
 		}
@@ -45,30 +26,12 @@ scripted_gui = {
 		window_name = "calendar_window_container"
 
 		visible = {
-			check_variable = { show_calendar > 0.0 }
+			check_variable = { show_calendar > 0 }
 		}
 
 		effects = {
 			calendar_close_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar }
-				set_variable = { show_calendar = show }
-				if = {
-					limit = {
-						check_variable = { show_calendar_list > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_list }
-					set_variable = { show_calendar_list = show }
-				}
-				if = {
-					limit = {
-						check_variable = { show_calendar_effects > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_effects }
-					set_variable = { show_calendar_effects = show }
-				}
+				set_variable = { show_calendar = 0 }
 			}
 			calendar_list_button_click = {
 				set_temp_variable = { show = 1 }

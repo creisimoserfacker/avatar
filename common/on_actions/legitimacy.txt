@@ -248,6 +248,56 @@ on_actions = {
 				add_to_variable = { law_count = 1 }
 			}
 
+			###conscription
+			if = {
+				limit = { 
+					OR = {
+						has_idea = disarmed_fire_nation
+						has_idea = volunteer_fire_nation
+						has_idea = disarmed_earth_nation
+						has_idea = volunteer_earth_nation
+						has_idea = disarmed_water_nation
+						has_idea = volunteer_water_nation
+						has_idea = disarmed_air_nation
+						has_idea = volunteer_air_nation
+					}
+				}
+				add_to_variable = { law_level_average = 1 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_idea = limited_fire_conscription
+						has_idea = limited_earth_conscription
+						has_idea = limited_water_conscription
+						has_idea = limited_air_conscription
+					}
+				}
+				add_to_variable = { law_level_average = 2 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = extensive_conscription }
+				add_to_variable = { law_level_average = 3 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { has_idea = service_by_requirement }
+				add_to_variable = { law_level_average = 4 }
+				add_to_variable = { law_count = 1 }
+			}
+			if = {
+				limit = { 
+					OR = {
+						has_idea = all_adults_serve
+						has_idea = scraping_the_barrel
+					}
+				}
+				add_to_variable = { law_level_average = 5 }
+				add_to_variable = { law_count = 1 }
+			}
+
 
 			divide_variable = { law_level_average = law_count }
 			round_variable = law_level_average
@@ -256,7 +306,12 @@ on_actions = {
 				limit = {
 					check_variable = { law_level_average = 1 }
 				}
-				add_to_variable = { legitimacy_var = 2 }
+				if = { 
+					limit = {
+						check_variable = { current_authority > 10 }
+					}
+					add_to_variable = { legitimacy_var = 2 }
+				}
 			}
 			if = { 
 				limit = {
@@ -264,17 +319,13 @@ on_actions = {
 				}
 				if = { 
 					limit = {
-						OR =  {
-							has_idea = state_3
-							has_idea = state_4
-							has_idea = state_5
-						}
+						check_variable = { current_authority > 30 }
 					}
 					add_to_variable = { legitimacy_var = 2 }
 				}
 				if = { 
 					limit = {
-						has_idea = state_1
+						check_variable = { current_authority < 30 }
 					}
 					add_to_variable = { legitimacy_var = -2 }
 				}
@@ -285,19 +336,13 @@ on_actions = {
 				}
 				if = { 
 					limit = {
-						OR =  {
-							has_idea = state_4
-							has_idea = state_5
-						}
+						check_variable = { current_authority > 50 }
 					}
 					add_to_variable = { legitimacy_var = 2 }
 				}
 				if = { 
 					limit = {
-						OR =  {
-							has_idea = state_1
-							has_idea = state_2
-						}
+						check_variable = { current_authority < 50 }
 					}
 					add_to_variable = { legitimacy_var = -2 }
 				}
@@ -308,19 +353,13 @@ on_actions = {
 				}
 				if = { 
 					limit = {
-						OR =  {
-							has_idea = state_5
-						}
+						check_variable = { current_authority > 70 }
 					}
 					add_to_variable = { legitimacy_var = 2 }
 				}
 				if = { 
 					limit = {
-						OR =  {
-							has_idea = state_1
-							has_idea = state_2
-							has_idea = state_3
-						}
+						check_variable = { current_authority < 70 }
 					}
 					add_to_variable = { legitimacy_var = -2 }
 				}
@@ -329,7 +368,12 @@ on_actions = {
 				limit = {
 					check_variable = { law_level_average = 5 }
 				}
-				add_to_variable = { legitimacy_var = -2 }
+				if = { 
+					limit = {
+						check_variable = { current_authority < 90 }
+					}
+					add_to_variable = { legitimacy_var = -2 }
+				}
 			}
 		}
 	}
