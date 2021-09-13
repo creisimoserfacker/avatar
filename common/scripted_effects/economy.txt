@@ -290,6 +290,51 @@ remove_iron_consumer = {
 	}
 }
 
+remove_fuel_consumer = {
+	random_list = {
+		50 = {
+			random_owned_state = {
+				limit = {
+					steelworks > 0
+				}
+				remove_building = {
+				    type = steelworks
+				    level = 1
+				}
+				add_building_construction = {
+					type = steelworks_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { steel_beam_factory_count < steelworks_count }
+			}
+		}
+		50 = {
+			random_owned_state = {
+				limit = {
+					steel_beam_factory > 0
+				}
+				remove_building = {
+				    type = steel_beam_factory
+				    level = 1
+				}
+				add_building_construction = {
+					type = steel_beam_factory_ooo
+					level = 1
+					instant_build = yes
+				}
+			}
+			modifier = {
+				factor = 100
+				check_variable = { steelworks_count < steel_beam_factory_count }
+			}
+		}
+	}
+}
+
 add_farm = {
 	if = {
 		limit = {

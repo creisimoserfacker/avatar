@@ -293,6 +293,17 @@ adjacency_rule
 		submarine = yes
 		trade = yes
 	}
+
+	is_disabled = {
+		AND = {
+			has_global_flag = great_gates_constructed
+			has_war_with = FIR
+			NOT = {
+				has_country_flag = black_sun_invasion
+			}
+		}
+		tooltip = great_gates_blocked_tt
+	}
 	
 	required_provinces = { 8229 8118 }
 	

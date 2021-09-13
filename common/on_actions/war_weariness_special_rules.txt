@@ -21,37 +21,8 @@ on_actions = {
             if = {
 				limit = { country_has_war_exhaustion = yes }
 
-					##### ideas ####
+				##### ideas ####
 					
-				if = {
-					limit = { has_idea = economy_3 }
-	                add_to_variable = { war_exhaustion_variable = 5 }
-				}
-				if = {
-					limit = { has_idea = economy_4 }
-	                add_to_variable = { war_exhaustion_variable = 15 }
-				}
-				if = {
-					limit = { has_idea = economy_5 }
-	                add_to_variable = { war_exhaustion_variable = 50 }
-				}
-
-				if = {
-					limit = { has_idea = family_support_2 }
-					add_to_variable = { war_exhaustion_variable = -5 }
-				}
-				if = {
-					limit = { has_idea = family_support_3 }
-					add_to_variable = { war_exhaustion_variable = -10 }
-				}
-				if = {
-					limit = { has_idea = family_support_4 }
-					add_to_variable = { war_exhaustion_variable = -15 }
-				}
-				if = {
-					limit = { has_idea = family_support_5 }
-					add_to_variable = { war_exhaustion_variable = -20 }
-				}
 
 				### advisors
 				if = {
@@ -130,6 +101,22 @@ on_actions = {
 		effect = {
             if = {
 				limit = { country_has_war_exhaustion = yes }
+
+				######## ideas #######
+
+				if = {
+					limit = { has_idea = economy_4 }
+	                add_to_variable = { war_exhaustion_variable = 1 }
+				}
+				if = {
+					limit = { has_idea = economy_5 }
+	                add_to_variable = { war_exhaustion_variable = 2 }
+				}
+
+				if = {
+					limit = { has_idea = indoctrination }
+	                add_to_variable = { war_exhaustion_variable = -2 }
+				}
 
 				set_variable = { updated_casualties = casualties_k }
 

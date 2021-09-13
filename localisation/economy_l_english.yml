@@ -6,8 +6,10 @@
  brick_count:0 "[?bricks|YG0]"
  steel_beam_count:0 "[?steel_beams|YG0]"
 
- foodstuffs:0 "§YFood§! \nFood Demand: [?food_demand|Y0]\nGained from: \n Self Employed: [?self_employed_food_supply|G0] \n Mills: [?mill_production|G0] \n Fishing Stands: [?fishing_stand_production|G0]"
+ foodstuffs0:0 "§YFood§! \nMmm Yummy"
+ foodstuffs:0 "§YFood§! \nFood Demand: [?food_demand|Y0]\nGained from: \n Self Employed: [?self_employed_food_supply|G0] \n Mills: [?mill_production|G0] \n Fishing Stands: [?fishing_stand_production|G0] \n\nModified to [?food_production_bonus|%G0] by §YTechnologies§!."
  foodstuffs_delayed:0 "§LGive them bread and circuses and they will never revolt.§!"
+ consumer_goods0:0 "§YConsumer Goods§! \nClothes, Candles, Chests and Books."
  consumer_goods:0 "§YConsumer Goods§! \nConsumer Good Demand: [?consumer_good_demand|Y0]\nGained from: \n Self Employed: [?self_employed_consumer_good_supply|G0] \n Shops: [?consumer_good_factory_production|G0]"
  consumer_goods_delayed:0 "§LThe production of too many useful things results in too many useless people.§!"
  luxury_goods:0 "§YLuxury Goods§! \n[?luxury_good_demand_factor|%Y0] Luxury Good Demand: [?luxury_good_demand|Y0]"
@@ -21,6 +23,7 @@
  production:0 "[?ic|YG0]"
  construction_resource:0 "[?construction_resource|YG0]"
  
+ population_tooltip:0 "[Root.GetFlag] [Root.GetName] Population: §Y[?max_manpower_k|Y0]K§!"
  population_title:0 "Population:"
  population_count:0 "§Y[?max_manpower_k|Y0]K§!"
  food_title:0 "Food Demand:"
@@ -50,6 +53,7 @@
  extreme_wealth_extended:0 "§YProsperity§! \n£research_speed_texticon  Research Speed: §G+20.00%§!"
  extreme_wealth_delayed:0 "§LThere are so many rich people, inventing new stuff and researching became a hobby.§!"
 
+ workers_tooltip:0 "Workers: §Y[?working_population_k|Y0]K§!"
  workers_title:0 "Workers:"
  workers_count:0 "§Y[?working_population_k|Y0]K§! ([?working_percentage|%1])"
  self_sufficient_title:0 "Self Sufficient:"
@@ -71,8 +75,9 @@
  surplus_resource_ttp:0 "§YSelf Sufficient§! Buff from surplus resources: [?resource_surplus|%G1]"
  employed_title:0 "Employed:"
  employed_count:0 "[?employed_population_k|*Y3] ([?epmployed_percentage|%1])"
+ employed_tooltip0:0 "§YEmployed§! \nEmployed people can work in any job. Only the construction resources will increase the £civ_factory §YCivilian Capacity§! though. Be carefull to balance your economy accordingly."
  employed_tooltip1:0 "§YEmployed§! \n[?employed_population_k|*Y3]/§Y[?working_population_k|Y0]K§! workers are employed in factories. \n£farming|1 Farmers: [?farm_employed|*Y3] \n£milling|1 Millers: [?mill_employed|*Y3] \n£fishing|1 Fishers: [?fishing_stand_employed|*Y3] \n£ranch|1 Rancher: [?hunting_stand_employed|*Y3] \n£lumberjack|1 Lumberjack : [?lumber_mill_employed|*Y3] \n£quarry|1 Open Pit Miners :[?quarry_employed|*Y3]\n£mine|1 Miners: [?mine_employed|*Y3]\n£weaving|1 Weaver: [?weaving_employed|*Y3]\n£smelting|1 Steelworkers: [?steelworks_employed|*Y3]\n\n£smithy|1 Blacksmiths: [?smithy_employed|*Y3]\n£factory|1 Factory Workers: [?factory_employed|*Y3]\n£harbour|1 Harbour Workers: [?harbour_employed|*Y3]\n£dockyard_factory|1 Dockyard Workers: [?dockyard_employed|*Y3]\n£store|1 Tailors: [?consumer_goods_factory_employed|*Y3]\n£luxury_store|1 Jeweler: [?luxury_goods_factory_employed|*Y3]\n£carpentry|1 Carpenters: [?carpentry_employed|*Y3]\n£masonry|1 Masons: [?masonry_employed|*Y3]\n£steel_beam_factory|1 Steel Beam Workers: [?steel_beam_factory_employed|*Y3]"
- employed_tooltip2:0 "§YEmployed§! \nTotal output: [?employed_total_output|G0] \n\n[?state_stealing|Y%0] £taxes_texticon  Taxation: [?employed_ic|Y0] £civ_factory \n£economy_resources_texticons|1 Food: [?employed_food_production|G0] \n£economy_resources_texticons|2 Consumer Goods: [?consumer_good_factory_production|G0]"
+ employed_tooltip2:0 "§YEmployed§! \nTotal output: [?employed_ic_show|G0] \n\n[?state_stealing|Y%0] £taxes_texticon  Taxation: [?employed_ic|Y0] £civ_factory \n£economy_resources_texticons|1 Food: [?employed_food_production|G0] \n£economy_resources_texticons|2 Consumer Goods: [?consumer_good_factory_production|G0]"
  employed_tooltip_delayed:0 "§LEmployed Workers are a far more efficient bunch. They have the right tools and materials to do their job, in which they were specially trained.§!"
  building_number:0 "[?building_count]"
  buildings_tooltip:0 "§YBuildings§! \nOne Building needs §Y2 Construction Resources§! to be maintained. \nYour country has: \n£farming|2 Farms - [?farm_count|Y0] - [?farm_ooo_count|R0] \n£milling|2 Mills - [?mill_count|Y0] - [?mill_ooo_count|R0] \n£ranch|2 Ranches - [?ranch_count|Y0] - [?ranch_ooo_count|R0] \n£fishing|2 Fishing Stands - [?fishing_stand_count|Y0] - [?fishing_stand_ooo_count|R0] \n£weaving|2 Crop Weavings - [?crop_weaving_count|Y0] - [?crop_weaving_ooo_count|R0] \n£weaving|2 Animal Weavings - [?animal_weaving_count|Y0] - [?animal_weaving_ooo_count|R0] \n£lumberjack|2 Lumber Mills - [?lumber_mill_count|Y0] - [?lumber_mill_ooo_count|R0] \n£quarry|2 Quarries - [?quarry_count|Y0] - [?quarry_ooo_count|R0] \n£mine|2 Mines - [?mine_count|Y0] - [?mine_ooo_count|R0] \n£smelting|2 Smeltings - [?steelworks_count|Y0] - [?steelworks_ooo_count|R0] \n\n£smithy|2 Smithies - [?smithy_count|Y0] \n£factory|2 Factories - [?factory_count|Y0] \n£harbour|2 Harbours - [?harbour_count|Y0] \n£dockyard_factory|2 Dockyards - [?dockyard_count|Y0] \n£store|2 Shops - [?consumer_good_factory_count|Y0] - [?consumer_good_factory_ooo_count|R0] \n£luxury_store|2 Luxury Stores - [?luxury_good_factory_count|Y0] - [?luxury_good_factory_ooo_count|R0] \n£carpentry|2 Carpentries - [?carpentry_count|Y0] - [?carpentry_ooo_count|R0] \n£masonry|2 Masonries - [?masonry_count|Y0] - [?masonry_ooo_count|R0] \n£steel_beam_factory|2 Steel Beam Factories - [?steel_beam_factory_count|Y0] - [?steel_beam_factory_ooo_count|R0]"
@@ -106,7 +111,7 @@
 
  increase_infra:0 "§YIncrease Infrastructure§!"
  increase_infra_delayed:0 "State Tiles"
- send_settlers:0 "§YSend Settlers§!"
+ send_settlers:0 "§YSend Settlers§! \nIt costs £pol_power §Y50§! to send settlers to §Y[THIS.GetName]§!. \n\n§YSettlements§! can be created every §C10%§! of Compliance points."
  send_settlers_deayed:0 "State Tiles"
  state_tiles:0 "Resource Deposites"
  resources_title:0 "Produced Resources"
