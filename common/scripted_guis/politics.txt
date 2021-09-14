@@ -33,9 +33,47 @@ scripted_gui = {
 			state_indicator = {
 				x = legitimacy_var
 			}
+
+			air_1 = {
+				image = "[get_air_icon_1]"
+			}
+			air_2 = {
+				image = "[get_air_icon_2]"
+			}
+			air_3 = {
+				image = "[get_air_icon_3]"
+			}
+			air_4 = {
+				image = "[get_air_icon_4]"
+			}
+			air_5 = {
+				image = "[get_air_icon_5]"
+			}
 		}
 
 		triggers = {
+			state_indicator_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			legitimacy_level_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			state_1_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			state_2_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			state_3_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			state_4_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+			state_5_visible = {
+				NOT = { TAG = SAT TAG = WAT TAG = EAT TAG = NAT }
+			}
+
 			fir_legit_bg_visible = {
 				has_government = imperialism
 			}
@@ -68,12 +106,94 @@ scripted_gui = {
 
 			air_legit_bg_visible = {
 				has_government = pacifism
+				NOT = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
 			}
 			air_high_legitimacy_visible = {
 				has_government = pacifism
+				NOT = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
 			}
 			air_low_legitimacy_visible = {
 				has_government = pacifism
+				NOT = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+
+			air_spirit_bg_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_council_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_1_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_2_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_3_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_4_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
+			}
+			air_5_visible = {
+				has_government = pacifism
+				OR = {
+					TAG = SAT
+					TAG = WAT
+					TAG = EAT
+					TAG = NAT
+				}
 			}
 		}
 		
