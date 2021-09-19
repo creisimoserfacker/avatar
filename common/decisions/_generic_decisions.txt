@@ -1,3 +1,129 @@
+
+reoccupy_category = {
+
+	show_genocided_territories = {
+
+		visible = {
+			NOT = {
+				has_country_flag = show_genocided_territories
+			}
+		}
+
+		complete_effect = {
+			set_country_flag = show_genocided_territories
+		}
+
+	}
+
+	hide_genocided_territories = {
+
+		visible = {
+			has_country_flag = show_genocided_territories
+		}
+
+		complete_effect = {
+			clr_country_flag = show_genocided_territories
+		}
+
+	}
+	
+	reinhabit_land = {
+
+		icon = onmap_colonising
+
+		available = {
+			NOT = {
+				has_country_flag = establishing_a_colony
+			}
+			has_country_flag = show_genocided_territories
+			FROM = {
+				NOT = {
+					is_core_of = ROOT
+					has_state_flag = recolonisation_in_progress
+				}
+				has_dynamic_modifier = {
+					modifier = genocide_state
+				}
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				AND = {
+					OR = {
+						is_coastal = yes
+						is_owned_by = ROOT
+						any_neighbor_state = { is_owned_by = ROOT }
+					}
+					has_dynamic_modifier = {
+						modifier = genocide_state
+					}
+					NOT = {
+						has_state_flag = recolonisation_in_progress
+						is_core_of = ROOT
+					}
+				}
+			}
+		}
+		visible = {
+			NOT = {
+				has_country_flag = establishing_a_colony
+			}
+			has_country_flag = show_genocided_territories
+			FROM = {
+				NOT = {
+					is_core_of = ROOT
+					has_state_flag = recolonisation_in_progress
+				}
+				has_dynamic_modifier = {
+					modifier = genocide_state
+				}
+			}
+		}
+
+		fire_only_once = no
+		#cost = THIS.distance_to@capital?10
+
+		days_remove = 365
+		#days_re_enable = 180
+		on_map_mode = map_only
+		complete_effect = {
+			FROM = {
+				set_state_flag = recolonisation_in_progress
+			}
+			ROOT = {
+				set_country_flag = establishing_a_colony
+			}
+		}
+
+		modifier = {
+			monthly_population = -0.1
+			stability_weekly_factor = -0.001
+			consumer_goods_factor = 0.1
+		}
+
+		remove_effect = {
+			ROOT = {
+				clr_country_flag = establishing_a_colony
+				transfer_state = FROM
+				add_stability = 0.1
+			}
+			FROM = {
+				clr_state_flag = recolonisation_in_progress
+				add_core_of = ROOT
+				remove_dynamic_modifier = { modifier = genocide_state }
+				force_update_dynamic_modifier = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+}
+
 recruitment_decision_category = {
 	
 	small_recruitment_campaign = {
@@ -1640,7 +1766,7 @@ generic_research_slot_category = {
         fire_only_once = yes
 
         custom_cost_trigger = {
-			num_of_available_civilian_factories > 4
+			num_of_civilian_factories > 4
 		}
 		custom_cost_text = manufactory_5
 
@@ -1682,7 +1808,7 @@ generic_research_slot_category = {
 		}
 
 		custom_cost_trigger = {
-			num_of_available_civilian_factories > 9
+			num_of_civilian_factories > 9
 		}
 		custom_cost_text = manufactory_10
 
@@ -1724,7 +1850,7 @@ generic_research_slot_category = {
 		}
 
 		custom_cost_trigger = {
-			num_of_available_civilian_factories > 19
+			num_of_civilian_factories > 19
 		}
 		custom_cost_text = manufactory_20
 

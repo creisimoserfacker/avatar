@@ -315,7 +315,7 @@ NCountry = {
 	FUEL_LEASE_CONVOY_RATIO = 0.0005,				-- num convoys needed per fuel land lease 
 	
 	STARTING_FUEL_RATIO = 0.25,						-- starting fuel ratio compared to max fuel for countries
-	BASE_FUEL_GAIN_PER_OIL = 2,						-- base amount of fuel gained hourly per excess oil
+	BASE_FUEL_GAIN_PER_OIL = 10,						-- base amount of fuel gained hourly per excess oil
 	BASE_FUEL_GAIN = 2.0,							-- base amount of fuel gained hourly, independent of excess oil
 	BASE_FUEL_CAPACITY = 50000,						-- base amount of fuel capacity
 
@@ -629,7 +629,7 @@ NMilitary = {
 	LAND_AIR_COMBAT_STR_DAMAGE_MODIFIER = 0.004,    -- air global damage modifier
 	LAND_AIR_COMBAT_ORG_DAMAGE_MODIFIER = 0.004,    -- global damage modifier
 	LAND_AIR_COMBAT_MAX_PLANES_PER_ENEMY_WIDTH = 3, -- how many CAS/TAC can enter a combat depending on enemy width there
-	LAND_COMBAT_STR_ARMOR_ON_SOFT_DICE_SIZE = 12,   -- extra damage dice if our armor outclasses enemy
+	LAND_COMBAT_STR_ARMOR_ON_SOFT_DICE_SIZE = 24,   -- extra damage dice if our armor outclasses enemy
 	LAND_COMBAT_ORG_ARMOR_ON_SOFT_DICE_SIZE = 24,   -- extra damage dice if our armor outclasses enemy
 	LAND_COMBAT_STR_ARMOR_DEFLECTION_FACTOR = 0.5, -- % damage taken if armor outclassing enemy
 	LAND_COMBAT_ORG_ARMOR_DEFLECTION_FACTOR = 0.25, -- % damage taken if armor outclassing enemy
@@ -691,7 +691,7 @@ NMilitary = {
 	EXPEDITIONARY_FIELD_EXPERIENCE_SCALE = 0.5,		-- reduction factor in Xp from expeditionary forces
 	LEND_LEASE_FIELD_EXPERIENCE_SCALE = 0.005,		-- Experience scale for lend leased equipment used in combat.
 	LEADER_EXPERIENCE_SCALE = 1.0,
-	SLOWEST_SPEED = 2,
+	SLOWEST_SPEED = 0.5,
 	REINFORCEMENT_REQUEST_MAX_WAITING_DAYS = 14,   -- Every X days the equipment will be sent, regardless if still didn't produced all that has been requested.
 	REINFORCEMENT_REQUEST_DAYS_FREQUENCY = 7,	   -- How many days must pass until we may give another reinforcement request
 	EXPERIENCE_COMBAT_FACTOR = 0.05,

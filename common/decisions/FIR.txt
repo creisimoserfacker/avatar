@@ -170,9 +170,7 @@ FIR_industrialistation_category = {
 		available = {
 			any_owned_state = {
 				arms_factory > 0
-				industrial_complex > 0
-				dockyard > 0
-				factory < 3
+				factory < 1
 			}
 			has_tech = reform_3
 		}
@@ -183,9 +181,7 @@ FIR_industrialistation_category = {
 					is_core_of = ROOT 
 					THIS = {
 						arms_factory > 0
-						industrial_complex > 0
-						dockyard > 0
-						factory < 3
+						factory < 1
 					}
 				}
 				add_building_construction = {
@@ -197,20 +193,12 @@ FIR_industrialistation_category = {
 					type = arms_factory
 					level = 1
 				}
-				remove_building = {
-					type = industrial_complex
-					level = 1
-				}
-				remove_building = {
-					type = dockyard
-					level = 1
-				}
 			}
 		}
 
 		cost = 50
         #fire_only_once = yes
-        days_remove = 30
+        days_remove = 60
         days_re_enable = 30
 
         ai_will_do = {
@@ -584,10 +572,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-						OR = {
-							has_decision = central_attack_plan
-							has_decision = southern_attack_plan
-						}
+					}
+					OR = {
+						has_decision = central_attack_plan
+						has_decision = southern_attack_plan
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -640,10 +628,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-						OR = {
-							has_decision = northern_attack_plan
-							has_decision = southern_attack_plan
-						}
+					}
+					OR = {
+						has_decision = northern_attack_plan
+						has_decision = southern_attack_plan
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -696,10 +684,10 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
-						OR = {
-							has_decision = central_attack_plan
-							has_decision = northern_attack_plan
-						}
+					}
+					OR = {
+						has_decision = central_attack_plan
+						has_decision = northern_attack_plan
 					}
 				}
 				has_country_flag = military_preparations_complete
@@ -886,28 +874,13 @@ FIR_outpost_category = {
 		}
 
 		visible = {
-			ships_in_area = { area = 36 size > 9 }
-			NOT = {
-				any_province_building_level = {
-				    province = {
-				        id = 7281
-				    }
-				    building = naval_base
-				    level > 5
-				}
-			}
+
 		}
 
 		available = {
 			ships_in_area = { area = 36 size > 9 }
-			NOT = {
-				any_province_building_level = {
-				    province = {
-				        id = 7281
-				    }
-				    building = naval_base
-				    level > 5
-				}
+			264 = {
+				is_controlled_by = FIR
 			}
 		}
 
@@ -915,7 +888,8 @@ FIR_outpost_category = {
 
 		modifier = {
 			civilian_factory_use = 4
-			weekly_manpower = -20
+			country_resource_cost_aluminium = 10
+			country_resource_cost_steel = 2
 		}
 
 		remove_effect = {
@@ -936,7 +910,101 @@ FIR_outpost_category = {
 		}
 
 		cost = 50
-        fire_only_once = yes
+		fire_only_once = yes
+	}
+
+	earthkingdom_harbour_base = {
+
+		icon = buildup
+
+		highlight_state_targets = {
+			state = 73
+		}
+
+		visible = {
+
+		}
+
+		available = {
+			ships_in_area = { area = 101 size > 9 }
+			73 = {
+				is_controlled_by = FIR
+			}
+		}
+
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 4
+			country_resource_cost_aluminium = 10
+			country_resource_cost_steel = 2
+		}
+
+		remove_effect = {
+			73 = {
+				set_building_level = {
+					type = naval_base
+					level = 6
+					instant_build = yes
+					province = {
+						all_provinces = yes
+					}
+				}
+			}
+			set_victory_points = {
+				province = 10554
+				value = 10
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+	}
+
+	whale_tail_base = {
+
+		icon = buildup
+
+		highlight_state_targets = {
+			state = 356
+		}
+
+		visible = {
+
+		}
+
+		available = {
+			ships_in_area = { area = 158 size > 9 }
+			356 = {
+				is_controlled_by = FIR
+			}
+		}
+
+		days_remove = 120
+
+		modifier = {
+			civilian_factory_use = 4
+			country_resource_cost_aluminium = 10
+			country_resource_cost_steel = 2
+		}
+
+		remove_effect = {
+			356 = {
+				add_building_construction = {
+				    type = naval_base
+				    level = 4
+				    instant_build = yes
+				    province = 9354
+				}
+			}
+			set_victory_points = {
+				province = 3134
+				value = 10
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
 	}
 
 }
@@ -975,48 +1043,54 @@ FIR_civil_decision_category = {
 
 		available = {
 			imperialism > 0.5
-			#enemies_naval_strength_ratio > 0.25
+			enemies_naval_strength_ratio > 0.25
 		}
 
 		visible = {
 			imperialism > 0.4
 			not = {
-				has_active_mission = the_great_gates_mission
+				has_country_flag = great_gate_construction
 			}
 		}
 
-		complete_effect = {
-			activate_mission = the_great_gates_mission
+		days_remove = 168
+
+		modifier = {
+			civilian_factory_use = 4
 		}
 
-		cost = 100
-		fire_only_once = no
+		remove_effect = {
+			set_global_flag = great_gates_constructed
+			390 = {
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 8118
+				}
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 10519
+				}
+			}
+			428 = {
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 8229
+				}
+			}
+		}
+
+		cost = 200
+		fire_only_once = yes
 	
 	}
 
-	the_great_gates_mission = {
-		icon = mission_gates
-		available = {
-			always = no
-		}
-		days_mission_timeout = 180
-		is_good = yes
-		allowed = {
-			always = no
-		}
-		complete_effect = {
-			clr_country_flag = unity_buildup_in_progress
-			clr_country_flag = united_hunter_organisation_in_progress
-		}
-		timeout_effect = {
-			clr_country_flag = unity_buildup_in_progress
-			clr_country_flag = united_hunter_organisation_in_progress
-		}
-	}
-
 }
-
-
 
 
 FIR_colonies_category = {
@@ -1101,6 +1175,8 @@ FIR_colonies_category = {
 			NOT = {
 				country_exists = PFC
 			}
+			has_government = imperialism
+			has_war_with = EAR
 		}
 
 		available = {
@@ -1199,6 +1275,80 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
+	support_yu_dao_uprising = {
+
+		icon = fir_colony
+
+		highlight_state_targets = {
+			state = 230
+		}
+
+		visible = {
+			NOT = {
+				has_war_with = WUL
+				country_exists = YFC
+			}
+			has_government = imperialism
+		}
+
+		available = {
+			has_government = imperialism
+			has_equipment = { spear_equipment > 479 }
+			has_equipment = { heavy_armor_equipment > 479 }
+			has_equipment = { light_armor_equipment > 199 }
+			has_equipment = { bow_equipment > 199 }
+			has_equipment = { arrow_equipment > 5999 }
+		}
+
+		days_remove = 90
+
+		complete_effect = {
+
+			add_equipment_to_stockpile = {
+				type = spear_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = heavy_armor_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = light_armor_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = bow_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = arrow_equipment
+				amount = -6000
+				producer = FIR
+			}
+
+		}
+
+		modifier = {
+			political_power_gain = -0.5
+		}
+
+		remove_effect = {
+
+			custom_effect_tooltip = yu_dao_uprising
+			WUL = {
+				set_country_flag = YFC_fire_sympathisants
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
 	yu_dao_colony = {
 
 		icon = fir_colony
@@ -1213,6 +1363,8 @@ FIR_colonies_category = {
 			NOT = {
 				country_exists = YFC
 			}
+			has_government = imperialism
+			has_war_with = EAR
 		}
 
 		available = {
@@ -1273,6 +1425,8 @@ FIR_colonies_category = {
 			NOT = {
 				country_exists = MFC
 			}
+			has_government = imperialism
+			has_war_with = EAR
 		}
 
 		available = {
@@ -1333,6 +1487,8 @@ FIR_colonies_category = {
 			NOT = {
 				country_exists = HFC
 			}
+			has_government = imperialism
+			has_war_with = EAR
 		}
 
 		available = {
@@ -1379,6 +1535,80 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
+	support_han_tui_uprising = {
+
+		icon = fir_colony
+
+		highlight_state_targets = {
+			state = 280
+		}
+
+		visible = {
+			NOT = {
+				has_war_with = HAN
+				country_exists = KFC
+			}
+			has_government = imperialism
+		}
+
+		available = {
+			has_government = imperialism
+			has_equipment = { spear_equipment > 479 }
+			has_equipment = { heavy_armor_equipment > 479 }
+			has_equipment = { light_armor_equipment > 199 }
+			has_equipment = { bow_equipment > 199 }
+			has_equipment = { arrow_equipment > 5999 }
+		}
+
+		days_remove = 90
+
+		complete_effect = {
+
+			add_equipment_to_stockpile = {
+				type = spear_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = heavy_armor_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = light_armor_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = bow_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = arrow_equipment
+				amount = -6000
+				producer = FIR
+			}
+
+		}
+
+		modifier = {
+			political_power_gain = -0.5
+		}
+
+		remove_effect = {
+
+			custom_effect_tooltip = han_tui_uprising
+			HAN = {
+				set_country_flag = KFC_fire_sympathisants
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
 	han_tui_colony = {
 
 		icon = fir_colony
@@ -1393,6 +1623,8 @@ FIR_colonies_category = {
 			NOT = {
 				country_exists = KFC
 			}
+			has_government = imperialism
+			has_war_with = EAR
 		}
 
 		available = {

@@ -1,283 +1,5 @@
 on_actions = {
 
-	on_startup = {
-		effect = {
-			every_country = {
-				set_variable = { working_percentage = 0.55 }
-				set_variable = { consumer_good_demand_factor = 1 }
-				set_variable = { food_production_bonus = 1 }
-
-				set_variable = { farm_output = 2 }
-				set_variable = { fishing_stand_output = 2 }
-				set_variable = { ranch_output = 4 }
-				set_variable = { lumber_mill_output = 8 }
-				set_variable = { quarry_output = 4 }
-				set_variable = { mine_output1 = 9 }
-				set_variable = { mine_output2 = 1 }
-				set_variable = { crop_weaving_output = 10 }
-				set_variable = { animal_weaving_output = 10 }
-				set_variable = { mill_output = 2 }
-				set_variable = { steelworks_output = 10 }
-
-				set_variable = { smithy_output = 4 }
-				set_variable = { factory_output = 12 }
-				set_variable = { harbour_output = 1 }
-				set_variable = { dockyard_output = 2 }
-				set_variable = { consumer_good_factory_output = 4 }
-				set_variable = { luxury_good_factory_output = 3 }
-				set_variable = { carpentry_output = 6 }
-				set_variable = { masonry_output = 6 }
-				set_variable = { steel_beam_factory_output = 6 }
-
-				if = {
-					limit = {
-						has_tech = farm_1
-					}
-					add_to_variable = { farm_level = 10 }
-					if = {
-						limit = {
-							has_tech = farm_united
-						}
-						add_to_variable = { farm_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = ranch_1
-					}
-					add_to_variable = { ranch_level = 10 }
-					if = {
-						limit = {
-							has_tech = farm_united
-						}
-						add_to_variable = { ranch_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = mill_1
-					}
-					add_to_variable = { mill_level = 10 }
-					if = {
-						limit = {
-							has_tech = mill_2
-						}
-						add_to_variable = { mill_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = crop_weaving_1
-					}
-					add_to_variable = { crop_weaving_level = 10 }
-					if = {
-						limit = {
-							has_tech = crop_weaving_2
-						}
-						add_to_variable = { crop_weaving_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = animal_weaving_1
-					}
-					add_to_variable = { animal_weaving_level = 10 }
-					if = {
-						limit = {
-							has_tech = animal_weaving_2
-						}
-						add_to_variable = { animal_weaving_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = fishing_stand_1
-					}
-					add_to_variable = { fishing_stand_level = 10 }
-					if = {
-						limit = {
-							has_tech = fishing_stand_2
-						}
-						add_to_variable = { fishing_stand_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = lumber_1
-					}
-					add_to_variable = { lumber_mill_level = 10 }
-					if = {
-						limit = {
-							has_tech = lumber_2
-						}
-						add_to_variable = { lumber_mill_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = carpentry_1
-					}
-					add_to_variable = { carpentry_level = 10 }
-					if = {
-						limit = {
-							has_tech = carpentry_2
-						}
-						add_to_variable = { carpentry_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = harbour_1
-					}
-					add_to_variable = { harbour_level = 10 }
-					if = {
-						limit = {
-							has_tech = harbour_2
-						}
-						add_to_variable = { harbour_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = masonry_1
-					}
-					add_to_variable = { masonry_level = 10 }
-					if = {
-						limit = {
-							has_tech = masonry_2
-						}
-						add_to_variable = { masonry_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = quarry_1
-					}
-					add_to_variable = { quarry_level = 10 }
-					if = {
-						limit = {
-							has_tech = quarry_2
-						}
-						add_to_variable = { quarry_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = mine_1
-					}
-					add_to_variable = { mine_level = 10 }
-					if = {
-						limit = {
-							has_tech = mine_2
-						}
-						add_to_variable = { mine_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = steelworks_1
-					}
-					add_to_variable = { steelworks_level = 10 }
-					if = {
-						limit = {
-							has_tech = steelworks_2
-						}
-						add_to_variable = { steelworks_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = smithy_1
-					}
-					add_to_variable = { smithy_level = 10 }
-					if = {
-						limit = {
-							has_tech = smithy_2
-						}
-						add_to_variable = { smithy_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = factory_1
-					}
-					add_to_variable = { factory_level = 10 }
-					if = {
-						limit = {
-							has_tech = factory_2
-						}
-						add_to_variable = { factory_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = dockyard_1
-					}
-					add_to_variable = { dockyard_level = 10 }
-					if = {
-						limit = {
-							has_tech = dockyard_2
-						}
-						add_to_variable = { dockyard_level = 40 }
-					}
-				}
-				if = {
-					limit = {
-						has_tech = steel_beam_factory_1
-					}
-					add_to_variable = { steel_beam_factory_level = 10 }
-					if = {
-						limit = {
-							has_tech = steel_beam_factory_2
-						}
-						add_to_variable = { steel_beam_factory_level = 40 }
-					}
-				}
-
-				set_variable = { consumer_good_factory_level = 50 }
-				set_variable = { luxury_good_factory_level = 50 }
-
-				if = {
-					limit = {
-						has_idea = family_support_5
-					}
-					add_to_variable = { state_stealing = 0.05 }
-				}
-				if = {
-					limit = {
-						has_idea = family_support_4
-					}
-					add_to_variable = { state_stealing = 0.1 }
-				}
-				if = {
-					limit = {
-						has_idea = family_support_3
-					}
-					add_to_variable = { state_stealing = 0.15 }
-				}
-				if = {
-					limit = {
-						has_idea = family_support_2
-					}
-					add_to_variable = { state_stealing = 0.2 }
-				}
-				if = {
-					limit = {
-						has_idea = family_support_1
-					}
-					add_to_variable = { state_stealing = 0.25 }
-				}
-
-				if = {
-					limit = {
-						has_idea = national_prosperity
-					}
-					add_to_variable = { consumer_good_demand_factor = 0.2 }
-				}
-			}
-		}
-	}
-
 	on_daily = {
 		effect = {
 
@@ -584,7 +306,7 @@ on_actions = {
 			}
 
 			set_variable = { self_employed_output = self_employed }
-			divide_variable = { self_employed_output = 5 }
+			divide_variable = { self_employed_output = 2.5 }
 			set_temp_variable = { resource_factor = 1 }
 			add_to_temp_variable = { resource_factor = resource_surplus }
 			multiply_variable = { self_employed_output = resource_factor }
@@ -601,14 +323,17 @@ on_actions = {
 
 			set_variable = { self_employed_food_supply = self_employed_output }
 			multiply_variable = { self_employed_food_supply = capacity_for_food_supply }
+			multiply_variable = { self_employed_food_supply = food_production_bonus }
 			add_to_variable = { food_supply = self_employed_food_supply }
 
 			set_variable = { mill_production = mill_count }
 			multiply_variable = { mill_production = mill_output }
+			multiply_variable = { mill_production = food_production_bonus }
 			add_to_variable = { food_supply = mill_production }
 
 			set_variable = { fishing_stand_production = fishing_stand_count }
 			multiply_variable = { fishing_stand_production = fishing_stand_output }
+			multiply_variable = { fishing_stand_production = food_production_bonus }
 			add_to_variable = { food_supply = fishing_stand_production }
 
 			set_variable = { employed_food_production = mill_production }
@@ -662,7 +387,9 @@ on_actions = {
 						check_variable = { food_supply < half_food_demand }
 					}
 				}
-				add_ideas = famine
+				hidden_effect = {
+					add_ideas = famine
+				}
 			}
 			else_if = {
 				limit = {
@@ -674,7 +401,9 @@ on_actions = {
 						check_variable = { food_supply > half_food_demand }
 					}
 				}
-				add_ideas = food_shortages
+				hidden_effect = {
+					add_ideas = food_shortages
+				}
 			}
 			else_if = {
 				limit = {
@@ -686,7 +415,9 @@ on_actions = {
 						check_variable = { food_supply > half_more_food_demand }
 					}
 				}
-				add_ideas = food_surplus_idea
+				hidden_effect = {
+					add_ideas = food_surplus_idea
+				}
 			}
 			else_if = {
 				limit = {
@@ -697,7 +428,9 @@ on_actions = {
 						check_variable = { food_supply > double_food_demand }
 					}
 				}
-				add_ideas = burgerking
+				hidden_effect = {
+					add_ideas = burgerking
+				}
 			}
 
 			set_variable = { half_consumer_demand = consumer_good_demand }
@@ -797,6 +530,7 @@ on_actions = {
 			set_variable = { employed_ic = plank_factor }
 			add_to_variable = { employed_ic = brick_factor }
 			add_to_variable = { employed_ic = steel_beam_factor }
+			set_variable = { employed_ic_show = employed_ic }
 			multiply_variable = { employed_ic = state_stealing }
 			add_to_variable = { ic = employed_ic }
 
@@ -815,26 +549,110 @@ on_actions = {
 				subtract_from_variable = { forest_available = building_level@lumber_mill }
 				set_variable = { forest_used = forest }
 				subtract_from_variable = { forest_used = forest_available }
+				if = {
+					limit = {
+						check_variable = { forest_used > forest }
+					}
+					remove_building = {
+					    type = lumber_mill
+					    level = 1
+					}
+					add_building_construction = {
+						type = lumber_mill_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 				set_variable = { field_available = field }
 				subtract_from_variable = { field_available = building_level@farm }
 				set_variable = { field_used = field }
 				subtract_from_variable = { field_used = field_available }
+				if = {
+					limit = {
+						check_variable = { field_used > field }
+					}
+					remove_building = {
+					    type = farm
+					    level = 1
+					}
+					add_building_construction = {
+						type = farm_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 				set_variable = { animal_available = animal }
 				subtract_from_variable = { animal_available = building_level@ranch }
 				set_variable = { animal_used = animal }
 				subtract_from_variable = { animal_used = animal_available }
+				if = {
+					limit = {
+						check_variable = { animal_used > animal }
+					}
+					remove_building = {
+					    type = ranch
+					    level = 1
+					}
+					add_building_construction = {
+						type = ranch_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 				set_variable = { mountain_available = mountain }
 				subtract_from_variable = { mountain_available = building_level@mine }
 				set_variable = { mountain_used = mountain }
 				subtract_from_variable = { mountain_used = mountain_available }
+				if = {
+					limit = {
+						check_variable = { mountain_used > mountain }
+					}
+					remove_building = {
+					    type = mine
+					    level = 1
+					}
+					add_building_construction = {
+						type = mine_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 				set_variable = { stonefield_available = stonefield }
 				subtract_from_variable = { stonefield_available = building_level@quarry }
 				set_variable = { stonefield_used = stonefield }
 				subtract_from_variable = { stonefield_used = stonefield_available }
+				if = {
+					limit = {
+						check_variable = { stonefield_used > stonefield }
+					}
+					remove_building = {
+					    type = quarry
+					    level = 1
+					}
+					add_building_construction = {
+						type = quarry_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 				set_variable = { water_available = water }
 				subtract_from_variable = { water_available = building_level@fishing_stand }
 				set_variable = { water_used = water }
 				subtract_from_variable = { water_used = water_available }
+				if = {
+					limit = {
+						check_variable = { water_used > water }
+					}
+					remove_building = {
+					    type = fishing_stand
+					    level = 1
+					}
+					add_building_construction = {
+						type = fishing_stand_ooo
+						level = 1
+						instant_build = yes
+					}
+				}
 			}
 
 			### extra factories
@@ -913,6 +731,41 @@ on_actions = {
 					}
 				}
 				remove_iron_consumer = yes
+			}
+			if = {
+				limit = {
+					fuel_ratio < 0.01
+				}
+				remove_fuel_consumer = yes
+			}
+
+			if = {
+				limit = {
+					check_variable = { epmployed_percentage > 1 }
+				}
+				random_list = {
+					10 = {
+						remove_steel_consumer = yes
+					}
+					10 = {
+						remove_iron_consumer = yes
+					}
+					10 = {
+						remove_animal_consumer = yes
+					}
+					10 = {
+						remove_stone_consumer = yes
+					}
+					10 = {
+						remove_textile_consumer = yes
+					}
+					10 = {
+						remove_wood_consumer = yes
+					}
+					10 = {
+						remove_crop_consumer = yes
+					}
+				}
 			}
 
 		}
