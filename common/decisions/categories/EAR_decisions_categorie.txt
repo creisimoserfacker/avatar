@@ -1,3 +1,44 @@
+
+THE_EARTHKINGDOM = {
+    icon = earth_kingdom
+
+	visible = {
+		ROOT = {
+			is_in_array = {
+				array = global.earth_kingdom
+				value = THIS.id
+			}
+		}
+	}
+	visible_when_empty = yes
+
+	scripted_gui = earth_kingdom_ui
+
+	priority = {
+		base = 1000
+	}
+}
+
+earth_factions_category = {
+    icon = earth_kingdom
+
+	visible = {
+		AND = {
+			capital_scope = {
+				OR = {
+					is_on_continent = europe
+					is_on_continent = north_america
+					is_on_continent = south_america
+				}
+			}
+		}
+	}
+
+	priority = {
+		base = 1000
+	}
+}
+
 #Earth kingdom Defense
 EAR_defense_category = {
     icon = military_operation

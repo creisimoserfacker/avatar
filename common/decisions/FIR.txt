@@ -562,6 +562,7 @@ FIR_conquest_category = {
 			NOT = { 
 				has_war_with = EAR 
 				has_country_flag = FIR_attack_plan_made
+				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -572,6 +573,7 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
 					}
 					OR = {
 						has_decision = central_attack_plan
@@ -618,6 +620,7 @@ FIR_conquest_category = {
 			NOT = { 
 				has_war_with = EAR 
 				has_country_flag = FIR_attack_plan_made
+				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -628,6 +631,7 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
 					}
 					OR = {
 						has_decision = northern_attack_plan
@@ -674,6 +678,7 @@ FIR_conquest_category = {
 			NOT = { 
 				has_war_with = EAR 
 				has_country_flag = FIR_attack_plan_made
+				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -684,6 +689,7 @@ FIR_conquest_category = {
 					AND = {
 						has_war_with = EAR 
 						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
 					}
 					OR = {
 						has_decision = central_attack_plan
@@ -727,13 +733,17 @@ FIR_conquest_category = {
 		icon = war
 
 		visible = {
-			NOT = { has_war_with = EAR }
+			NOT = { 
+				has_war_with = EAR 
+				has_country_flag = earth_diplomacy_path
+			}
         }
 
 		available = {
             AND = {
 				country_exists = EAR
-				has_country_flag = FIR_attack_plan_made		
+				has_country_flag = FIR_attack_plan_made	
+				threat > 0.5	
 				NOT = { 
 					has_war_with = EAR 
 					has_decision = military_preparations
@@ -742,6 +752,8 @@ FIR_conquest_category = {
 						has_decision = southern_attack_plan
 						has_decision = northern_attack_plan
 					}
+					has_country_flag = approach_earthkingdom
+					has_country_flag = earth_diplomacy_path
 				}
 			}
         }
@@ -1095,6 +1107,193 @@ FIR_civil_decision_category = {
 
 FIR_colonies_category = {
 
+	FIR_approach_earth_kingdom = {
+
+		icon = rewriting
+
+		visible = {
+			tag = FIR
+			NOT = {
+				FIR = {
+					has_war_with = EAR
+				}
+			}
+		}
+		
+		available = {
+			NOT = {
+				FIR = {
+					has_war_with = EAR
+				}
+			}
+		}
+		
+		fire_only_once = yes		
+
+		cost = 25
+
+		complete_effect = {
+			set_country_flag = approach_earthkingdom
+		}
+
+		days_remove = 30
+
+		remove_effect = {
+			EAR = { country_event = { id = fir_treaty.1 hours = 1 } }
+		}
+
+	}
+
+	support_yu_dao_uprising = {
+
+		icon = fir_colony
+
+		highlight_state_targets = {
+			state = 230
+		}
+
+		visible = {
+			NOT = {
+				has_war_with = WUL
+				country_exists = YFC
+			}
+			has_government = imperialism
+		}
+
+		available = {
+			has_government = imperialism
+			has_country_flag = earth_war_path
+			has_equipment = { spear_equipment > 479 }
+			has_equipment = { heavy_armor_equipment > 479 }
+			has_equipment = { light_armor_equipment > 199 }
+			has_equipment = { bow_equipment > 199 }
+			has_equipment = { arrow_equipment > 5999 }
+		}
+
+		days_remove = 90
+
+		complete_effect = {
+
+			add_equipment_to_stockpile = {
+				type = spear_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = heavy_armor_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = light_armor_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = bow_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = arrow_equipment
+				amount = -6000
+				producer = FIR
+			}
+
+		}
+
+		modifier = {
+			political_power_gain = -0.5
+		}
+
+		remove_effect = {
+
+			custom_effect_tooltip = yu_dao_uprising
+			WUL = {
+				set_country_flag = YFC_fire_sympathisants
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	support_han_tui_uprising = {
+
+		icon = fir_colony
+
+		highlight_state_targets = {
+			state = 280
+		}
+
+		visible = {
+			NOT = {
+				has_war_with = HAN
+				country_exists = KFC
+			}
+			has_government = imperialism
+		}
+
+		available = {
+			has_government = imperialism
+			has_country_flag = earth_war_path
+			has_equipment = { spear_equipment > 479 }
+			has_equipment = { heavy_armor_equipment > 479 }
+			has_equipment = { light_armor_equipment > 199 }
+			has_equipment = { bow_equipment > 199 }
+			has_equipment = { arrow_equipment > 5999 }
+		}
+
+		days_remove = 90
+
+		complete_effect = {
+
+			add_equipment_to_stockpile = {
+				type = spear_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = heavy_armor_equipment
+				amount = -480
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = light_armor_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = bow_equipment
+				amount = -200
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = arrow_equipment
+				amount = -6000
+				producer = FIR
+			}
+
+		}
+
+		modifier = {
+			political_power_gain = -0.5
+		}
+
+		remove_effect = {
+
+			custom_effect_tooltip = han_tui_uprising
+			HAN = {
+				set_country_flag = KFC_fire_sympathisants
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
 	pohuai_buildup_1 = {
 
 		icon = buildup
@@ -1272,80 +1471,6 @@ FIR_colonies_category = {
 		}
 
 		cost = 20
-        fire_only_once = yes
-	}
-
-	support_yu_dao_uprising = {
-
-		icon = fir_colony
-
-		highlight_state_targets = {
-			state = 230
-		}
-
-		visible = {
-			NOT = {
-				has_war_with = WUL
-				country_exists = YFC
-			}
-			has_government = imperialism
-		}
-
-		available = {
-			has_government = imperialism
-			has_equipment = { spear_equipment > 479 }
-			has_equipment = { heavy_armor_equipment > 479 }
-			has_equipment = { light_armor_equipment > 199 }
-			has_equipment = { bow_equipment > 199 }
-			has_equipment = { arrow_equipment > 5999 }
-		}
-
-		days_remove = 90
-
-		complete_effect = {
-
-			add_equipment_to_stockpile = {
-				type = spear_equipment
-				amount = -480
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = heavy_armor_equipment
-				amount = -480
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = light_armor_equipment
-				amount = -200
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = bow_equipment
-				amount = -200
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = arrow_equipment
-				amount = -6000
-				producer = FIR
-			}
-
-		}
-
-		modifier = {
-			political_power_gain = -0.5
-		}
-
-		remove_effect = {
-
-			custom_effect_tooltip = yu_dao_uprising
-			WUL = {
-				set_country_flag = YFC_fire_sympathisants
-			}
-
-		}
-
-		cost = 100
         fire_only_once = yes
 	}
 
@@ -1527,80 +1652,6 @@ FIR_colonies_category = {
 						set_autonomy = { target = HFC autonomy_state = autonomy_imperial_colony }
 					}
 				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-	support_han_tui_uprising = {
-
-		icon = fir_colony
-
-		highlight_state_targets = {
-			state = 280
-		}
-
-		visible = {
-			NOT = {
-				has_war_with = HAN
-				country_exists = KFC
-			}
-			has_government = imperialism
-		}
-
-		available = {
-			has_government = imperialism
-			has_equipment = { spear_equipment > 479 }
-			has_equipment = { heavy_armor_equipment > 479 }
-			has_equipment = { light_armor_equipment > 199 }
-			has_equipment = { bow_equipment > 199 }
-			has_equipment = { arrow_equipment > 5999 }
-		}
-
-		days_remove = 90
-
-		complete_effect = {
-
-			add_equipment_to_stockpile = {
-				type = spear_equipment
-				amount = -480
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = heavy_armor_equipment
-				amount = -480
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = light_armor_equipment
-				amount = -200
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = bow_equipment
-				amount = -200
-				producer = FIR
-			}
-			add_equipment_to_stockpile = {
-				type = arrow_equipment
-				amount = -6000
-				producer = FIR
-			}
-
-		}
-
-		modifier = {
-			political_power_gain = -0.5
-		}
-
-		remove_effect = {
-
-			custom_effect_tooltip = han_tui_uprising
-			HAN = {
-				set_country_flag = KFC_fire_sympathisants
 			}
 
 		}

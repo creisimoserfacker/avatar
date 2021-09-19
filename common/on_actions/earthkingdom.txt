@@ -1,0 +1,17 @@
+on_actions = {
+	on_startup = {
+	    effect = {
+			every_country = {
+				limit = {
+					is_in_faction_with = EAR
+				}
+
+				add_to_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				#add_to_tech_sharing_group = earth_research
+			}
+	    }
+	}
+}

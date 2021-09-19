@@ -3,6 +3,7 @@
 ###########################
 
 add_namespace = firenation
+add_namespace = fir_treaty
 
 #West temple situation
 country_event = {
@@ -32,6 +33,10 @@ country_event = {
 					}
 				}
 				add_ideas = no_ruler
+			}
+			add_named_threat = { 
+				threat = 7.5
+				name = FIR_air_nomad_genocide
 			}
 		}
  	}
@@ -155,6 +160,10 @@ country_event = {
 					}
 				}
 				add_ideas = no_ruler
+			}
+			add_named_threat = { 
+				threat = 7.5
+				name = FIR_air_nomad_genocide
 			}
 		}
  	}
@@ -297,6 +306,10 @@ country_event = {
 				}
 				add_ideas = no_ruler
 			}
+			add_named_threat = { 
+				threat = 7.5
+				name = FIR_air_nomad_genocide
+			}
 		}
  	}
 
@@ -372,6 +385,10 @@ country_event = {
 					}
 				}
 				add_ideas = no_ruler
+			}
+			add_named_threat = { 
+				threat = 7.5
+				name = FIR_air_nomad_genocide
 			}
 		}
  	}
@@ -771,4 +788,279 @@ country_event = {
 		
 		add_war_support = 0.05
 	}
+}
+
+#Approach the earth kingdom
+country_event = {
+	id = fir_treaty.1
+	title = fir_treaty.1.t
+	desc = fir_treaty.1.d
+	picture = GFX_report_event_fir_colony_request
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Accept
+		name = fir_treaty.1.a
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+
+		YFC = {
+			transfer_state = 230
+			add_state_core = 230
+		}
+		KFC = {
+			transfer_state = 280
+			add_state_core = 280
+		}
+		FIR = {
+			clr_country_flag = approach_earthkingdom
+			set_country_flag = earth_diplomacy_path
+			remove_decision = northern_attack_plan
+			remove_decision = central_attack_plan
+			remove_decision = southern_attack_plan
+
+			country_event = {
+				id = fir_treaty.2
+				days = 2
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Together for Victory"
+					}
+					puppet = KFC
+					puppet = YFC
+				}
+				else = {
+					set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+					set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
+				}
+			}
+		}
+	}
+	option = { #compromise
+		name = fir_treaty.1.b
+		ai_chance = { 
+			factor = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+		FIR = {
+			country_event = {
+				id = fir_treaty.3
+				days = 1
+			}
+		}
+		
+	}
+	option = { #Refuse
+		name = fir_treaty.1.c
+		ai_chance = { 
+			factor = 100
+		}
+
+		FIR = {
+			clr_country_flag = approach_earthkingdom
+			set_country_flag = earth_war_path
+
+			country_event = {
+				id = fir_treaty.5
+				days = 1
+			}
+		}
+		
+	}
+
+}
+### fir gets colonies
+country_event = {
+	id = fir_treaty.2
+	title = fir_treaty.2.t
+	desc = fir_treaty.2.d
+	picture = GFX_report_event_fir_colony_request
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Accept
+		name = fir_treaty.2.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_stability = 0.05
+	}
+
+}
+### ear compromise proposal to fir
+country_event = {
+	id = fir_treaty.3
+	title = fir_treaty.3.t
+	desc = fir_treaty.3.d
+	picture = GFX_report_event_fir_colony_compromise
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #Accept
+		name = fir_treaty.3.a
+		ai_chance = { 
+			factor = 100
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+
+		YFC = {
+			transfer_state = 230
+			add_state_core = 230
+		}
+		KFC = {
+			transfer_state = 280
+			add_state_core = 280
+		}
+		280 = { set_demilitarized_zone = yes }
+		244 = { set_demilitarized_zone = yes }
+		270 = { set_demilitarized_zone = yes }
+		230 = { set_demilitarized_zone = yes }
+		184 = { set_demilitarized_zone = yes }
+		212 = { set_demilitarized_zone = yes }
+		235 = { set_demilitarized_zone = yes }
+		266 = { set_demilitarized_zone = yes }
+		FIR = {
+			clr_country_flag = approach_earthkingdom
+			set_country_flag = earth_diplomacy_path
+			remove_decision = northern_attack_plan
+			remove_decision = central_attack_plan
+			remove_decision = southern_attack_plan
+
+			if = {
+				limit = {
+					NOT = {
+						has_dlc = "Together for Victory"
+					}
+					puppet = KFC
+					puppet = YFC
+				}
+				else = {
+					set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+					set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
+				}
+			}
+		}
+		EAR = {
+			country_event = {
+				id = fir_treaty.4
+				days = 2
+			}
+		}
+		
+	}
+	option = { #Refuse
+		name = fir_treaty.3.b
+		ai_chance = { 
+			factor = 100
+		}
+
+		FIR = {
+			clr_country_flag = approach_earthkingdom
+			set_country_flag = earth_war_path
+			add_days_remove  = {
+				decision = military_preparations
+				days = -10
+			}
+			add_days_remove  = {
+				decision = northern_attack_plan
+				days = -10
+			}
+			add_days_remove  = {
+				decision = central_attack_plan
+				days = -10
+			}
+			add_days_remove  = {
+				decision = southern_attack_plan
+				days = -10
+			}
+		}
+		
+		add_named_threat = { 
+			threat = 5
+			name = FIR_failed_negotiation
+		}
+	}
+
+}
+### compromise outcome ear
+country_event = {
+	id = fir_treaty.4
+	title = fir_treaty.4.t
+	desc = fir_treaty.4.d
+	picture = GFX_report_event_fir_colony_compromise
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #peace for our time
+		name = fir_treaty.4.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_stability = 0.05
+	}
+
+}
+### failed negotiation
+country_event = {
+	id = fir_treaty.5
+	title = fir_treaty.5.t
+	desc = fir_treaty.5.d
+	picture = GFX_report_event_fir_colony_failed
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #this means war
+		name = fir_treaty.5.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_war_support = 0.1
+		set_country_flag = earth_war_path
+
+		add_named_threat = { 
+			threat = 15
+			name = FIR_failed_negotiation
+		}
+
+		add_days_remove  = {
+			decision = military_preparations
+			days = -20
+		}
+		add_days_remove  = {
+			decision = northern_attack_plan
+			days = -30
+		}
+		add_days_remove  = {
+			decision = central_attack_plan
+			days = -30
+		}
+		add_days_remove  = {
+			decision = southern_attack_plan
+			days = -30
+		}
+	}
+
 }

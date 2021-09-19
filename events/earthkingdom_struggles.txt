@@ -1,0 +1,166 @@
+###########################
+# Earth Power Struggle
+###########################
+
+add_namespace = struggles_ek
+
+#Join Request
+country_event = {
+	id = struggles_ek.1
+	title = struggles_ek.1.t
+	desc = struggles_ek.1.d
+	picture = GFX_report_event_ear_ek_join
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.1.a
+		ai_chance = { 
+			factor = 100
+		}
+		ROOT = {
+			add_to_faction = FROM
+		}
+		FROM = {
+			add_to_array = {
+				array = global.earth_kingdom
+				value = FROM.id
+			}
+			country_event = {
+				id = struggles_ek.2
+				days = 1
+			}
+		}
+	}
+
+	option = {
+		name = struggles_ek.1.b
+		ai_chance = { 
+			factor = 0
+		}
+		FROM = {
+			country_event = {
+				id = struggles_ek.3
+				days = 1
+			}
+		}
+	}
+}
+#Request Accepted
+country_event = {
+	id = struggles_ek.2
+	title = struggles_ek.2.t
+	desc = struggles_ek.2.d
+	picture = GFX_report_event_ear_ek_join_accepted
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.2.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+	}
+
+}
+#Request Denied
+country_event = {
+	id = struggles_ek.3
+	title = struggles_ek.3.t
+	desc = struggles_ek.3.d
+	picture = GFX_report_event_ear_ek_join_denied
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.3.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+	}
+
+}
+#Feast Invitation
+country_event = {
+	id = struggles_ek.4
+	title = struggles_ek.4.t
+	desc = struggles_ek.4.d
+	picture = GFX_report_event_ear_feast
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.4.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_autonomy_score = {
+			value = 100
+			localization = ACT_OF_DISOBEDIENCE
+		}
+		add_political_power = -150
+		FROM = {
+			country_event = {
+				id = struggles_ek.5
+				days = 1
+			}
+		}
+		
+	}
+	option = {
+		name = struggles_ek.4.b
+		ai_chance = { 
+			factor = 0
+		}
+		add_stability = 0.05
+		FROM = {
+			country_event = {
+				id = struggles_ek.6
+				days = 1
+			}
+		}
+		
+	}
+
+}
+#Feast Joined
+country_event = {
+	id = struggles_ek.5
+	title = struggles_ek.5.t
+	desc = struggles_ek.5.d
+	picture = GFX_report_event_ear_feast
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.5.a
+		ai_chance = { 
+			factor = 100
+		}
+		add_autonomy_score = {
+			value = 100
+			localization = KINGDOM
+		}
+	}
+
+}
+#Feast Declined
+country_event = {
+	id = struggles_ek.6
+	title = struggles_ek.6.t
+	desc = struggles_ek.6.d
+	picture = GFX_report_event_ear_feast_no
+
+	is_triggered_only = yes
+
+	option = {
+		name = struggles_ek.6.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+	}
+
+}

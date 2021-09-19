@@ -1,0 +1,27 @@
+scripted_gui = {
+
+	earth_kingdom_ui = {
+		context_type = decision_category
+		window_name = "earth_kingdom_ui_window"
+
+		triggers = {
+			
+		}
+
+		properties = {
+			member_country_flag = {
+				image = [THIS.GetFlag]
+			}
+		}
+
+		dynamic_lists = {
+			earth_kingdom_members_gridbox = {
+				array = global.earth_kingdom
+				entry_container = earth_kingdom_member_list_entry
+				change_scope = yes
+			}
+		}
+	}
+	
+}
+
