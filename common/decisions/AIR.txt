@@ -1,0 +1,473 @@
+AIR_council_category = {
+	upcoming_meeting = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		visible = { has_country_flag = air_council_active }
+		available = {
+			has_country_flag = meetings_disrupted
+		}
+		days_mission_timeout = 10
+		days_re_enable = 0
+		days_remove = 0
+		is_good = yes
+		priority = 1000
+		
+		timeout_effect = {
+			custom_effect_tooltip = "The Council meets once again!"
+			AIR_generate_missions = yes
+			ROOT = { country_event = { id = AIR_council.1 } }
+		}
+	}
+	
+	# increase / decrease decisions
+	increase_military_priorities = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		visible = { has_country_flag = air_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			ROOT = { country_event = { id = AIR_council.2}}
+		}
+	}
+	increase_civilian_priorities = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		visible = { has_country_flag = air_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			ROOT = { country_event = { id = AIR_council.3}}
+		}
+	}
+	decrease_military_priorities = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		visible = { has_country_flag = air_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			ROOT = { country_event = { id = AIR_council.4}}
+		}
+	}
+	decrease_civilian_priorities = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		visible = { has_country_flag = air_council_active }
+		cost = 50
+		days_re_enable = 0
+		days_remove = 0
+		
+		complete_effect = {
+			ROOT = { country_event = { id = AIR_council.5}}
+		}
+	}
+	
+	AIR_mission_nr1 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 1 }
+		}
+		
+		is_good = yes
+		cost = 50
+		days_mission_timeout = 120
+		days_remove = 0
+		selectable_mission = yes
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr1_timeout
+			hidden = {
+				AIR_council_medium_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 1}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr1_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_manpower = 100
+			remove_from_array = { AIR_current_missions = 1}
+		}
+	}
+	
+	AIR_mission_nr2 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 2 }
+		}
+		available = {
+			command_power > 40
+		}
+		
+		is_good = yes
+		days_mission_timeout = 120
+		days_remove = 0
+		selectable_mission = yes
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr2_timeout
+			hidden = {
+				AIR_council_medium_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 2}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr2_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_command_power = -40
+			army_experience  = 40
+			remove_from_array = { AIR_current_missions = 2}
+		}
+	}
+	
+	AIR_mission_nr3 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 3 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 30
+		days_remove = 0
+		selectable_mission = yes
+		cost = 30
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr3_timeout
+			hidden = {
+				AIR_council_medium_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 3 }
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr3_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			remove_from_array = { AIR_current_missions = 3}
+			army_experience = 15
+		}
+	}
+	
+	AIR_mission_nr6 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 6 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 100
+		days_remove = 0
+		selectable_mission = yes
+		cost = 40
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr6_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 6}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr6_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			navy_experience = 25
+			remove_from_array = { AIR_current_missions = 6}
+		}
+	}
+	
+	AIR_mission_nr7 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 7 }
+		}
+		
+		is_good = yes
+		days_mission_timeout = 100
+		days_remove = 0
+		selectable_mission = yes
+		cost = 40
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr7_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 7}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr7_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			remove_from_array = { AIR_current_missions = 7}
+			army_experience = 10
+		}
+	}
+	
+	AIR_mission_nr11 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 11 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 80
+		days_remove = 0
+		selectable_mission = yes
+		cost = 30
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr11_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 11}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr11_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			air_experience = 20
+			remove_from_array = { AIR_current_missions = 11}
+		}
+	}
+	
+	AIR_mission_nr16 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 16 }
+		}
+		available = {
+			has_army_experience > 40
+		}
+
+		is_good = yes
+		days_mission_timeout = 80
+		days_remove = 0
+		selectable_mission = yes
+
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr16_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 16}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = mission_nr16_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			army_experience = -40
+			add_tech_bonus = {
+				name = air_mission_nr16_reward
+				ahead_reduction = 3
+				uses = 1
+				category = basic_weapons
+			}
+			remove_from_array = { AIR_current_missions = 16}
+		}
+	}
+
+    AIR_mission_nr17 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 17 }
+		}
+		available = {
+			has_navy_experience > 30
+		}
+
+		is_good = yes
+		days_mission_timeout = 80
+		days_remove = 0
+		selectable_mission = yes
+
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr17_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 17}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = mission_nr17_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			navy_experience = -30
+			add_tech_bonus = {
+				name = air_mission_nr17_reward
+				ahead_reduction = 3
+				uses = 2
+				category = {
+				    nav_patrol
+                    nav_raid
+                    nav_screen
+                    nav_capital
+                    nav_wooden
+                    nav_ironclad
+				}
+			}
+			remove_from_array = { AIR_current_missions = 17}
+		}
+	}
+	
+	AIR_mission_nr26 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 26 }
+		}
+		available = {
+			command_power > 30
+		}
+		
+		is_good = yes
+		days_mission_timeout = 80
+		days_remove = 0
+		selectable_mission = yes
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr26_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 26}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr26_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_political_power  = 60
+			add_command_power = -30
+			remove_from_array = { AIR_current_missions = 26}
+		}
+	}
+
+	AIR_mission_nr28 = {
+   		allowed = {
+			has_country_flag = air_council_active
+		}
+   		activation = {
+   			is_in_array = { AIR_current_missions = 28 }
+   		}
+   		available = {
+   			has_army_experience > 10
+   			has_navy_experience > 10
+   			has_air_experience > 10
+   		}
+
+   		is_good = yes
+   		days_mission_timeout = 100
+   		days_remove = 0
+   		selectable_mission = yes
+
+   		timeout_effect = {
+   			custom_effect_tooltip  = mission_nr28_timeout
+   			hidden = {
+   				AIR_council_small_opposition = yes
+   			}
+   			remove_from_array = { AIR_current_missions = 28}
+   		}
+
+    	complete_effect = {
+    		custom_effect_tooltip = mission_nr28_success
+    		hidden = {
+    			AIR_council_small_support = yes
+    		}
+    		army_experience = -10
+    		navy_experience = -10
+    		air_experience = -10
+    		add_war_support = 0.1
+    		remove_from_array = { AIR_current_missions = 28}
+    	}
+    }
+
+	AIR_mission_nr29 = {
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { AIR_current_missions = 29 }
+		}
+
+		is_good = yes
+		days_mission_timeout = 80
+		days_remove = 0
+		selectable_mission = yes
+		cost = 45
+
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr29_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { AIR_current_missions = 29}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = mission_nr29_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_command_power = 30
+			remove_from_array = { AIR_current_missions = 29}
+		}
+	}
+}

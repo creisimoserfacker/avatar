@@ -1,12 +1,12 @@
 
 ### recalc
 
-SAT_recalc_council_support = {
-	set_temp_variable = { support_temp = SAT_council_member_1 }
-	add_to_temp_variable = { support_temp = SAT_council_member_2 }
-	add_to_temp_variable = { support_temp = SAT_council_member_3 }
-	add_to_temp_variable = { support_temp = SAT_council_member_4 }
-	add_to_temp_variable = { support_temp = SAT_council_member_5 }
+AIR_recalc_council_support = {
+	set_temp_variable = { support_temp = AIR_council_member_1 }
+	add_to_temp_variable = { support_temp = AIR_council_member_2 }
+	add_to_temp_variable = { support_temp = AIR_council_member_3 }
+	add_to_temp_variable = { support_temp = AIR_council_member_4 }
+	add_to_temp_variable = { support_temp = AIR_council_member_5 }
 	divide_temp_variable = { support_temp = 5}
 	round_temp_variable = support_temp
 	if = {
@@ -18,26 +18,26 @@ SAT_recalc_council_support = {
 		}
 	}
 	else = { set_temp_variable = { support_temp = 1 } }
-	set_variable = { sat_current_council_symbol_frame = support_temp }
-	set_variable = { SAT_council_support = support_temp }
-	set_variable = { sat_current_member_1_frame = SAT_council_member_1 }
-	set_variable = { sat_current_member_2_frame = SAT_council_member_2 }
-	set_variable = { sat_current_member_3_frame = SAT_council_member_3 }
-	set_variable = { sat_current_member_4_frame = SAT_council_member_4 }
-	set_variable = { sat_current_member_5_frame = SAT_council_member_5 }
-	SAT_recalc_council_spirit = yes
+	set_variable = { air_current_council_symbol_frame = support_temp }
+	set_variable = { AIR_council_support = support_temp }
+	set_variable = { air_current_member_1_frame = AIR_council_member_1 }
+	set_variable = { air_current_member_2_frame = AIR_council_member_2 }
+	set_variable = { air_current_member_3_frame = AIR_council_member_3 }
+	set_variable = { air_current_member_4_frame = AIR_council_member_4 }
+	set_variable = { air_current_member_5_frame = AIR_council_member_5 }
+	AIR_recalc_council_spirit = yes
 }
 
-SAT_recalc_council_spirit = {
+AIR_recalc_council_spirit = {
 	if {
-		limit = { check_variable = { SAT_council_support = 1 }}
+		limit = { check_variable = { AIR_council_support = 1 }}
 		swap_ideas = {
 			remove_idea = council_opposition
 			add_idea = council_harsh_opposition
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_council_support = 2 }}
+		limit = { check_variable = { AIR_council_support = 2 }}
 		if {
 			limit = { has_idea = council_harsh_opposition }
 			swap_ideas = {
@@ -53,7 +53,7 @@ SAT_recalc_council_spirit = {
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_council_support = 3 }}
+		limit = { check_variable = { AIR_council_support = 3 }}
 		if {
 			limit = { has_idea = council_opposition }
 			swap_ideas = {
@@ -69,7 +69,7 @@ SAT_recalc_council_spirit = {
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_council_support = 4 }}
+		limit = { check_variable = { AIR_council_support = 4 }}
 		if {
 			limit = { has_idea = council_neutral }
 			swap_ideas = {
@@ -85,7 +85,7 @@ SAT_recalc_council_spirit = {
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_council_support = 5 }}
+		limit = { check_variable = { AIR_council_support = 5 }}
 		swap_ideas = {
 			remove_idea = council_support
 			add_idea = council_substancial_support
@@ -95,14 +95,14 @@ SAT_recalc_council_spirit = {
 
 ### type of mission generator
 
-SAT_mission_type_generator = {
+AIR_mission_type_generator = {
 	set_temp_variable = { max_probability = 1 }
-	add_to_temp_variable = { max_probability = SAT_council_army }
-	add_to_temp_variable = { max_probability = SAT_council_navy }
-	add_to_temp_variable = { max_probability = SAT_council_air }
-	add_to_temp_variable = { max_probability = SAT_council_research }
-	add_to_temp_variable = { max_probability = SAT_council_construction }
-	add_to_temp_variable = { max_probability = SAT_council_politics }
+	add_to_temp_variable = { max_probability = AIR_council_army }
+	add_to_temp_variable = { max_probability = AIR_council_navy }
+	add_to_temp_variable = { max_probability = AIR_council_air }
+	add_to_temp_variable = { max_probability = AIR_council_research }
+	add_to_temp_variable = { max_probability = AIR_council_construction }
+	add_to_temp_variable = { max_probability = AIR_council_politics }
 	
 	randomize_temp_variable = {
 		var = probability_temp
@@ -111,38 +111,38 @@ SAT_mission_type_generator = {
 		max = max_probability
 	}
 	round_temp_variable = probability_temp
-	set_variable = { SAT_mission_type = 1 }
-	subtract_from_temp_variable = { probability_temp = SAT_council_army }
+	set_variable = { AIR_mission_type = 1 }
+	subtract_from_temp_variable = { probability_temp = AIR_council_army }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
-		set_variable = { SAT_mission_type = 2}
+		set_variable = { AIR_mission_type = 2}
 	}
-	subtract_from_temp_variable = { probability_temp = SAT_council_navy }
+	subtract_from_temp_variable = { probability_temp = AIR_council_navy }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
-		set_variable = { SAT_mission_type = 3}
+		set_variable = { AIR_mission_type = 3}
 	}
-	subtract_from_temp_variable = { probability_temp = SAT_council_air }
+	subtract_from_temp_variable = { probability_temp = AIR_council_air }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
-		set_variable = { SAT_mission_type = 4}
+		set_variable = { AIR_mission_type = 4}
 	}
-	subtract_from_temp_variable = { probability_temp = SAT_council_research }
+	subtract_from_temp_variable = { probability_temp = AIR_council_research }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
-		set_variable = { SAT_mission_type = 5}
+		set_variable = { AIR_mission_type = 5}
 	}
-	subtract_from_temp_variable = { probability_temp = SAT_council_construction }
+	subtract_from_temp_variable = { probability_temp = AIR_council_construction }
 	if {
 		limit = { check_variable = { probability_temp > 0} }
-		set_variable = { SAT_mission_type = 6}
+		set_variable = { AIR_mission_type = 6}
 	}
 }
 
 
-SAT_generate_specific_mission = {
+AIR_generate_specific_mission = {
 	if {
-		limit = { check_variable = { SAT_mission_type = 1}}
+		limit = { check_variable = { AIR_mission_type = 1}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -157,31 +157,31 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 1 }}
+					Not = { is_in_array = { air_current_missions = 1 }}
 				}}
-				set_variable = { sat_specific_mission = 1 }
+				set_variable = { air_specific_mission = 1 }
 				set_variable = { break = 1 }
 			}
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 2 }
-					Not = { is_in_array = { sat_current_missions = 2 }}
+					Not = { is_in_array = { air_current_missions = 2 }}
 				}}
-				set_variable = { sat_specific_mission = 2 }
+				set_variable = { air_specific_mission = 2 }
 				set_variable = { break = 1 }
 			}
 			if {
             	limit = { AND = {
             		check_variable = { specific_mission = 3 }
-            		Not = { is_in_array = { sat_current_missions = 3 }}
+            		Not = { is_in_array = { air_current_missions = 3 }}
             	}}
-            	set_variable = { sat_specific_mission = 3 }
+            	set_variable = { air_specific_mission = 3 }
             	set_variable = { break = 1 }
             }
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_mission_type = 2}}
+		limit = { check_variable = { AIR_mission_type = 2}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -196,15 +196,15 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 6 }}
+					Not = { is_in_array = { air_current_missions = 6 }}
 				}}
-				set_variable = { sat_specific_mission = 6 }
+				set_variable = { air_specific_mission = 6 }
 				set_variable = { break = 1 }
 			}
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_mission_type = 3}}
+		limit = { check_variable = { AIR_mission_type = 3}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -219,15 +219,15 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 11 }}
+					Not = { is_in_array = { air_current_missions = 11 }}
 				}}
-				set_variable = { sat_specific_mission = 11 }
+				set_variable = { air_specific_mission = 11 }
 				set_variable = { break = 1 }
 			}
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_mission_type = 4}}
+		limit = { check_variable = { AIR_mission_type = 4}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -243,23 +243,23 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 16 }}
+					Not = { is_in_array = { air_current_missions = 16 }}
 				}}
-				set_variable = { sat_specific_mission = 16 }
+				set_variable = { air_specific_mission = 16 }
 				set_variable = { break = 1 }
 			}
             if {
 				limit = { AND = {
 					check_variable = { specific_mission = 2 }
-					Not = { is_in_array = { sat_current_missions = 17 }}
+					Not = { is_in_array = { air_current_missions = 17 }}
 				}}
-				set_variable = { sat_specific_mission = 17 }
+				set_variable = { air_specific_mission = 17 }
 				set_variable = { break = 1 }
 			}
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_mission_type = 5}}
+		limit = { check_variable = { AIR_mission_type = 5}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -274,15 +274,15 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 21 }}
+					Not = { is_in_array = { air_current_missions = 21 }}
 				}}
-				set_variable = { sat_specific_mission = 21 }
+				set_variable = { air_specific_mission = 21 }
 				set_variable = { break = 1 }
 			}
 		}
 	}
 	if {
-		limit = { check_variable = { SAT_mission_type = 6}}
+		limit = { check_variable = { AIR_mission_type = 6}}
 		while_loop_effect = {
 			break = break
 			limit = { 0 = 0 }
@@ -297,112 +297,112 @@ SAT_generate_specific_mission = {
 			if {
 				limit = { AND = {
 					check_variable = { specific_mission = 1 }
-					Not = { is_in_array = { sat_current_missions = 26 }}
+					Not = { is_in_array = { air_current_missions = 26 }}
 				}}
-				set_variable = { sat_specific_mission = 26 }
+				set_variable = { air_specific_mission = 26 }
 				set_variable = { break = 1 }
 			}
 			if {
             	limit = { AND = {
             		check_variable = { specific_mission = 2 }
-            		Not = { is_in_array = { sat_current_missions = 28 }}
+            		Not = { is_in_array = { air_current_missions = 28 }}
             	}}
-            	set_variable = { sat_specific_mission = 28 }
+            	set_variable = { air_specific_mission = 28 }
          		set_variable = { break = 1 }
             }
             if {
             	limit = { AND = {
             		check_variable = { specific_mission = 3 }
-            		Not = { is_in_array = { sat_current_missions = 29 }}
+            		Not = { is_in_array = { air_current_missions = 29 }}
             	}}
-            	set_variable = { sat_specific_mission = 29 }
+            	set_variable = { air_specific_mission = 29 }
          		set_variable = { break = 1 }
             }
 		}
 	}
 }
 
-SAT_generate_missions = {
-	SAT_mission_type_generator = yes
-	SAT_generate_specific_mission = yes
-	set_variable = { sat_mission_1 = sat_specific_mission }
+AIR_generate_missions = {
+	AIR_mission_type_generator = yes
+	AIR_generate_specific_mission = yes
+	set_variable = { air_mission_1 = air_specific_mission }
 	
-	SAT_mission_type_generator = yes
-	SAT_generate_specific_mission = yes
-	set_variable = { sat_mission_2 = sat_specific_mission }
+	AIR_mission_type_generator = yes
+	AIR_generate_specific_mission = yes
+	set_variable = { air_mission_2 = air_specific_mission }
 	
-	SAT_mission_type_generator = yes
-	SAT_generate_specific_mission = yes
-	set_variable = { sat_mission_3 = sat_specific_mission }
+	AIR_mission_type_generator = yes
+	AIR_generate_specific_mission = yes
+	set_variable = { air_mission_3 = air_specific_mission }
 	
-	SAT_mission_type_generator = yes
-	SAT_generate_specific_mission = yes
-	set_variable = { sat_mission_4 = sat_specific_mission }
+	AIR_mission_type_generator = yes
+	AIR_generate_specific_mission = yes
+	set_variable = { air_mission_4 = air_specific_mission }
 }
 
-SAT_start_mission = {
+AIR_start_mission = {
 	if {
-		limit = { check_variable = { SAT_choosen_mission = 1 }}
-		set_temp_variable = { sat_new_mission = sat_mission_1 }
+		limit = { check_variable = { AIR_choosen_mission = 1 }}
+		set_temp_variable = { air_new_mission = air_mission_1 }
 	}
 	if {
-		limit = { check_variable = { SAT_choosen_mission = 2 }}
-		set_temp_variable = { sat_new_mission = sat_mission_2 }
+		limit = { check_variable = { AIR_choosen_mission = 2 }}
+		set_temp_variable = { air_new_mission = air_mission_2 }
 	}
 	if {
-		limit = { check_variable = { SAT_choosen_mission = 3 }}
-		set_temp_variable = { sat_new_mission = sat_mission_3 }
+		limit = { check_variable = { AIR_choosen_mission = 3 }}
+		set_temp_variable = { air_new_mission = air_mission_3 }
 	}
 	if {
-		limit = { check_variable = { SAT_choosen_mission = 4 }}
-		set_temp_variable = { sat_new_mission = sat_mission_4 }
+		limit = { check_variable = { AIR_choosen_mission = 4 }}
+		set_temp_variable = { air_new_mission = air_mission_4 }
 	}
 	
 	if {
-		limit = { check_variable = { sat_new_mission = 1 }}
-		add_to_array = { sat_current_missions = 1 }
+		limit = { check_variable = { air_new_mission = 1 }}
+		add_to_array = { air_current_missions = 1 }
 	}
 	if {
-		limit = { check_variable = { sat_new_mission = 2 }}
-		add_to_array = { sat_current_missions = 2 }
+		limit = { check_variable = { air_new_mission = 2 }}
+		add_to_array = { air_current_missions = 2 }
 	}
 	if {
-    	limit = { check_variable = { sat_new_mission = 3 }}
-    	add_to_array = { sat_current_missions = 3 }
+    	limit = { check_variable = { air_new_mission = 3 }}
+    	add_to_array = { air_current_missions = 3 }
     }
 	if {
-		limit = { check_variable = { sat_new_mission = 6 }}
-		add_to_array = { sat_current_missions = 6 }
+		limit = { check_variable = { air_new_mission = 6 }}
+		add_to_array = { air_current_missions = 6 }
 	}
 	if {
-		limit = { check_variable = { sat_new_mission = 11 }}
-		add_to_array = { sat_current_missions = 11 }
+		limit = { check_variable = { air_new_mission = 11 }}
+		add_to_array = { air_current_missions = 11 }
 	}
 	if {
-		limit = { check_variable = { sat_new_mission = 16 }}
-		add_to_array = { sat_current_missions = 16 }
+		limit = { check_variable = { air_new_mission = 16 }}
+		add_to_array = { air_current_missions = 16 }
 	}
     if {
-		limit = { check_variable = { sat_new_mission = 17 }}
-		add_to_array = { sat_current_missions = 17 }
+		limit = { check_variable = { air_new_mission = 17 }}
+		add_to_array = { air_current_missions = 17 }
 	}
 	if {
-		limit = { check_variable = { sat_new_mission = 26 }}
-		add_to_array = { sat_current_missions = 26 }
+		limit = { check_variable = { air_new_mission = 26 }}
+		add_to_array = { air_current_missions = 26 }
 	}
 	if {
-    	limit = { check_variable = { sat_new_mission = 28 }}
-    	add_to_array = { sat_current_missions = 28 }
+    	limit = { check_variable = { air_new_mission = 28 }}
+    	add_to_array = { air_current_missions = 28 }
     }
     if {
-       limit = { check_variable = { sat_new_mission = 29 }}
-       add_to_array = { sat_current_missions = 29 }
+       limit = { check_variable = { air_new_mission = 29 }}
+       add_to_array = { air_current_missions = 29 }
     }
 }
 
 ##### council support calculations
 
-SAT_council_small_support = {
+AIR_council_small_support = {
 	randomize_temp_variable = {
 		var = temp_member
 		distribution = uniform
@@ -414,51 +414,51 @@ SAT_council_small_support = {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 1 }
-				check_variable = { SAT_council_member_1 < 5 }
+				check_variable = { AIR_council_member_1 < 5 }
 				}
 			}
-		add_to_variable = { SAT_council_member_1 = 1 }
+		add_to_variable = { AIR_council_member_1 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 2 }
-				check_variable = { SAT_council_member_2 < 5 }
+				check_variable = { AIR_council_member_2 < 5 }
 				}
 			}
-		add_to_variable = { SAT_council_member_2 = 1 }
+		add_to_variable = { AIR_council_member_2 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 3 }
-				check_variable = { SAT_council_member_3 < 5 }
+				check_variable = { AIR_council_member_3 < 5 }
 				}
 			}
-		add_to_variable = { SAT_council_member_3 = 1 }
+		add_to_variable = { AIR_council_member_3 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 4 }
-				check_variable = { SAT_council_member_4 < 5 }
+				check_variable = { AIR_council_member_4 < 5 }
 				}
 			}
-		add_to_variable = { SAT_council_member_4 = 1 }
+		add_to_variable = { AIR_council_member_4 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 5 }
-				check_variable = { SAT_council_member_5 < 5 }
+				check_variable = { AIR_council_member_5 < 5 }
 				}
 			}
-		add_to_variable = { SAT_council_member_5 = 1 }
+		add_to_variable = { AIR_council_member_5 = 1 }
 	}
-	SAT_recalc_council_support = yes
+	AIR_recalc_council_support = yes
 }
 
-SAT_council_small_opposition = {
+AIR_council_small_opposition = {
 	randomize_temp_variable = {
 		var = temp_member
 		distribution = uniform
@@ -470,130 +470,130 @@ SAT_council_small_opposition = {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 1 }
-				check_variable = { SAT_council_member_1 > 1 }
+				check_variable = { AIR_council_member_1 > 1 }
 				}
 			}
-		subtract_from_variable = { SAT_council_member_1 = 1 }
+		subtract_from_variable = { AIR_council_member_1 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 2 }
-				check_variable = { SAT_council_member_2 > 1 }
+				check_variable = { AIR_council_member_2 > 1 }
 				}
 			}
-		subtract_from_variable = { SAT_council_member_2 = 1 }
+		subtract_from_variable = { AIR_council_member_2 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 3 }
-				check_variable = { SAT_council_member_3 > 1 }
+				check_variable = { AIR_council_member_3 > 1 }
 				}
 			}
-		subtract_from_variable = { SAT_council_member_3 = 1 }
+		subtract_from_variable = { AIR_council_member_3 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 4 }
-				check_variable = { SAT_council_member_4 > 1 }
+				check_variable = { AIR_council_member_4 > 1 }
 				}
 			}
-		subtract_from_variable = { SAT_council_member_4 = 1 }
+		subtract_from_variable = { AIR_council_member_4 = 1 }
 	}
 	if {
 		limit = { 
 			AND = {
 				check_variable = { temp_member = 5 }
-				check_variable = { SAT_council_member_5 > 1 }
+				check_variable = { AIR_council_member_5 > 1 }
 				}
 			}
-		subtract_from_variable = { SAT_council_member_5 = 1 }
+		subtract_from_variable = { AIR_council_member_5 = 1 }
 	}
-	SAT_recalc_council_support = yes
+	AIR_recalc_council_support = yes
 }
 
-SAT_council_medium_support = {
-	SAT_council_small_support = yes
-	SAT_council_small_support = yes
+AIR_council_medium_support = {
+	AIR_council_small_support = yes
+	AIR_council_small_support = yes
 }
 
-SAT_council_medium_opposition = {
-	SAT_council_small_opposition = yes
-	SAT_council_small_opposition = yes
+AIR_council_medium_opposition = {
+	AIR_council_small_opposition = yes
+	AIR_council_small_opposition = yes
 }
 
-SAT_council_large_support = {
-	SAT_council_small_support = yes
-	SAT_council_small_support = yes
-	SAT_council_small_support = yes
-	SAT_council_small_support = yes
+AIR_council_large_support = {
+	AIR_council_small_support = yes
+	AIR_council_small_support = yes
+	AIR_council_small_support = yes
+	AIR_council_small_support = yes
 }
 
-SAT_council_large_opposition = {
-	SAT_council_small_opposition = yes
-	SAT_council_small_opposition = yes
-	SAT_council_small_opposition = yes
-	SAT_council_small_opposition = yes
+AIR_council_large_opposition = {
+	AIR_council_small_opposition = yes
+	AIR_council_small_opposition = yes
+	AIR_council_small_opposition = yes
+	AIR_council_small_opposition = yes
 }
 
-SAT_council_extreme_support = {
+AIR_council_extreme_support = {
 	if {
-		limit = { check_variable = { SAT_council_member_1 < 5 }}
-		add_to_variable = { SAT_council_member_1 = 1}
+		limit = { check_variable = { AIR_council_member_1 < 5 }}
+		add_to_variable = { AIR_council_member_1 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_2 < 5 }}
-		add_to_variable = { SAT_council_member_2 = 1}
+		limit = { check_variable = { AIR_council_member_2 < 5 }}
+		add_to_variable = { AIR_council_member_2 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_3 < 5 }}
-		add_to_variable = { SAT_council_member_3 = 1}
+		limit = { check_variable = { AIR_council_member_3 < 5 }}
+		add_to_variable = { AIR_council_member_3 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_4 < 5 }}
-		add_to_variable = { SAT_council_member_4 = 1}
+		limit = { check_variable = { AIR_council_member_4 < 5 }}
+		add_to_variable = { AIR_council_member_4 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_5 < 5 }}
-		add_to_variable = { SAT_council_member_5 = 1}
+		limit = { check_variable = { AIR_council_member_5 < 5 }}
+		add_to_variable = { AIR_council_member_5 = 1}
 	}
-	SAT_recalc_council_support = yes
+	AIR_recalc_council_support = yes
 }
 
-SAT_council_extreme_opposition = {
+AIR_council_extreme_opposition = {
 	if {
-		limit = { check_variable = { SAT_council_member_1 > 1 }}
-		subtract_from_variable = { SAT_council_member_1 = 1}
+		limit = { check_variable = { AIR_council_member_1 > 1 }}
+		subtract_from_variable = { AIR_council_member_1 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_2 > 1 }}
-		subtract_from_variable = { SAT_council_member_2 = 1}
+		limit = { check_variable = { AIR_council_member_2 > 1 }}
+		subtract_from_variable = { AIR_council_member_2 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_3 > 1 }}
-		subtract_from_variable = { SAT_council_member_3 = 1}
+		limit = { check_variable = { AIR_council_member_3 > 1 }}
+		subtract_from_variable = { AIR_council_member_3 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_4 > 1 }}
-		subtract_from_variable = { SAT_council_member_4 = 1}
+		limit = { check_variable = { AIR_council_member_4 > 1 }}
+		subtract_from_variable = { AIR_council_member_4 = 1}
 	}
 	if {
-		limit = { check_variable = { SAT_council_member_5 > 1 }}
-		subtract_from_variable = { SAT_council_member_5 = 1}
+		limit = { check_variable = { AIR_council_member_5 > 1 }}
+		subtract_from_variable = { AIR_council_member_5 = 1}
 	}
-	SAT_recalc_council_support = yes
+	AIR_recalc_council_support = yes
 }
 
 ### Sat Missions
 
-SAT_start_mission_1 = {
-	set_variable = { sat_mission_1_reward = sat_new_mission_reward }
-	set_variable = { sat_mission_1_size = sat_new_mission_size }
-	set_variable = { sat_mission_1_amount = 0 }
-	multiply_variable = { sat_mission_1_size = 100 }
-	subtract_from_variable = { sat_mission_1_amount = sat_mission_1_size }
-	set_variable = { sat_mission_1_size = sat_new_mission_size }
-	add_to_array = { SAT_current_missions = 1 }
+AIR_start_mission_1 = {
+	set_variable = { air_mission_1_reward = air_new_mission_reward }
+	set_variable = { air_mission_1_size = air_new_mission_size }
+	set_variable = { air_mission_1_amount = 0 }
+	multiply_variable = { air_mission_1_size = 100 }
+	subtract_from_variable = { air_mission_1_amount = air_mission_1_size }
+	set_variable = { air_mission_1_size = air_new_mission_size }
+	add_to_array = { AIR_current_missions = 1 }
 }
