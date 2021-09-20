@@ -604,8 +604,9 @@ country_event = {
 		#disband lu ten
 		custom_effect_tooltip = FIR_S_Lu_Ten_Died
 		hidden_effect = {
+			If = { limit = { EAR = { controls_state = 179 } }
 			country_event = { days = 30 id = firenation.14 }
-			every_unit_leader = { limit = { has_id = 9 } retire = yes } 
+			every_unit_leader = { limit = { has_id = 9 } retire = yes } }
 		}
 		add_timed_idea= { 
 			idea = FIR_Lu_Ten's_Death_Effects
@@ -631,6 +632,7 @@ country_event = {
 		#disband Iroh, teleport 
 		every_unit_leader = { limit = { has_id = 7 } retire = yes }
 		hidden_effect = {
+			If = { limit = { EAR = { controls_state = 179 } }
 			delete_unit_template_and_units = {
 				division_template = "Siege Force"
 				disband = yes
@@ -750,7 +752,7 @@ country_event = {
 					puppet = WBA
 					puppet = EBA
 				}
-			}
+			} }
 		}
 	}
 }
