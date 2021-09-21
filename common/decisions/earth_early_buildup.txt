@@ -1,12 +1,16 @@
 earth_economic_buildup_category = {
     populational_census = { 
+
+    	icon = population_census
+
         cost = 25
 		days_remove = 100
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
+			has_tech = farm_1
         }
         visible = { 
           always = yes
@@ -20,13 +24,13 @@ earth_economic_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = industrial_complex
+						building = farm
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = industrial_complex
+					type = farm
 					level = 1
 					instant_build = yes
 				}
@@ -45,13 +49,16 @@ earth_economic_buildup_category = {
     }
 	
 	patronise_local_enterprises = { 
-        icon = buildup
+
+        icon = patronise_enterprises
+
 		cost = 50
 		available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
+			has_tech = crop_weaving_1
         }
 		modifier = {
 			stability_weekly = 0.002
@@ -67,13 +74,13 @@ earth_economic_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = industrial_complex
+						building = crop_weaving
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = industrial_complex
+					type = crop_weaving
 					level = 1
 					instant_build = yes
 				}
@@ -92,14 +99,17 @@ earth_economic_buildup_category = {
     }
 	
 	rescue_struggling_artisans = {
-		icon = buildup
+
+		icon = carpenter
+
         cost = 75
 		days_remove = 50
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
+			has_tech = carpentry_1
         }
         visible = { 
           always = yes
@@ -114,13 +124,13 @@ earth_economic_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = industrial_complex
+						building = carpentry
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = industrial_complex
+					type = carpentry
 					level = 1
 					instant_build = yes
 				}
@@ -139,15 +149,18 @@ earth_economic_buildup_category = {
     }
 
 	distribute_land_charters = { 
-		icon = buildup
+
+		icon = land_charter
+
         cost = 100
 		days_remove = 25
 
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
+			has_tech = farm_1
         }
         visible = { 
           always = yes
@@ -161,13 +174,13 @@ earth_economic_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = industrial_complex
+						building = farm
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = industrial_complex
+					type = farm
 					level = 1
 					instant_build = yes
 				}
@@ -186,13 +199,15 @@ earth_economic_buildup_category = {
     }
 	
 	patrol_trade_routes = { 
-		icon = buildup
+
+		icon = earth_patrol
+
         cost = 50
 		days_remove = 50
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
         }
         visible = { 
@@ -217,13 +232,13 @@ earth_economic_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = industrial_complex
+						building = consumer_good_factory
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = industrial_complex
+					type = consumer_good_factory
 					level = 1
 					instant_build = yes
 				}
@@ -242,7 +257,9 @@ earth_economic_buildup_category = {
     }
 	
 	land_clearence = { 
-        icon = buildup
+
+        icon = land_clearence
+
 		cost = 100
 		modifier = {
 			industrial_capacity_factory = -0.1
@@ -252,8 +269,9 @@ earth_economic_buildup_category = {
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = economic_investments
+				has_country_flag = economic_investments
 			}
+			has_tech = ranch_1
         }
         visible = { 
           always = yes
@@ -261,10 +279,20 @@ earth_economic_buildup_category = {
         }
 		
         remove_effect = { 
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
+        	random_owned_state = {
+        		limit = { 
+        			is_fully_controlled_by = ROOT 
+        			free_building_slots = {
+        				building = ranch
+        				size > 0
+        				include_locked = yes
+        			}
+        		}
+				add_building_construction = {
+					type = ranch
+					level = 1
+					instant_build = yes
+				}
 			}
 			random_owned_state = {
 				add_extra_state_shared_building_slots = 1
@@ -288,8 +316,10 @@ earth_economic_buildup_category = {
 		fire_only_once = yes
     }
 	
-	distribute_food = { 
-		icon = generic_operation
+	distribute_food = {
+
+		icon = bread
+
         cost = 200
 		days_remove = 100
 		days_re_enable = 150
@@ -306,14 +336,16 @@ earth_economic_buildup_category = {
         }
 		modifier = {
 			consumer_goods_factor = 0.1
-			base_fuel_gain_factor = -0.5
+			food_gain = -0.5
 			stability_weekly = 0.005
 			war_support_weekly = 0.002
 		}
 		complete_effect = {
+			add_to_variable = { food_production_bonus = -0.5 }
 			set_country_flag = economic_investments
 		}
 		remove_effect = {
+			add_to_variable = { food_production_bonus = 0.5 }
 			clr_country_flag = economic_investments
 		}
         ai_will_do = {
@@ -322,7 +354,9 @@ earth_economic_buildup_category = {
     }
 	
 	patronize_art = { 
-		icon = generic_operation
+
+		icon = pillar
+
         cost = 200
 		days_remove = 200
 		days_re_enable = 300
@@ -355,8 +389,10 @@ earth_economic_buildup_category = {
         }
     }
 	
-	debase_currency = { 
-		icon = generic_operation
+	debase_currency = {
+
+		icon = inflation
+
         cost = 500
 		days_remove = 400
 		days_re_enable = 100
@@ -373,14 +409,19 @@ earth_economic_buildup_category = {
         }
 		modifier = {
 			consumer_goods_factor = -0.1
-			political_power_cost = 0.2
+			political_power_cost = 0.4
+			taxation = 0.1
+			production_speed_buildings_factor = -0.1
+			stability_weekly = 0.025
 		}
 		complete_effect = {
 			set_country_flag = economic_investments
-			add_stability = 0.1
+			add_to_variable = { state_stealing = 0.1 }
 		}
 		remove_effect = {
 			clr_country_flag = economic_investments
+			add_stability = -0.25
+			add_to_variable = { state_stealing = -0.1 }
 		}
         ai_will_do = {
             factor = 0.05
@@ -397,8 +438,9 @@ earth_military_buildup_category = {
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = military_investments
+				has_country_flag = military_investments
 			}
+			has_tech = smithy_1
         }
         visible = { 
           always = yes
@@ -409,13 +451,13 @@ earth_military_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = arms_factory
+						building = smithy
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = smithy
 					level = 1
 					instant_build = yes
 				}		
@@ -448,8 +490,9 @@ earth_military_buildup_category = {
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = military_investments
+				has_country_flag = military_investments
 			}
+			has_tech = smithy_1
         }
         visible = { 
           always = yes
@@ -463,13 +506,13 @@ earth_military_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = arms_factory
+						building = smithy
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = smithy
 					level = 2
 					instant_build = yes
 				}	
@@ -494,8 +537,9 @@ earth_military_buildup_category = {
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = military_investments
+				has_country_flag = military_investments
 			}
+			has_tech = smithy_1
         }
         visible = { 
           always = yes
@@ -509,13 +553,13 @@ earth_military_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = arms_factory
+						building = smithy
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = smithy
 					level = 1
 					instant_build = yes
 				}
@@ -540,8 +584,9 @@ earth_military_buildup_category = {
         available = {
             has_country_flag = Earth_Nation
 			NOT = { 
-			has_country_flag = military_investments
+				has_country_flag = military_investments
 			}
+			has_tech = smithy_1
         }
         visible = { 
           always = yes
@@ -552,13 +597,13 @@ earth_military_buildup_category = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
-						building = arms_factory
+						building = smithy
 						size > 0
 						include_locked = yes
 					}
 				}
 				add_building_construction = {
-					type = arms_factory
+					type = smithy
 					level = 1
 					instant_build = yes
 				}	

@@ -2,8 +2,19 @@
 
 THE_EARTHKINGDOM = {
 
-	free_major_supress_kingdoms = {
-		cost = 100
+##########################################################
+
+	#     #  ###      #  ###  ###
+	##   ## #   #     # #   # #  #
+	# # # # #####     # #   # ###
+	#  #  # #   # #   # #   # # #
+	#     # #   #  ###   ###  #  #
+
+##########################################################
+
+	free_major_suppress_puppets = {
+
+		icon = earth_crown
 
 		allowed = {
 			
@@ -22,15 +33,18 @@ THE_EARTHKINGDOM = {
 			}
 			any_country = { 
 				is_subject_of = ROOT
-				has_autonomy_state = autonomy_kingdom
 			}
+			is_faction_leader = yes
 		}
 
+		cost = 200
+
 		fire_only_once = yes
-		days_remove = 90
+		days_remove = 210
+		days_re_enable = 160
 
 		modifier = {
-			
+			subjects_autonomy_gain = -0.5
 		}
 
 		complete_effect = { 
@@ -38,17 +52,155 @@ THE_EARTHKINGDOM = {
 		}
 
 		remove_effect = { 
+			add_stability = 0.05
+		}
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+	free_major_suppress_kingdoms = {
+
+		icon = earth_kingdom_suppression
+
+		allowed = {
+			
+		}
+
+		available = {
+			
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			}
+			any_country = { 
+				is_subject_of = ROOT
+				has_autonomy_state = autonomy_kingdom
+			}
+			is_faction_leader = yes
+		}
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 100
+		days_re_enable = 200
+
+		modifier = {
+			command_power_gain_mult = -0.5
+		}
+
+		remove_effect = { 
+			add_command_power = 50
 			every_country = {
 				limit = {
 					is_subject_of = ROOT
 					has_autonomy_state = autonomy_kingdom
 				}
 				add_autonomy_score = {
-				    value = -100
-				    localization = MAJOR
+					value = -200
+					localization = KINGDOM
 				}
 			}
 		}
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+##########################################################
+
+	 ###  ###  #   # #   # #####  #   #
+	#    #   # #   # ##  #   #    #   #
+	#    #   # #   # # # #   #     ###
+	#    #   # #   # #  ##   #       #
+	 ###  ###   ###  #   #   #    ###
+
+##########################################################
+
+	county_diplomacy_to_overlord = {
+
+		icon = green_scroll
+
+		allowed = {
+			
+		}
+
+		available = {
+			
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				is_subject = yes
+				has_autonomy_state = autonomy_county
+			}
+		}
+
+		cost = 40
+
+		fire_only_once = no
+		days_remove = 100
+
+		modifier = {
+			political_power_factor = -0.05
+			autonomy_gain = 0.6
+		}
+
+		complete_effect = { 
+			
+		}
+
+		remove_effect = { 
+			OVERLORD = {
+				add_political_power = 40
+			}
+		}
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+	county_demand_coronation = {
+
+		icon = earth_coronation
+
+		allowed = {
+			
+		}
+
+		available = {
+			compare_autonomy_progress_ratio > 0.99
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				is_subject = yes
+				has_autonomy_state = autonomy_county
+			}
+		}
+
+		cost = 300
+
+		fire_only_once = no
+
+		complete_effect = { 
+			
+		}
+
 		ai_will_do = {
 			factor = 0.05
 		}
@@ -88,26 +240,21 @@ THE_EARTHKINGDOM = {
 			}
 		}
 
-		cost = 100
+		cost = 50
 
 		fire_only_once = no
 		days_remove = 100
 
 		modifier = {
 			political_power_factor = -0.1
+			autonomy_gain = 0.5
 		}
 
 		complete_effect = { 
 			
 		}
 
-		remove_effect = { 
-			ROOT = {
-				add_autonomy_score = {
-					value = 100
-					localization = KINGDOM
-				}
-			}
+		remove_effect = {
 			OVERLORD = {
 				add_political_power = 50
 			}
