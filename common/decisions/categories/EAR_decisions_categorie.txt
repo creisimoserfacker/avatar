@@ -19,6 +19,26 @@ THE_EARTHKINGDOM = {
 	}
 }
 
+WESTERN_ALLIANCE = {
+    icon = western_kingdom
+
+	visible = {
+		ROOT = {
+			is_in_array = {
+				array = global.western_alliance
+				value = THIS.id
+			}
+		}
+	}
+	visible_when_empty = yes
+
+	scripted_gui = western_alliance_ui
+
+	priority = {
+		base = 1000
+	}
+}
+
 earth_factions_category = {
     icon = earth_kingdom
 

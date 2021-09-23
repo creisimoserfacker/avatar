@@ -100,7 +100,7 @@ earth_economic_buildup_category = {
 	
 	rescue_struggling_artisans = {
 
-		icon = carpenter
+		icon = artisans
 
         cost = 75
 		days_remove = 50
@@ -109,7 +109,10 @@ earth_economic_buildup_category = {
 			NOT = { 
 				has_country_flag = economic_investments
 			}
-			has_tech = carpentry_1
+			OR = {
+				has_tech = carpentry_1
+				has_tech = masonry_1
+			}
         }
         visible = { 
           always = yes
@@ -120,6 +123,9 @@ earth_economic_buildup_category = {
 			consumer_goods_factor = 0.1
 		}
         remove_effect = { 
+
+        	####carpentry
+
 			random_owned_state = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
@@ -133,6 +139,64 @@ earth_economic_buildup_category = {
 					type = carpentry
 					level = 1
 					instant_build = yes
+				}
+			}
+			limit = {
+				not = {
+					has_tech = masonry_1
+				}
+				random_owned_state = {
+					limit = { 
+						is_fully_controlled_by = ROOT 
+						free_building_slots = {
+							building = carpentry
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = carpentry
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+
+			#### masonry
+
+			random_owned_state = {
+				limit = { 
+					is_fully_controlled_by = ROOT 
+					free_building_slots = {
+						building = masonry
+						size > 0
+						include_locked = yes
+					}
+				}
+				add_building_construction = {
+					type = masonry
+					level = 1
+					instant_build = yes
+				}
+			}
+			limit = {
+				not = {
+					has_tech = carpentry_1
+				}
+				random_owned_state = {
+					limit = { 
+						is_fully_controlled_by = ROOT 
+						free_building_slots = {
+							building = masonry
+							size > 0
+							include_locked = yes
+						}
+					}
+					add_building_construction = {
+						type = masonry
+						level = 1
+						instant_build = yes
+					}
 				}
 			}
         }
@@ -432,7 +496,9 @@ earth_economic_buildup_category = {
 earth_military_buildup_category = {
 
 	establish_local_arsenal = { 
-		icon = military_buildup
+
+		icon = weapon_stand
+
         cost = 25
 		days_remove = 30
         available = {
@@ -578,7 +644,9 @@ earth_military_buildup_category = {
     }
 	
 	set_equipment_standards  = { 
-		icon = military_buildup
+
+		icon = equipment_quality
+
         cost = 100
 		days_remove = 30
         available = {
@@ -624,6 +692,9 @@ earth_military_buildup_category = {
 	
 	
 	hunt_bandits = { 
+
+		icon = hunt_bandits
+
         cost = 100
 		days_remove = 150
 		days_re_enable = 200
@@ -667,6 +738,9 @@ earth_military_buildup_category = {
     }
 	
 	victory_celebration = { 
+
+		icon = earth_victory
+		
         cost = 100
 		days_remove = 30
 		days_re_enable = 100

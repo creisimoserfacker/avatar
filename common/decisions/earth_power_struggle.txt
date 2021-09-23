@@ -180,6 +180,9 @@ THE_EARTHKINGDOM = {
 
 		available = {
 			compare_autonomy_progress_ratio > 0.99
+			NOT = {
+				has_country_flag = demand_to_overlord
+			}
 		}
 
 		visible = { 
@@ -198,7 +201,13 @@ THE_EARTHKINGDOM = {
 		fire_only_once = no
 
 		complete_effect = { 
-			
+			set_country_flag = demand_to_overlord
+			OVERLORD = {
+				country_event = {
+					id = struggles_ek.7
+					days = 1
+				}
+			}
 		}
 
 		ai_will_do = {
@@ -638,6 +647,265 @@ THE_EARTHKINGDOM = {
 			base = 0
 		}
 	}
+
+##############################################################################################
+
+	#     # ####  ### ##### #### ###  #   #     ###  #    #    #  ###  #   #  ### ####
+	#     # #    #      #   #    #  # ##  #    #   # #    #    # #   # ##  # #    #   
+	#  #  # ###   ##    #   ###  ###  # # #    ##### #    #    # ##### # # # #    ### 
+	#  #  # #       #   #   #    # #  #  ##    #   # #    #    # #   # #  ## #    #   
+	 ## ##  #### ###    #   #### #  # #   #    #   # #### #### # #   # #   #  ### ####
+
+###############################################################################################
+
+	western_alliance_creation = {
+
+		icon = western_kingdom
+
+		priority = 600
+
+		activation = {
+			custom_trigger_tooltip = {
+				tooltip = NWT_invest_in_state_factory_tt
+				any_country = {
+					has_country_flag = western_alliance
+				}
+			}
+			not = {
+				has_global_flag = western_alliance_creation_done
+			}
+		}
+
+		visible = {
+			has_country_flag = western_alliance
+		}
+
+		available = {
+			WUL = { has_country_flag = western_alliance }
+			NOW = { has_country_flag = western_alliance }
+			NIX = { has_country_flag = western_alliance }
+			XIN = { has_country_flag = western_alliance }
+			YUE = { has_country_flag = western_alliance }
+			MAK = { has_country_flag = western_alliance }
+			POH = { has_country_flag = western_alliance }
+			TAK = { has_country_flag = western_alliance }
+			HAN = { has_country_flag = western_alliance }
+			MER = { has_country_flag = western_alliance }
+		}
+		days_mission_timeout = 120
+		is_good = no
+		fire_only_once = yes
+
+		timeout_effect = {
+			set_global_flag = western_alliance_creation_done
+			every_country = {
+				limit = {
+					has_country_flag = western_alliance
+				}
+				end_puppet = OVERLORD
+				leave_faction = yes
+				
+				remove_from_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				#add_to_array = {
+				#	array = global.western_alliance
+				#	value = THIS.id
+				#}
+			}
+
+		}
+		complete_effect = {
+			set_global_flag = western_alliance_creation_done
+			every_country = {
+				limit = {
+					has_country_flag = western_alliance
+				}
+				
+				end_puppet = OVERLORD
+				leave_faction = yes
+				remove_from_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				#add_to_array = {
+				#	array = global.western_alliance
+				#	value = THIS.id
+				#}
+			}
+		}
+	}
+
+	western_alliance_choose_leader = {
+
+		icon = earth_crown
+
+		priority = 500
+
+		available = {
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			}
+			FROM.owner = {
+				NOT = {
+					has_country_flag = invited_to_western_alliance
+				}
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					is_in_array = {
+						array = global.earth_kingdom
+						value = THIS.id
+					}
+					NOT = {
+						has_country_flag = western_alliance
+					}
+					has_autonomy_state = autonomy_kingdom
+				}
+				is_on_continent = north_america
+			}
+		}
+		visible = {
+			ROOT = {
+				has_country_flag = western_alliance
+			}
+			FROM.owner = {
+				NOT = {
+					OR = {
+						has_country_flag = invited_to_western_alliance
+						has_country_flag = western_alliance
+					}
+				}
+			}
+		}
+
+		fire_only_once = no
+		cost = 75
+		days_remove = 30
+
+		modifier = {
+			political_power_factor = -0.5
+		}
+
+		complete_effect = {
+			FROM.owner = {
+				set_country_flag = invited_to_western_alliance
+			}
+		}
+		remove_effect = {
+			FROM.owner = {
+				country_event = {
+					id = western_alliance.2
+					days = 2
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	western_alliance_invite_member = {
+
+		icon = green_scroll
+
+		priority = 400
+
+		available = {
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			}
+			FROM.owner = {
+				NOT = {
+					has_country_flag = invited_to_western_alliance
+				}
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			}
+			any_country = {
+				has_autonomy_state = autonomy_kingdom
+				has_country_flag = western_alliance
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				is_capital = yes
+				owner = {
+					is_in_array = {
+						array = global.earth_kingdom
+						value = THIS.id
+					}
+					NOT = {
+						has_country_flag = western_alliance
+						has_autonomy_state = autonomy_kingdom
+					}
+				}
+				is_on_continent = north_america
+			}
+		}
+		visible = {
+			ROOT = {
+				has_country_flag = western_alliance
+			}
+			FROM.owner = {
+				NOT = {
+					OR = {
+						has_country_flag = invited_to_western_alliance
+						has_country_flag = western_alliance
+					}
+				}
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			}
+		}
+
+		fire_only_once = no
+		cost = 50
+		days_remove = 20
+
+		modifier = {
+			political_power_factor = -0.5
+		}
+
+		complete_effect = {
+			FROM.owner = {
+				set_country_flag = invited_to_western_alliance
+			}
+		}
+		remove_effect = {
+			FROM.owner = {
+				country_event = {
+					id = western_alliance.3
+					days = 2
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+
 
 	#border_conflict = {
 #

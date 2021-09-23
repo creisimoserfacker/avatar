@@ -821,12 +821,16 @@ country_event = {
 			transfer_state = 280
 			add_state_core = 280
 		}
+		hidden_effect = {
+			FIR = {
+				remove_decision = northern_attack_plan
+				remove_decision = central_attack_plan
+				remove_decision = southern_attack_plan
+			}
+		}
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_diplomacy_path
-			remove_decision = northern_attack_plan
-			remove_decision = central_attack_plan
-			remove_decision = southern_attack_plan
 
 			country_event = {
 				id = fir_treaty.2
@@ -845,6 +849,19 @@ country_event = {
 					set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
 				}
 			}
+		}
+		HAN = {
+			country_event = {
+				id = western_alliance.1
+				days = 2
+			}
+		}
+		WUL = {
+			country_event = {
+				id = western_alliance.1
+				days = 2
+			}
+			set_capital = 199
 		}
 	}
 	option = { #compromise
@@ -940,13 +957,16 @@ country_event = {
 		212 = { set_demilitarized_zone = yes }
 		235 = { set_demilitarized_zone = yes }
 		266 = { set_demilitarized_zone = yes }
+		hidden_effect = {
+			FIR = {
+				remove_decision = northern_attack_plan
+				remove_decision = central_attack_plan
+				remove_decision = southern_attack_plan
+			}
+		}
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_diplomacy_path
-			remove_decision = northern_attack_plan
-			remove_decision = central_attack_plan
-			remove_decision = southern_attack_plan
-
 			if = {
 				limit = {
 					NOT = {
@@ -964,8 +984,21 @@ country_event = {
 		EAR = {
 			country_event = {
 				id = fir_treaty.4
+				days = 1
+			}
+		}
+		HAN = {
+			country_event = {
+				id = western_alliance.1
 				days = 2
 			}
+		}
+		WUL = {
+			country_event = {
+				id = western_alliance.1
+				days = 2
+			}
+			set_capital = 199
 		}
 		
 	}

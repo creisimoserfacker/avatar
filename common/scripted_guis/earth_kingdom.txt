@@ -22,6 +22,29 @@ scripted_gui = {
 			}
 		}
 	}
+
+	western_alliance_ui = {
+		context_type = decision_category
+		window_name = "western_alliance_ui_window"
+
+		triggers = {
+			
+		}
+
+		properties = {
+			member_country_flag = {
+				image = [THIS.GetFlag]
+			}
+		}
+
+		dynamic_lists = {
+			western_alliance_members_gridbox = {
+				array = global.western_alliance
+				entry_container = western_alliance_member_list_entry
+				change_scope = yes
+			}
+		}
+	}
 	
 }
 

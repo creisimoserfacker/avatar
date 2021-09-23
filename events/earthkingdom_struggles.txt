@@ -3,6 +3,7 @@
 ###########################
 
 add_namespace = struggles_ek
+add_namespace = western_alliance
 
 #Join Request
 country_event = {
@@ -164,57 +165,78 @@ country_event = {
 	}
 
 }
-
-
-##Event: Generic Country Accepted Demand
+##Event: governorship ---> kingdom DEMAND (sent TO the overlord)
 country_event = {
 	id = struggles_ek.7
 	title = struggles_ek.7.title
 	desc = struggles_ek.7.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_7
+	picture = GFX_report_event_ear_demand_kingdom
 	option = {
-		ai_chance = { base = 1}
+		#Accept:
+		ai_chance = { base = 100 }
 		name = struggles_ek.7.a
+
+		set_autonomy = {
+			target = FROM
+			autonomy_state = autonomy_kingdom
+		}
+
+		FROM = {
+			country_event = {
+				id = struggles_ek.8
+				days = 1
+			}
+		}
+	}
+	option = {
+		#Decline:
+		ai_chance = { base = 0 }
+		modifier = {
+			add = 100
+			num_subjects < 3
+			any_country = { 
+				is_subject_of = ROOT
+				has_autonomy_state = autonomy_kingdom
+			}
+		}
+		name = struggles_ek.7.b
+		add_political_power = -200
+		FROM = {
+			country_event = {
+				id = struggles_ek.9
+				days = 1
+			}
+			add_political_power = 200
+		}
 	}
 }
-
-
-##Event: Generic Country Declined Demand
+##Event: governorship ---> kingdom OVERLORD accept
 country_event = {
 	id = struggles_ek.8
 	title = struggles_ek.8.title
 	desc = struggles_ek.8.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_8
+	picture = GFX_report_event_ear_demand_kingdom
 	option = {
+		#Accept:
 		ai_chance = { base = 1}
 		name = struggles_ek.8.a
 	}
 }
-
-
-
-##Event: territory ---> prefecture DEMAND (sent TO the overlord)
+##Event: governorship ---> kingdom OVERLORD deny
 country_event = {
 	id = struggles_ek.9
 	title = struggles_ek.9.title
 	desc = struggles_ek.9.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_9
+	picture = GFX_report_event_ear_denied_kingdom
 	option = {
 		#Accept:
 		ai_chance = { base = 1}
 		name = struggles_ek.9.a
 	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.9.b
-	}
 }
-
-
 
 ##Event: prefecture ---> territory DEMAND (sent BY the overlord)
 country_event = {
@@ -277,29 +299,6 @@ country_event = {
 	}
 }
 
-
-
-##Event: governorship ---> kingdom DEMAND (sent TO the overlord)
-country_event = {
-	id = struggles_ek.13
-	title = struggles_ek.13.title
-	desc = struggles_ek.13.desc
-	is_triggered_only = yes
-	picture = GFX_struggles_ek_13
-	option = {
-		#Accept:
-		ai_chance = { base = 1}
-		name = struggles_ek.13.a
-	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.13.b
-	}
-}
-
-
-
 ##Event: governorship ---> tributary DEMAND (sent TO the overlord)
 country_event = {
 	id = struggles_ek.14
@@ -360,3 +359,241 @@ country_event = {
 		name = struggles_ek.16.b
 	}
 }
+
+##############################################################################################
+
+	#     # ####  ### ##### #### ###  #   #     ###  #    #    #  ###  #   #  ### ####
+	#     # #    #      #   #    #  # ##  #    #   # #    #    # #   # ##  # #    #   
+	#  #  # ###   ##    #   ###  ###  # # #    ##### #    #    # ##### # # # #    ### 
+	#  #  # #       #   #   #    # #  #  ##    #   # #    #    # #   # #  ## #    #   
+	 ## ##  #### ###    #   #### #  # #   #    #   # #### #### # #   # #   #  ### ####
+
+###############################################################################################
+
+
+#Betrayed by Ba Sing Se
+country_event = {
+	id = western_alliance.1
+	title = western_alliance.1.t
+	desc = western_alliance.1.d
+	picture = GFX_report_event_wa_betrail
+
+	is_triggered_only = yes
+
+	option = {
+		name = western_alliance.1.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+	}
+
+	option = {
+		name = western_alliance.1.b
+		ai_chance = { 
+			factor = 0
+		}
+		custom_effect_tooltip = EAR_western_alliance
+
+		add_to_array = {
+			array = global.western_alliance
+			value = THIS.id
+		}
+		hidden_effect = {
+			set_country_flag = western_alliance
+		}
+	}
+}
+
+#Western Alliance request leadership
+country_event = {
+	id = western_alliance.2
+	title = western_alliance.2.t
+	desc = western_alliance.2.d
+	picture = GFX_report_event_wa_betrail
+
+	is_triggered_only = yes
+
+	option = {  #accept
+		name = western_alliance.2.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+		hidden_effect = {
+			set_country_flag = western_alliance
+		}
+		if = {
+			limit = {
+				not = {
+					any_country = {
+						has_country_flag = western_alliance_leader
+					}
+				}
+			}
+			set_country_flag = western_alliance_leader
+		}
+	}
+
+	option = {  #we wont betray ba sing se
+		name = western_alliance.2.b
+		ai_chance = { 
+			factor = 0
+		}
+		FROM = {
+			set_country_flag = western_alliance_leader
+		}
+	}
+}
+
+#Western Alliance Invitation
+country_event = {
+	id = western_alliance.3
+	title = western_alliance.3.t
+	desc = western_alliance.3.d
+	picture = GFX_report_event_wa_betrail
+
+	is_triggered_only = yes
+
+	option = {
+		name = western_alliance.3.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		hidden_effect = {
+			set_country_flag = western_alliance
+		}
+	}
+
+	option = {
+		name = western_alliance.3.b
+		ai_chance = { 
+			factor = 0
+		}
+
+	}
+}
+
+#Western Alliance Creation
+country_event = {
+	id = western_alliance.4
+	title = western_alliance.4.t
+	desc = western_alliance.4.d
+	picture = GFX_report_event_wa_civil_war
+
+	trigger = {
+		has_global_flag = western_alliance_creation_done
+		has_country_flag = western_alliance
+		not = {
+			has_country_flag = western_alliance_joined
+		}
+	}
+
+	fire_only_once = no
+
+	immediate = {
+		set_country_flag = western_alliance_joined
+	}
+
+	mean_time_to_happen = {
+		days = 20
+	}
+
+	option = {
+		name = western_alliance.4.a
+		ai_chance = { 
+			factor = 100
+		}
+		THIS = {
+			add_war_support = 0.1
+
+			add_to_array = {
+				array = global.western_alliance
+				value = THIS.id
+			}
+		}
+		if = {
+			limit = {
+				has_country_flag = western_alliance_leader
+			}
+			create_faction = Western_Alliance
+			every_country = {
+				limit = {
+					has_country_flag = western_alliance
+					NOT = {
+						has_country_flag = western_alliance_leader
+					}
+				}
+				ROOT = {
+					if = {
+						limit = {
+							has_dlc = "Together for Victory"
+						}
+						set_autonomy = {
+							target = PREV.THIS
+							autonomous_state = autonomy_kingdom
+						}
+						else = {
+							puppet = PREV.THIS
+						}
+					}
+				}
+			}
+			declare_war_on = {
+				target = EAR
+				type = annex_everything
+			}
+		}
+	}
+
+}
+
+
+###Event: Generic Country Accepted Demand
+#country_event = {
+#	id = struggles_ek.7
+#	title = struggles_ek.7.title
+#	desc = struggles_ek.7.desc
+#	is_triggered_only = yes
+#	picture = GFX_struggles_ek_7
+#	option = {
+#		ai_chance = { base = 1}
+#		name = struggles_ek.7.a
+#	}
+#}
+#
+#
+###Event: Generic Country Declined Demand
+#country_event = {
+#	id = struggles_ek.8
+#	title = struggles_ek.8.title
+#	desc = struggles_ek.8.desc
+#	is_triggered_only = yes
+#	picture = GFX_struggles_ek_8
+#	option = {
+#		ai_chance = { base = 1}
+#		name = struggles_ek.8.a
+#	}
+#}
+#
+#
+#
+###Event: territory ---> prefecture DEMAND (sent TO the overlord)
+#country_event = {
+#	id = struggles_ek.9
+#	title = struggles_ek.9.title
+#	desc = struggles_ek.9.desc
+#	is_triggered_only = yes
+#	picture = GFX_struggles_ek_9
+#	option = {
+#		#Accept:
+#		ai_chance = { base = 1}
+#		name = struggles_ek.9.a
+#	}
+#	option = {
+#		#Decline:
+#		ai_chance = { base = 1}
+#		name = struggles_ek.9.b
+#	}
+#}
