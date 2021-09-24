@@ -3,6 +3,7 @@
 ###########################
 
 add_namespace = news
+add_namespace = hidden
 
 # Sozins Comet
 news_event = {
@@ -48,7 +49,7 @@ news_event = {
 
 # Comet Trigger (HIDDEN)
 news_event = {
-	id = news.2
+	id = hidden.1
 	hidden = yes
 	
 	fire_only_once = yes
@@ -74,30 +75,28 @@ news_event = {
 	}
 	
 	option = {
-		name = news.2.a
+		name = hidden.1.a
 	}
 }
 
 
 #Bears! (by Jari 'Spider-Man')
 news_event = {
-	id = news.3
-	title = news.3.t
-	desc = news.3.d
+	id = news.2
+	title = news.2.t
+	desc = news.2.d
 	picture = GFX_avatar_news_event_002
 	is_triggered_only = yes
 	
-	fire_only_once = yes
-	
 	option = {
-		name = news.3.a
+		name = news.2.a
 	}
 	
 }
 
 # Bears Trigger (HIDDEN)
 country_event = {
-	id = news.4
+	id = hidden.2
 	hidden = yes
 	
 	fire_only_once = yes
@@ -114,12 +113,12 @@ country_event = {
 	
 	immediate = {
 		random_list = {
-			100 = { EAR = { news_event = { id = news.3 } } }
+			100 = { EAR = { news_event = { id = news.2 } } }
 		}
 	}
 	
 	option = {
-		name = news.4.a
+		name = hidden.2.a
 	}
 }
 
@@ -131,11 +130,13 @@ country_event = {
 
 #Air Nomade Genocide
 news_event = {
-	id = news.5
-	title = news.5.t
-	desc = news.5.d
-	picture = GFX_avatar_news_event_004
+	id = news.3
+	title = news.3.t
+	desc = news.3.d
+	picture = GFX_avatar_news_event_003
 	is_triggered_only = yes
+
+	major = yes
 
 	immediate = {
 		hidden_effect = {
@@ -159,10 +160,8 @@ news_event = {
 		}
 	}
 
-	fire_only_once = yes
-
 	option = {
-		name = news.5.a
+		name = news.3.a
 		ai_chance = { 
 			factor = 100
 		}
@@ -172,7 +171,7 @@ news_event = {
 
 	}
 	option = {
-		name = news.5.b
+		name = news.3.b
 		trigger = { 
 			NOT = {
 				TAG = FIR
@@ -183,7 +182,7 @@ news_event = {
 
 #Airnomad Genocide Trigger (HIDDEN)
 news_event = {
-	id = news.6
+	id = hidden.3
 	hidden = yes
 	
 	fire_only_once = yes
@@ -213,20 +212,20 @@ news_event = {
 	
 	immediate = {
 		random_list = {
-			100 = { FIR = { news_event = { id = news.5 } } }
+			100 = { FIR = { news_event = { id = news.3 } } }
 		}
 	}
 	
 	option = {
-		name = news.6.a
+		name = hidden.3.a
 	}
 }
 
 news_event = {
-	id = news.7
-	title = news.7.t
-	desc = news.7.d
-	picture = GFX_avatar_news_event_005
+	id = news.4
+	title = news.4.t
+	desc = news.4.d
+	picture = GFX_avatar_news_event_004
 	is_triggered_only = yes
 
 	major = yes
@@ -239,10 +238,8 @@ news_event = {
 		}
 	}
 
-	fire_only_once = yes
-
 	option = {
-		name = news.7.a
+		name = news.4.a
 		ai_chance = { 
 			factor = 100
 		}
@@ -252,7 +249,7 @@ news_event = {
 
 	}
 	option = {
-		name = news.7.b
+		name = news.4.b
 		trigger = { 
 			NOT = {
 				TAG = FIR
@@ -262,11 +259,8 @@ news_event = {
 }
 
 news_event = {
-	id = news.8
-	title = news.8.t
-	desc = news.8.d
-	picture = GFX_avatar_news_event_005
-	is_triggered_only = yes
+	id = hidden.4
+	hidden = yes
 
 	immediate = {
 		hidden_effect = {
@@ -277,22 +271,75 @@ news_event = {
 	fire_only_once = yes
 
 	option = {
-		name = news.8.a
-		ai_chance = { 
-			factor = 100
-		}
-		trigger = { 
-			TAG = FIR
-		}
+		name = hidden.4.a
 
 	}
+}
+
+# Earth Rebellion
+news_event = {
+	id = news.5
+	title = news.5.t
+	desc = news.5.d
+	picture = GFX_avatar_news_event_005
+	is_triggered_only = yes
+
+	major = yes
+
+	mean_time_to_happen = {
+		days = 12
+	}
+	
+	immediate = {
+		set_global_flag = rebellion_event_fired
+	}
+	
 	option = {
-		name = news.8.b
+		name = news.5.a
 		trigger = { 
+			has_country_flag = western_alliance
 			NOT = {
-				TAG = FIR
+				TAG = EAR
 			}
 		}
+	}
+
+	option = {
+		name = news.5.b
+		trigger = { 
+			NOT = {
+				has_country_flag = western_alliance
+				TAG = EAR
+			}
+		}
+	}
+}
+# Earth Rebellion Trigger (HIDDEN)
+news_event = {
+	id = hidden.5
+	hidden = yes
+	
+	fire_only_once = yes
+	
+	trigger = {
+		has_global_flag = western_alliance_creation_done
+		not = {
+			has_global_flag = rebellion_event_fired
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 6
+	}
+	
+	immediate = {
+		random_list = {
+			100 = { FIR = { news_event = { id = news.5 } } }
+		}
+	}
+	
+	option = {
+		name = hidden.5.a
 	}
 }
 
