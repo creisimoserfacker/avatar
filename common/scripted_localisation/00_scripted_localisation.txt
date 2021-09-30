@@ -8,6 +8,83 @@
 # localization_key -> points to the localization key
 # that'll be used if trigger passes
 
+### avatar
+
+defined_text = {
+	name = BrokenCicle
+	text = {
+		trigger = {
+			has_global_flag = avatar_cycle_broken
+		}
+		localization_key = AVATAR_BROKEN_TOOLTIP
+	}
+	text = {
+		localization_key = AVATAR_ACTIVE_TOOLTIP
+	}
+}
+
+### decisions
+
+defined_text = {
+	name = GetShowHideIcon
+	text = {
+		trigger = {
+			has_country_flag = hide_generic_decisions
+		}
+		localization_key = "GFX_hide_decisions"
+	}
+	text = {
+		localization_key = "GFX_show_decisions"
+	}
+}
+defined_text = {
+	name = GetPrioritiseIcon
+	text = {
+		trigger = {
+			has_country_flag = prioritise_civilian
+		}
+		localization_key = "GFX_decision_category_buildup"
+	}
+	text = {
+		trigger = {
+			has_country_flag = prioritise_military
+		}
+		localization_key = "GFX_decision_category_military_buildup"
+	}
+	text = {
+		trigger = {
+			has_country_flag = prioritise_research
+		}
+		localization_key = "GFX_decision_category_research"
+	}
+	text = {
+		localization_key = "GFX_decision_category_generic"
+	}
+}
+defined_text = {
+	name = GetPrioritiseName
+	text = {
+		trigger = {
+			has_country_flag = prioritise_civilian
+		}
+		localization_key = "prioritise_civilian"
+	}
+	text = {
+		trigger = {
+			has_country_flag = prioritise_military
+		}
+		localization_key = "prioritise_military"
+	}
+	text = {
+		trigger = {
+			has_country_flag = prioritise_research
+		}
+		localization_key = "prioritise_research"
+	}
+	text = {
+		localization_key = "prioritise_generic"
+	}
+}
 
 ### air genocide outcomes
 
@@ -47,13 +124,13 @@ defined_text = {
 		trigger = {
 			has_global_flag = south_temple_fallen
 		}
-		localization_key = air_fallen_and_cant_get_up
+		localization_key = sat_fallen_and_cant_get_up
 	}
 	text = {
 		trigger = {
 			has_global_flag = south_temple_survived
 		}
-		localization_key = air_survived
+		localization_key = sat_survived
 	}
 }
 defined_text = {

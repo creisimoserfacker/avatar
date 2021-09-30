@@ -72,6 +72,26 @@ NWT_tribe_union = {
 			set_country_flag = unity_buildup_in_progress
 			set_country_flag = united_hunter_organisation_in_progress
 			custom_effect_tooltip = hunter_orga_tt
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					NOT = {
+						has_state_flag = NWT_hunter_group
+					}
+				}
+				set_state_flag = NWT_hunter_group
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					NOT = {
+						has_state_flag = NWT_hunter_group
+					}
+				}
+				set_state_flag = NWT_hunter_group
+			}
 		}
 
 		days_re_enable = 760
@@ -83,7 +103,7 @@ NWT_tribe_union = {
 		available = {
 			always = no
 		}
-		days_mission_timeout = 180
+		days_mission_timeout = 90
 		is_good = yes
 		activation = {
 			has_country_flag = united_hunter_organisation_in_progress
@@ -93,45 +113,68 @@ NWT_tribe_union = {
 			clr_country_flag = united_hunter_organisation_in_progress
 		}
 	}
-	NWT_hunters_10 = {
+	NWT_hunters_decision = {
 		icon = water_hunters_2
 
-		highlight_state_targets = {
-			state = 10
+		#highlight_states= {
+		#	has_state_flag = NWT_hunter_group
+		#}
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				has_state_flag = NWT_hunter_group
+			}
 		}
-		on_map_mode = map_only
+		#on_map_mode = map_only
 		visible = {
 			has_country_flag = united_hunter_organisation_in_progress
+			FROM = {
+				has_state_flag = NWT_hunter_group
+			}
 		}
 		available = {
 			has_country_flag = united_hunter_organisation_in_progress
-			has_equipment = { spear_equipment > 99 }
-			has_equipment = { heavy_armor_equipment > 99 }
+			has_equipment = { spear_equipment > 19 }
+			has_equipment = { heavy_armor_equipment > 19 }
 		}
 		custom_cost_trigger = {
-			has_equipment = { spear_equipment > 99 }
-			has_equipment = { heavy_armor_equipment > 99 }
+			has_equipment = { spear_equipment > 19 }
+			has_equipment = { heavy_armor_equipment > 19 }
 		}
-		custom_cost_text = spearmen_100
+		custom_cost_text = spearmen_20
 
-		days_remove = 7
+		days_remove = 14
+		#days_re_enable = 7
 
 		complete_effect = {
 			add_equipment_to_stockpile = {
 				type = spear_equipment
-				amount = -100
+				amount = -20
 				producer = NWT
 			}
 			add_equipment_to_stockpile = {
 				type = heavy_armor_equipment
-				amount = -100
+				amount = -20
 				producer = NWT
 			}
 		}
 
 		remove_effect = {
-			add_political_power = 10
+			add_command_power = 10
 			NWT_unity_small_support = yes
+			FROM = {
+				clr_state_flag = NWT_hunter_group
+			}
+			random_owned_state = {
+				limit = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					NOT = {
+						has_state_flag = NWT_hunter_group
+					}
+				}
+				set_state_flag = NWT_hunter_group
+			}
 		}
 	}
 
@@ -204,6 +247,219 @@ NWT_tribe_union = {
 		}
 	}
 
+	NWT_artisan_investment = {
+
+		icon = artisans
+
+		visible = {
+			tag = NWT
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+		}
+		
+		available = {
+			NOT = {
+				has_country_flag = unity_buildup_in_progress
+			}
+			OR = {
+				has_tech = carpentry_1
+				has_tech = masonry_1
+			}
+		}
+		
+		#fire_only_once = yes		
+
+		cost = 20
+
+		days_re_enable = 740
+
+		complete_effect = {
+			set_country_flag = unity_buildup_in_progress
+			custom_effect_tooltip = NWT_artisan_investment_tt
+			hidden_effect = {
+				random_list = {
+
+					10 = {
+						modifier = {
+							NOT = {
+								any_owned_state = {
+									is_core_of = ROOT
+									is_controlled_by = ROOT
+									free_building_slots = {
+										building = carpentry
+										size > 0
+										include_locked = no
+									}
+								}
+							}
+							factor = 0
+						}
+						modifier = {
+							NOT = {
+								has_tech = carpentry_1
+							}
+							factor = 0
+						}
+						random_owned_state = {
+							limit = {
+								is_core_of = ROOT
+								is_controlled_by = ROOT
+								free_building_slots = {
+									building = carpentry
+									size > 0
+									include_locked = no
+								}
+							}
+							set_state_flag = NWT_build_carpentry
+							set_variable = { factory_goal = building_level@carpentry }
+							add_to_variable = { factory_goal = 1 }
+						}
+					}
+
+					10 = {
+						modifier = {
+							NOT = {
+								any_owned_state = {
+									is_core_of = ROOT
+									is_controlled_by = ROOT
+									free_building_slots = {
+										building = masonry
+										size > 0
+										include_locked = no
+									}
+								}
+							}
+							factor = 0
+						}
+						modifier = {
+							NOT = {
+								has_tech = masonry_1
+							}
+							factor = 0
+						}
+						random_owned_state = {
+							limit = {
+								is_core_of = ROOT
+								is_controlled_by = ROOT
+								free_building_slots = {
+									building = masonry
+									size > 0
+									include_locked = no
+								}
+							}
+							set_state_flag = NWT_build_masonry
+							set_variable = { factory_goal = building_level@masonry }
+							add_to_variable = { factory_goal = 1 }
+						}
+					}
+	
+				}
+			}
+		}
+	}
+
+	NWT_invest_in_state_carpentry = {
+		icon = buildup
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = NWT_invest_in_state_carpentry_tt
+				any_owned_state = {
+					has_state_flag = NWT_build_carpentry
+					check_variable = { factory_goal = building_level@carpentry }
+				}
+			}
+		}
+		highlight_states = {
+			has_state_flag = NWT_build_carpentry
+		}
+		days_mission_timeout = 360
+		is_good = no
+		activation = {
+			any_owned_state = {
+				has_state_flag = NWT_build_carpentry
+			}
+		}
+		timeout_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = NWT_build_carpentry
+				}
+				clr_state_flag = NWT_build_carpentry
+				clear_variable = factory_goal
+			}
+			
+			NWT_unity_medium_opposition = yes 
+			clr_country_flag = unity_buildup_in_progress
+		}
+		complete_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = NWT_build_carpentry
+				}
+				clr_state_flag = NWT_build_carpentry
+				clear_variable = factory_goal
+			}
+			ROOT = {
+				NWT_unity_large_support = yes
+				clr_country_flag = unity_buildup_in_progress
+			}
+			
+		}
+	}
+
+	NWT_invest_in_state_masonry = {
+		icon = buildup
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = NWT_invest_in_state_masonry_tt
+				any_owned_state = {
+					has_state_flag = NWT_build_masonry
+					check_variable = { factory_goal = building_level@masonry }
+				}
+			}
+		}
+		highlight_states = {
+			has_state_flag = NWT_build_masonry
+		}
+		days_mission_timeout = 360
+		is_good = no
+		activation = {
+			any_owned_state = {
+				has_state_flag = NWT_build_masonry
+			}
+		}
+		timeout_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = NWT_build_masonry
+				}
+				clr_state_flag = NWT_build_masonry
+				clear_variable = factory_goal
+			}
+			
+			NWT_unity_medium_opposition = yes 
+			clr_country_flag = unity_buildup_in_progress
+		}
+		complete_effect = {
+			random_owned_state = {
+				limit = {
+					has_state_flag = NWT_build_masonry
+				}
+				clr_state_flag = NWT_build_masonry
+				clear_variable = factory_goal
+			}
+			ROOT = {
+				NWT_unity_large_support = yes
+				clr_country_flag = unity_buildup_in_progress
+			}
+			
+		}
+	}
+
+
+
+
 	NWT_factory_investment = {
 
 		icon = water_factory
@@ -218,6 +474,10 @@ NWT_tribe_union = {
 		available = {
 			NOT = {
 				has_country_flag = unity_buildup_in_progress
+			}
+			OR = {
+				has_tech = steelworks_1
+				has_tech = factory_1
 			}
 		}
 		
@@ -239,11 +499,17 @@ NWT_tribe_union = {
 									is_core_of = ROOT
 									is_controlled_by = ROOT
 									free_building_slots = {
-										building = industrial_complex
+										building = factory
 										size > 0
 										include_locked = no
 									}
 								}
+							}
+							factor = 0
+						}
+						modifier = {
+							NOT = {
+								has_tech = factory_1
 							}
 							factor = 0
 						}
@@ -252,13 +518,13 @@ NWT_tribe_union = {
 								is_core_of = ROOT
 								is_controlled_by = ROOT
 								free_building_slots = {
-									building = industrial_complex
+									building = factory
 									size > 0
 									include_locked = no
 								}
 							}
 							set_state_flag = NWT_build_factory
-							set_variable = { factory_goal = industrial_complex_level }
+							set_variable = { factory_goal = building_level@factory }
 							add_to_variable = { factory_goal = 1 }
 						}
 					}
@@ -270,11 +536,17 @@ NWT_tribe_union = {
 									is_core_of = ROOT
 									is_controlled_by = ROOT
 									free_building_slots = {
-										building = arms_factory
+										building = steelworks
 										size > 0
 										include_locked = no
 									}
 								}
+							}
+							factor = 0
+						}
+						modifier = {
+							NOT = {
+								has_tech = steelworks_1
 							}
 							factor = 0
 						}
@@ -283,14 +555,14 @@ NWT_tribe_union = {
 								is_core_of = ROOT
 								is_controlled_by = ROOT
 								free_building_slots = {
-									building = arms_factory
+									building = steelworks
 									size > 0
 									include_locked = no
 								}
 							}
-							set_state_flag = NWT_build_smithy
-							set_variable = { smithy_goal = arms_factory_level }
-							add_to_variable = { smithy_goal = 1 }
+							set_state_flag = NWT_build_steelworks
+							set_variable = { factory_goal = building_level@steelworks }
+							add_to_variable = { factory_goal = 1 }
 						}
 					}
 				}
@@ -299,13 +571,13 @@ NWT_tribe_union = {
 	}
 
 	NWT_invest_in_state_factory = {
-		icon = buildup
+		icon = military_buildup
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = NWT_invest_in_state_factory_tt
 				any_owned_state = {
 					has_state_flag = NWT_build_factory
-					check_variable = { factory_goal = industrial_complex_level }
+					check_variable = { factory_goal = building_level@factory }
 				}
 			}
 		}
@@ -347,34 +619,34 @@ NWT_tribe_union = {
 		}
 	}
 
-	NWT_invest_in_state_smithy = {
-		icon = military_buildup
+	NWT_invest_in_state_smelting = {
+		icon = buildup
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = NWT_invest_in_state_smithy_tt
+				tooltip = NWT_invest_in_state_smelting_tt
 				any_owned_state = {
-					has_state_flag = NWT_build_smithy
-					check_variable = { smithy_goal = arms_factory_level }
+					has_state_flag = NWT_build_steelworks
+					check_variable = { factory_goal = building_level@steelworks }
 				}
 			}
 		}
 		highlight_states = {
-			has_state_flag = NWT_build_smithy
+			has_state_flag = NWT_build_steelworks
 		}
 		days_mission_timeout = 360
 		is_good = no
 		activation = {
 			any_owned_state = {
-				has_state_flag = NWT_build_smithy
+				has_state_flag = NWT_build_steelworks
 			}
 		}
 		timeout_effect = {
 			random_owned_state = {
 				limit = {
-					has_state_flag = NWT_build_smithy
+					has_state_flag = NWT_build_steelworks
 				}
-				clr_state_flag = NWT_build_smithy
-				clear_variable = smithy_goal
+				clr_state_flag = NWT_build_steelworks
+				clear_variable = factory_goal
 			}
 			
 			NWT_unity_medium_opposition = yes 
@@ -383,9 +655,9 @@ NWT_tribe_union = {
 		complete_effect = {
 			random_owned_state = {
 				limit = {
-					has_state_flag = NWT_build_smithy
+					has_state_flag = NWT_build_steelworks
 				}
-				clr_state_flag = NWT_build_smithy
+				clr_state_flag = NWT_build_steelworks
 				clear_variable = factory_goal
 			}
 			ROOT = {
@@ -396,65 +668,65 @@ NWT_tribe_union = {
 		}
 	}
 
-	NWT_focused_construction = {
-		icon = water_focus
-		available = {
-			any_owned_state = {
-				OR = {
-					has_state_flag = NWT_build_smithy
-					has_state_flag = NWT_build_factory
-				}
-			}
-		}
-		visible = {
-			any_owned_state = {
-				OR = {
-					has_state_flag = NWT_build_smithy
-					has_state_flag = NWT_build_factory
-				}
-			}
-		}
-		highlight_states = {
-			has_state_flag = NWT_build_smithy
-			has_state_flag = NWT_build_factory
-			
-		}
-
-		days_remove = 45
-
-		modifier = {
-			stability_weekly = -0.005
-			production_speed_buildings_factor = -0.5
-		}
-
-		cost = 25
-
-		complete_effect = {
-			random_owned_state = {
-				limit = {
-					OR = {
-						has_state_flag = NWT_build_smithy
-						has_state_flag = NWT_build_factory
-					}
-				}
-				add_dynamic_modifier = { modifier = focused_construction }
-			}
-		}
-		
-		remove_effect = {
-			random_owned_state = {
-				limit = {
-					has_dynamic_modifier = { modifier = focused_construction }
-				}
-				remove_dynamic_modifier = { modifier = focused_construction }
-			}
-		}
-	}
+	#NWT_focused_construction = {
+	#	icon = water_focus
+	#	available = {
+	#		any_owned_state = {
+	#			OR = {
+	#				has_state_flag = NWT_build_smithy
+	#				has_state_flag = NWT_build_factory
+	#			}
+	#		}
+	#	}
+	#	visible = {
+	#		any_owned_state = {
+	#			OR = {
+	#				has_state_flag = NWT_build_smithy
+	#				has_state_flag = NWT_build_factory
+	#			}
+	#		}
+	#	}
+	#	highlight_states = {
+	#		has_state_flag = NWT_build_smithy
+	#		has_state_flag = NWT_build_factory
+	#		
+	#	}
+#
+	#	days_remove = 45
+#
+	#	modifier = {
+	#		stability_weekly = -0.005
+	#		production_speed_buildings_factor = -0.5
+	#	}
+#
+	#	cost = 25
+#
+	#	complete_effect = {
+	#		random_owned_state = {
+	#			limit = {
+	#				OR = {
+	#					has_state_flag = NWT_build_smithy
+	#					has_state_flag = NWT_build_factory
+	#				}
+	#			}
+	#			add_dynamic_modifier = { modifier = focused_construction }
+	#		}
+	#	}
+	#	
+	#	remove_effect = {
+	#		random_owned_state = {
+	#			limit = {
+	#				has_dynamic_modifier = { modifier = focused_construction }
+	#			}
+	#			remove_dynamic_modifier = { modifier = focused_construction }
+	#		}
+	#	}
+	#}
 
 
 	NWT_appoint_unification_minister = {
 
-		icon = water_minister
+		icon = appoint_minister
 
 		visible = {
 			tag = NWT
@@ -484,8 +756,25 @@ NWT_tribe_union = {
 		}
 
 		remove_effect = {
+			clr_country_flag = unity_buildup_in_progress
 			set_country_flag = NWT_unification_minister
-			custom_effect_tooltip = NWT_appoint_minister_tt
+			if = {
+				limit = {
+					amount_taken_ideas = {
+					    amount > 0
+					    slots = {
+					        minister_of_culture
+					    }
+					}
+				}
+				custom_effect_tooltip = NWT_appoint_minister_tt
+				else = {
+					add_ideas = {
+						wt_unification_minister
+					}
+				}
+			}
+			
 		}
 	}
 

@@ -1,0 +1,79 @@
+scripted_gui = {
+
+	country_decisions = {
+		context_type = player_context
+		
+		window_name = "country_decisions"
+		parent_window_token = decision_tab
+		
+		visible = {
+			always = yes
+		}
+		
+		properties = {
+
+			show_hide = {
+				image = "[GetShowHideIcon]"
+			}
+			prioritise = {
+				image = "[GetPrioritiseIcon]"
+			}
+		}
+
+		triggers = {
+			
+		}
+		
+		effects = {
+
+			show_hide_click = {
+				if = {
+					limit = {
+						ROOT = {
+							has_country_flag = hide_generic_decisions
+						}
+					}
+					ROOT = {
+						clr_country_flag = hide_generic_decisions
+					}
+					else = {
+						ROOT = {
+							set_country_flag = hide_generic_decisions
+						}
+					}
+				}
+			}
+			prioritise_right_click = {
+				ROOT = {
+					clr_country_flag = prioritise_civilian
+					set_country_flag = prioritise_military
+					clr_country_flag = prioritise_research
+				}
+			}
+			prioritise_shift_click = {
+				ROOT = {
+					set_country_flag = prioritise_civilian
+					clr_country_flag = prioritise_military
+					clr_country_flag = prioritise_research
+				}
+			}
+			prioritise_shift_right_click = {
+				ROOT = {
+					set_country_flag = prioritise_research
+					clr_country_flag = prioritise_military
+					clr_country_flag = prioritise_civilian
+				}
+			}
+			prioritise_click = {
+				ROOT = {
+					clr_country_flag = prioritise_civilian
+					clr_country_flag = prioritise_military
+					clr_country_flag = prioritise_research
+				}
+			}
+
+		}
+
+	}
+	
+}

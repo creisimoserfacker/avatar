@@ -5,13 +5,15 @@ war_weariness_category = {
 
 	visible = {
 		check_variable = { war_exhaustion_variable > 0 }
+		has_war = yes
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 }
 
 reoccupy_category = {
 	icon = generic_propaganda
 
-	picture = GFX_decision_cat_war_weariness
+	picture = GFX_decision_cat_reoccupation
 
 	visible = {
 		any_state = {
@@ -19,6 +21,7 @@ reoccupy_category = {
 				modifier = genocide_state
 			}
 		}
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 }
 
@@ -34,6 +37,7 @@ recruitment_decision_category = {
 			has_idea = scraping_the_barrel
 			has_idea_with_trait = feminist
 		}
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 
 	priority = {
@@ -63,10 +67,15 @@ taxation_category = {
 			has_idea = family_support_4
 			has_idea = family_support_5
 		}
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 
 	priority = {
 		base = 10
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_civilian
+		}
 	}
 
 }
@@ -78,10 +87,15 @@ generic_research_slot_category = {
 
 	visible = {
 		amount_research_slots < 5
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 
 	priority = {
 		base = 0
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_research
+		}
 	}
 
 }

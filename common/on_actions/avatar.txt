@@ -10,16 +10,16 @@ on_actions = {
 				set_global_flag = avatar_sat
 				set_global_flag = avatar_team_appa
 				set_global_flag = avatar_team_gyatso
-				every_country = {
-					set_variable = { avatar_age = 12 }
-					set_variable = { avatar_influence = 50 }
-					set_variable = { avatar_spirituality = 25 }
-					set_variable = { avatar_state = 0 }
-					set_variable = { avatar_airbender_skill = 80 }
-					set_variable = { avatar_waterbender_skill = 0 }
-					set_variable = { avatar_earthbender_skill = 0 }
-					set_variable = { avatar_firebender_skill = 0 }
 
+				set_variable = { global.avatar_age = 12 }
+				set_variable = { global.avatar_influence = 50 }
+				set_variable = { global.avatar_spirituality = 25 }
+				set_variable = { global.avatar_state = 0 }
+				set_variable = { global.avatar_airbender_skill = 80 }
+				set_variable = { global.avatar_waterbender_skill = 0 }
+				set_variable = { global.avatar_earthbender_skill = 0 }
+				set_variable = { global.avatar_firebender_skill = 0 }
+				every_country = {
 					set_country_flag = avatar_friendly
 				}
 			}
@@ -29,78 +29,78 @@ on_actions = {
 				}
 				set_global_flag = avatar_aang
 				set_global_flag = avatar_born_air
-				every_country = {
-					set_variable = { avatar_age = 12 }
-					set_variable = { avatar_airbender_skill = 100 }
-					set_variable = { avatar_waterbender_skill = 0 }
-					set_variable = { avatar_earthbender_skill = 0 }
-					set_variable = { avatar_firebender_skill = 0 }
 
+				set_variable = { global.avatar_age = 12 }
+				set_variable = { global.avatar_airbender_skill = 100 }
+				set_variable = { global.avatar_waterbender_skill = 0 }
+				set_variable = { global.avatar_earthbender_skill = 0 }
+				set_variable = { global.avatar_firebender_skill = 0 }
+
+				set_variable = { global.appa_strength = 0 }
+				set_variable = { global.momo_strength = 0 }
+				set_variable = { global.hawky_strength = 0 }
+				set_variable = { global.gyatso_strength = 0 }
+				set_variable = { global.katara_strength = 0 }
+				set_variable = { global.zuko_strength = 0 }
+				set_variable = { global.toph_strength = 0 }
+				set_variable = { global.iroh_strength = 0 }
+				set_variable = { global.sokka_strength = 0 }
+				set_variable = { global.suki_strength = 0 }
+				set_variable = { global.boulder_strength = 0 }
+				set_variable = { global.jet_strength = 0 }
+				set_variable = { global.bumi_strength = 0 }
+				
+				set_variable = { global.zuko_chance = 0 }
+				set_variable = { global.black_sun_invasion = 0 }
+				set_variable = { global.white_lotus_strenght = 0 }
+				every_country = {
 					set_country_flag = avatar_friendly
-					
-					set_variable = { Appa_Strength = 0 }
-					set_variable = { Momo_Strength = 0 }
-					set_variable = { Hawky_Strength = 0 }
-					set_variable = { Gyatso_Strength = 0 }
-					set_variable = { Kattara_Strength = 0 }
-					set_variable = { Zuko_Strength = 0 }
-					set_variable = { Toph_Strength = 0 }
-					set_variable = { Iroh_Strength = 0 }
-					set_variable = { Sokka_Strength = 0 }
-					set_variable = { Suki_Strength = 0 }
-					set_variable = { Boulder_Strength = 0 }
-					set_variable = { Jet_Strength = 0 }
-					set_variable = { Bumi_Strength = 0 }
-					
-					set_variable = { Zuko_Chance = 0 }
-					set_variable = { Black_Sun_Invasion = 0 }
-					set_variable = { White_Lotus_strenght = 0 }
 				}
 			}
 		}
 	}
 
-	on_daily = {
+	on_daily_FIR = {
 		effect = {
 			clamp_variable = {
-			    var = avatar_influence
+			    var = global.avatar_influence
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_spirituality
+			    var = global.avatar_spirituality
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_state
+			    var = global.avatar_state
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_airbender_skill
+			    var = global.avatar_airbender_skill
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_waterbender_skill
+			    var = global.avatar_waterbender_skill
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_earthbender_skill
+			    var = global.avatar_earthbender_skill
 			    min = 0
 			    max = 100
 			}
 			clamp_variable = {
-			    var = avatar_firebender_skill
+			    var = global.avatar_firebender_skill
 			    min = 0
 			    max = 100
 			}
 		}
 	}
 
-	on_monthly = {
+	on_monthly_FIR = {
 		effect = {
 			if = {
 				limit = {
@@ -109,7 +109,7 @@ on_actions = {
 					}
 				}
 				add_to_variable = {
-				    var = avatar_waterbender_skill
+				    var = global.avatar_waterbender_skill
 				    value = 1
 				}
 			}
@@ -117,10 +117,12 @@ on_actions = {
 				limit = {
 					OR = {
 						has_global_flag = avatar_team_toph
+						has_global_flag = avatar_team_boulder
+						has_global_flag = avatar_team_bumi
 					}
 				}
 				add_to_variable = {
-				    var = avatar_earthbender_skill
+				    var = global.avatar_earthbender_skill
 				    value = 1
 				}
 			}
@@ -131,7 +133,7 @@ on_actions = {
 					}
 				}
 				add_to_variable = {
-				    var = avatar_firebender_skill
+				    var = global.avatar_firebender_skill
 				    value = 1
 				}
 			}
@@ -142,29 +144,7 @@ on_actions = {
 					}
 				}
 				add_to_variable = {
-				    var = avatar_airbender_skill
-				    value = 1
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						has_global_flag = avatar_team_boulder
-					}
-				}
-				add_to_variable = {
-				    var = avatar_earthbender_skill
-				    value = 1
-				}
-			}
-			if = {
-				limit = {
-					OR = {
-						has_global_flag = avatar_team_bumi
-					}
-				}
-				add_to_variable = {
-				    var = avatar_earthbender_skill
+				    var = global.avatar_airbender_skill
 				    value = 1
 				}
 			}

@@ -231,11 +231,11 @@ news_event = {
 	major = yes
 
 	immediate = {
-		hidden_effect = {
-			clr_global_flag = avatar_sat
-			clr_global_flag = avatar_team_gyatso
-			set_global_flag = avatar_iceberg
-		}
+		
+	}
+
+	mean_time_to_happen = {
+		days = 15
 	}
 
 	option = {
@@ -262,9 +262,21 @@ news_event = {
 	id = hidden.4
 	hidden = yes
 
+	trigger = {
+		has_global_flag = send_aang_away
+		has_global_flag = air_nomad_genocide
+		NOT = {
+			has_global_flag = gyatso_and_aang_flee
+		}
+	}
+
+	mean_time_to_happen = {
+		days = 15
+	}
+
 	immediate = {
-		hidden_effect = {
-			
+		random_list = {
+			100 = { SAT = { news_event = { id = news.4 } } }
 		}
 	}
 
@@ -345,18 +357,16 @@ news_event = {
 
 #Sozin dies News
 news_event = {
-	id = news.14
-	title = news.14.t
-	desc = news.14.d
-	picture = GFX_news_event_005
+	id = news.6
+	title = news.6.t
+	desc = news.6.d
+	picture = GFX_avatar_news_event_006
 	is_triggered_only = yes
-	
-	fire_only_once = yes
 	
 	major = yes
 
 	option = {
-		name = news.14.a
+		name = news.6.a
 		trigger = {
 			NOT = {
 				TAG = FIR
@@ -364,8 +374,149 @@ news_event = {
 		}
 	}
 	option = {
-		name = news.14.b
+		name = news.6.b
 		trigger = { TAG = FIR }
 	}
 	
+}
+
+news_event = {
+	id = news.7
+	title = news.7.t
+	desc = news.7.d
+	picture = GFX_avatar_news_event_007
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = news.7.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.7.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+### avatar aang dies in avatar state and breaks cycle
+news_event = {
+	id = news.8
+	title = news.8.t
+	desc = news.8.d
+	picture = GFX_avatar_news_event_008
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = avatar_cycle_broken
+	
+			clr_global_flag = avatar_aang
+			clr_global_flag = avatar_born_air
+			clr_global_flag = avatar_team_appa
+			clr_global_flag = avatar_team_gyatso
+			clr_global_flag = avatar_sat
+			clear_variable = global.avatar_age
+			clear_variable = global.avatar_influence
+			clear_variable = global.avatar_spirituality
+			clear_variable = global.avatar_state
+			clear_variable = global.avatar_waterbender_skill
+			clear_variable = global.avatar_earthbender_skill
+			clear_variable = global.avatar_firebender_skill
+			clear_variable = global.avatar_airbender_skill
+			every_country = {
+				clr_country_flag = avatar_friendly
+				clr_country_flag = avatar_hostile
+			}
+		}
+	}
+
+	option = {
+		name = news.8.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.8.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
+
+### avatar aang dies and a water avatar is born
+news_event = {
+	id = news.9
+	title = news.9.t
+	desc = news.9.d
+	picture = GFX_avatar_news_event_009
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+			clr_global_flag = avatar_aang
+			clr_global_flag = avatar_born_air
+			clr_global_flag = avatar_team_appa
+			clr_global_flag = avatar_team_gyatso
+			clr_global_flag = avatar_sat
+			clear_variable = global.avatar_age
+			clear_variable = global.avatar_influence
+			clear_variable = global.avatar_spirituality
+			clear_variable = global.avatar_state
+			clear_variable = global.avatar_waterbender_skill
+			clear_variable = global.avatar_earthbender_skill
+			clear_variable = global.avatar_firebender_skill
+			clear_variable = global.avatar_airbender_skill
+			every_country = {
+				set_country_flag = avatar_friendly
+				clr_country_flag = avatar_hostile
+			}
+
+			set_global_flag = avatar_water
+		}
+	}
+
+	option = {
+		name = news.9.a
+		ai_chance = { 
+			factor = 100
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.9.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
 }

@@ -521,7 +521,6 @@ FIR_conquest_category = {
         }
 
         modifier = {
-			political_power_gain = -1
 			consumer_goods_factor = 0.2
 			production_speed_smithy_factor = 0.25
 		}
@@ -786,6 +785,13 @@ FIR_conquest_category = {
 					has_country_flag = southern_attack_planned
 				}
 				add_timed_idea = { idea = FIR_southern_plan days = 365 }
+			}
+			add_named_threat = { 
+				threat = 20
+				name = FIR_attack_EAR
+			}
+			hidden_effect = {
+				news_event = { id = news.7 days = 7 }
 			}
 		}
 
@@ -1889,7 +1895,7 @@ air_genocide_category = {
 			remove_decision = commence_the_genocide
 		}
         ai_will_do = {
-			factor = 100
+			factor = 0
 		}
 	}
 	commence_the_genocide = {
@@ -1931,7 +1937,7 @@ air_genocide_category = {
 		}
 
         ai_will_do = {
-			factor = 0
+			factor = 100
 		}
 	}
 

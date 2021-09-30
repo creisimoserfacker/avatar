@@ -35,7 +35,7 @@ country_event = {
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
-				threat = 7.5
+				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
@@ -162,8 +162,31 @@ country_event = {
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
-				threat = 7.5
+				threat = 10
 				name = FIR_air_nomad_genocide
+			}
+			if = {
+				limit = {
+					not = {
+						has_global_flag = send_aang_away
+					}
+				}
+				random_list = {
+					100 = { 
+						modifier = {
+							check_variable = { global.avatar_state > 49}
+							add = -100
+						}
+						FIR = { news_event = { id = news.8  days = 10 } }
+					}
+					0 = { 
+						modifier = {
+							check_variable = { global.avatar_state > 49}
+							add = 100
+						}
+						FIR = { news_event = { id = news.9  days = 10 } }
+					}
+				}
 			}
 		}
  	}
@@ -307,7 +330,7 @@ country_event = {
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
-				threat = 7.5
+				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
@@ -387,7 +410,7 @@ country_event = {
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
-				threat = 7.5
+				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
@@ -521,7 +544,7 @@ country_event = {
 			}
  		} 		
  		random_list = {
-			100 = { FIR = { news_event = { hours = 12 id = news.14 } } }
+			100 = { FIR = { news_event = { hours = 12 id = news.6 } } }
 		}
  	}
 

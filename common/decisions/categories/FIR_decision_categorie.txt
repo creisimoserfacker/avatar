@@ -16,7 +16,7 @@ air_genocide_category = {
 	}
 
 	priority = {
-		base =  100
+		base =  200
 	}
 }
 
@@ -39,6 +39,10 @@ FIR_industrialistation_category = {
 			add = -30
 			has_war = yes
 		}
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_civilian
+		}
 	}
 }
 
@@ -54,6 +58,15 @@ FIR_conquest_category = {
 	visible = {
 		original_tag = FIR
 	}
+
+	priority = {
+		base =  100
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_military
+		}
+	}
+
 }
 
 FIR_outpost_category = {
@@ -97,6 +110,10 @@ FIR_civil_decision_category = {
 		modifier = {
 			factor = 10
 			has_war = yes
+		}
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_civilian
 		}
 	}
 }
@@ -153,7 +170,7 @@ FIR_royal_family_category = {
 	priority = {
 		base = 50
 		modifier = {
-			factor = 10
+			factor = 100
 			has_country_leader = {
 			    name = "Empty Throne"
 			    ruling_only = yes
