@@ -2,16 +2,15 @@ on_actions = {
 
 	on_startup = {
 		effect = {
-			every_country = {
-				if = {
-					limit = {
-						has_start_date < 13.01.01
-					}
-					set_variable = { calendar_month = 1 }
-					set_variable = { calendar_year = 12 }
-
+			if = {
+				limit = {
+					has_start_date < 13.01.01
 				}
+				set_variable = { global.calendar_month = 1 }
+				set_variable = { global.calendar_year = 12 }
 
+			}
+			every_country = {
 				if = {
 					limit = {
 						has_country_flag = water_nation
@@ -19,30 +18,76 @@ on_actions = {
 					add_ideas = half_moon
 				}
 			}
+			random_country = {
+				set_country_flag = calculator
+			}
 		}
+	}
+
+	on_annex = {
+	    effect = {
+	    	if = {
+	    		limit = {
+	    			FROM = {
+	    				has_country_flag = calculator
+	    			}
+	    		}
+	    		FROM = {
+	    			clr_country_flag = calculator
+	    		}
+	    		random_country = {
+	    			set_country_flag = calculator
+	    		}
+	    	}
+	    }
 	}
 
 	on_monthly = {
 		effect = {
-            if = {
+			if = {
 				limit = {
-					NOT = {
-						check_variable = { calendar_month = 12 }
+					has_country_flag = calculator
+				}
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { global.calendar_month = 12 }
+						}
+					}
+					add_to_variable = {
+					    var = global.calendar_month
+					    value = 1
+					}
+
+					else = {
+						set_variable = { global.calendar_month = 1 }
+						add_to_variable = {
+						    var = global.calendar_year
+						    value = 1
+						}
 					}
 				}
-				add_to_variable = {
-				    var = calendar_month
-				    value = 1
-				}
-
-				else = {
-					set_variable = { calendar_month = 1 }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { global.avatar_month = 12 }
+						}
+					}
 					add_to_variable = {
-					    var = calendar_year
+					    var = global.avatar_month
 					    value = 1
+					}
+
+					else = {
+						set_variable = { global.avatar_month = 1 }
+						add_to_variable = {
+						    var = global.avatar_age
+						    value = 1
+						}
 					}
 				}
 			}
+
 			if = {
 				limit = {
 					has_country_flag = water_nation

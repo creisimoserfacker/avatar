@@ -1,0 +1,38 @@
+###########################
+# Northern Watertribe Events
+###########################
+
+add_namespace = swt
+add_namespace = swt_unification
+add_namespace = swt_treaty
+
+
+ ####  #     #  #####
+#      #  #  #    #
+ ###   #  #  #    #
+    #  #  #  #    #
+####    ## ##     #
+
+country_event = {
+	id = swt.1
+	title = swt.1.t
+	desc = swt.1.d
+	picture = GFX_report_event_water_birth
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = {
+		name = swt.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		SWT_unity_small_opposition = yes
+		random_owned_state = {
+			add_dynamic_modifier = { modifier = watertribe_riots }
+		}
+	}
+
+}

@@ -485,7 +485,6 @@ news_event = {
 			clr_global_flag = avatar_team_gyatso
 			clr_global_flag = avatar_sat
 			clear_variable = global.avatar_age
-			clear_variable = global.avatar_influence
 			clear_variable = global.avatar_spirituality
 			clear_variable = global.avatar_state
 			clear_variable = global.avatar_waterbender_skill
@@ -497,7 +496,9 @@ news_event = {
 				clr_country_flag = avatar_hostile
 			}
 
-			set_global_flag = avatar_water
+			random_list = {
+				100 = { SWT = { news_event = { id = news.10 days = 7 } } }
+			}
 		}
 	}
 
@@ -519,4 +520,37 @@ news_event = {
 			}
 		}
 	}
+}
+
+### avatar misu is born
+news_event = {
+	id = news.10
+	title = news.10.t
+	desc = news.10.d
+	picture = GFX_avatar_news_event_010
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		hidden_effect = {
+		
+			set_global_flag = avatar_misu
+			set_global_flag = avatar_born_water
+			set_global_flag = avatar_swt
+
+			random_list = {
+				100 = { SWT = { country_event = { id = misu.1 days = 3 } } }
+			}
+		}
+	}
+
+	option = {
+		name = news.10.a
+		ai_chance = { 
+			factor = 100
+		}
+
+	}
+
 }

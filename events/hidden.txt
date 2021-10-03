@@ -9,7 +9,7 @@ country_event = {
 		#SWT event and Zuko's event:
 		FIR = { country_event = { id = quest.2 days = 0 } }
 		set_global_flag = avatar_sat
-		clr_global_flag = avatar_iceberg
+		clr_global_flag = avatar_unknown
 	}
 }
 
@@ -131,7 +131,7 @@ country_event = {
 	fire_only_once = yes
 	hidden = yes
 	immediate = {
-		#events of the storm (if sokka is not in the team Kattara might go):
+		#events of the storm (if sokka is not in the team Katara might go):
 		HAN = { country_event = { id = quest.30 days = 0 } }
 		FIR = { country_event = { id = quest.31 days = 0 } }
 	}
@@ -315,7 +315,9 @@ country_event = {
 		#FN will be able to stop the ring, team Avatar will be able to add Toph or the Boulder to the team.
 		if = { limit = { FIR = { controls_state = 29 } } 
 			FIR = { country_event = { id = quest.80 days = 0 } } }
-		else = { hidden_effect = { every_country = { add_to_variable = { avatar_earthbender_skill = 20 } } } }
+		else = { 
+			add_to_variable = { global.avatar_earthbender_skill = 20 }
+		}
 		if = { limit = { NOT = { has_global_flag = avatar_team_bumi } } 
 			GAO = { country_event = { id = quest.81 days = 0 } } }
 	}
@@ -622,7 +624,7 @@ country_event = {
 		#Failure: Aang wounded:
 		else = {
 			set_global_flag = Eclipse_Invasion_Failed
-			every_country = { add_to_variable = { avatar_firebender_skill = -5 } }
+			add_to_variable = { global.avatar_firebender_skill = -5 }
 		}
 	}
 }
@@ -638,7 +640,7 @@ country_event = {
 		if = { limit = { NOT = { has_global_flag = Sokka_Died } } set_global_flag = avatar_team_sokka }
 		#After The Black Sun Invasion scripted battle:
 		#Event: The Eclipse- If Zuko chose to Join Aang (also a chance that Ozai will kill him):
-		if = { limit = { has_global_flag = Zuko_Joined_FN check_variable = { Zuko's chances > 90 } NOT = { has_global_flag = Zuko_Died } }
+		if = { limit = { has_global_flag = Zuko_Joined_FN check_variable = { global.zuko_chance > 90 } NOT = { has_global_flag = Zuko_Died } }
 			if = { limit = { has_global_flag = Zuko_Knows_lightningbending } set_global_flag = avatar_team_zuko }
 			else = { random_list = {
 			70 = { set_global_flag = avatar_team_zuko }
@@ -708,7 +710,7 @@ country_event = {
 	immediate = {
 		#If Spiritual Balance is under 50%, the Lion Turtle will teach Aang spiritbending (Maxing his spiritualtity):
 		if = { limit = { threat < 0.5 }
-			set_variable = { avatar_spirituality = 100 }
+			set_variable = { global.avatar_spirituality = 100 }
 			set_global_flag = ep57_news_a }
 	}
 }
@@ -721,16 +723,16 @@ country_event = {
 	immediate = {
 		#the commet arrives:
 		set_global_flag = Commet_Arrived_Aang
-		set_variable = { Aang_Final_Strength = 0 }
-		set_variable = { Ozai_Final_Strength = 300 }
-		if = { limit = { has_global_flag = ep24_news_a } set_variable = { Azula_Final_Strength = 100 } }
-		else = { set_variable = { Azula_Final_Strength = 70 } }
-		add_to_variable = { Aang_Final_Strength = avatar_spirituality }
-		add_to_variable = { Aang_Final_Strength = avatar_state }
-		add_to_variable = { Aang_Final_Strength = avatar_airbender_skill }
-		add_to_variable = { Aang_Final_Strength = avatar_waterbender_skill }
-		add_to_variable = { Aang_Final_Strength = avatar_earthbender_skill }
-		add_to_variable = { Aang_Final_Strength = avatar_firebender_skill }
+		set_variable = { global.aang_final_strength = 0 }
+		set_variable = { global.ozai_final_strength = 300 }
+		if = { limit = { has_global_flag = ep24_news_a } set_variable = { global.azula_final_strength = 100 } }
+		else = { set_variable = { global.azula_final_strength = 70 } }
+		add_to_variable = { global.aang_final_strength = global.avatar_spirituality }
+		add_to_variable = { global.aang_final_strength = global.avatar_state }
+		add_to_variable = { global.aang_final_strength = global.avatar_airbender_skill }
+		add_to_variable = { global.aang_final_strength = global.avatar_waterbender_skill }
+		add_to_variable = { global.aang_final_strength = global.avatar_earthbender_skill }
+		add_to_variable = { global.aang_final_strength = global.avatar_firebender_skill }
 		#Team avatar decides either to help Aang or to destroy the airships:
 		SAT = { country_event = { id = quest.153 days = 0 } }
 		#Ozai engages Aang 1v1 or Ozai's guards attempt to help him:
@@ -758,13 +760,17 @@ country_event = {
 		193 = { add_resistance = 100 }
 		EAR = { transfer_state = 179 transfer_state = 174 transfer_state = 173 }
 		if = { limit = { has_global_flag = avatar_team_zuko has_global_flag = avatar_team_katara }
-			set_variable = { Kattara_Zuko_Final_Strength = 0 }
-			add_to_variable = { Kattara_Zuko_Final_Strength = Kattara_Strength }
-			add_to_variable = { Kattara_Zuko_Final_Strength = Zuko_Strength }
-			#if Zuko and Kattara win:
-			if = { limit = { check_variable = { Kattara_Zuko_Final_Strength > Azula_Final_Strength } }
-			set_global_flag = azula_lost_news }
-			#if Zuko and Kattara lose:
+			set_variable = { global.katara_zuko_final_strength = 0 }
+			add_to_variable = { global.katara_zuko_final_strength = global.katara_strength }
+			add_to_variable = { global.katara_zuko_final_strength = global.zuko_strength }
+			#if Zuko and Katara win:
+			if = { 
+				limit = { 
+					check_variable = { global.katara_zuko_final_strength > global.azula_final_strength } 
+				}
+				set_global_flag = azula_lost_news 
+			}
+			#if Zuko and Katara lose:
 			else = {
 				set_global_flag = azula_won_news
 				clr_global_flag = avatar_team_zuko
@@ -773,7 +779,7 @@ country_event = {
 		}
 		#Wulong Battle:
 		if = {
-		limit = { check_variable = { Aang_Final_Strength > Ozai_Final_Strength } }
+		limit = { check_variable = { global.aang_final_strength > global.ozai_final_strength } }
 		#if Aang wins:
 			EAR = { annex_country = { target = FIR transfer_troops = no } release = FIR }
 			FIR = { set_politics= { ruling_party = imperialism elections_allowed = no } }
