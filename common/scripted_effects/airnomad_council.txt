@@ -18,13 +18,44 @@ AIR_recalc_council_support = {
 		}
 	}
 	else = { set_temp_variable = { support_temp = 1 } }
-	set_variable = { air_current_council_symbol_frame = support_temp }
 	set_variable = { AIR_council_support = support_temp }
-	set_variable = { air_current_member_1_frame = AIR_council_member_1 }
-	set_variable = { air_current_member_2_frame = AIR_council_member_2 }
-	set_variable = { air_current_member_3_frame = AIR_council_member_3 }
-	set_variable = { air_current_member_4_frame = AIR_council_member_4 }
-	set_variable = { air_current_member_5_frame = AIR_council_member_5 }
+	set_variable = { sat_current_member_4_frame = 2 }
+	if {
+		limit = { tag = SAT }
+		set_variable = { sat_current_council_symbol_frame = AIR_council_support }
+		set_variable = { sat_current_member_1_frame = AIR_council_member_1 }
+		set_variable = { sat_current_member_2_frame = AIR_council_member_2 }
+		set_variable = { sat_current_member_3_frame = AIR_council_member_3 }
+		set_variable = { sat_current_member_4_frame = AIR_council_member_4 }
+		set_variable = { sat_current_member_5_frame = AIR_council_member_5 }
+	}
+	if {
+		limit = { tag = NAT }
+		set_variable = { nat_current_council_symbol_frame = AIR_council_support }
+		set_variable = { nat_current_member_1_frame = AIR_council_member_1 }
+		set_variable = { nat_current_member_2_frame = AIR_council_member_2 }
+		set_variable = { nat_current_member_3_frame = AIR_council_member_3 }
+		set_variable = { nat_current_member_4_frame = AIR_council_member_4 }
+		set_variable = { nat_current_member_5_frame = AIR_council_member_5 }
+	}
+	if {
+		limit = { tag = WAT }
+		set_variable = { wat_current_council_symbol_frame = AIR_council_support }
+		set_variable = { wat_current_member_1_frame = AIR_council_member_1 }
+		set_variable = { wat_current_member_2_frame = AIR_council_member_2 }
+		set_variable = { wat_current_member_3_frame = AIR_council_member_3 }
+		set_variable = { wat_current_member_4_frame = AIR_council_member_4 }
+		set_variable = { wat_current_member_5_frame = AIR_council_member_5 }
+	}
+	if {
+		limit = { tag = EAT }
+		set_variable = { eat_current_council_symbol_frame = AIR_council_support }
+		set_variable = { eat_current_member_1_frame = AIR_council_member_1 }
+		set_variable = { eat_current_member_2_frame = AIR_council_member_2 }
+		set_variable = { eat_current_member_3_frame = AIR_council_member_3 }
+		set_variable = { eat_current_member_4_frame = AIR_council_member_4 }
+		set_variable = { eat_current_member_5_frame = AIR_council_member_5 }
+	}
 	AIR_recalc_council_spirit = yes
 }
 
@@ -176,6 +207,14 @@ AIR_generate_specific_mission = {
             		Not = { is_in_array = { air_current_missions = 3 }}
             	}}
             	set_variable = { air_specific_mission = 3 }
+            	set_variable = { break = 1 }
+            }
+			if {
+            	limit = { AND = {
+            		check_variable = { specific_mission = 4 }
+            		Not = { is_in_array = { air_current_missions = 4 }}
+            	}}
+            	set_variable = { air_specific_mission = 4 }
             	set_variable = { break = 1 }
             }
 		}
@@ -369,6 +408,10 @@ AIR_start_mission = {
 	if {
     	limit = { check_variable = { air_new_mission = 3 }}
     	add_to_array = { air_current_missions = 3 }
+    }
+	if {
+    	limit = { check_variable = { air_new_mission = 4 }}
+    	add_to_array = { air_current_missions = 4 }
     }
 	if {
 		limit = { check_variable = { air_new_mission = 6 }}
