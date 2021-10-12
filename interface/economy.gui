@@ -1,6 +1,35 @@
 guiTypes = {
 
 	containerWindowType = {
+		name = "production_tab_ui_window"
+		position = {x=10 y=44}
+		size = { width=1036 height=1096 }
+
+		iconType ={
+			name ="resource_efficiency_gain"
+			spriteType = "GFX_resource_efficiency"
+			position = { x = 447 y = 53 }
+			Orientation = "UPPER_LEFT"
+			pdx_tooltip = "resource_extraction_info"
+			pdx_tooltip_delayed = "resource_extraction_info_delayed"
+		}
+
+		instantTextboxType = {
+			name = "resource_extraction"
+			position = { x = 477 y = 58 }
+			font = "hoi_18mbs"
+			borderSize = {x = 0 y = 0}
+			text = "resource_extraction_bonus"
+			maxWidth = 80
+			maxHeight = 40
+			format = left	
+			pdx_tooltip = "resource_extraction_info"
+			pdx_tooltip = "resource_extraction_info_delayed"
+		}
+
+	}
+
+	containerWindowType = {
 		name = "economy_tab_ui_window"
 		position = {x=10 y=46}
 		size = { width=1036 height=1096 }
@@ -1118,26 +1147,14 @@ guiTypes = {
 				maxHeight = 20
 				format = left	
 			}
-			instantTextboxType = {
-				name = "resource_extraction_bonus"
-				position = { x = 164 y = 64 }
-				textureFile = ""
-				font = "hoi_18mbs"
-				borderSize = {x = 0 y = 0}
-				text = "resource_extraction_bonus"
-				maxWidth = 120
-				maxHeight = 20
-				format = left	
-				pdx_tooltip = "resource_extraction_info"
-			}
 
 			buttonType = {
 				name = "open_construction"
 				spriteType = "GFX_construction_capacity"
 				position = { x = 190 y = -30 }
 				Orientation = "UPPER_LEFT"
-				pdx_tooltip = "water_info"
-				pdx_tooltip_delayed = "water_info_delayed"
+				pdx_tooltip = "open_construction_info"
+				pdx_tooltip_delayed = "open_construction_info_delayed"
 			}
 
 		}

@@ -259,6 +259,8 @@ FIR_dragon_category = {
 
 	start_dragon_hunting = {
 
+		icon = hunt_dragons
+
 		visible = {	
 			has_country_leader = {
 			    name = "Sozin"
@@ -289,9 +291,11 @@ FIR_dragon_category = {
 
 	dragon_hunt = {
 
-		visible = {	
+		icon = dragon_hunt
+
+		available = {
 			has_country_flag = hunting_dragons
-			any_state = {
+			FROM = {
 				NOT = {
 					state = 302
 				}
@@ -299,9 +303,19 @@ FIR_dragon_category = {
 			}
 		}
 
-		available = {
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				NOT = {
+					state = 302
+				}
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+		}
+
+		visible = {	
 			has_country_flag = hunting_dragons
-			any_state = {
+			FROM = {
 				NOT = {
 					state = 302
 				}
@@ -310,17 +324,22 @@ FIR_dragon_category = {
 		}
 
 		complete_effect = {
-			add_manpower = -1000
+			add_manpower = -100
+			add_equipment_to_stockpile = {
+				type = firebender_equipment
+				amount = -100
+				producer = FIR
+			}
 		}
 
 		remove_effect = {
 			random_list = {
-				60 = {
+				80 = {
 					custom_effect_tooltip = hunt_successful
 					add_stability = 0.05
-					add_manpower = 600
+					add_manpower = 90
 					random_list = {
-						25 = {
+						60 = {
 							custom_effect_tooltip = war_weariness_remove_2
 							add_to_variable = { war_exhaustion_variable = -200 }
 							random_army_leader = {
@@ -334,73 +353,55 @@ FIR_dragon_category = {
 									id = generic.22
 								}
 							}
+							FROM = {
+								remove_dynamic_modifier = { modifier = dragon_herd }
+								clr_state_flag = hunt_failed_once
+								clr_state_flag = hunt_failed_twice
+							}
+						}
+						40 = { 
+							modifier = {
+								add = -30
+								FROM = {
+									has_state_flag = hunt_failed_once
+								}
+							}
 							hidden_effect = {
-								random_list = {
-									10 = {
-										95 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											95 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
-									10 = {
-										323 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											323 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
-									10 = {
-										326 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											326 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
-									10 = {
-										264 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											264 = { NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
-									10 = {
-										167 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											167 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
-									10 = {
-										181 = { remove_dynamic_modifier = { modifier = dragon_herd } }
-										modifier = {
-											add = -10
-											181 = {  NOT = {has_dynamic_modifier = { modifier = dragon_herd } }}
-										}
-									}
+								FROM = {
+									set_state_flag = hunt_failed_once
 								}
 							}
 						}
-						75 = {
-						}
 					}
 				}
-				40 = {
+				80 = {
+					modifier = {
+						add = -60
+						FROM = {
+							has_state_flag = hunt_failed_twice
+						}
+					}
+					FROM = {
+						set_state_flag = hunt_failed_twice
+					}
 					custom_effect_tooltip = hunt_failed
-					add_manpower = 100
 					add_stability = -0.05
 					add_war_support = -0.025
 				}
 			}
+
 		}
 
 		days_remove = 45
 		days_re_enable = 30
 
 		custom_cost_trigger = {
-			has_manpower > 1000
+			has_manpower > 99
+			has_equipment = {
+    			firebender_equipment > 99
+			}
 		}
-		custom_cost_text = manpower_10
+		custom_cost_text = firebender_100
 
         ai_will_do = {
 			factor = 10
@@ -472,6 +473,8 @@ FIR_dragon_category = {
 	}
 
 	alliance_with_the_dragons = {
+
+		icon = befriend_dragons
 
 		visible = {	
 			NOT = {

@@ -488,6 +488,31 @@ country_event = {
 
 }
 
+#Dragon attack
+country_event = {
+	id = firenation.5
+	title = firenation.5.t
+	desc = firenation.5.d
+	picture = GFX_report_event_dragon_attack
+
+	is_triggered_only = yes
+
+	option = {
+		name = firenation.5.a
+
+		every_state = {
+			limit = {
+				has_state_flag = dragon_attack
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			
+			clr_state_flag = dragon_attack
+		}
+	}
+}
 
 
 #Azulon is born

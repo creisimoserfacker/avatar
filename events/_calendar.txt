@@ -1,5 +1,6 @@
 
 add_namespace = calendar
+add_namespace = nature
 
 news_event = {
 	id = calendar.1
@@ -18,5 +19,71 @@ news_event = {
 	
 	option = {
 		name = calendar.1.a
+	}
+}
+
+
+
+#Volcano erruption
+country_event = {
+	id = nature.1
+	title = nature.1.t
+	desc = nature.1.d
+	picture = GFX_report_event_volcano
+
+	is_triggered_only = yes
+
+	immediate = { 
+		
+	}
+
+	option = {
+		name = nature.1.a
+
+		every_state = {
+			limit = {
+				has_state_flag = volcano_eruption
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 4
+			}
+			add_to_variable = {
+				var = stonefield
+				value = 4
+			}
+			custom_effect_tooltip = add_stonefield_4
+			clr_state_flag = volcano_eruption
+		}
+		every_state = {
+			limit = {
+				has_state_flag = volcano_eruption_2
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 3
+			}
+			add_to_variable = {
+				var = stonefield
+				value = 6
+			}
+			custom_effect_tooltip = add_stonefield_6
+			clr_state_flag = volcano_eruption_2
+		}
+		every_state = {
+			limit = {
+				has_state_flag = volcano_eruption_3
+			}
+			damage_building = {
+				type = infrastructure
+				damage = 2
+			}
+			add_to_variable = {
+				var = stonefield
+				value = 4
+			}
+			custom_effect_tooltip = add_stonefield_4
+			clr_state_flag = volcano_eruption_3
+		}
 	}
 }

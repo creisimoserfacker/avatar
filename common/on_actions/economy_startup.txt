@@ -432,26 +432,58 @@ on_actions = {
 					limit = { has_tech = storage_1 }
 					add_to_variable = { food_production_bonus = 0.1 }
 					if = {
+						limit = { has_tech = fish_1 }
+						add_to_variable = { fishing_stand_output = 1 }
+					}
+					if = {
 						limit = { has_tech = storage_2 }
 						add_to_variable = { food_production_bonus = 0.1 }
+						if = {
+							limit = { has_tech = bread_1 }
+							add_to_variable = { mill_output = 2 }
+						}
 						if = {
 							limit = { has_tech = storage_3 }
 							add_to_variable = { food_production_bonus = 0.1 }
 							if = {
+								limit = { has_tech = fish_2 }
+								add_to_variable = { fishing_stand_output = 1 }
+							}
+							if = {
 								limit = { has_tech = storage_4 }
 								add_to_variable = { food_production_bonus = 0.1 }
+								if = {
+									limit = { has_tech = bread_2 }
+									add_to_variable = { mill_output = 2 }
+								}
 								if = {
 									limit = { has_tech = storage_5 }
 									add_to_variable = { food_production_bonus = 0.1 }
 									if = {
+										limit = { has_tech = fish_3 }
+										add_to_variable = { fishing_stand_output = 1 }
+									}
+									if = {
 										limit = { has_tech = storage_6 }
 										add_to_variable = { food_production_bonus = 0.1 }
+										if = {
+											limit = { has_tech = bread_3 }
+											add_to_variable = { mill_output = 2 }
+										}
 										if = {
 											limit = { has_tech = storage_7 }
 											add_to_variable = { food_production_bonus = 0.1 }
 											if = {
+												limit = { has_tech = fish_4 }
+												add_to_variable = { fishing_stand_output = 1 }
+											}
+											if = {
 												limit = { has_tech = storage_8 }
 												add_to_variable = { food_production_bonus = 0.1 }
+												if = {
+													limit = { has_tech = bread_4 }
+													add_to_variable = { mill_output = 2 }
+												}
 											}
 										}
 									}
@@ -866,6 +898,33 @@ on_actions = {
 							}
 						}
 					}
+				}
+
+				every_owned_state = {
+					set_variable = { forest_available = forest }
+					subtract_from_variable = { forest_available = building_level@lumber_mill }
+					set_variable = { forest_used = forest }
+					subtract_from_variable = { forest_used = forest_available }
+					set_variable = { field_available = field }
+					subtract_from_variable = { field_available = building_level@farm }
+					set_variable = { field_used = field }
+					subtract_from_variable = { field_used = field_available }
+					set_variable = { animal_available = animal }
+					subtract_from_variable = { animal_available = building_level@ranch }
+					set_variable = { animal_used = animal }
+					subtract_from_variable = { animal_used = animal_available }
+					set_variable = { mountain_available = mountain }
+					subtract_from_variable = { mountain_available = building_level@mine }
+					set_variable = { mountain_used = mountain }
+					subtract_from_variable = { mountain_used = mountain_available }
+					set_variable = { stonefield_available = stonefield }
+					subtract_from_variable = { stonefield_available = building_level@quarry }
+					set_variable = { stonefield_used = stonefield }
+					subtract_from_variable = { stonefield_used = stonefield_available }
+					set_variable = { water_available = water }
+					subtract_from_variable = { water_available = building_level@fishing_stand }
+					set_variable = { water_used = water }
+					subtract_from_variable = { water_used = water_available }
 				}
 			}
 		}

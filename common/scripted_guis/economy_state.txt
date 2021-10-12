@@ -34,7 +34,7 @@ scripted_gui = {
 					add_building_construction = {
 						type = infrastructure
 						level = 1
-						instant_build = yes
+						instant_build = no
 					}
 				}
 			}
@@ -43,12 +43,12 @@ scripted_gui = {
 					add_building_construction = {
 						type = settlement
 						level = 1
-						instant_build = yes
+						instant_build = no
 					}
 				}
-				ROOT = {
-					add_political_power = -50
-				}
+				#ROOT = {
+				#	add_political_power = -50
+				#}
 			}
 		}
 
@@ -56,37 +56,37 @@ scripted_gui = {
 			increase_infra_click_enabled = {
 				is_controlled_by = ROOT
 				free_building_slots = {
-					building = farm_ooo
-					size < 1
+					building = infrastructure
+					size > 0
 					include_locked = no
 				}
-				NOT = {
-					check_variable = { infrastructure_level = 10 }
-				}
-				if = {
-					limit = { has_state_category = barren_wasteland }
-					NOT = { check_variable = { infrastructure_level > 3 } }
-				}
-				if = {
-					limit = { has_state_category = tiny_island }
-					NOT = { check_variable = { infrastructure_level > 4 } }
-				}
-				if = {
-					limit = { has_state_category = pastoral }
-					NOT = { check_variable = { infrastructure_level > 5 } }
-				}
-				if = {
-					limit = { has_state_category = small_island }
-					NOT = { check_variable = { infrastructure_level > 6 } }
-				}
-				if = {
-					limit = { has_state_category = rural }
-					NOT = { check_variable = { infrastructure_level > 7 } }
-				}
-				if = {
-					limit = { has_state_category = enclave }
-					NOT = { check_variable = { infrastructure_level > 8 } }
-				}
+				#NOT = {
+				#	check_variable = { infrastructure_level = 10 }
+				#}
+				#if = {
+				#	limit = { has_state_category = barren_wasteland }
+				#	NOT = { check_variable = { infrastructure_level > 3 } }
+				#}
+				#if = {
+				#	limit = { has_state_category = tiny_island }
+				#	NOT = { check_variable = { infrastructure_level > 4 } }
+				#}
+				#if = {
+				#	limit = { has_state_category = pastoral }
+				#	NOT = { check_variable = { infrastructure_level > 5 } }
+				#}
+				#if = {
+				#	limit = { has_state_category = small_island }
+				#	NOT = { check_variable = { infrastructure_level > 6 } }
+				#}
+				#if = {
+				#	limit = { has_state_category = rural }
+				#	NOT = { check_variable = { infrastructure_level > 7 } }
+				#}
+				#if = {
+				#	limit = { has_state_category = enclave }
+				#	NOT = { check_variable = { infrastructure_level > 8 } }
+				#}
 			}
 			send_settlers_click_enabled = {
 				NOT = {

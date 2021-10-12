@@ -2416,7 +2416,7 @@ NAI = {
 	MIN_NUM_CONQUERED_PROVINCES_TO_DEPRIO_NAVAL_INVADED_FRONTS = 30,	-- if you conquer this amount of provinces after a naval invasion, it will lose its prio status and will act as a regular front
 
 	BUILDING_TARGETS_BUILDING_PRIORITIES = {				-- buildings in order of pirority when considering building targets strategies. First has the greatest priority, omitted has the lowest. NOTE: not all buildings are supported by building targets strategies.
-		'industrial_complex',
+		'lumber_mill','quarry','mine','carpentry','masonry','ranch','steelworks','steel_beam_factory',
 	},
 
 	MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.09,				-- ai will only activate invasions if it is above this

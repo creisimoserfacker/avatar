@@ -120,48 +120,55 @@ guiTypes = {
 			Orientation = "UPPER_RIGHT"
 		}
 
-		iconType = {
-			name ="aang_portrait"
-			spriteType = "GFX_avatar_aang"
-			position = { x= 80 y = 74 }
-			pdx_tooltip = "AVATAR_AANG_TOOLTIP"
-		}
-		iconType = {
-			name ="misu_portrait"
-			spriteType = "GFX_avatar_misu"
-			position = { x= 80 y = 74 }
-			pdx_tooltip = "AVATAR_MISU_TOOLTIP"
-		}
-		iconType = {
-			name = "leader_frame2"
-			spriteType = "GFX_pol_leader_frame"
-			position = { x = 72 y = 64 }		
-			alwaystransparent = yes
-		}
-		instantTextboxType = {
-			name = "aang_name"
-			position = { x = 80 y = 291 }
-			font = "hoi_18mbs"
-			text = "AANG"
-			maxWidth = 155
-			maxHeight = 20
-			format = center
-			vertical_alignment = center
-		}
-		instantTextboxType = {
-			name = "misu_name"
-			position = { x = 80 y = 291 }
-			font = "hoi_18mbs"
-			text = "MISU"
-			maxWidth = 155
-			maxHeight = 20
-			format = center
-			vertical_alignment = center
+		containerWindowType = {
+			name = "avatar_portrait_window"
+			position = { x=355 y=40}
+			size = { width = 535 height = 100%% }
+
+			iconType = {
+				name ="aang_portrait"
+				spriteType = "GFX_avatar_aang"
+				position = { x= 80 y = 74 }
+				pdx_tooltip = "AVATAR_AANG_TOOLTIP"
+			}
+			iconType = {
+				name ="misu_portrait"
+				spriteType = "GFX_avatar_misu"
+				position = { x= 80 y = 74 }
+				pdx_tooltip = "AVATAR_MISU_TOOLTIP"
+			}
+			iconType = {
+				name = "leader_frame2"
+				spriteType = "GFX_pol_leader_frame"
+				position = { x = 72 y = 64 }		
+				alwaystransparent = yes
+			}
+			instantTextboxType = {
+				name = "aang_name"
+				position = { x = 80 y = 291 }
+				font = "hoi_18mbs"
+				text = "AANG"
+				maxWidth = 155
+				maxHeight = 20
+				format = center
+				vertical_alignment = center
+			}
+			instantTextboxType = {
+				name = "misu_name"
+				position = { x = 80 y = 291 }
+				font = "hoi_18mbs"
+				text = "MISU"
+				maxWidth = 155
+				maxHeight = 20
+				format = center
+				vertical_alignment = center
+			}
+
 		}
 
 		containerWindowType = {
 			name = "avatarstatistics"
-			position = { x=-195 y=250}
+			position = { x=175 y=280}
 			size = { width = 535 height = 100%% }
 
 	
@@ -375,28 +382,28 @@ guiTypes = {
 			iconType ={
 				name ="avatar_loc_unknown"
 				spriteType = "GFX_terrain_unknown"
-				position = { x= 216 y = -150 }
+				position = { x= 200 y = -140 }
 				Orientation = "LOWER_LEFT"
 				pdx_tooltip = "AVATAR_ICEBERG"
 			}
 			iconType ={
 				name ="avatar_loc_sat"
 				spriteType = "GFX_terrain_southern_air_temple"
-				position = { x= 216 y = -150 }
+				position = { x= 200 y = -140 }
 				Orientation = "LOWER_LEFT"
 				pdx_tooltip = "AVATAR_SAT"
 			}
 			#iconType ={
 			#	name ="avatar_loc_iceberg"
 			#	spriteType = "GFX_terrain_unknown"
-			#	position = { x= 216 y = -150 }
+			#	position = { x= 200 y = -150 }
 			#	Orientation = "LOWER_LEFT"
 			#	pdx_tooltip = "AVATAR_ICEBERG"
 			#}
 			iconType ={
 				name ="avatar_loc_swt"
 				spriteType = "GFX_terrain_harbour_city"
-				position = { x= 216 y = -150 }
+				position = { x= 200 y = -140 }
 				Orientation = "LOWER_LEFT"
 				pdx_tooltip = "AVATAR_SWT"
 			}
@@ -404,62 +411,87 @@ guiTypes = {
 		}
 
 		containerWindowType = {
+			name = "skill_avatar_entry"
+			position = { x = 720 y = 76 }
+			size = { width = 550 height = 100%% }
+			verticalScrollbar = "right_vertical_slider"
+			clipping = no
+			
+			iconType ={
+				name ="category_header"
+				spriteType = "GFX_ink_2"
+				position = { x=5 y=-24 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.9
+			}
+			instantTextboxType = {
+				name = "name"
+				position = { x = 40 y = 14 }
+				font = "hoi_20b"
+				text = "AVATAR_MASTERY"
+				maxWidth = 300
+				maxHeight = 20
+			}
+
+		}
+
+		containerWindowType = {
 			name = "benderstatistics"
-			position = { x=455 y=50}
+			position = { x=825 y=20}
 			size = { width = 535 height = 100%% }
 
 			containerWindowType = {
 				name = "spirit_container"
-				position = { x=-100 y=550}
+				position = { x=0 y=370}
 				size = { width = 535 height = 100%% }
 				iconType = {
 					name ="spirituality_bg"
 					spriteType = "GFX_spirit_stat"
-					position = { x= 1 y = 0 }
+					position = { x= 1 y = 124 }
 					pdx_tooltip = "AVATAR_SPIRITUALITY_TOOLTIP"
 				}
 				iconType = {
 					name ="spirituality_logo"
 					spriteType = "GFX_avatar_spirit"
-					position = { x= 26 y = -78 }
+					position = { x= -80 y = 104 }
 					pdx_tooltip = "AVATAR_SPIRITUALITY"
 					pdx_tooltip_delayed = "AVATAR_SPIRIT_TOOLTIP"
 				}
 				iconType = {
 					name ="spirituality"
 					spriteType = "GFX_avatar_indicator"
-					position = { x= 0 y = 2 }
+					position = { x= 0 y = 125 }
 					pdx_tooltip = "AVATAR_SPIRITUALITY_TOOLTIP"
 				}
 			}
 			containerWindowType = {
 				name = "avatar_container"
-				position = { x=100 y=498}
+				position = { x=0 y=448}
 				size = { width = 535 height = 100%% }
 				iconType = {
 					name ="avatar_state_bg"
 					spriteType = "GFX_avatar_stat"
-					position = { x= 1 y = 52 }
+					position = { x= 1 y = 124 }
 					pdx_tooltip = "AVATAR_STATE_TOOLTIP"
 				}
 				iconType = {
 					name ="avatar_logo"
 					spriteType = "GFX_avatar_avatar"
-					position = { x= 30 y = -34 }
+					position = { x= -80 y = 104 }
 					pdx_tooltip = "AVATAR_STATE"
 					pdx_tooltip_delayed = "AVATAR_AVATAR_TOOLTIP"
 				}
 				iconType = {
 					name ="avatar_state"
 					spriteType = "GFX_avatar_indicator"
-					position = { x= 0 y = 54 }
+					position = { x= 0 y = 125 }
 					pdx_tooltip = "AVATAR_STATE_TOOLTIP"
 				}
 			}
 
 			containerWindowType = {
 				name = "water_container"
-				position = { x=0 y=-0}
+				position = { x=0 y=10}
 				size = { width = 535 height = 100%% }
 				iconType = {
 					name ="water_bg"
@@ -507,7 +539,7 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "fire_container"
-				position = { x=0 y=0}
+				position = { x=0 y=-10}
 				size = { width = 535 height = 100%% }
 				iconType = {
 					name ="fire_bg"
@@ -531,7 +563,7 @@ guiTypes = {
 			}
 			containerWindowType = {
 				name = "air_container"
-				position = { x=0 y=0}
+				position = { x=0 y=-20}
 				size = { width = 535 height = 100%% }
 				iconType = {
 					name ="air_logo"
@@ -557,7 +589,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "team_avatar_entry"
-			position = { x = 770 y = 76 }
+			position = { x = 120 y = 76 }
 			size = { width = 550 height = 100%% }
 			verticalScrollbar = "right_vertical_slider"
 			clipping = no
@@ -569,17 +601,11 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				scale = 0.9
 			}
-			iconType ={
-				name ="category_icon"
-				spriteType = "GFX_idea_categories"
-				position = { x=14 y=8 }
-				Orientation = "UPPER_LEFT"
-			}
 			instantTextboxType = {
 				name = "name"
-				position = { x = 60 y = 14 }
+				position = { x = 40 y = 14 }
 				font = "hoi_20b"
-				text = "AVATAR_MASTERY"
+				text = "AVATAR_TEAM"
 				maxWidth = 300
 				maxHeight = 20
 			}
@@ -595,7 +621,7 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "avatarteam"
-			position = { x=870 y=-160}
+			position = { x=220 y=-160}
 
 			iconType = {
 				name ="appa_portrait"

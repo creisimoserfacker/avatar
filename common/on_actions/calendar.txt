@@ -46,8 +46,68 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					tag = FIR
+					has_country_flag = hunting_dragons
+					any_state = {
+						NOT = {
+							state = 302
+						}
+						has_dynamic_modifier = { modifier = dragon_herd }
+					}
+				}
+
+				random_list = {
+					30 = {
+
+					}
+					0 = {
+						modifier = { add = 10 95 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 323 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 326 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 264 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 167 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 181 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						modifier = { add = 10 267 = { has_dynamic_modifier = { modifier = dragon_herd }}}
+						random_owned_state = {
+							set_variable = { global.dragon_attack = THIS.id }
+							set_state_flag = dragon_attack
+							THIS.OWNER = { country_event = { id = firenation.5  days = 5} }
+						}
+					}
+				}
+
+
+				limit = {
 					has_country_flag = calculator
 				}
+
+				random_list = {
+					95 = { }
+					5 = {
+						random_state = {
+							limit = {
+								has_dynamic_modifier = {
+									modifier = volcano
+								}
+							}
+							random_neighbor_state = {
+								set_variable = { global.latest_volcano_2 = THIS.id }
+								set_state_flag = volcano_eruption_2
+							}
+							random_neighbor_state = {
+								limit = {
+									NOT = { has_state_flag = volcano_eruption_2 }
+								}
+								set_variable = { global.latest_volcano_3 = THIS.id }
+								set_state_flag = volcano_eruption_3
+							}
+							set_variable = { global.latest_volcano = THIS.id }
+							set_state_flag = volcano_eruption
+							THIS.OWNER = { country_event = nature.1 }
+						}
+					}
+				}
+
 				if = {
 					limit = {
 						NOT = {

@@ -14,6 +14,8 @@ OOB = "EAR_12"
 set_country_flag = earth_nation 
 set_country_flag = EARTH_special_forces
 
+set_variable = { legitimacy_var = 180 }
+
 set_technology = {
 # infantry
 	basic_armor = 1
@@ -68,6 +70,11 @@ set_technology = {
 	reform_0 = 1
 	domestication_0 = 1
 	domestication_1 = 1
+
+# industry
+	gathering_tech_1 = 1
+	basic_gathering = 1
+	stone_1 = 1
 }
 
 if = {
@@ -122,6 +129,8 @@ set_stability = 0.40
 set_war_support = 0.7
 
 add_ideas = {
+	state_2
+	heart_of_the_kingdom_spirit
 
 	kyoshi_constitution
 	weak_legitimacy
@@ -130,9 +139,9 @@ add_ideas = {
 
 	volunteer_earth_nation
 	earth_benders_only
-	export_focus
+	regulated_trade
 	economy_1
-	family_support_3
+	family_support_2
 	no_education
 }
 
@@ -482,8 +491,23 @@ if = {
 	limit = {
 		has_dlc = "Man the Guns"
 	}
+	WUL = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
 	TAK = {
-		become_exiled_in = { target = EAR legitimacy = 0 }
+		become_exiled_in = { target = EAR legitimacy = 40 }
+	}
+	YUE = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
+	MAK = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
+	POH = {
+		become_exiled_in = { target = EAR legitimacy = 35 }
+	}
+	HAN = {
+		become_exiled_in = { target = EAR legitimacy = 35 }
 	}
 }
 
@@ -501,6 +525,28 @@ add_ideas = {
 	earth_exceptional
 	
 }
+
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	MER = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
+	GDD = {
+		become_exiled_in = { target = EAR legitimacy = 20 }
+	}
+	XIN = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
+	NIX = {
+		become_exiled_in = { target = EAR legitimacy = 30 }
+	}
+	NOW = {
+		become_exiled_in = { target = EAR legitimacy = 35 }
+	}
+}
+
 create_country_leader = {
 	name = "Kuei"
 	desc = "POLITICS_ADOLF_HITLER_DESC"
