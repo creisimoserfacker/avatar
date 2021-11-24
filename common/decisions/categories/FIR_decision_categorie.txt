@@ -93,7 +93,7 @@ FIR_outpost_category = {
 }
 
 FIR_civil_decision_category = {
-	icon = ger_mefo_bills
+	icon = home_island
 
 	picture = GFX_decision_cat_fir_capital
 
@@ -129,6 +129,18 @@ FIR_colonies_category = {
 
 	visible = {
 		original_tag = FIR
+	}
+
+	priority = {
+		base = 40
+		modifier = {
+			factor = 10
+			has_war = yes
+		}
+		modifier = {
+			add = 1000
+			has_country_flag = prioritise_military
+		}
 	}
 }
 

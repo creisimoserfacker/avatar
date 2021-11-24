@@ -46,9 +46,6 @@ scripted_gui = {
 						instant_build = no
 					}
 				}
-				#ROOT = {
-				#	add_political_power = -50
-				#}
 			}
 		}
 
@@ -60,78 +57,16 @@ scripted_gui = {
 					size > 0
 					include_locked = no
 				}
-				#NOT = {
-				#	check_variable = { infrastructure_level = 10 }
-				#}
-				#if = {
-				#	limit = { has_state_category = barren_wasteland }
-				#	NOT = { check_variable = { infrastructure_level > 3 } }
-				#}
-				#if = {
-				#	limit = { has_state_category = tiny_island }
-				#	NOT = { check_variable = { infrastructure_level > 4 } }
-				#}
-				#if = {
-				#	limit = { has_state_category = pastoral }
-				#	NOT = { check_variable = { infrastructure_level > 5 } }
-				#}
-				#if = {
-				#	limit = { has_state_category = small_island }
-				#	NOT = { check_variable = { infrastructure_level > 6 } }
-				#}
-				#if = {
-				#	limit = { has_state_category = rural }
-				#	NOT = { check_variable = { infrastructure_level > 7 } }
-				#}
-				#if = {
-				#	limit = { has_state_category = enclave }
-				#	NOT = { check_variable = { infrastructure_level > 8 } }
-				#}
 			}
 			send_settlers_click_enabled = {
 				NOT = {
 					is_core_of = ROOT
 				}
 				is_controlled_by = ROOT
-				ROOT = {
-					has_political_power > 49
-				}
-				settlement < 10
-				if = {
-					limit = { settlement > 0 }
-					compliance > 9
-					if = {
-						limit = { settlement > 1 }
-						compliance > 19
-						if = {
-							limit = { settlement > 2 }
-							compliance > 29
-							if = {
-								limit = { settlement > 3 }
-								compliance > 39
-								if = {
-									limit = { settlement > 4 }
-									compliance > 49
-									if = {
-										limit = { settlement > 5 }
-										compliance > 59
-										if = {
-											limit = { settlement > 6 }
-											compliance > 69
-											if = {
-												limit = { settlement > 7 }
-												compliance > 79
-												if = {
-													limit = { settlement > 8 }
-													compliance > 89
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
+				free_building_slots = {
+					building = settlement
+					size > 0
+					include_locked = no
 				}
 			}
 			send_settlers_visible = {

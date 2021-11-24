@@ -33,9 +33,10 @@ FIR_industrialistation_category = {
 
 		modifier = {
 			stability_factor = -0.7
-			pacifism_drift = 0.03
-			tribalism_drift = 0.03
-			democratica_drift = 0.03
+			monarchism_drift = 0.02
+			pacifism_drift = 0.02
+			tribalism_drift = 0.02
+			democratica_drift = 0.02
 		}
 
 		remove_effect = {
@@ -1035,6 +1036,8 @@ FIR_civil_decision_category = {
 	
 	increase_war_support_with_prosperity = {
 
+		icon = fir_propaganda
+
 		available = {
 			has_war = yes
 			has_idea = national_prosperity
@@ -1153,6 +1156,50 @@ FIR_colonies_category = {
 
 	}
 
+	FIR_declare_sphere_of_influence = {
+
+		icon = fire_sphere
+
+		visible = {
+			tag = FIR
+			OR = {
+				has_country_flag = earth_war_path
+				has_country_flag = earth_diplomacy_path
+			}
+		}
+		
+		available = {
+			hidden_trigger = {
+				OR = {
+					has_country_flag = earth_war_path
+					has_country_flag = earth_diplomacy_path
+				}
+			}
+		}
+		
+		fire_only_once = yes		
+
+		cost = 100
+
+		complete_effect = {
+			add_named_threat = { 
+				threat = 20
+				name = FIR_sphere_of_influence
+			}
+		}
+
+		modifier = {
+			training_time_factor = -0.05
+		}
+
+		days_remove = 200
+
+		remove_effect = {
+			create_faction = Alliance_of_Fire
+		}
+
+	}
+
 	support_yu_dao_uprising = {
 
 		icon = fir_colony
@@ -1174,9 +1221,9 @@ FIR_colonies_category = {
 			has_country_flag = earth_war_path
 			has_equipment = { spear_equipment > 479 }
 			has_equipment = { heavy_armor_equipment > 479 }
-			has_equipment = { light_armor_equipment > 199 }
-			has_equipment = { bow_equipment > 199 }
-			has_equipment = { arrow_equipment > 5999 }
+			has_equipment = { light_armor_equipment > 239 }
+			has_equipment = { bow_equipment > 239 }
+			has_equipment = { arrow_equipment > 7599 }
 		}
 
 		days_remove = 90
@@ -1195,17 +1242,17 @@ FIR_colonies_category = {
 			}
 			add_equipment_to_stockpile = {
 				type = light_armor_equipment
-				amount = -200
+				amount = -240
 				producer = FIR
 			}
 			add_equipment_to_stockpile = {
 				type = bow_equipment
-				amount = -200
+				amount = -240
 				producer = FIR
 			}
 			add_equipment_to_stockpile = {
 				type = arrow_equipment
-				amount = -6000
+				amount = -7600
 				producer = FIR
 			}
 
@@ -1249,9 +1296,9 @@ FIR_colonies_category = {
 			has_country_flag = earth_war_path
 			has_equipment = { spear_equipment > 479 }
 			has_equipment = { heavy_armor_equipment > 479 }
-			has_equipment = { light_armor_equipment > 199 }
-			has_equipment = { bow_equipment > 199 }
-			has_equipment = { arrow_equipment > 5999 }
+			has_equipment = { light_armor_equipment > 239 }
+			has_equipment = { bow_equipment > 239 }
+			has_equipment = { arrow_equipment > 7599 }
 		}
 
 		days_remove = 90
@@ -1270,17 +1317,17 @@ FIR_colonies_category = {
 			}
 			add_equipment_to_stockpile = {
 				type = light_armor_equipment
-				amount = -200
+				amount = -240
 				producer = FIR
 			}
 			add_equipment_to_stockpile = {
 				type = bow_equipment
-				amount = -200
+				amount = -240
 				producer = FIR
 			}
 			add_equipment_to_stockpile = {
 				type = arrow_equipment
-				amount = -6000
+				amount = -7600
 				producer = FIR
 			}
 
@@ -2006,6 +2053,8 @@ air_genocide_category = {
 	
 	eastern_temple = {
 
+		icon = eastern_air_temple
+
 		allowed = {
 			always = no
 		}
@@ -2048,6 +2097,8 @@ air_genocide_category = {
 
 	
 	western_temple = {
+
+		icon = western_air_temple
 
 		allowed = {
 			always = no
@@ -2092,6 +2143,8 @@ air_genocide_category = {
 	
 	northern_temple = {
 
+		icon = northern_air_temple
+
 		allowed = {
 			always = no
 		}
@@ -2134,6 +2187,8 @@ air_genocide_category = {
 
 	
 	southern_temple = {
+
+		icon = southern_air_temple
 
 		allowed = {
 			always = no

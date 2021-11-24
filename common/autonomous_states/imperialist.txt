@@ -1,4 +1,122 @@
 
+
+autonomy_state = {
+	id = autonomy_satelit_state
+	
+	is_puppet = yes
+	
+	min_freedom_level = 0.8
+	
+	manpower_influence = 0.5
+	
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+	}
+	
+	modifier = {
+		autonomy_manpower_share = 0.1
+		can_master_build_for_us = 1
+		extra_trade_to_overlord_factor = 0.5
+		overlord_trade_cost_factor = -0.5
+		cic_to_overlord_factor = 0.2
+		mic_to_overlord_factor = 0.2
+		autonomy_gain_global_factor = -0.1
+		master_ideology_drift = 0.01
+	}
+	
+	ai_subject_wants_higher = {
+		factor = 1.0
+	}
+	
+	ai_overlord_wants_lower = {
+		factor = 1.0
+	}
+
+	ai_overlord_wants_garrison = {
+		always = yes
+	}
+
+	allowed = {
+		has_dlc = "Together for Victory"
+		#has_government = imperialism
+		OVERLORD = {
+			has_government = imperialism
+		}
+	}
+	
+	can_take_level = {
+	}
+
+	can_lose_level = {
+		#trigger here
+	}
+}
+
+
+##############################
+##############################
+
+
+autonomy_state = {
+	id = autonomy_imperial_dominion
+	
+	default = yes
+	is_puppet = yes
+	
+	min_freedom_level = 0.4
+	
+	manpower_influence = 0.7
+	
+	rule = {
+		can_not_declare_war = yes
+		can_decline_call_to_war = no
+	}
+	
+	modifier = {
+		autonomy_manpower_share = 0.25
+		can_master_build_for_us = 1
+		extra_trade_to_overlord_factor = 0.8
+		overlord_trade_cost_factor = -0.8
+		cic_to_overlord_factor = 0.2
+		mic_to_overlord_factor = 0.5
+		autonomy_gain_global_factor = -0.2
+		master_ideology_drift = 0.02
+	}
+	
+	ai_subject_wants_higher = {
+		factor = 1.0
+	}
+	
+	ai_overlord_wants_lower = {
+		factor = 0.0
+	}
+
+	ai_overlord_wants_garrison = {
+		always = yes
+	}
+
+	allowed = {
+		has_dlc = "Together for Victory"
+		#has_government = imperialism
+		OVERLORD = {
+			has_government = imperialism
+		}
+	}
+	
+	can_take_level = {
+	}
+
+	can_lose_level = {
+		#trigger here
+	}
+}
+
+
+################################
+################################
+
+
 autonomy_state = {
 	id = autonomy_imperial_colony
 	
@@ -47,136 +165,10 @@ autonomy_state = {
 		OVERLORD = {
 			has_government = imperialism
 		}
-		NOT = {
-			has_autonomy_state = autonomy_tributary
-		}
 	}
 	
 	can_take_level = {
-		always = no
-	}
-
-	can_lose_level = {
-		#trigger here
-	}
-}
-
-
-##############################
-##############################
-
-
-autonomy_state = {
-	id = autonomy_imperial_dominion
-	
-	default = yes
-	is_puppet = yes
-	
-	min_freedom_level = 0.5
-	
-	manpower_influence = 0.7
-	
-	rule = {
-		can_not_declare_war = yes
-		can_decline_call_to_war = no
-	}
-	
-	modifier = {
-		autonomy_manpower_share = 0.25
-		can_master_build_for_us = 1
-		extra_trade_to_overlord_factor = 0.8
-		overlord_trade_cost_factor = -0.8
-		cic_to_overlord_factor = 0.2
-		mic_to_overlord_factor = 0.5
-		autonomy_gain_global_factor = -0.2
-		master_ideology_drift = 0.02
-	}
-	
-	ai_subject_wants_higher = {
-		factor = 1.0
-	}
-	
-	ai_overlord_wants_lower = {
-		factor = 0.0
-	}
-
-	ai_overlord_wants_garrison = {
-		always = yes
-	}
-
-	allowed = {
-		has_dlc = "Together for Victory"
-		#has_government = imperialism
-		OVERLORD = {
-			has_government = imperialism
-		}	
-		NOT = {
-			has_autonomy_state = autonomy_tributary
-		}
-	}
-	
-	can_take_level = {
-	}
-
-	can_lose_level = {
-		#trigger here
-	}
-}
-
-
-################################
-################################
-
-
-autonomy_state = {
-	id = autonomy_satelit_state
-	
-	is_puppet = yes
-	
-	min_freedom_level = 1.0
-	
-	manpower_influence = 0.5
-	
-	rule = {
-		can_not_declare_war = yes
-		can_decline_call_to_war = no
-	}
-	
-	modifier = {
-		autonomy_manpower_share = 0.1
-		can_master_build_for_us = 1
-		extra_trade_to_overlord_factor = 0.5
-		overlord_trade_cost_factor = -0.5
-		cic_to_overlord_factor = 0.2
-		mic_to_overlord_factor = 0.2
-		autonomy_gain_global_factor = -0.1
-		master_ideology_drift = 0.01
-	}
-	
-	ai_subject_wants_higher = {
-		factor = 1.0
-	}
-	
-	ai_overlord_wants_lower = {
-		factor = 0.0
-	}
-
-	ai_overlord_wants_garrison = {
-		always = yes
-	}
-
-	allowed = {
-		has_dlc = "Together for Victory"
-		#has_government = imperialism
-		OVERLORD = {
-			has_government = imperialism
-		}	
-		NOT = {
-			has_autonomy_state = autonomy_tributary
-		}
-	}
-	
-	can_take_level = {
+		#always = no
 	}
 
 	can_lose_level = {

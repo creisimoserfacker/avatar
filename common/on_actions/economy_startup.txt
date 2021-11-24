@@ -7,11 +7,14 @@ on_actions = {
 				set_variable = { consumer_good_demand_factor = 1 }
 				set_variable = { food_production_bonus = 1 }
 
+				set_variable = { food_fluid_factor = 10 }
+				set_variable = { consumer_fluid_factor = 10 }
+
 				set_variable = { farm_output = 2 }
 				set_variable = { fishing_stand_output = 2 }
-				set_variable = { ranch_output = 4 }
-				set_variable = { lumber_mill_output = 8 }
-				set_variable = { quarry_output = 4 }
+				set_variable = { ranch_output = 6 }
+				set_variable = { lumber_mill_output = 10 }
+				set_variable = { quarry_output = 6 }
 				set_variable = { mine_output1 = 9 }
 				set_variable = { mine_output2 = 1 }
 				set_variable = { crop_weaving_output = 10 }
@@ -19,8 +22,8 @@ on_actions = {
 				set_variable = { mill_output = 2 }
 				set_variable = { steelworks_output = 10 }
 
-				set_variable = { smithy_output = 4 }
-				set_variable = { factory_output = 12 }
+				set_variable = { smithy_output = 3 } # max 4
+				set_variable = { factory_output = 8 } # max 12
 				set_variable = { harbour_output = 1 }
 				set_variable = { dockyard_output = 2 }
 				set_variable = { consumer_good_factory_output = 4 }
@@ -276,6 +279,26 @@ on_actions = {
 				}
 
 
+				if = {
+					limit = { has_tech = production_3 }
+					add_to_variable = { smithy_output = 1 }
+					if = {
+						limit = { has_tech = production_4 }
+						add_to_variable = { factory_output = 1 }
+						if = {
+							limit = { has_tech = production_5 }
+							add_to_variable = { factory_output = 1 }
+							if = {
+								limit = { has_tech = production_6 }
+								add_to_variable = { factory_output = 1 }
+								if = {
+									limit = { has_tech = production_7 }
+									add_to_variable = { factory_output = 1 }
+								}
+							}
+						}
+					}
+				}
 				if = {
 					limit = { has_tech = basic_gathering }
 					add_to_variable = { lumber_mill_output = 2 }
@@ -926,6 +949,8 @@ on_actions = {
 					set_variable = { water_used = water }
 					subtract_from_variable = { water_used = water_available }
 				}
+
+
 			}
 		}
 	}

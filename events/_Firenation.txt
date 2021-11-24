@@ -580,61 +580,6 @@ country_event = {
 	}
 }
 
-# fall of taku
-country_event = {
-	id = firenation.12
-	title = firenation.12.t
-	desc = firenation.12.d
-	picture = GFX_report_event_fir_soldiers
-
-	fire_only_once = yes
-
-	is_triggered_only = yes
-
-	option = { #a great idea!
-		name = firenation.12.a
-		ai_chance = {
-			base = 100
-		}
-		154 = {
-			add_compliance = 20
-		}
-		add_named_threat = { 
-		    threat = 2 
-		    name = FIR_atrocity
-		}
-		hidden_effect = {
-			every_state = {
-				limit = {
-					OR = {
-					state = 154
-					}
-				}
-				add_dynamic_modifier = { modifier = destroyed_city }
-			}
-			set_victory_points = {
-				province = 563
-				value = 10
-			}
-		}
-	}
-
-	option = { #rather not
-		name = firenation.12.b
-		ai_chance = {
-			base = 0
-		}
-		FIR = {
-			add_stability = -0.05
-			add_timed_idea = {
-				idea = unit_morale_dropped
-				days = 30
-			}
-		}
-	}
-
-}
-
 
 #Lu Ten Died!
 country_event = {
