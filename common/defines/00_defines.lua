@@ -241,7 +241,7 @@ NCountry = {
 	INTERPOLATED_FRONT_STEPS_SHORT = 2,				-- Performance optimization - The amount of steps for interpolated fronts. Non-AI countries got full interpolated fronts, the rest has optimized version of it.
 	MIN_AIR_RESERVE_RATIO = 0.33,					-- Min manpower ratio to show air reserves alert
 	POLITICAL_POWER_LOWER_CAP = -500.0,				-- Min amount of political power country should have
-	POLITICAL_POWER_UPPER_CAP = 2000.0,					-- Max amount of political power country should have
+	POLITICAL_POWER_UPPER_CAP = 3000.0,					-- Max amount of political power country should have
 	RESISTANCE_IMPORTANT_LEVEL = 0.05,				-- Level when resistance becomes dangerous
 	RESISTANCE_IMPORTANT_COUNTRY_LEVEL = 0.25,		-- Level when average resistance in a country becomes dangerous
 	MIN_MAJOR_COUNTRIES	= 2,						-- MIN_MAJOR_COUNTRIES countries with most factories will be considered as major countries
@@ -303,9 +303,9 @@ NCountry = {
 	NUM_DAYS_TO_FULLY_DELETE_STOCKPILED_EQUIPMENT = 90,	 -- time in days to fully delete equipments from stockpile. when you delete an equipment, they go to a temporary hidden pool which still can be seized 
 	AIR_SUPPLY_CONVERSION_SCALE = 0.05,				-- Conversion scale for planes to air supply
 	AIR_SUPPLY_DROP_EXPIRATION_HOURS = 168,			-- Air drop length after being dropped
-	STARTING_COMMAND_POWER = 0.2,					-- starting command power for every country
-	BASE_MAX_COMMAND_POWER = 100.0,					-- base value for maximum command power
-	BASE_COMMAND_POWER_GAIN = 0.005,				-- base value for daily command power gain
+	STARTING_COMMAND_POWER = 0.0,					-- starting command power for every country
+	BASE_MAX_COMMAND_POWER = 200.0,					-- base value for maximum command power
+	BASE_COMMAND_POWER_GAIN = 0.5,				-- base value for daily command power gain
 	AIR_VOLUNTEER_PLANES_LIMIT = 0.2,				-- Ratio for volunteer planes available for sending in relation to sender air force
 	AIR_VOLUNTEER_BASES_CAPACITY_LIMIT = 0.1,		-- Ratio for volunteer planes available for sending in relation to receiver air base capacity
 	ATTACHE_XP_SHARE = 0.2,							-- Country received xp from attaches
@@ -3387,8 +3387,8 @@ NIntel = {
 },
 
 NCharacter = {
-	OFFICER_CORP_ADVISOR_ENTRIES_IN_MENU = { "high_command", "theorist", "army_chief", "air_chief", "navy_chief" },
-	OFFICER_CORP_HIGH_COMMAND_SLOTS_IN_MENU = 3, --For Alert manager to count the number of High Command Slots in the UI
+	OFFICER_CORP_ADVISOR_ENTRIES_IN_MENU = { "war_minister", "field_marshal", "grand_admiral", "head_of_intelligence", "head_of_weaponry", "quartermaster" },
+	OFFICER_CORP_HIGH_COMMAND_SLOTS_IN_MENU = 0, --For Alert manager to count the number of High Command Slots in the UI
 
 	DEFAULT_PP_COST_FOR_MILITARY_ADVISOR = 50,	-- When an advisor does not have cost assigned this is the default used
 	DEFAULT_PP_COST_FOR_POLITICAL_ADVISOR = 150,
@@ -3396,8 +3396,8 @@ NCharacter = {
 	DEFAULT_CP_COST_FOR_DYNAMIC_ADVISORS = 0,	-- For Advisors created during gameplay
 	ADVISOR_PROMOTION_COST = 5,	-- Cost to promote someone to advisor
 
-	COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH = 5, -- When creating a dynamic country leader if an expire date is not set it will have 5 years as a base expiration date
-	COUNTRY_LEADER_BASE_RANDOM_MAX_YEAR_LENGTH = 15, -- Max random value added to COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH
+	COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH = 10, -- When creating a dynamic country leader if an expire date is not set it will have 5 years as a base expiration date
+	COUNTRY_LEADER_BASE_RANDOM_MAX_YEAR_LENGTH = 25, -- Max random value added to COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH
 
 	SPECIALIST_ADVISOR_MIN_RANK = 4,
 	EXPERT_ADVISOR_MIN_RANK = 6,
@@ -3484,7 +3484,7 @@ NSupply = {
 	SUPPLY_NODE_MIN_SUPPLY_THRESHOLD = 1.0, -- if supply of a node is below this value it will be set to 0 -- Currently unused?
 
 	INFRA_TO_SUPPLY = 0.3,							-- each level of infra gives this many supply
-	VP_TO_SUPPLY_BASE = 0.2,							-- Bonus to supply from a VP, no matter the level
+	VP_TO_SUPPLY_BASE = 0.0,							-- Bonus to supply from a VP, no matter the level
 	VP_TO_SUPPLY_BONUS_CONVERSION = 2,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
 	SUPPLY_FROM_DAMAGED_INFRA = 0.15,                -- damaged infrastructure counts as this in supply calcs
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
