@@ -23,8 +23,46 @@ scripted_gui = {
 				TAG = NWT
 				has_idea = northern_spirit_spirit
 			}
+			pearl_of_the_south_visible = {
+				TAG = GAO
+				has_idea = pearl_of_the_south_spirit
+			}
 		}
 		
+	}
+
+	major_spirit_diplo_view = {
+		context_type = selected_country_context
+
+		window_name = "majorspiritcontainerdiplo"
+		parent_window_token = selected_country_view
+
+		visible = {
+			always = yes
+		}
+
+		triggers = {
+			fire_supremacy_visible = {
+				FROM = {
+					has_idea = fire_supremacy_spirit
+				}
+			}
+			heart_of_the_kingdom_visible = {
+				FROM = {
+					has_idea = heart_of_the_kingdom_spirit
+				}
+			}
+			northern_spirit_visible = {
+				FROM = {
+					has_idea = northern_spirit_spirit
+				}
+			}
+			pearl_of_the_south_visible = {
+				FROM = {
+					has_idea = pearl_of_the_south_spirit
+				}
+			}
+		}
 	}
 	
 	political_ideology_new = {

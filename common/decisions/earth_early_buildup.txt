@@ -475,8 +475,10 @@ earth_economic_buildup_category = {
 			consumer_goods_factor = -0.1
 			political_power_cost = 0.4
 			taxation = 0.1
-			production_speed_buildings_factor = -0.1
-			stability_weekly = 0.025
+			production_speed_buildings_factor = 0.1
+			industrial_capacity_factory = 0.25
+			industrial_capacity_dockyard = 0.25
+			stability_weekly = 0.005
 		}
 		complete_effect = {
 			set_country_flag = economic_investments
@@ -484,7 +486,10 @@ earth_economic_buildup_category = {
 		}
 		remove_effect = {
 			clr_country_flag = economic_investments
-			add_stability = -0.25
+			add_timed_idea = {
+			    idea = depression
+			    days = 180
+			}
 			add_to_variable = { state_stealing = -0.1 }
 		}
         ai_will_do = {

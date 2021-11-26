@@ -1,5 +1,80 @@
 on_actions = {
 
+	on_monthly = {
+		effect = {
+
+			if = {
+				limit = {
+					has_idea = extreme_poverty
+				}
+				add_to_variable = { consumer_fluid_factor = 0.2 }
+			}
+			if = {
+				limit = {
+					has_idea = poverty
+				}
+				add_to_variable = { consumer_fluid_factor = 0.1 }
+			}
+
+			if = {
+				limit = {
+					has_idea = wealth
+				}
+				subtract_from_variable = { consumer_fluid_factor = 0.1 }
+			}
+			if = {
+				limit = {
+					has_idea = extreme_wealth
+				}
+				subtract_from_variable = { consumer_fluid_factor = 0.2 }
+			}
+
+			clamp_variable = {
+				var = consumer_fluid_factor
+				min = 1
+				max = 10
+			}
+			set_variable = { consumer_factor_show = 11 }
+			subtract_from_variable = { consumer_factor_show = consumer_fluid_factor }
+
+			if = {
+				limit = {
+					has_idea = famine
+				}
+				add_to_variable = { food_fluid_factor = 0.2 }
+			}
+			if = {
+				limit = {
+					has_idea = food_shortages
+				}
+				add_to_variable = { food_fluid_factor = 0.1 }
+			}
+
+			if = {
+				limit = {
+					has_idea = food_surplus_idea
+				}
+				subtract_from_variable = { food_fluid_factor = 0.1 }
+			}
+			if = {
+				limit = {
+					has_idea = burgerking
+				}
+				subtract_from_variable = { food_fluid_factor = 0.2 }
+			}
+
+			clamp_variable = {
+				var = food_fluid_factor
+				min = 1
+				max = 10
+			}
+			set_variable = { food_factor_show = 11 }
+			subtract_from_variable = { food_factor_show = food_fluid_factor }
+
+		}
+	}
+
+
 	on_daily = {
 		effect = {
 
@@ -7,7 +82,7 @@ on_actions = {
 			set_variable = { food_supply = 0 }
 
 			set_temp_variable = { food_demand_k = max_manpower_k }
-			divide_temp_variable = { food_demand_k = 10 }
+			divide_temp_variable = { food_demand_k = food_fluid_factor }
 			set_variable = { food_demand = food_demand_k }
 
 			###view consumer goods
@@ -15,7 +90,7 @@ on_actions = {
 			set_variable = { luxury_good_supply = 0 }
 
 			set_temp_variable = { consumer_good_demand_k = max_manpower_k }
-			divide_temp_variable = { consumer_good_demand_k = 10 }
+			divide_temp_variable = { consumer_good_demand_k = consumer_fluid_factor }
 			set_variable = { consumer_good_demand = consumer_good_demand_k }
 
 			set_variable = { luxury_good_demand_factor = consumer_good_demand_factor }
@@ -351,6 +426,13 @@ on_actions = {
 			subtract_from_temp_variable = { food_surplus = food_demand }
 			set_variable = { food_surplus_real = food_surplus }
 
+			set_variable = { food_supply_2 = food_supply }
+			clamp_variable = {
+				var = food_supply_2
+				min = 0
+				max = food_demand
+			}
+
 			set_temp_variable = { consumer_good_surplus = consumer_good_supply }
 			subtract_from_temp_variable = { consumer_good_surplus = consumer_good_demand }
 			set_variable = { consumer_good_surplus_real = consumer_good_surplus }
@@ -364,13 +446,27 @@ on_actions = {
 			subtract_from_temp_variable = { luxury_good_surplus = luxury_good_demand }
 			set_variable = { luxury_good_surplus_real = luxury_good_surplus }
 
+			set_variable = { consumer_and_luxury_goods_fullfillment = consumer_good_supply }
+			clamp_variable = {
+				var = consumer_and_luxury_goods_fullfillment
+				min = 0
+				max = consumer_good_demand
+			}
+			set_variable = { luxury_goods_addition = luxury_good_supply }
+			subtract_from_variable = { luxury_goods_addition = luxury_good_surplus_real }
+			add_to_variable = { consumer_and_luxury_goods_fullfillment = luxury_goods_addition }
+
 			set_variable = { consumer_and_luxury_goods_supply = consumer_good_supply }
 			clamp_variable = {
 				var = consumer_and_luxury_goods_supply
 				min = 0
-				max = consumer_good_demand
 			}
-			add_to_variable = { consumer_and_luxury_goods_supply = luxury_good_supply }
+			if = {
+				limit = {
+					check_variable = { consumer_good_supply > consumer_good_demand }
+				}
+				add_to_variable = { consumer_and_luxury_goods_supply = luxury_good_supply }
+			}
 
 			set_variable = { half_food_demand = food_demand }
 			divide_variable = { half_food_demand = 2 }
@@ -663,6 +759,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@oil < 0 }
 						OR = {
 							check_variable = { mill_count > 0 }
@@ -675,6 +775,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@aluminium < 0 }
 						OR = {
 							check_variable = { consumer_good_factory_count > 0 }
@@ -687,6 +791,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@tungsten < 0 }
 						check_variable = { consumer_good_factory_count > 0 }
 					}
@@ -696,6 +804,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@stone < 0 }
 						check_variable = { masonry_count > 0 }
 					}
@@ -705,6 +817,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@chromium < 0 }
 						check_variable = { animal_weaving_count > 0 }
 					}
@@ -714,6 +830,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@steel < 0 }
 						check_variable = { steel_beam_factory_count > 0 }
 					}
@@ -723,6 +843,10 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
+						NOT = {
+							is_ai = yes
+						}
+						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 						check_variable = { resource@iron < 0 }
 						OR = {
 							check_variable = { luxury_good_factory_count > 0 }
@@ -734,6 +858,10 @@ on_actions = {
 			}
 			if = {
 				limit = {
+					NOT = {
+						is_ai = yes
+					}
+					has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 					fuel_ratio < 0.01
 				}
 				remove_fuel_consumer = yes
@@ -741,6 +869,10 @@ on_actions = {
 
 			if = {
 				limit = {
+					NOT = {
+						is_ai = yes
+					}
+					has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
 					check_variable = { epmployed_percentage > 1 }
 				}
 				random_list = {

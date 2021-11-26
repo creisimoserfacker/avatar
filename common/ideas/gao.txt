@@ -1,0 +1,66 @@
+ideas = {
+
+	hidden_ideas = {
+		pearl_of_the_south_spirit = {
+
+			allowed = {
+				always = no
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.1
+				autonomy_gain = 0.5
+				consumer_goods_factor = -0.05
+			}
+		}
+	}
+
+	country = {
+
+	    SWT_Research_Modifier = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				NOT = {
+					has_army_manpower = { size > 1 }
+				}
+			}
+
+			picture = swt_research_bonus
+			
+			removal_cost = -1
+			
+			modifier = {
+				research_speed_factor = 0.07
+			}
+		}
+
+		water_raids_100 = {
+			
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+			
+			removal_cost = -1
+			
+			modifier = {
+				custom_modifier_tooltip = modifier_allows_bender_recruitment_tt
+
+				hidden_modifier = {
+					special_forces_cap = -10
+					special_forces_min = -100000
+				}
+			}
+		}
+
+	}
+}

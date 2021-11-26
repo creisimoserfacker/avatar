@@ -12,11 +12,12 @@ buildings = {
 		infrastructure = yes
 		max_level = 10
 		value = 10
+		damage_factor = 0.1
 
 		show_modifier = yes
 		max_fuel_building = 0.75 #k
-		local_manpower = 0.01
-		local_building_slots = 1
+		#local_manpower = 0.01
+		#local_building_slots = 1
 	}
 
 	settlement = {
@@ -28,7 +29,7 @@ buildings = {
 		#experience_gain_army = 0.001
 		#local_manpower = 0.05
 		local_non_core_manpower = 0.05
-		compliance_growth = 0.01
+		#compliance_growth = 0.01
 
 		show_modifier = yes
 		disabled_in_dmz = yes
@@ -77,7 +78,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		refinery = yes
 
-		local_resources_chromium = 4
+		local_resources_chromium = 6
 
 		show_modifier = yes
 		manpower_requirement = 60
@@ -108,7 +109,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		refinery = yes
 
-		local_resources_aluminium = 8
+		local_resources_aluminium = 10
 
 		show_modifier = yes
 		manpower_requirement = 30
@@ -126,7 +127,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		refinery = yes
 
-		local_resources_stone = 4
+		local_resources_stone = 6
 
 		show_modifier = yes
 		manpower_requirement = 120
@@ -433,32 +434,27 @@ buildings = {
 		damage_factor = 0.5
 	}
 
-	road = {
-		show_on_map = 1
-		#has_destroyed_mesh = yes
-		base_cost = 500
-		per_level_extra_cost = 500
+	rail_way = {
+		base_cost = 170
+		per_level_extra_cost = 130
 		provincial = yes
-		disabled_in_dmz = no
+		disabled_in_dmz = yes
 		icon_frame = 16
-		#land_fort = 1
-		#infrastructure = yes
-		max_level = 3
-		value = 10
+		max_level = 1
 	}
 
-	supply_depot = {
+	supply_node = {
 		show_on_map = 1
-		#has_destroyed_mesh = yes
-		base_cost = 500
-		per_level_extra_cost = 500
+		base_cost = 20000
 		provincial = yes
-		disabled_in_dmz = no
+		disabled_in_dmz = yes
 		icon_frame = 15
-		#land_fort = 1
-		#infrastructure = yes
 		max_level = 1
-		value = 10
+		centered = yes
+		supply_node = yes
+		damage_factor = 0.1
+		allied_build = yes
+		always_shown = yes
 	}
 
 	wall = {
@@ -518,6 +514,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 9
+		always_shown = no
 	}
 	ranch_ooo = {
 		show_on_map = 1
@@ -526,6 +523,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 6
+		always_shown = no
 	}
 	fishing_stand_ooo = {
 		show_on_map = 1
@@ -534,6 +532,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 7
+		always_shown = no
 	}
 	lumber_mill_ooo = {
 		show_on_map = 1
@@ -542,6 +541,7 @@ buildings = {
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 12
+		always_shown = no
 	}
 	quarry_ooo = {
 		show_on_map = 1
@@ -550,6 +550,7 @@ buildings = {
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 16
+		always_shown = no
 	}
 	crop_weaving_ooo = {
 		show_on_map = 1
@@ -558,6 +559,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 4
+		always_shown = no
 	}
 	animal_weaving_ooo = {
 		show_on_map = 1
@@ -566,6 +568,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 4
+		always_shown = no
 	}
 	mine_ooo = {
 		show_on_map = 1
@@ -574,6 +577,7 @@ buildings = {
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 8
+		always_shown = no
 	}
 	mill_ooo = {
 		show_on_map = 6
@@ -582,6 +586,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 3
+		always_shown = no
 	}
 	steelworks_ooo = {
 		show_on_map = 1
@@ -590,6 +595,7 @@ buildings = {
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 5
+		always_shown = no
 	}
 	consumer_good_factory_ooo = {
 		show_on_map = 6
@@ -598,6 +604,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 4
+		always_shown = no
 	}
 	luxury_good_factory_ooo = {
 		show_on_map = 6
@@ -606,6 +613,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 4
+		always_shown = no
 	}
 	carpentry_ooo = {
 		show_on_map = 6
@@ -614,6 +622,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 6
+		always_shown = no
 	}
 	masonry_ooo = {
 		show_on_map = 6
@@ -622,6 +631,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 7
+		always_shown = no
 	}
 	steel_beam_factory_ooo = {
 		show_on_map = 6
@@ -630,5 +640,7 @@ buildings = {
 		max_level = 50
 		shares_slots = yes
 		value = 6
+		always_shown = no
 	}
+
 }

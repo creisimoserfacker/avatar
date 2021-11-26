@@ -20,6 +20,52 @@ on_actions = {
 						enemy = EAR 
 						hostility_reason = former_colony
 					}
+
+					add_equipment_to_stockpile = {
+						type = spear_equipment
+						amount = 480
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = heavy_armor_equipment
+						amount = 480
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = light_armor_equipment
+						amount = 240
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = bow_equipment
+						amount = 240
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = arrow_equipment
+						amount = 7600
+						producer = FIR
+					}
+
+					if = {
+						limit = {
+							NOT = { has_template = "Militia" }
+						}
+						division_template = {
+							name = "Militia"
+							regiments = {
+								archers = { x = 0 y = 0 }
+								archers = { x = 0 y = 1 }
+								archers = { x = 0 y = 2 }
+
+								spearmen = { x = 1 y = 0 }
+								spearmen = { x = 1 y = 1 }
+								spearmen = { x = 1 y = 2 }
+							}
+						}
+						set_division_template_lock = { division_template = Militia is_locked = yes }
+					}
+					load_oob = "colony_uprising_1"
 				}
 
 				FIR = {
@@ -58,6 +104,51 @@ on_actions = {
 						enemy = EAR 
 						hostility_reason = former_colony
 					}
+					add_equipment_to_stockpile = {
+						type = spear_equipment
+						amount = 480
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = heavy_armor_equipment
+						amount = 480
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = light_armor_equipment
+						amount = 240
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = bow_equipment
+						amount = 240
+						producer = FIR
+					}
+					add_equipment_to_stockpile = {
+						type = arrow_equipment
+						amount = 7600
+						producer = FIR
+					}
+
+					if = {
+						limit = {
+							NOT = { has_template = "Militia" }
+						}
+						division_template = {
+							name = "Militia"
+							regiments = {
+								archers = { x = 0 y = 0 }
+								archers = { x = 0 y = 1 }
+								archers = { x = 0 y = 2 }
+
+								spearmen = { x = 1 y = 0 }
+								spearmen = { x = 1 y = 1 }
+								spearmen = { x = 1 y = 2 }
+							}
+						}
+						set_division_template_lock = { division_template = Militia is_locked = yes }
+					}
+					load_oob = "colony_uprising_2"
 				}
 
 				FIR = {
