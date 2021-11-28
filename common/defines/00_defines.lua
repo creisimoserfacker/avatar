@@ -3390,8 +3390,8 @@ NCharacter = {
 	OFFICER_CORP_ADVISOR_ENTRIES_IN_MENU = { "war_minister", "field_marshal", "grand_admiral", "head_of_intelligence", "head_of_weaponry", "quartermaster" },
 	OFFICER_CORP_HIGH_COMMAND_SLOTS_IN_MENU = 0, --For Alert manager to count the number of High Command Slots in the UI
 
-	DEFAULT_PP_COST_FOR_MILITARY_ADVISOR = 50,	-- When an advisor does not have cost assigned this is the default used
-	DEFAULT_PP_COST_FOR_POLITICAL_ADVISOR = 150,
+	DEFAULT_PP_COST_FOR_MILITARY_ADVISOR = 100,	-- When an advisor does not have cost assigned this is the default used
+	DEFAULT_PP_COST_FOR_POLITICAL_ADVISOR = 200,
 	DEFAULT_CP_COST_FOR_ADVISOR = 0,	-- For Starting Advisors
 	DEFAULT_CP_COST_FOR_DYNAMIC_ADVISORS = 0,	-- For Advisors created during gameplay
 	ADVISOR_PROMOTION_COST = 5,	-- Cost to promote someone to advisor
@@ -3405,13 +3405,16 @@ NCharacter = {
 },
 
 NSupply = {
+
+	-- 0.1 use per person. spearmen brigade with 10 men uses 1 supply
+
 	MAX_RAILWAY_LEVEL = 10, -- update railway texture as well, each frame corresponds to a level
 
 	--defines to calculate the capitals supply. This will be also used for max supply of other nodes depending on how well they are connected to capital. Using the formula:
 	--CapitalSupply = CAPITAL_SUPPLY_BASE + (NumberOfCivilianFactories * CAPITAL_SUPPLY_CIVILIAN_FACTORIES) + (NumberOfMilitaryFactories * CAPITAL_SUPPLY_MILITARY_FACTORIES) + (NumberOfDockyards * CAPITAL_SUPPLY_DOCKYARDS)
 	CAPITAL_SUPPLY_BASE = 5.0, -- base supply for capital
 	CAPITAL_SUPPLY_CIVILIAN_FACTORIES = 0.3, -- supply from one civilian factory
-	CAPITAL_SUPPLY_MILITARY_FACTORIES = 0.6, -- supply from one military factory
+	CAPITAL_SUPPLY_MILITARY_FACTORIES = 0.4, -- supply from one military factory
 	CAPITAL_SUPPLY_DOCKYARDS = 0.4, --supply from one naval factory
 
 	-- defines that are used for supply reach for capital
@@ -3422,14 +3425,14 @@ NSupply = {
 	CAPITAL_ADDED_PENALTY_PER_PROVINCE = 1.2, -- added penalty as we move away from origin
 
 	-- defines that are used for supply reach for built nodes
-	NODE_INITIAL_SUPPLY_FLOW = 2.8,
+	NODE_INITIAL_SUPPLY_FLOW = 10,
 	NODE_STARTING_PENALTY_PER_PROVINCE = 0.50,
-	NODE_ADDED_PENALTY_PER_PROVINCE = 0.70,
+	NODE_ADDED_PENALTY_PER_PROVINCE = 0.60,
 
 	-- defines that are used for supply reach for dockyards
 	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 3.5,
-	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.8,
-	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 1.0,
+	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.5,
+	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.6,
 
 	-- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
 	NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.34,
@@ -3485,7 +3488,7 @@ NSupply = {
 
 	INFRA_TO_SUPPLY = 0.3,							-- each level of infra gives this many supply
 	VP_TO_SUPPLY_BASE = 0.0,							-- Bonus to supply from a VP, no matter the level
-	VP_TO_SUPPLY_BONUS_CONVERSION = 2,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
+	VP_TO_SUPPLY_BONUS_CONVERSION = 0.5,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
 	SUPPLY_FROM_DAMAGED_INFRA = 0.15,                -- damaged infrastructure counts as this in supply calcs
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
 	SUPPLY_DISRUPTION_DAILY_RECOVERY = 1.5,		-- every day nodes recover this much of their accumulated disruption.
@@ -3544,7 +3547,7 @@ NSupply = {
 
 	MIN_DIFF_FOR_AUTO_UPDATING_EXISTING_RAILWAYS = 5, -- while building railways, the system will prefer updating existing railway if new railway is close enough to existing one
 
-	LOCAL_SUPPLY_PER_AIR_MISSION = 1.2, -- each assigned plane gives this much supply at full efficiency
+	LOCAL_SUPPLY_PER_AIR_MISSION = 0.12, -- each assigned plane gives this much supply at full efficiency
 
 	-- reinforcements depends on distance to capital and following defines are used for calculating reinforcement time
 	SUPPLY_PATH_MAX_DISTANCE = 15,	-- max time it can take
@@ -3561,7 +3564,7 @@ NSupply = {
 	SUPPLY_THRESHOLD_FOR_ARMY_ATTRITION = 0.35, -- armies will only get attrition below this supply
 	NUMBER_OF_SHOWN_SUPPLY_SOURCES_IN_SUPPLY_MAPMODE = 3, -- number of supply flow sources shown in breakdown tooltip
 	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 1.0,	--Division supply consumption used for estimating frontline weight for order tooltips
-	AVAILABLE_MANPOWER_STATE_SUPPLY = 0.18,						--Factor for state supply from max manpower (population)
+	AVAILABLE_MANPOWER_STATE_SUPPLY = 180.0,						--Factor for state supply from max manpower (population)
 	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.75,				--Multiplies consumption rate of stored supply (more/less easement)
 },
 NAITheatre = {

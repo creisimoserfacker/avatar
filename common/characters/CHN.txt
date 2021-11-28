@@ -1,0 +1,94 @@
+characters={
+	CHN_mayor_wang={
+		name="Mayor Wang"
+		portraits={
+			civilian={
+				large="gfx/leaders/CHN/wang.dds"
+			}
+		}
+		country_leader={
+			desc="Mayor of the Chin Village"
+			ideology=constitutional_monarchy
+			expire="130.1.1.1"
+			id=-1
+		}
+	}
+	CHN_genaric={
+		name="Genaric"
+		portraits={
+			civilian={
+				large="gfx/leaders/CHN/Portrait_Chin_fire_tribes.dds"
+			}
+		}
+		country_leader={
+			desc="POLITICS_ADOLF_HITLER_DESC"
+			ideology=fire_tribes
+			expire="120.4.7.1"
+			id=-1
+		}
+		country_leader={
+			desc="POLITICS_ADOLF_HITLER_DESC"
+			ideology=liberalism
+			expire="120.4.7.1"
+			id=-1
+		}
+		country_leader={
+			desc="POLITICS_ADOLF_HITLER_DESC"
+			ideology=active_pacifism
+			expire="120.4.7.1"
+			id=-1
+		}
+		country_leader={
+			desc="POLITICS_ADOLF_HITLER_DESC"
+			ideology=democracy
+			expire="120.4.7.1"
+			id=-1
+		}
+	}
+	CHN_Ying_Sing={
+		advisor={
+			slot = political_advisor
+			idea_token = Ying_Sing
+			allowed  = {
+					original_tag  = CHN
+				}
+				available  = {
+					if  = {
+						has_completed_focus  = CHN_pathtothekingdom
+					}
+				}
+				traits  = {
+					kingdom_advisor
+				}
+		}
+		name="Ying_Sing"
+		portraits={
+			army={
+				small="GFX_idea_generic_communist_revolutionary_western_european_2d"
+			}
+		}
+	}
+	CHN_Chen_Long={
+		advisor={
+			slot = political_advisor
+			idea_token = Chen_Long
+			allowed  = {
+					original_tag  = CHN
+				}
+				available  = {
+					if  = {
+						has_completed_focus  = CHN_pathtoindependence
+					}
+				}
+				traits  = {
+					freedom_politician
+				}
+		}
+		name="Chen_Long"
+		portraits={
+			army={
+				small="GFX_idea_generic_communist_revolutionary_western_european_2d"
+			}
+		}
+	}
+}

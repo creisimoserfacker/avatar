@@ -86,7 +86,7 @@ NMapMode = {
 		0.8,   0.47, 0.8, 0.73, 1.0,		-- #78CCBA light teal
 		1.0,   0.6, 0.82, 0.6, 1.0,			-- #99D199 light green
 	}, -- (last shown when supply flow is >= SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY)
-	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 12, -- Which supply cap availibility corresponds to best heatmap color
+	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 100, -- Which supply cap availibility corresponds to best heatmap color
 	SUPPLY_MAP_MODE_STATUS_COLOR = {
 		0.0,   0.9, 0.0, 0.0, 1.0,			-- #E60000 red
 		0.7,   0.98, 0.4, 0.1, 1.0,			-- #FA661A orange
@@ -929,9 +929,9 @@ NGraphics = {
 	
 	PRIDE_OF_THE_FLEET_MODULATE = { 1.0, 0.95, 0.0, 1.0 }, -- pride of the fleet color
 	
-	RAILWAY_MAP_ARROW_THIN_LEVEL_THRESHOLD = 1, -- Railway level 1 uses thin map arrow in supply map mode
-	RAILWAY_MAP_ARROW_MEDIUM_LEVEL_THRESHOLD = 3, -- Railway level 2-3 uses medium map arrow in supply map mode
-	RAILWAY_MAP_ARROW_THICK_LEVEL_THRESHOLD = 5, -- Railway level 4-5 uses thick map arrow in supply map mode
+	RAILWAY_MAP_ARROW_THIN_LEVEL_THRESHOLD = 2, -- Railway level 1 uses thin map arrow in supply map mode
+	RAILWAY_MAP_ARROW_MEDIUM_LEVEL_THRESHOLD = 5, -- Railway level 2-3 uses medium map arrow in supply map mode
+	RAILWAY_MAP_ARROW_THICK_LEVEL_THRESHOLD = 10, -- Railway level 4-5 uses thick map arrow in supply map mode
 
 	RAILWAY_MAP_ARROW_COLOR_DEFAULT = { 1.0, 1.0, 1.0, 1.0 }, -- white, default railway maparrow color
 	RAILWAY_MAP_ARROW_COLOR_CONSTRUCTION = { 1.0, 0.80, 0.0, 1.0 }, -- orange, railways that are currently under construction
