@@ -1,0 +1,79 @@
+equipments = {
+	#archetype
+	train_equipment = {
+		year = 10
+
+		is_archetype = yes
+		is_buildable = no
+		active = no
+		type = train
+		picture = archetype_train
+		group_by = archetype
+		sprite = train
+
+		interface_category = interface_category_land
+
+		armor_value = 0 # HP = BASE_TRAIN_HP + armor_value
+
+		build_cost_ic = 70
+		resources = {
+			
+		}
+	}
+	# regular trains
+	train_equipment_1 = {
+		year = 10
+
+		archetype = train_equipment
+		type = {
+			train
+		}
+
+		armor_value = 10 # HP = BASE_TRAIN_HP + armor_value
+
+		priority = 10
+
+		build_cost_ic = 480
+		resources = {
+			aluminium = 2
+			iron = 1
+			tungsten = 1
+		}
+	}
+	# train 2
+	train_equipment_2 = {
+		year = 50
+
+		archetype = train_equipment
+		parent = train_equipment_1
+		type = {
+			train
+		}
+		priority = 20
+
+		armor_value = 100 # HP = BASE_TRAIN_HP + armor_value
+
+		build_cost_ic = 540
+		resources = {
+			aluminium = 2
+			steel = 1
+			tungsten = 2
+		}
+	}
+	# armored trains
+	train_equipment_3 = {
+		year = 60
+		archetype = train_equipment
+		parent = train_equipment_2
+		type = {
+			train
+		}
+		armor_value = 250 # HP = BASE_TRAIN_HP + armor_value
+		priority = 30
+		build_cost_ic = 1050
+		resources = {
+			steel = 4
+			rubber = 2
+		}
+	}
+}

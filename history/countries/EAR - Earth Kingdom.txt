@@ -16,6 +16,8 @@ set_country_flag = EARTH_special_forces
 
 set_variable = { legitimacy_var = 180 }
 
+starting_train_buffer = 2
+
 set_technology = {
 # infantry
 	basic_armor = 1
@@ -35,6 +37,7 @@ set_technology = {
 	tech_support = 1
 	tech_scavengers = 1
 	tech_scouts = 1
+	basic_train = 1
 
 # mounted
 	medium_cavalry_1 = 1
@@ -145,12 +148,21 @@ add_ideas = {
 	no_education
 }
 
+recruit_character = EAR_minister_of_personnel_1
+recruit_character = EAR_minister_of_personnel_2
+recruit_character = EAR_minister_of_personnel_3
+recruit_character = EAR_minister_of_personnel_4
+recruit_character = EAR_minister_of_personnel_5
+recruit_character = EAR_minister_of_personnel_6
+
 if = {
 	limit = {
 		has_dlc = "La Resistance"
 	}
 	create_intelligence_agency = yes
 }
+
+recruit_character = EAR_zaifeng
 
 # DIPLOMACY
 
@@ -465,18 +477,6 @@ add_to_faction = NAN
 add_to_faction = ZIN
 add_to_faction = YII
 
-
-
-create_country_leader = {
-	name = "Zaifeng"
-	desc = "51st Earthking"
-	picture = "Portrait_Earthkingdom_51.dds"
-	expire = "91.1.1"
-	ideology = absolute_monarchie
-	traits = {
-		earthking
-	}
-}
 
 
 
@@ -1154,41 +1154,4 @@ create_country_leader = {
 	ideology = constitutional_monarchy
 }
 
-}
-
-# Different Ideology Leaders
-create_country_leader = {
-	name = "Genaric"
-	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Earthkingdom_colonialism.dds"
-	expire = "120.4.7"
-	ideology = colonialism
-	traits = {}
-}
-
-create_country_leader = {
-	name = "Genaric"
-	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Earthkingdom_elective_chiefdom.dds"
-	expire = "120.4.7"
-	ideology = elective_chiefdom
-	traits = {}
-}
-
-create_country_leader = {
-	name = "Genaric"
-	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Earthkingdom_absolute_pacifism.dds"
-	expire = "120.4.7"
-	ideology = absolute_pacifism
-	traits = {}
-}
-
-create_country_leader = {
-	name = "Genaric"
-	desc = "POLITICS_ADOLF_HITLER_DESC"
-	picture = "Portrait_Earthkingdom_anarchism.dds"
-	expire = "120.4.7"
-	ideology = anarchism
-	traits = {}
 }

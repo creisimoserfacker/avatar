@@ -759,10 +759,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@oil < 0 }
 						OR = {
 							check_variable = { mill_count > 0 }
@@ -775,10 +773,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@aluminium < 0 }
 						OR = {
 							check_variable = { consumer_good_factory_count > 0 }
@@ -791,10 +787,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@tungsten < 0 }
 						check_variable = { consumer_good_factory_count > 0 }
 					}
@@ -804,10 +798,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@stone < 0 }
 						check_variable = { masonry_count > 0 }
 					}
@@ -817,10 +809,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@chromium < 0 }
 						check_variable = { animal_weaving_count > 0 }
 					}
@@ -830,10 +820,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@steel < 0 }
 						check_variable = { steel_beam_factory_count > 0 }
 					}
@@ -843,10 +831,8 @@ on_actions = {
 			if = {
 				limit = {
 					AND = {
-						NOT = {
-							is_ai = yes
-						}
-						has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+						is_ai = no
+						has_game_rule = { rule = building_deactivation option = enabled }
 						check_variable = { resource@iron < 0 }
 						OR = {
 							check_variable = { luxury_good_factory_count > 0 }
@@ -858,10 +844,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					NOT = {
-						is_ai = yes
-					}
-					has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
 					fuel_ratio < 0.01
 				}
 				remove_fuel_consumer = yes
@@ -869,10 +853,8 @@ on_actions = {
 
 			if = {
 				limit = {
-					NOT = {
-						is_ai = yes
-					}
-					has_game_rule = { rule = RULE_BUILDING_DEACTIVATION option = enabled }
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
 					check_variable = { epmployed_percentage > 1 }
 				}
 				random_list = {

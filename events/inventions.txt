@@ -1,0 +1,106 @@
+﻿###########################
+# News Events
+###########################
+
+add_namespace = invention
+
+# basic tool making
+country_event = {
+	id = invention.1
+	title = invention.1.t
+	desc = invention.1.d
+	picture = GFX_invention_event_001
+
+	trigger = {
+		any_owned_state = {
+			check_variable = { animal > 0 }
+			check_variable = { stonefield > 0 }
+		}
+		NOT = { has_tech = basic_tool_making }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = basic_tool_making
+			set_technology = {
+			    basic_tool_making = 1
+			}
+		}
+	}
+
+	option = {
+		name = invention.1.a
+		trigger = { 
+			
+		}
+	}
+
+}
+
+# metal processing
+country_event = {
+	id = invention.2
+	title = invention.2.t
+	desc = invention.2.d
+	picture = GFX_invention_event_002
+
+	trigger = {
+		FROM = {
+			quarry > 7
+		}
+		has_tech = basic_tool_making
+		NOT = { has_tech = metal_processing }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = metal_processing
+			set_technology = {
+			    metal_processing = 1
+			}
+		}
+	}
+
+	option = {
+		name = invention.2.a
+		trigger = { 
+			
+		}
+	}
+
+}
+
+# steelmaking
+country_event = {
+	id = invention.3
+	title = invention.3.t
+	desc = invention.3.d
+	picture = GFX_invention_event_003
+
+	trigger = {
+		FROM = {
+			smithy > 5
+			mine > 7
+
+		}
+		has_tech = burning_2
+		has_tech = metal_processing
+		NOT = { has_tech = steelmaking }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    steelmaking = 1
+			}
+		}
+	}
+
+	option = {
+		name = invention.3.a
+		trigger = { 
+			
+		}
+	}
+
+}

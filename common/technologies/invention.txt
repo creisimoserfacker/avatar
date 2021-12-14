@@ -1,0 +1,688 @@
+technologies = {
+
+	domestication_0 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+			society_domestication
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = domestication_0
+		}
+	}
+
+	domestication_1 = {
+
+		dependencies = {
+			domestication_0 = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_2
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 8 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+			society_domestication
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = domestication_1
+		}
+	}
+
+	domestication_2 = {
+
+		dependencies = {
+			domestication_0 = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = CAVALRY_TRAINING_3
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		folder = {
+			name = armour_folder
+			position = { x = 16 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 30
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			society_reforms
+			society_domestication
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = domestication_2
+		}
+	}
+
+	#domestication_3 = {
+#
+	#	dependencies = {
+	#		domestication_2 = 1
+	#	}
+#
+	#	modifier_army_sub_unit_category_all_cavalry_training_time_factor = 0.2
+	#	#experience_gain_komodo_rhinos_training_factor = 1
+	#	
+	#	research_cost = 1
+	#	folder = {
+	#		name = invention_folder
+	#		position = { x = 0 y = 0 }
+	#	}
+	#	
+	#	ai_will_do = {
+	#		factor = 30
+	#		
+	#		
+	#		modifier = {
+	#			factor = 3
+	#			date > "2.1.1"
+	#		}
+	#	}
+	#	
+	#	categories = {
+	#		society_reforms
+	#		society_domestication
+	#	}	
+	#}
+
+	the_wheel = {
+
+		dependencies = {
+			basic_tool_making = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = the_wheel
+		}
+	}
+	basic_gear = {
+
+		dependencies = {
+			the_wheel = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = basic_gear
+		}
+	}
+	advanced_gear = {
+
+		dependencies = {
+			basic_gear = 1
+			metal_processing = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = advanced_gear
+		}
+	}
+
+	steam_engine = {
+
+		dependencies = {
+			advanced_gear = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = steam_engine
+		}
+	}
+
+	improved_coal_engine = {
+
+		dependencies = {
+			steam_engine = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = improved_coal_engine
+		}
+	}
+
+	modern_engine = {
+
+		dependencies = {
+			improved_coal_engine = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = modern_engine
+		}
+	}
+
+	aerodynamics = {
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = aerodynamics
+		}
+	}
+
+	thermodynamics = {
+
+		dependencies = {
+			candles = 1
+			aerodynamics = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = thermodynamics
+		}
+	}
+
+	candles = {
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = candles
+		}
+	}
+
+	ink = {
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = ink
+		}
+	}
+
+	libraries = {
+
+		dependencies = {
+			candles = 1
+			ink = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = libraries
+		}
+	}
+
+	basic_tool_making = {
+
+		on_research_complete = {
+			custom_effect_tooltip = basic_tool_making_ttp
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = basic_tool_making
+		}
+	}
+
+	metal_processing = {
+
+		dependencies = {
+			basic_tool_making = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = metal_processing
+		}
+	}
+
+	steelmaking = {
+
+		dependencies = {
+			metal_processing = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = steelmaking
+		}
+	}
+
+	plow = {
+
+		dependencies = {
+			metal_processing = 1
+			domestication_0 = 1
+			the_wheel = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = plow
+		}
+	}
+
+	botanics = {
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = botanics
+		}
+	}
+
+	heal_practices = {
+
+		dependencies = {
+			botanics = 1
+			libraries = 1
+		}
+		
+		research_cost = 1
+		folder = {
+			name = invention_folder
+			position = { x = 0 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+			
+			
+			modifier = {
+				factor = 3
+				date > "2.1.1"
+			}
+		}
+		
+		categories = {
+			inventions
+		}	
+
+		show_effect_as_desc = yes
+		allow = {
+			has_country_flag = heal_practices
+		}
+	}
+
+	
+
+
+}

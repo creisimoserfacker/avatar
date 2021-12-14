@@ -1799,6 +1799,10 @@ technologies = {
 
 	tech_transport = {
 
+		dependencies = {
+			the_wheel = 1
+		}
+
 		enable_equipments = {
 			transport_equipment_1
 		}
@@ -2338,6 +2342,135 @@ technologies = {
 		ai_will_do = {
 			factor = 1
 			
+		}
+	}
+
+
+
+
+	basic_train = {
+
+		dependencies = {
+			the_wheel = 1
+			domestication_0 = 1
+		}
+
+		enable_equipments = {
+			train_equipment_1
+		}
+
+		research_cost = 1.5
+		start_year = 10
+		folder = {
+			name = support_folder
+			position = { x = 0 y = 0 }
+		}
+
+		path = {
+			leads_to_tech = train_tech_2
+			research_cost_coeff = 1
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	train_tech_2 = {
+		enable_equipments = {
+			train_equipment_2
+		}
+
+		path = {
+			leads_to_tech = train_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.5
+		start_year = 30
+		folder = {
+			name = support_folder
+			position = { x = 0 y = 6 }
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 2
+			
+			modifier = {
+				has_war = yes
+				factor = 20
+			}
+		}
+	}
+
+	train_tech_3 = {
+		enable_equipments = {
+			train_equipment_3
+		}
+
+		path = {
+			leads_to_tech = railway_gun
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.5
+		start_year = 60
+		folder = {
+			name = support_folder
+			position = { x = 0 y = 12 }
+		}
+		
+		categories = {
+			train_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				has_war = yes
+				factor = 20
+			}
+
+		}
+	}
+
+	railway_gun = {
+		enable_equipments = {
+			railway_gun_equipment_1
+		}
+
+		allow_branch = {
+			has_dlc = "No Step Back"
+		}
+
+		research_cost = 1.5
+		start_year = 60
+		folder = {
+			name = support_folder
+			position = { x = 4 y = 12 }
+		}
+		
+		categories = {
+			train_tech
+			artillery
+		}
+		
+		ai_will_do = {
+			factor = 1
+			
+			modifier = {
+				is_major = yes
+				factor = 2
+			}
 		}
 	}
 

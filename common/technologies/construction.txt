@@ -97,7 +97,7 @@ technologies = {
 	mill_1 = {
 
 		dependencies = {
-			reform_1 = 1
+			basic_gear = 1
 		}
 
 		on_research_complete = {
@@ -213,7 +213,7 @@ technologies = {
 		dependencies = {
 			farm_1 = 1
 			ranch_1 = 1
-			reform_1 = 1
+			plow = 1
 		}
 
 		on_research_complete = {
@@ -728,6 +728,10 @@ technologies = {
 
 	lumber_1 = {
 
+		dependencies = {
+			basic_tool_making = 1
+		}
+
 		enable_building = {
 			building = lumber_mill
 			level = 10
@@ -1084,6 +1088,10 @@ technologies = {
 
 
 	quarry_1 = {
+
+		dependencies = {
+			basic_tool_making = 1
+		}
 
 		enable_building = {
 			building = quarry
@@ -1682,9 +1690,9 @@ technologies = {
 
 	steel_beam_factory_1 = {
 
-		dependencies = {
-			reform_5 = 1
-		}
+		#dependencies = {
+		#	reform_5 = 1
+		#}
 
 		enable_building = {
 			building = steel_beam_factory
@@ -1804,9 +1812,9 @@ technologies = {
 
 	factory_1 = {
 
-		dependencies = {
-			reform_5 = 1
-		}
+		#dependencies = {
+		#	reform_5 = 1
+		#}
 
 		enable_building = {
 			building = factory
@@ -1918,9 +1926,9 @@ technologies = {
 
 	dockyard_1 = {
 
-		dependencies = {
-			reform_5 = 1
-		}
+		#dependencies = {
+		#	reform_5 = 1
+		#}
 
 		enable_building = {
 			building = dockyard
@@ -2186,11 +2194,11 @@ technologies = {
 
 		enable_building = {
 			building = infrastructure
-			level = 5
+			level = 3
 		}
 		enable_building = {
 			building = rail_way
-			level = 1
+			level = 2
 		}
 
 		path = {
@@ -2205,11 +2213,21 @@ technologies = {
 			leads_to_tech = wall_1
 			research_cost_coeff = 1
 		}
+
+		path = {
+			leads_to_tech = watchtower_1
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = settlement_1
+			research_cost_coeff = 1
+		}
 		
 		research_cost = 1.0
 		folder = {
 			name = construction_folder
-			position = { x = 10 y = 0 }
+			position = { x = 14 y = 0 }
 		}
 		
 		ai_will_do = {
@@ -2230,8 +2248,12 @@ technologies = {
 	road_2 = {
 
 		enable_building = {
-			building = road
-			level = 2
+			building = infrastructure
+			level = 6
+		}
+		enable_building = {
+			building = rail_way
+			level = 4
 		}
 
 		path = {
@@ -2239,14 +2261,14 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = granary_1
+			leads_to_tech = shops_1
 			research_cost_coeff = 1
 		}
 		
 		research_cost = 1.0
 		folder = {
 			name = construction_folder
-			position = { x = 10 y = 2 }
+			position = { x = 14 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -2267,8 +2289,12 @@ technologies = {
 	road_3 = {
 
 		enable_building = {
-			building = road
-			level = 3
+			building = infrastructure
+			level = 10
+		}
+		enable_building = {
+			building = rail_way
+			level = 5
 		}
 
 		path = {
@@ -2279,7 +2305,58 @@ technologies = {
 		research_cost = 1.0
 		folder = {
 			name = construction_folder
-			position = { x = 10 y = 4 }
+			position = { x = 14 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	road_4 = {
+
+		enable_building = {
+			building = rail_way
+			level = 8
+		}
+
+		path = {
+			leads_to_tech = road_5
+			research_cost_coeff = 1
+		}
+		
+		research_cost = 1.0
+		folder = {
+			name = construction_folder
+			position = { x = 14 y = 6 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	road_5 = {
+
+		enable_building = {
+			building = rail_way
+			level = 10
+		}
+		
+		research_cost = 1.0
+		folder = {
+			name = construction_folder
+			position = { x = 14 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -2310,6 +2387,10 @@ technologies = {
 		}
 		path = {
 			leads_to_tech = scout_tower_1
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = anti_air_1
 			research_cost_coeff = 1
 		}
 		
@@ -2420,6 +2501,88 @@ technologies = {
 	}
 
 
+	settlement_1 = {
+
+		enable_building = {
+			building = supply_node
+			level = 1
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 16 y = 0 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	shops_1 = {
+
+		enable_building = {
+			building = consumer_good_factory
+			level = 10
+		}
+		enable_building = {
+			building = luxury_good_factory
+			level = 10
+		}
+
+		path = {
+			leads_to_tech = shops_2
+			research_cost_coeff = 1
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 16 y = 2 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
+	shops_2 = {
+
+		enable_building = {
+			building = consumer_good_factory
+			level = 50
+		}
+		enable_building = {
+			building = luxury_good_factory
+			level = 50
+		}
+	
+		research_cost = 1.8
+		folder = {
+			name = construction_folder
+			position = { x = 16 y = 4 }
+		}
+		
+		ai_will_do = {
+			factor = 100
+		}
+		
+		categories = {
+			construction
+			resource_construction
+			stone_construction
+		}	
+	}
 	granary_1 = {
 
 		enable_building = {
@@ -2435,7 +2598,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 12 y = 4 }
+			position = { x = 16 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -2596,7 +2759,7 @@ technologies = {
 
 		enable_building = {
 			building = air_base
-			level = 1
+			level = 5
 		}
 		
 		path = {
@@ -2604,16 +2767,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = anti_air_1
-			research_cost_coeff = 1
-		}
-
 		
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 0 }
+			position = { x = 12 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -2634,9 +2792,9 @@ technologies = {
 
 	air_base_2 = {
 
-		dependencies = {
-			reform_4 = 1
-		}
+		#dependencies = {
+		#	reform_4 = 1
+		#}
 
 		enable_building = {
 			building = air_base
@@ -2651,7 +2809,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 4 }
+			position = { x = 12 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -2685,7 +2843,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 6 }
+			position = { x = 12 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -2719,7 +2877,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 8 }
+			position = { x = 12 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -2745,7 +2903,7 @@ technologies = {
 		research_cost = 1.8
 		folder = {
 			name = construction_folder
-			position = { x = 1 y = 10 }
+			position = { x = 12 y = 10 }
 		}
 		
 		ai_will_do = {
@@ -2767,9 +2925,9 @@ technologies = {
 
 	anti_air_1 = {
 
-		dependencies = {
-			reform_4 = 1
-		}
+		#dependencies = {
+		#	reform_4 = 1
+		#}
 
 		enable_building = {
 			building = anti_air_building
@@ -2785,7 +2943,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 2 }
+			position = { x = 10 y = 2 }
 		}
 		
 		ai_will_do = {
@@ -2806,9 +2964,9 @@ technologies = {
 
 	anti_air_2 = {
 
-		dependencies = {
-			reform_4 = 1
-		}
+		#dependencies = {
+		#	reform_4 = 1
+		#}
 
 		enable_building = {
 			building = anti_air_building
@@ -2824,7 +2982,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 4 }
+			position = { x = 10 y = 4 }
 		}
 		
 		ai_will_do = {
@@ -2859,7 +3017,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 6 }
+			position = { x = 10 y = 6 }
 		}
 		
 		ai_will_do = {
@@ -2894,7 +3052,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 8 }
+			position = { x = 10 y = 8 }
 		}
 		
 		ai_will_do = {
@@ -2923,7 +3081,7 @@ technologies = {
 		research_cost = 3
 		folder = {
 			name = construction_folder
-			position = { x = 3 y = 10 }
+			position = { x = 10 y = 10 }
 		}
 		
 		ai_will_do = {

@@ -320,7 +320,7 @@ leader_traits = {
 		cost = 3000
 		
 		corps_commander_modifier = {
-			max_commander_army_size = 10
+			max_commander_army_size = 20
 		}
 		
 		ai_will_do = {
@@ -342,11 +342,11 @@ leader_traits = {
 		cost = 6000
 		
 		field_marshal_modifier = {
-			max_army_group_size = 2
+			max_army_group_size = 3
 		}
 
 		corps_commander_modifier = {
-			max_commander_army_size = 10
+			max_commander_army_size = 30
 		}
 		
 		ai_will_do = {
@@ -355,6 +355,11 @@ leader_traits = {
 		trait_type = assignable_trait
 		parent = expert_staffer
 		gui_row = 0
+
+		slot = war_minister
+		specialist_advisor_trait = experienced_strategist_1
+		expert_advisor_trait = experienced_strategist_2
+		genius_advisor_trait = experienced_strategist_3
 	}
 
 ##################################
@@ -368,7 +373,10 @@ leader_traits = {
 		}
 
 		cost = 1000
-		field_marshal_modifier = {
+		corps_commander_modifier = {
+			max_commander_army_size = -12
+		}
+		modifier = {
 			breakthrough_factor = 0.10
 		}
 		custom_effect_tooltip = INCREASED_ASSAULT_AND_SHOCK_CHANCE
@@ -378,6 +386,11 @@ leader_traits = {
 		gui_row = 1
 		parent = fast_planner
 		trait_type = assignable_trait
+
+		slot = war_minister
+		specialist_advisor_trait = aggressive_strategist_1
+		expert_advisor_trait = aggressive_strategist_2
+		genius_advisor_trait = aggressive_strategist_3
 	}
 
 	tactical_mind = { 
@@ -387,10 +400,12 @@ leader_traits = {
 		}
 
 		cost = 1000
-		field_marshal_modifier = {
+		modifier = {
 			planning_speed = 0.1
 		}
-
+		corps_commander_modifier = {
+			max_commander_army_size = -8
+		}
 		ai_will_do = {
 			factor = 1
 		}
@@ -424,6 +439,11 @@ leader_traits = {
 		gui_row = 2
 		parent = powerful_attack
 		trait_type = assignable_trait
+
+		slot = head_of_weaponry
+		specialist_advisor_trait = swordsmen_guildmaster_1
+		expert_advisor_trait = swordsmen_guildmaster_2
+		genius_advisor_trait = swordsmen_guildmaster_3
 	}
 
 	trait_skirmisher = { 
@@ -524,6 +544,10 @@ leader_traits = {
 		}
 
 		enable_ability = faster_naval_invasion_planning
+
+		corps_commander_modifier = {
+			max_commander_army_size = -20
+		}
 		
 		ai_will_do = {
 			factor = 1
@@ -533,6 +557,11 @@ leader_traits = {
 		parent = naval_invader
 		
 		gui_row = 8
+
+		slot = war_minister
+		specialist_advisor_trait = amphibious_specialist_1
+		expert_advisor_trait = amphibious_specialist_2
+		genius_advisor_trait = amphibious_specialist_3
 	}
 
 	rivercrossing_expert = { 
@@ -543,6 +572,9 @@ leader_traits = {
 			}
 		}
 		cost = 800
+		corps_commander_modifier = {
+			max_commander_army_size = -8
+		}
 		modifier = {
 			river = {
 				attack = 0.15
@@ -565,6 +597,9 @@ leader_traits = {
 		custom_gain_xp_trigger_tooltip = is_using_battle_plans
 		
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			attrition = -0.10
 		}
@@ -575,6 +610,11 @@ leader_traits = {
 		parent = endurance_general
 		trait_type = assignable_trait
 		gui_row = 10
+
+		slot = quartermaster
+		specialist_advisor_trait = logistician_1
+		expert_advisor_trait = logistician_2
+		genius_advisor_trait = logistician_3
 	}
 
 	siege_expert = {
@@ -592,7 +632,7 @@ leader_traits = {
 		enable_ability = siege_artillery
 
 		corps_commander_modifier = {
-			max_commander_army_size = -10
+			max_commander_army_size = -26
 		}
 		
 		ai_will_do = {
@@ -611,6 +651,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -16
+		}
 		modifier = {
 			army_armor_defence_factor = 0.10 
 		}
@@ -636,8 +679,12 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -20
+		}
 		modifier = {
-			army_armor_speed_factor = 0.1
+			modifier_army_sub_unit_category_all_cavalry_attack_factor = 0.5
+			modifier_army_sub_unit_category_all_cavalry_speed_factor = 0.5
 		}
 		
 		ai_will_do = {
@@ -662,8 +709,12 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -30
+		}
 		modifier = {
-			army_armor_speed_factor = 0.1
+			modifier_army_sub_unit_category_all_cavalry_attack_factor = 0.5
+			modifier_army_sub_unit_category_all_cavalry_defence_factor = 0.5
 		}
 		
 		ai_will_do = {
@@ -701,13 +752,13 @@ leader_traits = {
 			factor = 1
 		}
 
-		slot = field_marshal
-		specialist_advisor_trait = aggressive_strategist_1
-		expert_advisor_trait = aggressive_strategist_2
-		genius_advisor_trait = aggressive_strategist_3
-
 		#mutually_exclusive = defensive_infantry
 		gui_row = 2
+
+		slot = field_marshal
+		specialist_advisor_trait = offensive_strategist_1
+		expert_advisor_trait = offensive_strategist_2
+		genius_advisor_trait = offensive_strategist_3
 	}
 
 	defensive_infantry = { 
@@ -730,12 +781,20 @@ leader_traits = {
 
 		#mutually_exclusive = offensive_infantry
 		gui_row = 6
+
+		slot = field_marshal
+		specialist_advisor_trait = defensive_strategist_1
+		expert_advisor_trait = defensive_strategist_2
+		genius_advisor_trait = defensive_strategist_3
 	}
 
 	trait_engineer = { 
 		type = corps_commander
 		gain_xp = {
-			always = no # not gainable
+			OR = {
+				has_combat_modifier = river_crossing
+				is_amphibious_invasion = yes
+			}
 		}
 		cost = 600
 		modifier = {
@@ -748,13 +807,18 @@ leader_traits = {
 		
 		mutually_exclusive = supply_organisation
 		gui_row = 9
+
+		slot = head_of_weaponry
+		specialist_advisor_trait = smithing_guildmaster_1
+		expert_advisor_trait = smithing_guildmaster_2
+		genius_advisor_trait = smithing_guildmaster_3
 	}
 
 	supply_organisation = { 
 		type = corps_commander
 		
 		gain_xp = {
-			always = no # not gainable
+			frontage_full = yes
 		}
 		cost = 600
 		
@@ -799,11 +863,19 @@ leader_traits = {
 	winter_specialist = { 
 		type = corps_commander
 		gain_xp = {
-			temperature < -10
+			OR = {
+				temperature < -10
+				is_fighting_in_terrain = ice_desert
+			}
 		}
 		cost = 500
 		modifier = {
 			winter_attrition_factor = -0.5
+			ice_desert = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
+			}
 		}
 		
 		ai_will_do = {
@@ -820,9 +892,19 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			acclimatization_cold_climate_gain_factor = 0.40
+			ice_desert = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
 		}
 		
 		ai_will_do = {
@@ -833,19 +915,39 @@ leader_traits = {
 
 		trait_type = assignable_terrain_trait
 		gui_row = 7
+
+		slot = quartermaster
+		specialist_advisor_trait = winter_specialist_1
+		expert_advisor_trait = winter_specialist_2
+		genius_advisor_trait = winter_specialist_3
 	}
 
 	desert_fox = { 
  		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = desert
+			OR = {
+				is_fighting_in_terrain = desert
+				is_fighting_in_terrain = wasteland
+				is_fighting_in_terrain = beach
+			}
 		}
 		cost = 700
 		modifier = {
+			heat_attrition_factor = -0.5
 			desert = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
+			}
+			wasteland = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
+			}
+			beach = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -862,9 +964,29 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			acclimatization_hot_climate_gain_factor = 0.40
+			desert = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			wasteland = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			beach = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
 		}
 		
 		ai_will_do = {
@@ -875,6 +997,11 @@ leader_traits = {
 
 		trait_type = assignable_terrain_trait
 		gui_row = 0
+
+		slot = quartermaster
+		specialist_advisor_trait = desert_specialist_1
+		expert_advisor_trait = desert_specialist_2
+		genius_advisor_trait = desert_specialist_3
 	}
 
 	swamp_fox = { 
@@ -885,9 +1012,9 @@ leader_traits = {
 		cost = 700
 		modifier = {
 			marsh = {
-				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				movement = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -904,10 +1031,15 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			marsh = {
-				movement = 0.05
+				movement = 0.1
 				attack = 0.1
 				defence = 0.1
 			}
@@ -932,8 +1064,13 @@ leader_traits = {
 		modifier = {
 			mountain = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
+			}
+			high_mountain = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -950,9 +1087,19 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			mountain = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			high_mountain = {
 				movement = 0.05
 				attack = 0.1
 				defence = 0.1
@@ -978,8 +1125,18 @@ leader_traits = {
 		modifier = {
 			hills = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
+			}
+			cliff = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
+			}
+			canyon = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -996,9 +1153,24 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			hills = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			cliff = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			canyon = {
 				movement = 0.05
 				attack = 0.1
 				defence = 0.1
@@ -1024,8 +1196,8 @@ leader_traits = {
 		modifier = {
 			jungle = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1042,7 +1214,12 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			jungle = {
 				movement = 0.05
@@ -1059,6 +1236,11 @@ leader_traits = {
 
 		trait_type = assignable_terrain_trait
 		gui_row = 6
+
+		slot = quartermaster
+		specialist_advisor_trait = jungle_specialist_1
+		expert_advisor_trait = jungle_specialist_2
+		genius_advisor_trait = jungle_specialist_3
 	}
 
 	ranger = { 
@@ -1070,8 +1252,8 @@ leader_traits = {
 		modifier = {
 			forest = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1088,7 +1270,12 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			forest = {
 				movement = 0.05
@@ -1116,8 +1303,13 @@ leader_traits = {
 		modifier = {
 			urban = {
 				movement = 0.05
-				attack = 0.1
-				defence = 0.1
+				attack = 0.05
+				defence = 0.05
+			}
+			village = {
+				movement = 0.05
+				attack = 0.05
+				defence = 0.05
 			}
 		}
 		
@@ -1134,9 +1326,19 @@ leader_traits = {
 		gain_xp = {
 			always = no # not gainable
 		}
-
+		field_marshal_modifier = {
+			max_army_group_size = -1
+		}
+		corps_commander_modifier = {
+			max_commander_army_size = -10
+		}
 		modifier = {
 			urban = {
+				movement = 0.05
+				attack = 0.1
+				defence = 0.1
+			}
+			village = {
 				movement = 0.05
 				attack = 0.1
 				defence = 0.1
@@ -1163,6 +1365,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -6
+		}
 		modifier = {
 			planning_speed = 0.25
 		}
@@ -1182,11 +1387,14 @@ leader_traits = {
 		}
 		cost = 1000
 
+		corps_commander_modifier = {
+			max_commander_army_size = -4
+		}
 		modifier = {
-			army_infantry_attack_factor = 0.25
+			army_infantry_attack_factor = 0.05
 		}
 		
-		attack_skill = 1
+		attack_skill = 2
 		
 		ai_will_do = {
 			factor = 1
@@ -1209,6 +1417,9 @@ leader_traits = {
 		custom_gain_xp_trigger_tooltip = has_flanked
 		
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			recon_factor = 0.25
 		}
@@ -1222,6 +1433,11 @@ leader_traits = {
 		trait_type = assignable_trait
 		mutually_exclusive = powerful_attack
 		gui_row = 3
+
+		slot = field_marshal
+		specialist_advisor_trait = assymetrical_strategist_1
+		expert_advisor_trait = assymetrical_strategist_2
+		genius_advisor_trait = assymetrical_strategist_3
 	}
 
 	entrenchment = { 
@@ -1230,6 +1446,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -4
+		}
 		modifier = {
 			dig_in_speed_factor = 0.25
 			max_dig_in_factor = 0.25
@@ -1256,6 +1475,9 @@ leader_traits = {
 		custom_gain_xp_trigger_tooltip = infantry_ratio_over_80
 		
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			army_infantry_defence_factor = 0.10
 		}
@@ -1277,6 +1499,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -6
+		}
 		modifier = {
 			max_planning = 0.2
 		}
@@ -1295,7 +1520,9 @@ leader_traits = {
 			is_amphibious_invasion = yes
 		}
 		cost = 600
-		modifier = {
+
+		corps_commander_modifier = {
+			max_commander_army_size = -4
 			amphibious_invasion = 0.3 # 30% faster invasions
 			invasion_preparation = -0.3
 		}
@@ -1321,6 +1548,9 @@ leader_traits = {
 				attack = 0.1
 			}
 		}
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 
 		enable_ability = makeshift_bridges
 
@@ -1330,6 +1560,11 @@ leader_traits = {
 		parent = trait_engineer
 		trait_type = assignable_trait
 		gui_row = 9
+
+		slot = field_marshal
+		specialist_advisor_trait = transportation_expert_1
+		expert_advisor_trait = transportation_expert_2
+		genius_advisor_trait = transportation_expert_3
 	}
 
 	endurance_general = { 
@@ -1342,6 +1577,9 @@ leader_traits = {
 			}
 		}
 		cost = 700
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			out_of_supply_factor = -0.25
 		}
@@ -1352,6 +1590,11 @@ leader_traits = {
 		parent = supply_organisation
 		trait_type = assignable_trait
 		gui_row = 10
+
+		slot = quartermaster
+		specialist_advisor_trait = forager_1
+		expert_advisor_trait = forager_2
+		genius_advisor_trait = forager_3
 	}
 
 	besieger = {
@@ -1363,6 +1606,9 @@ leader_traits = {
 			}
 		}
 		cost = 1000
+		corps_commander_modifier = {
+			max_commander_army_size = -4
+		}
 		modifier = {
 			fort = {
 				attack = 0.5
@@ -1385,6 +1631,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			cavalry_attack_factor = 0.10
 			#cavalry_defence_factor = 0.10
@@ -1408,6 +1657,9 @@ leader_traits = {
 			always = no # not gainable
 		}
 		cost = 500
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			#cavalry_attack_factor = 0.10
 			cavalry_defence_factor = 0.10
@@ -1434,6 +1686,9 @@ leader_traits = {
 		}
 		custom_gain_xp_trigger_tooltip = armored_ratio_over_40
 		cost = 700
+		corps_commander_modifier = {
+			max_commander_army_size = -2
+		}
 		modifier = {
 			army_armor_speed_factor = 0.05 
 			army_armor_attack_factor = 0.1 

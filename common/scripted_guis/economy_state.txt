@@ -15,18 +15,28 @@ scripted_gui = {
 			open_construction_click = {
 				if = {
 					limit = {
+						ROOT = {
 						check_variable = { close_construction = 0 }
+						}
 					}
+					ROOT = {
 					set_variable = { close_construction = 1 }
+					}
 				}
 				else = {
+					ROOT = {
 					set_variable = { close_construction = 0 }
+					}
 				}
 				if = {
 					limit = {
+						ROOT = {
 						check_variable = { show_construction < 1 }
+						}
 					}
+					ROOT = {
 					set_variable = { show_construction = 1 }
+					}
 				}
 			}
 			increase_infra_click = {
@@ -131,9 +141,11 @@ scripted_gui = {
 		parent_window_token = selected_state_view
 
 		visible = {
-			check_variable = { show_construction = 1 }
-			NOT = {
-				check_variable = { close_construction = 1 }
+			ROOT = {
+				check_variable = { show_construction = 1 }
+				NOT = {
+					check_variable = { close_construction = 1 }
+				}
 			}
 			is_controlled_by = ROOT
 		}
@@ -219,13 +231,19 @@ scripted_gui = {
 
 		effects = {
 			resource_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 1 }
+				}
 			}
 			factory_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 2 }
+				}
 			}
 			misc_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 3 }
+				}
 			}
 
 			build_farm_click = {
@@ -290,7 +308,9 @@ scripted_gui = {
 			}
 
 			close_window_click = {
+				ROOT = {
 				set_variable = { close_construction = 1 }
+				}
 			}
 		}
 
@@ -302,9 +322,11 @@ scripted_gui = {
 		parent_window_token = selected_state_view
 
 		visible = {
-			check_variable = { show_construction = 2 }
-			NOT = {
-				check_variable = { close_construction = 1 }
+			ROOT = {
+				check_variable = { show_construction = 2 }
+				NOT = {
+					check_variable = { close_construction = 1 }
+				}
 			}
 			is_controlled_by = ROOT
 		}
@@ -379,13 +401,19 @@ scripted_gui = {
 
 		effects = {
 			resource_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 1 }
+				}
 			}
 			factory_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 2 }
+				}
 			}
 			misc_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 3 }
+				}
 			}
 
 			build_smithy_click = {
@@ -432,7 +460,9 @@ scripted_gui = {
 			}
 
 			close_window_click = {
+				ROOT = {
 				set_variable = { close_construction = 1 }
+				}
 			}
 		}
 
@@ -444,9 +474,11 @@ scripted_gui = {
 		parent_window_token = selected_state_view
 
 		visible = {
-			check_variable = { show_construction = 3 }
-			NOT = {
-				check_variable = { close_construction = 1 }
+			ROOT = {
+				check_variable = { show_construction = 3 }
+				NOT = {
+					check_variable = { close_construction = 1 }
+				}
 			}
 			is_controlled_by = ROOT
 		}
@@ -484,13 +516,19 @@ scripted_gui = {
 
 		effects = {
 			resource_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 1 }
+				}
 			}
 			factory_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 2 }
+				}
 			}
 			misc_buildings_click = {
+				ROOT = {
 				set_variable = { show_construction = 3 }
+				}
 			}
 
 			build_fuel_repository_click = {
@@ -507,7 +545,9 @@ scripted_gui = {
 			}
 
 			close_window_click = {
+				ROOT = {
 				set_variable = { close_construction = 1 }
+				}
 			}
 		}
 

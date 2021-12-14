@@ -1,0 +1,40 @@
+technologies = {
+
+	formation_marching = {
+
+		xp_research_type = army
+		xp_unlock_cost = 200
+
+		path = {
+			leads_to_tech = formation_marching_2
+			research_cost_coeff = 1
+		}
+
+		disable_strategic_redeployment = 0
+		
+		doctrine = yes
+		research_cost = 7
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -4 y = 2 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+
+}
