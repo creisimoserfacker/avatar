@@ -403,6 +403,7 @@ leader_traits = {
 		modifier = {
 			planning_speed = 0.1
 		}
+		enable_ability = staff_office_plan
 		corps_commander_modifier = {
 			max_commander_army_size = -8
 		}
@@ -740,8 +741,9 @@ leader_traits = {
 			set_temp_variable = { temp = num_units }
 			multiply_temp_variable = { temp = 0.8 }
 			check_variable = { num_infantry > temp }
+			check_variable = { num_units_offensive_combats > temp }
 		}
-		custom_gain_xp_trigger_tooltip = infantry_ratio_over_80
+		custom_gain_xp_trigger_tooltip = offensive_infantry_ratio_over_80
 		
 		cost = 1000
 		modifier = {
@@ -767,13 +769,15 @@ leader_traits = {
 			set_temp_variable = { temp = num_units }
 			multiply_temp_variable = { temp = 0.8 }
 			check_variable = { num_infantry > temp }
+			check_variable = { num_units_defensive_combats > temp }
 		}
-		custom_gain_xp_trigger_tooltip = infantry_ratio_over_80
+		custom_gain_xp_trigger_tooltip = defensive_infantry_ratio_over_80
 		
 		cost = 1000
 		modifier = {
-			army_infantry_defence_factor = 0.25
+			army_infantry_defence_factor = 0.05
 		}
+		enable_ability = defensive_measures
 		
 		ai_will_do = {
 			factor = 1
@@ -1058,7 +1062,10 @@ leader_traits = {
 	trait_mountaineer = { 
 		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = mountain
+			OR = {
+				is_fighting_in_terrain = mountain
+				is_fighting_in_terrain = high_mountain
+			}
 		}
 		cost = 700
 		modifier = {
@@ -1119,7 +1126,11 @@ leader_traits = {
 	hill_fighter = { 
 		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = hills
+			OR = {
+				is_fighting_in_terrain = hills
+				is_fighting_in_terrain = cliff
+				is_fighting_in_terrain = canyon
+			}
 		}
 		cost = 700
 		modifier = {
@@ -1297,7 +1308,10 @@ leader_traits = {
 	urban_assault_specialist = { 
 		type = corps_commander
 		gain_xp = {
-			is_fighting_in_terrain = urban
+			OR = {
+				is_fighting_in_terrain = urban
+				is_fighting_in_terrain = village
+			}
 		}
 		cost = 500
 		modifier = {

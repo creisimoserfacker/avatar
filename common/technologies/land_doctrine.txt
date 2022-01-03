@@ -10,7 +10,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = maneuver_exercise
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = combat_exercise
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = scouts_and_spies
 			research_cost_coeff = 1
 		}
 
@@ -22,6 +30,42 @@ technologies = {
 		folder = {
 			name = land_doctrine_folder
 			position = { x = 0 y = 0 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	scouts_and_spies = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_and_spies
+			research_cost_coeff = 1
+		}
+
+		recon_factor = 0.05
+		intel_network_gain_factor = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -18 y = 2 }
 		}
 
 		categories = {
@@ -54,6 +98,11 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
+		path = {
+			leads_to_tech = decisive_battle
+			research_cost_coeff = 1
+		}
+
 		army_attack_factor = 0.01
 		army_defence_factor = 0.01
 		
@@ -61,7 +110,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -8 y = 2 }
+			position = { x = -6 y = 2 }
 		}
 
 		categories = {
@@ -96,18 +145,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		path = {
-			leads_to_tech = soldiers_luggage
-			research_cost_coeff = 1
-		}
-
 		resistance_target_on_our_occupied_states = 0.4
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -6 y = 4 }
+			position = { x = -4 y = 4 }
 		}
 
 		categories = {
@@ -132,7 +176,7 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = patriotic_war
+			leads_to_tech = partisan_logistics
 			research_cost_coeff = 1
 		}
 
@@ -143,7 +187,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -6 y = 6 }
+			position = { x = -4 y = 6 }
 		}
 
 		categories = {
@@ -162,24 +206,28 @@ technologies = {
 		}
 	}
 
-	patriotic_war = {
+	decisive_battle = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = patriotic_war
+			leads_to_tech = decisive_battle
 			research_cost_coeff = 1
 		}
 
-		army_core_defence_factor = 0.1
-		army_core_attack_factor = 0.05
+		on_research_complete = {
+			custom_effect_tooltip = ENABLE_ABILITY_GRAND_BATTLE_TOOLTIP
+		}
+		show_effect_as_desc = yes
+
+		enable_tactic = tactic_approach_battle
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -8 y = 8 }
+			position = { x = -6 y = 8 }
 		}
 
 		categories = {
@@ -210,7 +258,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -4 y = 6 }
+			position = { x = -2 y = 6 }
 		}
 
 		categories = {
@@ -234,10 +282,10 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		path = {
-			leads_to_tech = partisan_logistics
-			research_cost_coeff = 1
-		}
+		#path = {
+		#	leads_to_tech = partisan_logistics
+		#	research_cost_coeff = 1
+		#}
 
 		no_supply_grace = 168
 		
@@ -245,7 +293,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -2 y = 6 }
+			position = { x = 6 y = 6 }
 		}
 
 		categories = {
@@ -318,7 +366,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -10 y = 4 }
+			position = { x = -8 y = 4 }
 		}
 
 		categories = {
@@ -342,10 +390,10 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		path = {
-			leads_to_tech = patriotic_war
-			research_cost_coeff = 1
-		}
+		#path = {
+		#	leads_to_tech = patriotic_war
+		#	research_cost_coeff = 1
+		#}
 
 		army_leader_cost_factor = -0.25
 		max_command_power = 50
@@ -354,7 +402,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -10 y = 6 }
+			position = { x = -8 y = 6 }
 		}
 
 		categories = {
@@ -379,6 +427,41 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
+			leads_to_tech = coordination_drills
+			research_cost_coeff = 1
+		}
+
+		coordination_bonus = 0.01
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 18 y = 2 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	maneuver_exercise = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
 			leads_to_tech = formation_marching
 			research_cost_coeff = 1
 		}
@@ -387,13 +470,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_org_factor = 0.05
+		army_speed_factor = 0.05
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 8 y = 2 }
+			position = { x = 6 y = 2 }
 		}
 
 		categories = {
@@ -418,6 +501,11 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
+			leads_to_tech = soldiers_luggage
+			research_cost_coeff = 1
+		}
+
+		path = {
 			leads_to_tech = formation_marching_2
 			research_cost_coeff = 1
 		}
@@ -429,7 +517,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 6 y = 4 }
+			position = { x = 4 y = 4 }
 		}
 
 		categories = {
@@ -454,18 +542,21 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = formation_marching_2
+			leads_to_tech = soldiers_luggage
 			research_cost_coeff = 1
 		}
 
-		disable_strategic_redeployment = 1
+		on_research_complete = {
+			custom_effect_tooltip = long_march_ttp
+		}
+		show_effect_as_desc = yes
 		
 		doctrine = yes
 		research_cost = 7
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 10 y = 4 }
+			position = { x = 8 y = 4 }
 		}
 
 		categories = {

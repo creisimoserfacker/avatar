@@ -11,6 +11,7 @@ phases = { # phase = no is the standard phase
 	hold_wall
 	seize_bridge
 	hold_bridge
+	grand_battle
 }
 
 tactic_basic_attack = {
@@ -559,6 +560,79 @@ tactic_force_concentration = {
 ###  #### ####  ##  ##  #  #
 #    #  # #  #    # #   #  #
 #    #  # #  # ###  ### ###
+
+
+
+###### grand_battle
+
+tactic_approach_battle = {
+
+	is_attacker = yes
+	trigger = { # combined scope for both country and combatant
+		is_attacker = yes
+		phase = no
+		frontage_full = yes
+	}
+	
+	active = no
+
+	base =  { 
+		factor = 10 
+		modifier = {
+			add = 10
+			reserves > 10
+		}
+	}
+	picture = approach_battle
+
+	phase = grand_battle
+	
+	countered_by = tactic_evade_battle
+
+	attacker_movement_speed = 0.5
+	combat_width = 0.1
+
+}
+tactic_gb_basic_attack = {
+
+	is_attacker = yes
+	trigger = { # combined scope for both country and combatant
+		is_attacker = yes
+		phase = grand_battle
+	}
+
+	phase = grand_battle
+	
+	active = yes
+
+	base =  { factor = 4 }
+	picture = attack
+	
+	countered_by = tactic_ambush
+
+	attacker = -0.5
+	combat_width = 0.5
+}
+tactic_gb_basic_defend = {
+
+	is_attacker = no
+	trigger = {
+		is_attacker = no
+		phase = grand_battle
+	}
+
+	phase = grand_battle
+	
+	active = yes
+	
+	base =  { factor = 4 }
+	picture = defend
+
+	countered_by = tactic_volley_fire
+	
+	defender = -0.5
+	combat_width = 0.5
+}
 
 
 

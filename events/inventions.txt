@@ -83,7 +83,7 @@ country_event = {
 			mine > 7
 
 		}
-		has_tech = burning_2
+		has_tech = burning_1
 		has_tech = metal_processing
 		NOT = { has_tech = steelmaking }
 	}
@@ -98,6 +98,42 @@ country_event = {
 
 	option = {
 		name = invention.3.a
+		trigger = { 
+			
+		}
+	}
+
+}
+
+# the_wheel
+country_event = {
+	id = invention.4
+	title = invention.4.t
+	desc = invention.4.d
+	picture = GFX_invention_event_004
+
+	trigger = {
+		any_owned_state = {
+			has_railway_level = { 
+				level = 2 
+				state = THIS
+			}
+		}
+		check_variable = { modifier@research_speed > 0.1 }
+		has_tech = basic_tool_making
+		NOT = { has_tech = the_wheel }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    the_wheel = 1
+			}
+		}
+	}
+
+	option = {
+		name = invention.4.a
 		trigger = { 
 			
 		}

@@ -11,7 +11,7 @@ EAR_dai_li_category = {
 
 		}
 		
-		days_remove = 60
+		days_remove = 6#0
 		fire_only_once = yes
 
 		custom_cost_trigger = {
@@ -141,7 +141,7 @@ EAR_dai_li_category = {
 		
 		fire_only_once = yes
 
-		cost = 200
+		cost = 25
 		days_remove = 30
 
 		modifier = {
@@ -150,7 +150,147 @@ EAR_dai_li_category = {
 		}
 
 		remove_effect = {
+			recruit_character = EAR_quon
+		}
+	}
+
+	dai_li_minister_of_finance = {
+
+		icon = dai_li_minister
+		
+		visible = {
+			tag = EAR
+			has_country_flag = dai_li_ministers
+		}
+
+		available = {
 			
+		}
+		
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.025
+			war_support_weekly = -0.025
+		}
+
+		remove_effect = {
+			recruit_character = EAR_hiroshi
+		}
+	}
+
+	dai_li_minister_of_culture = {
+
+		icon = dai_li_minister
+		
+		visible = {
+			tag = EAR
+			has_country_flag = dai_li_ministers
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.025
+			war_support_weekly = -0.025
+		}
+
+		remove_effect = {
+			recruit_character = EAR_juno
+		}
+	}
+
+	dai_li_minister_of_justice = {
+
+		icon = dai_li_minister
+		
+		visible = {
+			tag = EAR
+			has_country_flag = dai_li_ministers
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.025
+			war_support_weekly = -0.025
+		}
+
+		remove_effect = {
+			recruit_character = EAR_moku
+		}
+	}
+
+	dai_li_minister_of_works = {
+
+		icon = dai_li_minister
+		
+		visible = {
+			tag = EAR
+			has_country_flag = dai_li_ministers
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.025
+			war_support_weekly = -0.025
+		}
+
+		remove_effect = {
+			recruit_character = EAR_saiful
+		}
+	}
+
+	dai_li_minister_of_rites = {
+
+		icon = dai_li_minister
+		
+		visible = {
+			tag = EAR
+			has_country_flag = dai_li_ministers
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		cost = 25
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.025
+			war_support_weekly = -0.025
+		}
+
+		remove_effect = {
+			recruit_character = EAR_cam
 		}
 	}
 
@@ -164,21 +304,17 @@ EAR_dai_li_category = {
 		}
 
 		available = {
-			count_triggers = {
-				amount = 6
-				has_idea = generic_minister_of_personnel_1
-				has_idea = generic_minister_of_finance_1
-				has_idea = generic_minister_of_culture_1
-				has_idea = generic_minister_of_justice_1
-				has_idea = generic_minister_of_works_1
-				has_idea = generic_minister_of_rites_1
-
-				has_idea = generic_war_minister_1
-				has_idea = generic_field_marshal_1
-				has_idea = generic_grand_admiral_1
-				has_idea = generic_head_of_intelligence_1
-				has_idea = generic_head_of_weaponry_1
-				has_idea = generic_quartermaster_1
+			custom_trigger_tooltip = {
+				tooltip = dai_li_government_tt		
+				count_triggers = {
+					amount = 6
+					has_idea = ear_quon
+					has_idea = ear_hiroshi
+					has_idea = ear_juno
+					has_idea = ear_moku
+					has_idea = ear_saiful
+					has_idea = ear_cam
+				}
 			}
 		}
 		

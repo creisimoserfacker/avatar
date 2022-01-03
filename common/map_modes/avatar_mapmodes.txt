@@ -1,0 +1,65 @@
+
+scripted_map_modes = {
+
+	fauna_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.14 }
+				set_temp_variable = { blue = 0.01 }
+				set_temp_variable = { green = 0.1 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = animal }
+					multiply_temp_variable = { blue = animal }
+					multiply_temp_variable = { green = animal }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
+
+	empty_map_mode = {
+		top = {
+			type = none
+			color = {
+				set_temp_variable = { red = 0.0 }
+				set_temp_variable = { blue = 0.0 }
+				set_temp_variable = { green = 0.0 }
+				set_temp_variable = { alpha = 0.01 }
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = none
+		near_text = none
+		update_daily = yes
+	}
+}

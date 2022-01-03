@@ -1,0 +1,29 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			every_country = {
+				add_ideas = strategic_redeployment_blocker
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+
+			if = {
+				limit = {
+					NOT = {
+						OR = {
+							has_tech = long_march
+							has_idea = strategic_redeployment_blocker
+						}
+					}
+				}
+				add_ideas = strategic_redeployment_blocker
+			}
+
+		}
+	}
+
+}

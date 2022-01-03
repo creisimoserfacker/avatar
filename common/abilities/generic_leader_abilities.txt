@@ -1,7 +1,7 @@
 ability = {
-	force_attack = {
-		name = ABILITY_FORCE_ATTACK
-		desc = ABILITY_FORCE_ATTACK_DESC
+	grand_battle = {
+		name = ABILITY_GRAND_BATTLE
+		desc = ABILITY_GRAND_BATTLE_DESC
 		
 		sound_effect = command_power_ability_offensive
 		
@@ -10,14 +10,7 @@ ability = {
 		allowed = {
 			is_leading_army_group = no
 			is_border_war = no
-			OWNER = {
-				if = {
-					limit = {
-						has_dlc = "Waking the Tiger"
-					}
-					NOT = { has_completed_focus = CHI_dare_to_die_corps }
-				}
-			}
+			has_tech = decisive_battle
 		}
 		
 		ai_will_do = {
@@ -27,7 +20,7 @@ ability = {
 					has_war_support > 0.1
 					command_power > 1.5
 				}
-				check_variable = { num_units_offensive_combats > 6 }
+				check_variable = { num_units_offensive_combats > 10 }
 				
 				set_temp_variable = { temp = avg_offensive_combat_status }
 				check_variable = { temp > 0.45 }
@@ -37,55 +30,45 @@ ability = {
 			}
 		}
 		
-		cost = 0.18  #was 0.22
-		duration = 168
+		cost = 0.5  #was 0.22
+		duration = 480
 		
 		one_time_effect = {
 			add_temporary_buff_to_units = {
-				combat_offense = 0.2
-				combat_breakthrough = 0.25
-				org_damage_multiplier = -0.8
-				str_damage_multiplier = 0.5
+				combat_offense = 5
+				combat_defense = 5
+				org_damage_multiplier = -0.5
+				str_damage_multiplier = 2
 				war_support_reduction_on_damage = 0.2
 				cannot_retreat_while_attacking = 1.0
+				cannot_retreat_while_defending = 1.0
 				
-				days = 7
-				tooltip = ABILITY_FORCE_ATTACK_TOOLTIP
+				days = 20
+				tooltip = ABILITY_GRAND_BATTLE_TOOLTIP
 			}
 		}
 	}
 		
-	last_stand = {
-		name = ABILITY_LAST_STAND
-		desc = ABILITY_LAST_STAND_DESC
+	defensive_measures = {
+		name = ABILITY_DEFENSIVE_MEASURES
+		desc = ABILITY_DEFENSIVE_MEASURES_DESC
 		
 		sound_effect = command_power_ability_offensive
 		
 		type = army_leader
 		
 		allowed = {
-			is_leading_army_group = no
 			is_border_war = no
-			OWNER = {
-				NOT = { has_completed_focus = JAP_warrior_spirit }
-			}
+			has_ability = defensive_infantry
 		}
 		
-		cost = 0.22
-		duration = 168
-		
-		one_time_effect = {
-			add_temporary_buff_to_units = {
-				combat_defense = 0.2
-				combat_entrenchment = 0.25
-				org_damage_multiplier = -0.8
-				str_damage_multiplier = 0.5
-				war_support_reduction_on_damage = 0.2
-				cannot_retreat_while_defending = 1.0
-				
-				days = 7
-				tooltip = ABILITY_LAST_STAND_TOOLTIP
-			}
+		cost = 0.4
+		duration = 240
+
+		unit_modifiers = {
+			army_org_regain = 1
+			dig_in_speed_factor  = 1
+			supply_consumption_factor = -0.5
 		}
 		
 		ai_will_do = {
@@ -95,7 +78,7 @@ ability = {
 					has_war_support > 0.4
 				}
 				
-				check_variable = { num_units_defensive_combats > 6 }
+				check_variable = { num_units_defensive_combats > 10 }
 				
 				set_temp_variable = { temp = avg_defensive_combat_status }
 				check_variable = { temp < 0.40 }
@@ -116,6 +99,7 @@ ability = {
 		
 		allowed = {
 			is_border_war = no
+			has_ability = tactical_mind
 		}
 		
 		cost = 0.12
@@ -181,27 +165,7 @@ ability = {
 			}
 		}
 	}
-	
-	glider_planes = {
-		name = ABILITY_GLIDER_PLANES_ARTILLERY
-		desc = ABILITY_GLIDER_PLANES_ARTILLERY_DESC
-		
-		type = army_leader
-		
-		allowed = {
-			has_ability = glider_planes
-			is_border_war = no
-		}
-		
-		unit_modifiers = {
-			paratrooper_count_per_plane = 1.0
-			paradrop_organization_factor = 2.0
-			paratrooper_aa_defense = 0.5
-		}
-		
-		cost = 0.1
-		duration = 168
-	}
+
 	faster_naval_invasion_planning = {
 		name = ABILITY_FASTER_NAVAL_PLANNING
 		desc = ABILITY_FASTER_NAVAL_PLANNING_DESC
