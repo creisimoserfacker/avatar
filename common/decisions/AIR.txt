@@ -8,7 +8,7 @@ AIR_council_category = {
 		available = {
 			has_country_flag = meetings_disrupted
 		}
-		days_mission_timeout = 90
+		days_mission_timeout = 5
 		days_re_enable = 0
 		days_remove = 0
 		is_good = yes
@@ -17,6 +17,7 @@ AIR_council_category = {
 		timeout_effect = {
 			custom_effect_tooltip = "The Council meets once again!"
 			AIR_generate_missions = yes
+			add_to_array = { air_current_missions = 18 }
 			ROOT = { country_event = { id = AIR_council.1 } }
 		}
 	}
@@ -93,6 +94,16 @@ AIR_council_category = {
 		days_re_enable = 0
 		complete_effect = {
 			AIR_council_extreme_opposition = yes
+		}
+	}
+	
+	debug_mission_generator = {
+		allowed = yes
+		available = {
+			always = yes
+		}
+		complete_effect = {
+			pp = 100
 		}
 	}
 	
@@ -741,7 +752,7 @@ AIR_council_category = {
 	}
 	
 	AIR_mission_nr7 = {
-		icon = council_navy_mission
+		icon = council_army_mission
 		allowed = {
 			has_country_flag = air_council_active
 		}
@@ -1193,6 +1204,82 @@ AIR_council_category = {
 		}
 	}
 	
+	AIR_mission_nr18 = {
+		icon = council_research_mission
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { air_current_missions = 18 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 30
+		days_remove = 0
+		selectable_mission = yes
+		cost = 10
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr18_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { air_current_missions = 18}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr18_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_tech_bonus = {
+				name = air_mission_nr18_reward
+				bonus = 0.5
+				uses = 2
+			}
+			remove_from_array = { air_current_missions = 18}
+		}
+	}
+	
+	AIR_mission_nr21 = {
+		icon = council_industry_mission
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { air_current_missions = 21 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 30
+		days_remove = 0
+		selectable_mission = yes
+		cost = 10
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr21_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { air_current_missions = 21}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr21_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			
+			remove_from_array = { air_current_missions = 21}
+		}
+	}
+	
 	AIR_mission_nr26 = {
 		icon = council_politics_mission
 		allowed = {
@@ -1228,8 +1315,45 @@ AIR_council_category = {
 			remove_from_array = { air_current_missions = 26}
 		}
 	}
+	
+	AIR_mission_nr27 = {
+		icon = council_politics_mission
+		allowed = {
+			has_country_flag = air_council_active
+		}
+		activation = {
+			is_in_array = { air_current_missions = 27 }
+		}
+		available = {
+			always = yes
+		}
+		
+		is_good = yes
+		days_mission_timeout = 30
+		days_remove = 0
+		selectable_mission = yes
+		cost = 10
+		
+		timeout_effect = {
+			custom_effect_tooltip  = mission_nr27_timeout
+			hidden = {
+				AIR_council_small_opposition = yes
+			}
+			remove_from_array = { air_current_missions = 27}
+		}
+		
+		complete_effect = {
+			custom_effect_tooltip = mission_nr27_success
+			hidden = {
+				AIR_council_small_support = yes
+			}
+			add_stability = 0.05
+			remove_from_array = { air_current_missions = 27}
+		}
+	}
 
 	AIR_mission_nr28 = {
+		icon = council_politics_mission
    		allowed = {
 			has_country_flag = air_council_active
 		}
@@ -1269,6 +1393,7 @@ AIR_council_category = {
     }
 
 	AIR_mission_nr29 = {
+		icon = council_politics_mission
 		allowed = {
 			has_country_flag = air_council_active
 		}
@@ -1277,10 +1402,10 @@ AIR_council_category = {
 		}
 
 		is_good = yes
-		days_mission_timeout = 80
+		days_mission_timeout = 90
 		days_remove = 0
 		selectable_mission = yes
-		cost = 45
+		cost = 30
 
 		timeout_effect = {
 			custom_effect_tooltip  = mission_nr29_timeout
