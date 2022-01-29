@@ -609,8 +609,8 @@ guiTypes = {
 
 		buttonType = {
 			name = "select_all_btn"
-			spriteType = "GFX_select_all_armylist_short_btn"
-			position = { x=394 y=142 }
+			spriteType = "GFX_select_all_armylist_btn"
+			position = { x=354 y=142 }
 			clicksound = click_default
 			font = "hoi_18mbs"
 			text = "SELECT_ALL"
@@ -644,7 +644,7 @@ guiTypes = {
 
 		iconType = {
 			name = "leader_enroute"
-			position = {x=48 y=102}
+			position = {x=8 y=50}
 			quadTextureSprite ="GFX_leader_en_route"
 			alwaystransparent = yes
 		}
@@ -673,6 +673,33 @@ guiTypes = {
 			position = {x=8 y=110}
 			spriteType = "GFX_leader_details_icon"
 			pdx_tooltip = "CLICK_TO_ASSIGN_TRAITS"
+		}
+
+		buttonType = {
+			name = "btn_advisor_tree"
+			position = { x=38 y = 110}
+			quadTextureSprite ="GFX_give_role_leader_strip"
+			buttonFont = "hoi_16mbs"
+			clicksound = click_default
+			frame = 1
+		}
+
+		iconType = {
+			name = "skill_icon"
+			spriteType = "GFX_land_battle_leader_skill_bg"
+			centerposition = yes
+			position = { x=211 y=65 }
+			scale = 0.7
+		}
+
+		instantTextboxType = {
+			name = "skill_text"
+			position = {x=196 y=51}
+			font = "hoi_18mbs"
+			maxWidth = 30
+			maxHeight = 23
+			format = center
+			text = "3"
 		}
 
 		instantTextboxType = {
@@ -761,7 +788,7 @@ guiTypes = {
 
 		gridBoxType = {
 			name = "traits_grid"
-			position = {x=252 y=55}
+			position = {x=312 y=55}
 			size = {width=120 height=50}
 			slotsize = {width=22 height=32}
 			max_slots_vertical = 2
@@ -1161,7 +1188,7 @@ guiTypes = {
 			name = "ship_name"
 			position = {x=184 y=4}
 			font = "hoi_18mbs"
-			maxWidth = 300
+			maxWidth = 280
 			maxHeight = 23
 			fixedsize = yes
 			format = left
@@ -1177,12 +1204,13 @@ guiTypes = {
 		}
 
 		# NOTE: moved back in code to the role_icon x position if MTG is absent
+		#       also, maxWidth is shrinked in code when necessary (e.g. buttons are shown)
 		instantTextboxType = {
 			name = "ship_type"
 			position = {x=210 y=20}
 			font = "hoi_18"
 			text = "test"
-			maxWidth = 200
+			maxWidth = 280
 			maxHeight = 23
 			fixedsize = yes
 			format = left
@@ -1361,6 +1389,8 @@ guiTypes = {
 			position = { x = 2 y = 45 }
 			size = { width = 534 height = 340 }
 			verticalScrollbar = "right_vertical_slider"	
+			scroll_wheel_factor = 47
+			smooth_scrolling = yes
 			margin = {top=-4 left=0 bottom=0 right=0}
 			
 			background = {

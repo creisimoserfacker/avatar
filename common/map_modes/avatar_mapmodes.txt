@@ -1,6 +1,72 @@
 
 scripted_map_modes = {
 
+	flora_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.02 }
+				set_temp_variable = { blue = 0.01 }
+				set_temp_variable = { green = 0.085 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = forest }
+					multiply_temp_variable = { blue = forest }
+					multiply_temp_variable = { green = forest }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
+	fertility_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.05 }
+				set_temp_variable = { blue = 0.02 }
+				set_temp_variable = { green = 0.09 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = field }
+					multiply_temp_variable = { blue = field }
+					multiply_temp_variable = { green = field }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
 	fauna_map_mode = {
 		top = {
 			type = state
@@ -14,6 +80,105 @@ scripted_map_modes = {
 					multiply_temp_variable = { red = animal }
 					multiply_temp_variable = { blue = animal }
 					multiply_temp_variable = { green = animal }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
+	mining_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.08 }
+				set_temp_variable = { blue = 0.06 }
+				set_temp_variable = { green = 0.08 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = mountain }
+					multiply_temp_variable = { blue = mountain }
+					multiply_temp_variable = { green = mountain }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
+	stonefield_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.06 }
+				set_temp_variable = { blue = 0.08 }
+				set_temp_variable = { green = 0.08 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = stonefield }
+					multiply_temp_variable = { blue = stonefield }
+					multiply_temp_variable = { green = stonefield }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = yes
+	}
+	water_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.02 }
+				set_temp_variable = { blue = 0.09 }
+				set_temp_variable = { green = 0.06 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					multiply_temp_variable = { red = water }
+					multiply_temp_variable = { blue = water }
+					multiply_temp_variable = { green = water }
 				}
 				
 				#set_temp_variable = { thickness = 10.0 }

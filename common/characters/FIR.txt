@@ -27,17 +27,17 @@ characters={
 				aggressive_assaulter 
 				firelord 
 			}
-			skill = 4
-			attack_skill = 4
-			defense_skill = 1
-			planning_skill = 3
-			logistics_skill = 2
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
 			legacy_id=-1
 		}
 	}
 
 	FIR_shaozu = {
-		name = FIR_shaozu
+		name = "Shaozu"
 		portraits={
 			army = {
 				large="gfx/leaders/FIR/Portrait_Firenation_Generic13.dds"
@@ -45,14 +45,11 @@ characters={
 			}
 		}
 		field_marshal = {
-			traits = {
-				generic
-				supply_organisation
-			}
-			skill = 3
-			attack_skill = 2
-			defense_skill = 1
-			planning_skill = 3
+			traits = { generic supply_organisation endurance_general organizer }
+			skill = 4
+			attack_skill = 3
+			defense_skill = 2
+			planning_skill = 4
 			logistics_skill = 4
 			legacy_id=-1
 		}
@@ -69,12 +66,65 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ generic trait_engineer naval_invader }
+			traits={ generic trait_engineer }
 			skill=3
 			attack_skill=2
 			defense_skill=1
 			planning_skill=3
 			logistics_skill=2
+			legacy_id=-1
+		}
+		advisor = {
+			slot = field_marshal
+			idea_token = yotto
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { transportation_expert_1 }
+		}
+	}
+
+	FIR_arashi={
+		name="Arashi"
+		portraits={
+			army={
+				small="GFX_Portrait_Firenation_Generic_7_small"
+			}
+			army={
+				large="gfx/leaders/FIR/Portrait_Firenation_Generic7.dds"
+			}
+		}
+		advisor = {
+			slot = war_minister
+			idea_token = arashi
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { amphibious_specialist_1 }
+		}
+		field_marshal={
+			traits={ generic offensive_infantry trait_engineer naval_invader naval_liason }
+			skill=5
+			attack_skill=5
+			defense_skill=2
+			planning_skill=2
+			logistics_skill=4
 			legacy_id=-1
 		}
 	}
@@ -145,7 +195,7 @@ characters={
 			}
 		}
 		corps_commander={
-			traits={ generic }
+			traits={ generic naval_invader }
 			skill=2
 			attack_skill=2
 			defense_skill=2
@@ -192,6 +242,22 @@ characters={
 			maneuvering_skill=1
 			coordination_skill=1
 			legacy_id=-1
+		}
+		advisor = {
+			slot = grand_admiral
+			idea_token = lee
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { navigator }
 		}
 	}
 	FIR_ogodei={
@@ -1125,6 +1191,296 @@ characters={
 			}
 			
 			traits = { fanatic }
+		}		
+	}
+
+	FIR_head_of_intelligence_1 = { 
+		name = fir_head_of_intelligence_1
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_1"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_1
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { spymaster }
+		}		
+	}
+	FIR_head_of_intelligence_2 = { 
+		name = fir_head_of_intelligence_2
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_2"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_2
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { constable }
+		}		
+	}
+	FIR_head_of_intelligence_3 = { 
+		name = fir_head_of_intelligence_3
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_3"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_3
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { head_censor }
+		}		
+	}
+	FIR_head_of_intelligence_4 = { 
+		name = fir_head_of_intelligence_4
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_4"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_4
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { master_torturer }
+		}		
+	}
+	FIR_head_of_intelligence_5 = { 
+		name = fir_head_of_intelligence_5
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_5"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_5
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { master_assassin }
+		}		
+	}
+	FIR_head_of_intelligence_6 = { 
+		name = fir_head_of_intelligence_6
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_head_of_intelligence_6"
+			}
+		}
+		advisor = {
+			slot = head_of_intelligence
+			idea_token = fir_head_of_intelligence_6
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { astrologist }
+		}		
+	}
+
+	FIR_quartermaster_1 = { 
+		name = fir_quartermaster_1
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_1"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_1
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { logistician_2 }
+		}		
+	}
+	FIR_quartermaster_2 = { 
+		name = fir_quartermaster_2
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_2"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_2
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { forager_2 }
+		}		
+	}
+	FIR_quartermaster_3 = { 
+		name = fir_quartermaster_3
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_3"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_3
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { jungle_specialist_2 }
+		}		
+	}
+	FIR_quartermaster_4 = { 
+		name = fir_quartermaster_4
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_4"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_4
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { amphibious_specialist_2 }
+		}		
+	}
+	FIR_quartermaster_5 = { 
+		name = fir_quartermaster_5
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_5"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_5
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { winter_specialist_2 }
+		}		
+	}
+	FIR_quartermaster_6 = { 
+		name = fir_quartermaster_6
+		portraits = {
+			army = {
+				small = "GFX_idea_fir_quartermaster_6"
+			}
+		}
+		advisor = {
+			slot = quartermaster
+			idea_token = fir_quartermaster_6
+			cost = 200
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { garrison_master }
 		}		
 	}
 

@@ -758,23 +758,7 @@ NWT_tribe_union = {
 		remove_effect = {
 			clr_country_flag = unity_buildup_in_progress
 			set_country_flag = NWT_unification_minister
-			if = {
-				limit = {
-					amount_taken_ideas = {
-					    amount > 0
-					    slots = {
-					        minister_of_culture
-					    }
-					}
-				}
-				custom_effect_tooltip = NWT_appoint_minister_tt
-				else = {
-					add_ideas = {
-						wt_unification_minister
-					}
-				}
-			}
-			
+			recruit_character = NWT_unification_minister
 		}
 	}
 
