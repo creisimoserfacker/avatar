@@ -214,12 +214,15 @@ AIR_generate_specific_mission = {
             }
 			if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 1 }
 						is_in_array = { air_current_missions = 2 }
 						is_in_array = { air_current_missions = 3 }
 						is_in_array = { air_current_missions = 4 }
 					}
+				}
 				}
 				set_variable = { air_specific_mission = 5 }
 			}
@@ -250,10 +253,13 @@ AIR_generate_specific_mission = {
 			}
 			if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 6 }
 						is_in_array = { air_current_missions = 8 }
 					}
+				}
 				}
 				set_variable = { air_specific_mission = 9 }
 			}
@@ -284,10 +290,13 @@ AIR_generate_specific_mission = {
 			}
 			if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 11 }
 						is_in_array = { air_current_missions = 12 }
 					}
+				}
 				}
 				set_variable = { air_specific_mission = 13 }
 			}
@@ -318,10 +327,13 @@ AIR_generate_specific_mission = {
 			}
 			if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 16 }
 						is_in_array = { air_current_missions = 17 }
 					}
+				}
 				}
 				set_variable = { air_specific_mission = 18 }
 			}
@@ -345,9 +357,12 @@ AIR_generate_specific_mission = {
 			}
 		if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 21 }
 					}
+				}
 				}
 				set_variable = { air_specific_mission = 5 }
 		}
@@ -385,35 +400,46 @@ AIR_generate_specific_mission = {
             }
 		if = {
 				limit = {
+				OR = {
+					check_variable = { repeat = 3}
 					AND = {
 						is_in_array = { air_current_missions = 26 }
 						is_in_array = { air_current_missions = 28 }
 						is_in_array = { air_current_missions = 29 }
 					}
 				}
+				}
 				set_variable = { air_specific_mission = 5 }
 			}
 	}
-	#if = {
-	#	limit = { check_variable = { air_specific_mission = 0 }}
-	#	AIR_generate_specific_mission = yes
-	#}
+	if = {
+		limit = { AND = {
+			check_variable = { air_specific_mission = 0 }
+			check_variable = { repeat < 3}
+			}}
+		add_to_variable = { repeat = 1}
+		AIR_generate_specific_mission = yes
+	}
 }
 
 AIR_generate_missions = {
 	AIR_mission_type_generator = yes
+	set_variable = { repeat = 0 }
 	AIR_generate_specific_mission = yes
 	set_variable = { air_mission_1 = air_specific_mission }
 	
 	AIR_mission_type_generator = yes
+	set_variable = { repeat = 0 }
 	AIR_generate_specific_mission = yes
 	set_variable = { air_mission_2 = air_specific_mission }
 	
 	AIR_mission_type_generator = yes
+	set_variable = { repeat = 0 }
 	AIR_generate_specific_mission = yes
 	set_variable = { air_mission_3 = air_specific_mission }
 	
 	AIR_mission_type_generator = yes
+	set_variable = { repeat = 0 }
 	AIR_generate_specific_mission = yes
 	set_variable = { air_mission_4 = air_specific_mission }
 }
@@ -453,8 +479,20 @@ AIR_start_mission = {
     	add_to_array = { air_current_missions = 4 }
     }
 	if = {
+    	limit = { check_variable = { air_new_mission = 5 }}
+    	add_to_array = { air_current_missions = 5 }
+    }
+	if = {
 		limit = { check_variable = { air_new_mission = 6 }}
 		add_to_array = { air_current_missions = 6 }
+	}
+	if = {
+		limit = { check_variable = { air_new_mission = 8 }}
+		add_to_array = { air_current_missions = 8 }
+	}
+	if = {
+		limit = { check_variable = { air_new_mission = 9 }}
+		add_to_array = { air_current_missions = 9 }
 	}
 	if = {
 		limit = { check_variable = { air_new_mission = 11 }}
@@ -465,12 +503,24 @@ AIR_start_mission = {
 		add_to_array = { air_current_missions = 12 }
 	}
 	if = {
+		limit = { check_variable = { air_new_mission = 13 }}
+		add_to_array = { air_current_missions = 13 }
+	}
+	if = {
 		limit = { check_variable = { air_new_mission = 16 }}
 		add_to_array = { air_current_missions = 16 }
 	}
     if = {
 		limit = { check_variable = { air_new_mission = 17 }}
 		add_to_array = { air_current_missions = 17 }
+	}
+	if = {
+		limit = { check_variable = { air_new_mission = 18 }}
+		add_to_array = { air_current_missions = 18 }
+	}
+	if = {
+		limit = { check_variable = { air_new_mission = 21 }}
+		add_to_array = { air_current_missions = 21 }
 	}
 	if = {
 		limit = { check_variable = { air_new_mission = 26 }}
