@@ -99,7 +99,6 @@ technologies = {
 		recon_factor_while_entrenched = 0.1
 		defense_impact_on_blueprint_stealing = -0.15
 		operation_make_resistance_contacts_cost = -0.15
-		equipment_capture_factor = 0.05
 		commando_trait_chance_factor = 0.25
 		
 		doctrine = yes
@@ -141,7 +140,6 @@ technologies = {
 
 		recon_factor = 0.05
 		planning_speed = 0.15
-		max_planning_factor = 0.1
 		
 		
 		doctrine = yes
@@ -178,7 +176,7 @@ technologies = {
 		}
 		
 		recon_factor = 0.05
-		breakthrough_factor = 0.8
+		equipment_capture_factor = 0.05
 		
 		doctrine = yes
 
@@ -248,7 +246,6 @@ technologies = {
 		decryption = 1
 		operative_slot = 1
 		root_out_resistance_effectiveness_factor = 0.2
-		resistance_damage_to_garrison_on_our_occupied_states = -0.1
 		
 		doctrine = yes
 
@@ -326,7 +323,7 @@ technologies = {
 		
 		enemy_operative_capture_chance_factor = 0.5
 		enemy_operative_detection_chance = 10
-		intelligence_agency_defense = 0.1
+		intelligence_agency_defense = 1
 		
 		doctrine = yes
 
@@ -398,7 +395,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		encryption = 1
+		intelligence_agency_defense = 1
 		agency_upgrade_time = -0.2
 		
 		doctrine = yes
@@ -480,22 +477,19 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = partisan_hideouts
-			research_cost_coeff = 1
-		}
-		path = {
 			leads_to_tech = war_of_attrition
 			research_cost_coeff = 1
 		}
 
-		resistance_target_on_our_occupied_states = 0.4
-		army_core_defence_factor = 0.05
+		minimum_training_level = -0.1
+		mobilization_speed = 0.2
+		army_core_defence_factor = 0.02
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -4 y = 4 }
+			position = { x = -5 y = 4 }
 		}
 
 		categories = {
@@ -519,7 +513,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		
-		war_support_weekly_factor = 0.0005
+		war_support_weekly_factor = 0.001
 		land_reinforce_rate = 0.05
 		base_fuel_gain_factor = 0.05
 		army_org = 4
@@ -528,7 +522,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -2 y = 4 }
+			position = { x = -3 y = 6 }
 		}
 
 		categories = {
@@ -557,14 +551,14 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		surrender_limit = -0.1
+		resistance_damage_to_garrison_on_our_occupied_states = 0.2
 		pocket_penalty = -0.05
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -4 y = 6 }
+			position = { x = -5 y = 6 }
 		}
 
 		categories = {
@@ -624,12 +618,57 @@ technologies = {
 	}
 	
 	battle1 = {
-
+		
+		xor = { battle2 }
+		
+		path = {
+			leads_to_tech = battle3
+			research_cost_coeff = 1
+		}
+		
 		xp_research_type = army
 		xp_unlock_cost = 100
 		
-		army_core_attack_factor = 0.07
-		army_core_defence_factor = 0.07
+		defensive_war_stability_factor = 0.05
+		army_defence_factor = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -7 y = 10 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	battle2 = {
+
+		xor = { battle1 }
+
+		path = {
+			leads_to_tech = battle4
+			research_cost_coeff = 1
+		}
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		offensive_war_stability_factor = 0.05
+		army_attack_factor = 0.02
 		
 		doctrine = yes
 
@@ -654,11 +693,114 @@ technologies = {
 		}
 	}
 	
-	battle2 = {
+	battle3 = {
+		
+		path = {
+			leads_to_tech = battle5
+			research_cost_coeff = 1
+		}
+		
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		recon_factor_while_entrenched = 0.1
+		pocket_penalty = -0.1
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -7y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	battle4 = {
+
+		path = {
+			leads_to_tech = battle6
+			research_cost_coeff = 1
+		}
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+		
+		fortification_damage = 0.1
+		fortification_collateral_chance = 0.2
+		
+		doctrine = yes
 
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -5 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	battle5 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		army_core_attack_factor = 0.07
+		army_core_defence_factor = 0.07
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -7 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	battle6 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
 		army_attack_factor = 0.03
 		army_defence_factor = 0.03
 		
@@ -666,7 +808,38 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -7 y = 10 }
+			position = { x = -5 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	primacy_of_bravery = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		army_org_factor = 0.05
+		breakthrough_factor = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -2 y = 8 }
 		}
 
 		categories = {
@@ -697,6 +870,7 @@ technologies = {
 
 		supply_consumption_factor = -0.1
 		equipment_capture_factor = 0.05
+		terrain_penalty_reduction = 0.1
 		
 		doctrine = yes
 
@@ -737,15 +911,14 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		army_morale_factor: 0.2
-		army_attack_factor = 0.04
-		command_power_gain = 0.1
+		army_morale_factor = 0.04
+		army_attack_factor = 0.02
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -8 y = 4 }
+			position = { x = -7 y = 4 }
 		}
 
 		categories = {
@@ -770,13 +943,13 @@ technologies = {
 		xp_unlock_cost = 100
 		
 		army_attack_factor = 0.08
-		army_speed_factor = 0.05
+		max_command_power = 50
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -10 y = 4 }
+			position = { x = -9 y = 6 }
 		}
 
 		categories = {
@@ -805,16 +978,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-			
 		army_leader_start_planning_level = 1
 		max_army_group_size = 1
-		max_command_power = 50
+		army_leader_cost_factor = -0.2
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -8 y = 6 }
+			position = { x = -7 y = 6 }
 		}
 
 		categories = {
@@ -842,6 +1014,37 @@ technologies = {
 		training_time_factor = 0.1
 		experience_loss_factor = -0.2
 		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -10 y = 8 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	primacy_of_discipline = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		army_morale_factor = 0.1
+		coordination_bonus = 0.01
+
 		doctrine = yes
 
 		folder = {
@@ -919,9 +1122,9 @@ technologies = {
 			leads_to_tech = coordination2
 			research_cost_coeff = 1
 		}
-
-		coordination_bonus = 0.01
+		
 		research_sharing_per_country_bonus_factor = 0.25
+		production_lack_of_resource_penalty_factor = -0.1
 		
 		doctrine = yes
 
@@ -950,8 +1153,8 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
-
-		supply_node_range = 0.1
+		
+		line_change_production_efficiency_factor = 0.2
 		
 		doctrine = yes
 
@@ -988,8 +1191,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		coordination_bonus = 0.01
 		amphibious_invasion_defence = 0.1
+		shore_bombardment_bonus = 0.1
 		
 		
 		doctrine = yes
@@ -1024,8 +1227,9 @@ technologies = {
 			leads_to_tech = coordination7
 			research_cost_coeff = 1
 		}
-
-		army_morale_factor = 0.02
+		
+		coordination_bonus = 0.01
+		resistance_growth_on_our_occupied_states = 0.3
 		
 		doctrine = yes
 
@@ -1064,8 +1268,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		org_loss_when_moving = -0.05
 		coordination_bonus = 0.01
+		non_core_manpower = 0.05
 		
 		doctrine = yes
 
@@ -1095,7 +1299,8 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		out_of_supply_factor = -0.2
+		command_power_gain = 0.5
+		coordination_bonus = -0.02
 		
 		doctrine = yes
 
@@ -1129,9 +1334,12 @@ technologies = {
 			leads_to_tech = coordination9
 			research_cost_coeff = 1
 		}
-
-		recon_factor_while_entrenched = 0.05
-		coordination_bonus = 0.01
+		path = {
+			leads_to_tech = coordination10
+			research_cost_coeff = 1
+		}
+		
+		industrial_capacity_factory = 0.1
 		
 		doctrine = yes
 
@@ -1161,9 +1369,13 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		army_speed_factor = 0.05
+		path = {
+			leads_to_tech = coordination12
+			research_cost_coeff = 1
+		}
+
 		coordination_bonus = 0.01
-		planning_speed = 0.1
+		air_superiority_bonus_in_combat = 0.2
 		
 		doctrine = yes
 
@@ -1193,14 +1405,112 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		army_core_attack_factor = 0.08
-		breakthrough_factor = 0.08
+		coordination_bonus = 0.02
+		breakthrough_factor = 0.04
 		
 		doctrine = yes
 
 		folder = {
 			name = land_doctrine_folder
 			position = { x = 18 y = 11 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	coordination10 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		coordination_bonus = 0.01
+		cas_damage_reduction = 0.3
+		land_night_attack = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 16 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	coordination11 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		fortification_damage = 0.15
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 18 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	
+	coordination12 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = coordination11
+			research_cost_coeff = 1
+		}
+		
+		coordination_bonus = 0.02
+		land_reinforce_rate = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 20 y = 14 }
 		}
 
 		categories = {
@@ -1272,7 +1582,8 @@ technologies = {
 			leads_to_tech = soldiers_luggage
 			research_cost_coeff = 1
 		}
-
+		
+		army_speed_factor = 0.05
 		org_loss_when_moving = -0.1
 		
 		doctrine = yes
@@ -1301,7 +1612,7 @@ technologies = {
 
 	maneuver_exercise = {
 
-´		xor = { formation_marching }
+		xor = { formation_marching }
 
 		xp_research_type = army
 		xp_unlock_cost = 100
@@ -1311,7 +1622,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_speed_factor = 0.05
+		river_crossing_factor = -0.05
+		terrain_penalty_reduction = 0.05
 		
 		doctrine = yes
 		research_cost = 7
@@ -1530,7 +1842,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_speed_factor = 0.05
+		river_crossing_factor = -0.1
 		
 		doctrine = yes
 
@@ -1560,6 +1872,7 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
+		army_speed_factor = 0.05
 		army_leader_start_logistics_level = 1 
 		
 		doctrine = yes
