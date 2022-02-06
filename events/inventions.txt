@@ -3,6 +3,8 @@
 ###########################
 
 add_namespace = invention
+add_namespace = invention_news
+
 
 # basic tool making
 country_event = {
@@ -21,9 +23,21 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			set_country_flag = basic_tool_making
 			set_technology = {
-			    basic_tool_making = 1
+				basic_tool_making = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = basic_tool_making_event
+					}
+				}
+				set_global_flag = basic_tool_making_event
+				news_event = {
+					id = invention_news.1
+					days = 240
+					random_days = 240
+				}
 			}
 		}
 	}
@@ -31,13 +45,92 @@ country_event = {
 	option = {
 		name = invention.1.a
 		trigger = { 
-			
+			NOT = {
+				any_country = {
+					has_tech = basic_tool_making
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.1.b
+		trigger = { 
+			any_country = {
+				has_tech = basic_tool_making
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
 		}
 	}
 
 }
 
-# metal processing
+news_event = {
+	id = invention_news.1
+	title = invention_news.1.t
+	desc = invention_news.1.d
+	picture = GFX_invention_news_event_001
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.1.a
+		trigger = { 
+			NOT = {
+				has_tech = basic_tool_making
+			}
+		}
+		set_technology = {
+			basic_tool_making = 1
+		}
+	}
+	option = {
+		name = invention_news.1.b
+		trigger = { 
+			has_tech = basic_tool_making
+		}
+	}
+}
+
+# metal_processing
 country_event = {
 	id = invention.2
 	title = invention.2.t
@@ -54,9 +147,21 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			set_country_flag = metal_processing
 			set_technology = {
-			    metal_processing = 1
+				metal_processing = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = metal_processing_event
+					}
+				}
+				set_global_flag = metal_processing_event
+				news_event = {
+					id = invention_news.2
+					days = 240
+					random_days = 240
+				}
 			}
 		}
 	}
@@ -64,10 +169,89 @@ country_event = {
 	option = {
 		name = invention.2.a
 		trigger = { 
-			
+			NOT = {
+				any_country = {
+					has_tech = metal_processing
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.2.b
+		trigger = { 
+			any_country = {
+				has_tech = metal_processing
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
 		}
 	}
 
+}
+
+news_event = {
+	id = invention_news.2
+	title = invention_news.2.t
+	desc = invention_news.2.d
+	picture = GFX_invention_news_event_002
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.2.a
+		trigger = { 
+			NOT = {
+				has_tech = metal_processing
+			}
+		}
+		set_technology = {
+			metal_processing = 1
+		}
+	}
+	option = {
+		name = invention_news.2.b
+		trigger = { 
+			has_tech = metal_processing
+		}
+	}
 }
 
 # steelmaking
@@ -91,7 +275,20 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_technology = {
-			    steelmaking = 1
+				steelmaking = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = steelmaking_event
+					}
+				}
+				set_global_flag = steelmaking_event
+				news_event = {
+					id = invention_news.3
+					days = 240
+					random_days = 240
+				}
 			}
 		}
 	}
@@ -99,10 +296,89 @@ country_event = {
 	option = {
 		name = invention.3.a
 		trigger = { 
-			
+			NOT = {
+				any_country = {
+					has_tech = steelmaking
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.3.b
+		trigger = { 
+			any_country = {
+				has_tech = steelmaking
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
 		}
 	}
 
+}
+
+news_event = {
+	id = invention_news.3
+	title = invention_news.3.t
+	desc = invention_news.3.d
+	picture = GFX_invention_news_event_003
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.3.a
+		trigger = { 
+			NOT = {
+				has_tech = steelmaking
+			}
+		}
+		set_technology = {
+			steelmaking = 1
+		}
+	}
+	option = {
+		name = invention_news.3.b
+		trigger = { 
+			has_tech = steelmaking
+		}
+	}
 }
 
 # the_wheel
@@ -127,7 +403,20 @@ country_event = {
 	immediate = {
 		hidden_effect = {
 			set_technology = {
-			    the_wheel = 1
+				the_wheel = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = the_wheel_event
+					}
+				}
+				set_global_flag = the_wheel_event
+				news_event = {
+					id = invention_news.4
+					days = 240
+					random_days = 240
+				}
 			}
 		}
 	}
@@ -135,8 +424,2091 @@ country_event = {
 	option = {
 		name = invention.4.a
 		trigger = { 
-			
+			NOT = {
+				any_country = {
+					has_tech = the_wheel
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.4.b
+		trigger = { 
+			any_country = {
+				has_tech = the_wheel
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
 		}
 	}
 
+}
+
+news_event = {
+	id = invention_news.4
+	title = invention_news.4.t
+	desc = invention_news.4.d
+	picture = GFX_invention_news_event_004
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.4.a
+		trigger = { 
+			NOT = {
+				has_tech = the_wheel
+			}
+		}
+		set_technology = {
+			the_wheel = 1
+		}
+	}
+	option = {
+		name = invention_news.4.b
+		trigger = { 
+			has_tech = the_wheel
+		}
+	}
+}
+
+
+# animal taming
+country_event = {
+	id = invention.5
+	title = invention.5.t
+	desc = invention.5.d
+	picture = GFX_invention_event_005
+
+	trigger = {
+		any_owned_state = {
+			check_variable = { animal > 0 }
+		}
+		has_tech = reform_0
+		NOT = { has_tech = domestication_0 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				domestication_0 = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = domestication_0_event
+					}
+				}
+				set_global_flag = domestication_0_event
+				news_event = {
+					id = invention_news.5
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.5.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = domestication_0
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.5.b
+		trigger = { 
+			any_country = {
+				has_tech = domestication_0
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.5
+	title = invention_news.5.t
+	desc = invention_news.5.d
+	picture = GFX_invention_news_event_005
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.5.a
+		trigger = { 
+			NOT = {
+				has_tech = domestication_0
+			}
+		}
+		set_technology = {
+			domestication_0 = 1
+		}
+	}
+	option = {
+		name = invention_news.5.b
+		trigger = { 
+			has_tech = domestication_0
+		}
+	}
+}
+
+# saddles
+country_event = {
+	id = invention.6
+	title = invention.6.t
+	desc = invention.6.d
+	picture = GFX_invention_event_006
+
+	trigger = {
+		OR = {
+			has_equipment = { ostrich_horse > 199 }
+			has_equipment = { polar_dog > 199 }
+			has_equipment = { desert_bug > 199 }
+			has_equipment = { dragon_moose > 199 }
+		}
+		has_tech = domestication_0
+		NOT = { has_tech = domestication_1 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    domestication_1 = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = domestication_1_event
+					}
+				}
+				set_global_flag = domestication_1_event
+				news_event = {
+					id = invention_news.6
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.6.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = domestication_1
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.6.b
+		trigger = { 
+			any_country = {
+				has_tech = domestication_1
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.6
+	title = invention_news.6.t
+	desc = invention_news.6.d
+	picture = GFX_invention_news_event_006
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.6.a
+		trigger = { 
+			NOT = {
+				has_tech = domestication_1
+			}
+		}
+		set_technology = {
+			domestication_1 = 1
+		}
+	}
+	option = {
+		name = invention_news.6.b
+		trigger = { 
+			has_tech = domestication_1
+		}
+	}
+}
+
+
+# horse armor
+country_event = {
+	id = invention.7
+	title = invention.7.t
+	desc = invention.7.d
+	picture = GFX_invention_event_007
+
+	trigger = {
+		OR = {
+			has_equipment = { komodo_rhino > 199 }
+			has_equipment = { walrus_yak > 199 }
+			has_equipment = { elephant_camel > 199 }
+		}
+		has_tech = domestication_0
+		NOT = { has_tech = domestication_2 }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    domestication_2 = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = domestication_2_event
+					}
+				}
+				set_global_flag = domestication_2_event
+				news_event = {
+					id = invention_news.7
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.7.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = domestication_2
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.7.b
+		trigger = { 
+			any_country = {
+				has_tech = domestication_2
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.7
+	title = invention_news.7.t
+	desc = invention_news.7.d
+	picture = GFX_invention_news_event_007
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.7.a
+		trigger = { 
+			NOT = {
+				has_tech = domestication_2
+			}
+		}
+		set_technology = {
+			domestication_2 = 1
+		}
+	}
+	option = {
+		name = invention_news.7.b
+		trigger = { 
+			has_tech = domestication_2
+		}
+	}
+}
+
+# aerodynamics
+country_event = {
+	id = invention.8
+	title = invention.8.t
+	desc = invention.8.d
+	picture = GFX_invention_event_008
+
+	trigger = {
+		has_equipment = { birb_equipment > 99 }
+		check_variable = { modifier@research_speed > 0.2 }
+
+		NOT = { has_tech = aerodynamics }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    aerodynamics = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = aerodynamics_event
+					}
+				}
+				set_global_flag = aerodynamics_event
+				news_event = {
+					id = invention_news.8
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.8.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = aerodynamics
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.8.b
+		trigger = { 
+			any_country = {
+				has_tech = aerodynamics
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.8
+	title = invention_news.8.t
+	desc = invention_news.8.d
+	picture = GFX_invention_news_event_008
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.8.a
+		trigger = { 
+			NOT = {
+				has_tech = aerodynamics
+			}
+		}
+		set_technology = {
+			aerodynamics = 1
+		}
+	}
+	option = {
+		name = invention_news.8.b
+		trigger = { 
+			has_tech = aerodynamics
+		}
+	}
+}
+
+
+# candles
+country_event = {
+	id = invention.9
+	title = invention.9.t
+	desc = invention.9.d
+	picture = GFX_invention_event_009
+
+	trigger = {
+		farm > 7
+
+		NOT = { has_tech = candles }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    candles = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = candles_event
+					}
+				}
+				set_global_flag = candles_event
+				news_event = {
+					id = invention_news.9
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.9.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = candles
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.9.b
+		trigger = { 
+			any_country = {
+				has_tech = candles
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.9
+	title = invention_news.9.t
+	desc = invention_news.9.d
+	picture = GFX_invention_news_event_009
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.9.a
+		trigger = { 
+			NOT = {
+				has_tech = candles
+			}
+		}
+		set_technology = {
+			candles = 1
+		}
+	}
+	option = {
+		name = invention_news.9.b
+		trigger = { 
+			has_tech = candles
+		}
+	}
+}
+
+# thermodynamics
+country_event = {
+	id = invention.10
+	title = invention.10.t
+	desc = invention.10.d
+	picture = GFX_invention_event_010
+
+	trigger = {
+		has_tech = aerodynamics
+		has_tech = candles
+		check_variable = { modifier@research_speed > 0.4 }
+
+		NOT = { has_tech = thermodynamics }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    thermodynamics = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = thermodynamics_event
+					}
+				}
+				set_global_flag = thermodynamics_event
+				news_event = {
+					id = invention_news.10
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.10.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = thermodynamics
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.10.b
+		trigger = { 
+			any_country = {
+				has_tech = thermodynamics
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.10
+	title = invention_news.10.t
+	desc = invention_news.10.d
+	picture = GFX_invention_news_event_010
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.10.a
+		trigger = { 
+			NOT = {
+				has_tech = thermodynamics
+			}
+		}
+		set_technology = {
+			thermodynamics = 1
+		}
+	}
+	option = {
+		name = invention_news.10.b
+		trigger = { 
+			has_tech = thermodynamics
+		}
+	}
+}
+
+
+# ink
+country_event = {
+	id = invention.11
+	title = invention.11.t
+	desc = invention.11.d
+	picture = GFX_invention_event_011
+
+	trigger = {
+		amount_research_slots > 1
+
+		NOT = { has_tech = ink }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    ink = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = ink_event
+					}
+				}
+				set_global_flag = ink_event
+				news_event = {
+					id = invention_news.11
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.11.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = ink
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.11.b
+		trigger = { 
+			any_country = {
+				has_tech = ink
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.11
+	title = invention_news.11.t
+	desc = invention_news.11.d
+	picture = GFX_invention_news_event_011
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.11.a
+		trigger = { 
+			NOT = {
+				has_tech = ink
+			}
+		}
+		set_technology = {
+			ink = 1
+		}
+	}
+	option = {
+		name = invention_news.11.b
+		trigger = { 
+			has_tech = ink
+		}
+	}
+}
+
+# libraries
+country_event = {
+	id = invention.12
+	title = invention.12.t
+	desc = invention.12.d
+	picture = GFX_invention_event_012
+
+	trigger = {
+		amount_research_slots > 2
+		has_tech = ink
+		has_tech = candles
+
+		NOT = { has_tech = libraries }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    libraries = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = libraries_event
+					}
+				}
+				set_global_flag = libraries_event
+				news_event = {
+					id = invention_news.12
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.12.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = libraries
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.12.b
+		trigger = { 
+			any_country = {
+				has_tech = libraries
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.12
+	title = invention_news.12.t
+	desc = invention_news.12.d
+	picture = GFX_invention_news_event_012
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.12.a
+		trigger = { 
+			NOT = {
+				has_tech = libraries
+			}
+		}
+		set_technology = {
+			libraries = 1
+		}
+	}
+	option = {
+		name = invention_news.12.b
+		trigger = { 
+			has_tech = libraries
+		}
+	}
+}
+
+# botanics
+country_event = {
+	id = invention.13
+	title = invention.13.t
+	desc = invention.13.d
+	picture = GFX_invention_event_013
+
+	trigger = {
+		any_owned_state = {
+			check_variable = { field > 0 }
+			check_variable = { forest > 0 }
+		}
+		OR = {
+			has_idea_with_trait = agrarian_reformer
+			has_idea_with_trait = naturalist
+		}
+
+		NOT = { has_tech = botanics }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    botanics = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = botanics_event
+					}
+				}
+				set_global_flag = botanics_event
+				news_event = {
+					id = invention_news.13
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.13.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = botanics
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.13.b
+		trigger = { 
+			any_country = {
+				has_tech = botanics
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.13
+	title = invention_news.13.t
+	desc = invention_news.13.d
+	picture = GFX_invention_news_event_013
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.13.a
+		trigger = { 
+			NOT = {
+				has_tech = botanics
+			}
+		}
+		set_technology = {
+			botanics = 1
+		}
+	}
+	option = {
+		name = invention_news.13.b
+		trigger = { 
+			has_tech = botanics
+		}
+	}
+}
+
+# heal_practices
+country_event = {
+	id = invention.14
+	title = invention.14.t
+	desc = invention.14.d
+	picture = GFX_invention_event_014
+
+	trigger = {
+		OR = {
+			casualties > 499
+			has_army_experience > 99
+		}
+		has_army_manpower = {
+			size > 999
+		}
+
+		NOT = { has_tech = heal_practices }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+			    heal_practices = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = heal_practices_event
+					}
+				}
+				set_global_flag = heal_practices_event
+				news_event = {
+					id = invention_news.14
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.14.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = heal_practices
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.14.b
+		trigger = { 
+			any_country = {
+				has_tech = heal_practices
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.14
+	title = invention_news.14.t
+	desc = invention_news.14.d
+	picture = GFX_invention_news_event_014
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.14.a
+		trigger = { 
+			NOT = {
+				has_tech = heal_practices
+			}
+		}
+		set_technology = {
+			heal_practices = 1
+		}
+	}
+	option = {
+		name = invention_news.14.b
+		trigger = { 
+			has_tech = heal_practices
+		}
+	}
+}
+
+
+# plow
+country_event = {
+	id = invention.15
+	title = invention.15.t
+	desc = invention.15.d
+	picture = GFX_invention_event_015
+
+	trigger = {
+		has_tech = metal_processing
+		has_tech = domestication_0
+		has_tech = the_wheel
+		farm > 9
+
+		NOT = { has_tech = plow }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				plow = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = plow_event
+					}
+				}
+				set_global_flag = plow_event
+				news_event = {
+					id = invention_news.15
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.15.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = plow
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.15.b
+		trigger = { 
+			any_country = {
+				has_tech = plow
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.15
+	title = invention_news.15.t
+	desc = invention_news.15.d
+	picture = GFX_invention_news_event_015
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.15.a
+		trigger = { 
+			NOT = {
+				has_tech = plow
+			}
+		}
+		set_technology = {
+			plow = 1
+		}
+	}
+	option = {
+		name = invention_news.15.b
+		trigger = { 
+			has_tech = plow
+		}
+	}
+}
+
+
+# basic_gear
+country_event = {
+	id = invention.16
+	title = invention.16.t
+	desc = invention.16.d
+	picture = GFX_invention_event_016
+
+	trigger = {
+		has_tech = the_wheel
+		carpentry > 5
+		check_variable = { modifier@research_speed > 0.2 }
+
+		NOT = { has_tech = basic_gear }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				basic_gear = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = basic_gear_event
+					}
+				}
+				set_global_flag = basic_gear_event
+				news_event = {
+					id = invention_news.16
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.16.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = basic_gear
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.16.b
+		trigger = { 
+			any_country = {
+				has_tech = basic_gear
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.16
+	title = invention_news.16.t
+	desc = invention_news.16.d
+	picture = GFX_invention_news_event_016
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.16.a
+		trigger = { 
+			NOT = {
+				has_tech = basic_gear
+			}
+		}
+		set_technology = {
+			basic_gear = 1
+		}
+	}
+	option = {
+		name = invention_news.16.b
+		trigger = { 
+			has_tech = basic_gear
+		}
+	}
+}
+
+
+# advanced_gear
+country_event = {
+	id = invention.17
+	title = invention.17.t
+	desc = invention.17.d
+	picture = GFX_invention_event_017
+
+	trigger = {
+		has_tech = basic_gear
+		smithy > 5
+		check_variable = { modifier@research_speed > 0.3 }
+
+		NOT = { has_tech = advanced_gear }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				advanced_gear = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = advanced_gear_event
+					}
+				}
+				set_global_flag = advanced_gear_event
+				news_event = {
+					id = invention_news.17
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.17.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = advanced_gear
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.17.b
+		trigger = { 
+			any_country = {
+				has_tech = advanced_gear
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.17
+	title = invention_news.17.t
+	desc = invention_news.17.d
+	picture = GFX_invention_news_event_017
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.17.a
+		trigger = { 
+			NOT = {
+				has_tech = advanced_gear
+			}
+		}
+		set_technology = {
+			advanced_gear = 1
+		}
+	}
+	option = {
+		name = invention_news.17.b
+		trigger = { 
+			has_tech = advanced_gear
+		}
+	}
+}
+
+
+# steam_engine
+country_event = {
+	id = invention.18
+	title = invention.18.t
+	desc = invention.18.d
+	picture = GFX_invention_event_018
+
+	trigger = {
+		has_tech = advanced_gear
+		steelworks > 7
+		check_variable = { modifier@research_speed > 0.4 }
+
+		NOT = { has_tech = steam_engine }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				steam_engine = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = steam_engine_event
+					}
+				}
+				set_global_flag = steam_engine_event
+				news_event = {
+					id = invention_news.18
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.18.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = steam_engine
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.18.b
+		trigger = { 
+			any_country = {
+				has_tech = steam_engine
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.18
+	title = invention_news.18.t
+	desc = invention_news.18.d
+	picture = GFX_invention_news_event_018
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.18.a
+		trigger = { 
+			NOT = {
+				has_tech = steam_engine
+			}
+		}
+		set_technology = {
+			steam_engine = 1
+		}
+	}
+	option = {
+		name = invention_news.18.b
+		trigger = { 
+			has_tech = steam_engine
+		}
+	}
+}
+
+
+# improved_coal_engine
+country_event = {
+	id = invention.19
+	title = invention.19.t
+	desc = invention.19.d
+	picture = GFX_invention_event_019
+
+	trigger = {
+		has_tech = steam_engine
+		steelworks > 7
+		check_variable = { modifier@research_speed > 0.4 }
+
+		NOT = { has_tech = improved_coal_engine }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				improved_coal_engine = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = improved_coal_engine_event
+					}
+				}
+				set_global_flag = improved_coal_engine_event
+				news_event = {
+					id = invention_news.19
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.19.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = improved_coal_engine
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.19.b
+		trigger = { 
+			any_country = {
+				has_tech = improved_coal_engine
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.19
+	title = invention_news.19.t
+	desc = invention_news.19.d
+	picture = GFX_invention_news_event_019
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.19.a
+		trigger = { 
+			NOT = {
+				has_tech = improved_coal_engine
+			}
+		}
+		set_technology = {
+			improved_coal_engine = 1
+		}
+	}
+	option = {
+		name = invention_news.19.b
+		trigger = { 
+			has_tech = improved_coal_engine
+		}
+	}
+}
+
+
+# modern_engine
+country_event = {
+	id = invention.20
+	title = invention.20.t
+	desc = invention.20.d
+	picture = GFX_invention_event_020
+
+	trigger = {
+		has_tech = improved_coal_engine
+		steelworks > 7
+		check_variable = { modifier@research_speed > 0.4 }
+
+		NOT = { has_tech = modern_engine }
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_technology = {
+				modern_engine = 1
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_global_flag = modern_engine_event
+					}
+				}
+				set_global_flag = modern_engine_event
+				news_event = {
+					id = invention_news.20
+					days = 240
+					random_days = 240
+				}
+			}
+		}
+	}
+
+	option = {
+		name = invention.20.a
+		trigger = { 
+			NOT = {
+				any_country = {
+					has_tech = modern_engine
+				}
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 240
+			}
+		}
+	}
+	option = {
+		name = invention.20.b
+		trigger = { 
+			any_country = {
+				has_tech = modern_engine
+			}
+		}
+
+		if = {
+			limit = {
+				has_idea = invention_made
+			}
+			modify_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+		else = {
+			add_timed_idea = {
+				idea = invention_made
+				days = 120
+			}
+		}
+	}
+
+}
+
+news_event = {
+	id = invention_news.20
+	title = invention_news.20.t
+	desc = invention_news.20.d
+	picture = GFX_invention_news_event_020
+	
+	major = yes
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+	
+	option = {
+		name = invention_news.20.a
+		trigger = { 
+			NOT = {
+				has_tech = modern_engine
+			}
+		}
+		set_technology = {
+			modern_engine = 1
+		}
+	}
+	option = {
+		name = invention_news.20.b
+		trigger = { 
+			has_tech = modern_engine
+		}
+	}
 }

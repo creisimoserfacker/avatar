@@ -1288,7 +1288,7 @@ leader_traits = {
 		}
 	}
 	
-	shipwright_guildmaster = {
+	shipwright_guildmaster_1 = {
 		random = no
 		sprite = 9
 		
@@ -1299,12 +1299,48 @@ leader_traits = {
 			}
 		}
 
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shipwright_guildmaster_2 = {
+		random = no
+		sprite = 9
+		
+		equipment_bonus = {
+			screen_ship = {
+				instant = yes
+				build_cost_ic = -0.2
+			}
+		}
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shipwright_guildmaster_3 = {
+		random = no
+		sprite = 9
+		
+		equipment_bonus = {
+			screen_ship = {
+				instant = yes
+				build_cost_ic = -0.3
+			}
+		}
+
+		command_cap = @tier3
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	
-	shipwright_industrialist = {
+	shipwright_industrialist_1 = {
 		random = no
 		sprite = 9
 		
@@ -1314,6 +1350,42 @@ leader_traits = {
 				build_cost_ic = -0.1
 			}
 		}
+
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shipwright_industrialist_2 = {
+		random = no
+		sprite = 9
+		
+		equipment_bonus = {
+			capital_ship = {
+				instant = yes
+				build_cost_ic = -0.2
+			}
+		}
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	shipwright_industrialist_3 = {
+		random = no
+		sprite = 9
+		
+		equipment_bonus = {
+			capital_ship = {
+				instant = yes
+				build_cost_ic = -0.3
+			}
+		}
+
+		command_cap = @tier3
 
 		ai_will_do = {
 			factor = 0
@@ -1423,21 +1495,53 @@ leader_traits = {
 		}
 	}
 
-	bold_admiral = {
+	bold_admiral_1 = {
+		random = no
+		sprite = 3
+		
+		naval_has_potf_in_combat_attack = 0.05
+		ships_at_battle_start = 0.05
+		naval_critical_score_chance_factor 0.05
+		critical_receive_chance = 0.05
+
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	bold_admiral_2 = {
 		random = no
 		sprite = 3
 		
 		naval_has_potf_in_combat_attack = 0.1
 		ships_at_battle_start = 0.1
 		naval_critical_score_chance_factor 0.1
-		critical_receive_chance = 0.05
+		critical_receive_chance = 0.1
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	bold_admiral_3 = {
+		random = no
+		sprite = 3
+		
+		naval_has_potf_in_combat_attack = 0.15
+		ships_at_battle_start = 0.15
+		naval_critical_score_chance_factor 0.15
+		critical_receive_chance = 0.15
+
+		command_cap = @tier3
 
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	
-	former_pirate = {
+	former_pirate_1 = {
 		random = no
 		sprite = 3
 		
@@ -1446,40 +1550,136 @@ leader_traits = {
 		naval_torpedo_cooldown_factor = -0.1
 		naval_torpedo_hit_chance_factor = 0.1
 
+		command_cap = @tier1
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
-	
-	former_smuggler = {
+	former_pirate_2 = {
 		random = no
 		sprite = 3
 		
-		navy_visibility = -0.15
-		convoy_escort_efficiency = 0.1
-		screening_efficiency = 0.1
-		convoy_retreat_speed 0.15
+		convoy_raiding_efficiency_factor = 0.2
+		spotting_chance = 0.2
+		naval_torpedo_cooldown_factor = -0.2
+		naval_torpedo_hit_chance_factor = 0.2
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	former_pirate_3 = {
+		random = no
+		sprite = 3
+		
+		convoy_raiding_efficiency_factor = 0.3
+		spotting_chance = 0.3
+		naval_torpedo_cooldown_factor = -0.3
+		naval_torpedo_hit_chance_factor = 0.3
+
+		command_cap = @tier3
 
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	
-	navigator = {
+	former_smuggler_1 = {
 		random = no
 		sprite = 3
 		
-		naval_attrition = -0.15
+		navy_visibility = -0.1
+		convoy_escort_efficiency = 0.1
+		screening_efficiency = 0.1
+		convoy_retreat_speed 0.1
+
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	former_smuggler_2 = {
+		random = no
+		sprite = 3
+		
+		navy_visibility = -0.2
+		convoy_escort_efficiency = 0.2
+		screening_efficiency = 0.2
+		convoy_retreat_speed 0.2
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	former_smuggler_3 = {
+		random = no
+		sprite = 3
+		
+		navy_visibility = -0.3
+		convoy_escort_efficiency = 0.3
+		screening_efficiency = 0.3
+		convoy_retreat_speed 0.3
+
+		command_cap = @tier3
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	
+	navigator_1 = {
+		random = no
+		sprite = 3
+		
+		naval_attrition = -0.1
 		naval_coordination = 0.1
 		navy_fuel_consumption_factor = -0.1
 		naval_speed_factor = 0.1
 
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	navigator_2 = {
+		random = no
+		sprite = 3
+		
+		naval_attrition = -0.2
+		naval_coordination = 0.2
+		navy_fuel_consumption_factor = -0.2
+		naval_speed_factor = 0.2
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	navigator_3 = {
+		random = no
+		sprite = 3
+		
+		naval_attrition = -0.3
+		naval_coordination = 0.3
+		navy_fuel_consumption_factor = -0.3
+		naval_speed_factor = 0.3
+
+		command_cap = @tier3
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	
-	cautious_admiral = {
+	cautious_admiral_1 = {
 		random = no
 		sprite = 3
 		
@@ -1488,17 +1688,77 @@ leader_traits = {
 		naval_critical_effect_factor = -0.05
 		naval_retreat_chance = 0.1
 
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	cautious_admiral_2 = {
+		random = no
+		sprite = 3
+		
+		naval_accidents_chance = -0.2
+		critical_receive_chance = -0.2
+		naval_critical_effect_factor = -0.1
+		naval_retreat_chance = 0.2
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	cautious_admiral_3 = {
+		random = no
+		sprite = 3
+		
+		naval_accidents_chance = -0.3
+		critical_receive_chance = -0.3
+		naval_critical_effect_factor = -0.15
+		naval_retreat_chance = 0.3
+
+		command_cap = @tier3
+
 		ai_will_do = {
 			factor = 0
 		}
 	}
 	
-	naval_reformer = {
+	naval_reformer_1 = {
 		random = no
 		sprite = 3
 		
 		naval_morale_factor = 0.05
-		experience_gain_navy = 0.01
+		experience_gain_navy = 0.05
+
+		command_cap = @tier1
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	naval_reformer_2 = {
+		random = no
+		sprite = 3
+		
+		naval_morale_factor = 0.1
+		experience_gain_navy = 0.1
+
+		command_cap = @tier2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+	naval_reformer_3 = {
+		random = no
+		sprite = 3
+		
+		naval_morale_factor = 0.15
+		experience_gain_navy = 0.15
+
+		command_cap = @tier3
 
 		ai_will_do = {
 			factor = 0
