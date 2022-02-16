@@ -2,6 +2,12 @@ technologies = {
 
 	basic_spear_1 = {
 
+		#allow_branch = {
+		#	NOT = {
+		#		has_dlc = "No Step Back"
+		#	}
+		#}
+
 		enable_equipments = {
 			spear_equipment_0
 		}
@@ -94,10 +100,15 @@ technologies = {
 
 	sidearm_update_1 = {
 
-		spearmen = {
-			hard_attack = 0.04
-			defense = 0.02
+		#spearmen = {
+		#	hard_attack = 0.04
+		#	defense = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = sidearm_update_1_tt
 		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = pole_update_1
@@ -255,14 +266,20 @@ technologies = {
 
 	shield_update_1 = {
 
-		spearmen = {
-			soft_attack = 0.02
-			defense = 0.01
+		#spearmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+		#swordsmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = shield_update_1_tt
 		}
-		swordsmen = {
-			soft_attack = 0.02
-			defense = 0.01
-		}
+		show_effect_as_desc = yes
+
 		path = {
 			leads_to_tech = armored_tactics_1
 			research_cost_coeff = 1
@@ -288,12 +305,17 @@ technologies = {
 
 	armored_tactics_1 = {
 
-		spearmen = {
-			breakthrough = 0.05
+		#spearmen = {
+		#	breakthrough = 0.05
+		#}
+		#swordsmen = {
+		#	breakthrough = 0.05
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = boot_upgrade_1_tt
 		}
-		swordsmen = {
-			breakthrough = 0.05
-		}	
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 15
@@ -353,10 +375,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		pikemen = {
-			max_organisation = 4
-			breakthrough = 0.02
+		#pikemen = {
+		#	max_organisation = 4
+		#	breakthrough = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = torch_upgrade_1_tt
 		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 15
@@ -473,7 +500,12 @@ technologies = {
 			quarry_1 = 1
 		}
 
-		max_dig_in = 1
+		#max_dig_in = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = shovel_upgrade_1_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 10
@@ -600,14 +632,19 @@ technologies = {
 			leads_to_tech = armored_tactics_2
 			research_cost_coeff = 1
 		}
-		spearmen = {
-			soft_attack = 0.02
-			defense = 0.01
+		#spearmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+		#swordsmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = shield_update_2_tt
 		}
-		swordsmen = {
-			soft_attack = 0.02
-			defense = 0.01
-		}	
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 25
@@ -629,12 +666,17 @@ technologies = {
 
 	armored_tactics_2 = {
 
-		spearmen = {
-			breakthrough = 0.05
+		#spearmen = {
+		#	breakthrough = 0.05
+		#}
+		#swordsmen = {
+		#	breakthrough = 0.05
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = boot_upgrade_2_tt
 		}
-		swordsmen = {
-			breakthrough = 0.05
-		}	
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 30
@@ -703,10 +745,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		spearmen = {
-			hard_attack = 0.04
-			defense = 0.02
-		}	
+		#spearmen = {
+		#	hard_attack = 0.04
+		#	defense = 0.02
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = sidearm_update_2_tt
+		}
+		show_effect_as_desc = yes
 		
 		research_cost = 1
 		start_year = 20
@@ -859,14 +906,20 @@ technologies = {
 
 	shield_update_3 = {
 
-		spearmen = {
-			soft_attack = 0.02
-			defense = 0.01
+		#spearmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+		#swordsmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = shield_update_3_tt
 		}
-		swordsmen = {
-			soft_attack = 0.02
-			defense = 0.01
-		}	
+		show_effect_as_desc = yes
+
 		path = {
 			leads_to_tech = armored_tactics_3
 			research_cost_coeff = 1
@@ -892,12 +945,17 @@ technologies = {
 
 	armored_tactics_3 = {
 
-		spearmen = {
-			breakthrough = 0.05
+		#spearmen = {
+		#	breakthrough = 0.05
+		#}
+		#swordsmen = {
+		#	breakthrough = 0.05
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = boot_upgrade_3_tt
 		}
-		swordsmen = {
-			breakthrough = 0.05
-		}		
+		show_effect_as_desc = yes	
 
 		research_cost = 1
 		start_year = 50
@@ -957,10 +1015,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		pikemen = {
-			max_organisation = 4
-			breakthrough = 0.02
+		#pikemen = {
+		#	max_organisation = 4
+		#	breakthrough = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = torch_upgrade_2_tt
 		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 30
@@ -1035,7 +1098,12 @@ technologies = {
 	
 	defensive_b_2 = {
 
-		max_dig_in = 1
+		#max_dig_in = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = shovel_upgrade_2_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 10
@@ -1223,10 +1291,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		spearmen = {
-			hard_attack = 0.04
-			defense = 0.02
+		#spearmen = {
+		#	hard_attack = 0.04
+		#	defense = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = sidearm_update_3_tt
 		}
+		show_effect_as_desc = yes
 		
 		research_cost = 1
 		start_year = 35
@@ -1435,7 +1508,12 @@ technologies = {
 			mine_1 = 1
 		}
 
-		max_dig_in = 1
+		#max_dig_in = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = shovel_upgrade_3_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 10
@@ -1591,14 +1669,19 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		spearmen = {
-			soft_attack = 0.02
-			defense = 0.01
+		#spearmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+		#swordsmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = shield_update_4_tt
 		}
-		swordsmen = {
-			soft_attack = 0.02
-			defense = 0.01
-		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 55
@@ -1620,12 +1703,17 @@ technologies = {
 
 	armored_tactics_4 = {
 
-		spearmen = {
-			breakthrough = 0.05
+		#spearmen = {
+		#	breakthrough = 0.05
+		#}
+		#swordsmen = {
+		#	breakthrough = 0.05
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = boot_upgrade_4_tt
 		}
-		swordsmen = {
-			breakthrough = 0.05
-		}	
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 60
@@ -1685,10 +1773,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		pikemen = {
-			max_organisation = 4
-			breakthrough = 0.02
+		#pikemen = {
+		#	max_organisation = 4
+		#	breakthrough = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = torch_upgrade_3_tt
 		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 45
@@ -1748,10 +1841,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		spearmen = {
-			hard_attack = 0.04
-			defense = 0.02
-		}	
+		#spearmen = {
+		#	hard_attack = 0.04
+		#	defense = 0.02
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = sidearm_update_4_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 50
@@ -1956,10 +2054,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		pikemen = {
-			max_organisation = 4
-			breakthrough = 0.02
+		#pikemen = {
+		#	max_organisation = 4
+		#	breakthrough = 0.02
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = torch_upgrade_4_tt
 		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 60
@@ -2076,7 +2179,12 @@ technologies = {
 			steelworks_1 = 1
 		}
 
-		max_dig_in = 1
+		#max_dig_in = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = shovel_upgrade_4_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 10
@@ -2230,10 +2338,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		spearmen = {
-			hard_attack = 0.04
-			defense = 0.02
-		}	
+		#spearmen = {
+		#	hard_attack = 0.04
+		#	defense = 0.02
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = sidearm_update_5_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 65
@@ -2259,14 +2372,19 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		spearmen = {
-			soft_attack = 0.02
-			defense = 0.01
+		#spearmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+		#swordsmen = {
+		#	soft_attack = 0.02
+		#	defense = 0.01
+		#}
+
+		on_research_complete = {
+			custom_effect_tooltip = shield_update_5_tt
 		}
-		swordsmen = {
-			soft_attack = 0.02
-			defense = 0.01
-		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 70
@@ -2288,12 +2406,17 @@ technologies = {
 
 	armored_tactics_5 = {
 
-		spearmen = {
-			breakthrough = 0.05
+		#spearmen = {
+		#	breakthrough = 0.05
+		#}
+		#swordsmen = {
+		#	breakthrough = 0.05
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = boot_upgrade_5_tt
 		}
-		swordsmen = {
-			breakthrough = 0.05
-		}	
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 75
@@ -2394,10 +2517,15 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		pikemen = {
-			max_organisation = 4
-			breakthrough = 0.02
-		}	
+		#pikemen = {
+		#	max_organisation = 4
+		#	breakthrough = 0.02
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = torch_upgrade_5_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 75
@@ -2611,7 +2739,12 @@ technologies = {
 	
 	defensive_b_5 = {
 
-		max_dig_in = 1
+		#max_dig_in = 1
+
+		on_research_complete = {
+			custom_effect_tooltip = shovel_upgrade_5_tt
+		}
+		show_effect_as_desc = yes
 
 		research_cost = 1
 		start_year = 10
@@ -2956,6 +3089,12 @@ technologies = {
 
 	basic_armor = {
 
+		#allow_branch = {
+		#	NOT = {
+		#		has_dlc = "No Step Back"
+		#	}
+		#}
+
 		enable_equipments = {
 			heavy_armor_equipment_0
 		}
@@ -2995,6 +3134,11 @@ technologies = {
 	armor_a_1 = {
 
 		out_of_supply_factor = -0.1	
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_1_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_2
@@ -3066,9 +3210,14 @@ technologies = {
 
 	armor_b_1 = {
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_1_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_2
@@ -3160,6 +3309,11 @@ technologies = {
 		}
 
 		out_of_supply_factor = -0.1	
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_2_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_4
@@ -3235,9 +3389,14 @@ technologies = {
 			quarry_1 = 1
 		}
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_2_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_4
@@ -3329,6 +3488,11 @@ technologies = {
 	armor_a_5 = {
 
 		out_of_supply_factor = -0.1
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_3_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_6
@@ -3400,9 +3564,14 @@ technologies = {
 
 	armor_b_5 = {
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_3_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_6
@@ -3494,6 +3663,11 @@ technologies = {
 	armor_a_7 = {
 
 		out_of_supply_factor = -0.1
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_4_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_8
@@ -3565,9 +3739,14 @@ technologies = {
 
 	armor_b_7 = {
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_4_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_8
@@ -3659,6 +3838,11 @@ technologies = {
 	armor_a_9 = {
 
 		out_of_supply_factor = -0.1
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_5_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_10
@@ -3730,9 +3914,14 @@ technologies = {
 
 	armor_b_9 = {
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_5_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_10
@@ -3821,6 +4010,11 @@ technologies = {
 		}
 
 		out_of_supply_factor = -0.1
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_6_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_12
@@ -3896,9 +4090,14 @@ technologies = {
 			steelworks_1 = 1
 		}
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_6_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_12
@@ -3987,6 +4186,11 @@ technologies = {
 	armor_a_13 = {
 
 		out_of_supply_factor = -0.1
+
+		on_research_complete = {
+			custom_effect_tooltip = backpack_7_tt
+		}
+		show_effect_as_desc = yes
 		
 		path = {
 			leads_to_tech = armor_e_14
@@ -4058,9 +4262,14 @@ technologies = {
 
 	armor_b_13 = {
 
-		category_melee = {
-			defense = 0.03
-		}	
+		#category_melee = {
+		#	defense = 0.03
+		#}	
+
+		on_research_complete = {
+			custom_effect_tooltip = armor_7_tt
+		}
+		show_effect_as_desc = yes
 
 		path = {
 			leads_to_tech = armor_b_14

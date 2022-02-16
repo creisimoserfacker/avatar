@@ -3,9 +3,9 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				limit = {
-					country_has_war_exhaustion = yes
-				}
+				#limit = {
+				#	country_has_war_exhaustion = yes
+				#}
 
 				set_variable = { actual_casualties = 0 }
 				set_variable = { war_exhaustion_factor = 10 }
@@ -18,8 +18,10 @@ on_actions = {
 
 	on_monthly = {
 		effect = {
-            if = {
-				limit = { country_has_war_exhaustion = yes }
+			if = {
+				limit = { 
+				#country_has_war_exhaustion = yes 
+				}
 
 				##### ideas ####
 					
@@ -43,8 +45,16 @@ on_actions = {
 					add_to_variable = { war_exhaustion_variable = -10 }
 				}
 				if = {
-					limit = { has_idea_with_trait = aggressive_strategist }
+					limit = { has_idea_with_trait = aggressive_strategist_1 }
+					add_to_variable = { war_exhaustion_variable = 20 }
+				}
+				if = {
+					limit = { has_idea_with_trait = aggressive_strategist_2 }
 					add_to_variable = { war_exhaustion_variable = 10 }
+				}
+				if = {
+					limit = { has_idea_with_trait = aggressive_strategist_3 }
+					add_to_variable = { war_exhaustion_variable = 5 }
 				}
 				if = {
 					limit = { has_idea_with_trait = head_censor }
@@ -101,7 +111,9 @@ on_actions = {
 	on_daily = {
 		effect = {
             if = {
-				limit = { country_has_war_exhaustion = yes }
+				limit = { 
+					#country_has_war_exhaustion = yes 
+				}
 
 				######## ideas #######
 
@@ -177,7 +189,9 @@ on_actions = {
 	on_peaceconference_ended = {
 		effect = {
             if = {
-				limit = { country_has_war_exhaustion = yes }
+				limit = { 
+					#country_has_war_exhaustion = yes 
+				}
 
 				set_variable = { tooltip_casualties = 0 }
 				set_variable = { actual_casualties = 0 }

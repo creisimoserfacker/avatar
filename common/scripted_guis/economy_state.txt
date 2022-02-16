@@ -87,7 +87,12 @@ scripted_gui = {
 			}
 
 			open_construction_visible = {
-				is_controlled_by = ROOT
+				OR = {
+					is_controlled_by = ROOT
+					controller = {
+						is_puppet_of = ROOT
+					}
+				}
 			}
 
 			forest_icon_visible = {
@@ -147,7 +152,12 @@ scripted_gui = {
 					check_variable = { close_construction = 1 }
 				}
 			}
-			is_controlled_by = ROOT
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_puppet_of = ROOT
+				}
+			}
 		}
 
 		triggers = {
@@ -328,7 +338,12 @@ scripted_gui = {
 					check_variable = { close_construction = 1 }
 				}
 			}
-			is_controlled_by = ROOT
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_puppet_of = ROOT
+				}
+			}
 		}
 
 		triggers = {
@@ -480,7 +495,12 @@ scripted_gui = {
 					check_variable = { close_construction = 1 }
 				}
 			}
-			is_controlled_by = ROOT
+			OR = {
+				is_controlled_by = ROOT
+				controller = {
+					is_puppet_of = ROOT
+				}
+			}
 		}
 
 		triggers = {

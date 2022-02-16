@@ -238,127 +238,75 @@ country_event = {
 	}
 }
 
-##Event: prefecture ---> territory DEMAND (sent BY the overlord)
+##Event: free major demands prefecture to become territory
 country_event = {
 	id = struggles_ek.10
 	title = struggles_ek.10.title
 	desc = struggles_ek.10.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_10
+	picture = GFX_report_event_ear_demand_kingdom
 	option = {
 		#Accept:
-		ai_chance = { base = 1}
+		ai_chance = { base = 100 }
 		name = struggles_ek.10.a
+
+		set_autonomy = {
+			target = FROM
+			autonomy_state = autonomy_royal_domain
+		}
+
+		FROM = {
+			country_event = {
+				id = struggles_ek.11
+				days = 1
+			}
+		}
 	}
 	option = {
 		#Decline:
-		ai_chance = { base = 1}
+		ai_chance = { base = 0 }
+		#modifier = {
+		#	add = 100
+		#}
 		name = struggles_ek.10.b
+		add_political_power = -200
+		FROM = {
+			country_event = {
+				id = struggles_ek.12
+				days = 1
+			}
+			add_political_power = 200
+		}
 	}
 }
-
-
-
-##Event: prefecture ---> governorship DEMAND (sent TO the overlord)
+##Event: territory accept
 country_event = {
 	id = struggles_ek.11
 	title = struggles_ek.11.title
 	desc = struggles_ek.11.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_11
+	picture = GFX_report_event_ear_demand_kingdom
 	option = {
 		#Accept:
 		ai_chance = { base = 1}
 		name = struggles_ek.11.a
 	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.11.b
-	}
 }
-
-
-
-##Event: governorship ---> prefecture DEMAND (sent BY the overlord)
+##Event: territory decline
 country_event = {
 	id = struggles_ek.12
 	title = struggles_ek.12.title
 	desc = struggles_ek.12.desc
 	is_triggered_only = yes
-	picture = GFX_struggles_ek_12
+	picture = GFX_report_event_ear_denied_kingdom
 	option = {
 		#Accept:
 		ai_chance = { base = 1}
 		name = struggles_ek.12.a
 	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.12.b
-	}
-}
-
-##Event: governorship ---> tributary DEMAND (sent TO the overlord)
-country_event = {
-	id = struggles_ek.14
-	title = struggles_ek.14.title
-	desc = struggles_ek.14.desc
-	is_triggered_only = yes
-	picture = GFX_struggles_ek_14
-	option = {
-		#Accept:
-		ai_chance = { base = 1}
-		name = struggles_ek.14.a
-	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.14.b
-	}
 }
 
 
-
-##Event: kingdom ---> governorship DEMAND (sent BY the overlord)
-country_event = {
-	id = struggles_ek.15
-	title = struggles_ek.15.title
-	desc = struggles_ek.15.desc
-	is_triggered_only = yes
-	picture = GFX_struggles_ek_15
-	option = {
-		#Accept:
-		ai_chance = { base = 1}
-		name = struggles_ek.15.a
-	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.15.b
-	}
-}
-
-
-
-##Event: tributary ---> governorship DEMAND (sent BY the overlord)
-country_event = {
-	id = struggles_ek.16
-	title = struggles_ek.16.title
-	desc = struggles_ek.16.desc
-	is_triggered_only = yes
-	picture = GFX_struggles_ek_16
-	option = {
-		#Accept:
-		ai_chance = { base = 1}
-		name = struggles_ek.16.a
-	}
-	option = {
-		#Decline:
-		ai_chance = { base = 1}
-		name = struggles_ek.16.b
-	}
-}
 
 ##############################################################################################
 

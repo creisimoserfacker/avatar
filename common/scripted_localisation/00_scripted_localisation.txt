@@ -299,7 +299,7 @@ defined_text = {
 	name = LawWeariness10
 	text = {
 		trigger = {
-			has_idea_with_trait = aggressive_strategist
+			has_idea_with_trait = aggressive_strategist_1
 		}
 		localization_key = weariness_aggressive_strategist
 	}
@@ -335,7 +335,7 @@ defined_text = {
 	name = LawWeariness14
 	text = {
 		trigger = {
-			has_idea_with_trait = recreation_provider
+			has_idea_with_trait = recreation_provider_1
 		}
 		localization_key = weariness_recreation_provider
 	}
@@ -349,16 +349,16 @@ defined_text = {
 		localization_key = weariness_custumary_law
 	}
 }
-defined_text = {
-	name = LawWeariness16
-	text = {
-		trigger = {
-			has_idea_with_trait = secret_police
-		}
-		localization_key = weariness_secret_police
-	}
-
-}
+#defined_text = {
+#	name = LawWeariness16
+#	text = {
+#		trigger = {
+#			has_idea_with_trait = secret_police
+#		}
+#		localization_key = weariness_secret_police
+#	}
+#
+#}
 
 #### economy
 
@@ -523,7 +523,7 @@ defined_text = {
 	name = get_air_icon_1
 	text = {
 		trigger = {
-			has_idea = council_substancial_support
+			check_variable = { AIR_council_support = 5 }
 		}
 		localization_key = "GFX_air_icon_1"
 	}
@@ -537,7 +537,7 @@ defined_text = {
 	name = get_air_icon_2
 	text = {
 		trigger = {
-			has_idea = council_support
+			check_variable = { AIR_council_support = 4 }
 		}
 		localization_key = "GFX_air_icon_2"
 	}
@@ -551,7 +551,7 @@ defined_text = {
 	name = get_air_icon_3
 	text = {
 		trigger = {
-			has_idea = council_neutral
+			check_variable = { AIR_council_support = 3 }
 		}
 		localization_key = "GFX_air_icon_3"
 	}
@@ -565,7 +565,7 @@ defined_text = {
 	name = get_air_icon_4
 	text = {
 		trigger = {
-			has_idea = council_opposition
+			check_variable = { AIR_council_support = 2 }
 		}
 		localization_key = "GFX_air_icon_4"
 	}
@@ -579,7 +579,7 @@ defined_text = {
 	name = get_air_icon_5
 	text = {
 		trigger = {
-			has_idea = council_harsh_opposition
+			check_variable = { AIR_council_support = 1 }
 		}
 		localization_key = "GFX_air_icon_5"
 	}

@@ -660,18 +660,25 @@ guiTypes = {
 	#### CONSTRUCTION INFO MAP ICON
 	containerWindowType = {
 		name = "construction_info_mapicon"
-		#backGround = ""
 		position = { x=0 y=0 }
 		size = { width=115 height=30 }
 		orientation = upper_left
 		
 		containerWindowType = {
 			name = "construction_info_window"
-			#backGround = ""
 			position = { x=20 y=0 }
 			size = { width=95 height=44 }
 			orientation = upper_left
 			clipping = no
+
+			iconType = {
+				name = "flag"
+				spriteType = "GFX_mapicon_unit_flag_stripe"
+				position = { x=10 y=5 }
+				scale = 0.5
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
 
 			background = {
 				name = "Background"		
@@ -1075,7 +1082,7 @@ guiTypes = {
 			maxWidth = 30
 			maxHeight = 23
 			format = center
-			allwaystransparent = yes
+			alwaystransparent = yes
 		}		
 		
 		iconType={
