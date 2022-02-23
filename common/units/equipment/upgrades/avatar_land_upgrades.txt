@@ -334,5 +334,127 @@ upgrades = {
 		}
 	}
 
+
+
+	arrow_quantity = {
+		max_level = 10
+
+		linear_cost = {
+			cost_by_level = 5
+			cost_by_level_for_licensed_equipment = 50
+		}
+
+		cost = land
+		build_cost_ic = 0.08
+		reliability = 0.08
+	}
+	arrow_tip_upgrade = {
+		max_level = 6
+		cost = land
+
+		linear_cost = {
+			cost_by_level = 10
+			cost_by_level_for_licensed_equipment = 50
+		}
+
+		level_requirements = {
+			1 = { OR = { has_tech = arrowheadb0 has_tech = arrowheadb1 has_tech = arrowheadb2 has_tech = arrowheadb3 has_tech = arrowheadb4 has_tech = arrowheadb5 } }
+			2 = { OR = { has_tech = arrowheadb1 has_tech = arrowheadb2 has_tech = arrowheadb3 has_tech = arrowheadb4 has_tech = arrowheadb5 } }
+			3 = { OR = { has_tech = arrowheadb2 has_tech = arrowheadb3 has_tech = arrowheadb4 has_tech = arrowheadb5 } }
+			4 = { OR = { has_tech = arrowheadb3 has_tech = arrowheadb4 has_tech = arrowheadb5 } }
+			5 = {  OR = { has_tech = arrowheadb4 has_tech = arrowheadb5 } }
+			6 = { has_tech = arrowheadb5 }
+		}
+
+		resource_cost_thresholds = {
+			1 = { chromium = 1 }
+			2 = { tungsten = 1 }
+			3 = { tungsten = 1 chromium = 1 }
+			4 = { tungsten = 1 chromium = 2 }
+			5 = { chromium = 1 steel = 1 }
+			6 = { rubber = 1 }
+		}
+
+		maximum_speed = 0.3
+		breakthrough = 0.05
+		add_stats = {
+			build_cost_ic = 2.5
+			reliability = -0.02
+		}
+	}
+	arrow_shaft_upgrade = {
+		max_level = 6
+		cost = land
+
+		linear_cost = {
+			cost_by_level = 10
+			cost_by_level_for_licensed_equipment = 50
+		}
+
+		level_requirements = {
+			1 = { OR = { has_tech = arrowshaft0 has_tech = arrowshaft1 has_tech = arrowshaft2 has_tech = arrowshaft3 has_tech = arrowshaft4 has_tech = arrowshaft5 } }
+			2 = { OR = { has_tech = arrowshaft1 has_tech = arrowshaft2 has_tech = arrowshaft3 has_tech = arrowshaft4 has_tech = arrowshaft5 } }
+			3 = { OR = { has_tech = arrowshaft2 has_tech = arrowshaft3 has_tech = arrowshaft4 has_tech = arrowshaft5 } }
+			4 = { OR = { has_tech = arrowshaft3 has_tech = arrowshaft4 has_tech = arrowshaft5 } }
+			5 = {  OR = { has_tech = arrowshaft4 has_tech = arrowshaft5 } }
+			6 = { has_tech = arrowshaft5 }
+		}
+
+		resource_cost_thresholds = {
+			1 = { chromium = 1 }
+			2 = { tungsten = 1 }
+			3 = { tungsten = 1 chromium = 1 }
+			4 = { tungsten = 1 chromium = 2 }
+			5 = { chromium = 1 steel = 1 }
+			6 = { rubber = 1 }
+		}
+
+		maximum_speed = 0.3
+		breakthrough = 0.05
+		add_stats = {
+			build_cost_ic = 2.5
+			reliability = -0.02
+		}
+	}
+
+	camouflage_upgrade = {
+		max_level = 8
+		cost = land
+
+		linear_cost = {
+			cost_by_level = 10
+			cost_by_level_for_licensed_equipment = 50
+		}
+
+		level_requirements = {
+			1 = { OR = { has_tech = uniform0 has_tech = uniform1 has_tech = uniform2 has_tech = uniform3 has_tech = uniform4 has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 } }
+			2 = { OR = { has_tech = uniform1 has_tech = uniform2 has_tech = uniform3 has_tech = uniform4 has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 } }
+			3 = { OR = { has_tech = uniform2 has_tech = uniform3 has_tech = uniform4 has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 } }
+			4 = { OR = { has_tech = uniform3 has_tech = uniform4 has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 } }
+			5 = {  OR = { has_tech = uniform4 has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 } }
+			6 = { has_tech = uniform5 has_tech = uniform6 has_tech = uniform7 }
+			7 = { has_tech = uniform6 has_tech = uniform7 }
+			8 = { has_tech = uniform7 }
+		}
+
+		resource_cost_thresholds = {
+			1 = { chromium = 1 }
+			2 = { tungsten = 1 }
+			3 = { tungsten = 1 chromium = 1 }
+			4 = { tungsten = 1 chromium = 2 }
+			5 = { chromium = 1 steel = 1 }
+			6 = { rubber = 1 }
+			7 = { rubber = 1 }
+			8 = { rubber = 1 }
+		}
+
+		defense = 0.03
+		add_stats = {
+			build_cost_ic = 1
+			reliability = -0.02
+			ap_attack = 2
+		}
+	}
+
 	
 }
