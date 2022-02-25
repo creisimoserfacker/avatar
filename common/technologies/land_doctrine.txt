@@ -239,37 +239,6 @@ technologies = {
 		}
 	}
 	
-	scouts_and_spies_4 = {
-
-		xp_research_type = army
-		xp_unlock_cost = 100
-
-		intel_network_gain_factor = 0.1
-		decryption_factor = 0.1
-		
-		doctrine = yes
-
-		folder = {
-			name = land_doctrine_folder
-			position = { x = -14 y = 8 }
-		}
-
-		categories = {
-			military_doctrine
-			cat_power
-		}
-
-		ai_will_do = {
-			factor = 20
-			modifier = {
-				not = {
-					has_army_experience > 120
-				}
-				factor = 0.8
-			}
-		}
-	}
-	
 	spies1 = {
 		#xor = { scouts1}
 		xp_research_type = army
@@ -398,6 +367,427 @@ technologies = {
 		folder = {
 			name = land_doctrine_folder
 			position = { x = -14 y = 6 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	scouts_and_spies_4 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_and_spies_5
+			research_cost_coeff = 1
+		}
+
+		intel_network_gain_factor = 0.1
+		decryption_factor = 0.1
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -14 y = 8 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	scouts_and_spies_5 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_4
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = spies_4
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -14 y = 10 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	scouts_4 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_5
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -15 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	scouts_5 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_and_spies_6
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -15 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	spies_4 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = spies_5
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = siege_1
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -13 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	spies_5 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = scouts_and_spies_6
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -13 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	scouts_and_spies_6 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -14 y = 16 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	siege_1 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = siege_3
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -11 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	siege_2 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = siege_4
+			research_cost_coeff = 1
+		}
+
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -7 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	siege_3 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = siege_5
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -10 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	siege_4 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = siege_5
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -8 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	siege_5 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = siege_5
+			research_cost_coeff = 1
+		}
+
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = -9 y = 16 }
 		}
 
 		categories = {
@@ -601,7 +991,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -5 y = 10 }
+			position = { x = -3 y = 10 }
 		}
 
 		categories = {
@@ -639,7 +1029,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -3 y = 10 }
+			position = { x = -5 y = 10 }
 		}
 
 		categories = {
@@ -675,7 +1065,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -5 = 12 }
+			position = { x = -3 = 12 }
 		}
 
 		categories = {
@@ -700,6 +1090,10 @@ technologies = {
 			leads_to_tech = battle6
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = siege_2
+			research_cost_coeff = 1
+		}
 
 		xp_research_type = army
 		xp_unlock_cost = 100
@@ -711,7 +1105,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -3 y = 12 }
+			position = { x = -5 y = 12 }
 		}
 
 		categories = {
@@ -747,7 +1141,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -5 y = 14 }
+			position = { x = -3 y = 14 }
 		}
 
 		categories = {
@@ -783,7 +1177,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = -3 y = 14 }
+			position = { x = -5 y = 14 }
 		}
 
 		categories = {
@@ -806,6 +1200,11 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
 
 		army_org_factor = 0.04
 		breakthrough_factor = 0.04
@@ -870,7 +1269,7 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = partisan_logistics
+			leads_to_tech = attrition_2
 			research_cost_coeff = 1
 		}
 
@@ -881,6 +1280,75 @@ technologies = {
 		folder = {
 			name = land_doctrine_folder
 			position = { x = 0 y = 8 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	attrition_2 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = attrition_3
+			research_cost_coeff = 1
+		}
+
+		attrition = -0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 10 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	attrition_3 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre7
+			research_cost_coeff = 1
+		}
+
+		attrition = -0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 12 }
 		}
 
 		categories = {
@@ -1015,11 +1483,6 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		path = {
-			leads_to_tech = combat_1
-			research_cost_coeff = 1
-		}
-
 		minimum_training_level = 0.2
 		training_time_factor = 0.1
 		experience_loss_factor = -0.2
@@ -1029,38 +1492,6 @@ technologies = {
 		folder = {
 			name = land_doctrine_folder
 			position = { x = -8 y = 8 }
-		}
-
-		categories = {
-			military_doctrine
-			cat_power
-		}
-
-		ai_will_do = {
-			factor = 20
-			modifier = {
-				not = {
-					has_army_experience > 120
-				}
-				factor = 0.8
-			}
-		}
-	}
-
-	combat_1 = {
-
-		xp_research_type = army
-		xp_unlock_cost = 100
-
-		minimum_training_level = 0.2
-		training_time_factor = 0.1
-		experience_loss_factor = -0.2
-		
-		doctrine = yes
-
-		folder = {
-			name = land_doctrine_folder
-			position = { x = -9 y = 10 }
 		}
 
 		categories = {
@@ -1418,8 +1849,24 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
+		#path = {
+		#	leads_to_tech = maneuvre6
+		#	research_cost_coeff = 1
+		#}
 		path = {
-			leads_to_tech = maneuvre6
+			leads_to_tech = maneuvre7
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = maneuvre8
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = maneuvre9
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = maneuvre10
 			research_cost_coeff = 1
 		}
 
@@ -1448,11 +1895,86 @@ technologies = {
 			}
 		}
 	}
+
+	maneuvre7 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre6
+			research_cost_coeff = 1
+		}
+
+		supply_node_range = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 2 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	maneuvre8 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre6
+			research_cost_coeff = 1
+		}
+
+		supply_node_range = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 4 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
 	
 	maneuvre6 = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
 
 		supply_consumption_factor = -0.1
 		army_leader_start_logistics_level = 1
@@ -1461,7 +1983,77 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 5 y = 14 }
+			position = { x = 5 y = 16 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	maneuvre9 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre6
+			research_cost_coeff = 1
+		}
+
+		supply_node_range = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 6 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	maneuvre10 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre6
+			research_cost_coeff = 1
+		}
+
+		supply_node_range = 0.05
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 8 y = 14 }
 		}
 
 		categories = {
@@ -1636,10 +2228,10 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		#path = {
-		#	leads_to_tech = soldiers_luggage
-		#	research_cost_coeff = 1
-		#}
+		path = {
+			leads_to_tech = marching_3
+			research_cost_coeff = 1
+		}
 
 		on_research_complete = {
 			custom_effect_tooltip = long_march_ttp
@@ -1652,6 +2244,41 @@ technologies = {
 		folder = {
 			name = land_doctrine_folder
 			position = { x = 9 y = 10 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	marching_3 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = maneuvre10
+			research_cost_coeff = 1
+		}
+		
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 9 y = 12 }
 		}
 
 		categories = {
@@ -1945,7 +2572,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = coordination10
+			leads_to_tech = coordination11
 			research_cost_coeff = 1
 		}
 		
@@ -1981,7 +2608,7 @@ technologies = {
 		xp_unlock_cost = 100
 
 		path = {
-			leads_to_tech = coordination12
+			leads_to_tech = coordination11
 			research_cost_coeff = 1
 		}
 
@@ -2047,6 +2674,11 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
+		path = {
+			leads_to_tech = coordination14
+			research_cost_coeff = 1
+		}
+
 		coordination_bonus = 0.01
 		cas_damage_reduction = 0.3
 		land_night_attack = 0.05
@@ -2055,7 +2687,7 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 12 y = 10 }
+			position = { x = 12 y = 12 }
 		}
 
 		categories = {
@@ -2078,6 +2710,15 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = coordination10
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = coordination12
+			research_cost_coeff = 1
+		}
 
 		fortification_damage = 0.15
 		
@@ -2113,7 +2754,11 @@ technologies = {
 		xp_unlock_cost = 100
 		
 		path = {
-			leads_to_tech = coordination11
+			leads_to_tech = coordination13
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = coordination16
 			research_cost_coeff = 1
 		}
 		
@@ -2123,7 +2768,262 @@ technologies = {
 
 		folder = {
 			name = land_doctrine_folder
-			position = { x = 16 y = 10 }
+			position = { x = 16 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	coordination13 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 14 y = 12 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	coordination14 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = coordination15
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = coordination17
+			research_cost_coeff = 1
+		}
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 12 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	coordination15 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 14 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	coordination16 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = coordination19
+			research_cost_coeff = 1
+		}
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 16 y = 14 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+	coordination17 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 12 y = 16 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	coordination18 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 14 y = 16 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+	coordination19 = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+		
+		path = {
+			leads_to_tech = coordination18
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 16 y = 16 }
+		}
+
+		categories = {
+			military_doctrine
+			cat_power
+		}
+
+		ai_will_do = {
+			factor = 20
+			modifier = {
+				not = {
+					has_army_experience > 120
+				}
+				factor = 0.8
+			}
+		}
+	}
+
+
+	the_art_of_war = {
+
+		xp_research_type = army
+		xp_unlock_cost = 100
+
+		
+		#fortification_damage = 0.2
+		
+		doctrine = yes
+
+		folder = {
+			name = land_doctrine_folder
+			position = { x = 0 y = 18 }
 		}
 
 		categories = {
