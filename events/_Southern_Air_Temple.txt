@@ -78,6 +78,32 @@ country_event = {
 
 add_namespace = AIR_council
 
+# council initiation
+country_event = {
+	id = AIR_council.0
+	title = AIR_council.0.t
+	desc = AIR_council.0.d
+	picture = GFX_council_meeting
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = AIR_council.0.a
+		AIR_recalc_council_support = yes
+		activate_mission = upcoming_meeting
+		add_days_mission_timeout = {
+			mission = upcoming_meeting
+			days = -50
+		}
+	}
+	option = {
+		name = AIR_council.0.b
+		ai_chance = {
+			factor = 100
+		}
+		clr_country_flag = air_council_active
+	}
+}
 # council meeting
 country_event = {
 	id = AIR_council.1

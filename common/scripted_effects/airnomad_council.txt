@@ -75,7 +75,8 @@ AIR_recalc_council_spirit = {
 				remove_idea = council_harsh_opposition
 				add_idea = council_opposition
 			}
-		} else if = {
+		}
+		if = {
 			limit = { has_idea = council_neutral}
 			swap_ideas = {
 				remove_idea = council_neutral
@@ -91,7 +92,8 @@ AIR_recalc_council_spirit = {
 				remove_idea = council_opposition
 				add_idea = council_neutral
 			}
-		} else if = {
+		}
+		if = {
 			limit = { has_idea = council_support}
 			swap_ideas = {
 				remove_idea = council_support
@@ -107,7 +109,8 @@ AIR_recalc_council_spirit = {
 				remove_idea = council_neutral
 				add_idea = council_support
 			}
-		} else if = {
+		}
+		if = {
 			limit = { has_idea = council_substancial_support}
 			swap_ideas = {
 				remove_idea = council_substancial_support
@@ -328,7 +331,7 @@ AIR_generate_specific_mission = {
 			if = {
 				limit = {
 				OR = {
-					check_variable = { repeat = 3}
+					check_variable = { repeat = 3 }
 					AND = {
 						is_in_array = { air_current_missions = 16 }
 						is_in_array = { air_current_missions = 17 }
@@ -720,16 +723,4 @@ AIR_council_extreme_opposition = {
 		subtract_from_variable = { AIR_council_member_5 = 1}
 	}
 	AIR_recalc_council_support = yes
-}
-
-### Sat Missions
-
-AIR_start_mission_1 = {
-	set_variable = { air_mission_1_reward = air_new_mission_reward }
-	set_variable = { air_mission_1_size = air_new_mission_size }
-	set_variable = { air_mission_1_amount = 0 }
-	multiply_variable = { air_mission_1_size = 100 }
-	subtract_from_variable = { air_mission_1_amount = air_mission_1_size }
-	set_variable = { air_mission_1_size = air_new_mission_size }
-	add_to_array = { AIR_current_missions = 1 }
 }

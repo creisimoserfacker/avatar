@@ -1,11 +1,19 @@
 on_actions = {
 
 	on_startup = {
-		#effect = {
-		#	every_country = {
-		#		set_variable = { atla_legitimacy = 3 }
-		#	}
-		#}
+		effect = {
+			every_country = {
+				limit = { OR = {
+					tag = SAT
+					tag = NAT
+					tag = EAT
+					tag = WAT
+				}}
+				country_event = { 
+					id = AIR_council.0
+				}
+			}
+		}
 		effect = {
 			#### animal population ####
 			
