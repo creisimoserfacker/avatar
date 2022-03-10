@@ -1,34 +1,87 @@
-division_template = {
-	name = "Fire Nation Swordsmen"
-
-	regiments = {
-		swordsmen = { x = 0 y = 0 }
-		swordsmen = { x = 0 y = 1 }
-		swordsmen = { x = 1 y = 0 }
-        swordsmen = { x = 1 y = 1 }
-		pikemen = { x = 1 y = 2 }
-		pikemen = { x = 0 y = 2 }
-	}
-	
-	support = {
-		scout = { x = 0 y = 0 }
-	}
-}
 
 division_template = {
-	name = "Fire Nation Spearmen"
+	name = "Spearmen Division"
 
 	regiments = {
 		spearmen = { x = 0 y = 0 }
 		spearmen = { x = 0 y = 1 }
 		spearmen = { x = 1 y = 0 }
         spearmen = { x = 1 y = 1 }
-		pikemen = { x = 1 y = 2 }
-		pikemen = { x = 0 y = 2 }
+		spearmen = { x = 1 y = 2 }
+		spearmen = { x = 0 y = 2 }
 	}
 	
 	support = {
 		scout = { x = 0 y = 0 }
+		avatar_engineer = { x = 0 y = 1 }
+	}
+}
+
+division_template = {
+	name = "Mountain Brigade"
+
+	regiments = {
+		spearmen = { x = 0 y = 0 }
+		spearmen = { x = 0 y = 1 }
+		spearmen = { x = 1 y = 0 }
+		spearmen = { x = 1 y = 1 }
+	}
+	
+	support = {
+		scout = { x = 0 y = 0 }
+		avatar_engineer = { x = 0 y = 1 }
+		grappling_hook = { x = 0 y = 2 }
+		supply_wagon = { x = 0 y = 3 }
+	}
+
+	template_counter = 28
+}
+
+division_template = {
+	name = "Ranger Division"
+
+	regiments = {
+		archers = { x = 0 y = 0 }
+		archers = { x = 0 y = 1 }
+		archers = { x = 0 y = 2 }
+		skirmishers = { x = 0 y = 3 }
+		swordsmen = { x = 1 y = 0 }
+		swordsmen = { x = 1 y = 1 }
+		swordsmen = { x = 1 y = 2 }
+		swordsmen = { x = 1 y = 3 }
+		skirmishers = { x = 2 y = 0 }
+		skirmishers = { x = 2 y = 1 }
+		skirmishers = { x = 2 y = 2 }
+		skirmishers = { x = 2 y = 3 }
+	}
+	
+	support = {
+		scout = { x = 0 y = 0 }
+		avatar_engineer = { x = 0 y = 1 }
+		scavenger = { x = 0 y = 2 }
+		supply_wagon = { x = 0 y = 3 }
+	}
+
+	template_counter = 9
+}
+
+division_template = {
+	name = "Colonial Division"
+
+	regiments = {
+		spearmen = { x = 0 y = 0 }
+		spearmen = { x = 0 y = 1 }
+		spearmen = { x = 0 y = 2 }
+		spearmen = { x = 1 y = 0 }
+        spearmen = { x = 1 y = 1 }
+		spearmen = { x = 1 y = 2 }
+		spearmen = { x = 2 y = 0 }
+        spearmen = { x = 2 y = 1 }
+		spearmen = { x = 2 y = 2 }
+	}
+	
+	support = {
+		infantry_guards = { x = 0 y = 0 }
 	}
 }
 
@@ -43,10 +96,12 @@ division_template = {
 		pikemen = { x = 1 y = 0 }
         pikemen = { x = 1 y = 1 }
 		pikemen = { x = 1 y = 2 }
+		ballista = { x = 2 y = 0 }
+		ballista = { x = 2 y = 1 }
 	}
 	
 	support = {
-
+		supply_wagon = { x = 0 y = 0 }
 	}
 }
 
@@ -58,6 +113,10 @@ division_template = {
 		firebender = { x = 0 y = 1 }
 		firebender = { x = 1 y = 0 }
 		firebender = { x = 1 y = 1 }
+	}
+
+	support = {
+		field_commander = { x = 0 y = 0 }
 	}
 }
 
@@ -77,34 +136,66 @@ division_template = {
 }
 
 division_template = {
-	name = "Siege Force"
+	name = "Siege Infantry"
 	#is_locked = yes
 	regiments = {
-		firebender = { x = 0 y = 0 }
+		spearmen = { x = 0 y = 0 }
 		spearmen = { x = 0 y = 1 }
-		firebender = { x = 1 y = 0 }
-		spearmen = { x = 1 y = 1 }
-		spearmen = { x = 1 y = 2 }
 		spearmen = { x = 0 y = 2 }
+		archers = { x = 1 y = 0 }
 	}
 	support = {
-		avatar_engineer = { x = 0 y = 0 }
+		supply_wagon = { x = 0 y = 0 }
 	}
 	
 	priority = 1
+}
+division_template = {
+	name = "Siege Force"
+	#is_locked = yes
+	regiments = {
+		trebuchet = { x = 0 y = 0 }
+		trebuchet = { x = 0 y = 1 }
+		trebuchet = { x = 0 y = 2 }
+		trebuchet = { x = 0 y = 3 }
+		archers = { x = 1 y = 0 }
+		archers = { x =1 y = 1 }
+		archers = { x =1 y = 2 }
+		archers = { x =1 y = 3 }
+		swordsmen = { x = 2 y = 0 }
+		swordsmen = { x =2 y = 1 }
+		swordsmen = { x =2 y = 2 }
+		swordsmen = { x =2 y = 3 }
+	}
+	support = {
+		supply_wagon = { x = 0 y = 0 }
+		combat_pioneer = { x = 0 y = 1 }
+		field_commander = { x = 0 y = 2 }
+		scout = { x = 0 y = 3 }
+		siege_towers = { x = 0 y = 4 }
+	}
+	
+	priority = 2
 }
 
 #############################################
 
 units = {
 
+
+
+		#### ba sing se siege forces
+
+
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7118
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -115,7 +206,7 @@ units = {
 				name_order = 1
 		}
 		location = 4509
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -125,7 +216,7 @@ units = {
 				name_order = 1
 		}
 		location = 7060
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -136,7 +227,7 @@ units = {
 				name_order = 1
 		}
 		location = 3582
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -146,7 +237,7 @@ units = {
 				name_order = 1
 		}
 		location = 2006
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -156,7 +247,7 @@ units = {
 				name_order = 1
 		}
 		location = 6951
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -166,7 +257,7 @@ units = {
 				name_order = 1
 		}
 		location = 6909
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -176,7 +267,7 @@ units = {
 				name_order = 1
 		}
 		location = 4055
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -187,7 +278,7 @@ units = {
 				name_order = 1
 		}
 		location = 1496
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -198,7 +289,7 @@ units = {
 				name_order = 1
 		}
 		location = 1836
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -208,7 +299,7 @@ units = {
 				name_order = 1
 		}
 		location = 1682
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -218,7 +309,7 @@ units = {
 				name_order = 1
 		}
 		location = 1369
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -229,7 +320,7 @@ units = {
 				name_order = 1
 		}
 		location = 4797
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -239,7 +330,7 @@ units = {
 				name_order = 1
 		}
 		location = 6583
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -249,7 +340,7 @@ units = {
 				name_order = 1
 		}
 		location = 6542
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -260,7 +351,7 @@ units = {
 				name_order = 1
 		}
 		location = 6473
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -271,7 +362,7 @@ units = {
 				name_order = 1
 		}
 		location = 6406
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -281,7 +372,7 @@ units = {
 				name_order = 1
 		}
 		location = 1369
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -292,7 +383,7 @@ units = {
 				name_order = 1
 		}
 		location = 4797
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -302,7 +393,7 @@ units = {
 				name_order = 1
 		}
 		location = 6583
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -312,7 +403,7 @@ units = {
 				name_order = 1
 		}
 		location = 6542
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -323,7 +414,7 @@ units = {
 				name_order = 1
 		}
 		location = 6473
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -334,7 +425,7 @@ units = {
 				name_order = 1
 		}
 		location = 6406
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -344,7 +435,7 @@ units = {
 				name_order = 1
 		}
 		location = 4201
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -354,7 +445,7 @@ units = {
 				name_order = 1
 		}
 		location = 6376
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -364,7 +455,7 @@ units = {
 				name_order = 1
 		}
 		location = 5447
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -374,7 +465,7 @@ units = {
 				name_order = 1
 		}
 		location = 6347
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -385,7 +476,7 @@ units = {
 				name_order = 1
 		}
 		location = 6356
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -395,7 +486,7 @@ units = {
 				name_order = 1
 		}
 		location = 3818
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -405,7 +496,7 @@ units = {
 				name_order = 1
 		}
 		location = 6321
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -416,7 +507,7 @@ units = {
 				name_order = 1
 		}
 		location = 6376
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -426,7 +517,7 @@ units = {
 				name_order = 1
 		}
 		location = 5447
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -436,7 +527,7 @@ units = {
 				name_order = 1
 		}
 		location = 6347
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -447,7 +538,7 @@ units = {
 				name_order = 1
 		}
 		location = 6356
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -457,7 +548,7 @@ units = {
 				name_order = 1
 		}
 		location = 6352
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -468,7 +559,7 @@ units = {
 				name_order = 1
 		}
 		location = 553
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -479,7 +570,7 @@ units = {
 				name_order = 1
 		}
 		location = 6364
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -489,7 +580,7 @@ units = {
 				name_order = 1
 		}
 		location = 6373
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -499,7 +590,7 @@ units = {
 				name_order = 1
 		}
 		location = 30
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -510,7 +601,7 @@ units = {
 				name_order = 1
 		}
 		location = 3869
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -521,7 +612,7 @@ units = {
 				name_order = 1
 		}
 		location = 6411
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -531,7 +622,7 @@ units = {
 				name_order = 1
 		}
 		location = 6438
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -541,7 +632,7 @@ units = {
 				name_order = 1
 		}
 		location = 6460
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -552,7 +643,7 @@ units = {
 				name_order = 1
 		}
 		location = 721
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -562,7 +653,7 @@ units = {
 				name_order = 1
 		}
 		location = 4506
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -572,7 +663,7 @@ units = {
 				name_order = 1
 		}
 		location = 5362
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -582,7 +673,7 @@ units = {
 				name_order = 1
 		}
 		location = 6602
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	division= {	
@@ -591,7 +682,7 @@ units = {
 				name_order = 1
 		}
 		location = 6636
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -602,7 +693,7 @@ units = {
 				name_order = 1
 		}
 		location = 1980
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -612,7 +703,7 @@ units = {
 				name_order = 1
 		}
 		location = 6736
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -622,7 +713,7 @@ units = {
 				name_order = 1
 		}
 		location = 6776
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -632,7 +723,7 @@ units = {
 				name_order = 1
 		}
 		location = 4863
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -642,7 +733,7 @@ units = {
 				name_order = 1
 		}
 		location = 5197
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -652,7 +743,7 @@ units = {
 				name_order = 1
 		}
 		location = 3456
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -662,7 +753,7 @@ units = {
 				name_order = 1
 		}
 		location = 6927
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -673,7 +764,7 @@ units = {
 				name_order = 1
 		}
 		location = 6960
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -684,7 +775,7 @@ units = {
 				name_order = 1
 		}
 		location = 7013
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -695,7 +786,7 @@ units = {
 				name_order = 1
 		}
 		location = 2258
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -705,7 +796,7 @@ units = {
 				name_order = 1
 		}
 		location = 7085
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -715,7 +806,7 @@ units = {
 				name_order = 1
 		}
 		location = 467
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -725,7 +816,7 @@ units = {
 				name_order = 1
 		}
 		location = 1625
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -735,7 +826,7 @@ units = {
 				name_order = 1
 		}
 		location = 6348
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 
@@ -745,7 +836,7 @@ units = {
 				name_order = 1
 		}
 		location = 721
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -755,7 +846,7 @@ units = {
 				name_order = 1
 		}
 		location = 4506
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -765,7 +856,7 @@ units = {
 				name_order = 1
 		}
 		location = 6602
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	division= {	
@@ -774,7 +865,7 @@ units = {
 				name_order = 1
 		}
 		location = 6636
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -785,7 +876,7 @@ units = {
 				name_order = 1
 		}
 		location = 1980
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -795,7 +886,7 @@ units = {
 				name_order = 1
 		}
 		location = 4863
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -805,7 +896,7 @@ units = {
 				name_order = 1
 		}
 		location = 5197
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -815,7 +906,7 @@ units = {
 				name_order = 1
 		}
 		location = 6927
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -826,7 +917,7 @@ units = {
 				name_order = 1
 		}
 		location = 2258
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -836,7 +927,7 @@ units = {
 				name_order = 1
 		}
 		location = 7085
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -846,7 +937,7 @@ units = {
 				name_order = 1
 		}
 		location = 467
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -857,26 +948,9 @@ units = {
 				name_order = 1
 		}
 		location = 6348
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	division= {	
 		division_name = {
@@ -884,7 +958,7 @@ units = {
 				name_order = 1
 		}
 		location = 7175
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -894,7 +968,7 @@ units = {
 				name_order = 1
 		}
 		location = 7188
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -905,7 +979,7 @@ units = {
 				name_order = 1
 		}
 		location = 5283
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -916,7 +990,7 @@ units = {
 				name_order = 1
 		}
 		location = 428
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -926,7 +1000,7 @@ units = {
 				name_order = 1
 		}
 		location = 7167
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -936,7 +1010,7 @@ units = {
 				name_order = 1
 		}
 		location = 7154
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -946,7 +1020,7 @@ units = {
 				name_order = 1
 		}
 		location = 2252
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -956,7 +1030,7 @@ units = {
 				name_order = 1
 		}
 		location = 7172
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -967,7 +1041,7 @@ units = {
 				name_order = 1
 		}
 		location = 7187
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -977,7 +1051,7 @@ units = {
 				name_order = 1
 		}
 		location = 7183
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -988,7 +1062,7 @@ units = {
 				name_order = 1
 		}
 		location = 7182
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -998,7 +1072,7 @@ units = {
 				name_order = 1
 		}
 		location = 821
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1009,7 +1083,7 @@ units = {
 				name_order = 1
 		}
 		location = 7164
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1019,7 +1093,7 @@ units = {
 				name_order = 1
 		}
 		location = 1222
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1029,7 +1103,7 @@ units = {
 				name_order = 1
 		}
 		location = 402
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1040,27 +1114,9 @@ units = {
 				name_order = 1
 		}
 		location = 747
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	division= {	
 		division_name = {
@@ -1068,7 +1124,7 @@ units = {
 				name_order = 1
 		}
 		location = 7118
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1079,7 +1135,7 @@ units = {
 				name_order = 1
 		}
 		location = 4509
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1089,7 +1145,7 @@ units = {
 				name_order = 1
 		}
 		location = 7060
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1100,7 +1156,7 @@ units = {
 				name_order = 1
 		}
 		location = 3582
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1110,7 +1166,7 @@ units = {
 				name_order = 1
 		}
 		location = 2006
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1120,7 +1176,7 @@ units = {
 				name_order = 1
 		}
 		location = 6951
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1130,7 +1186,7 @@ units = {
 				name_order = 1
 		}
 		location = 6909
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1140,7 +1196,7 @@ units = {
 				name_order = 1
 		}
 		location = 4055
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1151,7 +1207,7 @@ units = {
 				name_order = 1
 		}
 		location = 1496
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1162,7 +1218,7 @@ units = {
 				name_order = 1
 		}
 		location = 1836
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1172,70 +1228,7 @@ units = {
 				name_order = 1
 		}
 		location = 1682
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 1369
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4797
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6583
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6542
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6473
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6406
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1245,48 +1238,7 @@ units = {
 				name_order = 1
 		}
 		location = 4201
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6376
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 5447
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6347
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6356
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1296,7 +1248,7 @@ units = {
 				name_order = 1
 		}
 		location = 3818
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1306,7 +1258,7 @@ units = {
 				name_order = 1
 		}
 		location = 6321
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1317,7 +1269,7 @@ units = {
 				name_order = 1
 		}
 		location = 6352
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1328,7 +1280,7 @@ units = {
 				name_order = 1
 		}
 		location = 553
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1339,7 +1291,7 @@ units = {
 				name_order = 1
 		}
 		location = 6364
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1349,7 +1301,7 @@ units = {
 				name_order = 1
 		}
 		location = 6373
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1359,7 +1311,7 @@ units = {
 				name_order = 1
 		}
 		location = 30
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1370,7 +1322,7 @@ units = {
 				name_order = 1
 		}
 		location = 3869
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1381,7 +1333,7 @@ units = {
 				name_order = 1
 		}
 		location = 6411
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1391,7 +1343,7 @@ units = {
 				name_order = 1
 		}
 		location = 6438
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1401,7 +1353,7 @@ units = {
 				name_order = 1
 		}
 		location = 6460
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1411,8 +1363,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 721
-		division_template = "Siege Force"
+		location = 677
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1421,8 +1373,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4506
-		division_template = "Siege Force"
+		location = 454
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1432,7 +1384,7 @@ units = {
 				name_order = 1
 		}
 		location = 5362
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1441,8 +1393,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6602
-		division_template = "Siege Force"
+		location = 2563
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	division= {	
@@ -1450,8 +1402,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6636
-		division_template = "Siege Force"
+		location = 6693
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1461,8 +1413,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1980
-		division_template = "Siege Force"
+		location = 6628
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1472,7 +1424,7 @@ units = {
 				name_order = 1
 		}
 		location = 6736
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1482,7 +1434,7 @@ units = {
 				name_order = 1
 		}
 		location = 6776
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1491,8 +1443,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4863
-		division_template = "Siege Force"
+		location = 1120
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1501,8 +1453,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5197
-		division_template = "Siege Force"
+		location = 311
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1512,7 +1464,7 @@ units = {
 				name_order = 1
 		}
 		location = 3456
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1521,10 +1473,29 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6927
-		division_template = "Siege Force"
+		location = 1019
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6879
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.9
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2075
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
 	}
 	
 	division= {	
@@ -1533,7 +1504,7 @@ units = {
 				name_order = 1
 		}
 		location = 6960
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1544,7 +1515,7 @@ units = {
 				name_order = 1
 		}
 		location = 7013
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1554,8 +1525,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2258
-		division_template = "Siege Force"
+		location = 7021
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1564,8 +1535,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7085
-		division_template = "Siege Force"
+		location = 7121
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1574,8 +1545,8 @@ units = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 467
-		division_template = "Siege Force"
+		location = 869
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1585,17 +1556,7 @@ units = {
 				name_order = 1
 		}
 		location = 1625
-		division_template = "Siege Force"
-		start_experience_factor = 0.4
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6348
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1605,7 +1566,7 @@ units = {
 				name_order = 1
 		}
 		location = 7175
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1615,7 +1576,7 @@ units = {
 				name_order = 1
 		}
 		location = 7188
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1626,7 +1587,7 @@ units = {
 				name_order = 1
 		}
 		location = 5283
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1637,7 +1598,7 @@ units = {
 				name_order = 1
 		}
 		location = 428
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1647,7 +1608,7 @@ units = {
 				name_order = 1
 		}
 		location = 7167
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1657,7 +1618,7 @@ units = {
 				name_order = 1
 		}
 		location = 7154
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1667,7 +1628,7 @@ units = {
 				name_order = 1
 		}
 		location = 2252
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1677,7 +1638,7 @@ units = {
 				name_order = 1
 		}
 		location = 7172
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1688,7 +1649,7 @@ units = {
 				name_order = 1
 		}
 		location = 7187
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1698,7 +1659,7 @@ units = {
 				name_order = 1
 		}
 		location = 7183
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1709,7 +1670,7 @@ units = {
 				name_order = 1
 		}
 		location = 7182
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1719,7 +1680,7 @@ units = {
 				name_order = 1
 		}
 		location = 821
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1730,7 +1691,7 @@ units = {
 				name_order = 1
 		}
 		location = 7164
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1740,7 +1701,7 @@ units = {
 				name_order = 1
 		}
 		location = 1222
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 	}
 	
@@ -1750,7 +1711,7 @@ units = {
 				name_order = 1
 		}
 		location = 402
-		division_template = "Siege Force"
+		division_template = "Siege Infantry"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.8
 	}
@@ -1761,456 +1722,1345 @@ units = {
 				name_order = 1
 		}
 		location = 747
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3176
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1768
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6984
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 274
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 5073
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 140
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7002
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1588
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4836
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2120
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7174
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4430
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2423
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4479
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2791
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7153
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7246
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 582
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3138
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1124
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 533
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1606
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7223
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7218
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6430
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3741
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 5071
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 254
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6353
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6342
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2125
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1841
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2274
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1638
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1153
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6313
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2827
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6337
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4231
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 326
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6363
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2021
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6310
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4707
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1708
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2095
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6198
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.4
+	}
+
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6583
 		division_template = "Siege Force"
 		start_experience_factor = 0.4
 	}
-	
-	
-	#non siege:
-	
-		
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6583
+		division_template = "Siege Force"
+		start_experience_factor = 0.4
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6542
+		division_template = "Siege Force"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6542
+		division_template = "Siege Force"
+		start_experience_factor = 0.4
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4797
+		division_template = "Siege Force"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4797
+		division_template = "Siege Force"
+		start_experience_factor = 0.4
+	}
+
+
+
+
+
+		##### taihua mountains
+
+
+
+
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6089
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6089
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6102
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4331
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6108
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4535
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 522
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 191
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1887
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 143
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 874
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2144
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 191
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1887
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 143
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.4
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 874
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2144
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 5208
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 496
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2833
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6179
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 6170
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1102
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1202
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1102
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1202
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1289
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 973
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1289
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.3
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 973
+		division_template = "Siege Infantry"
+		start_experience_factor = 0.3
+	}
+
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3193
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.9
+	}
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 6205
-		division_template = "Fire Nation Swordsmen"
+		division_template = "Spearmen Division"
 		start_experience_factor = 0.4
 		start_equipment_factor = 0.9
 	}
+
+
+
+
+
+
 	
-	
+
+
+		##### yellow neck invasion
+
+
+
+
+
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 9881
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 1154
+		division_template = "Ranger Division"
+		start_experience_factor = 0.35
+		start_equipment_factor = 0.85
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2719
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 8167
+		division_template = "Ranger Division"
+		start_experience_factor = 0.28
+		start_equipment_factor = 0.85
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 3387
-		division_template = "Fire Nation Spearmen"
+		location = 8195
+		division_template = "Ranger Division"
 		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_equipment_factor = 0.85
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6901
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 1095
+		division_template = "Ranger Division"
+		start_experience_factor = 0.42
+		start_equipment_factor = 0.85
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6682
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 8195
+		division_template = "Ranger Division"
+		start_experience_factor = 0.31
+		start_equipment_factor = 0.91
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1307
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 1095
+		division_template = "Ranger Division"
+		start_experience_factor = 0.41
+		start_equipment_factor = 0.86
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5240
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 596
+		division_template = "Ranger Division"
+		start_experience_factor = 0.38
+		start_equipment_factor = 0.85
 	}
-	
+
+
+
+	##### nan shan invasion
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 3723
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 3773
+		division_template = "Ranger Division"
+		start_experience_factor = 0.33
+		start_equipment_factor = 0.94
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4327
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 3773
+		division_template = "Ranger Division"
+		start_experience_factor = 0.31
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 6807
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 9281
+		division_template = "Ranger Division"
+		start_experience_factor = 0.25
+		start_equipment_factor = 1
 	}
-	
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5605
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 1180
+		division_template = "Ranger Division"
+		start_experience_factor = 0.26
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1371
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 2510
+		division_template = "Ranger Division"
+		start_experience_factor = 0.25
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5449
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 2510
+		division_template = "Ranger Division"
+		start_experience_factor = 0.25
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 3167
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 9371
+		division_template = "Ranger Division"
+		start_experience_factor = 0.34
+		start_equipment_factor = 0.99
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2079
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 2306
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.37
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2376
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 1328
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.38
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 177
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 9284
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 659
+		location = 9284
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9284
 		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
 	}
-	
+
+
+	#### gaoling invasion
+
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2772
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7877
-		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-		division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 2079
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 2376
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 177
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 659
+		location = 1519
 		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.8
+		start_experience_factor = 0.45
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2772
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 9082
+		division_template = "Firebenders"
+		start_experience_factor = 0.43
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7877
-		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 9082
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 1
 	}
-	
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1519
+		division_template = "Ranger Division"
+		start_experience_factor = 0.43
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 501
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.26
+		start_equipment_factor = 0.96
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 501
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.29
+		start_equipment_factor = 0.95
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3069
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.31
+		start_equipment_factor = 0.98
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 822
+		division_template = "Ranger Division"
+		start_experience_factor = 0.34
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9146
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9146
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.98
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4569
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.27
+		start_equipment_factor = 0.98
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1172
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.31
+		start_equipment_factor = 0.98
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1172
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.34
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9157
+		division_template = "Ranger Division"
+		start_experience_factor = 0.36
+		start_equipment_factor = 0.89
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9187
+		division_template = "Ranger Division"
+		start_experience_factor = 0.37
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 9182
+		division_template = "Spearmen Division"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+
+
+
+
+	##### hebai front
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 3233
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Ranger Division"
+		start_experience_factor = 0.37
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7501
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Ranger Division"
+		start_experience_factor = 0.32
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 2128
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.43
+		start_equipment_factor = 1
 	}
-	
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2128
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.44
+		start_equipment_factor = 1
+	}
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 4599
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.41
+		start_equipment_factor = 0.98
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 2155
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Ranger Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7566
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		division_template = "Ranger Division"
+		start_experience_factor = 0.28
+		start_equipment_factor = 0.97
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7639
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Ranger Division"
+		start_experience_factor = 0.32
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7693
-		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Ranger Division"
+		start_experience_factor = 0.45
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 5536
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.32
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 2202
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.33
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 2848
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.32
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 1027
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.38
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 4098
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.38
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
@@ -2218,54 +3068,49 @@ units = {
 		}
 		location = 1167
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.39
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7548
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.42
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7553
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.35
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 3223
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.34
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 3192
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.39
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
@@ -2273,129 +3118,260 @@ units = {
 		}
 		location = 7655
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.42
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 7707
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
+		division_template = "Ranger Division"
+		start_experience_factor = 0.47
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 325
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
+		division_template = "Ranger Division"
+		start_experience_factor = 0.46
+		start_equipment_factor = 1
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
+
+
+
+
+	########## serpent front
+
+
+
+
+
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 349
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 7363
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.32
+		start_equipment_factor = 0.89
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 8064
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 7363
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.46
+		start_equipment_factor = 0.84
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 8014
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 2003
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.34
+		start_equipment_factor = 0.91
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1889
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 2003
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.47
+		start_equipment_factor = 0.82
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 905
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 405
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.45
+		start_equipment_factor = 0.99
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7895
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 343
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5301
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 7345
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
 	}
-	
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 343
+		division_template = "Mountain Brigade"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7465
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1066
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2516
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7465
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 1066
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 2516
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.2
+		start_equipment_factor = 1
+	}
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7554
+		division_template = "Ranger Division"
+		start_experience_factor = 0.3
+		start_equipment_factor = 0.94
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3277
+		division_template = "Ranger Division"
+		start_experience_factor = 0.34
+		start_equipment_factor = 0.93
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 7606
+		division_template = "Ranger Division"
+		start_experience_factor = 0.33
+		start_equipment_factor = 0.97
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3183
+		division_template = "Ranger Division"
+		start_experience_factor = 0.4
+		start_equipment_factor = 0.98
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 4419
+		division_template = "Ranger Division"
+		start_experience_factor = 0.43
+		start_equipment_factor = 0.95
+	}
+
+
+
+
+	####### omashu north push
+
+
+
+
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 3952
+		division_template = "Ranger Division"
+		start_experience_factor = 0.47
+		start_equipment_factor = 0.94
+	}
+	division= {	
+		division_name = {
+				is_name_ordered = yes
+				name_order = 1
+		}
+		location = 483
+		division_template = "Ranger Division"
+		start_experience_factor = 0.37
+		start_equipment_factor = 0.96
+	}
 	division= {	
 		division_name = {
 				is_name_ordered = yes
@@ -2403,980 +3379,159 @@ units = {
 		}
 		location = 4256
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.34
+		start_equipment_factor = 1
 	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 483
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3952
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 349
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8064
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8014
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 1889
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 905
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7895
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
 		location = 5301
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4256
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.36
+		start_equipment_factor = 0.99
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 483
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3952
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4419
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3183
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7606
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3277
+		location = 7895
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.37
+		start_equipment_factor = 0.98
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7554
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 2516
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 1066
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7465
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 405
+		location = 905
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.41
+		start_equipment_factor = 0.96
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2003
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7363
+		location = 1889
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.43
+		start_equipment_factor = 0.96
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4419
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3183
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7606
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3277
+		location = 8014
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.56
+		start_equipment_factor = 0.75
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7554
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 2516
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 1066
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7465
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 405
+		location = 8014
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.58
+		start_equipment_factor = 0.78
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 2003
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7363
+		location = 8064
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		start_experience_factor = 0.64
+		start_equipment_factor = 0.72
 	}
-	
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 4132
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4132
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4132
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4132
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3242
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3242
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3242
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3242
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3242
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8259
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8259
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8218
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8474
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8154
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4954
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7998
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8445
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 8603
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 1280
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4979
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7887
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7681
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7671
-		division_template = "Royale Guards"
-		start_experience_factor = 0.7
-	}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6736
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4506
+		location = 349
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.67
+		start_equipment_factor = 0.71
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 5117
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6566
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6678
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 4080
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 5362
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 721
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6460
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6483
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 6602
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7276
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7276
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7276
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.5
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 7276
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 220
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 944
-		division_template = "Fire Nation Swordsmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
-	}
-	
-	division= {	
-		division_name = {
-				is_name_ordered = yes
-				name_order = 1
-		}
-		location = 3141
+		location = 2079
 		division_template = "Fire Nation Pikemen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		start_experience_factor = 0.56
+		start_equipment_factor = 0.78
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7414
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
+		location = 2376
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.58
+		start_equipment_factor = 0.77
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1040
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 177
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.53
+		start_equipment_factor = 0.81
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7414
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.6
+		location = 659
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.51
+		start_equipment_factor = 0.8
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 1040
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.9
+		location = 2772
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.56
+		start_equipment_factor = 0.62
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 7332
-		division_template = "Firebenders"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 2772
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.59
+		start_equipment_factor = 0.59
 	}
-	
 	division= {	
 		division_name = {
 				is_name_ordered = yes
 				name_order = 1
 		}
-		location = 3576
-		division_template = "Fire Nation Spearmen"
-		start_experience_factor = 0.4
-		start_equipment_factor = 0.7
+		location = 7877
+		division_template = "Fire Nation Pikemen"
+		start_experience_factor = 0.49
+		start_equipment_factor = 0.71
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 
 
 }

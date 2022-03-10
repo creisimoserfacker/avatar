@@ -435,7 +435,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		decryption = 1
+		recon_factor = 0.1
 		
 		doctrine = yes
 
@@ -470,7 +471,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		recon_factor = 0.1
 		
 		doctrine = yes
 
@@ -504,7 +505,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		recon_factor = 0.1
 		
 		doctrine = yes
 
@@ -542,7 +543,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		decryption = 1
 		
 		doctrine = yes
 
@@ -576,7 +577,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		decryption = 1
 		
 		doctrine = yes
 
@@ -611,7 +612,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		decryption = 1
+		recon_factor = 0.1
 		
 		doctrine = yes
 
@@ -646,7 +648,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		recon_factor_while_entrenched = 0.2
 		
 		doctrine = yes
 
@@ -679,6 +681,8 @@ technologies = {
 			leads_to_tech = siege_4
 			research_cost_coeff = 1
 		}
+
+		fortification_collateral_chance = 0.05
 
 		
 		doctrine = yes
@@ -713,7 +717,13 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		grappling_hook = {
+			max_organisation = 10
+
+			fort = {
+				attack = 0.05
+			}
+		}
 		
 		doctrine = yes
 
@@ -747,7 +757,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		fortification_damage = 0.05
 		
 		doctrine = yes
 
@@ -781,7 +791,28 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		siege_towers = {
+			max_organisation = 10
+
+			fort = {
+				attack = 0.05
+			}
+		}
+		catapult_brigade = {
+			max_organisation = 10
+
+			fort = {
+				attack = 0.05
+			}
+		}
+		ladder_battalion = {
+			max_organisation = 10
+
+			fort = {
+				attack = 0.05
+			}
+		}
+		fortification_damage = 0.1
 		
 		doctrine = yes
 
@@ -902,8 +933,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		dig_in_speed_factor = 1
-		max_dig_in_factor = -0.5
+		resistance_damage_to_garrison_on_our_occupied_states = 0.2
+		pocket_penalty = -0.05
 		
 		doctrine = yes
 
@@ -1098,8 +1129,8 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		
-		fortification_damage = 0.1
-		fortification_collateral_chance = 0.15
+		fortification_damage = 0.05
+		fortification_collateral_chance = 0.05
 		
 		doctrine = yes
 
@@ -1237,8 +1268,8 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
-		land_night_attack = 1
-		army_attack_factor = -0.5
+		land_night_attack = 0.5
+		army_attack_factor = -0.2
 		
 		doctrine = yes
 
@@ -1273,7 +1304,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		out_of_supply_factor = -0.2
+		supply_consumption_factor = -0.1
+		equipment_capture_factor = 0.05
+		terrain_penalty_reduction = 0.05
 		
 		doctrine = yes
 
@@ -1308,7 +1341,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		attrition = -0.05
+		pocket_penalty = -0.1
 		
 		doctrine = yes
 
@@ -1384,8 +1417,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		max_army_group_size = 1
-		conscription = 0.01
+		army_morale_factor = 0.04
+		max_command_power = 50
 		
 		doctrine = yes
 
@@ -1415,8 +1448,6 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 		
-		army_attack_factor = 0.08
-		max_command_power = 50
 		army_attack_factor = 0.05
 		
 		doctrine = yes
@@ -1452,8 +1483,9 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_leader_cost_factor = -0.25
-		max_command_power = 50
+		max_commander_army_size = 6
+		max_army_group_size = 1
+		command_power_gain = 0.2
 		
 		doctrine = yes
 
@@ -1528,7 +1560,6 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_org_factor = 0.05
 		army_speed_factor = 0.05
 		
 		doctrine = yes
@@ -1564,8 +1595,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		army_org_factor = 0.05
-		army_speed_factor = 0.05
+		org_loss_when_moving = -0.1
 		
 		doctrine = yes
 
@@ -1635,7 +1665,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		
+		army_speed_factor = 0.05
 		
 		doctrine = yes
 		research_cost = 7
@@ -1675,7 +1705,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		no_supply_grace = 168
+		no_supply_grace = 72
 		
 		doctrine = yes
 
@@ -1906,7 +1936,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		supply_node_range = 0.05
+		attrition = -0.1
 		
 		doctrine = yes
 
@@ -1941,7 +1971,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		supply_node_range = 0.05
+		supply_node_range = 0.1
 		
 		doctrine = yes
 
@@ -2012,7 +2042,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		supply_node_range = 0.05
+		no_supply_grace = 48
 		
 		doctrine = yes
 
@@ -2047,7 +2077,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		supply_node_range = 0.05
+		org_loss_when_moving = -0.1
 		
 		doctrine = yes
 
@@ -2092,7 +2122,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		org_loss_when_moving = -0.1
+		army_org_factor = 0.05
 		
 		doctrine = yes
 		research_cost = 7
@@ -2128,7 +2158,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		
+		mobilization_speed = 0.1
 		
 		doctrine = yes
 
@@ -2163,7 +2193,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		
+		training_time_factor = -0.05
 		
 		doctrine = yes
 
@@ -2198,7 +2228,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		
+		army_speed_factor = 0.1
 		
 		doctrine = yes
 
@@ -2272,7 +2302,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		
+		army_fuel_consumption_factor = -0.2
 		
 		doctrine = yes
 
@@ -2720,7 +2750,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		fortification_damage = 0.15
+		#fortification_damage = 0.15
 		
 		coordination_bonus = 0.01
 		air_superiority_bonus_in_combat = 0.2
@@ -2762,7 +2792,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		fortification_damage = 0.2
+		fortification_collateral_chance = 0.2
 		
 		doctrine = yes
 
@@ -2791,6 +2821,8 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		coordination_bonus = 0.01
 		
 		
 		doctrine = yes
@@ -2830,6 +2862,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
+		coordination_bonus = 0.01
 		
 		doctrine = yes
 
@@ -2857,6 +2890,8 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		coordination_bonus = 0.01
 		
 		
 		doctrine = yes
@@ -2891,6 +2926,8 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
+		coordination_bonus = 0.01
+
 		doctrine = yes
 
 		folder = {
@@ -2920,9 +2957,11 @@ technologies = {
 		xp_unlock_cost = 100
 		
 		path = {
-			leads_to_tech = the_art_of_war
+			leads_to_tech = coordination18
 			research_cost_coeff = 1
 		}
+
+		coordination_bonus = 0.01
 		
 		doctrine = yes
 
@@ -2950,6 +2989,13 @@ technologies = {
 
 		xp_research_type = army
 		xp_unlock_cost = 100
+
+		path = {
+			leads_to_tech = the_art_of_war
+			research_cost_coeff = 1
+		}
+
+		coordination_bonus = 0.01
 		
 		doctrine = yes
 
@@ -2982,10 +3028,8 @@ technologies = {
 			leads_to_tech = coordination18
 			research_cost_coeff = 1
 		}
-		path = {
-			leads_to_tech = the_art_of_war
-			research_cost_coeff = 1
-		}
+
+		coordination_bonus = 0.01
 		
 		doctrine = yes
 
@@ -3016,8 +3060,19 @@ technologies = {
 		xp_research_type = army
 		xp_unlock_cost = 100
 
+		dependencies = {
+			scouts_and_spies = 1
+			primacy_of_bravery = 1
+			maneuvre6 = 1
+			coordination18 = 1
+		}
+
 		
-		#fortification_damage = 0.2
+		army_speed_factor = 0.1
+		army_attack_factor = 0.1
+		army_org_factor = 0.1
+		coordination_bonus = 0.1
+
 		
 		doctrine = yes
 

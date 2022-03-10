@@ -450,7 +450,7 @@ NResistance = {
 	GARRISON_STR_POW_MANPOWER = 2,	--Scales impact of manpower deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - manpower_deficiency^GARRISON_STR_POW_MANPOWER
 	GARRISON_STR_POW_EQUIPMENT = 3,	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
-	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.75, -- Number of suppression point we need for each 1% of resistance
+	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 1.5, -- Number of suppression point we need for each 1% of resistance
 	SUPPRESSION_NEEDED_LOWER_CAP = 10.0,	-- if resistance is lower than this value then we always act as though it is at the define for the purpose of suppresion requirements
 	SUPPRESSION_NEEDED_UPPER_CAP = 50.0, -- if resistance is greater than this value then we always act as though it is at the define for the purpose of suppresion requirements
 	
@@ -566,9 +566,9 @@ NBuildings = {
 	AIRBASE_CAPACITY_MULT = 20,			-- Each level of airbase building multiplied by this, gives capacity (max operational value). Value is int. 1 for each airplane.
 	ROCKETSITE_CAPACITY_MULT = 100,		-- Each level of rocketsite building multiplied by this, gives capacity (max operational value). Value is int. 1 for each rocket.
 	NAVALBASE_REPAIR_MULT = 0.05,		-- Each level of navalbase building repairs X strength and can repair as many ships as its level
-	RADAR_RANGE_BASE = 30,				-- Radar range base, first level radar will be this + min, best radar will be this + max
-	RADAR_RANGE_MIN = 30,				-- Radar range (from state center to province center) in measure of map pixels. Exluding techs.
-	RADAR_RANGE_MAX = 90,				-- Range is interpolated between building levels 1-15.
+	RADAR_RANGE_BASE = 20,				-- Radar range base, first level radar will be this + min, best radar will be this + max
+	RADAR_RANGE_MIN = 40,				-- Radar range (from state center to province center) in measure of map pixels. Exluding techs.
+	RADAR_RANGE_MAX = 100,				-- Range is interpolated between building levels 1-15.
 	RADAR_INTEL_EFFECT = 120,			-- Province covered by radar increases intel by 10 (where 255 is max). Province may be covered by multiple radars, then the value sums up.
 	SABOTAGE_FACTORY_DAMAGE = 100.0,		-- How much damage takes a factory building in sabotage when state is occupied. Damage is mult by (1 + resistance strength), i.e. up to 2 x base value.
 	BASE_FACTORY_REPAIR = 0.3,			-- 0.3 Default repair rate before factories are taken into account
@@ -741,7 +741,7 @@ NMilitary = {
 	EQUIPMENT_COMBAT_LOSS_FACTOR = 0.7,	 	       -- % of equipment lost to strength ratio in combat, so some % is returned if below 1
 	SUPPLY_USE_FACTOR_MOVING = 1.5,                -- supply use when moving/fighting vs inactive
 	SUPPLY_USE_FACTOR_INACTIVE = 0.95,
-	SUPPLY_GRACE = 168,							   -- troops always carry 7 days of food and supply
+	SUPPLY_GRACE = 96,							   -- troops always carry 4 days of food and supply
 	SUPPLY_GRACE_MAX_REDUCE_PER_HOUR = 2,          -- supply grace is not decreased instantly when it is buffed temporarily and buff is removed
 	SUPPLY_ORG_MAX_CAP = 0.30,                     -- Max organization is factored by this if completely out of supply
 	MAX_OUT_OF_SUPPLY_DAYS = 90, 				   -- how many days of shitty supply until max penalty achieved
@@ -1780,7 +1780,7 @@ NTrade = {
 },
 
 NAI = {
-	GARRISON_FRACTION = 0.0, 					-- How large part of a front should always be holding the line rather than advancing at the enemy
+	GARRISON_FRACTION = 0.4, 					-- How large part of a front should always be holding the line rather than advancing at the enemy
 	THEORIST_SCALING_WEIGHT_FACTOR_PER_NON_POLITICAL_ADVISORS = 0.15, --Scale theorist weight by this * num non political advisors
 	DIPLOMATIC_ACTION_GOOD_BAD_RATIO_THRESHOLD = 1,
 	BASE_RELUCTANCE = 20, 						-- Base reluctance applied to all diplomatic offers
