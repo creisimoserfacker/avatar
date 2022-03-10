@@ -1,0 +1,219 @@
+
+sub_units = {
+
+	combat_pioneer = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 100
+		ai_priority = 100
+		active = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_all_foot
+			category_melee
+			category_support
+			category_support_offensive
+			category_front_army
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 10
+		max_organisation = 30
+		default_morale = 0.3
+		manpower = 16
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		
+		#entrenchment  = 1
+
+				
+		defense = 0.1
+		breakthrough = 0.5
+
+		# Support nerfs to combat abilities
+		soft_attack = 0.5
+		hard_attack = 0.5
+
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			support_equipment = 16
+			light_armor_equipment = 16
+		}
+
+		can_be_parachuted = no
+
+		forest = {
+			attack = 0.05
+		}
+		jungle = {
+			attack = 0.05
+		}
+
+		marsh = {
+			attack = 0.05
+		}
+
+		hills = {
+			attack = 0.05
+		}
+		cliff = {
+			attack = 0.05
+		}
+		canyon = {
+			attack = 0.05
+		}
+
+		mountain = {
+			attack = 0.05
+		}
+		high_mountain = {
+			attack = 0.05
+		}
+
+		village = {
+			attack = 0.05
+		}
+		urban = {
+			attack = 0.05
+		}
+
+		river = {
+			attack = 0.5
+			#movement = 0.5
+		}
+		amphibious = {
+			attack = 0.25
+			#movement = 0.25
+		}
+
+		same_support_type = combat_pioneer
+	}
+	
+	avatar_engineer = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 100
+		ai_priority = 100
+		active = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_all_foot
+			category_support
+			category_support_defensive
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 10
+		max_organisation = 20
+		default_morale = 0.3
+		manpower = 12
+		training_time = 120
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.02
+		
+		entrenchment  = 6
+		reliability_factor = 0.06
+				
+		defense = -0.5
+		ap_attack = 0.5
+
+		# Support nerfs to combat abilities
+		soft_attack = -1
+		hard_attack = -1
+		breakthrough = -1
+
+		transport = support_equipment
+
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			support_equipment = 12
+			#light_armor_equipment = 12
+			spear_equipment = 12
+		}
+
+		can_be_parachuted = no
+
+		forest = {
+			defence = 0.05
+			movement = 0.05
+		}
+		jungle = {
+			defence = 0.1
+			movement = 0.2
+		}
+
+		marsh = {
+			defence = 0.1
+			movement = 0.2
+		}
+
+		hills = {
+			defence = 0.1
+			movement = 0.05
+		}
+
+		cliff = {
+			defence = 0.1
+			movement = 0.05
+		}
+		canyon = {
+			defence = 0.1
+			movement = 0.05
+		}
+
+		mountain = {
+			defence = 0.1
+			movement = 0.05
+		}
+		high_mountain = {
+			defence = 0.05
+			movement = 0.05
+		}
+
+		village = {
+			defence = 0.1
+		}
+		urban = {
+			defence = 0.1
+		}
+
+		river = {
+			movement = 0.5
+		}
+
+		same_support_type = combat_pioneer
+	}
+
+	
+}
