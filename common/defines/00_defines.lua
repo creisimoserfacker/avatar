@@ -2439,7 +2439,6 @@ NAI = {
 	NAVY_CHIEF_SCORE_MULTIPLIER = 1.0,                  -- score multiplier for hiring an navy chief
 	POLITICAL_ADVISOR_SCORE_MULTIPLIER = 1.0,           -- score multiplier for hiring political advisors
 	THEORIST_ACCEPTANCE_MULTIPLIER = 0.7,						-- scale the acceptance of hiring a theorist by this number times the amount of non-theorists we have, capped at one.
-
 	MIN_SCALED_IDEA_WEIGHT_TO_COMPARE_WITH_DECISIONS = 100,      -- idea scores are scaled between these two values while comparing them to decisions
 	MAX_SCALED_IDEA_WEIGHT_TO_COMPARE_WITH_DECISIONS = 200,      -- idea scores are scaled between these two values while comparing them to decisions
 

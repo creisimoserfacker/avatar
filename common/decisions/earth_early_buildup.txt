@@ -141,9 +141,11 @@ earth_economic_buildup_category = {
 					instant_build = yes
 				}
 			}
-			limit = {
-				not = {
-					has_tech = masonry_1
+			if = {
+				limit = {
+					not = {
+						has_tech = masonry_1
+					}
 				}
 				random_owned_state = {
 					limit = { 
@@ -179,9 +181,11 @@ earth_economic_buildup_category = {
 					instant_build = yes
 				}
 			}
-			limit = {
-				not = {
-					has_tech = carpentry_1
+			if = {
+				limit = {
+					not = {
+						has_tech = carpentry_1
+					}
 				}
 				random_owned_state = {
 					limit = { 
@@ -719,7 +723,7 @@ earth_military_buildup_category = {
 		complete_effect = {
 			set_country_flag = military_investments
 			add_equipment_to_stockpile = {
-			    type = bender_equipment
+			    type = earthbender_equipment
 			    amount = -200
 			}
 		}

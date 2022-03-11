@@ -90,15 +90,11 @@ country_event = {
 	desc = spirit_event.1.d
 	picture = GFX_spirit_event_001
 
-	trigger = {
-		ROOT = {
-			check_variable = { conciousness > 80 }
-			has_idea = state_5
-		}
-		NOT = { 
-			check_variable = { conciousness < 80 }
-		}
-	}
+	#trigger = {
+	#	threat > 1.0
+	#}
+
+	is_triggered_only = yes
 
 	immediate = {
 		hidden_effect = {

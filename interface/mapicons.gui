@@ -1692,12 +1692,12 @@ guiTypes = {
 		position = { x=0 y=0 }
 		size = { width=0 height=0 }
 		orientation = upper_left
-				
+
 		gridboxtype = {
 			name = "decisions_gridbox"
 			position = { x = 0 y = 0 } #Set in code
 			size = { width = 100%% height = 100%% }
-			slotsize = { width = 40 height = 40 }
+			slotsize = { width = 50 height = 40 } ## Anything less than 50 width makes CP custom costs overlap unreadably
 			max_slots_horizontal = 3 #Set in code
 		}
 	}
@@ -1729,24 +1729,24 @@ guiTypes = {
 			format = center
 			alwaystransparent = yes
 		}
-		
+
 		containerWindowType = {
 			name = "spotting_bar_container"
 			position = { x=57 y=3 }
-			
+
 			iconType = {
 				name ="spotting_bar_bg"
 				spriteType = "GFX_spotting_bar_bg_small"
 				position = { x=0 y=0 }
 				Orientation = "UPPER_LEFT"
-			}	
-			
+			}
+
 			containerWindowType = {
 				name = "spotting_bar_fg_container"
 				position = { x=1 y=1 }
 				size = { width = 4 height = 12 } #size of bar fg
 				clipping = yes
-				
+
 				iconType = {
 					name ="spotting_bar_fg"
 					spriteType = "GFX_spotting_bar_small"
@@ -1758,26 +1758,26 @@ guiTypes = {
 	}
 
 @DECISION_PROGRESS_BAR_Y = 37
-@DECISION_PROGRESS_BAR_X = 6
+@DECISION_PROGRESS_BAR_X = 7
 	containerWindowType = {
 		name = "decision_mapicon_item"
 		position = { x=0 y=0 }
 		size = { width = 40 height = 40 }
 		clipping = no
-	
+
 
 		buttonType = {
 			name ="background_btn"
 			quadTextureSprite = "GFX_mapicon_decision_bg"
 			position = { x=0 y=0 }
 		}
-	
+
 		iconType = {
 			name ="decision_icon"
 			spriteType = "GFX_decision_unknown"
 			position = { x=19 y=19 }
 			alwaystransparent = yes
-			centerPosition = yes			
+			centerPosition = yes
 			scale = 1
 		}
 
@@ -1794,32 +1794,43 @@ guiTypes = {
 			position = { x=@DECISION_PROGRESS_BAR_X y=@DECISION_PROGRESS_BAR_Y }
 		}
 
-		iconType = {
-			name ="cost_bg"
-			quadTextureSprite = "GFX_mapicon_cost_bg"
-			position = { x = -9 y = 32 }
-			alwaystransparent = yes
+		containerWindowType = {
+			name = "cost_container"
+			position = { x = 0 y = 30 }
+			orientation = center
+			origo = center
+			clipping = no
+
+			background = {
+				name ="cost_bg"
+				quadTextureSprite = "GFX_mapicon_cost_bg"
+			}
+
+			positionType = {
+				name = "cost_text_horizontal_margin"
+				position = { x = 11 y = 11 } # Added to the width of the container when resizing it to fit the text.
+			}
+
+			instantTextboxType = {
+				name = "cost_text"
+				font = "hoi_16mbs"
+				position = { x = -80 y = -15 }
+				maxWidth = 160
+				maxHeight = 30
+				orientation = center
+				vertical_alignment = center
+				format = center
+				alwaystransparent = yes
+			}
 		}
-		
-		instantTextboxType = {
-			name = "cost_text"
-			position = { x = -34 y = 37 }
-			font = "hoi_16mbs"
-			borderSize = { x = 0 y = 0 }
-			text = "999"
-			maxWidth = 100
-			maxHeight = 35
-			format = centre
-			alwaystransparent = yes
-		}
-		
+
 		iconType = {
 			name ="target_flag"
 			quadTextureSprite ="GFX_mapicon_unit_flag_stripe_visible"
 			position = { x=14 y=27 }
 			alwaystransparent = yes
 		}
-		
+
 		iconType = {
 			name ="timer_icon"
 			quadTextureSprite = "GFX_decision_timer_icon_strip"

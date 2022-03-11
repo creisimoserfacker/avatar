@@ -1,5 +1,5 @@
 
-FIR_industrialistation_category = {
+FIR_industrialisation_category = {
 
 	cultural_change = {
 
@@ -51,7 +51,7 @@ FIR_industrialistation_category = {
 		fire_only_once = yes
 		days_remove = 730
 
-        ai_will_do = {
+      ai_will_do = {
 			factor = 1000
 		}
 	}
@@ -160,60 +160,60 @@ FIR_industrialistation_category = {
 		}
 	}
 
-	experimental_factories = {
-
-		icon = buildup
-
-		visible = {
-			has_tech = reform_3
-		}
-
-		available = {
-			any_owned_state = {
-				arms_factory > 0
-				factory < 1
-			}
-			has_tech = reform_3
-		}
-
-		remove_effect = {
-			random_owned_state = {
-				limit = { 
-					is_core_of = ROOT 
-					THIS = {
-						arms_factory > 0
-						factory < 1
-					}
-				}
-				add_building_construction = {
-					type = factory
-					level = 1
-					instant_build = yes
-				}
-				remove_building = {
-					type = arms_factory
-					level = 1
-				}
-			}
-		}
-
-		cost = 50
-        #fire_only_once = yes
-        days_remove = 60
-        days_re_enable = 30
-
-        ai_will_do = {
-			factor = 10
-		}
-	}
-
-}
-
-war_weariness_category = {
-	
-	
+	#experimental_factories = {
+#
+	#	icon = buildup
+#
+	#	visible = {
+	#		has_tech = reform_3
+	#	}
+#
+	#	available = {
+	#		any_owned_state = {
+	#			arms_factory > 0
+	#			factory < 1
+	#		}
+	#		has_tech = reform_3
+	#	}
+#
+	#	remove_effect = {
+	#		random_owned_state = {
+	#			limit = { 
+	#				is_core_of = ROOT 
+	#				THIS = {
+	#					arms_factory > 0
+	#					factory < 1
+	#				}
+	#			}
+	#			add_building_construction = {
+	#				type = factory
+	#				level = 1
+	#				instant_build = yes
+	#			}
+	#			remove_building = {
+	#				type = arms_factory
+	#				level = 1
+	#			}
+	#		}
+	#	}
+#
+	#	cost = 50
+   #     #fire_only_once = yes
+   #     days_remove = 60
+   #     days_re_enable = 30
+#
+   #     ai_will_do = {
+	#		factor = 10
+	#	}
+	#}
 
 }
+
+#war_weariness_category = {
+#	
+#	
+#
+#}
 
 FIR_royal_family_category = {
 
@@ -276,7 +276,7 @@ FIR_dragon_category = {
 			NOT = {
 				has_country_flag = befriend_dragons
 			}
-        }
+		}
 
 		complete_effect = {
 			custom_effect_tooltip = dragons_angry_tt
@@ -284,8 +284,8 @@ FIR_dragon_category = {
 		}
 
 		cost = 100
-        fire_only_once = yes
-        ai_will_do = {
+		fire_only_once = yes
+		ai_will_do = {
 			factor = 10
 		}
 	}
@@ -346,7 +346,7 @@ FIR_dragon_category = {
 							random_army_leader = {
 								limit = {
 									NOT = {
-										has_unit_leader_trait = dragon_of_the_west
+										has_trait = dragon_of_the_west
 									}
 									skill > 2
 								}
@@ -891,8 +891,10 @@ FIR_outpost_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 264
+		highlight_states = {
+			highlight_state_targets = {
+				state = 264
+			}
 		}
 
 		visible = {
@@ -913,6 +915,10 @@ FIR_outpost_category = {
 			country_resource_cost_aluminium = 10
 			country_resource_cost_steel = 2
 		}
+		custom_cost_trigger = {
+			num_of_civilian_factories > 3
+		}
+		custom_cost_text = manufactory_4
 
 		remove_effect = {
 			264 = {
@@ -931,7 +937,7 @@ FIR_outpost_category = {
 			}
 		}
 
-		cost = 50
+		#cost = 50
 		fire_only_once = yes
 	}
 
@@ -939,8 +945,10 @@ FIR_outpost_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 73
+		highlight_states = {
+			highlight_state_targets = {
+				state = 73
+			}
 		}
 
 		visible = {
@@ -962,6 +970,11 @@ FIR_outpost_category = {
 			country_resource_cost_steel = 2
 		}
 
+		custom_cost_trigger = {
+			num_of_civilian_factories > 3
+		}
+		custom_cost_text = manufactory_4
+
 		remove_effect = {
 			73 = {
 				set_building_level = {
@@ -979,7 +992,7 @@ FIR_outpost_category = {
 			}
 		}
 
-		cost = 50
+		#cost = 50
 		fire_only_once = yes
 	}
 
@@ -987,8 +1000,10 @@ FIR_outpost_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 356
+		highlight_states = {
+			highlight_state_targets = {
+				state = 356
+			}
 		}
 
 		visible = {
@@ -1010,6 +1025,11 @@ FIR_outpost_category = {
 			country_resource_cost_steel = 2
 		}
 
+		custom_cost_trigger = {
+			num_of_civilian_factories > 3
+		}
+		custom_cost_text = manufactory_4
+
 		remove_effect = {
 			356 = {
 				add_building_construction = {
@@ -1025,7 +1045,7 @@ FIR_outpost_category = {
 			}
 		}
 
-		cost = 50
+		#cost = 50
 		fire_only_once = yes
 	}
 
@@ -1204,8 +1224,10 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 230
+		state_target = yes
+
+		targets = {
+			230
 		}
 
 		visible = {
@@ -1279,8 +1301,10 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 280
+		state_target = yes
+
+		targets = {
+			280
 		}
 
 		visible = {
@@ -1354,8 +1378,10 @@ FIR_colonies_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 155
+		state_target = yes
+
+		targets = {
+			155
 		}
 
 		visible = {
@@ -1382,8 +1408,11 @@ FIR_colonies_category = {
 
 		icon = fortify
 
-		highlight_provinces = { 
-			6682 
+		highlight_states = {
+			highlight_state_targets = { state = 155 }
+			highlight_provinces = {
+				6682
+			}
 		}
 
 		visible = {
@@ -1410,7 +1439,7 @@ FIR_colonies_category = {
 			}
 			155 = {
 				add_compliance = 10
-				resistance_target = 5
+				add_resistance_target = -5
 			}
 		}
 		cost = 20
@@ -1421,9 +1450,11 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 155
-			state = 154
+		highlight_states = {
+			highlight_state_targets = {
+				state = 155
+				#state = 154
+			}
 		}
 
 		visible = {
@@ -1460,8 +1491,8 @@ FIR_colonies_category = {
 						NOT = {
 							has_dlc = "Together for Victory"
 						}
-						puppet = PFC
 					}
+					puppet = PFC
 					else = {
 						set_autonomy = { target = PFC autonomy_state = autonomy_imperial_colony }
 					}
@@ -1478,8 +1509,10 @@ FIR_colonies_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 230
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+			}
 		}
 
 		visible = {
@@ -1506,8 +1539,10 @@ FIR_colonies_category = {
 
 		icon = buildup
 
-		highlight_state_targets = {
-			state = 230
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+			}
 		}
 
 		visible = {
@@ -1534,10 +1569,12 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 230
-			state = 184
-			state = 191
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+				#state = 184
+				#state = 191
+			}
 		}
 
 		visible = {
@@ -1578,8 +1615,8 @@ FIR_colonies_category = {
 						NOT = {
 							has_dlc = "Together for Victory"
 						}
-						puppet = YFC
 					}
+					puppet = YFC
 					else = {
 						set_autonomy = { target = YFC autonomy_state = autonomy_imperial_colony }
 					}
@@ -1596,10 +1633,12 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 227
-			state = 204
-			state = 214
+		highlight_states = {
+			highlight_state_targets = {
+				state = 227
+				#state = 204
+				#state = 214
+			}
 		}
 
 		visible = {
@@ -1640,8 +1679,8 @@ FIR_colonies_category = {
 						NOT = {
 							has_dlc = "Together for Victory"
 						}
-						puppet = MFC
 					}
+					puppet = MFC
 					else = {
 						set_autonomy = { target = MFC autonomy_state = autonomy_imperial_colony }
 					}
@@ -1658,10 +1697,12 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 171
-			state = 165
-			state = 220
+		highlight_states = {
+			highlight_state_targets = {
+				state = 171
+				#state = 165
+				#state = 220
+			}
 		}
 
 		visible = {
@@ -1702,8 +1743,8 @@ FIR_colonies_category = {
 						NOT = {
 							has_dlc = "Together for Victory"
 						}
-						puppet = HFC
 					}
+					puppet = HFC
 					else = {
 						set_autonomy = { target = HFC autonomy_state = autonomy_imperial_colony }
 					}
@@ -1720,12 +1761,14 @@ FIR_colonies_category = {
 
 		icon = fir_colony
 
-		highlight_state_targets = {
-			state = 280
-			state = 244
-			state = 270
+		highlight_states = {
+			highlight_state_targets = {
+				state = 280
+				#state = 244
+				#state = 270
+			}
 		}
-
+	
 		visible = {
 			NOT = {
 				country_exists = KFC
@@ -1764,8 +1807,8 @@ FIR_colonies_category = {
 						NOT = {
 							has_dlc = "Together for Victory"
 						}
-						puppet = KFC
 					}
+					puppet = KFC
 					else = {
 						set_autonomy = { target = KFC autonomy_state = autonomy_imperial_colony }
 					}

@@ -518,10 +518,6 @@ taxation_category = {
 		}
         days_remove = -1
 
-        allowed = {
-        	has_country_flag = public_funding
-        }
-
         modifier = {
         	research_speed_factor = 0.025
 			political_power_factor = 0.025
@@ -596,17 +592,21 @@ taxation_category = {
 		}
         days_remove = -1
 
-		research_bonus = {
-			society_reforms = 0.05
-		}
+		#research_bonus = {
+		#	society_reforms = 0.05
+		#}
 		
         modifier = {
         	monthly_war_weariness = -5
 			stability_factor = 0.02
+			society_reforms_research_bonus = 0.05
         }
 
 		complete_effect = {
 			set_country_flag = public_funding
+			hidden_effect = {
+				add_ideas = tax_culture_spending_very_low
+			}
 		}
 		#remove_effect = {
 		#	clr_country_flag = public_funding
@@ -840,19 +840,23 @@ taxation_category = {
 		}
         days_remove = -1
 
-		research_bonus = {
-			society_reforms = 0.10
-		}
+		#research_bonus = {
+		#	society_reforms = 0.10
+		#}
 		
         modifier = {
         	monthly_war_weariness = -5
 			stability_factor = 0.06
+			society_reforms_research_bonus = 0.10
         }
 
 		cost = 0
 
 		complete_effect = {
 			set_country_flag = public_funding
+			hidden_effect = {
+				add_ideas = tax_culture_spending_low
+			}
 		}
 		#remove_effect = {
 		#	clr_country_flag = public_funding
@@ -1084,13 +1088,14 @@ taxation_category = {
 		}
         days_remove = -1
 		
-		research_bonus = {
-			society_reforms = 0.15
-		}
+		#research_bonus = {
+		#	society_reforms = 0.15
+		#}
 		
         modifier = {
         	monthly_war_weariness = -20
 			stability_factor = 0.1
+			society_reforms_research_bonus = 0.15
 			
         }
 
@@ -1098,6 +1103,9 @@ taxation_category = {
 
 		complete_effect = {
 			set_country_flag = public_funding
+			hidden_effect = {
+				add_ideas = tax_culture_spending_average
+			}
 		}
 		#remove_effect = {
 		#	clr_country_flag = public_funding
@@ -1329,19 +1337,23 @@ taxation_category = {
 		}
         days_remove = -1
 
-		research_bonus = {
-			society_reforms = 0.2
-		}
+		#research_bonus = {
+		#	society_reforms = 0.2
+		#}
 		
         modifier = {
         	monthly_war_weariness = -35
 			stability_factor = 0.14
+			society_reforms_research_bonus = 0.2
         }
 
 		cost = 0
 
 		complete_effect = {
 			set_country_flag = public_funding
+			hidden_effect = {
+				add_ideas = tax_culture_spending_high
+			}
 		}
 		#remove_effect = {
 		#	clr_country_flag = public_funding
@@ -1573,19 +1585,23 @@ taxation_category = {
 		}
         days_remove = -1
 
-		research_bonus = {
-				society_reforms = 0.25
-		}
+		#research_bonus = {
+		#		society_reforms = 0.25
+		#}
 
         modifier = {
         	monthly_war_weariness = -50
 			stability_factor = 0.18
+			society_reforms_research_bonus = 0.25
         }
 
 		cost = 0
 
 		complete_effect = {
 			set_country_flag = public_funding
+			hidden_effect = {
+				add_ideas = tax_culture_spending_very_high
+			}
 		}
 		#remove_effect = {
 		#	clr_country_flag = public_funding
@@ -1730,7 +1746,7 @@ taxation_category = {
 
 generic_research_slot_category = {
 	
-	2nd_extra_research_slot = {
+	second_extra_research_slot = {
 
 		icon = research_slot
 
@@ -1776,7 +1792,7 @@ generic_research_slot_category = {
 
 	}
 
-	3rd_extra_research_slot = {
+	third_extra_research_slot = {
 
 		icon = research_slot
 
@@ -1818,7 +1834,7 @@ generic_research_slot_category = {
 
 	}
 
-	4th_extra_research_slot = {
+	fourth_extra_research_slot = {
 
 		icon = research_slot
 
