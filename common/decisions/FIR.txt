@@ -141,6 +141,7 @@ FIR_industrialisation_category = {
 
 		remove_effect = {
 			add_tech_bonus = {
+				name = FIR_industry_research_efforts
 				bonus = 1
 				uses = 1
 				category = industry_tech
@@ -1094,9 +1095,9 @@ FIR_civil_decision_category = {
 
 		visible = {
 			imperialism > 0.4
-			not = {
-				has_country_flag = great_gate_construction
-			}
+			#not = {
+			#	has_country_flag = great_gate_construction
+			#}
 		}
 
 		days_remove = 168
@@ -1828,453 +1829,453 @@ FIR_colonies_category = {
 
 
 
-air_genocide_category = {
-
-	arrival_of_the_great_comet = {
-
-		icon = mission_comet
-
-		activation = {
-			has_country_flag = arrival_of_the_great_comet_mission
-		}
-
-		available = {
-			always = no
-		}
-
-        days_mission_timeout = 230
-        is_good = yes
-
-		timeout_effect = {
-			clr_country_flag = arrival_of_the_great_comet_mission
-			if = {
-				limit = {
-					has_global_flag = genocide_active
-				}
-				declare_war_on = {
-					target = EAT
-					type = annex_everything
-				}
-				declare_war_on = {
-					target = WAT
-					type = annex_everything
-				}
-				declare_war_on = {
-					target = NAT
-					type = annex_everything
-				}
-				declare_war_on = {
-					target = SAT
-					type = annex_everything
-				}
-				FIR = {
-					activate_mission = eastern_temple
-					activate_mission = western_temple
-					activate_mission = northern_temple
-					activate_mission = southern_temple
-				}
-
-				EAT = {
-					country_event = { id = eastern.1 days = 1 }
-					set_major = yes
-				}
-				WAT = {
-					country_event = { id = western.1 days = 1 }
-					set_major = yes
-				}
-				NAT = {
-					country_event = { id = northern.1 days = 1 }
-					set_major = yes
-				}
-				SAT = {
-					country_event = { id = southern.1 days = 1 }
-					set_major = yes
-				}
-				load_oob = "northern_firebender_army"
-				load_oob = "southern_firebender_army"
-				load_oob = "western_firebender_army"
-				load_oob = "eastern_firebender_army"
-				hidden_effect = {
-					remove_decision = spare_the_air_nomads
-					remove_decision = commence_the_genocide
-				}
-				#add_war_support = 0.05
-				#if = {
-				#	limit = {
-				#		check_variable = { genocide_preparation > 40 }
-				#	}
-				#	load_oob = "northern_firebender_army_extra"
-				#	load_oob = "southern_firebender_army_extra"
-				#	load_oob = "western_firebender_army_extra"
-				#	load_oob = "eastern_firebender_army_extra"
-				#}
-				#if = {
-				#	limit = {
-				#		check_variable = { genocide_preparation > 30 }
-				#	}
-				#	load_oob = "northern_firebender_army_extra"
-				#	load_oob = "southern_firebender_army_extra"
-				#	load_oob = "western_firebender_army_extra"
-				#	load_oob = "eastern_firebender_army_extra"
-				#}
-				#if = {
-				#	limit = {
-				#		check_variable = { genocide_preparation > 20 }
-				#	}
-				#	load_oob = "northern_firebender_army_extra"
-				#	load_oob = "southern_firebender_army_extra"
-				#	load_oob = "western_firebender_army_extra"
-				#	load_oob = "eastern_firebender_army_extra"
-				#}
-				#if = {
-				#	limit = {
-				#		check_variable = { genocide_preparation > 10 }
-				#	}
-				#	load_oob = "northern_firebender_army_extra"
-				#	load_oob = "southern_firebender_army_extra"
-				#	load_oob = "western_firebender_army_extra"
-				#	load_oob = "eastern_firebender_army_extra"
-				#}
-			}
-			else = {
-				hidden_effect = {
-					remove_decision = spare_the_air_nomads
-					remove_decision = commence_the_genocide
-				}
-				#add_stability = 0.05
-			}
-		}
-
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 100
-		}
-	}
-
-	spare_the_air_nomads = {
-
-		icon = spare_the_nomads
-
-		available = {
-			hidden_trigger = {
-				NOT = {
-					has_global_flag = sozins_comet_first
-				}
-				has_global_flag = genocide_active
-			}
-        }
-
-		visible = {
-			hidden_trigger = {
-				NOT = {
-					has_global_flag = sozins_comet_first
-				}
-				#has_global_flag = genocide_active
-			}
-		}
-
-		cost = 0
-
-		days_remove = -1
-
-		modifier = {
-			
-		}
-
-		complete_effect = {
-			clr_global_flag = genocide_active
-			delete_unit_template_and_units = {
-				division_template = "Special Attack Forces"
-			}
-			remove_decision = commence_the_genocide
-		}
-        ai_will_do = {
-			factor = 0
-		}
-	}
-	commence_the_genocide = {
-
-		icon = fire_violence
-
-		available = {
-			hidden_trigger = {
-				NOT = {
-					has_global_flag = genocide_active
-					has_global_flag = sozins_comet_first
-				}
-			}
-        }
-
-		visible = {
-			hidden_trigger = {
-				NOT = {
-					has_global_flag = genocide_active
-					has_global_flag = sozins_comet_first
-				}
-			}
-		}
-
-		cost = 0
-
-		days_remove = -1
-
-		#modifier = {
-		#	war_support_factor = 0.05
-		#}
-
-		complete_effect = {
-			set_global_flag = genocide_active
-			hidden_effect = {
-				load_oob = "special_attack_forces"
-			}
-			remove_decision = spare_the_air_nomads
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-	}
-
-#	prepare_the_genocide = {
+#air_genocide_category = {
+#
+#	arrival_of_the_great_comet = {
+#
+#		icon = mission_comet
+#
+#		activation = {
+#			has_country_flag = arrival_of_the_great_comet_mission
+#		}
 #
 #		available = {
-#			NOT = {
-#				has_global_flag = sozins_comet_first
-#				has_global_flag = air_nomad_genocide
-#				check_variable = { genocide_preparation > 50 }
+#			always = no
+#		}
+#
+#        days_mission_timeout = 230
+#        is_good = yes
+#
+#		timeout_effect = {
+#			clr_country_flag = arrival_of_the_great_comet_mission
+#			if = {
+#				limit = {
+#					has_global_flag = genocide_active
+#				}
+#				declare_war_on = {
+#					target = EAT
+#					type = annex_everything
+#				}
+#				declare_war_on = {
+#					target = WAT
+#					type = annex_everything
+#				}
+#				declare_war_on = {
+#					target = NAT
+#					type = annex_everything
+#				}
+#				declare_war_on = {
+#					target = SAT
+#					type = annex_everything
+#				}
+#				FIR = {
+#					activate_mission = eastern_temple
+#					activate_mission = western_temple
+#					activate_mission = northern_temple
+#					activate_mission = southern_temple
+#				}
+#
+#				EAT = {
+#					country_event = { id = eastern.1 days = 1 }
+#					set_major = yes
+#				}
+#				WAT = {
+#					country_event = { id = western.1 days = 1 }
+#					set_major = yes
+#				}
+#				NAT = {
+#					country_event = { id = northern.1 days = 1 }
+#					set_major = yes
+#				}
+#				SAT = {
+#					country_event = { id = southern.1 days = 1 }
+#					set_major = yes
+#				}
+#				load_oob = "northern_firebender_army"
+#				load_oob = "southern_firebender_army"
+#				load_oob = "western_firebender_army"
+#				load_oob = "eastern_firebender_army"
+#				hidden_effect = {
+#					remove_decision = spare_the_air_nomads
+#					remove_decision = commence_the_genocide
+#				}
+#				#add_war_support = 0.05
+#				#if = {
+#				#	limit = {
+#				#		check_variable = { genocide_preparation > 40 }
+#				#	}
+#				#	load_oob = "northern_firebender_army_extra"
+#				#	load_oob = "southern_firebender_army_extra"
+#				#	load_oob = "western_firebender_army_extra"
+#				#	load_oob = "eastern_firebender_army_extra"
+#				#}
+#				#if = {
+#				#	limit = {
+#				#		check_variable = { genocide_preparation > 30 }
+#				#	}
+#				#	load_oob = "northern_firebender_army_extra"
+#				#	load_oob = "southern_firebender_army_extra"
+#				#	load_oob = "western_firebender_army_extra"
+#				#	load_oob = "eastern_firebender_army_extra"
+#				#}
+#				#if = {
+#				#	limit = {
+#				#		check_variable = { genocide_preparation > 20 }
+#				#	}
+#				#	load_oob = "northern_firebender_army_extra"
+#				#	load_oob = "southern_firebender_army_extra"
+#				#	load_oob = "western_firebender_army_extra"
+#				#	load_oob = "eastern_firebender_army_extra"
+#				#}
+#				#if = {
+#				#	limit = {
+#				#		check_variable = { genocide_preparation > 10 }
+#				#	}
+#				#	load_oob = "northern_firebender_army_extra"
+#				#	load_oob = "southern_firebender_army_extra"
+#				#	load_oob = "western_firebender_army_extra"
+#				#	load_oob = "eastern_firebender_army_extra"
+#				#}
 #			}
-#			has_global_flag = genocide_active
-#			has_equipment = {
-#    			firebender_equipment > 99
+#			else = {
+#				hidden_effect = {
+#					remove_decision = spare_the_air_nomads
+#					remove_decision = commence_the_genocide
+#				}
+#				#add_stability = 0.05
+#			}
+#		}
+#
+#        fire_only_once = yes
+#        ai_will_do = {
+#			factor = 100
+#		}
+#	}
+#
+#	spare_the_air_nomads = {
+#
+#		icon = spare_the_nomads
+#
+#		available = {
+#			hidden_trigger = {
+#				NOT = {
+#					has_global_flag = sozins_comet_first
+#				}
+#				has_global_flag = genocide_active
 #			}
 #        }
 #
 #		visible = {
-#			always = yes
+#			hidden_trigger = {
+#				NOT = {
+#					has_global_flag = sozins_comet_first
+#				}
+#				#has_global_flag = genocide_active
+#			}
 #		}
 #
-#		days_remove = 7
+#		cost = 0
+#
+#		days_remove = -1
+#
+#		modifier = {
+#			
+#		}
+#
+#		complete_effect = {
+#			clr_global_flag = genocide_active
+#			delete_unit_template_and_units = {
+#				division_template = "Special Attack Forces"
+#			}
+#			remove_decision = commence_the_genocide
+#		}
+#        ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	commence_the_genocide = {
+#
+#		icon = fire_violence
+#
+#		available = {
+#			hidden_trigger = {
+#				NOT = {
+#					has_global_flag = genocide_active
+#					has_global_flag = sozins_comet_first
+#				}
+#			}
+#        }
+#
+#		visible = {
+#			hidden_trigger = {
+#				NOT = {
+#					has_global_flag = genocide_active
+#					has_global_flag = sozins_comet_first
+#				}
+#			}
+#		}
 #
 #		cost = 0
+#
+#		days_remove = -1
+#
+#		#modifier = {
+#		#	war_support_factor = 0.05
+#		#}
+#
+#		complete_effect = {
+#			set_global_flag = genocide_active
+#			hidden_effect = {
+#				load_oob = "special_attack_forces"
+#			}
+#			remove_decision = spare_the_air_nomads
+#		}
+#
+#        ai_will_do = {
+#			factor = 100
+#		}
+#	}
+#
+##	prepare_the_genocide = {
+##
+##		available = {
+##			NOT = {
+##				has_global_flag = sozins_comet_first
+##				has_global_flag = air_nomad_genocide
+##				check_variable = { genocide_preparation > 50 }
+##			}
+##			has_global_flag = genocide_active
+##			has_equipment = {
+##    			firebender_equipment > 99
+##			}
+##        }
+##
+##		visible = {
+##			always = yes
+##		}
+##
+##		days_remove = 7
+##
+##		cost = 0
+##
+##		activation = {
+##
+##		}
+##
+##		is_good = yes
+##
+##		complete_effect = {
+##			add_equipment_to_stockpile = {
+##    			type = firebender_equipment
+##    			amount = -100
+##    			producer = FIR
+##			}
+##			if = {
+##				limit = {
+##					NOT = {
+##						has_variable = genocide_preparation
+##					}
+##					set_variable = {
+##						var = genocide_preparation
+##						value = 10
+##					}
+##				}
+##			}
+##		}
+##
+##		timeout_effect = {
+##			add_to_variable = {
+##				var = genocide_preparation
+##				value = 10
+##			}
+##		}
+##
+##		ai_will_do = {
+##			factor = 100
+##		}
+##
+##	}
+#	
+#	eastern_temple = {
+#
+#		icon = eastern_air_temple
+#
+#		allowed = {
+#			always = no
+#		}
+#
+#		available = {
+#			controls_state = 188
+#        }
+#
+#
+#		days_mission_timeout = 90
+#		fire_only_once = yes
 #
 #		activation = {
 #
 #		}
 #
-#		is_good = yes
+#		is_good = no
 #
 #		complete_effect = {
-#			add_equipment_to_stockpile = {
-#    			type = firebender_equipment
-#    			amount = -100
-#    			producer = FIR
+#			FIR = {
+#				country_event = { id = firenation.4 days = 7 }
 #			}
-#			if = {
-#				limit = {
-#					NOT = {
-#						has_variable = genocide_preparation
-#					}
-#					set_variable = {
-#						var = genocide_preparation
-#						value = 10
-#					}
-#				}
-#			}
+#			set_global_flag = east_temple_fallen
 #		}
 #
 #		timeout_effect = {
-#			add_to_variable = {
-#				var = genocide_preparation
-#				value = 10
+#			EAT = {
+#				white_peace = FIR
+#				give_military_access = FIR
+#				leave_faction = yes
 #			}
+#			set_global_flag = east_temple_survived
 #		}
 #
-#		ai_will_do = {
+#        ai_will_do = {
 #			factor = 100
 #		}
 #
 #	}
-	
-	eastern_temple = {
-
-		icon = eastern_air_temple
-
-		allowed = {
-			always = no
-		}
-
-		available = {
-			controls_state = 188
-        }
-
-
-		days_mission_timeout = 90
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			FIR = {
-				country_event = { id = firenation.4 days = 7 }
-			}
-			set_global_flag = east_temple_fallen
-		}
-
-		timeout_effect = {
-			EAT = {
-				white_peace = FIR
-				give_military_access = FIR
-				leave_faction = yes
-			}
-			set_global_flag = east_temple_survived
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-
-	}
-
-	
-	western_temple = {
-
-		icon = western_air_temple
-
-		allowed = {
-			always = no
-		}
-
-		available = {
-			controls_state = 208
-        }
-
-
-		days_mission_timeout = 90
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			FIR = {
-				country_event = { id = firenation.1 days = 7 }
-			}
-			set_global_flag = west_temple_fallen
-		}
-
-		timeout_effect = {
-			WAT = {
-				white_peace = FIR
-				give_military_access = FIR
-				leave_faction = yes
-			}
-			set_global_flag = west_temple_survived
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-
-	}
-
-	
-	northern_temple = {
-
-		icon = northern_air_temple
-
-		allowed = {
-			always = no
-		}
-
-		available = {
-			controls_state = 316
-        }
-
-
-		days_mission_timeout = 90
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			FIR = {
-				country_event = { id = firenation.3 days = 7 }
-			}
-			set_global_flag = north_temple_fallen
-		}
-
-		timeout_effect = {
-			NAT = {
-				white_peace = FIR
-				give_military_access = FIR
-				leave_faction = yes
-			}
-			set_global_flag = north_temple_survived
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-
-	}
-
-	
-	southern_temple = {
-
-		icon = southern_air_temple
-
-		allowed = {
-			always = no
-		}
-
-		available = {
-			controls_state = 329
-        }
-
-
-		days_mission_timeout = 90
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			FIR = {
-				country_event = { id = firenation.2 days = 7 }
-			}
-			SAT = {
-				dismantle_faction = yes
-			}
-			set_global_flag = south_temple_fallen
-		}
-
-		timeout_effect = {
-			SAT = {
-				white_peace = FIR
-				give_military_access = FIR
-				leave_faction = yes
-			}
-			set_global_flag = south_temple_survived
-		}
-
-        ai_will_do = {
-			factor = 100
-		}
-
-	}
-
-}
+#
+#	
+#	western_temple = {
+#
+#		icon = western_air_temple
+#
+#		allowed = {
+#			always = no
+#		}
+#
+#		available = {
+#			controls_state = 208
+#        }
+#
+#
+#		days_mission_timeout = 90
+#		fire_only_once = yes
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = no
+#
+#		complete_effect = {
+#			FIR = {
+#				country_event = { id = firenation.1 days = 7 }
+#			}
+#			set_global_flag = west_temple_fallen
+#		}
+#
+#		timeout_effect = {
+#			WAT = {
+#				white_peace = FIR
+#				give_military_access = FIR
+#				leave_faction = yes
+#			}
+#			set_global_flag = west_temple_survived
+#		}
+#
+#        ai_will_do = {
+#			factor = 100
+#		}
+#
+#	}
+#
+#	
+#	northern_temple = {
+#
+#		icon = northern_air_temple
+#
+#		allowed = {
+#			always = no
+#		}
+#
+#		available = {
+#			controls_state = 316
+#        }
+#
+#
+#		days_mission_timeout = 90
+#		fire_only_once = yes
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = no
+#
+#		complete_effect = {
+#			FIR = {
+#				country_event = { id = firenation.3 days = 7 }
+#			}
+#			set_global_flag = north_temple_fallen
+#		}
+#
+#		timeout_effect = {
+#			NAT = {
+#				white_peace = FIR
+#				give_military_access = FIR
+#				leave_faction = yes
+#			}
+#			set_global_flag = north_temple_survived
+#		}
+#
+#        ai_will_do = {
+#			factor = 100
+#		}
+#
+#	}
+#
+#	
+#	southern_temple = {
+#
+#		icon = southern_air_temple
+#
+#		allowed = {
+#			always = no
+#		}
+#
+#		available = {
+#			controls_state = 329
+#        }
+#
+#
+#		days_mission_timeout = 90
+#		fire_only_once = yes
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = no
+#
+#		complete_effect = {
+#			FIR = {
+#				country_event = { id = firenation.2 days = 7 }
+#			}
+#			SAT = {
+#				dismantle_faction = yes
+#			}
+#			set_global_flag = south_temple_fallen
+#		}
+#
+#		timeout_effect = {
+#			SAT = {
+#				white_peace = FIR
+#				give_military_access = FIR
+#				leave_faction = yes
+#			}
+#			set_global_flag = south_temple_survived
+#		}
+#
+#        ai_will_do = {
+#			factor = 100
+#		}
+#
+#	}
+#
+#}
