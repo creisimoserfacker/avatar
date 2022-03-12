@@ -48,15 +48,15 @@ scripted_gui = {
 					}
 				}
 			}
-			send_settlers_click = {
-				THIS = {
-					add_building_construction = {
-						type = settlement
-						level = 1
-						instant_build = no
-					}
-				}
-			}
+			#send_settlers_click = {
+			#	THIS = {
+			#		add_building_construction = {
+			#			type = settlement
+			#			level = 1
+			#			instant_build = no
+			#		}
+			#	}
+			#}
 		}
 
 		triggers = {
@@ -68,17 +68,17 @@ scripted_gui = {
 					include_locked = no
 				}
 			}
-			send_settlers_click_enabled = {
-				NOT = {
-					is_core_of = ROOT
-				}
-				is_controlled_by = ROOT
-				free_building_slots = {
-					building = settlement
-					size > 0
-					include_locked = no
-				}
-			}
+			#send_settlers_click_enabled = {
+			#	NOT = {
+			#		is_core_of = ROOT
+			#	}
+			#	is_controlled_by = ROOT
+			#	free_building_slots = {
+			#		building = settlement
+			#		size > 0
+			#		include_locked = no
+			#	}
+			#}
 			send_settlers_visible = {
 				NOT = {
 					is_core_of = ROOT
@@ -133,11 +133,6 @@ scripted_gui = {
 			}
 		}
 
-		properties = {
-			#mountain_icon = {
-			#	x = mountain_position
-			#}
-		}
 	}
 	resource_construction_ui = {
 		context_type = selected_state_context

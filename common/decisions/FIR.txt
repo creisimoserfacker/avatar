@@ -448,11 +448,13 @@ FIR_dragon_category = {
 			302 = {
 				has_dynamic_modifier = { modifier = dragon_herd }
 			}
-			has_unit_leader = 7
+			#has_unit_leader = 7
+			always = no
 		}
 
 		available = {
-			has_unit_leader = 7
+			#has_unit_leader = 7
+			always = no
         }
 
 		complete_effect = {
@@ -902,7 +904,7 @@ FIR_outpost_category = {
 		}
 
 		available = {
-			ships_in_area = { area = 36 size > 9 }
+			ships_in_area = { area = 36 size > 9 type = firenation_cruiser }
 			264 = {
 				is_controlled_by = FIR
 			}
@@ -956,7 +958,7 @@ FIR_outpost_category = {
 		}
 
 		available = {
-			ships_in_area = { area = 101 size > 9 }
+			ships_in_area = { area = 101 size > 9 type = firenation_cruiser }
 			73 = {
 				is_controlled_by = FIR
 			}
@@ -1011,7 +1013,7 @@ FIR_outpost_category = {
 		}
 
 		available = {
-			ships_in_area = { area = 158 size > 9 }
+			ships_in_area = { area = 158 size > 9 type = firenation_cruiser }
 			356 = {
 				is_controlled_by = FIR
 			}
@@ -1410,9 +1412,9 @@ FIR_colonies_category = {
 
 		highlight_states = {
 			highlight_state_targets = { state = 155 }
-			highlight_provinces = {
-				6682
-			}
+			#highlight_provinces = {
+			#	6682
+			#}
 		}
 
 		visible = {
@@ -1424,7 +1426,6 @@ FIR_colonies_category = {
 				any_province_building_level = {
 				    province = {
 						id = 6682
-						limit_to_border = no
 					}
 				    building = wall
 				    level > 9

@@ -21,7 +21,7 @@ country_event = {
 			desc = "POLITICS_CHUN_HU_desc" 
 			picture = "Portrait_CHN_CHUN_HU.dds" 
 			expire = "200.1.1" 
-			ideology = absolute_monarchy
+			ideology = absolute_monarchie
 			traits = { } 
 		}
 		
@@ -291,17 +291,16 @@ country_event = {
 	option = {
 		name = CHIN.14.a
 		CHN = { country_event = { id = CHIN.15 days = 2} }
-		ai_will_do = {
+		ai_chance = {
 			factor = 10
 			modifier = {
 				add = 10
         
-				trigger = {
-					has_opinion = {
-					target = CHN
-					value > 100
-					}
+				has_opinion = {
+				target = CHN
+				value > 100
 				}
+				
 			}
 		}
 	}
@@ -310,17 +309,16 @@ country_event = {
 	option = {
 		name = CHIN.14.b
 		CHN = { country_event = { id = CHIN.16 days = 2} }
-		ai_will_do = {
+		ai_chance = {
 			factor = 90
 			modifier = {
 				add = -10
         
-				trigger = {
-					has_opinion = {
-					target = CHN
-					value > 100
-					}
+				has_opinion = {
+				target = CHN
+				value > 100
 				}
+				
 			}
 		}
 	}	
@@ -466,14 +464,12 @@ country_event = {
 		CHN = { country_event = { id = CHIN.24 }}
 		add_opinion_modifier = { target = CHN modifier = large_decrease }
 		CHN  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
-		ai_will_do = {
+		ai_chance = {
 			factor = 10
 			modifier = {
 				add = 65
         
-				trigger = {
-					has_war = yes
-				}
+				has_war = yes
 			}
 		}
 	}
@@ -487,14 +483,12 @@ country_event = {
 		CHN = { country_event = { id = CHIN.25 }}
 		add_opinion_modifier = { target = CHN modifier = large_decrease }
 		CHN  = { add_opinion_modifier = { target = ROOT modifier = large_decrease } }
-		ai_will_do = {
+		ai_chance = {
 			factor = 90
 			modifier = {
 				add = -65
-        
-				trigger = {
-					has_war = yes
-				}
+
+				has_war = yes
 			}
 		}
 	}
@@ -563,7 +557,7 @@ news_event = {
 		trigger = {
 			OR = { 
 				tag = CHN
-				tag = CHN_empire
+				has_cosmetic_tag = CHN_empire
 			}
 		}
 	}
@@ -813,14 +807,14 @@ country_event = {
 
 	option = {
 		name = CHIN.35.a
-		ai_will_do = {
+		ai_chance = {
 			factor = 40
 		}
 		CHN = { country_event = { id = CHIN.36 days = 2}}
 	}
 	option = {
 		name = CHIN.35.b
-		ai_will_do = {
+		ai_chance = {
 			factor = 60
 		}
 		CHN = { country_event = { id = CHIN.37 days = 2}}
