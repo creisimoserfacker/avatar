@@ -41,7 +41,7 @@ tags={
 	"Map"
 	"Utilities"
 }
-picture="blank_map_template_5632x2048.jpg"
+picture="thumbnail.jpg"
 supported_version="1.11.*"
-path="C:/Users/Paul/Documents/Paradox Interactive/Hearts of Iron IV/mod/avatar"
+path="P:/Dokumente/Paradox Interactive/Hearts of Iron IV/mod/avatar"
 remote_file_id="1508151299"
