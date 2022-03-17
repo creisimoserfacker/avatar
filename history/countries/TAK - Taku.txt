@@ -94,6 +94,19 @@ set_popularities = {
 	pacifism = 10
 }
 
+if = {
+	limit = {
+		has_dlc = "Together for Victory"
+	}
+	set_autonomy = {
+		target = POH
+		autonomous_state = autonomy_vassalage
+	}
+	else = {
+		puppet = POH
+	}
+}
+
 add_ideas = {
 	volunteer_earth_nation
 	earth_volunteers

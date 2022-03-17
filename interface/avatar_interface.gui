@@ -69,16 +69,16 @@ guiTypes = {
 
 		background = {
 			name = "Background"
-			quadTextureSprite ="GFX_tiled_window_1b_border"
+			quadTextureSprite ="GFX_tiled_window"
 		}
 
-		iconType ={
-			name ="avatar_bg"
-			spriteType = "GFX_avatar_background"
-			position = { x= 10 y = 10 }
-			Orientation = "UPPER_LEFT"
-			alwaystransparent = yes
-		}
+		#iconType ={
+		#	name ="avatar_bg"
+		#	spriteType = "GFX_avatar_background"
+		#	position = { x= 10 y = 10 }
+		#	Orientation = "UPPER_LEFT"
+		#	alwaystransparent = yes
+		#}
 
 		#iconType ={
 		#	name ="avatar_header_bg"
@@ -842,59 +842,61 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "calendar_window_container"
-		position = { x=3800 y=78 }
-		show_position = { x=-550 y =78 }
-		show_animation_type = decelerated
-		hide_animation_type = accelerated
-		animation_time = 300
-		size = { width=550 height=100%% }
-		Orientation = upper_right
-
-		#hide_sound = ui_window_hide
-		show_sound = menu_open_window
+		position = { x=-520 y=-340 }	
+		size = { width =1040 height=660 }
+		orientation= center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
 
 		background = {
 			name = "Background"
-			quadTextureSprite ="GFX_tiled_window_1b_border"
-		}
-
-		iconType ={
-			name ="calendar_header_bg"
-			spriteType = "GFX_header_mirrored_bg"
-			position = { x= 5 y = 7 }
-			Orientation = "UPPER_LEFT"
+			quadTextureSprite ="GFX_tiled_window"
 		}
 
 		iconType = {
 			name = "cbg"
 			spriteType = "GFX_calendar_background"
-			position = { x = 16 y = 188 }
+			position = { x = 16 y = 125 }
 			Orientation = "UPPER_LEFT"
 		}
 
 		buttonType ={
 			name ="calendar_close"
 			spriteType = "GFX_closebutton"
-			position = { x = 14 y = 10 }
-			Orientation = "UPPER_LEFT"
+			position = { x = -38 y = 10 }
+			Orientation = "UPPER_Right"
 			clicksound = click_default
 		}
 
+		iconType ={
+			name ="title_bg"
+			spriteType = "GFX_ink_1"
+			position = { x= -100 y = 16 }
+			scale = 0.8
+			Orientation = "CENTER_UP"
+			alwaystransparent = yes
+		}
 		instantTextboxType = {
-			name = "calendar_headline"
-			position = {x = 140 y = 8}
+			name = "avatar_title"
+			position = { x = -60 y = 38 }
+			textureFile = ""
 			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			Orientation = "CENTER_UP"
 			text = "CALENDAR_TITLE"
-			maxWidth = 250
-			maxHeight = 50
-			format = left
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
 		}
 
 		buttonType = {
 			name = "calendar_list_button"
-			position = {x=58 y=63}
+			position = {x=-178 y=143}
 			spriteType = "GFX_calendar_event_list"
 			scale = 0.75
+			Orientation = UPPER_Right
 
 			pdx_tooltip = "EVENT_LIST_TOOLTIP"
 			pdx_tooltip_delayed = "EVENT_LIST_TOOLTIP_DELAYED"
@@ -902,12 +904,13 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "event_list"
-			position = {x=56 y=162}
+			position = {x=-166 y=242}
 			font = "hoi_18mbs"
 			text = "EVENT_LIST"
 			maxWidth = 120
 			maxHeight = 20
 			format = left
+			Orientation = UPPER_Right
 
 			pdx_tooltip = "EVENT_LIST_TOOLTIP"
 			pdx_tooltip_delayed = "EVENT_LIST_TOOLTIP_DELAYED"
@@ -915,9 +918,10 @@ guiTypes = {
 
 		buttonType = {
 			name = "calendar_effects_button"
-			position = {x=338 y=63}
+			position = {x=-168 y=323}
 			spriteType = "GFX_calendar_effect_list"
 			scale = 0.7
+			Orientation = UPPER_Right
 
 			pdx_tooltip = "EVENT_EFFECTS_TOOLTIP"
 			pdx_tooltip_delayed = "EVENT_EFFECTS_TOOLTIP_DELAYED"
@@ -925,12 +929,13 @@ guiTypes = {
 
 		instantTextboxType = {
 			name = "event_effects"
-			position = {x=364 y=162}
+			position = {x=-144 y=422}
 			font = "hoi_18mbs"
 			text = "EVENT_EFFECTS"
 			maxWidth = 80
 			maxHeight = 20
 			format = left
+			Orientation = UPPER_Right
 
 			pdx_tooltip = "EVENT_EFFECTS_TOOLTIP"
 			pdx_tooltip_delayed = "EVENT_EFFECTS_TOOLTIP_DELAYED"

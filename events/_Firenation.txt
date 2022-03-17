@@ -533,6 +533,8 @@ country_event = {
 	option = {
 		name = firenation.10.a
 		add_ideas = spirit_prince_azulon
+		set_variable = { azulon_birth_event = global.year }
+		set_variable = { azulon_position = 190 }
 	}
 }
 
@@ -545,7 +547,7 @@ country_event = {
 		tag = FIR
 		date > 32.4.25
 		has_country_leader = {
-   			name = "Sozin"
+   			character = FIR_sozin
     		ruling_only = yes
 		}
 	}
@@ -554,7 +556,8 @@ country_event = {
  		hidden_effect = {
  			FIR = {
 				set_country_flag = sozin_dead
-				kill_country_leader = yes
+				retire_character = FIR_sozin
+				#kill_country_leader = yes
 				#remove_unit_leader = 1
 				create_country_leader = {
 					name = "Empty Throne"
@@ -802,7 +805,7 @@ country_event = {
 			factor = 0
 			modifier = {
 				add = 100
-				is_historical_focus_on = yes
+				is_historical_focus_on = no
 			}
 		}
 
@@ -863,7 +866,7 @@ country_event = {
 			factor = 0
 			modifier = {
 				add = 100
-				is_historical_focus_on = yes
+				is_historical_focus_on = no
 			}
 		}
 		FIR = {
@@ -943,6 +946,7 @@ country_event = {
 			add_state_core = 280
 		}
 		280 = { set_demilitarized_zone = yes }
+		135 = { set_demilitarized_zone = yes }
 		244 = { set_demilitarized_zone = yes }
 		270 = { set_demilitarized_zone = yes }
 		230 = { set_demilitarized_zone = yes }
@@ -962,16 +966,14 @@ country_event = {
 			set_country_flag = earth_diplomacy_path
 			if = {
 				limit = {
-					NOT = {
-						has_dlc = "Together for Victory"
-					}
+					has_dlc = "Together for Victory"
 				}
+				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
+			}
+			else = {
 				puppet = KFC
 				puppet = YFC
-				else = {
-					set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
-					set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
-				}
 			}
 		}
 		EAR = {

@@ -1,0 +1,65 @@
+scripted_gui = {
+
+	fire_family_ui = {
+		context_type = decision_category
+		window_name = "fire_family_ui_window"
+
+		triggers = {
+			sozin_visible = {
+				has_country_leader = {
+					name = "Sozin"
+					ruling_only = yes
+				}
+			}
+			sozin_wife_visible = {
+				has_country_flag = sozin_wife_elua
+			}
+
+			azulon_baby_visible = {
+				check_variable = { mtth:azulon_age < 4 }
+				has_idea = spirit_prince_azulon
+			}
+			azulon_child_visible = {
+				check_variable = { mtth:azulon_age > 3 }
+				check_variable = { mtth:azulon_age < 16 }
+				OR = {
+					has_idea = spirit_prince_azulon
+					has_country_leader = {
+						name = "Azulon"
+						ruling_only = yes
+					}
+				}
+			}
+			azulon_adult_visible = {
+				check_variable = { mtth:azulon_age > 15 }
+				check_variable = { mtth:azulon_age < 55 }
+				OR = {
+					has_idea = spirit_prince_azulon
+					has_country_leader = {
+						name = "Azulon"
+						ruling_only = yes
+					}
+				}
+			}
+			azulon_old_visible = {
+				check_variable = { mtth:azulon_age > 54 }
+				OR = {
+					has_idea = spirit_prince_azulon
+					has_country_leader = {
+						name = "Azulon"
+						ruling_only = yes
+					}
+				}
+			}
+		}
+
+		properties = {
+			azulon_adult = {
+				x = azulon_position
+				image = "[GetAzulonIcon]"
+			}
+		}
+	}
+	
+}
+

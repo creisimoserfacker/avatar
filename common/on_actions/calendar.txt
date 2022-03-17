@@ -44,6 +44,9 @@ on_actions = {
 
 	on_monthly = {
 		effect = {
+
+			### dragon hunt
+
 			if = {
 				limit = {
 					tag = FIR
@@ -77,10 +80,16 @@ on_actions = {
 				}
 
 
+
+			### calendar
+
 			if = {
 				limit = {
 					has_country_flag = calculator
 				}
+
+
+				### volcano
 
 				random_list = {
 					95 = { }
@@ -109,6 +118,8 @@ on_actions = {
 					}
 				}
 
+				### months and years
+
 				if = {
 					limit = {
 						NOT = {
@@ -128,26 +139,10 @@ on_actions = {
 						}
 					}
 				}
-				if = {
-					limit = {
-						NOT = {
-							check_variable = { global.avatar_month = 12 }
-						}
-					}
-					add_to_variable = {
-					    var = global.avatar_month
-					    value = 1
-					}
 
-					else = {
-						set_variable = { global.avatar_month = 1 }
-						add_to_variable = {
-						    var = global.avatar_age
-						    value = 1
-						}
-					}
-				}
 			}
+
+			#### water full moon
 
 			if = {
 				limit = {

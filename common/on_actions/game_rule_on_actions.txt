@@ -196,6 +196,22 @@ on_actions = {
 					set_state_controller = 230
 					set_state_controller = 280
 				}
+			}
+			if = {
+				limit = {
+					AND = {
+						NOT = {
+							has_game_rule = {
+								rule = firenation_colony_status
+								option = FIRENATION_COLONIES
+							}
+						}
+						has_start_date < 12.02.02
+					}
+				}
+				230 = { add_dynamic_modifier = { modifier = firenation_settlers } }
+				280 = { add_dynamic_modifier = { modifier = firenation_settlers } }
+
 
 			}
 

@@ -218,22 +218,56 @@ FIR_industrialisation_category = {
 
 FIR_royal_family_category = {
 
-	crown_azulon = {
+	regret_letting_roku_die = {
 
 		visible = {	
 			has_country_leader = {
-			    name = "Empty Throne"
-			    ruling_only = yes
+				character = FIR_sozin
+				ruling_only = yes
 			}
 		}
 
 		available = {
 			has_country_leader = {
-			    name = "Empty Throne"
-			    ruling_only = yes
+				character = FIR_sozin
+				ruling_only = yes
+			}
+		}
+
+		days_remove = 30
+
+		modifier = {
+			stability_weekly = 0.005
+			war_support_weekly = -0.005
+		}
+
+		complete_effect = {
+			
+		}
+
+		cost = 100
+			fire_only_once = yes
+			ai_will_do = {
+			factor = 110
+		}
+	}
+
+	crown_azulon = {
+
+		visible = {	
+			has_country_leader = {
+				name = "Empty Throne"
+				ruling_only = yes
+			}
+		}
+
+		available = {
+			has_country_leader = {
+				name = "Empty Throne"
+				ruling_only = yes
 			}
 			has_idea = spirit_prince_azulon
-        }
+		}
 
 		complete_effect = {
 			create_country_leader = {
@@ -250,8 +284,8 @@ FIR_royal_family_category = {
 		}
 
 		cost = 100
-        fire_only_once = yes
-        ai_will_do = {
+		fire_only_once = yes
+		ai_will_do = {
 			factor = 110
 		}
 	}
@@ -265,8 +299,8 @@ FIR_dragon_category = {
 
 		visible = {	
 			has_country_leader = {
-			    name = "Sozin"
-			    ruling_only = yes
+				name = "Sozin"
+				ruling_only = yes
 			}
 			NOT = {
 				has_country_flag = befriend_dragons
@@ -516,18 +550,24 @@ FIR_conquest_category = {
 		icon = military_buildup
 
 		visible = {	
-			NOT = { 
-				has_war_with = EAR 
+			OR = {
+				NOT = {
+					has_idea = legacy_of_roku_and_sozin 
+				}
+				has_war_with = EAR
 			}
 		}
 
 		available = {
-			NOT = { 
-				has_war_with = EAR 
+			OR = {
+				NOT = {
+					has_idea = legacy_of_roku_and_sozin 
+				}
+				has_war_with = EAR
 			}
-        }
+		}
 
-        modifier = {
+		modifier = {
 			consumer_goods_factor = 0.2
 			production_speed_smithy_factor = 0.25
 		}
@@ -565,10 +605,16 @@ FIR_conquest_category = {
 		icon = attack_plan
 
 		visible = {	
-			NOT = { 
+			OR = {
+				AND = {
+					NOT = { 
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
+					}
+					has_country_flag = military_preparations_complete
+				}
 				has_war_with = EAR 
-				has_country_flag = FIR_attack_plan_made
-				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -596,9 +642,19 @@ FIR_conquest_category = {
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = FIR_planned_invasion
-			set_country_flag = northern_attack_planned
 			set_country_flag = FIR_attack_plan_made
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = EAR 
+					}
+				}
+				custom_effect_tooltip = FIR_planned_invasion
+				set_country_flag = northern_attack_planned
+			}
+			else = {
+				add_timed_idea = { idea = FIR_northern_plan days = 365 }
+			}
 		}
 
 		days_remove = 90
@@ -623,10 +679,16 @@ FIR_conquest_category = {
 		icon = attack_plan
 
 		visible = {	
-			NOT = { 
+			OR = {
+				AND = {
+					NOT = { 
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
+					}
+					has_country_flag = military_preparations_complete
+				}
 				has_war_with = EAR 
-				has_country_flag = FIR_attack_plan_made
-				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -654,9 +716,19 @@ FIR_conquest_category = {
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = FIR_planned_invasion
-			set_country_flag = central_attack_planned
 			set_country_flag = FIR_attack_plan_made
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = EAR 
+					}
+				}
+				custom_effect_tooltip = FIR_planned_invasion
+				set_country_flag = central_attack_planned
+			}
+			else = {
+				add_timed_idea = { idea = FIR_central_plan days = 365 }
+			}
 		}
 
 		days_remove = 90
@@ -680,11 +752,17 @@ FIR_conquest_category = {
 
 		icon = attack_plan
 
-		visible = {	
-			NOT = { 
+		visible = {
+			OR = {
+				AND = {
+					NOT = { 
+						has_war_with = EAR 
+						has_country_flag = FIR_attack_plan_made
+						has_country_flag = earth_diplomacy_path
+					}
+					has_country_flag = military_preparations_complete
+				}
 				has_war_with = EAR 
-				has_country_flag = FIR_attack_plan_made
-				has_country_flag = earth_diplomacy_path
 			}
 		}
 
@@ -712,9 +790,19 @@ FIR_conquest_category = {
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = FIR_planned_invasion
-			set_country_flag = southern_attack_planned
 			set_country_flag = FIR_attack_plan_made
+			if = {
+				limit = {
+					NOT = {
+						has_war_with = EAR 
+					}
+				}
+				custom_effect_tooltip = FIR_planned_invasion
+				set_country_flag = southern_attack_planned
+			}
+			else = {
+				add_timed_idea = { idea = FIR_southern_plan days = 365 }
+			}
 		}
 
 		days_remove = 90
@@ -743,7 +831,8 @@ FIR_conquest_category = {
 				has_war_with = EAR 
 				has_country_flag = earth_diplomacy_path
 			}
-        }
+			has_country_flag = FIR_attack_plan_made
+      }
 
 		available = {
             AND = {
@@ -762,7 +851,7 @@ FIR_conquest_category = {
 					has_country_flag = earth_diplomacy_path
 				}
 			}
-        }
+       }
 
         #modifier = {
 		#	political_power_factor = -0.25
@@ -1091,6 +1180,7 @@ FIR_civil_decision_category = {
 		available = {
 			imperialism > 0.5
 			enemies_naval_strength_ratio > 0.25
+			has_country_leader_with_trait = personality_cult
 		}
 
 		visible = {
@@ -1153,6 +1243,10 @@ FIR_colonies_category = {
 					has_war_with = EAR
 				}
 			}
+			OR = {
+				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
+				280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
+			}
 		}
 		
 		available = {
@@ -1160,6 +1254,10 @@ FIR_colonies_category = {
 				FIR = {
 					has_war_with = EAR
 				}
+			}
+			OR = {
+				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
+				280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
 			}
 		}
 		
@@ -1239,6 +1337,7 @@ FIR_colonies_category = {
 				country_exists = YFC
 			}
 			has_government = imperialism
+			230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
 		}
 
 		available = {
@@ -1249,6 +1348,7 @@ FIR_colonies_category = {
 			has_equipment = { light_armor_equipment > 239 }
 			has_equipment = { bow_equipment > 239 }
 			has_equipment = { arrow_equipment > 7599 }
+			230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
 		}
 
 		days_remove = 90
@@ -1316,6 +1416,7 @@ FIR_colonies_category = {
 				country_exists = KFC
 			}
 			has_government = imperialism
+			280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
 		}
 
 		available = {
@@ -1326,6 +1427,7 @@ FIR_colonies_category = {
 			has_equipment = { light_armor_equipment > 239 }
 			has_equipment = { bow_equipment > 239 }
 			has_equipment = { arrow_equipment > 7599 }
+			280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
 		}
 
 		days_remove = 90
