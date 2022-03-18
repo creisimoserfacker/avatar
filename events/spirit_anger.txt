@@ -84,51 +84,47 @@ add_namespace = spirit_event
 #}
 
 
-country_event = {
-	id = spirit_event.1
-	title = spirit_event.1.t
-	desc = spirit_event.1.d
-	picture = GFX_spirit_event_001
-
-	#trigger = {
-	#	threat > 1.0
-	#}
-
-	is_triggered_only = yes
-
-	immediate = {
-		hidden_effect = {
-			
-		}
-	}
-
-	option = {
-		name = spirit_event.1.a
-		trigger = { 
-
-		}
-
-		every_state = {
-			add_core_of = SPI
-		}
-		every_country = {
-			if = {
-				limit = {
-					#has_added_tension_amount > 0
-				}
-				random_owned_controlled_state = {
-					limit = {
-						is_in_home_area = yes
-					}
-					transfer_state_to = SPI
-				}
-				declare_war_on = {
-					target = SPI
-					type = annex_everything
-				}
-			}
-		}
-
-	}
-
-}
+#country_event = {
+#	id = spirit_event.1
+#	title = spirit_event.1.t
+#	desc = spirit_event.1.d
+#	picture = GFX_spirit_event_001
+#
+#	is_triggered_only = yes
+#
+#	immediate = {
+#		hidden_effect = {
+#			
+#		}
+#	}
+#
+#	option = {
+#		name = spirit_event.1.a
+#		trigger = { 
+#
+#		}
+#
+#		every_state = {
+#			add_core_of = SPI
+#		}
+#		every_country = {
+#			if = {
+#				limit = {
+#					#has_added_tension_amount > 0
+#				}
+#				random_owned_controlled_state = {
+#					limit = {
+#						is_in_home_area = yes
+#					}
+#					transfer_state_to = SPI
+#				}
+#				declare_war_on = {
+#					target = SPI
+#					type = annex_everything
+#				}
+#			}
+#		}
+#
+#	}
+#
+#}

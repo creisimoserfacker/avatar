@@ -835,7 +835,7 @@ FIR_conquest_category = {
       }
 
 		available = {
-            AND = {
+			AND = {
 				country_exists = EAR
 				has_country_flag = FIR_attack_plan_made	
 				threat > 0.5	
@@ -852,10 +852,6 @@ FIR_conquest_category = {
 				}
 			}
        }
-
-        #modifier = {
-		#	political_power_factor = -0.25
-		#}
 
 		war_with_on_remove = EAR
 
@@ -894,8 +890,9 @@ FIR_conquest_category = {
 		#days_remove = 60
 
 		cost = 50
-        fire_only_once = yes
-        ai_will_do = {
+		fire_only_once = yes
+
+		ai_will_do = {
 			factor = 100
 			modifier = {
 				has_war = yes
@@ -911,7 +908,7 @@ FIR_conquest_category = {
 		visible = {
 			has_global_flag = air_nomad_genocide
 			NOT = { has_war_with = NWT }
-        }
+      }
 
 		available = {
             date > 27.1.1

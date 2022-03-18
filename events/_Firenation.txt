@@ -21,16 +21,16 @@ country_event = {
 				white_peace = FIR
 				leave_faction = yes
 				#kill_country_leader = yes
-				create_country_leader = {
-					name = "Extinct Nation"
-					desc = "POLITICS_ADOLF_HITLER_DESC"
-					picture = "Portrait_Westernairtemple_Extinct.dds"
-					expire = "120.1.1"
-					ideology = active_pacifism
-					traits = {
-						extinguished_population
-					}
-				}
+				#create_country_leader = {
+				#	name = "Extinct Nation"
+				#	desc = "POLITICS_ADOLF_HITLER_DESC"
+				#	picture = "Portrait_Westernairtemple_Extinct.dds"
+				#	expire = "120.1.1"
+				#	ideology = active_pacifism
+				#	traits = {
+				#		extinguished_population
+				#	}
+				#}
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
@@ -148,16 +148,16 @@ country_event = {
 			SAT = {
 				white_peace = FIR
 				#kill_country_leader = yes
-				create_country_leader = {
-					name = "Extinct Nation"
-					desc = "POLITICS_ADOLF_HITLER_DESC"
-					picture = "Portrait_Southernairtemple_Extinct.dds"
-					expire = "120.1.1"
-					ideology = active_pacifism
-					traits = {
-						extinguished_population
-					}
-				}
+				#create_country_leader = {
+				#	name = "Extinct Nation"
+				#	desc = "POLITICS_ADOLF_HITLER_DESC"
+				#	picture = "Portrait_Southernairtemple_Extinct.dds"
+				#	expire = "120.1.1"
+				#	ideology = active_pacifism
+				#	traits = {
+				#		extinguished_population
+				#	}
+				#}
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
@@ -316,16 +316,16 @@ country_event = {
 				white_peace = FIR
 				leave_faction = yes
 				#kill_country_leader = yes
-				create_country_leader = {
-					name = "Extinct Nation"
-					desc = "POLITICS_ADOLF_HITLER_DESC"
-					picture = "Portrait_Northernairtemple_Extinct.dds"
-					expire = "120.1.1"
-					ideology = active_pacifism
-					traits = {
-						extinguished_population
-					}
-				}
+				#create_country_leader = {
+				#	name = "Extinct Nation"
+				#	desc = "POLITICS_ADOLF_HITLER_DESC"
+				#	picture = "Portrait_Northernairtemple_Extinct.dds"
+				#	expire = "120.1.1"
+				#	ideology = active_pacifism
+				#	traits = {
+				#		extinguished_population
+				#	}
+				#}
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
@@ -396,16 +396,16 @@ country_event = {
 				white_peace = FIR
 				leave_faction = yes
 				#kill_country_leader = yes
-				create_country_leader = {
-					name = "Extinct Nation"
-					desc = "POLITICS_ADOLF_HITLER_DESC"
-					picture = "Portrait_Easternairtemple_Extinct.dds"
-					expire = "120.1.1"
-					ideology = active_pacifism
-					traits = {
-						extinguished_population
-					}
-				}
+				#create_country_leader = {
+				#	name = "Extinct Nation"
+				#	desc = "POLITICS_ADOLF_HITLER_DESC"
+				#	picture = "Portrait_Easternairtemple_Extinct.dds"
+				#	expire = "120.1.1"
+				#	ideology = active_pacifism
+				#	traits = {
+				#		extinguished_population
+				#	}
+				#}
 				add_ideas = no_ruler
 			}
 			add_named_threat = { 
@@ -532,7 +532,7 @@ country_event = {
 	option = {
 		name = firenation.10.a
 		add_ideas = spirit_prince_azulon
-		set_variable = { azulon_birth_event = global.year }
+		set_variable = { FIR.azulon_birth_event = global.year }
 		set_variable = { azulon_position = 190 }
 	}
 }
@@ -558,16 +558,16 @@ country_event = {
 				retire_character = FIR_sozin
 				#kill_country_leader = yes
 				#remove_unit_leader = 1
-				create_country_leader = {
-					name = "Empty Throne"
-					desc = "POLITICS_ADOLF_HITLER_DESC"
-					picture = "Portrait_Firenation_No_Leader.dds"
-					expire = "200.1.1"
-					ideology = colonialism
-					traits = {
-						no_leader
-					}
-				}
+				#create_country_leader = {
+				#	name = "Empty Throne"
+				#	desc = "POLITICS_ADOLF_HITLER_DESC"
+				#	picture = "Portrait_Firenation_No_Leader.dds"
+				#	expire = "200.1.1"
+				#	ideology = colonialism
+				#	traits = {
+				#		no_leader
+				#	}
+				#}
 			}
  		} 		
  		random_list = {
@@ -583,174 +583,174 @@ country_event = {
 }
 
 
-#Lu Ten Died!
-country_event = {
-	id = firenation.13
-	title = firenation.13.t
-	desc = firenation.13.d
-	picture = GFX_Lu_Ten_Died
-	trigger = {
-		tag = FIR
-	}
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = firenation.13.a
-		#disband lu ten
-		custom_effect_tooltip = FIR_S_Lu_Ten_Died
-		hidden_effect = {
-			If = { limit = { EAR = { controls_state = 179 } }
-			country_event = { days = 30 id = firenation.14 }
-			every_unit_leader = { limit = { has_id = 9 } retire = yes } }
-		}
-		add_timed_idea= { 
-			idea = FIR_Lu_Tens_Death_Effects
-			days = 30
-		}
-	}
-}
-
-
-#Iroh Decided To Withdraw!
-country_event = {
-	id = firenation.14
-	title = firenation.14.t
-	desc = firenation.14.d
-	picture = GFX_Iroh_Decided_To_Withdraw
-	trigger = {
-		tag = FIR
-	}
-	is_triggered_only = yes
-	fire_only_once = yes
-	option = {
-		name = firenation.14.a
-		#disband Iroh, teleport 
-		every_unit_leader = { limit = { has_id = 7 } retire = yes }
-		hidden_effect = {
-			If = { limit = { EAR = { controls_state = 179 } }
-			delete_unit_template_and_units = {
-				division_template = "Siege Force"
-				disband = yes
-			}
-			if = { limit = { controls_state = 44 } add_to_array = { array = siege_ereas value = 44 } }
-			if = { limit = { controls_state = 57 } add_to_array = { array = siege_ereas value = 57 } }
-			if = { limit = { controls_state = 93 } add_to_array = { array = siege_ereas value = 93 } }
-			if = { limit = { controls_state = 59 } add_to_array = { array = siege_ereas value = 59 } }
-			if = { limit = { controls_state = 257 } add_to_array = { array = siege_ereas value = 257 } }
-			if = { limit = { controls_state = 269 } add_to_array = { array = siege_ereas value = 269 } }
-			if = { limit = { controls_state = 252 } add_to_array = { array = siege_ereas value = 252 } }
-			if = { limit = { controls_state = 276 } add_to_array = { array = siege_ereas value = 276 } }
-
-			217 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			206 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			116 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			139 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			80 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			65 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			99 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			54 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			98 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			76 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			61 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			138 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			141 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			197 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			241 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			256 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			273 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			287 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			248 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			253 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			193 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			145 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			126 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			129 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			149 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			178 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			213 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			189 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			187 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			161 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			162 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			179 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			173 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			174 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			231 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			150 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
-			EAR = { set_state_controller = 179 
-				set_state_controller = 173	
-				set_state_controller = 174
-				set_state_controller = 187
-				set_state_controller = 189
-				set_state_controller = 161
-				set_state_controller = 162
-				set_state_controller = 193
-				set_state_controller = 213
-				set_state_controller = 150
-				set_state_controller = 178
-				set_state_controller = 149
-				set_state_controller = 129
-				set_state_controller = 126
-				set_state_controller = 145
-			}
-			WBA = { set_state_controller = 80
-				set_state_controller = 65	
-				set_state_controller = 99
-				set_state_controller = 54
-				set_state_controller = 61
-				set_state_controller = 76
-				set_state_controller = 138
-				set_state_controller = 141
-				set_state_controller = 197
-				set_state_controller = 233
-				set_state_controller = 96
-			}
-			
-			EBA = { set_state_controller = 116 
-				set_state_controller = 139	
-				set_state_controller = 217
-				set_state_controller = 206
-				set_state_controller = 248
-				set_state_controller = 287
-				set_state_controller = 253
-				set_state_controller = 273
-				set_state_controller = 231
-				set_state_controller = 256
-				set_state_controller = 241
-			}
-			
-			ECB = { set_state_controller = 246 
-				set_state_controller = 277	
-				set_state_controller = 341
-				set_state_controller = 333
-				set_state_controller = 378
-				set_state_controller = 398
-				set_state_controller = 291
-			}
-			
-			
-			EAR = {
-				if = {
-					limit = {
-						has_dlc = "Together for Victory"
-					}
-					set_autonomy = {
-						target = WBA
-						autonomous_state = autonomy_royal_domain
-					}
-					set_autonomy = {
-						target = EBA
-						autonomous_state = autonomy_royal_domain
-					}
-				}
-				else = {
-					puppet = WBA
-					puppet = EBA
-				}
-			} }
-		}
-	}
-}
+##Lu Ten Died!
+#country_event = {
+#	id = firenation.13
+#	title = firenation.13.t
+#	desc = firenation.13.d
+#	picture = GFX_Lu_Ten_Died
+#	trigger = {
+#		tag = FIR
+#	}
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#	option = {
+#		name = firenation.13.a
+#		#disband lu ten
+#		custom_effect_tooltip = FIR_S_Lu_Ten_Died
+#		hidden_effect = {
+#			If = { limit = { EAR = { controls_state = 179 } }
+#			country_event = { days = 30 id = firenation.14 }
+#			every_unit_leader = { limit = { has_id = 9 } retire = yes } }
+#		}
+#		add_timed_idea= { 
+#			idea = FIR_Lu_Tens_Death_Effects
+#			days = 30
+#		}
+#	}
+#}
+#
+#
+##Iroh Decided To Withdraw!
+#country_event = {
+#	id = firenation.14
+#	title = firenation.14.t
+#	desc = firenation.14.d
+#	picture = GFX_Iroh_Decided_To_Withdraw
+#	trigger = {
+#		tag = FIR
+#	}
+#	is_triggered_only = yes
+#	fire_only_once = yes
+#	option = {
+#		name = firenation.14.a
+#		#disband Iroh, teleport 
+#		every_unit_leader = { limit = { has_id = 7 } retire = yes }
+#		hidden_effect = {
+#			If = { limit = { EAR = { controls_state = 179 } }
+#			delete_unit_template_and_units = {
+#				division_template = "Siege Force"
+#				disband = yes
+#			}
+#			if = { limit = { controls_state = 44 } add_to_array = { array = siege_ereas value = 44 } }
+#			if = { limit = { controls_state = 57 } add_to_array = { array = siege_ereas value = 57 } }
+#			if = { limit = { controls_state = 93 } add_to_array = { array = siege_ereas value = 93 } }
+#			if = { limit = { controls_state = 59 } add_to_array = { array = siege_ereas value = 59 } }
+#			if = { limit = { controls_state = 257 } add_to_array = { array = siege_ereas value = 257 } }
+#			if = { limit = { controls_state = 269 } add_to_array = { array = siege_ereas value = 269 } }
+#			if = { limit = { controls_state = 252 } add_to_array = { array = siege_ereas value = 252 } }
+#			if = { limit = { controls_state = 276 } add_to_array = { array = siege_ereas value = 276 } }
+#
+#			217 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			206 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			116 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			139 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			80 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			65 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			99 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			54 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			98 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			76 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			61 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			138 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			141 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			197 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			241 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			256 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			273 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			287 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			248 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			253 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			193 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			145 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			126 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			129 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			149 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			178 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			213 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			189 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			187 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			161 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			162 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			179 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			173 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			174 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			231 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			150 = { teleport_armies = { limit = { tag = FIR } to_state_array = siege_ereas } }
+#			EAR = { set_state_controller = 179 
+#				set_state_controller = 173	
+#				set_state_controller = 174
+#				set_state_controller = 187
+#				set_state_controller = 189
+#				set_state_controller = 161
+#				set_state_controller = 162
+#				set_state_controller = 193
+#				set_state_controller = 213
+#				set_state_controller = 150
+#				set_state_controller = 178
+#				set_state_controller = 149
+#				set_state_controller = 129
+#				set_state_controller = 126
+#				set_state_controller = 145
+#			}
+#			WBA = { set_state_controller = 80
+#				set_state_controller = 65	
+#				set_state_controller = 99
+#				set_state_controller = 54
+#				set_state_controller = 61
+#				set_state_controller = 76
+#				set_state_controller = 138
+#				set_state_controller = 141
+#				set_state_controller = 197
+#				set_state_controller = 233
+#				set_state_controller = 96
+#			}
+#			
+#			EBA = { set_state_controller = 116 
+#				set_state_controller = 139	
+#				set_state_controller = 217
+#				set_state_controller = 206
+#				set_state_controller = 248
+#				set_state_controller = 287
+#				set_state_controller = 253
+#				set_state_controller = 273
+#				set_state_controller = 231
+#				set_state_controller = 256
+#				set_state_controller = 241
+#			}
+#			
+#			ECB = { set_state_controller = 246 
+#				set_state_controller = 277	
+#				set_state_controller = 341
+#				set_state_controller = 333
+#				set_state_controller = 378
+#				set_state_controller = 398
+#				set_state_controller = 291
+#			}
+#			
+#			
+#			EAR = {
+#				if = {
+#					limit = {
+#						has_dlc = "Together for Victory"
+#					}
+#					set_autonomy = {
+#						target = WBA
+#						autonomous_state = autonomy_royal_domain
+#					}
+#					set_autonomy = {
+#						target = EBA
+#						autonomous_state = autonomy_royal_domain
+#					}
+#				}
+#				else = {
+#					puppet = WBA
+#					puppet = EBA
+#				}
+#			} }
+#		}
+#	}
+#}
 
 #The Yu Dao Uprising
 country_event = {
@@ -842,10 +842,10 @@ country_event = {
 				}
 				puppet = KFC
 				puppet = YFC
-				else = {
-					set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
-					set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
-				}
+			}
+			else = {
+				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
 			}
 		}
 		HAN = {
@@ -1008,19 +1008,19 @@ country_event = {
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_war_path
-			add_days_remove  = {
+			add_days_remove = {
 				decision = military_preparations
 				days = -10
 			}
-			add_days_remove  = {
+			add_days_remove = {
 				decision = northern_attack_plan
 				days = -10
 			}
-			add_days_remove  = {
+			add_days_remove = {
 				decision = central_attack_plan
 				days = -10
 			}
-			add_days_remove  = {
+			add_days_remove = {
 				decision = southern_attack_plan
 				days = -10
 			}
@@ -1069,29 +1069,31 @@ country_event = {
 		ai_chance = { 
 			factor = 100
 		}
-		add_war_support = 0.1
-		set_country_flag = earth_war_path
 
 		add_named_threat = { 
 			threat = 15
 			name = FIR_failed_negotiation
 		}
 
-		add_days_remove  = {
-			decision = military_preparations
-			days = -20
-		}
-		add_days_remove  = {
-			decision = northern_attack_plan
-			days = -30
-		}
-		add_days_remove  = {
-			decision = central_attack_plan
-			days = -30
-		}
-		add_days_remove  = {
-			decision = southern_attack_plan
-			days = -30
+		FIR = {
+			add_war_support = 0.1
+			set_country_flag = earth_war_path
+			add_days_remove = {
+				decision = military_preparations
+				days = -20
+			}
+			add_days_remove = {
+				decision = northern_attack_plan
+				days = -30
+			}
+			add_days_remove = {
+				decision = central_attack_plan
+				days = -30
+			}
+			add_days_remove = {
+				decision = southern_attack_plan
+				days = -30
+			}
 		}
 	}
 
