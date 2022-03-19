@@ -84,7 +84,7 @@ no_garrison = {
 
 		modifier = {
 			FROM = {
-				has_government = democratic
+				has_government = democratica
 			}
 			has_active_resistance = no
 			add = 200
@@ -115,7 +115,7 @@ autonomous_occupation = {
 	sound_effect = "Martial_Law_Interface_Autonomous_Occupation_Unique_DEM"
 
 	visible = {
-		has_government = democratic #? on design
+		has_government = democratica #? on design
 	}
 
 	state_modifier = {
@@ -222,7 +222,7 @@ liberate_workers_occupation = {
 	sound_effect = "Martial_Law_Interface_Liberate_Workers_Occupation_Unique_COM"
 
 	visible = {
-		has_government = communism
+		has_government = monarchism
 	}
 
 	state_modifier = {
@@ -407,8 +407,8 @@ harsh_quotas_occupation = {
 		local_factories 				= 0.25
 		local_resources 				= 0.05
 
-		repair_speed_arms_factory_factor = 0.25
-		repair_speed_industrial_complex_factor = 0.25
+		repair_speed_smithy_factor = 0.25
+		repair_speed_carpentry_factor = 0.25
 
 		custom_modifier_tooltip = "factory_sabotage_decrease_tooltip"
 	}
@@ -419,7 +419,7 @@ harsh_quotas_occupation = {
 		base = 0
 
 		modifier = {
-			set_temp_variable = { num_damaged = damaged_building_level@arms_factory }
+			set_temp_variable = { num_damaged = damaged_building_level@smithy }
 			add_to_temp_variable = { num_damaged = damaged_building_level@industrial_complex }
 
 			check_variable = { num_damaged > 0 }
@@ -437,7 +437,7 @@ brutally_oppressive_occupation = {
 	sound_effect = "Martial_Law_Interface_Brutally_Oppressive_Occupation_Unique_FAS"
 
 	visible = {
-		has_government = fascism
+		has_government = imperialism
 	}
 
 	state_modifier = {
