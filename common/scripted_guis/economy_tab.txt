@@ -311,7 +311,7 @@ scripted_gui = {
 					}
 					any_owned_state = {
 						free_building_slots = {
-							building = smithy
+							building = arms_factory
 							size > 0
 							include_locked = no
 						}
@@ -320,7 +320,7 @@ scripted_gui = {
 				else = {
 					any_owned_state = {
 						free_building_slots = {
-							building = smithy
+							building = arms_factory
 							size > 0
 							include_locked = no
 						}
@@ -445,6 +445,30 @@ scripted_gui = {
 					any_owned_state = {
 						free_building_slots = {
 							building = luxury_good_factory
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+					}
+				}
+			}
+			manufactory_construction_click_enabled = {
+				if = {
+					limit = {
+						has_country_flag = core_all_construction_flag
+					}
+					any_owned_state = {
+						free_building_slots = {
+							building = indstrial_complex
+							size > 0
+							include_locked = no
+						}
+					}
+				}
+				else = {
+					any_owned_state = {
+						free_building_slots = {
+							building = indstrial_complex
 							size > 0
 							include_locked = no
 						}
@@ -699,6 +723,17 @@ scripted_gui = {
 				add_luxury_good_factory_random = yes
 				add_luxury_good_factory_random = yes
 				add_luxury_good_factory_random = yes
+			}
+
+			manufactory_construction_click = {
+				add_manufactory_random = yes
+			}
+			manufactory_construction_shift_click = {
+				add_manufactory_random = yes
+				add_manufactory_random = yes
+				add_manufactory_random = yes
+				add_manufactory_random = yes
+				add_manufactory_random = yes
 			}
 			carpentry_construction_click = {
 				add_carpentry_random = yes

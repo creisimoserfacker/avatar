@@ -6,7 +6,7 @@ civil_factory_output = {
 			check_variable = { civil_capacity < ic }
 		}
 		ROOT = {
-			add_offsite_building = { type = wtfaistopbuildingthis level = 1 }
+			add_offsite_building = { type = industrial_complex level = 1 }
 		}
 		add_to_variable = { civil_capacity = 1 }
 		civil_factory_output = yes
@@ -16,7 +16,7 @@ civil_factory_output = {
 			check_variable = { civil_capacity > ic }
 		}
 		ROOT = {
-			add_offsite_building = { type = wtfaistopbuildingthis level = -1 }
+			add_offsite_building = { type = industrial_complex level = -1 }
 		}
 		add_to_variable = { civil_capacity = -1 }
 		civil_factory_output = yes
@@ -40,7 +40,7 @@ extra_factory_output = {
 			check_variable = { extra_mils < factory_duplicator }
 		}
 		ROOT = {
-			add_offsite_building = { type = smithy level = 1 }
+			add_offsite_building = { type = arms_factory level = 1 }
 		}
 		add_to_variable = { extra_mils = 1 }
 		extra_factory_output = yes
@@ -50,7 +50,7 @@ extra_factory_output = {
 			check_variable = { extra_mils > factory_duplicator }
 		}
 		ROOT = {
-			add_offsite_building = { type = smithy level = -1 }
+			add_offsite_building = { type = arms_factory level = -1 }
 		}
 		add_to_variable = { extra_mils = -1 }
 		extra_factory_output = yes
@@ -1459,7 +1459,7 @@ remove_steelworks = {
 add_smithy = {
 	THIS = {
 		add_building_construction = {
-			type = smithy
+			type = arms_factory
 			level = 1
 			instant_build = no
 		}
@@ -1473,13 +1473,13 @@ add_smithy_random = {
 		random_owned_state = {
 			limit = {
 				free_building_slots = {
-					building = smithy
+					building = arms_factory
 					size > 0
 					include_locked = no
 				}
 			}
 			add_building_construction = {
-				type = smithy
+				type = arms_factory
 				level = 1
 				instant_build = no
 			}
@@ -1489,14 +1489,14 @@ add_smithy_random = {
 		random_owned_state = {
 			limit = {
 				free_building_slots = {
-					building = smithy
+					building = arms_factory
 					size > 0
 					include_locked = no
 				}
 				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = smithy
+				type = arms_factory
 				level = 1
 				instant_build = no
 			}
@@ -1866,6 +1866,55 @@ remove_luxury_good_factory = {
 		}
 	}
 }
+
+add_manufactory = {
+	THIS = {
+		add_building_construction = {
+			type = industrial_complex
+			level = 1
+			instant_build = no
+		}
+	}
+}
+add_manufactory_random = {
+	if = {
+		limit = {
+			has_country_flag = core_all_construction_flag
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = no
+			}
+		}
+	}
+	else = {
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = industrial_complex
+					size > 0
+					include_locked = no
+				}
+				is_core_of = ROOT
+			}
+			add_building_construction = {
+				type = industrial_complex
+				level = 1
+				instant_build = no
+			}
+		}
+	}
+}
+
 add_carpentry = {
 	if = {
 		limit = {
