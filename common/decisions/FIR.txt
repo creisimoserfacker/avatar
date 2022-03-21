@@ -225,6 +225,7 @@ FIR_royal_family_category = {
 				character = FIR_sozin
 				ruling_only = yes
 			}
+			has_idea = legacy_of_roku_and_sozin
 		}
 
 		available = {
@@ -232,6 +233,7 @@ FIR_royal_family_category = {
 				character = FIR_sozin
 				ruling_only = yes
 			}
+			has_idea = legacy_of_roku_and_sozin
 		}
 
 		days_remove = 30
@@ -241,15 +243,166 @@ FIR_royal_family_category = {
 			war_support_weekly = -0.005
 		}
 
+
 		complete_effect = {
-			
+			hidden_effect = {
+				add_command_power = -50
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		custom_cost_text = honour_cost_50
+
+		#cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	continue_expansion_plans = {
+
+		visible = {	
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+		}
+
+		available = {
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+		}
+
+		complete_effect = {
+			swap_ideas = {
+				remove_idea = legacy_of_roku_and_sozin
+				add_idea = ruthless_expansionism
+			}
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	elua_teach_azulon_reading = {
+
+		icon = book
+
+		visible = {	
+			has_country_flag = sozin_wife_elua
+			check_variable = { mtth:azulon_age > 3 }
+			check_variable = { mtth:azulon_age < 16 }
+		}
+
+		available = {
+			has_country_flag = sozin_wife_elua
+			custom_trigger_tooltip = {
+				tooltip = azulon_age_4_tt
+				check_variable = { mtth:azulon_age > 3 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = azulon_age_16_max_tt
+				check_variable = { mtth:azulon_age < 16 }
+			}
+		}
+
+		days_remove = 150
+
+		#modifier = {
+		#	stability_weekly = 0.005
+		#	war_support_weekly = -0.005
+		#}
+
+		remove_effect = {
+			add_to_variable = { azulon_planning_skill = 1 }
+			custom_effect_tooltip = azulon_planning_skill_gain_1
 		}
 
 		cost = 100
-			fire_only_once = yes
-			ai_will_do = {
+		fire_only_once = yes
+
+		ai_will_do = {
 			factor = 110
 		}
+	}
+
+	azulon_general = {
+
+		icon = general
+
+		visible = {	
+			has_character = FIR_azulon
+			#check_variable = { mtth:azulon_age > 17 }
+
+		}
+
+		available = {
+			has_character = FIR_azulon
+			custom_trigger_tooltip = {
+				tooltip = azulon_age_18_tt
+				check_variable = { mtth:azulon_age > 17 }
+			}
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+				NOT = {
+					has_character_flag = FIR_character_general
+					has_character_flag = FIR_character_death
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+
+			FIR_azulon = {
+				set_character_flag = FIR_character_general
+			}
+			custom_effect_tooltip = azulon_becomes_general
+		}
+
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		custom_cost_text = honour_cost_50
+		#fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+
+	}
+	azulon_not_general = {
+
+		visible = {	
+			is_debug = yes
+		}
+
+		complete_effect = {
+			FIR_azulon = {
+				clr_character_flag = FIR_character_general
+			}
+
+		}
+
+		cost = 0
+		#fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+
 	}
 
 	crown_azulon = {
