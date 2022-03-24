@@ -524,10 +524,34 @@ country_event = {
 		trigger = { 
 			NOT = {
 				TAG = FIR
+				has_equipment = { firebender_equipment > 199 }
 			}
 		}
 		ai_chance = { 
 			factor = 100
+		}
+
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
+		}
+	}
+	option = {
+		name = air_gen.4.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+			has_equipment = { firebender_equipment > 199 }
+		}
+		ai_chance = { 
+			factor = 100
+		}
+
+		add_equipment_to_stockpile = {
+			type = firebender_equipment
+			amount = -200
+			producer = ROOT
 		}
 
 		add_named_threat = { 
