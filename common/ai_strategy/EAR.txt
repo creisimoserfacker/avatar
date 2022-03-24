@@ -100,6 +100,113 @@ defender_defense_dafending3 = {
 	}
 }
 
+EAR_temple_march = {
+	enable = {
+		original_tag = EAR
+		OR = {
+			has_war_with = EAT
+			has_war_with = SAT
+			has_war_with = WAT
+			has_war_with = NAT
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = "NAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = NAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "SAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = SAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "WAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = WAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "EAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = EAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	
+}
+
+EAR_dont_get_involved = {
+	allowed = {
+		or = {
+			is_in_faction_with = EAR
+			tag = EAR
+		}
+	}
+	enable = {
+		or = {
+			is_in_faction_with = EAR
+			tag = EAR 
+		}
+		or = {
+			EAR = { has_war_with = EAT }
+			EAR = { has_war_with = SAT }
+			EAR = { has_war_with = WAT }
+			EAR = { has_war_with = NAT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "EAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "SAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "WAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "NAT"
+		value = 1000
+	}
+	
+}
+
 EAR_unit_production = {
 	enable = {
 		original_tag = EAR
