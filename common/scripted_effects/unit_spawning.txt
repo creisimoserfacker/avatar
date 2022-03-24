@@ -102,3 +102,107 @@ dai_li_agents = {
 		}
 	}
 }
+
+
+fire_commando = {
+	if = {
+		limit = {
+			check_variable = { sent_troops > 0 }
+		}
+		create_unit = {
+			division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+			owner = FIR
+		}
+		subtract_from_variable = { sent_troops = 1 }
+		if = {
+			limit = {
+				check_variable = { sent_troops > 0 }
+			}
+			create_unit = {
+				division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+				owner = FIR
+			}
+			subtract_from_variable = { sent_troops = 1 }
+			if = {
+				limit = {
+					check_variable = { sent_troops > 0 }
+				}
+				create_unit = {
+					division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+					owner = FIR
+				}
+				subtract_from_variable = { sent_troops = 1 }
+				if = {
+					limit = {
+						check_variable = { sent_troops > 0 }
+					}
+					create_unit = {
+						division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+						owner = FIR
+					}
+					subtract_from_variable = { sent_troops = 1 }
+					if = {
+						limit = {
+							check_variable = { sent_troops > 0 }
+						}
+						create_unit = {
+							division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+							owner = FIR
+						}
+						subtract_from_variable = { sent_troops = 1 }
+						if = {
+							limit = {
+								check_variable = { sent_troops > 0 }
+							}
+							create_unit = {
+								division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+								owner = FIR
+							}
+							subtract_from_variable = { sent_troops = 1 }
+							if = {
+								limit = {
+									check_variable = { sent_troops > 0 }
+								}
+								create_unit = {
+									division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+									owner = FIR
+								}
+								subtract_from_variable = { sent_troops = 1 }
+								if = {
+									limit = {
+										check_variable = { sent_troops > 0 }
+									}
+									create_unit = {
+										division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+										owner = FIR
+									}
+									subtract_from_variable = { sent_troops = 1 }
+									if = {
+										limit = {
+											check_variable = { sent_troops > 0 }
+										}
+										create_unit = {
+											division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+											owner = FIR
+										}
+										subtract_from_variable = { sent_troops = 1 }
+										if = {
+											limit = {
+												check_variable = { sent_troops > 0 }
+											}
+											create_unit = {
+												division = "name = \"Fire Commando\" division_template = \"Fire Commando\" start_experience_factor = 0.5" 
+												owner = FIR
+											}
+											subtract_from_variable = { sent_troops = 1 }
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}

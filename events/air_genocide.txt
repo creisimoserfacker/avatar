@@ -30,7 +30,10 @@ country_event = {
 		
 		ai_chance = {
 			base = 100
-
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = FIRENATION_AIR_GENOCIDE }
+			}
 		}
 	}
 
@@ -46,6 +49,14 @@ country_event = {
 			modifier = {
 				add = 100
 				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 100
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = FIRENATION_AIR_GENOCIDE }
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = RULE_OPTION_NO_AIR_GENOCIDE }
 			}
 		}
 	}
@@ -418,9 +429,11 @@ country_event = {
 			factor = 100
 		}
 
-		add_named_threat = { 
-			threat = 10
-			name = FIR_air_nomad_genocide
+		FIR = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_air_nomad_genocide
+			}
 		}
 	}
 
@@ -428,6 +441,10 @@ country_event = {
 		name = air_gen.3.a_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		ai_chance = { 
 			factor = 100
@@ -437,6 +454,10 @@ country_event = {
 		name = air_gen.3.b_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		FIR = {
 			transfer_state = 167
@@ -589,9 +610,11 @@ country_event = {
 			factor = 100
 		}
 
-		add_named_threat = { 
-			threat = 10
-			name = FIR_air_nomad_genocide
+		FIR = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_air_nomad_genocide
+			}
 		}
 	}
 	option = {
@@ -612,9 +635,11 @@ country_event = {
 			producer = ROOT
 		}
 
-		add_named_threat = { 
-			threat = 10
-			name = FIR_air_nomad_genocide
+		FIR = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_air_nomad_genocide
+			}
 		}
 	}
 
@@ -622,6 +647,10 @@ country_event = {
 		name = air_gen.4.a_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		ai_chance = { 
 			factor = 100
@@ -632,6 +661,10 @@ country_event = {
 		name = air_gen.4.b_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		FIR = {
 			transfer_state = 242
@@ -735,9 +768,11 @@ country_event = {
 			factor = 100
 		}
 
-		add_named_threat = { 
-			threat = 10
-			name = FIR_air_nomad_genocide
+		FIR = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_air_nomad_genocide
+			}
 		}
 	}
 
@@ -745,6 +780,10 @@ country_event = {
 		name = air_gen.5.a_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		ai_chance = { 
 			factor = 100
@@ -755,6 +794,10 @@ country_event = {
 		name = air_gen.5.b_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		FIR = {
 			transfer_state = 316
@@ -854,9 +897,11 @@ country_event = {
 			factor = 100
 		}
 
-		add_named_threat = { 
-			threat = 10
-			name = FIR_air_nomad_genocide
+		FIR = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_air_nomad_genocide
+			}
 		}
 	}
 
@@ -868,12 +913,20 @@ country_event = {
 		ai_chance = { 
 			factor = 100
 		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
+		}
 	}
 
 	option = {
 		name = air_gen.6.b_fir
 		trigger = { 
 			TAG = FIR
+		}
+		add_named_threat = { 
+			threat = 10
+			name = FIR_air_nomad_genocide
 		}
 		FIR = {
 			transfer_state = 320
@@ -885,6 +938,266 @@ country_event = {
 			transfer_state = 22
 			transfer_state = 106
 			transfer_state = 24
+		}
+	}
+
+}
+
+
+### fire genocide decision
+country_event = {
+	id = air_gen.7
+	title = air_gen.7.t
+	desc = air_gen.7.d
+	picture = GFX_report_event_air_genocide
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = {
+		name = air_gen.7.a
+
+		custom_effect_tooltip = fir_air_genocide_decisions
+
+		set_country_flag = genocide_active
+
+		set_variable = { genocide_preparation = 4 }
+		
+		ai_chance = {
+			base = 100
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+			}
+		}
+	}
+
+	option = {
+		name = air_gen.7.b
+
+		custom_effect_tooltip = fir_no_genocide_decisions
+
+		set_country_flag = fire_no_genocide
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 100
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+			}
+		}
+	}
+}
+
+
+##### fire beginns operation
+country_event = {
+	id = air_gen.8
+	title = air_gen.8.t
+	desc = air_gen.8.d
+	picture = GFX_report_event_fire_operation
+	
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					has_country_flag = duplicate_units
+				}
+				clr_country_flag = duplicate_units
+				multiply_variable = { FIR.genocide_preparation = 2 }
+			}
+		}
+	}
+
+	option = {
+		name = air_gen.8.a
+
+		custom_effect_tooltip = fir_genocide_description
+
+		hidden_effect = {
+
+			declare_war_on = {
+				target = EAT
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = WAT
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = NAT
+				type = annex_everything
+			}
+			declare_war_on = {
+				target = SAT
+				type = annex_everything
+			}
+			EAT = {
+				country_event = { id = eastern.1 days = 1 }
+				set_major = yes
+			}
+			WAT = {
+				country_event = { id = western.1 days = 1 }
+				set_major = yes
+			}
+			NAT = {
+				country_event = { id = northern.1 days = 1 }
+				set_major = yes
+			}
+			SAT = {
+				country_event = { id = southern.1 days = 1 }
+				set_major = yes
+			}
+			FIR = {
+				activate_mission = FIR_eastern_temple_attack
+				activate_mission = FIR_western_temple_attack
+				activate_mission = FIR_northern_temple_attack
+				activate_mission = FIR_southern_temple_attack
+
+				remove_decision = gather_firebender_units
+				remove_decision = FIR_send_royal_guards_as_support
+
+				#remove_decision = northern_operation_base
+				#remove_decision = eastern_operation_base
+				#remove_decision = southern_operation_base
+				#remove_decision = western_operation_base
+
+				division_template = {
+					name = "Fire Commando"
+					regiments = {
+						firebender = { x = 0 y = 0 }
+						firebender = { x = 0 y = 1 }
+					}
+				}
+				set_division_template_lock = { division_template = "Fire Commando" is_locked = yes }
+
+				#### north temple
+				set_province_controller = 6087
+				set_province_controller = 4351
+				set_province_controller = 6090
+				set_province_controller = 6100
+				34 = {
+					set_variable = { sent_troops = FIR.genocide_preparation }
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+				}
+				if = {
+					limit = {
+						FIR = {
+							is_ai = yes
+						}
+					}
+					set_province_controller = 2388
+					316 = {
+						set_variable = { sent_troops = FIR.genocide_preparation }
+						fire_commando = yes
+					}
+				}
+
+				#### east temple coast
+				set_province_controller = 9197
+				set_province_controller = 9138
+				247 = {
+					set_variable = { sent_troops = FIR.genocide_preparation }
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+				}
+				if = {
+					limit = {
+						FIR = {
+							is_ai = yes
+						}
+					}
+					set_province_controller = 9075
+					188 = {
+						set_variable = { sent_troops = FIR.genocide_preparation }
+						fire_commando = yes
+					}
+				}
+
+				#### west temple coast
+				set_province_controller = 5406
+				set_province_controller = 6545
+				set_province_controller = 6531
+				112 = {
+					set_variable = { sent_troops = FIR.genocide_preparation }
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+				}
+				if = {
+					limit = {
+						FIR = {
+							is_ai = yes
+						}
+					}
+					set_province_controller = 6408
+					208 = {
+						set_variable = { sent_troops = FIR.genocide_preparation }
+						fire_commando = yes
+					}
+				}
+
+				#### south temple coast
+				set_province_controller = 9684
+				set_province_controller = 9654
+				set_province_controller = 9666
+				236 = {
+					set_variable = { sent_troops = FIR.genocide_preparation }
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+					fire_commando = yes
+				}
+				if = {
+					limit = {
+						FIR = {
+							is_ai = yes
+						}
+					}
+					set_province_controller = 9737
+					set_province_controller = 9711
+					329 = {
+						set_variable = { sent_troops = FIR.genocide_preparation }
+						fire_commando = yes
+					}
+				}
+
+			}
+		}
+		
+		ai_chance = {
+			base = 100
+
+		}
+	}
+
+	option = {
+		name = air_gen.8.b
+
+		custom_effect_tooltip = fir_cold_feet_description
+
+		
+		ai_chance = {
+			base = 0
+			modifier = {
+				add = 10
+				is_historical_focus_on = no
+			}
 		}
 	}
 
