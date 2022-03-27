@@ -9,12 +9,7 @@ country_event = {
 	desc = air_gen.1.d
 	picture = GFX_report_event_dai_li_proposal
 	
-	trigger = {
-		FIR = {
-			has_country_flag = fire_no_genocide
-		}
-		has_start_date < 13.01.01
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 
@@ -32,8 +27,8 @@ country_event = {
 		ai_chance = {
 			base = 100
 			modifier = {
-				factor = 0
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = FIRENATION_AIR_GENOCIDE }
+				add = 100
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
 			}
 		}
 	}
@@ -52,12 +47,8 @@ country_event = {
 				is_historical_focus_on = no
 			}
 			modifier = {
-				add = 100
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = FIRENATION_AIR_GENOCIDE }
-			}
-			modifier = {
 				factor = 0
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = RULE_OPTION_NO_AIR_GENOCIDE }
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
 			}
 		}
 	}
@@ -1008,6 +999,10 @@ country_event = {
 				factor = 0
 				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
 			}
+			modifier = {
+				factor = 0
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
+			}
 		}
 	}
 
@@ -1017,6 +1012,11 @@ country_event = {
 		custom_effect_tooltip = fir_no_genocide_decisions
 
 		set_country_flag = fire_no_genocide
+		hidden_effect = {
+			EAR = {
+				country_event = { id = air_gen.1 days = 31 }
+			}
+		}
 		
 		ai_chance = {
 			base = 0
@@ -1027,6 +1027,10 @@ country_event = {
 			modifier = {
 				add = 100
 				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+			}
+			modifier = {
+				add = 100
+				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
 			}
 		}
 	}
@@ -1082,11 +1086,10 @@ country_event = {
 				set_division_template_lock = { division_template = "Fire Commando" is_locked = yes }
 
 				#### north temple
-				set_province_controller = 6087
-				set_province_controller = 4351
-				set_province_controller = 6090
-				set_province_controller = 6100
-				34 = {
+				set_province_controller = 6069
+				set_province_controller = 6066
+				set_province_controller = 6065
+				405 = {
 					set_variable = { sent_troops = FIR.genocide_preparation }
 					fire_commando = yes
 					fire_commando = yes
@@ -1099,10 +1102,23 @@ country_event = {
 							is_ai = yes
 						}
 					}
-					set_province_controller = 2388
+					set_province_controller = 1608
 					316 = {
 						set_variable = { sent_troops = FIR.genocide_preparation }
 						fire_commando = yes
+					}
+				}
+				if = {
+					limit = {
+						FIR = {
+							has_country_flag = north_extra_construction
+						}
+					}
+					405 = {
+						set_victory_points = {
+							province = 6065
+							value = 10
+						}
 					}
 				}
 
@@ -1134,25 +1150,13 @@ country_event = {
 							has_country_flag = east_extra_construction
 						}
 					}
-					247 = {
-						#add_building_construction = {
-						#	type = naval_base
-						#	level = 2
-						#	instant_build = yes
-						#	province = 9197
-						#}
-						#add_building_construction = {
-						#	type = naval_base
-						#	level = 2
-						#	instant_build = yes
-						#	province = 9138
-						#}
+					447 = {
 						set_victory_points = {
-							province = 9197
+							province = 9201
 							value = 10
 						}
 						set_victory_points = {
-							province = 9138
+							province = 4096
 							value = 10
 						}
 					}
@@ -1188,12 +1192,6 @@ country_event = {
 						}
 					}
 					112 = {
-						#add_building_construction = {
-						#	type = naval_base
-						#	level = 4
-						#	instant_build = yes
-						#	province = 6545
-						#}
 						set_victory_points = {
 							province = 6545
 							value = 10
