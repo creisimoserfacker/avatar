@@ -87,66 +87,27 @@ country_event = {
 	}
 
 	option = {
-		name = air_gen.1.a
+		name = air_gen.2.a
 
 		custom_effect_tooltip = ear_genocide_description
 
 		hidden_effect = {
-			if = {
-				limit = {
-					has_country_flag = earth_transport_idea_flag
+
+			#add_country_leader_trait = secret_genocide_plan
+
+			GIF = {
+
+				if = {
+					limit = {
+						has_country_flag = earth_transport_idea_flag
+					}
+					add_timed_idea = { idea = transportation_buff days = 90 }
 				}
-				add_timed_idea = { idea = transportation_buff days = 90 }
-			}
 
-			add_country_leader_trait = secret_genocide_plan
+				transfer_state = 297
+				set_country_flag = earth_nation
 
-			declare_war_on = {
-				target = EAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = WAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = NAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = SAT
-				type = annex_everything
-			}
-			EAT = {
-				country_event = { id = eastern.1 days = 1 }
-				set_major = yes
-			}
-			WAT = {
-				country_event = { id = western.1 days = 1 }
-				set_major = yes
-			}
-			NAT = {
-				country_event = { id = northern.1 days = 1 }
-				set_major = yes
-			}
-			SAT = {
-				country_event = { id = southern.1 days = 1 }
-				set_major = yes
-			}
-			EAR = {
-				activate_mission = EAR_eastern_temple_attack
-				activate_mission = EAR_western_temple_attack
-				activate_mission = EAR_northern_temple_attack
-				activate_mission = EAR_southern_temple_attack
-
-				remove_decision = gather_dai_li_units
-				#remove_decision = replicate_firenation_uniforms
-				remove_decision = send_royal_guards_as_support
-
-				remove_decision = northern_operation_base
-				remove_decision = eastern_operation_base
-				remove_decision = southern_operation_base
-				remove_decision = western_operation_base
+				add_manpower = 4000
 
 				if = {
 					limit = {
@@ -188,9 +149,9 @@ country_event = {
 				}
 
 				#### east temple coast
-				set_province_controller = 9197
-				set_province_controller = 9138
-				247 = {
+				set_province_controller = 9201
+				set_province_controller = 4096
+				447 = {
 					set_variable = { sent_troops = EAR.genocide_preparation }
 					dai_li_agents = yes
 					dai_li_agents = yes
@@ -211,20 +172,30 @@ country_event = {
 				}
 				if = {
 					limit = {
-						has_country_flag = east_extra_construction
+						EAR = {
+							has_country_flag = east_extra_construction
+						}
 					}
 					247 = {
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							instant_build = yes
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 2
+						#	instant_build = yes
+						#	province = 9197
+						#}
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 2
+						#	instant_build = yes
+						#	province = 9138
+						#}
+						set_victory_points = {
 							province = 9197
+							value = 10
 						}
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							instant_build = yes
+						set_victory_points = {
 							province = 9138
+							value = 10
 						}
 					}
 				}
@@ -254,14 +225,20 @@ country_event = {
 				}
 				if = {
 					limit = {
-						has_country_flag = west_extra_construction
+						EAR = {
+							has_country_flag = west_extra_construction
+						}
 					}
 					112 = {
-						add_building_construction = {
-							type = naval_base
-							level = 4
-							instant_build = yes
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 4
+						#	instant_build = yes
+						#	province = 6545
+						#}
+						set_victory_points = {
 							province = 6545
+							value = 10
 						}
 					}
 				}
@@ -292,17 +269,72 @@ country_event = {
 				}
 				if = {
 					limit = {
-						has_country_flag = south_extra_construction
+						EAR = {
+							has_country_flag = south_extra_construction
+						}
 					}
 					236 = {
-						add_building_construction = {
-							type = naval_base
-							level = 4
-							instant_build = yes
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 4
+						#	instant_build = yes
+						#	province = 9654
+						#}
+						set_victory_points = {
 							province = 9654
+							value = 10
 						}
 					}
 				}
+
+
+				declare_war_on = {
+					target = EAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = WAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = NAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = SAT
+					type = annex_everything
+				}
+			}
+			EAT = {
+				country_event = { id = eastern.1 days = 1 }
+				set_major = yes
+			}
+			WAT = {
+				country_event = { id = western.1 days = 1 }
+				set_major = yes
+			}
+			NAT = {
+				country_event = { id = northern.1 days = 1 }
+				set_major = yes
+			}
+			SAT = {
+				country_event = { id = southern.1 days = 1 }
+				set_major = yes
+			}
+			EAR = {
+				activate_mission = EAR_eastern_temple_attack
+				activate_mission = EAR_western_temple_attack
+				activate_mission = EAR_northern_temple_attack
+				activate_mission = EAR_southern_temple_attack
+
+				remove_decision = gather_dai_li_units
+				#remove_decision = replicate_firenation_uniforms
+				remove_decision = send_royal_guards_as_support
+
+				remove_decision = northern_operation_base
+				remove_decision = eastern_operation_base
+				remove_decision = southern_operation_base
+				remove_decision = western_operation_base
 
 			}
 		}
@@ -372,7 +404,7 @@ country_event = {
 	immediate = {
  		hidden_effect = {
 			WAT = {
-				white_peace = ROOT
+				white_peace = GIF
 				leave_faction = yes
 				retire_country_leader = yes
 				promote_character = WAT_extinct_nation
@@ -392,7 +424,7 @@ country_event = {
 				transfer_state = 111
 				transfer_state = 100
 				transfer_state = 82
-				give_military_access = ROOT
+				give_military_access = GIF
 			}
 			every_state = {
 				limit = {
@@ -520,7 +552,7 @@ country_event = {
 	immediate = {
  		hidden_effect = {
 			SAT = {
-				white_peace = ROOT
+				white_peace = GIF
 				retire_country_leader = yes
 				promote_character = SAT_extinct_nation
 				add_ideas = no_ruler
@@ -553,7 +585,7 @@ country_event = {
 				transfer_state = 242
 				transfer_state = 319
 				transfer_state = 274
-				transfer_state = 297
+				#transfer_state = 297
 				transfer_state = 137
 				transfer_state = 203
 				transfer_state = 134
@@ -568,7 +600,7 @@ country_event = {
 				transfer_state = 285
 				transfer_state = 228
 				transfer_state = 260
-				give_military_access = ROOT
+				give_military_access = GIF
 			}
 			every_state = {
 				limit = {
@@ -667,11 +699,12 @@ country_event = {
 			threat = 10
 			name = FIR_air_nomad_genocide
 		}
+		set_country_flag = state_297_fir
 		FIR = {
 			transfer_state = 242
 			transfer_state = 319
 			transfer_state = 274
-			transfer_state = 297
+			#transfer_state = 297
 			transfer_state = 137
 			transfer_state = 203
 			transfer_state = 134
@@ -731,7 +764,7 @@ country_event = {
 	immediate = {
  		hidden_effect = {
 			NAT = {
-				white_peace = ROOT
+				white_peace = GIF
 				leave_faction = yes
 				retire_country_leader = yes
 				promote_character = NAT_extinct_nation
@@ -741,7 +774,7 @@ country_event = {
 				transfer_state = 34
 				transfer_state = 405
 				transfer_state = 172
-				give_military_access = ROOT
+				give_military_access = GIF
 			}
 			every_state = {
 				limit = {
@@ -850,7 +883,7 @@ country_event = {
 	immediate = {
  		hidden_effect = {
 			EAT = {
-				white_peace = ROOT
+				white_peace = GIF
 				leave_faction = yes
 				retire_country_leader = yes
 				promote_character = EAT_extinct_nation
@@ -865,7 +898,7 @@ country_event = {
 				transfer_state = 22
 				transfer_state = 106
 				transfer_state = 24
-				give_military_access = ROOT
+				give_military_access = GIF
 			}
 			every_state = {
 				limit = {
@@ -1030,51 +1063,14 @@ country_event = {
 
 		hidden_effect = {
 
-			declare_war_on = {
-				target = EAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = WAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = NAT
-				type = annex_everything
-			}
-			declare_war_on = {
-				target = SAT
-				type = annex_everything
-			}
-			EAT = {
-				country_event = { id = eastern.1 days = 1 }
-				set_major = yes
-			}
-			WAT = {
-				country_event = { id = western.1 days = 1 }
-				set_major = yes
-			}
-			NAT = {
-				country_event = { id = northern.1 days = 1 }
-				set_major = yes
-			}
-			SAT = {
-				country_event = { id = southern.1 days = 1 }
-				set_major = yes
-			}
-			FIR = {
-				activate_mission = FIR_eastern_temple_attack
-				activate_mission = FIR_western_temple_attack
-				activate_mission = FIR_northern_temple_attack
-				activate_mission = FIR_southern_temple_attack
+			#add_country_leader_trait = secret_genocide_plan
 
-				remove_decision = gather_firebender_units
-				remove_decision = FIR_send_royal_guards_as_support
+			GIF = {
 
-				#remove_decision = northern_operation_base
-				#remove_decision = eastern_operation_base
-				#remove_decision = southern_operation_base
-				#remove_decision = western_operation_base
+				transfer_state = 297
+				set_country_flag = fire_nation
+
+				add_manpower = 4000
 
 				division_template = {
 					name = "Fire Commando"
@@ -1111,9 +1107,9 @@ country_event = {
 				}
 
 				#### east temple coast
-				set_province_controller = 9197
-				set_province_controller = 9138
-				247 = {
+				set_province_controller = 9201
+				set_province_controller = 4096
+				447 = {
 					set_variable = { sent_troops = FIR.genocide_preparation }
 					fire_commando = yes
 					fire_commando = yes
@@ -1130,6 +1126,35 @@ country_event = {
 					188 = {
 						set_variable = { sent_troops = FIR.genocide_preparation }
 						fire_commando = yes
+					}
+				}
+				if = {
+					limit = {
+						FIR = {
+							has_country_flag = east_extra_construction
+						}
+					}
+					247 = {
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 2
+						#	instant_build = yes
+						#	province = 9197
+						#}
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 2
+						#	instant_build = yes
+						#	province = 9138
+						#}
+						set_victory_points = {
+							province = 9197
+							value = 10
+						}
+						set_victory_points = {
+							province = 9138
+							value = 10
+						}
 					}
 				}
 
@@ -1154,6 +1179,25 @@ country_event = {
 					208 = {
 						set_variable = { sent_troops = FIR.genocide_preparation }
 						fire_commando = yes
+					}
+				}
+				if = {
+					limit = {
+						FIR = {
+							has_country_flag = west_extra_construction
+						}
+					}
+					112 = {
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 4
+						#	instant_build = yes
+						#	province = 6545
+						#}
+						set_victory_points = {
+							province = 6545
+							value = 10
+						}
 					}
 				}
 
@@ -1181,6 +1225,73 @@ country_event = {
 						fire_commando = yes
 					}
 				}
+				if = {
+					limit = {
+						FIR = {
+							has_country_flag = south_extra_construction
+						}
+					}
+					236 = {
+						#add_building_construction = {
+						#	type = naval_base
+						#	level = 4
+						#	instant_build = yes
+						#	province = 9654
+						#}
+						set_victory_points = {
+							province = 9654
+							value = 10
+						}
+					}
+				}
+
+
+				declare_war_on = {
+					target = EAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = WAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = NAT
+					type = annex_everything
+				}
+				declare_war_on = {
+					target = SAT
+					type = annex_everything
+				}
+			}
+			EAT = {
+				country_event = { id = eastern.1 days = 1 }
+				set_major = yes
+			}
+			WAT = {
+				country_event = { id = western.1 days = 1 }
+				set_major = yes
+			}
+			NAT = {
+				country_event = { id = northern.1 days = 1 }
+				set_major = yes
+			}
+			SAT = {
+				country_event = { id = southern.1 days = 1 }
+				set_major = yes
+			}
+			FIR = {
+				activate_mission = FIR_eastern_temple_attack
+				activate_mission = FIR_western_temple_attack
+				activate_mission = FIR_northern_temple_attack
+				activate_mission = FIR_southern_temple_attack
+
+				remove_decision = gather_firebender_units
+				remove_decision = FIR_send_royal_guards_as_support
+
+				#remove_decision = northern_operation_base
+				#remove_decision = eastern_operation_base
+				#remove_decision = southern_operation_base
+				#remove_decision = western_operation_base
 
 			}
 		}

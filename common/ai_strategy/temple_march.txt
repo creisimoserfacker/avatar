@@ -1,0 +1,333 @@
+
+temple_march = {
+	enable = {
+		tag = GIF
+		OR = {
+			has_war_with = EAT
+			has_war_with = SAT
+			has_war_with = WAT
+			has_war_with = NAT
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = "NAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = NAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "SAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = SAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "WAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = WAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "EAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = EAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	
+}
+
+
+FIR_far_waters = {
+	enable = {
+		original_tag = FIR
+		has_war_with = EAR
+		NOT = { has_war_with = NWT }
+	}
+	abort_when_not_enabled = yes
+	
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 48
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 49
+		value = 100
+	}
+
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 5
+		value = 100
+	}
+	ai_strategy = {
+		type = naval_avoid_region
+		id = 43
+		value = 100
+	}
+}
+
+
+# lets make sure the earthkingdom is properly invaded
+pohuai_taku_invasions = {
+	enable = {
+		date < 105.2.4
+		original_tag = FIR
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "POH"			
+		value = 1000
+	}
+	ai_strategy = {
+		type = conquer
+		id = "POH"
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "TAK"			
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "YUE"
+		value = -500
+	}
+	ai_strategy = {
+		type = invade
+		id = "WUL"
+		value = 500
+	}
+	ai_strategy = {
+		type = invade
+		id = "XIN"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HEB"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "GAR"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "MAK"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NOW"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "HAN"
+		value = -100000
+	}
+	ai_strategy = {
+		type = invade
+		id = "NIX"
+		value = -100000
+	}
+	
+}
+
+
+deploy_some_units = {
+	enable = {
+		original_tag = FIR
+		has_army_manpower = {
+			size < 100000
+        }
+	}
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 100
+	}
+	
+}
+
+Siege_Invasions = {
+	enable = {
+		date > 105.2.4
+		date < 107.6.19
+		OR = { controls_state = 138 controls_state = 231 controls_state = 116 controls_state = 80  controls_state = 99 }
+		original_tag = FIR
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "HEB"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "NAT"			
+		value = -10000
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "OMS"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "NWT"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = invade
+		id = "FMB"			
+		value = -75
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = EAR
+		ratio = 1
+		priority = 100
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = HEB
+		ratio = 1
+		ordertype = front 
+		execution_type = careful
+		execute_order = no
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = FMB
+		ratio = 1
+		ordertype = front 
+		execution_type = careful
+		execute_order = no
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = SWT
+		ratio = 1
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = WBA
+		ratio = 1
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = EBA
+		ratio = 1
+		ordertype = front 
+		execution_type = rush
+		execute_order = yes
+		manual_attack = yes
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = SWT
+		value = 75
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = EAR
+		value = 950
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = HEB
+		value = 420
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = FMB
+		value = 550
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = OMS
+		value = 140
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = MPO
+		value = 140
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = ECB
+		value = 150
+	}
+	
+	ai_strategy = {
+		type = front_unit_request
+		tag = EBA
+		value = 170
+	}
+	
+}

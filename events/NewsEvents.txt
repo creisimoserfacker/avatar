@@ -159,9 +159,9 @@ news_event = {
 		hidden_effect = {
 			set_global_flag = air_nomad_genocide
 
-			FIR = {
-				delete_unit_template_and_units = { division_template = "Special Attack Forces" }
-			}
+			#FIR = {
+			#	delete_unit_template_and_units = { division_template = "Special Attack Forces" }
+			#}
 			SAT = {
 				dismantle_faction = yes
 			}
@@ -173,6 +173,22 @@ news_event = {
 			}
 			EAT = {
 				dismantle_faction = yes
+			}
+
+			if = {
+				limit = {
+					FIR = {
+						has_country_flag = state_297_fir
+					}
+				}
+				FIR = {	
+					transfer_state = 297
+				}
+			}
+			else = {
+				SAT = {	
+					transfer_state = 297
+				}
 			}
 		}
 	}
