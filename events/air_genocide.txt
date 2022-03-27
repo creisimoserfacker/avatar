@@ -10,8 +10,9 @@ country_event = {
 	picture = GFX_report_event_dai_li_proposal
 	
 	trigger = {
-		tag = EAR
-		date > 12.1.20
+		FIR = {
+			has_country_flag = fire_no_genocide
+		}
 		has_start_date < 13.01.01
 	}
 
@@ -950,8 +951,12 @@ country_event = {
 	title = air_gen.7.t
 	desc = air_gen.7.d
 	picture = GFX_report_event_air_genocide
-	
-	is_triggered_only = yes
+
+	trigger = {
+		tag = FIR
+		date > 12.1.20
+		has_start_date < 13.01.01
+	}
 
 	fire_only_once = yes
 

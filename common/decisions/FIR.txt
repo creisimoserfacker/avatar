@@ -226,6 +226,9 @@ FIR_royal_family_category = {
 				ruling_only = yes
 			}
 			has_idea = legacy_of_roku_and_sozin
+			NOT = {
+				has_country_flag = genocide_active
+			}
 		}
 
 		available = {
@@ -234,15 +237,7 @@ FIR_royal_family_category = {
 				ruling_only = yes
 			}
 			has_idea = legacy_of_roku_and_sozin
-			custom_trigger_tooltip = {
-				tooltip = special_world_event_ttp
-				EAR = {
-					OR = {
-						has_country_flag = genocide_active
-						has_country_flag = regulate_the_dai_li
-					}
-				}
-			}
+			has_country_flag = fire_no_genocide
 		}
 
 		days_remove = 30
@@ -280,6 +275,9 @@ FIR_royal_family_category = {
 				character = FIR_sozin
 				ruling_only = yes
 			}
+			NOT = {
+				has_country_flag = fire_no_genocide
+			}
 		}
 
 		available = {
@@ -287,15 +285,7 @@ FIR_royal_family_category = {
 				character = FIR_sozin
 				ruling_only = yes
 			}
-			custom_trigger_tooltip = {
-				tooltip = special_world_event_ttp
-				EAR = {
-					OR = {
-						has_country_flag = genocide_active
-						has_country_flag = regulate_the_dai_li
-					}
-				}
-			}
+			has_country_flag = genocide_active
 		}
 
 		complete_effect = {
@@ -304,17 +294,6 @@ FIR_royal_family_category = {
 				add_idea = ruthless_expansionism
 			}
 
-			if = {
-				limit = {
-					EAR = {
-						has_country_flag = regulate_the_dai_li
-					}
-					date < 12.7.1
-				}
-				FIR = {
-					country_event = { id = air_gen.7 days = 1 }
-				}
-			}
 			custom_effect_tooltip = continue_expansion_plans_ttp
 		}
 
