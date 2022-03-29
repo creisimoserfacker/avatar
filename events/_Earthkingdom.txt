@@ -1,0 +1,540 @@
+###########################
+# Firenation Events
+###########################
+
+add_namespace = earthkingdom
+
+#West temple situation
+country_event = {
+	id = earthkingdom.1
+	title = earthkingdom.1.t
+	desc = earthkingdom.1.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+
+	option = {
+		name = earthkingdom.1.a
+		ai_chance = { 
+			factor = 100
+		}
+		
+	}
+	option = {
+		name = earthkingdom.1.b
+		
+	}
+}
+
+
+
+add_namespace = ear_treaty
+
+#Rally the earth kingdom
+country_event = {
+	id = ear_treaty.1
+	title = ear_treaty.1.t
+	desc = ear_treaty.1.d
+	picture = GFX_report_event_rally_ek
+
+	is_triggered_only = yes
+
+	option = { #Accept
+		name = ear_treaty.1.a
+		ai_chance = { 
+			base = 100
+		}
+
+		add_autonomy_score = {
+			value = -500
+			localization = EK_united
+		}
+		EAR = {
+			add_political_power = 50
+		}
+
+	}
+	option = { #Refuse
+		name = ear_treaty.1.b
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+		}
+
+		add_political_power = -100
+
+	}
+
+}
+
+#Subjugate free kingdoms
+country_event = {
+	id = ear_treaty.2
+	title = ear_treaty.2.t
+	desc = ear_treaty.2.d
+	picture = GFX_report_event_rally_ek
+
+	is_triggered_only = yes
+
+	option = { #vassal
+		name = ear_treaty.2.a
+		ai_chance = { 
+			base = 50
+			modifier = {
+				factor = 0
+				has_country_leader_with_trait = king
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					tag = GAO
+					tag = XIN
+				}
+			}
+			modifier = {
+				factor = 0
+				OR = {
+					tag = MPO
+					tag = SWA
+				}
+			}
+		}
+
+		end_puppet = OVERLORD
+		EAR = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_vassalage
+				}
+			}
+			else = {
+				puppet = ROOT
+			}
+		}
+
+		add_political_power = 100
+		add_stability = 0.1
+
+	}
+	option = { #county
+		name = ear_treaty.2.b
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+			modifier = {
+				add = 100
+				OR = {
+					tag = GAO
+					tag = XIN
+				}
+			}
+		}
+
+		EAR = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_county
+				}
+			}
+			else = {
+				puppet = ROOT
+			}
+		}
+
+		add_political_power = -100
+		add_stability = 0.05
+
+	}
+	option = { #Refuse
+		name = ear_treaty.2.c
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+		}
+
+		leave_faction = yes
+		remove_from_array = {
+			array = global.earth_kingdom
+			value = THIS.id
+		}
+		EAR = {
+			create_wargoal = {
+				type = puppet_wargoal_focus
+				target = ROOT
+			}
+		}
+
+	}
+
+	option = { #kingdom
+		name = ear_treaty.2.d
+		ai_chance = { 
+			base = 100
+		}
+		trigger = {
+			has_country_leader_with_trait = king
+		}
+
+		EAR = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_kingdom
+				}
+			}
+			else = {
+				puppet = ROOT
+			}
+		}
+
+		add_political_power = 200
+		add_stability = 0.1
+
+	}
+
+	option = { #tributary
+		name = ear_treaty.2.e
+		ai_chance = { 
+			base = 100
+		}
+		trigger = {
+			OR = {
+				tag = MPO
+				tag = SWA
+			}
+		}
+
+		EAR = {
+			if = {
+				limit = {
+					has_dlc = "Together for Victory"
+				}
+				set_autonomy = {
+					target = ROOT
+					autonomous_state = autonomy_tributary
+				}
+			}
+			else = {
+				puppet = ROOT
+			}
+		}
+
+		add_political_power = 100
+		add_stability = 0.05
+
+	}
+
+}
+
+#watertribes triparty pact
+country_event = {
+	id = ear_treaty.3
+	title = ear_treaty.3.t
+	desc = ear_treaty.3.d
+	picture = GFX_report_event_anti_sozin_pact
+
+	major = yes
+
+	show_major = {
+		OR = {
+			tag = NWT
+			tag = SWT
+			tag = EAR
+		}
+	}
+
+	is_triggered_only = yes
+
+	#fire_only_once = yes
+
+	option = { #join
+		name = ear_treaty.3.a
+		ai_chance = { 
+			base = 100
+		}
+
+		trigger = {
+			tag = NWT
+		}
+
+		set_country_flag = joined_anti_sozin_pact
+
+		diplomatic_relation = {
+			country = EAR
+			relation = guarantee
+			active = yes
+		}
+		diplomatic_relation = {
+			country = SWT
+			relation = guarantee
+			active = yes
+		}
+
+	}
+	option = { #join
+		name = ear_treaty.3.b
+		ai_chance = { 
+			base = 100
+		}
+
+		trigger = {
+			tag = SWT
+		}
+
+		set_country_flag = joined_anti_sozin_pact
+
+		diplomatic_relation = {
+			country = EAR
+			relation = guarantee
+			active = yes
+		}
+		diplomatic_relation = {
+			country = NWT
+			relation = guarantee
+			active = yes
+		}
+
+	}
+	option = { #join
+		name = ear_treaty.3.c
+		ai_chance = { 
+			base = 100
+		}
+
+		trigger = {
+			tag = EAR
+		}
+
+		set_country_flag = joined_anti_sozin_pact
+
+		diplomatic_relation = {
+			country = NWT
+			relation = guarantee
+			active = yes
+		}
+		diplomatic_relation = {
+			country = SWT
+			relation = guarantee
+			active = yes
+		}
+
+	}
+	option = { #stay neutral
+		name = ear_treaty.3.d
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+		}
+
+		country_event = { id = ear_treaty.5 days = 1 }
+		
+	}
+
+}
+
+#watertribes triparty pact join
+country_event = {
+	id = ear_treaty.4
+	title = ear_treaty.4.t
+	desc = ear_treaty.4.d
+	picture = GFX_report_event_anti_sozin_pact
+
+	major = yes
+
+	show_major = {
+		OR = {
+			tag = NWT
+			tag = SWT
+			tag = EAR
+		}
+	}
+
+	fire_only_once = yes
+
+	trigger = {
+		EAR = {
+			has_country_flag = joined_anti_sozin_pact
+		}
+		NWT = {
+			has_country_flag = joined_anti_sozin_pact
+		}
+		SWT = {
+			has_country_flag = joined_anti_sozin_pact
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_global_flag = anti_sozin_pact_signed
+		}
+	}
+
+	option = { #ok
+		name = ear_treaty.4.a
+		ai_chance = { 
+			base = 100
+		}
+
+
+	}
+
+}
+
+#watertribes triparty pact refuse
+country_event = {
+	id = ear_treaty.5
+	title = ear_treaty.5.t
+	desc = ear_treaty.5.d
+	picture = GFX_report_event_anti_sozin_pact
+
+	major = yes
+
+	show_major = {
+		OR = {
+			tag = NWT
+			tag = SWT
+			tag = EAR
+		}
+	}
+
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			EAR = {
+				diplomatic_relation = {
+					country = NWT
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = SWT
+					relation = guarantee
+					active = no
+				}
+			}
+			NWT = {
+				diplomatic_relation = {
+					country = EAR
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = SWT
+					relation = guarantee
+					active = no
+				}
+			}
+			SWT = {
+				diplomatic_relation = {
+					country = NWT
+					relation = guarantee
+					active = no
+				}
+				diplomatic_relation = {
+					country = EAR
+					relation = guarantee
+					active = no
+				}
+			}
+		}
+	}
+
+	option = { #ok
+		name = ear_treaty.5.a
+		ai_chance = { 
+			base = 100
+		}
+
+
+	}
+
+}
+
+
+#information to firenation about atrocities in colonies
+country_event = {
+	id = ear_treaty.6
+	title = ear_treaty.6.t
+	desc = ear_treaty.6.d
+	picture = GFX_report_event_colony_atrocity
+
+	is_triggered_only = yes
+
+	fire_only_once = yes
+
+	option = { #intervene
+		name = ear_treaty.6.a
+		ai_chance = { 
+			base = 100
+		}
+
+		set_country_flag = emergency_intervention_atrocity
+		custom_effect_tooltip = fire_goes_to_war
+		activate_mission = rescue_fire_citizen_mission
+
+	}
+	option = { #evacuate
+		name = ear_treaty.6.b
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+		}
+
+		activate_mission = evacuate_fire_citizen_mission
+
+		check_variable = { fire_people_in_ek < 0 }
+		set_variable = {
+			fire_people_in_ek = 10000
+			tooltip = fire_people_in_ek_bad_tooltip
+		}
+	}
+	option = { #they are on their own
+		name = ear_treaty.6.c
+		ai_chance = { 
+			base = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = no
+			}
+		}
+
+		add_stability = -0.5
+
+	}
+
+}
