@@ -1997,7 +1997,7 @@ NAI = {
 	FRONT_TERRAIN_DEFENSE_FACTOR = 3.75,        -- Multiplier applied to unit defense modifier for terrain on front province multiplied by terrain importance
 	FRONT_TERRAIN_ATTACK_FACTOR = 5.0,			-- Multiplier applied to unit attack modifier for terrain on enemy front province multiplied by terrain importance
 
-	BASE_DISTANCE_TO_CARE = 600.0,				-- Countries that are too far away are less interesting in diplomacy
+	BASE_DISTANCE_TO_CARE = 100.0,				-- Countries that are too far away are less interesting in diplomacy
 	MIN_FORCE_RATIO_TO_PROTECT = 0.5,			-- Tiny countries should not feel protective or really large ones
 
 	ORG_UNIT_STRONG = 0.75,						-- Organization % for unit to be considered strong
@@ -2620,7 +2620,7 @@ NAI = {
 	FRONT_EVAL_UNIT_ACCURACY = 1.0,								-- scale how stupid ai will act on fronts. 0 is potato
 	FRONT_EVAL_UNIT_AIR_SUP_IMPACT = 0.5,						-- scale how good the AI thinks air superiority is for units
 	FRONT_EVAL_UNIT_SUPPLY_AND_ORG_LACK_IMPACT = 1.0,			-- scale how painful the AI thinks a combined lack of supply and organization is for units
-	FRONT_EVAL_PERCENT_TO_ASSIST_ALLY_FRONT = 0.5, 				-- percentage of how many units the AI thinks it should have compared to an ally before considering sending units
+	FRONT_EVAL_PERCENT_TO_ASSIST_ALLY_FRONT = 3, 				-- percentage of how many units the AI thinks it should have compared to an ally before considering sending units
 
 	PRODUCTION_CARRIER_PLANE_BUFFER_RATIO = 1.5,				-- in additiona to total deck size of carriers, we want at list this ratio to buffer it
 	PRODUCTION_CARRIER_PLANE_PRODUCTION_BOOST_TO_BUFFER = 4.0,  -- production of carrier planes will go up by this ratio if we lack buffers
@@ -3511,7 +3511,7 @@ NSupply = {
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
 	SUPPLY_DISRUPTION_DAILY_RECOVERY = 1.5,		-- every day nodes recover this much of their accumulated disruption.
 
-	RAILWAY_CONVERSION_COOLDOWN = 10, -- railways will be put on cooldown when they are captured by enemy and will not be usable during the cooldown
+	RAILWAY_CONVERSION_COOLDOWN = 30, -- railways will be put on cooldown when they are captured by enemy and will not be usable during the cooldown
 	RAILWAY_CONVERSION_COOLDOWN_CORE = 5,
 	RAILWAY_CONVERSION_COOLDOWN_CIVILWAR = 0,
 

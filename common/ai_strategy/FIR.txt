@@ -224,8 +224,26 @@ FIR_far_waters = {
 # lets make sure the earthkingdom is properly invaded
 pohuai_taku_invasions = {
 	enable = {
-		date < 105.2.4
-		original_tag = FIR
+		tag = FIR
+		NOT = {
+			OR = {
+				is_on_continent = north_america
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 29 #earth coast
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30 #earth coast
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 31 #earth coast
 	}
 
 	ai_strategy = {
@@ -247,13 +265,19 @@ pohuai_taku_invasions = {
 
 	ai_strategy = {
 		type = invade
-		id = "YUE"
-		value = -500
+		id = "HAN"
+		value = 500
 	}
 	ai_strategy = {
 		type = invade
 		id = "WUL"
 		value = 500
+	}
+
+	ai_strategy = {
+		type = invade
+		id = "YUE"
+		value = -500
 	}
 	ai_strategy = {
 		type = invade
@@ -278,11 +302,6 @@ pohuai_taku_invasions = {
 	ai_strategy = {
 		type = invade
 		id = "NOW"
-		value = -100000
-	}
-	ai_strategy = {
-		type = invade
-		id = "HAN"
 		value = -100000
 	}
 	ai_strategy = {

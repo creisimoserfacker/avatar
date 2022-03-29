@@ -271,6 +271,16 @@ EAR_area_priority = {
 		id = earth_plate
 		value = 120
 	}
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 60
+	}
+	ai_strategy = {
+		type = area_priority
+		id = south_plate
+		value = 60
+	}
 
 	ai_strategy = {
 		type = area_priority
@@ -293,11 +303,103 @@ earth_decentralised_warfare = {
 	}
 	enable = {
 		has_country_flag = earth_nation
+		has_war_with = FIR
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = spare_unit_factor
-		value = -90
+		value = -999
+	}
+	ai_strategy = {
+		type = garrison
+		value = 90
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 50
+	}
+
+	#ai_strategy = {
+	#	type = protect
+	#	id = HAN
+	#	value = -999
+	#}
+	#ai_strategy = {
+	#	type = protect
+	#	id = WUL
+	#	value = -999
+	#}
+	#ai_strategy = {
+	#	type = protect
+	#	id = GAR
+	#	value = -999
+	#}
+}
+
+earth_north_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = north_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = north_plate
+		value = -1000
+	}
+}
+earth_central_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = earth_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = earth_plate
+		value = -1000
+	}
+}
+
+earth_south_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = south_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = south_plate
+		value = -1000
 	}
 }
 
@@ -309,11 +411,27 @@ ba_sing_se_defenders = {
 		has_army_manpower = {
 			size < 30000 
         }
+
 	}
 
 	ai_strategy = {
 		type = force_build_armies
 		value = 100
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+
+		# ratio of total armeis in country to be buffered
+		ratio = 1
+
+		# ai areas that the orders will use these buffers in
+		area = ba_sing_se
+
+		# by default if you have orders in target areas, the buffer will request less units.
+		# you can override this to disable the feature
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
 	}
 	
 }

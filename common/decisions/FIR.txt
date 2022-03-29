@@ -394,27 +394,27 @@ FIR_royal_family_category = {
 		}
 
 	}
-	azulon_not_general = {
-
-		visible = {	
-			is_debug = yes
-		}
-
-		complete_effect = {
-			FIR_azulon = {
-				clr_character_flag = FIR_character_general
-			}
-
-		}
-
-		cost = 0
-		#fire_only_once = yes
-
-		ai_will_do = {
-			factor = 110
-		}
-
-	}
+	#azulon_not_general = {
+#
+	#	visible = {	
+	#		is_debug = yes
+	#	}
+#
+	#	complete_effect = {
+	#		FIR_azulon = {
+	#			clr_character_flag = FIR_character_general
+	#		}
+#
+	#	}
+#
+	#	cost = 0
+	#	#fire_only_once = yes
+#
+	#	ai_will_do = {
+	#		factor = 110
+	#	}
+#
+	#}
 
 	crown_azulon = {
 
@@ -699,8 +699,9 @@ FIR_dragon_category = {
 		}
 
 		cost = 100
-        fire_only_once = yes
-        ai_will_do = {
+
+		fire_only_once = yes
+		ai_will_do = {
 			factor = 10
 		}
 	}
@@ -756,12 +757,12 @@ FIR_conquest_category = {
 		}
 		custom_cost_text = expenses_20
 
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 1000
+		fire_only_once = yes
+		ai_will_do = {
+			base = 1000
 			modifier = {
 				has_war = yes
-				factor = 0
+				factor = 10
 			}
 		}
 	}
@@ -829,12 +830,12 @@ FIR_conquest_category = {
 		}
 		custom_cost_text = manufactory_5
 
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 0
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
 			modifier = {
 				has_war = yes
-				factor = 0
+				add = 50
 			}
 		}
 	}
@@ -902,12 +903,12 @@ FIR_conquest_category = {
 		}
 		custom_cost_text = manufactory_5
 
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 100
+		fire_only_once = yes
+ 		ai_will_do = {
+			base = 100
 			modifier = {
 				has_war = yes
-				factor = 0
+				factor = 100
 			}
 		}
 	}
@@ -975,12 +976,12 @@ FIR_conquest_category = {
 		}
 		custom_cost_text = manufactory_5
 
-        fire_only_once = yes
-        ai_will_do = {
-			factor = 0
+		fire_only_once = yes
+		ai_will_do = {
+			base = 0
 			modifier = {
 				has_war = yes
-				factor = 0
+				add = 50
 			}
 		}
 	}
@@ -1003,6 +1004,7 @@ FIR_conquest_category = {
 					has_country_flag = FIR_attack_plan_made
 				}
 				has_country_flag = earth_war_path
+				has_country_flag = emergency_intervention_atrocity
 			}
       }
 
@@ -1066,10 +1068,14 @@ FIR_conquest_category = {
 		fire_only_once = yes
 
 		ai_will_do = {
-			factor = 100
+			base = 100
 			modifier = {
 				has_war = yes
-				factor = 0
+				add = -99
+			}
+			modifier = {
+				has_country_flag = emergency_intervention_atrocity
+				factor = 100
 			}
 		}
 	}
@@ -1625,6 +1631,7 @@ FIR_colonies_category = {
 			OR = {
 				has_country_flag = earth_war_path
 				has_country_flag = earth_diplomacy_path
+				has_war_with = EAR
 			}
 			NOT = {
 				has_active_mission = evacuate_fire_citizen_mission
@@ -1636,6 +1643,7 @@ FIR_colonies_category = {
 				OR = {
 					has_country_flag = earth_war_path
 					has_country_flag = earth_diplomacy_path
+					has_war_with = EAR
 				}
 			}
 		}
@@ -1646,7 +1654,7 @@ FIR_colonies_category = {
 
 		complete_effect = {
 			add_named_threat = { 
-				threat = 20
+				threat = 10
 				name = FIR_sphere_of_influence
 			}
 		}
