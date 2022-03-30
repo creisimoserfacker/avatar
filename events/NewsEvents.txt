@@ -26,22 +26,36 @@ news_event = {
 		trigger = { 
 			TAG = FIR
 			NOT = {
-				has_global_flag = genocide_active
+				has_country_flag = genocide_active
 			}
 		}
 	}
 	option = {
 		name = news.1.b
 		trigger = { 
-			TAG = FIR
-			has_global_flag = genocide_active
+			OR = {
+				TAG = FIR
+				TAG = EAR
+			}
+			has_country_flag = genocide_active
 		}
 	}
 	option = {
 		name = news.1.c
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
+			}
+			OR = {
+				AND = {
+					TAG = EAR
+					NOT = {
+						has_country_flag = genocide_active
+					}
+				}
+				NOT = {
+					TAG = FIR
+				}
 			}
 		}
 	}
@@ -199,7 +213,7 @@ news_event = {
 			factor = 100
 		}
 		trigger = { 
-			TAG = FIR
+			has_country_flag = genocide_active
 		}
 
 	}
@@ -208,6 +222,16 @@ news_event = {
 		trigger = { 
 			NOT = {
 				TAG = FIR
+				has_country_flag = genocide_active
+			}
+		}
+	}
+	option = {
+		name = news.3.c
+		trigger = { 
+			TAG = FIR
+			NOT = {
+				has_country_flag = genocide_active
 			}
 		}
 	}
