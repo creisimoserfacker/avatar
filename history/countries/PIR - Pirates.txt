@@ -7,7 +7,37 @@
 
 
 
-capital = 155
+capital = 403
+
+if = {
+	limit = {
+		not = { has_dlc = "Man the Guns" }
+	}
+	set_technology = {
+		
+	}
+}
+if = {
+	limit = {
+		has_dlc = "Man the Guns"
+	}
+	set_technology = {
+		light_armor_tech_1 = 1
+		oars_tech_1 = 1
+		galley_tech_1 = 1
+		galley_strength_tech_1 = 1
+		sails_tech_1 = 1
+		barque_tech_1 = 1
+		barque_strength_tech_1 = 1
+		junk_tech_1 = 1
+		generic_hunter_tech = 1
+		explorer_tech = 1
+		maintenance_1 = 1
+		naval_weaponry = 1
+		invasion_capacity_1 = 1
+	}
+
+}
 
 set_politics = {
 	ruling_party = democratica
@@ -24,6 +54,23 @@ set_popularities = {
 	pacifism = 0
 }
 
+recruit_character = PIR_blackbeard
+
+if = {
+	limit = { has_dlc = "Man the Guns" }
+
+	create_equipment_variant = {
+		name = "Pirate Class"
+		type = galley_hull_1
+		#name_group = GER_CA_HISTORICAL
+		parent_version = 0
+		modules = {
+			fixed_ship_crew_slot = ship_archers_1
+		}
+	}
+
+}
+
 52.1.1 ={
 
 }
@@ -36,6 +83,3 @@ set_popularities = {
 111.10.30 ={
 
 }
-
-# Different Ideology Leaders
-recruit_character = PIR_genaric

@@ -55,6 +55,10 @@ technologies = {
 			leads_to_tech = uniform0
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech = guard0
+			research_cost_coeff = 1
+		}
 
 		path = {
 			leads_to_tech = ranged_weapons
@@ -108,12 +112,17 @@ technologies = {
 	
 	uniform0 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_1_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -122,6 +131,53 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 2 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard0 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_1_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 10
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 2 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	string0 = {
+
+		path = {
+			leads_to_tech = arrowhead0
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_1_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 15
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 4 }
 		}
 		
 		categories = {
@@ -204,7 +260,7 @@ technologies = {
 	bow0 = {
 	
 		path = {
-			leads_to_tech = arrowhead0
+			leads_to_tech = string0
 			research_cost_coeff = 1
 		}
 		path = {
@@ -284,12 +340,17 @@ technologies = {
 	
 	uniform1 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_3_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -298,6 +359,27 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 8 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard1 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_3_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 25
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 8 }
 		}
 		
 		categories = {
@@ -349,6 +431,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = guard1
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = light_armor_2
 			research_cost_coeff = 1
 		}
@@ -368,6 +454,32 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 1
+		}
+	}
+
+	string1 = {
+
+		path = {
+			leads_to_tech = arrowhead1
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_2_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 35
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 12 }
+		}
+		
+		categories = {
+			ranged_weapons
 		}
 	}
 	
@@ -450,7 +562,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = arrowhead1
+			leads_to_tech = string1
 			research_cost_coeff = 1
 		}
 		path = {
@@ -521,12 +633,17 @@ technologies = {
 	
 	uniform2 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_3_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -535,6 +652,34 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 14 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard2 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_3_tt
+		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
+		
+		research_cost = 1
+
+		start_year = 40
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 14 }
 		}
 		
 		categories = {
@@ -586,6 +731,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = guard2
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = light_armor_3
 			research_cost_coeff = 1
 		}
@@ -608,6 +757,32 @@ technologies = {
 		}
 	}
 
+	string2 = {
+
+		path = {
+			leads_to_tech = arrowhead2
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_3_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 55
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 20 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
 	arrowhead2 = {
 
 		archers = {
@@ -617,7 +792,7 @@ technologies = {
 		
 		research_cost = 1
 
-		start_year = 40
+		start_year = 60
 		
 		folder = {
 			name = artillery_folder
@@ -686,7 +861,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = arrowhead2
+			leads_to_tech = string2
 			research_cost_coeff = 1
 		}
 		path = {
@@ -757,12 +932,17 @@ technologies = {
 	
 	uniform3 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_4_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -771,6 +951,27 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 20 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard3 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_4_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 55
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 20 }
 		}
 		
 		categories = {
@@ -822,6 +1023,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = guard3
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = light_armor_4
 			research_cost_coeff = 1
 		}
@@ -841,6 +1046,32 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 1
+		}
+	}
+
+	string3 = {
+
+		path = {
+			leads_to_tech = arrowhead3
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_4_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 75
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 28 }
+		}
+		
+		categories = {
+			ranged_weapons
 		}
 	}
 	
@@ -922,7 +1153,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = arrowhead3
+			leads_to_tech = string3
 			research_cost_coeff = 1
 		}
 		path = {
@@ -993,12 +1224,17 @@ technologies = {
 	
 	uniform4 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_5_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -1007,6 +1243,34 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 26 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard4 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_5_tt
+		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
+		
+		research_cost = 1
+
+		start_year = 70
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 26 }
 		}
 		
 		categories = {
@@ -1058,6 +1322,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = guard4
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = light_armor_5
 			research_cost_coeff = 1
 		}
@@ -1077,6 +1345,32 @@ technologies = {
 		
 		ai_will_do = {
 			factor = 1
+		}
+	}
+
+	string4 = {
+
+		path = {
+			leads_to_tech = arrowhead4
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_5_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 95
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 36 }
+		}
+		
+		categories = {
+			ranged_weapons
 		}
 	}
 	
@@ -1158,7 +1452,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
-			leads_to_tech = arrowhead4
+			leads_to_tech = string4
 			research_cost_coeff = 1
 		}
 		path = {
@@ -1229,12 +1523,17 @@ technologies = {
 	
 	uniform5 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_6_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -1243,6 +1542,27 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 32 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard5 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_6_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 85
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 32 }
 		}
 		
 		categories = {
@@ -1286,6 +1606,10 @@ technologies = {
 	light_armor_5 = {
 		path = {
 			leads_to_tech = uniform5
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = guard5
 			research_cost_coeff = 1
 		}
 		path = {
@@ -1366,6 +1690,10 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		path = {
+			leads_to_tech = guard6
+			research_cost_coeff = 1
+		}
+		path = {
 			leads_to_tech = light_armor_7
 			research_cost_coeff = 1
 		}
@@ -1394,12 +1722,17 @@ technologies = {
 	
 	uniform6 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_7_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#archers = {
+		#	defense = 0.03
+		#}
+		#skirmishers = {
+		#	defense = 0.03
+		#}
 		
 		research_cost = 1
 
@@ -1408,6 +1741,53 @@ technologies = {
 		folder = {
 			name = artillery_folder
 			position = { x = 1 y = 38 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	guard6 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_7_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 100
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 38 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
+
+	string5 = {
+
+		path = {
+			leads_to_tech = arrowhead5
+			research_cost_coeff = 1
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = string_upgrade_5_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 115
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 6 y = 44 }
 		}
 		
 		categories = {
@@ -1493,7 +1873,7 @@ technologies = {
 			bow_equipment_5
 		}
 		path = {
-			leads_to_tech = arrowhead5
+			leads_to_tech = string5
 			research_cost_coeff = 1
 		}
 		path = {
@@ -1543,6 +1923,10 @@ technologies = {
 			leads_to_tech = uniform7
 			research_cost_coeff = 1
 		}
+		path = {
+			leads_to_tech =guard7
+			research_cost_coeff = 1
+		}
 
 		enable_equipments = {
 			light_armor_equipment_7
@@ -1565,15 +1949,41 @@ technologies = {
 			factor = 1
 		}
 	}
+
+	guard7 = {
+
+		on_research_complete = {
+			custom_effect_tooltip = guard_upgrade_8_tt
+		}
+		show_effect_as_desc = yes
+		
+		research_cost = 1
+
+		start_year = 115
+		
+		folder = {
+			name = artillery_folder
+			position = { x = 3 y = 44 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+	}
 	
 	uniform7 = {
 
-		archers = {
-			defense = 0.03
+		on_research_complete = {
+			custom_effect_tooltip = uniform_upgrade_8_tt
 		}
-		skirmishers = {
-			defense = 0.03
-		}
+		show_effect_as_desc = yes
+
+		#rchers = {
+		#	defense = 0.03
+		#
+		#kirmishers = {
+		#	defense = 0.03
+		#
 		
 		research_cost = 1
 
@@ -2213,7 +2623,6 @@ technologies = {
 
 		sub_technologies = {
 			bolt1
-			boltb1
 		}
 		
 		research_cost = 3.6
@@ -2273,7 +2682,6 @@ technologies = {
 
 		sub_technologies = {
 			projectile2
-			projectileb2
 		}
 		
 		research_cost = 3.6

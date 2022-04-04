@@ -56,6 +56,17 @@ leader_traits = {
 		}
 	}
 
+	pirate_king = {
+		random = no
+		stability_weekly = -0.01
+		naval_hit_chance = 0.5
+		naval_morale = 10
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
 	philosopher = {
 		random = no
 		
@@ -301,6 +312,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = imperialism
+				}
+				factor = 0
+			}
 		}
 	}
 	royalist = {
@@ -311,6 +328,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	extreme_royalist = {
@@ -321,6 +344,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	naturalist = {
@@ -330,7 +359,13 @@ leader_traits = {
 		consumer_goods_factor = -0.05
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 	pacifist = {
@@ -341,7 +376,13 @@ leader_traits = {
 		enemy_declare_war_tension = 1
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = pacifism
+				}
+				factor = 0
+			}
 		}
 	}
 	multiculturalist = {
@@ -351,7 +392,13 @@ leader_traits = {
 		autonomy_gain = 2.5
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = deemocratica
+				}
+				factor = 0
+			}
 		}
 	}
 	personality_cultist = {
@@ -371,7 +418,13 @@ leader_traits = {
 		tribalism_drift = 0.02
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 
@@ -421,7 +474,13 @@ leader_traits = {
 		stability_factor = -0.05
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = democratica
+				}
+				factor = 0
+			}
 		}
 	}
 	feminist = {
@@ -523,7 +582,13 @@ leader_traits = {
 		imperialism_drift = 0.01
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = imperialism
+				}
+				factor = 0
+			}
 		}
 	}
 	materialist = {
@@ -534,7 +599,13 @@ leader_traits = {
 		monarchism_drift = 0.01
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	orthodox = {
@@ -547,7 +618,13 @@ leader_traits = {
 		monarchism_drift = 0.01
 		
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	jingoist = {
@@ -560,7 +637,13 @@ leader_traits = {
 		imperialism_drift = 0.01
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = imperialism
+				}
+				factor = 0
+			}
 		}
 	}
 	xenophobe = {
@@ -574,7 +657,13 @@ leader_traits = {
 		tribalism_drift = 0.01
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 	fanatic = {
@@ -585,7 +674,13 @@ leader_traits = {
 		tribalism_drift = 0.01
 
 		ai_will_do = {
-			factor = 0
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 
@@ -2147,6 +2242,12 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = imperialism
+				}
+				factor = 0
+			}
 		}
 	}
 	land_school_of_defense = {
@@ -2158,6 +2259,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = pacifism
+				}
+				factor = 0
+			}
 		}
 	}
 	land_school_of_logistics = {
@@ -2169,17 +2276,29 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 	land_school_of_planning = {
 		random = no
 
 		army_leader_start_planning_level = 1
-		experience_gain_navy = 0.05
+		experience_gain_army = 0.05
 		monarchism_drift = 0.01
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	naval_school_of_aggression = {
@@ -2191,6 +2310,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = imperialism
+				}
+				factor = 0
+			}
 		}
 	}
 	naval_school_of_defense = {
@@ -2202,17 +2327,29 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = pacifism
+				}
+				factor = 0
+			}
 		}
 	}
 	naval_school_of_maneuvre = {
 		random = no
 		
 		navy_leader_start_maneuvering_level = 1
-		experience_gain_army = 0.05
+		experience_gain_navy = 0.05
 		tribalism_drift = 0.01
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = tribalism
+				}
+				factor = 0
+			}
 		}
 	}
 	naval_school_of_coordination = {
@@ -2224,6 +2361,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = monarchism
+				}
+				factor = 0
+			}
 		}
 	}
 	
@@ -2488,6 +2631,12 @@ leader_traits = {
 		
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = pacifism
+				}
+				factor = 0
+			}
 		}
 	}
 
@@ -2511,6 +2660,12 @@ leader_traits = {
 
 		ai_will_do = {
 			factor = 1
+			modifier = {
+				NOT = {
+					has_government = pacifism
+				}
+				factor = 0
+			}
 		}
 	}
 }
