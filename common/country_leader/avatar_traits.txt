@@ -151,14 +151,14 @@ leader_traits = {
 		random = no
 		sprite = 1
 		
-		hidden_modifier = {
+		#hidden_modifier = {
 		minister_of_personnel_cost_factor = -0.25
 		minister_of_finance_cost_factor = -0.25
 		minister_of_culture_cost_factor = -0.25
 		minister_of_justice_cost_factor = -0.25
 		minister_of_works_cost_factor = -0.25
 		minister_of_rites_cost_factor = -0.25
-		}
+		#}
 		#ministry_advisor_cost = -0.25
 
 		ai_will_do = {
@@ -169,14 +169,14 @@ leader_traits = {
 		random = no
 		sprite = 1
 
-		hidden_modifier = {
+		#hidden_modifier = {
 		academia_cost_factor = -0.25
 		army_cost_factor = -0.25
 		navy_cost_factor = -0.25
 		law_enforcement_cost_factor = -0.25
 		martial_art_cost_factor = -0.25
 		clergy_cost_factor = -0.25
-		}
+		#}
 		#institution_cost = -0.25
 
 		ai_will_do = {
@@ -187,14 +187,14 @@ leader_traits = {
 		random = no
 		sprite = 1
 
-		hidden_modifier = {
+		#hidden_modifier = {
 		mobilization_laws_cost_factor = -0.25
 		bender_laws_cost_factor = -0.25
 		trade_laws_cost_factor = -0.25
 		economy_cost_factor = -0.25
 		family_support_cost_factor = -0.25
 		education_laws_cost_factor = -0.25
-		}
+		#}
 		#law_change_cost = -0.25
 
 		ai_will_do = {
@@ -282,11 +282,21 @@ leader_traits = {
 			factor = 1
 		}
 	}
+	thrifty_oil_baron = {
+		random = no
+		sprite = 6
+		fuel_gain_factor_from_states = -0.15
+		max_fuel_factor = 0.2
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 	agrarian_reformer = {
 		random = no
 		sprite = 6
-		fuel_gain_factor_from_states = 0.15
-		max_fuel_factor = 0.2
+		production_speed_farm_factor = 0.1
+		production_speed_ranch_factor = 0.1
 
 		ai_will_do = {
 			factor = 1
@@ -2210,6 +2220,28 @@ leader_traits = {
 		
 		country_resource_chromium = 40
 		production_speed_ranch_factor = 0.5
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	fir_consumer_industries = {
+		random = no
+		
+		production_speed_consumer_good_factory_factor = 0.3
+		production_speed_luxury_good_factory_factor = 0.2
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	fir_heavy_industries = {
+		random = no
+		
+		country_resource_steel = 40
+		production_speed_steelworks_factor = 0.25
 
 		ai_will_do = {
 			factor = 0

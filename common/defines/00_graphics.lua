@@ -634,8 +634,8 @@ NGraphics = {
 	ROOT_FRONT_SMOOTHNESS = 0.5,
 	ROOT_FRONT_SMOOTHEN_PASSES = 1,
 	ROOT_FRONT_OFFSET = 1.5,							-- How far the defensive line is offset from the front.
-	ROOT_FRONT_MAX_INTERSECTION_TESTS_FRONT = 30,		-- How many points before the current one to check for intersections against (optimization)
-	ROOT_FRONT_MAX_INTERSECTION_TESTS_ORDER = 25,		-- How many points before the current one to check for intersections against (optimization)
+	ROOT_FRONT_MAX_INTERSECTION_TESTS_FRONT = 60,		-- How many points before the current one to check for intersections against (optimization)
+	ROOT_FRONT_MAX_INTERSECTION_TESTS_ORDER = 50,		-- How many points before the current one to check for intersections against (optimization)
 	ORDER_FRONT_MAX_OFFSETS = 4,						-- Max amount, the overlapping defensive lines can offset from the border.
 	ORDER_FRONT_SMOOTHNESS = 0.5,
 	ORDER_FRONT_SMOOTHEN_PASSES = 2,
@@ -730,7 +730,7 @@ NGraphics = {
 	GRADIENT_BORDERS_CAMERA_DISTANCE_OVERRIDE_DIPLOMACY_ON_INTEL_LEDGER = 1.0,
 	
 	GRADIENT_BORDERS_OPTIMIZATION_RANGE = 30.0, -- smaller value = faster gradient borders but may have artifacts on large provinces (value to balance)
-	GRADIENT_BORDERS_REFRESH_FREQ = 0.12, -- how frequent is gradient borders repainting (optimization for high-speed gameplay)
+	GRADIENT_BORDERS_REFRESH_FREQ = 0.48, -- how frequent is gradient borders repainting (optimization for high-speed gameplay)
 	STRATEGIC_AIR_COLOR_BAD = {0.8, 0, 0, 1}, -- rgb
 	STRATEGIC_AIR_COLOR_GOOD = {0, 0.8, 0, 1},
 	STRATEGIC_AIR_COLOR_AVERAGE = {0.8, 0.8, 0, 1},
