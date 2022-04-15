@@ -297,6 +297,11 @@ FIR_royal_family_category = {
 				remove_idea = legacy_of_roku_and_sozin
 				add_idea = ruthless_expansionism
 			}
+			add_trait = {
+				character = FIR_sozin
+				slot = country_leader
+				trait = out_of_controll
+			}
 
 			custom_effect_tooltip = continue_expansion_plans_ttp
 		}
@@ -317,6 +322,7 @@ FIR_royal_family_category = {
 			has_country_flag = sozin_wife_elua
 			check_variable = { mtth:azulon_age > 3 }
 			check_variable = { mtth:azulon_age < 16 }
+			has_variable = mtth:azulon_age
 		}
 
 		available = {
@@ -357,12 +363,16 @@ FIR_royal_family_category = {
 
 		visible = {	
 			has_character = FIR_azulon
-			#check_variable = { mtth:azulon_age > 17 }
-
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+				NOT = {
+					has_character_flag = FIR_character_general
+					has_character_flag = FIR_character_death
+				}
+			}
 		}
 
 		available = {
-			has_character = FIR_azulon
 			custom_trigger_tooltip = {
 				tooltip = azulon_age_18_tt
 				check_variable = { mtth:azulon_age > 17 }
