@@ -418,14 +418,14 @@ NResistance = {
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
-	COMPLIANCE_GROWTH_BASE = 0.04, -- base compliance grow
+	COMPLIANCE_GROWTH_BASE = 0.075, -- base compliance grow
 	COMPLIANCE_GROWTH_MIN = -100.0, -- min compliance grow
 	COMPLIANCE_GROWTH_MAX = 100.0, -- max compliance grow
 	
 	COMPLIANCE_GROWTH_IS_AT_PEACE = 10, -- compliance growth buff at peace
 	COMPLIANCE_GROWTH_HAS_CLAIM = 5, -- compliance growth buff if state has a claim
 	
-	COMPLIANCE_DECAY_AT_MAX_COMPLIANCE = -0.05, -- as compliance increases, it gets a decay rate depending on its value. compliance should stabilize at some value until its growth changes
+	COMPLIANCE_DECAY_AT_MAX_COMPLIANCE = -0.083, -- as compliance increases, it gets a decay rate depending on its value. compliance should stabilize at some value until its growth changes
 	COMPLIANCE_DECAY_PER_EXILE_LEGITIMACY = -0.015, -- higher legitimacy will give higher decay to compliance
 	
 	RESISTANCE_RATIO_DIFF_TO_SPREAD = 0.65, -- resistance diff between two neighbour states will spread by this ratio ( from highest resistance states to lower ones and it will only spread once to a state)
