@@ -1,17 +1,22 @@
 ###########################
 # Firenation Events
 ###########################
+
 add_namespace = firenation
+
 #West temple situation
 country_event = {
 	id = firenation.1
 	title = firenation.1.t
 	desc = firenation.1.d
 	picture = GFX_report_event_west_temple
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
+
 	immediate = {
-		hidden_effect = {
+ 		hidden_effect = {
 			WAT = {
 				white_peace = FIR
 				leave_faction = yes
@@ -28,15 +33,16 @@ country_event = {
 				#}
 				add_ideas = no_ruler
 			}
-			add_named_threat = {
+			add_named_threat = { 
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-	}
+ 	}
+
 	option = {
 		name = firenation.1.a
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
 		}
 		WAT = {
@@ -76,9 +82,7 @@ country_event = {
 						state = 82
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
@@ -120,14 +124,13 @@ country_event = {
 						state = 82
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 				add_compliance = 100
 			}
 		}
 	}
 }
+
 
 #South temple situation
 country_event = {
@@ -135,10 +138,13 @@ country_event = {
 	title = firenation.2.t
 	desc = firenation.2.d
 	picture = GFX_report_event_south_temple
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
+
 	immediate = {
-		hidden_effect = {
+ 		hidden_effect = {
 			SAT = {
 				white_peace = FIR
 				#kill_country_leader = yes
@@ -154,7 +160,7 @@ country_event = {
 				#}
 				add_ideas = no_ruler
 			}
-			add_named_threat = {
+			add_named_threat = { 
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -165,41 +171,28 @@ country_event = {
 					}
 				}
 				random_list = {
-					100 = {
+					100 = { 
 						modifier = {
-							check_variable = {
-								global.avatar_state > 49
-							}
+							check_variable = { global.avatar_state > 49}
 							add = -100
 						}
-						FIR = {
-							news_event = {
-								id = news.8
-								days = 10
-							}
-						}
+						FIR = { news_event = { id = news.8  days = 10 } }
 					}
-					0 = {
+					0 = { 
 						modifier = {
-							check_variable = {
-								global.avatar_state > 49
-							}
+							check_variable = { global.avatar_state > 49}
 							add = 100
 						}
-						FIR = {
-							news_event = {
-								id = news.9
-								days = 10
-							}
-						}
+						FIR = { news_event = { id = news.9  days = 10 } }
 					}
 				}
 			}
 		}
-	}
+ 	}
+
 	option = {
 		name = firenation.2.a
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
 		}
 		SAT = {
@@ -247,9 +240,7 @@ country_event = {
 						state = 260
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 				add_compliance = 100
 			}
 		}
@@ -300,14 +291,13 @@ country_event = {
 						state = 260
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 				add_compliance = 100
 			}
 		}
 	}
 }
+
 
 #North temple situation
 country_event = {
@@ -315,10 +305,13 @@ country_event = {
 	title = firenation.3.t
 	desc = firenation.3.d
 	picture = GFX_report_event_north_temple
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
+
 	immediate = {
-		hidden_effect = {
+ 		hidden_effect = {
 			NAT = {
 				white_peace = FIR
 				leave_faction = yes
@@ -335,15 +328,16 @@ country_event = {
 				#}
 				add_ideas = no_ruler
 			}
-			add_named_threat = {
+			add_named_threat = { 
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-	}
+ 	}
+
 	option = {
 		name = firenation.3.a
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
 		}
 		NAT = {
@@ -359,9 +353,7 @@ country_event = {
 						state = 34
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
@@ -379,14 +371,13 @@ country_event = {
 						state = 34
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 				add_compliance = 100
 			}
 		}
 	}
 }
+
 
 #East temple situation
 country_event = {
@@ -394,10 +385,13 @@ country_event = {
 	title = firenation.4.t
 	desc = firenation.4.d
 	picture = GFX_report_event_east_temple
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
+
 	immediate = {
-		hidden_effect = {
+ 		hidden_effect = {
 			EAT = {
 				white_peace = FIR
 				leave_faction = yes
@@ -414,15 +408,16 @@ country_event = {
 				#}
 				add_ideas = no_ruler
 			}
-			add_named_threat = {
+			add_named_threat = { 
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-	}
+ 	}
+
 	option = {
 		name = firenation.4.a
-		ai_chance = {
+		ai_chance = { 
 			factor = 100
 		}
 		EAT = {
@@ -452,9 +447,7 @@ country_event = {
 						state = 24
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 			}
 		}
 	}
@@ -486,13 +479,12 @@ country_event = {
 						state = 24
 					}
 				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
+				add_dynamic_modifier = { modifier = genocide_state }
 				add_compliance = 100
 			}
 		}
 	}
+
 }
 
 #Dragon attack
@@ -501,9 +493,12 @@ country_event = {
 	title = firenation.5.t
 	desc = firenation.5.d
 	picture = GFX_report_event_dragon_attack
+
 	is_triggered_only = yes
+
 	option = {
 		name = firenation.5.a
+
 		every_state = {
 			limit = {
 				has_state_flag = dragon_attack
@@ -512,10 +507,12 @@ country_event = {
 				type = infrastructure
 				damage = 2
 			}
+			
 			clr_state_flag = dragon_attack
 		}
 	}
 }
+
 
 #Azulon is born
 country_event = {
@@ -523,24 +520,23 @@ country_event = {
 	title = firenation.10.t
 	desc = firenation.10.d
 	picture = GFX_report_event_fir_birth
+
 	trigger = {
 		tag = FIR
 		date > 12.3.4
 		has_start_date < 13.01.01
 	}
+
 	fire_only_once = yes
+
 	option = {
 		name = firenation.10.a
 		add_ideas = spirit_prince_azulon
 		FIR_azulon = {
 			set_character_flag = FIR_character_born
 		}
-		set_variable = {
-			FIR.azulon_birth_event = global.year
-		}
-		set_variable = {
-			azulon_position = 190
-		}
+		set_variable = { FIR.azulon_birth_event = global.year }
+		set_variable = { azulon_position = 190 }
 	}
 }
 
@@ -548,17 +544,19 @@ country_event = {
 country_event = {
 	id = firenation.11
 	hidden = yes
+
 	trigger = {
 		tag = FIR
 		date > 32.4.25
 		has_country_leader = {
-			character = FIR_sozin
-			ruling_only = yes
+   			character = FIR_sozin
+    		ruling_only = yes
 		}
 	}
+
 	immediate = {
-		hidden_effect = {
-			FIR = {
+ 		hidden_effect = {
+ 			FIR = {
 				set_country_flag = sozin_dead
 				retire_character = FIR_sozin
 				remove_ideas = spirit_prince_azulon
@@ -575,23 +573,19 @@ country_event = {
 				#	}
 				#}
 			}
+ 		} 		
+ 		random_list = {
+			100 = { FIR = { news_event = { hours = 12 id = news.6 } } }
 		}
-		random_list = {
-			100 = {
-				FIR = {
-					news_event = {
-						hours = 12
-						id = news.6
-					}
-				}
-			}
-		}
-	}
+ 	}
+
 	fire_only_once = yes
+
 	option = {
 		name = firenation.11.a
 	}
 }
+
 
 ##Lu Ten Died!
 #country_event = {
@@ -761,55 +755,66 @@ country_event = {
 #		}
 #	}
 #}
+
 #The Yu Dao Uprising
 country_event = {
 	id = firenation.15
 	title = firenation.15.t
 	desc = firenation.15.d
 	picture = GFX_report_event_fir_uprising
+
 	is_triggered_only = yes
 	fire_only_once = yes
+
 	option = {
 		name = firenation.15.a
 		#glory to the firenation
+		
 		add_war_support = 0.05
 	}
 }
-
 #The Han Tui Uprising
 country_event = {
 	id = firenation.16
 	title = firenation.16.t
 	desc = firenation.16.d
 	picture = GFX_report_event_fir_uprising
+
 	is_triggered_only = yes
 	fire_only_once = yes
+
 	option = {
 		name = firenation.16.a
 		#glory to the firenation
+		
 		add_war_support = 0.05
 	}
 }
 
+
 add_namespace = fir_treaty
+
 #Approach the earth kingdom
 country_event = {
 	id = fir_treaty.1
 	title = fir_treaty.1.t
 	desc = fir_treaty.1.d
 	picture = GFX_report_event_fir_colony_request
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
-	option = {
-		#Accept
+
+	option = { #Accept
 		name = fir_treaty.1.a
-		ai_chance = {
+		ai_chance = { 
 			base = 0
 			modifier = {
 				add = 100
 				is_historical_focus_on = no
 			}
 		}
+
 		YFC = {
 			transfer_state = 230
 			add_state_core = 230
@@ -828,6 +833,7 @@ country_event = {
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_diplomacy_path
+
 			country_event = {
 				id = fir_treaty.2
 				days = 2
@@ -842,14 +848,8 @@ country_event = {
 				puppet = YFC
 			}
 			else = {
-				set_autonomy = {
-					target = KFC
-					autonomy_state = autonomy_satelit_state
-				}
-				set_autonomy = {
-					target = YFC
-					autonomy_state = autonomy_satelit_state
-				}
+				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
 			}
 		}
 		HAN = {
@@ -863,15 +863,12 @@ country_event = {
 				id = western_alliance.1
 				days = 2
 			}
-			set_capital = {
-				state = 199
-			}
+			set_capital = { state = 199 }
 		}
 	}
-	option = {
-		#compromise
+	option = { #compromise
 		name = fir_treaty.1.b
-		ai_chance = {
+		ai_chance = { 
 			base = 0
 			modifier = {
 				add = 100
@@ -884,60 +881,68 @@ country_event = {
 				days = 1
 			}
 		}
+		
 	}
-	option = {
-		#Refuse
+	option = { #Refuse
 		name = fir_treaty.1.c
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 		}
+
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_war_path
+
 			country_event = {
 				id = fir_treaty.5
 				days = 1
 			}
 		}
+		
 	}
-}
 
+}
 ### fir gets colonies
 country_event = {
 	id = fir_treaty.2
 	title = fir_treaty.2.t
 	desc = fir_treaty.2.d
 	picture = GFX_report_event_fir_colony_request
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
-	option = {
-		#Accept
+
+	option = { #Accept
 		name = fir_treaty.2.a
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 		}
 		add_stability = 0.05
 	}
-}
 
+}
 ### ear compromise proposal to fir
 country_event = {
 	id = fir_treaty.3
 	title = fir_treaty.3.t
 	desc = fir_treaty.3.d
 	picture = GFX_report_event_fir_colony_compromise
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
-	option = {
-		#Accept
+
+	option = { #Accept
 		name = fir_treaty.3.a
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 			modifier = {
 				add = 100
 				is_historical_focus_on = yes
 			}
 		}
+
 		YFC = {
 			transfer_state = 230
 			add_state_core = 230
@@ -946,33 +951,15 @@ country_event = {
 			transfer_state = 280
 			add_state_core = 280
 		}
-		280 = {
-			set_demilitarized_zone = yes
-		}
-		135 = {
-			set_demilitarized_zone = yes
-		}
-		244 = {
-			set_demilitarized_zone = yes
-		}
-		270 = {
-			set_demilitarized_zone = yes
-		}
-		230 = {
-			set_demilitarized_zone = yes
-		}
-		184 = {
-			set_demilitarized_zone = yes
-		}
-		212 = {
-			set_demilitarized_zone = yes
-		}
-		235 = {
-			set_demilitarized_zone = yes
-		}
-		266 = {
-			set_demilitarized_zone = yes
-		}
+		280 = { set_demilitarized_zone = yes }
+		135 = { set_demilitarized_zone = yes }
+		244 = { set_demilitarized_zone = yes }
+		270 = { set_demilitarized_zone = yes }
+		230 = { set_demilitarized_zone = yes }
+		184 = { set_demilitarized_zone = yes }
+		212 = { set_demilitarized_zone = yes }
+		235 = { set_demilitarized_zone = yes }
+		266 = { set_demilitarized_zone = yes }
 		hidden_effect = {
 			FIR = {
 				remove_decision = northern_attack_plan
@@ -987,14 +974,8 @@ country_event = {
 				limit = {
 					has_dlc = "Together for Victory"
 				}
-				set_autonomy = {
-					target = KFC
-					autonomy_state = autonomy_satelit_state
-				}
-				set_autonomy = {
-					target = YFC
-					autonomy_state = autonomy_satelit_state
-				}
+				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
+				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
 			}
 			else = {
 				puppet = KFC
@@ -1018,21 +999,20 @@ country_event = {
 				id = western_alliance.1
 				days = 2
 			}
-			set_capital = {
-				state = 199
-			}
+			set_capital = { state = 199 }
 		}
+		
 	}
-	option = {
-		#Refuse
+	option = { #Refuse
 		name = fir_treaty.3.b
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 			modifier = {
 				factor = 0
 				is_historical_focus_on = yes
 			}
 		}
+
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_war_path
@@ -1053,49 +1033,56 @@ country_event = {
 				days = -10
 			}
 		}
-		add_named_threat = {
+		
+		add_named_threat = { 
 			threat = 5
 			name = FIR_failed_negotiation
 		}
 	}
-}
 
+}
 ### compromise outcome ear
 country_event = {
 	id = fir_treaty.4
 	title = fir_treaty.4.t
 	desc = fir_treaty.4.d
 	picture = GFX_report_event_fir_colony_compromise
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
-	option = {
-		#peace for our time
+
+	option = { #peace for our time
 		name = fir_treaty.4.a
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 		}
 		add_stability = 0.05
 	}
-}
 
+}
 ### failed negotiation
 country_event = {
 	id = fir_treaty.5
 	title = fir_treaty.5.t
 	desc = fir_treaty.5.d
 	picture = GFX_report_event_fir_colony_failed
+
 	is_triggered_only = yes
+
 	fire_only_once = yes
-	option = {
-		#this means war
+
+	option = { #this means war
 		name = fir_treaty.5.a
-		ai_chance = {
+		ai_chance = { 
 			base = 100
 		}
-		add_named_threat = {
+
+		add_named_threat = { 
 			threat = 15
 			name = FIR_failed_negotiation
 		}
+
 		FIR = {
 			add_war_support = 0.1
 			set_country_flag = earth_war_path
@@ -1117,4 +1104,5 @@ country_event = {
 			}
 		}
 	}
+
 }
