@@ -337,8 +337,6 @@ country_event = {
 	id = occupation_mechanic.3
 	title = occupation_mechanic.3.title
 	desc = occupation_mechanic.3.desc
-	
-	# todo lar
 	picture = GFX_report_event_rebells
 	
 	is_triggered_only = yes
@@ -347,6 +345,84 @@ country_event = {
 		name = occupation_mechanic.3.a
 
 		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+}
+
+### occupy state event
+country_event = {
+	id = occupation_mechanic.4
+	title = occupation_mechanic.4.title
+	desc = occupation_mechanic.4.desc
+	picture = GFX_report_event_occupy_state
+	
+	is_triggered_only = yes
+
+	option = {
+		name = occupation_mechanic.4.a
+
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+}
+
+### core state event
+country_event = {
+	id = occupation_mechanic.5
+	title = {
+		text = occupation_mechanic.5.title
+		trigger = {
+			NOT = { tag = FIR }
+		}
+	}
+	title = {
+		text = occupation_mechanic.5.t_fir
+		trigger = {
+			OR = {
+				tag = FIR
+			}
+		}
+	}
+	desc = {
+		text = occupation_mechanic.5.desc
+		trigger = {
+			NOT = { tag = FIR }
+		}
+	}
+	desc = {
+		text = occupation_mechanic.5.d_fir
+		trigger = {
+			OR = {
+				tag = FIR
+			}
+		}
+	}
+	picture = GFX_report_event_core_state
+	
+	is_triggered_only = yes
+
+	option = {
+		name = occupation_mechanic.5.a
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+		ai_chance = {
+			base = 100
+		}
+	}
+	option = {
+		name = occupation_mechanic.5.a_fir
+		trigger = { 
+			TAG = FIR
+		}
 		ai_chance = {
 			base = 100
 		}

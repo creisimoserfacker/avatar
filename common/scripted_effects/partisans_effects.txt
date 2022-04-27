@@ -3,9 +3,19 @@ create_partisan_units = {
 		limit = {
 			resistance > 50
 		}
-		create_unit = {
-			division = "name = \"Partisan\" division_template = \"Partisan\" start_experience_factor = 0.0" 
-			owner = ROOT
+		random_list = {
+			50 = {
+				create_unit = {
+					division = "name = \"Partisan\" division_template = \"Skirmisher Partisans\" start_experience_factor = 0.0" 
+					owner = ROOT
+				}
+			}
+			50 = {
+				create_unit = {
+					division = "name = \"Partisan\" division_template = \"Partisans\" start_experience_factor = 0.0" 
+					owner = ROOT
+				}
+			}
 		}
 		THIS = {
 			add_resistance = -5

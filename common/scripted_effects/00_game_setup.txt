@@ -1,0 +1,335 @@
+
+war_setup_52 = {
+	every_country = {
+		limit = {
+			NOT = {
+				TAG = EAR
+			}
+			is_in_faction_with = EAR
+		}
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	every_country = {
+		limit = {
+			NOT = {
+				TAG = FIR
+			}
+			is_in_faction_with = FIR
+		}
+		add_to_war = {
+			targeted_alliance = FIR
+			enemy = EAR
+		}
+	}
+
+}
+
+omashu_puppet_12 = {
+	if = {
+		limit = {
+			has_start_date < 14.01.01
+		}
+
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = MPO
+				autonomous_state = autonomy_tributary
+			}
+			else = {
+				puppet = MPO
+			}
+		}
+	}
+}
+taku_puppet_12 = {
+	if = {
+		limit = {
+			has_start_date < 14.01.01
+		}
+
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = POH
+				autonomous_state = autonomy_vassalage
+			}
+			else = {
+				puppet = POH
+			}
+		}
+	}
+}
+
+earth_puppets_12 = {
+
+	if = {
+		limit = {
+			has_start_date < 14.01.01
+		}
+	
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = WBA
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
+				target = EBA
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
+				target = FMB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = LAM
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = ECB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = GDD
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = MER
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = NIX
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = XIN
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = WUL
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = HEB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = MAK
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = YUE
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = NOW
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = NCB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = HAN
+				autonomous_state = autonomy_county
+			}
+	
+			else = {
+				puppet = WBA
+				puppet = EBA
+				puppet = FMB
+				puppet = LAM
+				puppet = ECB
+				puppet = GDD
+				puppet = MER
+				puppet = NIX
+				puppet = XIN
+				puppet = WUL
+				puppet = HEB
+				puppet = MAK
+				puppet = YUE
+				puppet = NOW
+				puppet = NCB
+				puppet = HAN
+			}
+		}
+
+	}
+}
+
+
+earth_puppets_52 = {
+
+	if = {
+		limit = {
+			has_start_date < 54.01.01
+		}
+	
+		
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = OMS
+				autonomous_state = autonomy_kingdom
+			}
+			set_autonomy = {
+				target = GAO
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = YII
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = YUE
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = MPO
+				autonomous_state = autonomy_tributary
+			}
+			set_autonomy = {
+				target = SWA
+				autonomous_state = autonomy_tributary
+			}
+			set_autonomy = {
+				target = TAK
+				autonomous_state = autonomy_kingdom
+			}
+			set_autonomy = {
+				target = ZAO
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = CHN
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = ISL
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = NAN
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = ZIN
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = GAR
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = POH
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = WBA
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
+				target = EBA
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
+				target = FMB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = LAM
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = ECB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = GDD
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = MER
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = NIX
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = XIN
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = WUL
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = HEB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = MAK
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = NOW
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = NCB
+				autonomous_state = autonomy_vassalage
+			}
+			set_autonomy = {
+				target = HAN
+				autonomous_state = autonomy_county
+			}
+
+			else = {
+				puppet = OMS
+				puppet = GAO
+				puppet = YII
+				puppet = YUE
+				puppet = MPO
+				puppet = SWA
+				puppet = TAK
+				puppet = ZAO
+				puppet = CHN
+				puppet = ISL
+				puppet = NAN
+				puppet = ZIN
+				puppet = GAR
+				puppet = POH
+				puppet = WBA
+				puppet = EBA
+				puppet = FMB
+				puppet = LAM
+				puppet = ECB
+				puppet = GDD
+				puppet = MER
+				puppet = NIX
+				puppet = XIN
+				puppet = WUL
+				puppet = HEB
+				puppet = MAK
+				puppet = NOW
+				puppet = NCB
+				puppet = HAN
+			}
+		}
+
+	}
+}
+

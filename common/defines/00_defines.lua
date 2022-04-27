@@ -195,7 +195,7 @@ NCountry = {
 	NUCLEAR_BOMB_DROP_WAR_SUPPORT_EFFECT_MAX_VP = 3,-- War support will be scaled down if there's less VP than this in the province
 	WEEKLY_STABILITY_GAIN = 0.0,
 	WEEKLY_WAR_SUPPORT_GAIN = 0.0,
-	SUPPLY_CONVOY_FACTOR = 0.1,						-- How many convoys each supply needs
+	SUPPLY_CONVOY_FACTOR = 0.1,						-- How many convoys each supply needs 1 ship / 100 soldiers
 	CONVOY_RANGE_FACTOR = 1,                        -- how much range affects convoy need
 	LOCAL_MANPOWER_ACCESSIBLE_NON_CORE_FACTOR = 0.02,  -- accessible recruitable factor base
 	MAX_NON_CORE_MANPOWER_FACTOR = 1.0,				-- max clamp for recruitable local non core manpower factor for states
@@ -368,24 +368,27 @@ NCountry = {
 },
 
 NResistance = {
-	INITIAL_STATE_RESISTANCE = 1.0,							-- initial resistance percentage of a state once it is captured
+	INITIAL_STATE_RESISTANCE = 45.0,						-- initial resistance percentage of a state once it is captured
 	INITIAL_STATE_COMPLIANCE = 0.0,							-- initial compliance percentage of a state once it is captured
 	COMPLIANCE_FACTOR_ON_STATE_CONTROLLER_CHANGE = -0.1,	-- compliance factor that applies when the state controller changes (in between allies, compliance is zeroed if it is taken by original country)
 	RESISTANCE_COOLDOWN_WHEN_DISABLED = -0.25,				-- resistance cooldown when the state is taken back by its original owner (compliance is zeroed in that case)
 	
-	RESISTANCE_TARGET_BASE = 35.0,							-- base resistance target percentage
+	RESISTANCE_TARGET_BASE = 10.0,							-- base resistance target percentage
 	
-	RESISTANCE_TARGET_MODIFIER_HAS_CLAIM = -5.0,			-- resistance target modifier in % for states we have claim
+	RESISTANCE_TARGET_MODIFIER_HAS_CLAIM = -15.0,			-- resistance target modifier in % for states we have claim
 
 	RESISTANCE_TARGET_MODIFIER_PER_STABILITY_LOSS = 0.2,	-- resistance target modifier per stability below 100%
-	RESISTANCE_TARGET_MODIFIER_PER_COMPLIANCE = -0.25,		-- resistance target modifier per compliance %
+	RESISTANCE_TARGET_MODIFIER_PER_COMPLIANCE = -0.75,		-- resistance target modifier per compliance %
 	
 	RESISTANCE_TARGET_MODIFIER_IS_AT_PEACE = -10.0,			-- resistance target modifier when we are at peace
 	
 	RESISTANCE_TARGET_MODIFIER_STATE_VP = {					-- resistance target modifier pairs for vp. first entry is total vp in state and second entry is amount of target modifier that applies for that threshold
 		0,   0.0, -- 0 - 5
-		5,   5.0, -- 5 - 20
-		20,  10.0, -- 20 - 50
+		5,   10.0, -- 5 - 10
+		10,  12.0, -- 10 - 20
+		20,  14.0, -- 20 - 30
+		30,  16.0, -- 30 - 40
+		40,  18.0, -- 40 - 50
 		50,  20.0, -- 50 - ...
 	},
 
@@ -395,14 +398,14 @@ NResistance = {
 	RESISTANCE_TARGET_MODIFIER_OCCUPIED_IS_EXILE_MAX = 20.0,
 
 	RESISTANCE_TARGET_MODIFIER_POP_LOW = -20.0,			-- how much we reduce the resistance target
-	RESISTANCE_TARGET_MODIFIER_POP_VERY_LOW = -50.0,			-- resistance target modifier in % for states we have claim
+	RESISTANCE_TARGET_MODIFIER_POP_VERY_LOW = -75.0,			-- resistance target modifier in % for states we have claim
 	
 	RESISTANCE_POP_LOW_CUTOFF = 10000,
-	RESISTANCE_POP_VERY_LOW_CUTOFF = 1000,
+	RESISTANCE_POP_VERY_LOW_CUTOFF = 500,
 
 	RESISTANCE_TARGET_MIN_CAP_FOR_NON_COMPLIANCE = 10, -- min resistance target will be capped to this percentage for non-compliance sources
 	
-	RESISTANCE_DECAY_BASE = 0.1, -- base resistance decay
+	RESISTANCE_DECAY_BASE = 0.05, -- base resistance decay
 	RESISTANCE_DECAY_MIN = 0.01, -- min resistance decay
 	RESISTANCE_DECAY_MAX = 100.0, -- nax resistance decay
 	
@@ -418,14 +421,14 @@ NResistance = {
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
-	COMPLIANCE_GROWTH_BASE = 0.075, -- base compliance grow
+	COMPLIANCE_GROWTH_BASE = 0.001, -- base compliance grow
 	COMPLIANCE_GROWTH_MIN = -100.0, -- min compliance grow
 	COMPLIANCE_GROWTH_MAX = 100.0, -- max compliance grow
 	
 	COMPLIANCE_GROWTH_IS_AT_PEACE = 10, -- compliance growth buff at peace
 	COMPLIANCE_GROWTH_HAS_CLAIM = 5, -- compliance growth buff if state has a claim
 	
-	COMPLIANCE_DECAY_AT_MAX_COMPLIANCE = -0.083, -- as compliance increases, it gets a decay rate depending on its value. compliance should stabilize at some value until its growth changes
+	COMPLIANCE_DECAY_AT_MAX_COMPLIANCE = -0.01, -- as compliance increases, it gets a decay rate depending on its value. compliance should stabilize at some value until its growth changes
 	COMPLIANCE_DECAY_PER_EXILE_LEGITIMACY = -0.015, -- higher legitimacy will give higher decay to compliance
 	
 	RESISTANCE_RATIO_DIFF_TO_SPREAD = 0.65, -- resistance diff between two neighbour states will spread by this ratio ( from highest resistance states to lower ones and it will only spread once to a state)
@@ -453,7 +456,7 @@ NResistance = {
 	GARRISON_EQUIPMENT_LOST_BY_ATTACK = 0.002, 	-- Ratio of equipment lost by garrison at each attack on garrison (this number will be reduced by the hardness of garrison template)
 	MAXIMUM_GARRISON_HARDNESS_WHEN_ATTACKED = 0.90,   -- Cap to be sure that garrison will suffer lost in attack, even with a almost 100% hardness
 	
-	FOREIGN_MANPOWER_MIN_THRESHOLD = 5000,		 -- The minimum number of Manpower that AI will accept to give at once, in order to avoid many weird little transfer.
+	FOREIGN_MANPOWER_MIN_THRESHOLD = 1000,		 -- The minimum number of Manpower that AI will accept to give at once, in order to avoid many weird little transfer.
 	MANPOWER_BUFFER_TO_NOT_GIVE_MINOR = 0.3, -- To determine how much AI can give as foreign manpower, we calculate how much manpower we use, and add this buffer. The result is what we want to keep, for minor countries. So higher this number is, lower we will give Manpower.
 	MANPOWER_BUFFER_TO_NOT_GIVE_MAJOR = 0.6, -- To determine how much AI can give as foreign manpower, we calculate how much manpower we use, and add this buffer. The result is what we want to keep, for major countries. So higher this number is, lower we will give Manpower.
 	MAX_GARRISON_RATIO_WE_AGREE_TO_SUPPORT = 3.0,	-- The part of the manpower needed by the foreign garrison, that AI will agree to support with our manpower. If negative number, AI will not take into consideration the need, and just calculate how much they can give.
@@ -3430,7 +3433,7 @@ NSupply = {
 
 	--defines to calculate the capitals supply. This will be also used for max supply of other nodes depending on how well they are connected to capital. Using the formula:
 	--CapitalSupply = CAPITAL_SUPPLY_BASE + (NumberOfCivilianFactories * CAPITAL_SUPPLY_CIVILIAN_FACTORIES) + (NumberOfMilitaryFactories * CAPITAL_SUPPLY_MILITARY_FACTORIES) + (NumberOfDockyards * CAPITAL_SUPPLY_DOCKYARDS)
-	CAPITAL_SUPPLY_BASE = 5.0, -- base supply for capital
+	CAPITAL_SUPPLY_BASE = 10.0, -- base supply for capital
 	CAPITAL_SUPPLY_CIVILIAN_FACTORIES = 0.3, -- supply from one civilian factory
 	CAPITAL_SUPPLY_MILITARY_FACTORIES = 0.4, -- supply from one military factory
 	CAPITAL_SUPPLY_DOCKYARDS = 0.4, --supply from one naval factory
@@ -3448,12 +3451,12 @@ NSupply = {
 	NODE_ADDED_PENALTY_PER_PROVINCE = 0.60,
 
 	-- defines that are used for supply reach for dockyards
-	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 3.5,
+	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 5,
 	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.5,
 	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.6,
 
 	-- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
-	NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.34,
+	NODE_FLOW_BONUS_PER_RAIL_LEVEL = 2.0,
 
 	-- rivers will transfer in between nodes as if they were this level
 	RIVER_RAILWAY_LEVEL = 1,
@@ -3463,8 +3466,8 @@ NSupply = {
 	FLOATING_HARBOR_STARTING_PENALTY_PER_PROVINCE = 0.8,
 	FLOATING_HARBOR_ADDED_PENALTY_PER_PROVINCE = 0.8,
 
-	FLOATING_HARBOR_BASE_SUPPLY = 15.0, -- supply given by a floating harbor
-	FLOATING_HARBOR_BASE_DURATION = 21, -- duration of a full hp floating harbor
+	FLOATING_HARBOR_BASE_SUPPLY = 100.0, -- supply given by a floating harbor
+	FLOATING_HARBOR_BASE_DURATION = 35, -- duration of a full hp floating harbor
 	FLOATING_HARBOR_DURATION_RATIO_AT_MIN_HP = 0.0,  -- duration mult for a harbor that was reduced to 0 hp
 
 	FLOATING_HARBOR_MIN_DECAY = 0.2, -- Always reduce Floating Harbor longevity by this many "hours" per hour
@@ -3492,22 +3495,22 @@ NSupply = {
 
 
 	-- used for calculating "flow" for railways.
-	RAILWAY_BASE_FLOW = 10.0, 		-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
-	RAILWAY_FLOW_PER_LEVEL = 5.0, 	-- how much additional flow a railway level gives
-	RAILWAY_FLOW_PENALTY_PER_DAMAGED = 5.0, -- penalty to flow per damaged railway
-	RAILWAY_MIN_FLOW = 5.0, 		-- minimum railway flow can be reduced to
+	RAILWAY_BASE_FLOW = 0.0, 		-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
+	RAILWAY_FLOW_PER_LEVEL = 50.0, 	-- how much additional flow a railway level gives
+	RAILWAY_FLOW_PENALTY_PER_DAMAGED = 50.0, -- penalty to flow per damaged railway
+	RAILWAY_MIN_FLOW = 50.0, 		-- minimum railway flow can be reduced to
 
 	-- used for calculating "flow" from a naval node to another naval node when it is connected via a convoy route
 	-- NAVAL_BASE_MAX_SUPPLY_FLOW_FACTOR = 0.9, -- flow of the parent node is factored to this ratio (so at most it can transfer parent naval node flow * this define)
-	NAVAL_BASE_FLOW = 15.0, -- max output/input of a naval node is limited by this base value + additional ratio for each level
-	NAVAL_FLOW_PER_LEVEL = 5.0, -- max output/input of a naval node is limited by previous base value + this define per its level
+	NAVAL_BASE_FLOW = 0.0, -- max output/input of a naval node is limited by this base value + additional ratio for each level
+	NAVAL_FLOW_PER_LEVEL = 25.0, -- max output/input of a naval node is limited by previous base value + this define per its level
 
 	SUPPLY_NODE_MIN_SUPPLY_THRESHOLD = 1.0, -- if supply of a node is below this value it will be set to 0 -- Currently unused?
 
 	INFRA_TO_SUPPLY = 0.3,							-- each level of infra gives this many supply
 	VP_TO_SUPPLY_BASE = 0.0,							-- Bonus to supply from a VP, no matter the level
-	VP_TO_SUPPLY_BONUS_CONVERSION = 0.5,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
-	SUPPLY_FROM_DAMAGED_INFRA = 0.15,                -- damaged infrastructure counts as this in supply calcs
+	VP_TO_SUPPLY_BONUS_CONVERSION = 1,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
+	SUPPLY_FROM_DAMAGED_INFRA = 0.1,                -- damaged infrastructure counts as this in supply calcs
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
 	SUPPLY_DISRUPTION_DAILY_RECOVERY = 1.5,		-- every day nodes recover this much of their accumulated disruption.
 
@@ -3518,8 +3521,8 @@ NSupply = {
 	DEFAULT_STARTING_TRUCK_RATIO = 1.5, -- countries get this ratio of starting truck in their buffers compared to their need
 	DEFAULT_STARTING_TRAIN_RATIO = 1, -- countries get this ratio of starting trains in their buffers compared to their need
 
-	SUPPLY_POINTS_PER_TRAIN = 1.0,  -- old default 1.25 -- Amount of supply that can fit in a train. (Trains distribute supply from capital to a supply node.)
-	NUM_RAILWAYS_TRAIN_FACTOR = 0.03, -- the train usage is scaled by railway distance between the supply node and the capital multiplied by this factor
+	SUPPLY_POINTS_PER_TRAIN = 10.0,  -- old default 1.25 -- Amount of supply that can fit in a train. (Trains distribute supply from capital to a supply node.)
+	NUM_RAILWAYS_TRAIN_FACTOR = 0.05, -- the train usage is scaled by railway distance between the supply node and the capital multiplied by this factor
 
 	BASE_SUPPLY_MULT_FOR_TRUCK_DEFAULT_BUFFER = 1.0,  -- initial value for wanted buffers over potential truck usage
 	BASE_SUPPLY_MULT_FOR_TRUCK_MIN_BUFFER = 0.0, -- min and max values for buffer ratio
@@ -3558,32 +3561,32 @@ NSupply = {
 	ARMY_SUPPLY_RATIO_SPEED_GAIN_PER_HOUR = 0.01,
 	ARMY_MAX_SUPPLY_RATIO_GAIN_PER_HOUR = 0.15,
 
-	MIN_SURRENDER_LIMIT_TO_MOVE_SUPPLY_CAPITAL = 0.15, -- country needs to be above thos surrender ratio to be able to move its capital
-	COOLDOWN_DAYS_AFTER_MOVING_SUPPLY_CAPITAL = 30, -- cooldown for moving supply again after last move
+	MIN_SURRENDER_LIMIT_TO_MOVE_SUPPLY_CAPITAL = 0.3, -- country needs to be above thos surrender ratio to be able to move its capital
+	COOLDOWN_DAYS_AFTER_MOVING_SUPPLY_CAPITAL = 60, -- cooldown for moving supply again after last move
 	DAYS_TO_START_GIVING_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL = 7,  -- the country will start gaining supply after this many days moving its capital
-	DAYS_TO_START_GIVING_FULL_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL =  21, -- the country will reach max supply after this many days moving its capital
+	DAYS_TO_START_GIVING_FULL_SUPPLY_AFTER_MOVING_SUPPLY_CAPITAL =  35, -- the country will reach max supply after this many days moving its capital
 
 	MIN_DIFF_FOR_AUTO_UPDATING_EXISTING_RAILWAYS = 5, -- while building railways, the system will prefer updating existing railway if new railway is close enough to existing one
 
-	LOCAL_SUPPLY_PER_AIR_MISSION = 0.12, -- each assigned plane gives this much supply at full efficiency
+	LOCAL_SUPPLY_PER_AIR_MISSION = 1.2, -- each assigned plane gives this much supply at full efficiency
 
 	-- reinforcements depends on distance to capital and following defines are used for calculating reinforcement time
-	SUPPLY_PATH_MAX_DISTANCE = 15,	-- max time it can take
+	SUPPLY_PATH_MAX_DISTANCE = 30,	-- max time it can take
 	RAILWAY_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.3, -- time factor for total railway distance
-	TRUCK_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.01, -- time factor for total truck distance
-	NAVAL_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.08, -- time factor for total naval distance
+	TRUCK_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.05, -- time factor for total truck distance
+	NAVAL_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.1, -- time factor for total naval distance
 
 	ALERT_VERY_LOW_SUPPLY_LEVEL = 0.3,			   -- At which point we show up the low and very low supply level alert. Value is in % of supplies supported vs required.
 	ALERT_LOW_SUPPLY_LEVEL = 0.75,
 
 	AI_FRONT_MINIMUM_UNITS_PER_PROVINCE_FOR_SUPPLY_CALCULATIONS = 1,    -- AI will try to keep this amount of divisions per province as a minimum when evaluating supply limitations for war fronts
-	AI_FRONT_DIVISIONS_PER_SUPPLY_POINT = 1.0, -- How many divisions should the AI consider it can supply per available supply point
+	AI_FRONT_DIVISIONS_PER_SUPPLY_POINT = 0.1, -- How many divisions should the AI consider it can supply per available supply point
 	AI_FRONT_MAX_UNITS_ENEMY_COUNT_FACTOR = 1.2, -- Make sure AI front MaxNrUnits is at least EnemyCount multiplied by this factor
 	SUPPLY_THRESHOLD_FOR_ARMY_ATTRITION = 0.35, -- armies will only get attrition below this supply
 	NUMBER_OF_SHOWN_SUPPLY_SOURCES_IN_SUPPLY_MAPMODE = 3, -- number of supply flow sources shown in breakdown tooltip
-	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 1.0,	--Division supply consumption used for estimating frontline weight for order tooltips
-	AVAILABLE_MANPOWER_STATE_SUPPLY = 180.0,						--Factor for state supply from max manpower (population)
-	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.75,				--Multiplies consumption rate of stored supply (more/less easement)
+	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 8.0,	--Division supply consumption used for estimating frontline weight for order tooltips
+	AVAILABLE_MANPOWER_STATE_SUPPLY = 2000.0,						--Factor for state supply from max manpower (population) 1k = 0.001 supply / 100k = 0.1 supply / 1M = 1 supply
+	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.1,				--Multiplies consumption rate of stored supply (more/less easement)
 },
 NAITheatre = {
 	AI_THEATRE_GENERATION_HOME_THEATRE_DEPTH_RESTRICTION = 2,			-- The home theatre is generated based off a initial depth restriction

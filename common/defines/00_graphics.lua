@@ -78,15 +78,22 @@ NMapMode = {
 
 	SUPPLY_MAP_MODE_REACH_COLOR = {
 		0.0,   0.6, 0.0, 0.4, 1.0, 			-- #990066 dark purple
-		0.02,  0.2, 0.17, 0.52, 1.0, 		-- #332B85 dark purple blue
-		0.12,  0.04, 0.17, 0.60, 1.0,		-- #0A2B99 dark blue
-		0.2,   0.13, 0.36, 0.65, 1.0,		-- #215CA6 blue
+		0.05,  0.4, 0.17, 0.46, 1.0, 		-- 
+		0.1,   0.2, 0.17, 0.52, 1.0, 		-- #332B85 dark purple blue
+		0.15,  0.14, 0.17, 0.56, 1.0,		-- 
+		0.2,   0.04, 0.17, 0.60, 1.0,		-- #0A2B99 dark blue
+		0.25,  0.09, 0.27, 0.62, 1.0,		-- 
+		0.3,   0.13, 0.36, 0.65, 1.0,		-- #215CA6 blue
+		0.35,  0.12, 0.46, 0.70, 1.0,		-- 
 		0.4,   0.11, 0.56, 0.75, 1.0,		-- #1C8FBF light blue
-		0.6,   0.25, 0.71, 0.76, 1.0,		-- #40B5C2 teal
+		0.5,   0.18, 0.63, 0.76, 1.0,		-- 
+		0.6,   0.25, 0.71, 0.77, 1.0,		-- #40B5C2 teal
+		0.7,   0.36, 0.74, 0.75, 1.0,		-- 
 		0.8,   0.47, 0.8, 0.73, 1.0,		-- #78CCBA light teal
+		0.9,   0.53, 0.81, 0.66, 1.0,			-- ibt
 		1.0,   0.6, 0.82, 0.6, 1.0,			-- #99D199 light green
 	}, -- (last shown when supply flow is >= SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY)
-	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 100, -- Which supply cap availibility corresponds to best heatmap color
+	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 200, -- Which supply cap availibility corresponds to best heatmap color
 	SUPPLY_MAP_MODE_STATUS_COLOR = {
 		0.0,   0.9, 0.0, 0.0, 1.0,			-- #E60000 red
 		0.7,   0.98, 0.4, 0.1, 1.0,			-- #FA661A orange

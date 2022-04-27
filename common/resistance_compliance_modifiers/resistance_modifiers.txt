@@ -51,65 +51,96 @@
 #}
 
 
-resistance_25 = {
+resistance_5 = {
 	type = state_resistance_modifier
 	icon = "GFX_occupation_resistance_modifier_strip:1"
 	small_icon = "GFX_occupation_resistance_modifier_small_strip:1"
-	threshold = 25
-	margin = 2
+	threshold = 5
+	margin = 0
 	state_modifier = {
-		resistance_garrison_penetration_chance = 0.5
+		resistance_target = 0.05
+		resistance_growth = 0.01
+		compliance_gain = -0.01
 	}
 }
-resistance_50 = {
+resistance_25 = {
 	type = state_resistance_modifier
 	icon = "GFX_occupation_resistance_modifier_strip:2"
 	small_icon = "GFX_occupation_resistance_modifier_small_strip:2"
-	threshold = 50
-	margin = 2
+	threshold = 25
+	margin = 0
 	state_modifier = {
-		resistance_damage_to_garrison = 1
+		resistance_target = 0.15
+		resistance_growth = 0.05
+		compliance_gain = -0.02
+	}
+}
+resistance_45 = {
+	type = state_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:3"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
+	threshold = 45
+	margin = 0
+	state_modifier = {
+		resistance_target = 0.30
+		resistance_growth = 0.15
+		compliance_gain = -0.04
+	}
+}
+
+resistance_65 = {
+	type = state_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:4"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:4"
+	threshold = 65
+	margin = 0
+	state_modifier = {
+		army_speed_factor_for_controller = -0.1
+		local_supplies_for_controller = -0.1
+		attrition_for_controller = 0.1
+	}
+}
+
+resistance_85 = {
+	type = state_resistance_modifier
+	icon = "GFX_occupation_resistance_modifier_strip:5"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:5"
+	threshold = 85
+	margin = 0
+	state_modifier = {
+		army_speed_factor_for_controller = -0.2
+		local_supplies_for_controller = -0.4
+		attrition_for_controller = 0.2
+		disable_strategic_redeployment_for_controller = 1
 	}
 }
 
 core_resistance_50 = {
 	type = core_resistance_modifier
-	icon = "GFX_occupation_resistance_modifier_strip:3"
-	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
+	icon = "GFX_occupation_resistance_modifier_strip:6"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:6"
 	threshold = 50
-	margin = 2
+	margin = 0
 	state_modifier = {
 		resistance_damage_to_garrison = 1
+		resistance_growth = 1
+		no_compliance_gain = 1
 	}
 
 	alert_level = high
 	alert_margin = 20
 
-	on_enable = {
-		custom_effect_tooltip = resistance_50_effect_tooltip
-	}
+	#on_enable = {
+	#	custom_effect_tooltip = resistance_50_effect_tooltip
+	#}
 }
 
-resistance_75 = {
-	type = state_resistance_modifier
-	icon = "GFX_occupation_resistance_modifier_strip:3"
-	small_icon = "GFX_occupation_resistance_modifier_small_strip:3"
-	threshold = 75
-	margin = 2
-	state_modifier = {
-		army_speed_factor_for_controller = -0.5
-		local_supplies_for_controller = -0.5
-		attrition_for_controller = 0.3
-		disable_strategic_redeployment_for_controller = 1
-	}
-}
-
-resistance_90 = {
+core_resistance_90 = {
 	type = core_resistance_modifier
-	icon = "GFX_occupation_resistance_modifier_strip:4"
-	small_icon = "GFX_occupation_resistance_modifier_small_strip:4"
+	icon = "GFX_occupation_resistance_modifier_strip:7"
+	small_icon = "GFX_occupation_resistance_modifier_small_strip:7"
 	threshold = 90
-	margin = 2
+	margin = 0
 	
 	alert_level = high
 	alert_margin = 20

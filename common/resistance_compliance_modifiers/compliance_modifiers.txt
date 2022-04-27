@@ -44,25 +44,12 @@ compliance_60 = {
 		recruitable_population_factor = 0.2
 	}
 
-	enabled = {
-		FROM = {
-			all_owned_state = {
-				AND = {
-				    is_controlled_by = ROOT
-				    NOT = {
-				    	is_owned_by = ROOT
-				    }
-				}
-			}
-		}
-	}
-
-	on_enable = {
-		custom_effect_tooltip = compliance_60_effect_tooltip
-		hidden_effect = {
-			country_event = { id = occupation_mechanic.1 days = 2 }
-		}
-	}
+	#on_enable = {
+	#	custom_effect_tooltip = compliance_60_effect_tooltip
+	#	hidden_effect = {
+	#		country_event = { id = occupation_mechanic.1 days = 2 }
+	#	}
+	#}
 }
 compliance_80 = {
 	type = core_compliance_modifier
@@ -71,13 +58,25 @@ compliance_80 = {
 	threshold = 80
 	margin = 2
 	
-	visible = {
-		has_dlc = "La Resistance"
+	state_modifier = {
+		state_production_speed_buildings_factor = 0.05
+		local_building_slots_factor = 0.5
 	}
+	on_enable = {
+		custom_effect_tooltip = compliance_80_effect_tooltip
+	}
+}
+compliance_100 = {
+	type = core_compliance_modifier
+	icon = "GFX_occupation_compliance_modifier_strip:6"
+	small_icon = "GFX_occupation_compliance_modifier_small_strip:6"
+	threshold = 100
+	margin = 1
+	
 	state_modifier = {
 		state_production_speed_buildings_factor = 0.05
 	}
 	on_enable = {
-		custom_effect_tooltip = compliance_90_effect_tooltip
+		custom_effect_tooltip = compliance_100_effect_tooltip
 	}
 }

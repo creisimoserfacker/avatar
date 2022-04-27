@@ -21,19 +21,32 @@ scripted_gui = {
 					set_state_controller = PREV
 					if = {
 						limit = {
-							NOT = { has_template = "Partisan" }
+							NOT = { has_template = "Skirmisher Partisans" }
 						}
 						division_template = {
-							name = "Partisan"
+							name = "Skirmisher Partisans"
 							regiments = {
 								skirmishers = { x = 0 y = 0 }
 								skirmishers = { x = 0 y = 1 }
 
-								skirmishers = { x = 1 y = 0 }
-								skirmishers = { x = 1 y = 1 }
+								#skirmishers = { x = 1 y = 0 }
+								#skirmishers = { x = 1 y = 1 }
 							}
 						}
-						set_division_template_lock = { division_template = Partisan is_locked = yes }
+						set_division_template_lock = { division_template = "Skirmisher Partisans" is_locked = yes }
+					}
+					if = {
+						limit = {
+							NOT = { has_template = "Partisans" }
+						}
+						division_template = {
+							name = "Partisans"
+							regiments = {
+								swordsmen = { x = 0 y = 0 }
+								spearmen = { x = 0 y = 1 }
+							}
+						}
+						set_division_template_lock = { division_template = Partisans is_locked = yes }
 					}
 				}
 				create_partisan_units = yes
@@ -56,24 +69,203 @@ scripted_gui = {
 		}
 		
 		ai_test_scopes = test_self_owned_states
-		ai_test_interval = 24
-		ai_test_variance = 0.2
+		ai_test_scopes = test_enemy_owned_states
+		ai_test_interval = 170
+		ai_test_variance = 0.5
 		
 		ai_enabled = {
 			always = yes
 		}
         
 		ai_check = {
-			
-		}
-        
-		ai_check_scope = {
-			
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
 		}
 		
 		ai_max_weight_taken_per_test = 10
 		ai_weights = {
-			
+			state_riseup_partisan_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						factor = 2
+						
+						has_capitulated = yes
+					}
+					modifier = {
+						add = 50
+						
+						resistance > 60
+					}
+				}
+			}
+		}
+		
+	}
+
+
+	state_occupy_state = {
+		context_type = selected_state_context
+		
+		window_name = "occupy_state_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			#is_controlled_by  = ROOT
+			#NOT = {
+			#	is_owned_by = ROOT
+			#}
+
+			always = no
+		}
+		
+		effects = {
+			occupy_state_click = {
+				controller = {
+					country_event = { id = occupation_mechanic.4 days = 1 }
+
+					add_political_power = -50
+				}
+				ROOT = {
+					set_state_owner = PREV
+				}
+			}
+		}
+		
+		triggers = {
+			occupy_state_click_enabled = {
+				ROOT = {
+					has_political_power > 49
+				}
+				compliance > 59
+				#controller = {
+				#	core_compliance = {
+				#		occupied_country_tag = FROM.FROM
+				#		value > 59
+				#	}
+				#}
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_owned_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		ai_test_scopes = test_self_owned_states
+		ai_test_scopes = test_enemy_owned_states
+		ai_test_interval = 170
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+        
+		ai_check = {
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			occupy_state_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						add = 50
+						
+						compliance > 60
+					}
+				}
+			}
+		}
+		
+	}
+
+	state_core_state = {
+		context_type = selected_state_context
+		
+		window_name = "core_state_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			is_controlled_by = ROOT
+			NOT = {
+				is_core_of = ROOT
+			}
+		}
+		
+		effects = {
+			core_state_click = {
+				controller = {
+					country_event = { id = occupation_mechanic.5 days = 1 }
+
+					add_political_power = -100
+				}
+				THIS = {
+					add_core_of = controller
+				}
+			}
+		}
+		
+		triggers = {
+			core_state_click_enabled = {
+				ROOT = {
+					has_political_power > 99
+					has_war = no
+				}
+				compliance > 99
+				#controller = {
+				#	core_compliance = {
+				#		occupied_country_tag = FROM.FROM
+				#		value > 99
+				#	}
+				#}
+				is_owned_by = ROOT
+				NOT = {
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		ai_test_scopes = test_self_owned_states
+		ai_test_scopes = test_enemy_owned_states
+		ai_test_interval = 170
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+        
+		ai_check = {
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			core_state_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						add = 50
+						
+						compliance > 60
+					}
+				}
+			}
 		}
 		
 	}
