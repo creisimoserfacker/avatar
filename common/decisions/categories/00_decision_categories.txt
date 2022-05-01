@@ -1,19 +1,23 @@
-war_weariness_category = {
-	icon = generic_propaganda
-
-	picture = GFX_decision_cat_war_weariness
-
-	visible = {
-		check_variable = { war_exhaustion_variable > 0 }
-		has_war = yes
-		NOT = { has_country_flag = hide_generic_decisions }
-	}
-}
 
 reoccupy_category = {
 	icon = generic_propaganda
 
 	picture = GFX_decision_cat_reoccupation
+
+	visible = {
+		any_state = {
+			has_dynamic_modifier = {
+				modifier = genocide_state
+			}
+		}
+		NOT = { has_country_flag = hide_generic_decisions }
+	}
+}
+
+war_measures_category = {
+	icon = generic_propaganda
+
+	picture = GFX_decision_cat_war_weariness
 
 	visible = {
 		any_state = {

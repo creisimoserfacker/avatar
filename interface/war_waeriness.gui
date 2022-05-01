@@ -1,0 +1,187 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "war_exhaustion_container"
+		position = { x = 707 y = 4 }
+		Orientation = UPPER_LEFT
+
+		iconType ={
+			name ="war_exhaustion_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=0 y=0 }
+
+			pdx_tooltip = "WAR_WEARINESS_TOOLTIP"
+			pdx_tooltip_delayed = "WAR_WEARINESS_TOOLTIP_DELAYED"
+		}
+
+		iconType = {
+			name ="war_exhaustion_icon"
+			spriteType = "GFX_war_exhaustion"
+			position = { x= 7 y = 6 }
+
+			pdx_tooltip = "WAR_WEARINESS_TOOLTIP"
+			pdx_tooltip_delayed = "WAR_WEARINESS_TOOLTIP_DELAYED"
+		}
+
+		instantTextBoxType = {
+			name ="war_exhaustion_text"
+			position = { x= 22 y = 4 }
+			font = "hoi_18mbs"
+			text = "[?war_exhaustion_variable]"
+			format = center
+			maxWidth = 46
+			maxHeight = 24
+			fixedsize = yes
+
+			pdx_tooltip = "WAR_WEARINESS_TOOLTIP"
+			pdx_tooltip_delayed = "WAR_WEARINESS_TOOLTIP_DELAYED"
+		}
+	}
+
+
+
+	################## graph #################
+
+	containerWindowType = {
+		name = "war_weariness_ui_window"
+		position = { x = 0 y = 0}	
+		size = { width = 400 height= 180 }
+
+		#### weariness icons
+		iconType = {
+			name = "generic_icon"
+			spriteType = "GFX_generic_weariness_icon"
+			position = { x = 320 y = 24 }
+			pdx_tooltip = war_weariness_decision_ttp
+		}
+		iconType = {
+			name = "fire_icon"
+			spriteType = "GFX_fire_weariness_icon"
+			position = { x = 320 y = 24 }
+			pdx_tooltip = war_weariness_decision_ttp
+		}
+		iconType = {
+			name = "water_icon"
+			spriteType = "GFX_water_weariness_icon"
+			position = { x = 320 y = 24 }
+			pdx_tooltip = war_weariness_decision_ttp
+		}
+		iconType = {
+			name = "earth_icon"
+			spriteType = "GFX_earth_weariness_icon"
+			position = { x = 320 y = 24 }
+			pdx_tooltip = war_weariness_decision_ttp
+		}
+		iconType = {
+			name = "air_icon"
+			spriteType = "GFX_air_weariness_icon"
+			position = { x = 320 y = 24 }
+			pdx_tooltip = war_weariness_decision_ttp
+		}
+
+		# Chart background
+		iconType = {
+			name = "chart"
+			spriteType = "GFX_Line_Graph_Chart"
+			position = { x = 30 y = 64 }
+		}
+
+		# Container which will hold each of our line segments
+		gridboxtype = {
+			name = "line_segments"
+			position = { x = 36 y = 66 }
+			size = { width = 0 height = 200 }
+			slotsize = { width = 10 height = 200 }
+			max_slots_horizontal = 20
+			add_horizontal = yes
+		}
+
+		containerWindowType = {
+			name = "number_mover"
+			position = { x = -30 y = 0}	
+			size = { width = 350 height= 180 }
+
+			# y-axis labels, very optional
+			instantTextboxType = {
+				name = "100pct"
+				position = { x= 270 y = 59}
+				font = "hoi_16mbs"
+				text = "100%"
+				maxWidth = 50
+				format = left
+			}
+			instantTextboxType = {
+				name = "80pct"
+				position = { x= 270 y = 79}
+				font = "hoi_16mbs"
+				text = "80%"
+				maxWidth = 50
+				format = left
+			}
+			instantTextboxType = {
+				name = "60pct"
+				position = { x= 270 y = 99}
+				font = "hoi_16mbs"
+				text = "60%"
+				maxWidth = 50
+				format = left
+			}
+			instantTextboxType = {
+				name = "40pct"
+				position = { x= 270 y = 119}
+				font = "hoi_16mbs"
+				text = "40%"
+				maxWidth = 50
+				format = left
+			}
+			instantTextboxType = {
+				name = "20pct"
+				position = { x= 270 y = 139}
+				font = "hoi_16mbs"
+				text = "20%"
+				maxWidth = 50
+				format = left
+			}
+			instantTextboxType = {
+				name = "0pct"
+				position = { x= 270 y = 159}
+				font = "hoi_16mbs"
+				text = "0%"
+				maxWidth = 50
+				format = left
+			}
+
+		}
+
+		#buttonType = {
+		#	name = "add_button"
+		#	spriteType = "GFX_NV_btn_add"
+		#	position = { x = 20 y = 20 }
+		#}
+	}
+
+	# Line segment container, very important
+	containerWindowType = {
+		name = "line_graph_line_segment"
+		size = { width = 10 height = 200 }
+		position = { x = 0 y = 0 }
+
+		# Line segment progress bar, using our custom asset with custom shader
+		iconType = {
+			name = "segment"
+			spriteType = "GFX_Line_Segment"
+			position = { x = 0 y = 0 }
+			frame = 57
+		}
+
+		# Optional, x-axis label which corresponds to the value of this segment
+		#instantTextboxType = {
+		#	name = "label"
+		#	position = { x = -15 y = 112}
+		#	font = "hoi_16mbs"
+		#	text = "weariness_line_graph_data_label"
+		#	maxWidth = 30
+		#	format = center
+		#}
+	}
+}

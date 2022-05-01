@@ -2,7 +2,7 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				set_variable = { war_exhaustion_daily = 1 }
+				set_variable = { war_exhaustion_daily = 0 }
 				set_variable = { peace_exhaustion_daily = -5 }
 				set_variable = { war_exhaustion_max = 9000 }
 				set_variable = { war_exhaustion_next = 200 }
@@ -12,28 +12,86 @@ on_actions = {
 
 	on_daily = {
 		effect = {
-			set_variable = { war_exhaustion_daily = 1 }
 			set_variable = { peace_exhaustion_daily = -5 }
 			set_variable = { war_exhaustion_max = 9000 }
 			set_variable = { war_exhaustion_next = 200 }
-            if = {
-				if = {
-					limit = { has_war = no }
-					add_to_variable = { war_exhaustion_variable = peace_exhaustion_daily }
-				}
-				if = {
-					limit = { has_war = yes }
-	                add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
-				}
 
-                clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
+			#### daily addition
+
+			set_variable = { war_exhaustion_daily = 0 }
+
+			# base gain
+			add_to_variable = { war_exhaustion_daily = war_exhaustion_addition }
+
+			# factor
+			set_variable = { war_exhaustion_factor_calc = 1 }
+			add_to_variable = { war_exhaustion_factor_calc = war_exhaustion_factor }
+			clamp_variable = { 
+				var = war_exhaustion_factor_calc 
+				min = 0 
+				#max = 0
 			}
+			multiply_variable = { war_exhaustion_daily = war_exhaustion_factor_calc }
+
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
+
+			################## end daily addition
+
+
+			######## casualties
+
+			set_variable = { updated_casualties = casualties_k }
+
+			if = {
+				limit = { 
+					check_variable = { actual_casualties < updated_casualties }
+				}
+				set_variable = { casualty_factor = 50 }
+				multiply_variable = { casualty_factor = war_exhaustion_factor_calc }
+				add_to_variable = { war_exhaustion_variable = casualty_factor }
+				add_to_variable = {
+					var = actual_casualties
+					value = 1
+				}
+				set_temp_variable = { ttcv = actual_casualties }
+				multiply_temp_variable = { ttcv = 50 }
+				set_variable = { tooltip_casualties = ttcv }
+			}
+
+
+
+			if = {
+				limit = { has_war = no }
+				add_to_variable = { war_exhaustion_variable = peace_exhaustion_daily }
+			}
+
+			clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
+
 		}
 	}
 
-    on_daily = {
+	on_monthly = {
 		effect = {
-            if = {
+			WAR_WAERINESS_add_point_to_line = yes
+
+
+			#### occupation ###
+
+			set_temp_variable = { occupied_states_variable = num_of_controlled_states }
+			subtract_from_temp_variable = { occupied_states_variable = num_core_states }
+			multiply_temp_variable = { 
+				occupied_states_variable = war_exhaustion_factor_calc 
+			}	### severeness modifier
+
+			set_variable = { occupation_war_exhaustion = occupied_states_variable }
+
+			add_to_variable = { war_exhaustion_variable = occupied_states_variable }
+		}
+	}
+
+	on_daily = {
+		effect = {
+			if = {
 				if = {
 					limit = {
 						check_variable = { war_exhaustion_variable < 200 }

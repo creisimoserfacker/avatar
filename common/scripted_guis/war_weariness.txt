@@ -1,0 +1,65 @@
+scripted_gui = {
+	war_weariness_ui = {
+		context_type = decision_category
+		window_name = "war_weariness_ui_window"
+
+		effects = {
+			close_button_click = {
+				clr_country_flag = open_line_gui
+			}
+			add_button_click = {
+				# Invoke scripted effect to add a random point to the line
+				# See scripted effect file
+
+				WAR_WAERINESS_add_point_to_line = yes
+			}
+		}
+
+		# Set up dynamic list to generate one line segment per point
+		dynamic_lists = {
+			line_segments = {
+				array = WAR_WEARINESS_graph_offsets
+				change_scope = no
+				entry_container = line_graph_line_segment
+				index = segment_idx
+			}
+		}
+
+		properties = {
+			segment = {
+				# Sets they position of the line segment to the graph offset
+				# Equal to -y1
+				y = WAR_WEARINESS_graph_offsets^segment_idx
+
+				# Tells the shader how steep to draw the line
+				# Must be equal to (y2 - y1) / 2 + 50
+				frame = WAR_WEARINESS_graph_slopes^segment_idx
+			}
+		}
+
+		triggers = {
+			# Optional. This hides every other x label, to give them some breathing room
+			label_visible = {
+				set_temp_variable = { si = segment_idx }
+				modulo_temp_variable = { si = 2 }
+				check_variable = { si = 0 }
+			}
+
+			generic_icon_visible = {
+				has_government = democratica
+			}
+			fire_icon_visible = {
+				has_government = imperialism
+			}
+			earth_icon_visible = {
+				has_government = monarchism
+			}
+			water_icon_visible = {
+				has_government = tribalism
+			}
+			air_icon_visible = {
+				has_government = pacifism
+			}
+		}
+	}
+}

@@ -1,0 +1,16 @@
+war_weariness_category = {
+	icon = war_weariness
+
+	scripted_gui = war_weariness_ui
+	
+	priority = 100
+
+	allowed = {
+		always = yes 
+	}
+	visible = {
+		#check_variable = { war_exhaustion_variable > 0 }
+		has_war = yes
+		NOT = { has_country_flag = hide_generic_decisions }
+	}
+}

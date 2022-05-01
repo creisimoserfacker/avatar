@@ -1,202 +1,153 @@
-on_actions = {
-
-	on_startup = {
-		effect = {
-			every_country = {
-				#limit = {
-				#	country_has_war_exhaustion = yes
-				#}
-
-				set_variable = { actual_casualties = 0 }
-				set_variable = { war_exhaustion_factor = 10 }
-				set_variable = { war_exhaustion_remove_1 = -1 }
-				set_variable = { war_exhaustion_remove_100 = -100 }
-				set_variable = { war_exhaustion_remove_200 = -200 }
-			}
-		}
-	}
-
-	on_monthly = {
-		effect = {
-			if = {
-				limit = { 
-				#country_has_war_exhaustion = yes 
-				}
-
-				##### ideas ####
-					
-
-
-				### advisors
-				if = {
-					limit = { has_idea_with_trait = close_to_the_people }
-					add_to_variable = { war_exhaustion_variable = -5 }
-				}
-				if = {
-					limit = { has_idea_with_trait = cruel_supervisor }
-					add_to_variable = { war_exhaustion_variable = 5 }
-				}
-				if = {
-					limit = { has_idea_with_trait = workers_syndicat }
-					add_to_variable = { war_exhaustion_variable = -5 }
-				}
-				if = {
-					limit = { has_idea_with_trait = warrior_culture }
-					add_to_variable = { war_exhaustion_variable = -10 }
-				}
-				if = {
-					limit = { has_idea_with_trait = aggressive_strategist_1 }
-					add_to_variable = { war_exhaustion_variable = 20 }
-				}
-				if = {
-					limit = { has_idea_with_trait = aggressive_strategist_2 }
-					add_to_variable = { war_exhaustion_variable = 10 }
-				}
-				if = {
-					limit = { has_idea_with_trait = aggressive_strategist_3 }
-					add_to_variable = { war_exhaustion_variable = 5 }
-				}
-				if = {
-					limit = { has_idea_with_trait = head_censor }
-					add_to_variable = { war_exhaustion_variable = -5 }
-				}
-				if = {
-					limit = { has_idea_with_trait = civil_law }
-					add_to_variable = { war_exhaustion_variable = -10 }
-				}
-				if = {
-					limit = { has_idea_with_trait = alms_and_pacification }
-					add_to_variable = { war_exhaustion_variable = -5 }
-				}
-
-				#### decisions
-				#if = {
-				#	limit = { has_decision = campaign_season }
-				#	add_to_variable = { war_exhaustion_variable = 10 }
-				#}
-				#if = {
-				#	limit = { has_decision = raiding_campaign }
-				#	add_to_variable = { war_exhaustion_variable = 5 }
-				#}
-
-					#### occupation ###
-
-				set_temp_variable = { occupied_states_variable = num_of_controlled_states }
-				subtract_from_temp_variable = { occupied_states_variable = num_core_states }
-				multiply_temp_variable = { occupied_states_variable = 1 }		### severeness modifier
-
-				set_variable = { occupation_war_exhaustion = occupied_states_variable }
-
-				### occupation advisors
-
-				if = {
-					limit = { num_occupied_states > 0 }
-
-					if = {
-						limit = { has_idea_with_trait = recreation_provider }
-						add_to_variable = { occupation_war_exhaustion = -12 }
-					}
-					if = {
-						limit = { has_idea_with_trait = custumary_law }
-						add_to_variable = { occupation_war_exhaustion = -20 }
-					}
-
-	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
-				}
-
-			}
-		}
-	}
-
-	on_daily = {
-		effect = {
-            if = {
-				limit = { 
-					#country_has_war_exhaustion = yes 
-				}
-
-				######## ideas #######
-
-				if = {
-					limit = { has_idea = economy_4 }
-	                add_to_variable = { war_exhaustion_variable = 1 }
-				}
-				if = {
-					limit = { has_idea = economy_5 }
-	                add_to_variable = { war_exhaustion_variable = 2 }
-				}
-
-				if = {
-					limit = { has_idea = indoctrination }
-	                add_to_variable = { war_exhaustion_variable = -2 }
-				}
-					
-				if = {
-					limit = { has_idea = weak_legitimacy }
-					add_to_variable = { war_exhaustion_variable = 2 }
-				}
-
-				set_variable = { updated_casualties = casualties_k }
-
-				if = {
-					limit = { 
-						check_variable = { actual_casualties < updated_casualties }
-					}
-					if = {
-						limit = { 
-							has_idea = state_1
-						}
-	                	add_to_variable = { war_exhaustion_variable = 50 }
-	                }
-	                if = {
-						limit = { 
-							has_idea = state_2
-						}
-	                	add_to_variable = { war_exhaustion_variable = 40 }
-	                }
-	                if = {
-						limit = { 
-							has_idea = state_3
-						}
-	                	add_to_variable = { war_exhaustion_variable = 30 }
-	                }
-	                if = {
-						limit = { 
-							has_idea = state_4
-						}
-	                	add_to_variable = { war_exhaustion_variable = 20 }
-	                }
-	                if = {
-						limit = { 
-							has_idea = state_5
-						}
-	                	add_to_variable = { war_exhaustion_variable = 10 }
-	                }
-	                add_to_variable = {
-    					var = actual_casualties
-    					value = 1
-					}
-					set_temp_variable = { ttcv = actual_casualties }
-					multiply_temp_variable = { ttcv = 50 }
-					set_variable = { tooltip_casualties = ttcv }
-				}
-			}
-
-			clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
-		}
-	}
-
-	on_peaceconference_ended = {
-		effect = {
-            if = {
-				limit = { 
-					#country_has_war_exhaustion = yes 
-				}
-
-				set_variable = { tooltip_casualties = 0 }
-				set_variable = { actual_casualties = 0 }
-			}
-		}
-	}
-
-}
+#on_actions = {
+#
+#	on_startup = {
+#		effect = {
+#			every_country = {
+#				#limit = {
+#				#	country_has_war_exhaustion = yes
+#				#}
+#
+#				set_variable = { actual_casualties = 0 }
+#				set_variable = { war_exhaustion_factor = 10 }
+#				set_variable = { war_exhaustion_remove_1 = -1 }
+#				set_variable = { war_exhaustion_remove_100 = -100 }
+#				set_variable = { war_exhaustion_remove_200 = -200 }
+#			}
+#		}
+#	}
+#
+#	on_monthly = {
+#		effect = {
+#			if = {
+#				limit = { 
+#				#country_has_war_exhaustion = yes 
+#				}
+#
+#				##### ideas ####
+#					
+#
+#
+#				### advisors
+#				if = {
+#					limit = { has_idea_with_trait = close_to_the_people }
+#					add_to_variable = { war_exhaustion_variable = -5 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = cruel_supervisor }
+#					add_to_variable = { war_exhaustion_variable = 5 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = workers_syndicat }
+#					add_to_variable = { war_exhaustion_variable = -5 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = warrior_culture }
+#					add_to_variable = { war_exhaustion_variable = -10 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = aggressive_strategist_1 }
+#					add_to_variable = { war_exhaustion_variable = 20 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = aggressive_strategist_2 }
+#					add_to_variable = { war_exhaustion_variable = 10 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = aggressive_strategist_3 }
+#					add_to_variable = { war_exhaustion_variable = 5 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = head_censor }
+#					add_to_variable = { war_exhaustion_variable = -5 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = civil_law }
+#					add_to_variable = { war_exhaustion_variable = -10 }
+#				}
+#				if = {
+#					limit = { has_idea_with_trait = alms_and_pacification }
+#					add_to_variable = { war_exhaustion_variable = -5 }
+#				}
+#
+#				#### decisions
+#				#if = {
+#				#	limit = { has_decision = campaign_season }
+#				#	add_to_variable = { war_exhaustion_variable = 10 }
+#				#}
+#				#if = {
+#				#	limit = { has_decision = raiding_campaign }
+#				#	add_to_variable = { war_exhaustion_variable = 5 }
+#				#}
+#
+#					#### occupation ###
+#
+#				set_temp_variable = { occupied_states_variable = num_of_controlled_states }
+#				subtract_from_temp_variable = { occupied_states_variable = num_core_states }
+#				multiply_temp_variable = { occupied_states_variable = 1 }		### severeness #modifier
+#
+#				set_variable = { occupation_war_exhaustion = occupied_states_variable }
+#
+#				### occupation advisors
+#
+#				if = {
+#					limit = { num_occupied_states > 0 }
+#
+#					if = {
+#						limit = { has_idea_with_trait = recreation_provider }
+#						add_to_variable = { occupation_war_exhaustion = -12 }
+#					}
+#					if = {
+#						limit = { has_idea_with_trait = custumary_law }
+#						add_to_variable = { occupation_war_exhaustion = -20 }
+#					}
+#
+#	                add_to_variable = { war_exhaustion_variable = occupation_war_exhaustion }
+#				}
+#
+#			}
+#		}
+#	}
+#
+#	on_daily = {
+#		effect = {
+#            if = {
+#				limit = { 
+#					#country_has_war_exhaustion = yes 
+#				}
+#
+#				######## ideas #######
+#
+#				if = {
+#					limit = { has_idea = economy_4 }
+#	                add_to_variable = { war_exhaustion_variable = 1 }
+#				}
+#				if = {
+#					limit = { has_idea = economy_5 }
+#	                add_to_variable = { war_exhaustion_variable = 2 }
+#				}
+#
+#				if = {
+#					limit = { has_idea = indoctrination }
+#	                add_to_variable = { war_exhaustion_variable = -2 }
+#				}
+#					
+#				if = {
+#					limit = { has_idea = weak_legitimacy }
+#					add_to_variable = { war_exhaustion_variable = 2 }
+#				}
+#
+#				
+#			}
+#
+#			clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
+#		}
+#	}
+#
+#	on_peaceconference_ended = {
+#		effect = {
+#			set_variable = { tooltip_casualties = 0 }
+#			set_variable = { actual_casualties = 0 }
+#		}
+#	}
+#
+#}
