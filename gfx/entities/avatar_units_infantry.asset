@@ -1,0 +1,311 @@
+
+
+#####################################################################
+#####															#####
+#####						Default enities						#####
+#####															#####
+#####			Every other unit clones from this				#####
+#####															#####
+#####################################################################
+
+
+#### generic spearmen
+entity = {
+	name = "spearmen_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+	}
+
+	scale = 0.5
+}
+
+#### generic spearmen with shield
+entity = {
+	name = "spearmen_entity_2"
+	pdxmesh = "melee_infantry_generic_03"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	name = "spear_1_entity"
+	pdxmesh = "asian_spear_01"
+}
+
+entity = {
+	name = "shield_1_entity"
+	pdxmesh = "generic_shield"
+}
+
+#### generic swordsmen
+entity = {
+	name = "swordsmen_entity"
+	pdxmesh = "swordsmen_generic"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "sword_1_entity" 
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	name = "swordsmen_2_entity"
+	pdxmesh = "swordsmen_generic"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "attack"			animation = "attack_02" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "defend"			animation = "attack_02" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "support_attack"			animation = "attack_02" 			animation_blend_time = 0.3  animation_speed = 1.0  looping = no chance = 1 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "sword_2_entity" 
+		Left_hand_node = "shield_2_entity"
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	name = "sword_1_entity"
+	pdxmesh = "sword_1"
+}
+entity = {
+	name = "sword_2_entity"
+	pdxmesh = "sword_2"
+}
+
+entity = {
+	name = "shield_2_entity"
+	pdxmesh = "generic_shield_2"
+}
+
+
+entity = {
+	name = "pikemen_entity"
+	pdxmesh = "melee_infantry_generic_02"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+	}
+	
+	scale = 0.5
+}
+
+
+
+
+entity = {
+	name = "bow_entity"
+	pdxmesh = "bow_mesh"
+
+	default_state = "idle"
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "shoot"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+}
+
+entity = {
+	name = "arrow_entity"
+	pdxmesh = "arrow_mesh"
+}
+
+
+entity = {
+	name = "archers_entity"
+	pdxmesh = "archer_generic"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
+	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
+	state = { name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 	name = "Bow"	Left_hand_node = "bow_entity" }
+	attach = { 	name = "Arrow"	Right_hand_node = "arrow_entity" }
+
+	scale = 0.5
+}
+
+
+
+############### generic infantry
+entity = {
+	clone = "spearmen_entity"
+	name = "infantry_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	clone = "spearmen_shield_entity"
+	name = "infantry_2_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.5
+}
+
+
+############### firenation
+entity = {
+	clone = "spearmen_entity"
+	name = "FIR_spearmen_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	clone = "swordsmen_entity"
+	name = "FIR_swordsmen_entity"
+	pdxmesh = "FIR_sword_infantry"
+
+	attach = { 
+		Right_hand_node = "sword_1_entity" 
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	clone = "pikemen_entity"
+	name = "FIR_pikemen_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity" 
+	}
+
+	scale = 0.5
+}
+
+entity = {
+	clone = "archers_entity"
+	name = "FIR_archers_entity"
+	pdxmesh = "FIR_archer"
+
+	attach = { 	name = "Bow"	Left_hand_node = "bow_entity" }
+	attach = { 	name = "Arrow"	Right_hand_node = "arrow_entity" }
+
+	scale = 0.5
+}
+
+
+entity = {
+	name = "firebender_entity"
+	pdxmesh = "firebender_mesh"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 
+		event = { time = 1.1 node="Right_hand_node" particle = "firebender_01_particle"  keep_particle = no } 
+	}
+	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "attack_01" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no
+	}
+	
+	
+	scale = 0.5
+}

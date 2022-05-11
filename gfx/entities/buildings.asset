@@ -176,54 +176,6 @@ entity = {
 # Name must match "building_" + building tag
  
 
-entity = {
-	name = "building_dockyard_1"
-	pdxmesh = "building_dockyard_1"
-	scale = 0.8
-	
-	locator = { name = "damage_locator_01"	position = { 1.7 1.0 -1.7 } }
-	locator = { name = "damage_locator_02"	position = { -0.1 1.0 0.5 } }
-	
-	default_state = "idle"
-	state = { name = "idle" 
-	}
-	state = { name = "damaged" 
-		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
-		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
-	}
-}
-entity = {
-	name = "building_dockyard_2"
-	pdxmesh = "building_dockyard_2"
-	scale = 0.8
-	
-	locator = { name = "damage_locator_01"	position = { 1.7 1.0 -1.7 } }
-	locator = { name = "damage_locator_02"	position = { -0.1 1.0 0.5 } }
-	
-	default_state = "idle"
-	state = { name = "idle" 
-	}
-	state = { name = "damaged" 
-		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
-		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
-	}
-}
-entity = {
-	name = "building_dockyard_3"
-	pdxmesh = "building_dockyard_3"
-	scale = 0.8
-	
-	locator = { name = "damage_locator_01"	position = { 1.7 1.0 -1.7 } }
-	locator = { name = "damage_locator_02"	position = { -0.1 1.0 0.5 } }
-	
-	default_state = "idle"
-	state = { name = "idle" 
-	}
-	state = { name = "damaged" 
-		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
-		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
-	}
-}
 
 entity = {
 	name = "building_air_base"
@@ -467,8 +419,97 @@ entity = {
 }
 
 entity = {
-	name = "building_industrial_complex"
-	pdxmesh = "building_industrial_complex"
+	name = "building_supply_node"
+	pdxmesh = "supply_station_mesh"
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	scale = 1
+}
+
+
+
+
+
+#################### avatar buildings #######################################
+
+
+
+entity = {
+	name = "building_farm"
+	pdxmesh = "building_farm_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 1.2
+
+}
+
+entity = {
+	name = "building_mill"
+	pdxmesh = "building_mill_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 1.2
+
+}
+entity = {
+	name = "building_mill_2"
+	pdxmesh = "building_windmill_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 1.2
+
+}
+
+entity = {
+	name = "building_lumber_mill"
+	pdxmesh = "building_lumber_mill_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 0.4
+
+}
+entity = {
+	name = "building_lumber_mill_2"
+	pdxmesh = "building_lumber_mill_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 0.4
+
+}
+
+entity = {
+	name = "building_steelworks"
+	pdxmesh = "building_steelworks"
 	
 	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
 	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
@@ -482,12 +523,43 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.6
+	scale = 2.5
+}
+
+entity = {
+	name = "building_industrial_complex"
+	pdxmesh = "building_manufactory_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 1.2
 }
 
 entity = {
 	name = "building_arms_factory"
-	pdxmesh = "building_arms_factory"
+	pdxmesh = "building_smithy_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 0.4
+}
+
+entity = {
+	name = "building_factory"
+	pdxmesh = "building_factory"
+	
+	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
 	
 	default_state = "idle"
 	state = { name = "idle" 
@@ -498,14 +570,52 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.7
-
+	scale = 2.5
 }
 
 entity = {
-	name = "building_supply_node"
-	pdxmesh = "supply_station_mesh"
+	name = "building_harbour_1"
+	pdxmesh = "building_harbour_mesh"
+	
 	default_state = "idle"
 	state = { name = "idle"	animation = "idle" }
-	scale = 2
+	state = { name = "damaged" animation = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 0.4
+}
+
+entity = {
+	name = "building_dockyard_1"
+	pdxmesh = "building_dockyard_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle"	animation = "idle" }
+	state = { name = "damaged"
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 1.2
+}
+
+entity = {
+	name = "building_steel_beam_factory"
+	pdxmesh = "building_steel_beam_factory"
+	
+	locator = { name = "damage_locator_01"	position = { 0.4 0.1 0.4 } }
+	locator = { name = "damage_locator_02"	position = { -0.1 0.45 -0.3 } }
+	
+	default_state = "idle"
+	state = { name = "idle" 
+		event = { time = 0.1 node="factorysmoke" particle = "factory_smoke_particle" }
+	}
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+	
+	scale = 2.5
 }
