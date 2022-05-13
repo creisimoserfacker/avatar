@@ -9,15 +9,6 @@
 
 capital = 260
 
-OOB = "SWT_12"
-if = {
-	limit = { has_dlc = "Man the Guns" }
-	set_naval_oob = "SWT_12_naval_mtg"
-	else = {
-		set_naval_oob = "SWT_12_naval_legacy"
-	}
-}
-
 set_country_flag = WAT_navy
 set_country_flag = water_nation 
 set_country_flag = WATER_special_forces
@@ -222,10 +213,27 @@ if = {
 	}
 
 }
+12.1.1 = {
+	OOB = "SWT_12"
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "SWT_12_naval_mtg"
+		else = {
+			set_naval_oob = "SWT_12_naval_legacy"
+		}
+	}	
+}
 
 52.1.1 ={
 
 	OOB = "SWT_52"
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+		set_naval_oob = "SWT_empty"
+		else = {
+			set_naval_oob = "SWT_empty"
+		}
+	}	
 
 
 set_variable = { var = SWT_unity_support value = 38 }
