@@ -534,20 +534,6 @@ military_camps = {
 	sound_effect = "Martial_Law_Interface_Secret_Police_Oversight"
 
 	state_modifier = {
-<<<<<<< Updated upstream
-		resistance_target 				= -0.40
-		compliance_gain 				= -0.08
-		required_garrison_factor 		= 0.60
-		resistance_damage_to_garrison 	= 0.50
-
-		local_factories 				= 0.25
-		local_resources 				= 0.05
-
-		repair_speed_arms_factory_factor = 0.25
-		repair_speed_carpentry_factor = 0.25
-
-		custom_modifier_tooltip = "factory_sabotage_decrease_tooltip"
-=======
 		resistance_target 				= -0.35
 		resistance_growth 				= 0.5
 		required_garrison_factor 		= 0.25
@@ -558,31 +544,18 @@ military_camps = {
 		compliance_growth 				= 0
 		local_factories 				= 0
 		local_resources 				= 0
->>>>>>> Stashed changes
 	}
 
 	ai_will_do = {
 		base = 0
 
 		modifier = {
-<<<<<<< Updated upstream
-			set_temp_variable = { num_damaged = damaged_building_level@arms_factory }
-			add_to_temp_variable = { num_damaged = damaged_building_level@industrial_complex }
-
-			check_variable = { num_damaged > 0 }
-			clamp_temp_variable = { var = num_damaged max = 4 }
-			multiply_temp_variable = { num_damaged = 50 }
-			add_to_temp_variable = { num_damaged = 150 }
-
-			add = num_damaged
-=======
 			any_neighbor_state = {
 				controller = {
 					has_war_with = FROM
 				}
 			}
 			add = 150
->>>>>>> Stashed changes
 		}
 		modifier = {
 			NOT = {
