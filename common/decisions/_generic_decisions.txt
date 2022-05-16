@@ -63,23 +63,12 @@ reoccupy_category = {
 					has_dynamic_modifier = {
 						modifier = genocide_state
 					}
-					NOT = {
-						has_state_flag = recolonisation_in_progress
-						is_core_of = ROOT
-					}
 				}
 			}
 		}
 		visible = {
-			NOT = {
-				has_country_flag = establishing_a_colony
-			}
 			has_country_flag = show_genocided_territories
 			FROM = {
-				NOT = {
-					is_core_of = ROOT
-					has_state_flag = recolonisation_in_progress
-				}
 				has_dynamic_modifier = {
 					modifier = genocide_state
 				}
@@ -248,7 +237,7 @@ war_measures_category = {
         	stability_weekly_factor = 0.005
 			army_org_factor = 0.05
 			army_org_regain = 0.1
-			army_attack_factor -0.25
+			army_attack_factor = -0.25
 			army_defence_factor = -0.25
 			experience_gain_army_unit_factor = -0.5
 			land_reinforce_rate =  -0.015
@@ -376,7 +365,7 @@ war_measures_category = {
         modifier = {
 			army_attack_factor = -0.1
         	resistance_damage_to_garrison_on_our_occupied_states = 0.05
-			war_support_weekly_factor = 0.01
+			war_support_weekly = 0.01
 			army_core_defence_factor = 0.05
 			org_loss_when_moving = 0.05
         }
