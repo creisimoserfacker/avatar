@@ -1,16 +1,21 @@
 AIR_council_category = {
 	icon = council_decision_tab
-	
 	visible = {
-		ROOT = { has_country_flag = air_council_active }
+		ROOT = {
+			has_country_flag = air_council_active
+			NOT = {
+				has_idea = no_ruler
+			}
+			has_government = pacifism
+		}
 	}
 	allowed = {
-		ROOT = { has_country_flag = air_council_active }
+		ROOT = {
+			has_country_flag = air_council_active
+		}
 	}
 	visible_when_empty = yes
-	
 	scripted_gui = air_council_ui
-	
 	priority = {
 		base = 1000
 	}
