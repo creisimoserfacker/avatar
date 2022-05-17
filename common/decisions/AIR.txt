@@ -2,7 +2,12 @@ AIR_council_category = {
 	upcoming_meeting = {
 	
 		icon = council_will_meet_again
-
+		visible = {
+			NOT = {
+				has_idea = no_ruler
+			}
+			has_government = pacifism
+		}
 		activation = {
 			has_country_flag = air_council_active
 		}
@@ -12,7 +17,15 @@ AIR_council_category = {
 		days_mission_timeout = 50
 		is_good = yes
 		priority = 1000
-		
+		cancel_if_not_visible = yes
+		cancel_trigger = {
+			OR = {
+				has_idea = no_ruler
+				NOT = {
+					has_government = pacifism
+				}	
+			}
+		}
 		timeout_effect = {
 			custom_effect_tooltip = "The Council meets once again!"
 			AIR_generate_missions = yes
