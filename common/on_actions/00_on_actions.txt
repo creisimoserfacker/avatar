@@ -3,15 +3,12 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				limit = { 
-					has_start_date < 20.01.01
-					OR = {
-						tag = SAT
-						tag = NAT
-						tag = EAT
-						tag = WAT
-					}
-				}
+				limit = { OR = {
+					tag = SAT
+					tag = NAT
+					tag = EAT
+					tag = WAT
+				}}
 				country_event = { 
 					id = AIR_council.0
 				}
