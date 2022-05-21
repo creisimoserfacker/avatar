@@ -35,3 +35,42 @@ country_event = {
 		#}
 	}
 }
+#Repopulation by earth settlers
+country_event = {
+	id = northern.2
+	title = northern.2.t
+	desc = northern.2.d
+	trigger = {
+		original_tag = NAT
+		has_global_flag = air_nomad_genocide
+		has_idea = no_ruler
+		has_country_leader = {
+			character = NAT_extinct_nation
+			ruling_only = yes
+		}
+		date >105.1.1
+	}
+	option = {
+		name = northern.2.a
+		set_politics = {
+			ruling_party = democratica
+			elections_allowed = yes
+		}
+		promote_character = NAT_mechanist
+		set_research_slots = 4
+		set_cosmetic_tag = NAT_mechanist_temple
+		every_owned_state = {
+			limit = {
+				has_dynamic_modifier = {
+					modifier = genocide_state
+				}
+			}
+			remove_dynamic_modifier = {
+				modifier = genocide_state
+			}
+		}
+		clr_country_flag = AIR_special_forces
+		clr_country_flag = AIR_nation
+		clr_country_flag = AIR_air_techs
+	}
+}
