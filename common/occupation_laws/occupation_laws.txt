@@ -61,7 +61,32 @@
 #	}
 #}
 
+rudimentary_occupation = {
+	tooltip = "rudimentary_occupation_desc"
+	icon = 3
+	default_law = yes
+	main_fallback_law = yes
+	sound_effect = "Martial_Law_Interface_No_Garrison"
 
+	state_modifier = {
+		resistance_target 				= 0
+		required_garrison_factor 		= 0
+		resistance_damage_to_garrison 	= 0
+		compliance_gain 				= 0
+		local_factories 				= 0
+		local_resources 				= 0
+	}
+
+	ai_will_do = {
+		base = 200
+
+		modifier = {
+			check_variable  = { resistance_target_without_law < 0.05}
+			add = 100
+		}
+	}
+
+}
 no_garrison = {
 	tooltip = "no_garrison_desc"
 	icon = 1
@@ -132,34 +157,6 @@ neglected_occupation = {
 	}
 
 }
-rudimentary_occupation = {
-	tooltip = "rudimentary_occupation_desc"
-	icon = 3
-	default_law = yes
-	main_fallback_law = yes
-	sound_effect = "Martial_Law_Interface_No_Garrison"
-
-	state_modifier = {
-		resistance_target 				= 0
-		required_garrison_factor 		= 0
-		resistance_damage_to_garrison 	= 0
-		compliance_gain 				= 0
-		local_factories 				= 0
-		local_resources 				= 0
-	}
-
-	ai_will_do = {
-		base = 200
-
-		modifier = {
-			check_variable  = { resistance_target_without_law < 0.05}
-			add = 100
-		}
-	}
-
-}
-
-
 secret_police_occupation = {
 	tooltip = "secret_police_occupation_desc"
 	icon = 4
