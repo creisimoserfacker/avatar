@@ -147,7 +147,23 @@ country_event = {
 				}
 			}
 		}
-
+		ROOT = {
+			set_temp_variable = {
+				nonbending@ROOT = party_popularity@democratica
+			}
+			set_temp_variable = {
+				air@ROOT = party_popularity@pacifism
+			}
+			set_temp_variable = {
+				earth@ROOT = party_popularity@monarchism
+			}
+			set_temp_variable = {
+				fire@ROOT = party_popularity@imperialism
+			}
+			set_temp_variable = {
+				water@ROOT = party_popularity@tribalism
+			}
+		}
 		EAR = {
 			if = {
 				limit = {
@@ -162,7 +178,24 @@ country_event = {
 				puppet = ROOT
 			}
 		}
-
+		ROOT = {
+			if = {
+				limit = {
+					original_tag = SWA
+				}
+				set_politics = {
+					ruling_party = tribalism
+					elections_allowed = no
+				}
+			}
+			set_popularities = {
+				democratica = nonbending@ROOT
+				pacifism = air@ROOT
+				monarchism = earth@ROOT
+				imperialism = fire@ROOT
+				tribalism = water@ROOT
+			}
+		}
 		add_political_power = -100
 		add_stability = 0.05
 
@@ -536,4 +569,50 @@ country_event = {
 
 	}
 
+}
+###Coup in Omašu - polar bear dog
+add_namespace = omashu
+country_event = {
+	id = omashu.1
+	title = omashu.1.t
+	desc = omashu.1.d
+	is_triggered_only = yes
+	trigger = {
+		has_country_leader = {
+			character = OMS_iuri
+			ruling_only = yes
+		}
+	}
+	option = {
+		name = omashu.1.a
+		effect_tooltip = {
+			kill_country_leader = yes
+		}
+		add_war_support = 0.1
+		add_stability = -0.15
+		hidden_effect = {
+			retire_character = OMS_iuri
+		}
+	}
+}
+country_event = {
+	id = omashu.2
+	hidden = yes
+	is_triggered_only = yes
+	trigger = {
+		original_tag = OMS
+		has_country_leader = {
+			character = OMS_bumi
+			ruling_only = yes
+		}
+	}
+	immediate = {
+		OMS_bumi = {
+			set_portraits = {
+				civilian = {
+					large="gfx/leaders/OMS/Portrait_Omashu_Bumi.dds"
+				}
+			}
+		}
+	}
 }
