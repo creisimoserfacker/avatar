@@ -48,10 +48,17 @@ entity = {
 	state = { name = "idle" 
 	}
 }
-
 entity = {
 	name = "building_coastal_fortress_2"
 	pdxmesh = "generic_coastal_fort_2_mesh"
+	
+	default_state = "idle"
+	state = { name = "idle" 
+	}
+}
+entity = {
+	name = "building_coastal_fortress_3"
+	pdxmesh = "generic_coastal_fort_3_mesh"
 	
 	default_state = "idle"
 	state = { name = "idle" 
@@ -77,6 +84,22 @@ entity = {
 entity = {
 	name = "building_coastal_fortress_2_destroyed"
 	pdxmesh = "generic_coastal_fort_2_mesh"
+	
+	
+	locator = { name = "damage_locator_01"	position = { -0.2 0.4 -0.3 } }
+	locator = { name = "damage_locator_02"	position = { 0.9 0.5 0.6 } }
+	
+	
+	default_state = "idle"
+	state = { name = "idle"
+		event = { time = 0 particle = "bunker_smoke_effect" }
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+	}
+}
+entity = {
+	name = "building_coastal_fortress_3_destroyed"
+	pdxmesh = "generic_coastal_fort_3_mesh"
 	
 	
 	locator = { name = "damage_locator_01"	position = { -0.2 0.4 -0.3 } }
@@ -118,7 +141,7 @@ entity = {
 entity = {
 	name = "building_naval_base_1"
 	pdxmesh = "building_naval_base_1"
-	scale = 0.8
+	scale = 0.6
 	
 	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
 	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
@@ -136,7 +159,7 @@ entity = {
 entity = {
 	name = "building_naval_base_2"
 	pdxmesh = "building_naval_base_2"
-	scale = 0.8
+	scale = 0.6
 	
 	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
 	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
@@ -154,7 +177,61 @@ entity = {
 entity = {
 	name = "building_naval_base_3"
 	pdxmesh = "building_naval_base_3"
-	scale = 0.8
+	scale = 0.6
+	
+	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
+	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
+	locator = { name = "damage_locator_03"	position = { 1.8 0.4 -2.5 } }
+	
+	default_state = "idle"
+	state = { name = "idle" 
+	}
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_03" particle = "building_damaged_particle" }
+	}
+}
+entity = {
+	name = "building_naval_base_4"
+	pdxmesh = "building_naval_base_4"
+	scale = 0.6
+	
+	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
+	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
+	locator = { name = "damage_locator_03"	position = { 1.8 0.4 -2.5 } }
+	
+	default_state = "idle"
+	state = { name = "idle" 
+	}
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_03" particle = "building_damaged_particle" }
+	}
+}
+entity = {
+	name = "building_naval_base_5"
+	pdxmesh = "building_naval_base_5"
+	scale = 0.6
+	
+	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
+	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
+	locator = { name = "damage_locator_03"	position = { 1.8 0.4 -2.5 } }
+	
+	default_state = "idle"
+	state = { name = "idle" 
+	}
+	state = { name = "damaged" 
+		event = { time = 0.1 node="damage_locator_01" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
+		event = { time = 0.1 node="damage_locator_03" particle = "building_damaged_particle" }
+	}
+}
+entity = {
+	name = "building_naval_base_6"
+	pdxmesh = "building_naval_base_6"
+	scale = 0.6
 	
 	locator = { name = "damage_locator_01"	position = { -0.8 0.4 -3.5 } }
 	locator = { name = "damage_locator_02"	position = { 0.0 0.7 -1.0 } }
@@ -254,7 +331,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.2
+	scale = 0.6
 
 }
 
@@ -269,7 +346,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.2
+	scale = 0.6
 
 }
 entity = {
@@ -283,7 +360,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.2
+	scale = 0.6
 
 }
 
@@ -298,7 +375,7 @@ entity = {
 	}
 	state = { name = "idle" animation = "rest" looping = no next_state = "idle" chance = 1 }
 	
-	scale = 0.4
+	scale = 0.2
 
 }
 
@@ -324,7 +401,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_03" particle = "building_damaged_particle" }
 	}
 
-	scale = 0.2
+	scale = 0.1
 }
 
 entity = {
@@ -336,7 +413,7 @@ entity = {
 		event = { time = 0.9 sound = { soundeffect = axe_hit } }
 	}
 	
-	scale = 0.4
+	scale = 0.2
 
 }
 
@@ -350,7 +427,7 @@ entity = {
 		event = { time = 0 sound = { soundeffect = ranch_ambient } }
 	}
 	
-	scale = 0.4
+	scale = 0.2
 
 }
 
@@ -370,7 +447,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 2.5
+	scale = 1.2
 }
 
 entity = {
@@ -384,7 +461,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.2
+	scale = 0.6
 }
 
 entity = {
@@ -396,7 +473,7 @@ entity = {
 		event = { time = 0.6 node="hot_metal" particle = "smithy_particle"  keep_particle = yes light = "muzzle_flash" sound = { soundeffect = anvil_hit } }
 	}
 	
-	scale = 0.4
+	scale = 0.2
 }
 
 entity = {
@@ -415,7 +492,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 2.5
+	scale = 1.2
 }
 
 entity = {
@@ -429,7 +506,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 0.4
+	scale = 0.2
 }
 
 entity = {
@@ -443,7 +520,7 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 1.2
+	scale = 0.6
 }
 
 entity = {
@@ -462,5 +539,5 @@ entity = {
 		event = { time = 0.1 node="damage_locator_02" particle = "building_damaged_particle" }
 	}
 	
-	scale = 2.5
+	scale = 1.2
 }
