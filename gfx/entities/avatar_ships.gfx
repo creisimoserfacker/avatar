@@ -1,6 +1,87 @@
 objectTypes = {
 
 	####
+	# TRANSPORT SAIL
+	####
+	pdxmesh = {
+		name = "generic_transport_mesh"
+		file = "gfx/models/units/ships/sail_transport.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+		
+	}
+	pdxmesh = {
+		name = "firenation_gfx_transport_mesh"
+		file = "gfx/models/units/ships/sail_transport.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+
+		meshsettings = {
+			texture_diffuse = "sail_transport_fire_diffuse.dds"
+			texture_normal = "sail_transport_normal.dds"
+			texture_specular = "sail_transport_specular.dds"
+		}
+	}
+	pdxmesh = {
+		name = "earthkingdom_gfx_transport_mesh"
+		file = "gfx/models/units/ships/sail_transport.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+
+		meshsettings = {
+			texture_diffuse = "sail_transport_earth_diffuse.dds"
+			texture_normal = "sail_transport_normal.dds"
+			texture_specular = "sail_transport_specular.dds"
+		}
+	}
+
+	####
+	# TRANSPORT SAIL LP
+	####
+	pdxmesh = {
+		name = "generic_transport_LP_mesh"
+		file = "gfx/models/units/ships/sail_transport_LP.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+	}
+	pdxmesh = {
+		name = "firenation_gfx_transport_LP_mesh"
+		file = "gfx/models/units/ships/sail_transport_LP.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+
+		meshsettings = {
+			texture_diffuse = "sail_transport_fire_diffuse.dds"
+			texture_normal = "sail_transport_normal.dds"
+			texture_specular = "sail_transport_specular.dds"
+		}
+	}
+	pdxmesh = {
+		name = "earthkingdom_gfx_transport_LP_mesh"
+		file = "gfx/models/units/ships/sail_transport_LP.mesh"
+		
+		animation = { id = "idle"			type = "sail_transport_idle_animation" }
+		animation = { id = "move"			type = "sail_transport_walk_animation" }
+		animation = { id = "death"			type = "sail_transport_idle_animation" }
+
+		meshsettings = {
+			texture_diffuse = "sail_transport_earth_diffuse.dds"
+			texture_normal = "sail_transport_normal.dds"
+			texture_specular = "sail_transport_specular.dds"
+		}
+	}
+
+	####
 	# GALLEY
 	####
 	pdxmesh = {
@@ -8,11 +89,53 @@ objectTypes = {
 		file = "gfx/models/units/ships/galley.mesh"
 		
 		animation = { id = "idle"			type = "galley_idle_animation" }
+		animation = { id = "move"			type = "galley_walk_animation" }
 		animation = { id = "attack"			type = "galley_attack_animation" }
-		animation = { id = "defend"			type = "galley_walk_animation" }
-		animation = { id = "damaged_attack"	type = "galley_walk_animation" }
-		animation = { id = "damaged_defend"	type = "galley_walk_animation" }
+		animation = { id = "defend"			type = "galley_attack_animation" }
+		animation = { id = "damaged_attack"	type = "galley_attack_animation" }
+		animation = { id = "damaged_defend"	type = "galley_attack_animation" }
 		animation = { id = "death"			type = "galley_walk_animation" }
+		
+	}
+
+	pdxmesh = {
+		name = "firenation_gfx_galley_mesh"
+		file = "gfx/models/units/ships/galley.mesh"
+		
+		animation = { id = "idle"			type = "galley_idle_animation" }
+		animation = { id = "move"			type = "galley_walk_animation" }
+		animation = { id = "attack"			type = "galley_attack_animation" }
+		animation = { id = "defend"			type = "galley_attack_animation" }
+		animation = { id = "damaged_attack"	type = "galley_attack_animation" }
+		animation = { id = "damaged_defend"	type = "galley_attack_animation" }
+		animation = { id = "death"			type = "galley_walk_animation" }
+		
+		meshsettings = {
+			texture_diffuse = "galley_fire_diffuse.dds"
+			texture_normal = "galley_normal.dds"
+			texture_specular = "galley_spec.dds"
+		}
+	}
+
+
+	####
+	# FIRENATION CRUISER
+	####
+	pdxmesh = {
+		name = "firenation_cruiser_mesh"
+		file = "gfx/models/units/ships/firenation_cruiser.mesh"
+		
+		animation = { id = "idle"			type = "firenation_cruiser_idle_animation" }
+		animation = { id = "move"			type = "firenation_cruiser_walk_animation" }
+		animation = { id = "attack"			type = "firenation_cruiser_idle_animation" }
+		animation = { id = "defend"			type = "firenation_cruiser_idle_animation" }
+		animation = { id = "damaged_attack"	type = "firenation_cruiser_idle_animation" }
+		animation = { id = "damaged_defend"	type = "firenation_cruiser_idle_animation" }
+		animation = { id = "death"			type = "firenation_cruiser_walk_animation" }
+
+		meshsettings = {
+			 shader = PdxMeshAdvanced
+		}
 		
 	}
 	

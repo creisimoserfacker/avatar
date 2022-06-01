@@ -368,7 +368,7 @@ NCountry = {
 },
 
 NResistance = {
-	INITIAL_STATE_RESISTANCE = 45.0,						-- initial resistance percentage of a state once it is captured
+	INITIAL_STATE_RESISTANCE = 10.0,						-- initial resistance percentage of a state once it is captured
 	INITIAL_STATE_COMPLIANCE = 0.0,							-- initial compliance percentage of a state once it is captured
 	COMPLIANCE_FACTOR_ON_STATE_CONTROLLER_CHANGE = -0.1,	-- compliance factor that applies when the state controller changes (in between allies, compliance is zeroed if it is taken by original country)
 	RESISTANCE_COOLDOWN_WHEN_DISABLED = -0.25,				-- resistance cooldown when the state is taken back by its original owner (compliance is zeroed in that case)
