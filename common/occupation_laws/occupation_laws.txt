@@ -356,10 +356,15 @@ longterm_occupation = {
 	}
 
 }
-forceful_resettlement = {
+fire_forceful_resettlement = {
+	icon = "GFX_icon:9"
 	tooltip = "forceful_resettlement_desc"
 	icon = 9
 	sound_effect = "Martial_Law_Interface_Secret_Police_Oversight"
+
+	visible = {
+		has_government = imperialism
+	}
 
 	state_modifier = {
 		resistance_target 				= 0.8
@@ -370,6 +375,148 @@ forceful_resettlement = {
 		compliance_growth 				= 0
 		local_factories 				= 0
 		local_resources 				= 0
+		monthly_fire_culture_in_state 	= 1
+	}
+
+	ai_will_do = {
+		base = 5
+
+		modifier = {
+			FROM = {
+				tag = FIR
+			}
+			add = 50
+		}
+		modifier = {
+			FROM = {
+				has_manpower > 10000
+			}
+			add = 100
+		}
+		modifier = {
+			FROM = {
+				garrison_manpower_need < 5000
+			}
+			add = 100
+		}
+		
+	}
+
+}
+earth_forceful_resettlement = {
+	icon = "GFX_icon:9"
+	tooltip = "forceful_resettlement_desc"
+	icon = 9
+	sound_effect = "Martial_Law_Interface_Secret_Police_Oversight"
+
+	visible = {
+		has_government = monarchism
+	}
+
+	state_modifier = {
+		resistance_target 				= 0.8
+		resistance_growth 				= 1
+		required_garrison_factor 		= 1.5
+		resistance_damage_to_garrison 	= 0.5
+		compliance_gain 				= 0.16
+		compliance_growth 				= 0
+		local_factories 				= 0
+		local_resources 				= 0
+		monthly_earth_culture_in_state 	= 1
+	}
+
+	ai_will_do = {
+		base = 5
+
+		modifier = {
+			FROM = {
+				tag = FIR
+			}
+			add = 50
+		}
+		modifier = {
+			FROM = {
+				has_manpower > 10000
+			}
+			add = 100
+		}
+		modifier = {
+			FROM = {
+				garrison_manpower_need < 5000
+			}
+			add = 100
+		}
+		
+	}
+
+}
+water_forceful_resettlement = {
+	icon = "GFX_icon:9"
+	tooltip = "forceful_resettlement_desc"
+	icon = 9
+	sound_effect = "Martial_Law_Interface_Secret_Police_Oversight"
+
+	visible = {
+		has_government = tribalism
+	}
+
+	state_modifier = {
+		resistance_target 				= 0.8
+		resistance_growth 				= 1
+		required_garrison_factor 		= 1.5
+		resistance_damage_to_garrison 	= 0.5
+		compliance_gain 				= 0.16
+		compliance_growth 				= 0
+		local_factories 				= 0
+		local_resources 				= 0
+		monthly_water_culture_in_state 	= 1
+	}
+
+	ai_will_do = {
+		base = 5
+
+		modifier = {
+			FROM = {
+				tag = FIR
+			}
+			add = 50
+		}
+		modifier = {
+			FROM = {
+				has_manpower > 10000
+			}
+			add = 100
+		}
+		modifier = {
+			FROM = {
+				garrison_manpower_need < 5000
+			}
+			add = 100
+		}
+		
+	}
+
+}
+pluralist_forceful_resettlement = {
+	icon = "GFX_icon:9"
+	tooltip = "forceful_resettlement_desc"
+	icon = 9
+	sound_effect = "Martial_Law_Interface_Secret_Police_Oversight"
+
+	visible = {
+		has_government = democratica
+	}
+
+	state_modifier = {
+		resistance_target 				= 0.8
+		resistance_growth 				= 1
+		required_garrison_factor 		= 1.5
+		resistance_damage_to_garrison 	= 0.5
+		compliance_gain 				= 0.16
+		compliance_growth 				= 0
+		local_factories 				= 0
+		local_resources 				= 0
+		monthly_pluralist_culture_in_state 	= 1
 	}
 
 	ai_will_do = {

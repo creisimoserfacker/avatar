@@ -728,6 +728,25 @@ characters={
 			available = {
 				
 			}
+			on_add = {
+				PREV = {
+					set_country_flag = GFX_idea_fir_minister_of_culture_1
+				}
+				THIS = {
+					set_character_flag = selected_cultural
+				}
+			}
+			on_remove = {
+				PREV = {
+					clr_country_flag = GFX_idea_fir_minister_of_culture_1
+					every_character = {
+						clr_character_flag = selected_cultural
+					}
+					every_controlled_state = {
+						set_variable = { state_ministers = 0 }
+					}
+				}
+			}
 			modifier = {
 				political_power_cost = 0.1
 			}

@@ -1,6 +1,123 @@
 
 scripted_map_modes = {
 
+	state_culture_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.01 }
+				set_temp_variable = { blue = 0.01 }
+				set_temp_variable = { green = 0.01 }
+				set_temp_variable = { alpha = 0.9 }
+
+				FROM = {
+					add_to_temp_variable = { red = fire_pop }
+					add_to_temp_variable = { blue = water_pop }
+					add_to_temp_variable = { green = earth_pop }
+
+					set_temp_variable = { half_earth = earth_pop }
+					divide_temp_variable = { half_earth = 2 }
+					subtract_from_temp_variable = { red = half_earth }
+					subtract_from_temp_variable = { blue = half_earth }
+
+					set_temp_variable = { half_fire = fire_pop }
+					divide_temp_variable = { half_fire = 2 }
+					subtract_from_temp_variable = { blue = half_fire }
+					subtract_from_temp_variable = { green = half_fire }
+
+					set_temp_variable = { half_water = water_pop }
+					divide_temp_variable = { half_water = 2 }
+					subtract_from_temp_variable = { red = half_water }
+					subtract_from_temp_variable = { green = half_water }
+
+					set_temp_variable = { air_pop_double = air_pop }
+					multiply_temp_variable = { air_pop_double = 3 }
+
+					add_to_temp_variable = { red = air_pop_double }
+					add_to_temp_variable = { blue = air_pop_double }
+					add_to_temp_variable = { green = air_pop_double }
+
+					subtract_from_temp_variable = { red = nonbender_pop }
+					subtract_from_temp_variable = { blue = nonbender_pop }
+					subtract_from_temp_variable = { green = nonbender_pop }
+
+					divide_temp_variable = { red = 110 }
+					divide_temp_variable = { blue = 110 }
+					divide_temp_variable = { green = 110 }
+
+					#add_to_temp_array = { fire_color = 158 }
+					#add_to_temp_array = { fire_color = 0 }
+					#add_to_temp_array = { fire_color = 0 }
+#
+					#add_to_temp_array = { earth_color = 0 }
+					#add_to_temp_array = { earth_color = 119 }
+					#add_to_temp_array = { earth_color = 0 }
+#
+					#add_to_temp_array = { water_color = 20 }
+					#add_to_temp_array = { water_color = 80 }
+					#add_to_temp_array = { water_color = 180 }
+#
+					#add_to_temp_array = { air_color = 255 }
+					#add_to_temp_array = { air_color = 255 }
+					#add_to_temp_array = { air_color = 255 }
+#
+					#add_to_temp_array = { nonbender_color = 50 }
+					#add_to_temp_array = { nonbender_color = 50 }
+					#add_to_temp_array = { nonbender_color = 50 }
+#
+					#divide_temp_variable = { fire_color^0 = fire_pop }
+					#divide_temp_variable = { earth_color^1 = earth_pop }
+					#divide_temp_variable = { water_color^0 = water_pop }
+					#divide_temp_variable = { water_color^1 = water_pop }
+					#divide_temp_variable = { water_color^2 = water_pop }
+					#divide_temp_variable = { air_color^0 = air_pop }
+					#divide_temp_variable = { air_color^1 = air_pop }
+					#divide_temp_variable = { air_color^2 = air_pop }
+					#divide_temp_variable = { nonbender_color^0 = nonbender_pop }
+					#divide_temp_variable = { nonbender_color^1 = nonbender_pop }
+					#divide_temp_variable = { nonbender_color^2 = nonbender_pop }
+#
+					#
+					#add_to_temp_variable = { red = fire_color^0 }
+					#add_to_temp_variable = { blue = fire_color^1 }
+					#add_to_temp_variable = { green = fire_color^2 }
+					#add_to_temp_variable = { red = earth_color^0 }
+					#add_to_temp_variable = { blue = earth_color^1 }
+					#add_to_temp_variable = { green = earth_color^2 }
+					#add_to_temp_variable = { red = water_color^0 }
+					#add_to_temp_variable = { blue = water_color^1 }
+					#add_to_temp_variable = { green = water_color^2 }
+					#add_to_temp_variable = { red = air_color^0 }
+					#add_to_temp_variable = { blue = air_color^1 }
+					#add_to_temp_variable = { green = air_color^2 }
+					#add_to_temp_variable = { red = nonbender_color^0 }
+					#add_to_temp_variable = { blue = nonbender_color^1 }
+					#add_to_temp_variable = { green = nonbender_color^2 }
+#
+					#divide_temp_variable = { red = 400 }
+					#divide_temp_variable = { blue = 400 }
+					#divide_temp_variable = { green = 400 }
+				}
+				
+				#set_temp_variable = { thickness = 10.0 }
+				
+				#set_temp_variable = { highlighted = 1.0 }
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = country
+		near_text = state
+		update_daily = yes
+	}
+
 	flora_map_mode = {
 		top = {
 			type = state

@@ -1,0 +1,234 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+			every_country = {
+				culture_setup_calculation = yes
+
+				country_event = {
+					id = culture.1
+				}
+			}
+
+			if = {
+				limit = {
+					has_start_date < 3830.1.1
+				}
+				230 = {
+					set_variable = { fire_pop = 43.50 }
+					set_variable = { earth_pop = 45.04 }
+					set_variable = { water_pop = 2.26 }
+					set_variable = { air_pop = 1.13 }
+					set_variable = { nonbender_pop = 8.07 }
+				}
+				280 = {
+					set_variable = { fire_pop = 43.50 }
+					set_variable = { earth_pop = 45.04 }
+					set_variable = { water_pop = 2.26 }
+					set_variable = { air_pop = 1.13 }
+					set_variable = { nonbender_pop = 8.07 }
+				}
+			}
+
+			every_country = {
+				culture_pie_chart_recalc = yes
+			}
+
+		}
+	}
+
+	on_annex = {
+	    effect = {
+	    	
+	    }
+	}
+
+	on_daily = {
+		effect = {
+
+		}
+	}
+
+	on_monthly = {
+		effect = {
+
+
+			#### actual effects
+			culture_value_recalc = yes
+			culture_pie_chart_recalc = yes
+
+
+
+
+			every_controlled_state = {
+				if = {
+					limit = {
+						AND = {
+							check_variable = { fire_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = imperialism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = firenation_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = firenation_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { fire_pop < 10 }
+							has_dynamic_modifier = { modifier = firenation_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = firenation_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { earth_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = monarchism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = earthkingdom_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = earthkingdom_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { earth_pop < 10 }
+							has_dynamic_modifier = { modifier = earthkingdom_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = earthkingdom_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { water_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = tribalism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = watertribe_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = watertribe_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { water_pop < 10 }
+							has_dynamic_modifier = { modifier = watertribe_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = watertribe_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { air_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = pacifism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = airnomad_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = airnomad_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { air_pop < 10 }
+							has_dynamic_modifier = { modifier = airnomad_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = airnomad_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { nonbender_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = democratica
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = pluralist_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = pluralist_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { nonbender_pop < 10 }
+							has_dynamic_modifier = { modifier = pluralist_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = pluralist_settlers }
+				}
+			}
+
+
+
+			##### fire forced resettlement
+
+			every_controlled_state = {
+				### month 2
+				if = {
+					limit = {
+						occupation_law = fire_forceful_resettlement
+						check_variable = { forceful_resettlement_activated < 1 }
+					}
+					set_variable = { forceful_resettlement_activated = 1 }
+				}
+				### activation month
+				if = {
+					limit = {
+						occupation_law = fire_forceful_resettlement
+						check_variable = { forceful_resettlement_activated = 1 }
+					}
+					set_variable = { forceful_resettlement_activated = 2 }
+					add_to_variable = { fire_pop_growth = 1 }
+					culture_growth_calculation = yes
+				}
+				### removing
+				if = {
+					limit = {
+						check_variable = { forceful_resettlement_activated > 0 }
+						NOT = { occupation_law = fire_forceful_resettlement }
+					}
+					clear_variable = forceful_resettlement_activated
+					subtract_from_variable = { fire_pop_growth = 1 }
+				}
+			}
+
+
+
+			### expected growth
+			culture_growth_calculation = yes
+
+
+		}
+	}
+
+}
