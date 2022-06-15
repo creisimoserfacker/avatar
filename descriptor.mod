@@ -43,5 +43,5 @@ tags={
 }
 picture="thumbnail.jpg"
 supported_version="1.11.*"
-path="P:/Dokumente/Paradox Interactive/Hearts of Iron IV/mod/avatar"
+path="mod/avatar-Develop"
 remote_file_id="1508151299"
