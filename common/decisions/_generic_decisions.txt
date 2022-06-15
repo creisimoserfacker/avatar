@@ -1798,7 +1798,11 @@ generic_research_slot_category = {
 			AND = {
 				num_of_civilian_factories > 25
 				#num_of_available_civilian_factories > 10
-				has_idea = average_education
+				OR = {
+					has_idea = mandatory_education
+					has_idea = elite_education
+					has_idea = indoctrination
+				}
 				OR = {
 					has_tech = progressive_education_1
 					has_tech = conservative_education_1
@@ -1840,7 +1844,10 @@ generic_research_slot_category = {
 			AND = {
 				num_of_civilian_factories > 50
 				#num_of_available_civilian_factories > 20
-				has_idea = mandatory_education
+				OR = {
+					has_idea = elite_education
+					has_idea = indoctrination
+				}
 				OR = {
 					has_tech = progressive_education_2
 					has_tech = conservative_education_2
