@@ -59,7 +59,7 @@ on_actions = {
 
 
 
-
+			### add settlers
 			every_controlled_state = {
 				if = {
 					limit = {
@@ -85,6 +85,124 @@ on_actions = {
 						}
 					}
 					remove_dynamic_modifier = { modifier = firenation_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { earth_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = monarchism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = earthkingdom_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = earthkingdom_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { earth_pop < 10 }
+							has_dynamic_modifier = { modifier = earthkingdom_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = earthkingdom_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { water_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = tribalism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = watertribe_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = watertribe_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { water_pop < 10 }
+							has_dynamic_modifier = { modifier = watertribe_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = watertribe_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { air_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = pacifism
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = airnomad_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = airnomad_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { air_pop < 10 }
+							has_dynamic_modifier = { modifier = airnomad_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = airnomad_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { nonbender_pop > 50 }
+							THIS.CONTROLLER = {
+								NOT = {
+									has_government = democratica
+								}
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = pluralist_settlers }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = pluralist_settlers }
+				}
+				if = {
+					limit = {
+						AND = {
+							check_variable = { nonbender_pop < 10 }
+							has_dynamic_modifier = { modifier = pluralist_settlers }
+						}
+					}
+					remove_dynamic_modifier = { modifier = pluralist_settlers }
+				}
+			}
+
+			### add occupation culture buff
+			every_controlled_state = {
+				if = {
+					limit = {
+						AND = {
+							check_variable = { fire_pop > 50 }
+							THIS.CONTROLLER = {
+								has_government = imperialism
+							}
+							NOT = {
+								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
+							}
+						}
+					}
+					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
 				}
 				if = {
 					limit = {
