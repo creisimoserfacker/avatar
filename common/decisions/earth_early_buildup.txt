@@ -425,7 +425,7 @@ earth_economic_buildup_category = {
 
 		icon = pillar
 
-        cost = 200
+        cost = 100
 		days_remove = 200
 		days_re_enable = 300
 		
@@ -461,7 +461,7 @@ earth_economic_buildup_category = {
 
 		icon = inflation
 
-        cost = 500
+        cost = 300
 		days_remove = 400
 		days_re_enable = 100
 
@@ -490,9 +490,14 @@ earth_economic_buildup_category = {
 		}
 		remove_effect = {
 			clr_country_flag = economic_investments
-			add_timed_idea = {
-			    idea = depression
-			    days = 180
+			random_list = {
+				50 = {	
+					add_timed_idea = {
+					idea = depression
+					days = 180
+					}
+				}
+				50 = { }
 			}
 			add_to_variable = { state_stealing = -0.1 }
 		}
@@ -705,7 +710,7 @@ earth_military_buildup_category = {
 		icon = hunt_bandits
 
         cost = 100
-		days_remove = 150
+		days_remove = 70
 		days_re_enable = 200
 
         available = {

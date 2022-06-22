@@ -368,7 +368,7 @@ NCountry = {
 },
 
 NResistance = {
-	INITIAL_STATE_RESISTANCE = 10.0,						-- initial resistance percentage of a state once it is captured
+	INITIAL_STATE_RESISTANCE = 25.0,						-- initial resistance percentage of a state once it is captured
 	INITIAL_STATE_COMPLIANCE = 0.0,							-- initial compliance percentage of a state once it is captured
 	COMPLIANCE_FACTOR_ON_STATE_CONTROLLER_CHANGE = -0.1,	-- compliance factor that applies when the state controller changes (in between allies, compliance is zeroed if it is taken by original country)
 	RESISTANCE_COOLDOWN_WHEN_DISABLED = -0.25,				-- resistance cooldown when the state is taken back by its original owner (compliance is zeroed in that case)
@@ -1305,7 +1305,7 @@ NNavy = {
 	SHORE_BOMBARDMENT_CAP = 0.25,
 	ANTI_AIR_TARGETING = 0.9,                                       -- how good ships are at hitting aircraft
 	MIN_TRACTED_ASSIST_DAMAGE_RATIO = 0.05,							-- How much damage counts as assist damage
-	SUPPLY_NEED_FACTOR = 4,										    -- multiplies supply usage
+	SUPPLY_NEED_FACTOR = 1,										    -- multiplies supply usage
 	ENEMY_AIR_SUPERIORITY_IMPACT = -1,           					-- effect on ship efficiency due to enemy air superiorty
 	DECRYPTION_SPOTTING_BONUS = 0.2,
 	DISBAND_MANPOWER_LOSS = 0.0,

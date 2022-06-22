@@ -63,7 +63,7 @@ tactic_counterattack = { # counters basic attack, assault
 		factor = 4
 		modifier = {
 			add = 4
-			has_trait = unyielding_defender
+			has_trait = defensive_strategist
 		}
 	}
 	picture = counterattack
@@ -263,7 +263,7 @@ tactic_square_formation = {
 	base =  { factor = 4 }
 	picture = squareformation
 	
-	countered_by = tactic_siege_bombardment
+	countered_by = tactic_volley_fire
 	
 	combat_width = -0.25
 	defender = 0.25
@@ -551,6 +551,7 @@ tactic_force_concentration = {
 	base = { factor = 4 }
 	picture = forceconcentration
 
+	defender = 0.10
 	combat_width = 0.30
 }
 
@@ -589,6 +590,8 @@ tactic_approach_battle = {
 	
 	countered_by = tactic_evade_battle
 
+	attacker = -0.10
+	defender = -0.10
 	attacker_movement_speed = 0.5
 	combat_width = 0.1
 
