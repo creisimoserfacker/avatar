@@ -1214,7 +1214,13 @@ EAR_firenation_hostility_category = {
 		remove_effect = {
 			every_country = {
 				limit = {
-					is_in_faction_with = EAR
+					#is_in_faction_with = EAR
+					THIS = {
+						is_in_array = {
+							array = global.earth_kingdom
+							value = PREV
+						}
+					}
 					is_puppet = yes
 					is_puppet_of = EAR
 					NOT = {
@@ -1225,7 +1231,13 @@ EAR_firenation_hostility_category = {
 			}
 			every_country = {
 				limit = {
-					is_in_faction_with = EAR
+					#is_in_faction_with = EAR
+					THIS = {
+						is_in_array = {
+							array = global.earth_kingdom
+							value = PREV
+						}
+					}
 					OR = {
 						is_puppet = no
 						AND = {

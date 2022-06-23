@@ -1,0 +1,79 @@
+save_ideology = {
+	ROOT = {
+		set_variable = {
+			nonbending_popularity_save = party_popularity_100@democratica
+		}
+		set_variable = {
+			air_popularity_save = party_popularity_100@pacifism
+		}
+		set_variable = {
+			earth_popularity_save = party_popularity_100@monarchism
+		}
+		set_variable = {
+			fire_popularity_save = party_popularity_100@imperialism
+		}
+		set_variable = {
+			water_popularity_save = party_popularity_100@tribalism
+		}
+
+		if = {
+			limit = { has_government = democratica }
+			set_country_flag = { flag = was_democratica value = 1 days = 1 }
+		}
+		if = {
+			limit = { has_government = pacifism }
+			set_country_flag = { flag = was_pacifism value = 1 days = 1 }
+		}
+		if = {
+			limit = { has_government = monarchism }
+			set_country_flag = { flag = was_monarchism value = 1 days = 1 }
+		}
+		if = {
+			limit = { has_government = imperialism }
+			set_country_flag = { flag = was_imperialism value = 1 days = 1 }
+		}
+		if = {
+			limit = { has_government = tribalism }
+			set_country_flag = { flag = was_tribalism value = 1 days = 1 }
+		}
+	}
+}
+
+
+apply_ideology = {
+	ROOT = {
+		set_popularities = {
+			democratica = nonbending_popularity_save
+			pacifism = air_popularity_save
+			monarchism = earth_popularity_save
+			imperialism = fire_popularity_save
+			tribalism = water_popularity_save
+		}
+		if = {
+			limit = { has_country_flag = was_democratica }
+			set_politics = { ruling_party = democratica }
+		}
+		if = {
+			limit = { has_country_flag = was_pacifism }
+			set_politics = { ruling_party = pacifism }
+		}
+		if = {
+			limit = { has_country_flag = was_monarchism }
+			set_politics = { ruling_party = monarchism }
+		}
+		if = {
+			limit = { has_country_flag = was_imperialism }
+			set_politics = { ruling_party = imperialism }
+		}
+		if = {
+			limit = { has_country_flag = was_tribalism }
+			set_politics = { ruling_party = tribalism }
+		}
+	
+		clear_variable = nonbending_popularity_save
+		clear_variable = air_popularity_save
+		clear_variable = earth_popularity_save
+		clear_variable = fire_popularity_save
+		clear_variable = water_popularity_save
+	}
+}

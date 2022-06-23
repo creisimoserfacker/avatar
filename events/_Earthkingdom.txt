@@ -87,6 +87,12 @@ country_event = {
 
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			save_ideology = yes
+		}
+	}
+
 	option = { #vassal
 		name = ear_treaty.2.a
 		ai_chance = { 
@@ -126,6 +132,9 @@ country_event = {
 				puppet = ROOT
 			}
 		}
+		hidden_effect = {
+			apply_ideology = yes
+		}
 
 		add_political_power = 100
 		add_stability = 0.1
@@ -147,23 +156,6 @@ country_event = {
 				}
 			}
 		}
-		ROOT = {
-			set_temp_variable = {
-				nonbending@ROOT = party_popularity@democratica
-			}
-			set_temp_variable = {
-				air@ROOT = party_popularity@pacifism
-			}
-			set_temp_variable = {
-				earth@ROOT = party_popularity@monarchism
-			}
-			set_temp_variable = {
-				fire@ROOT = party_popularity@imperialism
-			}
-			set_temp_variable = {
-				water@ROOT = party_popularity@tribalism
-			}
-		}
 		EAR = {
 			if = {
 				limit = {
@@ -178,23 +170,8 @@ country_event = {
 				puppet = ROOT
 			}
 		}
-		ROOT = {
-			if = {
-				limit = {
-					original_tag = SWA
-				}
-				set_politics = {
-					ruling_party = tribalism
-					elections_allowed = no
-				}
-			}
-			set_popularities = {
-				democratica = nonbending@ROOT
-				pacifism = air@ROOT
-				monarchism = earth@ROOT
-				imperialism = fire@ROOT
-				tribalism = water@ROOT
-			}
+		hidden_effect = {
+			apply_ideology = yes
 		}
 		add_political_power = -100
 		add_stability = 0.05
@@ -247,6 +224,9 @@ country_event = {
 				puppet = ROOT
 			}
 		}
+		hidden_effect = {
+			apply_ideology = yes
+		}
 
 		add_political_power = 200
 		add_stability = 0.1
@@ -278,6 +258,9 @@ country_event = {
 			else = {
 				puppet = ROOT
 			}
+		}
+		hidden_effect = {
+			apply_ideology = yes
 		}
 
 		add_political_power = 100
