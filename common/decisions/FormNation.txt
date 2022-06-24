@@ -1,0 +1,272 @@
+formable_nations_mod_category = {
+	formable_nations_SEK = {
+	
+		ai_will_do = {
+			factor = 1
+		}
+		
+		cost = 0  days_re_enable = 0
+		
+		visible = {
+			NOT = { any_country = { has_cosmetic_tag = FORM_SEK } } 
+			OR = {
+				original_tag = NAN
+				original_tag = GAR
+				original_tag = GAO
+				original_tag = YII
+				original_tag = ZIN
+				original_tag = ZAO
+				original_tag = CHN
+			}
+		}
+		available = {
+				AND = {
+					is_subject = no 
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_NAN_tt
+							372 = { is_controlled_by = ROOT }
+							354 = { is_controlled_by = ROOT }
+							343 = { is_controlled_by = ROOT }
+							423 = { is_controlled_by = ROOT }
+							359 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_GAR_tt
+							385 = { is_controlled_by = ROOT }
+							182 = { is_controlled_by = ROOT }
+							342 = { is_controlled_by = ROOT }
+							420 = { is_controlled_by = ROOT }
+							344 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_GAO_tt
+							218 = { is_controlled_by = ROOT }
+							29 = { is_controlled_by = ROOT }
+							328 = { is_controlled_by = ROOT }
+							439 = { is_controlled_by = ROOT }
+							97 = { is_controlled_by = ROOT }
+							440 = { is_controlled_by = ROOT }
+							313 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_ZIN_tt
+							183 = { is_controlled_by = ROOT }
+							317 = { is_controlled_by = ROOT }
+							66 = { is_controlled_by = ROOT }
+							157 = { is_controlled_by = ROOT }
+							77 = { is_controlled_by = ROOT }
+							180 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_YII_tt
+							434 = { is_controlled_by = ROOT }
+							353 = { is_controlled_by = ROOT }
+							349 = { is_controlled_by = ROOT }
+							33 = { is_controlled_by = ROOT }
+							32 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_ZAO_tt
+							324 = { is_controlled_by = ROOT }
+							25 = { is_controlled_by = ROOT }
+							19 = { is_controlled_by = ROOT }
+							237 = { is_controlled_by = ROOT }
+							210 = { is_controlled_by = ROOT }
+					}
+					custom_trigger_tooltip = {
+						tooltip = formable_nations_CHN_tt
+							426 = { is_controlled_by = ROOT }
+							325 = { is_controlled_by = ROOT }
+							346 = { is_controlled_by = ROOT }
+							170 = { is_controlled_by = ROOT }
+							392 = { is_controlled_by = ROOT }
+					}
+				}
+		}
+		icon = formable_nations_grossdeutschland
+		complete_effect = {
+			set_cosmetic_tag = FORM_SEK
+			add_stability = 0.2
+			custom_effect_tooltip = compliance_tt
+			hidden_effect = {
+				372 = { add_compliance = 50 }
+				343 = { add_compliance = 50 }
+				354 = { add_compliance = 50 }
+				423 = { add_compliance = 50 }
+				359 = { add_compliance = 50 }
+				
+				385 = { add_compliance = 50 }
+				182 = { add_compliance = 50 }
+				342 = { add_compliance = 50 }
+				420 = { add_compliance = 50 }
+				344 = { add_compliance = 50 }
+				
+				324 = { add_compliance = 50 }
+				25 = { add_compliance = 50 }
+				19 = { add_compliance = 50 }
+				237 = { add_compliance = 50 }
+				210 = { add_compliance = 50 }
+				
+				434 = { add_compliance = 50 }
+				353 = { add_compliance = 50 }
+				349 = { add_compliance = 50 }
+				33 = { add_compliance = 50 }
+				32 = { add_compliance = 50 }		
+				
+				183 = { add_compliance = 50 }
+				317 = { add_compliance = 50 }
+				66 = { add_compliance = 50 }
+				157 = { add_compliance = 50 }
+				77 = { add_compliance = 50 }
+				180 = { add_compliance = 50 }
+							
+				218 = { add_compliance = 50 }
+				29 = { add_compliance = 50 }
+				328 = { add_compliance = 50 }
+				439 = { add_compliance = 50 }
+				97 = { add_compliance = 50 }
+				440 = { add_compliance = 50 }
+				313 = { add_compliance = 50 }
+				
+				426 = { add_compliance = 50 }
+				325 = { add_compliance = 50 }
+				346 = { add_compliance = 50 }
+				170 = { add_compliance = 50 }
+				392 = { add_compliance = 50 }
+			}
+		}
+	}
+	Formable_nations_SEK_KYOSHI = {
+		
+		ai_will_do = {
+		factor = 1
+		}
+			
+		cost = 0  days_re_enable = 0
+			
+		visible = {
+			NOT = {has_country_flag = Kyoshi}
+			OR = {
+				has_cosmetic_tag = FORM_SEK
+				AND = {
+					347 = { is_controlled_by = ROOT }
+					105 = { is_controlled_by = ROOT }
+				}
+			}
+			OR = {
+				original_tag = NAN
+				original_tag = GAR
+				original_tag = GAO
+				original_tag = YII
+				original_tag = ZIN
+				original_tag = ZAO
+				original_tag = CHN
+			}
+		}
+			
+		available = {
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = formable_nations_KYI_tt
+						347 = { is_controlled_by = ROOT }
+						105 = { is_controlled_by = ROOT }
+				}
+			}
+		}
+			
+		complete_effect = {
+			custom_effect_tooltip = compliance_tt
+			hidden_effect = {
+			347 = { add_compliance = 50 }
+			105 = { add_compliance = 50 }
+			set_country_flag = kyoshi
+			}
+		}
+		
+		
+		
+	}
+	Formable_nations_SEK_SHIMSON = {
+		
+		ai_will_do = {
+		factor = 1
+		}
+			
+		cost = 0  days_re_enable = 0
+			
+		visible = {
+			NOT = {has_country_flag = shimsom}
+			OR = {
+				has_cosmetic_tag = FORM_SEK
+				AND = {
+					251 = { is_controlled_by = ROOT }
+					282 = { is_controlled_by = ROOT }
+					295 = { is_controlled_by = ROOT }
+					192 = { is_controlled_by = ROOT }
+					122 = { is_controlled_by = ROOT }
+					163 = { is_controlled_by = ROOT }
+					121 = { is_controlled_by = ROOT }
+					194 = { is_controlled_by = ROOT }
+					305 = { is_controlled_by = ROOT }
+					345 = { is_controlled_by = ROOT }
+					383 = { is_controlled_by = ROOT }
+					432 = { is_controlled_by = ROOT }
+					419 = { is_controlled_by = ROOT }
+				}
+			}
+			OR = {
+				original_tag = NAN
+				original_tag = GAR
+				original_tag = GAO
+				original_tag = YII
+				original_tag = ZIN
+				original_tag = ZAO
+				original_tag = CHN
+			}
+		}
+			
+		available = {
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = formable_nations_ISL_tt
+						251 = { is_controlled_by = ROOT }
+						282 = { is_controlled_by = ROOT }
+						295 = { is_controlled_by = ROOT }
+						192 = { is_controlled_by = ROOT }
+						122 = { is_controlled_by = ROOT }
+						163 = { is_controlled_by = ROOT }
+						121 = { is_controlled_by = ROOT }
+						194 = { is_controlled_by = ROOT }
+						305 = { is_controlled_by = ROOT }
+						345 = { is_controlled_by = ROOT }
+						383 = { is_controlled_by = ROOT }
+						432 = { is_controlled_by = ROOT }
+						419 = { is_controlled_by = ROOT }
+				}
+			}
+		}
+			
+		complete_effect = {
+			custom_effect_tooltip = compliance_tt
+			hidden_effect = {
+						251 = { add_compliance = 50 }
+						282 = { add_compliance = 50 }
+						295 = { add_compliance = 50 }
+						192 = { add_compliance = 50 }
+						122 = { add_compliance = 50 }
+						163 = { add_compliance = 50 }
+						121 = { add_compliance = 50 }
+						194 = { add_compliance = 50 } 
+						305 = { add_compliance = 50 }
+						345 = { add_compliance = 50 }
+						383 = { add_compliance = 50 }
+						432 = { add_compliance = 50 }
+						419 = { add_compliance = 50 }
+						set_country_flag = shimsom
+			}
+		}
+		
+		
+		
+	}
+}
