@@ -136,6 +136,28 @@ on_actions = {
 
 			}
 
+			if = {
+				limit = {
+					has_country_flag = water_nation
+				}
+				
+				### barbarians
+
+				random_list = {
+					20 = { }
+					80 = {
+						random_state = {
+							limit = {
+								THIS.OWNER =  { has_country_flag = water_nation }
+							}
+							set_state_flag = barbarians
+							add_dynamic_modifier = { modifier = barbarians	}
+							THIS.OWNER = { country_event = barbarians.1 }
+						}
+					}
+				}
+			}
+
 			#### water full moon
 
 			if = {

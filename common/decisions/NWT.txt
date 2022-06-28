@@ -1160,5 +1160,42 @@ NWT_isolation_policies = {
 		}
 
 	}
+	
+	NWT_hunt_barbarians = {
+		icon = water_anti_riot
+		available = {
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = barbarians }
+			}
+
+			has_equipment = { spear_equipment > 499 }
+			has_equipment = { heavy_armor_equipment > 199 }
+		}
+		visible = {
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = barbarians}
+			}
+		}
+		#highlight_states = {
+		#	has_dynamic_modifier = { modifier = barbarians }
+		#}
+
+		days_remove = 30
+
+		custom_cost_trigger = {
+			has_equipment = { spear_equipment > 499 }
+			has_equipment = { heavy_armor_equipment > 199 }
+		}
+		custom_cost_text = spearmen_200
+		
+		remove_effect = {
+			random_owned_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = barbarians }
+				}
+				remove_dynamic_modifier = { modifier = barbarians }
+			}
+		}
+	}
 
 }
