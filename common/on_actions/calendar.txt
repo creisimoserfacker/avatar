@@ -138,7 +138,10 @@ on_actions = {
 
 			if = {
 				limit = {
-					has_country_flag = water_nation
+					OR = {
+						tag = NWT
+						tag = SWT
+					}
 				}
 				
 				### barbarians
@@ -146,11 +149,17 @@ on_actions = {
 				random_list = {
 					20 = { }
 					80 = {
-						random_state = {
+						random_owned_state = {
 							limit = {
-								THIS.OWNER =  { has_country_flag = water_nation }
+								THIS.OWNER =  {
+									OR = {
+										tag = NWT
+										tag = SWT
+									}
+								}
 							}
 							set_state_flag = barbarians
+							set_state_flag = show_barbarian_territories
 							add_dynamic_modifier = { modifier = barbarians	}
 							THIS.OWNER = { country_event = barbarians.1 }
 						}
