@@ -766,40 +766,38 @@ NWT_tribe_union = {
 	
 	
 	
-		NWT_hunt_barbarians = {
-			icon = watertribe_barbarians
-			visible = {
-				any_owned_state = {
-					has_dynamic_modifier = { modifier = barbarians}
-				}
-			}
-			available = {
-				any_owned_state = {
-					has_dynamic_modifier = { modifier = barbarians }
-				}
-
-				has_equipment = { spear_equipment > 199 }
-				has_equipment = { heavy_armor_equipment > 199 }
-			}
-
-			days_remove = 30
-
-			custom_cost_trigger = {
-				has_equipment = { spear_equipment > 199 }
-				has_equipment = { heavy_armor_equipment > 199 }
-			}
-			custom_cost_text = spearmen_200
-		
-			remove_effect = {
-				random_owned_state = {
-					limit = {
-						has_dynamic_modifier = { modifier = barbarians }
-					}
-					remove_dynamic_modifier = { modifier = barbarians }
-				}
+	NWT_hunt_barbarians = {
+		icon = watertribe_barbarians_icon
+		visible = {
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = watertribe_barbarians}
 			}
 		}
+		available = {
+			any_owned_state = {
+				has_dynamic_modifier = { modifier = watertribe_barbarians }
+			}
 
+			has_equipment = { spear_equipment > 199 }
+			has_equipment = { heavy_armor_equipment > 199 }
+		}
+
+		days_remove = 30
+
+		custom_cost_trigger = {
+			has_equipment = { spear_equipment > 199 }
+			has_equipment = { heavy_armor_equipment > 199 }
+		}
+		custom_cost_text = spearmen_200
+		
+		remove_effect = {
+			random_owned_state = {
+				limit = {
+					has_dynamic_modifier = { modifier = watertribe_barbarians }
+				}
+				remove_dynamic_modifier = { modifier = watertribe_barbarians }
+			}
+		}
 	}
 }
 

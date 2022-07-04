@@ -1,7 +1,7 @@
 
 add_namespace = calendar
 add_namespace = nature
-add_namespace = barbarians
+add_namespace = watertribe_barbarians
 
 news_event = {
 	id = calendar.1
@@ -90,9 +90,9 @@ country_event = {
 }
 
 	country_event = {
-	id = barbarians.1
-	title = barbarians.1.t
-	desc = barbarians.1.d
+	id = watertribe_barbarians.1
+	title = watertribe_barbarians.1.t
+	desc = watertribe_barbarians.1.d
 	picture = GFX_report_event_water_birth
 
 	is_triggered_only = yes
@@ -102,15 +102,16 @@ country_event = {
 	}
 
 	option = {
-		name = barbarians.1.a
+		name = watertribe_barbarians.1.a
 		every_state = {
 			limit = {
-				has_state_flag = barbarians
+				has_state_flag = watertribe_barbarians_flag
 			}
 			damage_building = {
 				type = infrastructure
 				damage = 1
 			}
+			clr_state_flag = watertribe_barbarians_flag
 		}
 	}
 }

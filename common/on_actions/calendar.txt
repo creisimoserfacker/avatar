@@ -87,6 +87,29 @@ on_actions = {
 					has_country_flag = calculator
 				}
 
+				random_list = {
+					20 = { }
+					80 = {
+						random_state = {
+							limit = {
+								THIS.OWNER =  {
+									OR = {
+										tag = NWT
+										tag = SWT
+									}
+								}
+								NOT = { 
+								has_state_flag = watertribe_barbarians_flag
+								has_dynamic_modifier = watertribe_barbarians
+								}
+							}
+							set_state_flag = watertribe_barbarians_flag
+							set_state_flag = show_barbarian_territories
+							add_dynamic_modifier = { modifier = watertribe_barbarians	}
+							THIS.OWNER = { country_event = watertribe_barbarians.1 }
+						}
+					}
+				}
 
 				### volcano
 
@@ -133,39 +156,8 @@ on_actions = {
 						add_to_variable = { global.after_genocide_year = 1 }
 					}
 				}
-
 			}
 
-			if = {
-				limit = {
-					OR = {
-						tag = NWT
-						tag = SWT
-					}
-				}
-				
-				### barbarians
-
-				random_list = {
-					20 = { }
-					80 = {
-						random_owned_state = {
-							limit = {
-								THIS.OWNER =  {
-									OR = {
-										tag = NWT
-										tag = SWT
-									}
-								}
-							}
-							set_state_flag = barbarians
-							set_state_flag = show_barbarian_territories
-							add_dynamic_modifier = { modifier = barbarians	}
-							THIS.OWNER = { country_event = barbarians.1 }
-						}
-					}
-				}
-			}
 
 			#### water full moon
 
