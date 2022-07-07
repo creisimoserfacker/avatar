@@ -14,18 +14,17 @@ on_actions = {
 		effect = {
 			set_variable = { peace_exhaustion_daily = -5 }
 			set_variable = { war_exhaustion_max = 9000 }
-			set_variable = { war_exhaustion_next = 200 }
 
 			#### daily addition
 
 			set_variable = { war_exhaustion_daily = 0 }
 
 			# base gain
-			add_to_variable = { war_exhaustion_daily = war_exhaustion_addition }
+			add_to_variable = { war_exhaustion_daily = modifier@daily_war_weariness }
 
 			# factor
 			set_variable = { war_exhaustion_factor_calc = 1 }
-			add_to_variable = { war_exhaustion_factor_calc = war_exhaustion_factor }
+			add_to_variable = { war_exhaustion_factor_calc = modifier@war_weariness_factor }
 			clamp_variable = { 
 				var = war_exhaustion_factor_calc 
 				min = 0 
@@ -70,9 +69,41 @@ on_actions = {
 		}
 	}
 
+	on_weekly = {
+		effect = {
+
+			#### weekly addition
+
+			set_variable = { war_exhaustion_weekly = 0 }
+
+			# base gain
+			add_to_variable = { war_exhaustion_weekly = modifier@weekly_war_weariness }
+
+			multiply_variable = { war_exhaustion_weekly = war_exhaustion_factor_calc }
+
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_weekly }
+
+			################## end daily addition
+
+		}
+	}
+
 	on_monthly = {
 		effect = {
 			WAR_WAERINESS_add_point_to_line = yes
+
+			#### monthly addition
+
+			set_variable = { war_exhaustion_monthly = 0 }
+
+			# base gain
+			add_to_variable = { war_exhaustion_monthly = modifier@monthly_war_weariness }
+
+			multiply_variable = { war_exhaustion_monthly = war_exhaustion_factor_calc }
+
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_monthly }
+
+			################## end daily addition
 
 
 			#### occupation ###

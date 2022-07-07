@@ -9,8 +9,10 @@ war_weariness_category = {
 		always = yes 
 	}
 	visible = {
-		#check_variable = { war_exhaustion_variable > 0 }
-		has_war = yes
+		OR = {
+			check_variable = { war_exhaustion_variable > 200 }
+			has_war = yes
+		}
 		NOT = { has_country_flag = hide_generic_decisions }
 	}
 }

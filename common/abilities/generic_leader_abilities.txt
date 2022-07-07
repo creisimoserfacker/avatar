@@ -11,7 +11,7 @@ ability = {
 			is_leading_army_group = no
 			is_border_war = no
 			#FROM = {
-				has_tech = decisive_battle
+			#	has_tech = decisive_battle
 			#}
 		}
 		
@@ -37,8 +37,8 @@ ability = {
 		
 		one_time_effect = {
 			add_temporary_buff_to_units = {
-				combat_offense = 5
-				combat_defense = 5
+				combat_offense = 0.1
+				combat_defense = 0.1
 				org_damage_multiplier = -0.5
 				str_damage_multiplier = 2
 				war_support_reduction_on_damage = 0.2
@@ -50,11 +50,16 @@ ability = {
 			}
 		}
 		unit_modifiers = {
+			leader_battle_chance = 10
 			fort = {
 				attack = -10
 			}
 			fortification_damage = -1.0
 			fortification_collateral_chance = -1.0
+		}
+		one_time_effect = {
+			custom_effect_tooltip = war_weariness_add_2
+			add_to_variable = {	war_exhaustion_variable = 200 }
 		}
 	}
 		

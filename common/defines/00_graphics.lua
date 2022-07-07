@@ -1122,8 +1122,8 @@ NInterface = {
 	
 	LOGISTICS_PAST_WEEK = 7,					-- Number of days from the past (including current day) we want logistics data for (Max 30 days)
 
-	COMBAT_SOME_PIERCING = 0.4,					-- How many % of enemy units the unit have to pierce in order for the some piercing icon to be displayed
-	COMBAT_GOOD_PIERCING = 0.8,					-- How many % of enemy units the unit have to pierce in order for the good piercing icon to be displayed
+	COMBAT_SOME_PIERCING = 0.24,					-- How many % of enemy units the unit have to pierce in order for the some piercing icon to be displayed
+	COMBAT_GOOD_PIERCING = 0.74,					-- How many % of enemy units the unit have to pierce in order for the good piercing icon to be displayed
 	COMBAT_SOME_ARMOR = 0.4,					-- How many % of enemy units have to be unable to pierce the unit in order for the some armor icon to be displayed
 	COMBAT_GOOD_ARMOR = 0.8,					-- How many % of enemy units have to be unable to pierce the unit in order for the good armor icon to be displayed
 	

@@ -1,0 +1,60 @@
+
+engage_in_battle_trigger = {
+	check_variable = { unit_modifier@leader_battle_chance_factor > 0 }
+}
+
+battle_trigger = {
+	OR = {
+		AND = {
+			frontage_full = yes
+			reserves > 3		###  4 and higher
+		}
+		reserves > 9			###  10 and higher
+	}
+}
+
+no_special_terrain = {
+	is_amphibious_invasion = no
+	NOT = {
+		has_combat_modifier = river_crossing
+		has_combat_modifier = fort_attack
+		has_combat_modifier = amphibious_attack
+	}
+}
+
+plain_terrain = {
+	OR = {
+		is_fighting_in_terrain = desert
+		is_fighting_in_terrain = ice_desert
+		is_fighting_in_terrain = plains
+		is_fighting_in_terrain = farmland
+		is_fighting_in_terrain = savanna
+		is_fighting_in_terrain = wasteland
+	}
+}
+
+forest_terrain = {
+	OR = {
+		is_fighting_in_terrain = forest
+		is_fighting_in_terrain = jungle
+		is_fighting_in_terrain = swamp
+		is_fighting_in_terrain = marsh
+	}
+}
+
+mountain_terrain = {
+	OR = {
+		is_fighting_in_terrain = mountain
+		is_fighting_in_terrain = high_mountain
+		is_fighting_in_terrain = hills
+		is_fighting_in_terrain = cliff
+		is_fighting_in_terrain = canyon
+	}
+}
+
+urban_terrain = {
+	OR = {
+		is_fighting_in_terrain = urban
+		is_fighting_in_terrain = village
+	}
+}
