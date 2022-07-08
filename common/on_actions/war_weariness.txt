@@ -30,7 +30,27 @@ on_actions = {
 				min = 0 
 				#max = 0
 			}
-			multiply_variable = { war_exhaustion_daily = war_exhaustion_factor_calc }
+
+			# negative factor
+			set_variable = { war_exhaustion_negative_factor_calc = 1 }
+			subtract_from_variable = { war_exhaustion_negative_factor_calc = modifier@war_weariness_factor }
+			clamp_variable = { 
+				var = war_exhaustion_negative_factor_calc 
+				min = 0 
+				#max = 0
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_daily > 0 }
+				}
+				multiply_variable = { war_exhaustion_daily = war_exhaustion_factor_calc }
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_daily < 0 }
+				}
+				multiply_variable = { war_exhaustion_daily = war_exhaustion_negative_factor_calc }
+			}
 
 			add_to_variable = { war_exhaustion_variable = war_exhaustion_daily }
 
@@ -79,7 +99,18 @@ on_actions = {
 			# base gain
 			add_to_variable = { war_exhaustion_weekly = modifier@weekly_war_weariness }
 
-			multiply_variable = { war_exhaustion_weekly = war_exhaustion_factor_calc }
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_weekly > 0 }
+				}
+				multiply_variable = { war_exhaustion_weekly = war_exhaustion_factor_calc }
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_weekly < 0 }
+				}
+				multiply_variable = { war_exhaustion_weekly = war_exhaustion_negative_factor_calc }
+			}
 
 			add_to_variable = { war_exhaustion_variable = war_exhaustion_weekly }
 
@@ -99,11 +130,20 @@ on_actions = {
 			# base gain
 			add_to_variable = { war_exhaustion_monthly = modifier@monthly_war_weariness }
 
-			multiply_variable = { war_exhaustion_monthly = war_exhaustion_factor_calc }
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_monthly > 0 }
+				}
+				multiply_variable = { war_exhaustion_monthly = war_exhaustion_factor_calc }
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_monthly < 0 }
+				}
+				multiply_variable = { war_exhaustion_monthly = war_exhaustion_negative_factor_calc }
+			}
 
-			add_to_variable = { war_exhaustion_variable = war_exhaustion_monthly }
-
-			################## end daily addition
+			################## end monthly addition
 
 
 			#### occupation ###
@@ -116,7 +156,10 @@ on_actions = {
 
 			set_variable = { occupation_war_exhaustion = occupied_states_variable }
 
-			add_to_variable = { war_exhaustion_variable = occupied_states_variable }
+			add_to_variable = { war_exhaustion_monthly = occupied_states_variable }
+
+
+			add_to_variable = { war_exhaustion_variable = war_exhaustion_monthly }
 		}
 	}
 
