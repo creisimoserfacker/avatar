@@ -8,15 +8,56 @@ on_actions = {
 				}
 				set_variable = { global.calendar_month = 1 }
 				set_variable = { global.calendar_year = 12 }
-			}
-			every_country = {
-				if = {
-					limit = {
-						has_country_flag = water_nation
+
+				set_variable = { global.black_sun_year = 19 }
+				set_variable = { global.black_sun_month = 5 }
+				set_variable = { global.black_sun_day = 17 }
+
+				random_country = {
+					every_state = {
+						limit = {
+							OR = {
+								is_on_continent = north_america
+								is_on_continent = africa
+								region = 96
+								region = 97
+								region = 98
+								region = 99
+								region = 114
+								region = 116
+								region = 117
+								region = 118
+								region = 121
+								region = 126
+							}
+						}
+						set_state_flag = northern_hemisphere
 					}
-					add_ideas = half_moon
+
+					every_state = {
+						limit = {
+							OR = {
+								is_on_continent = south_america
+								is_on_continent = asia
+								region = 129
+								region = 105
+								region = 102
+								region = 115
+								region = 106
+							}
+							NOT = {
+								state = 394
+								state = 367
+							}
+						}
+						set_state_flag = southern_hemisphere
+					}
+
+					news_event = { id = calendar.5 }
 				}
 			}
+			
+
 			random_country = {
 				set_country_flag = calculator
 			}
@@ -142,6 +183,8 @@ on_actions = {
 
 				### months and years
 
+
+				### counter
 				if = {
 					limit = {
 						NOT = {
@@ -156,23 +199,54 @@ on_actions = {
 						add_to_variable = { global.after_genocide_year = 1 }
 					}
 				}
+
+
+				### spring event
+				if = {
+					limit = {
+						check_variable = { global.calendar_month = 3 }
+					}
+					news_event = { id = calendar.2 days = 20 }
+				}
+				### summer event
+				if = {
+					limit = {
+						check_variable = { global.calendar_month = 6 }
+					}
+					news_event = { id = calendar.3 days = 21 }
+				}
+				### fall event
+				if = {
+					limit = {
+						check_variable = { global.calendar_month = 9 }
+					}
+					news_event = { id = calendar.4 days = 23 }
+				}
+				### winter event
+				if = {
+					limit = {
+						check_variable = { global.calendar_month = 12 }
+					}
+					news_event = { id = calendar.5 days = 21 }
+				}
+
 			}
 
 
 			#### water full moon
 
-			if = {
-				limit = {
-					has_country_flag = water_nation
-				}
-				swap_ideas = {
-					remove_idea = half_moon
-					add_idea = full_moon
-				}
-				hidden_effect = {
-					news_event = { id = calendar.1 days = 4 }
-				}
-			}
+			#if = {
+			#	limit = {
+			#		has_country_flag = water_nation
+			#	}
+			#	swap_ideas = {
+			#		remove_idea = half_moon
+			#		add_idea = full_moon
+			#	}
+			#	hidden_effect = {
+			#		news_event = { id = calendar.1 days = 4 }
+			#	}
+			#}
 		}
 	}
 

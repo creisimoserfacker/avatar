@@ -23,6 +23,150 @@ news_event = {
 	}
 }
 
+### spring begin
+news_event = {
+	id = calendar.2
+	hidden = yes
+	
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { global.season_frame_1 = 3 }
+		set_variable = { global.season_frame_2 = 4 }
+		set_variable = { global.season_frame_3 = 1 }
+		set_variable = { global.season_frame_4 = 2 }
+
+		every_state = {
+			limit = {
+				has_state_flag = northern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = winter_modifier }
+			add_dynamic_modifier = { modifier = spring_modifier }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = southern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = summer_modifier }
+			add_dynamic_modifier = { modifier = fall_modifier }
+		}
+	}
+	
+	option = {
+		name = calendar.2.a
+	}
+}
+
+### summer begin
+news_event = {
+	id = calendar.3
+	hidden = yes
+	
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { global.season_frame_1 = 2 }
+		set_variable = { global.season_frame_2 = 3 }
+		set_variable = { global.season_frame_3 = 4 }
+		set_variable = { global.season_frame_4 = 1 }
+
+		every_state = {
+			limit = {
+				has_state_flag = northern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = spring_modifier }
+			add_dynamic_modifier = { modifier = summer_modifier }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = southern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = fall_modifier }
+			add_dynamic_modifier = { modifier = winter_modifier }
+		}
+	}
+	
+	option = {
+		name = calendar.3.a
+	}
+}
+
+### fall begin
+news_event = {
+	id = calendar.4
+	hidden = yes
+	
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { global.season_frame_1 = 1 }
+		set_variable = { global.season_frame_2 = 2 }
+		set_variable = { global.season_frame_3 = 3 }
+		set_variable = { global.season_frame_4 = 4 }
+
+		every_state = {
+			limit = {
+				has_state_flag = northern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = summer_modifier }
+			add_dynamic_modifier = { modifier = fall_modifier }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = southern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = winter_modifier }
+			add_dynamic_modifier = { modifier = spring_modifier }
+		}
+	}
+	
+	option = {
+		name = calendar.4.a
+	}
+}
+
+### winter begin
+news_event = {
+	id = calendar.5
+	hidden = yes
+	
+	fire_only_once = no
+	
+	is_triggered_only = yes
+	
+	immediate = {
+		set_variable = { global.season_frame_1 = 4 }
+		set_variable = { global.season_frame_2 = 1 }
+		set_variable = { global.season_frame_3 = 2 }
+		set_variable = { global.season_frame_4 = 3 }
+
+		every_state = {
+			limit = {
+				has_state_flag = northern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = fall_modifier }
+			add_dynamic_modifier = { modifier = winter_modifier }
+		}
+		every_state = {
+			limit = {
+				has_state_flag = southern_hemisphere
+			}
+			remove_dynamic_modifier = { modifier = spring_modifier }
+			add_dynamic_modifier = { modifier = summer_modifier }
+		}
+	}
+	
+	option = {
+		name = calendar.5.a
+	}
+}
+
 
 
 #Volcano erruption

@@ -14,6 +14,7 @@ on_actions = {
 				set_variable = { consumer_fluid_factor = 10 }
 
 				set_variable = { farm_output = 2 }
+				set_variable = { farm_output_2 = 1 }
 				set_variable = { fishing_stand_output = 2 }
 				set_variable = { ranch_output = 6 }
 				set_variable = { lumber_mill_output = 10 }
@@ -318,21 +319,51 @@ on_actions = {
 				if = {
 					limit = { has_tech = plank_1 }
 					add_to_variable = { carpentry_output = 1 }
+					modify_building_resources = {
+						building = carpentry
+						resource = planks_resource
+						amount = 1
+					}
 					if = {
 						limit = { has_tech = plank_2 }
 						add_to_variable = { carpentry_output = 1 }
+						modify_building_resources = {
+							building = carpentry
+							resource = planks_resource
+							amount = 1
+						}
 						if = {
 							limit = { has_tech = plank_3 }
 							add_to_variable = { carpentry_output = 1 }
+							modify_building_resources = {
+								building = carpentry
+								resource = planks_resource
+								amount = 1
+							}
 							if = {
 								limit = { has_tech = plank_4 }
 								add_to_variable = { carpentry_output = 1 }
+								modify_building_resources = {
+									building = carpentry
+									resource = planks_resource
+									amount = 1
+								}
 								if = {
 									limit = { has_tech = plank_5 }
 									add_to_variable = { carpentry_output = 1 }
+									modify_building_resources = {
+										building = carpentry
+										resource = planks_resource
+										amount = 1
+									}
 									if = {
 										limit = { has_tech = plank_6 }
 										add_to_variable = { carpentry_output = 1 }
+										modify_building_resources = {
+											building = carpentry
+											resource = planks_resource
+											amount = 1
+										}
 									}
 								}
 							}
@@ -396,21 +427,51 @@ on_actions = {
 				if = {
 					limit = { has_tech = brick_1 }
 					add_to_variable = { masonry_output = 1 }
+					modify_building_resources = {
+						building = masonry
+						resource = bricks_resource
+						amount = 1
+					}
 					if = {
 						limit = { has_tech = brick_2 }
 						add_to_variable = { masonry_output = 1 }
+						modify_building_resources = {
+							building = masonry
+							resource = bricks_resource
+							amount = 1
+						}
 						if = {
 							limit = { has_tech = brick_3 }
 							add_to_variable = { masonry_output = 1 }
+							modify_building_resources = {
+								building = masonry
+								resource = bricks_resource
+								amount = 1
+							}
 							if = {
 								limit = { has_tech = brick_4 }
 								add_to_variable = { masonry_output = 1 }
+								modify_building_resources = {
+									building = masonry
+									resource = bricks_resource
+									amount = 1
+								}
 								if = {
 									limit = { has_tech = brick_5 }
 									add_to_variable = { masonry_output = 1 }
+									modify_building_resources = {
+										building = masonry
+										resource = bricks_resource
+										amount = 1
+									}
 									if = {
 										limit = { has_tech = brick_6 }
 										add_to_variable = { masonry_output = 1 }
+										modify_building_resources = {
+											building = masonry
+											resource = bricks_resource
+											amount = 1
+										}
 									}
 								}
 							}
@@ -422,48 +483,88 @@ on_actions = {
 					if = {
 						limit = { has_tech = fish_1 }
 						add_to_variable = { fishing_stand_output = 1 }
+						modify_building_resources = {
+							building = fishing_stand
+							resource = food_resource
+							amount = 1
+						}
 					}
 					if = {
 						limit = { has_tech = storage_2 }
 						if = {
 							limit = { has_tech = bread_1 }
 							add_to_variable = { mill_output = 2 }
+							modify_building_resources = {
+								building = mill
+								resource = food_resource
+								amount = 2
+							}
 						}
 						if = {
 							limit = { has_tech = storage_3 }
 							if = {
 								limit = { has_tech = fish_2 }
 								add_to_variable = { fishing_stand_output = 1 }
+								modify_building_resources = {
+									building = fishing_stand
+									resource = food_resource
+									amount = 1
+								}
 							}
 							if = {
 								limit = { has_tech = storage_4 }
 								if = {
 									limit = { has_tech = bread_2 }
 									add_to_variable = { mill_output = 2 }
+									modify_building_resources = {
+										building = mill
+										resource = food_resource
+										amount = 2
+									}
 								}
 								if = {
 									limit = { has_tech = storage_5 }
 									if = {
 										limit = { has_tech = fish_3 }
 										add_to_variable = { fishing_stand_output = 1 }
+										modify_building_resources = {
+											building = fishing_stand
+											resource = food_resource
+											amount = 1
+										}
 									}
 									if = {
 										limit = { has_tech = storage_6 }
 										if = {
 											limit = { has_tech = bread_3 }
 											add_to_variable = { mill_output = 2 }
+											modify_building_resources = {
+												building = mill
+												resource = food_resource
+												amount = 2
+											}
 										}
 										if = {
 											limit = { has_tech = storage_7 }
 											if = {
 												limit = { has_tech = fish_4 }
 												add_to_variable = { fishing_stand_output = 1 }
+												modify_building_resources = {
+													building = fishing_stand
+													resource = food_resource
+													amount = 1
+												}
 											}
 											if = {
 												limit = { has_tech = storage_8 }
 												if = {
 													limit = { has_tech = bread_4 }
 													add_to_variable = { mill_output = 2 }
+													modify_building_resources = {
+														building = mill
+														resource = food_resource
+														amount = 2
+													}
 												}
 											}
 										}
@@ -848,6 +949,11 @@ on_actions = {
 									resource = steel
 									amount = 6
 								}
+								modify_building_resources = {
+									building = steel_beam_factory
+									resource = steel_beams_resource
+									amount = 3
+								}
 								if = {
 									limit = { has_tech = smelting_l2 }
 									add_to_variable = { steelworks_output = 6 }
@@ -856,6 +962,11 @@ on_actions = {
 										building = steelworks
 										resource = steel
 										amount = 6
+									}
+									modify_building_resources = {
+										building = steel_beam_factory
+										resource = steel_beams_resource
+										amount = 3
 									}
 								}
 							}

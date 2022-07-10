@@ -1,0 +1,80 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+
+			#### council disable event ####
+
+			every_country = {
+				limit = { OR = {
+					tag = SAT
+					tag = NAT
+					tag = EAT
+					tag = WAT
+				}}
+				country_event = { 
+					id = AIR_council.0
+				}
+			}
+
+
+			#### ghost resources modifier ####
+			every_country = {
+				add_dynamic_modifier = { modifier = additional_scripted_resources }
+			}
+		
+
+
+			#### animal population ####
+
+			if = {
+				limit = {
+					has_start_date < 13.1.1
+				}
+				302 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				95 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				323 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				326 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				264 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				167 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				181 = { add_dynamic_modifier = { modifier = dragon_herd } }
+				267 = { add_dynamic_modifier = { modifier = dragon_herd } }
+
+			}
+
+			if = {
+				limit = {
+					has_start_date > 13.1.1
+				}
+				every_state = {
+					limit = {
+						OR = {
+							is_owned_by = SAT
+							is_owned_by = WAT
+							is_owned_by = EAT
+						}
+					}
+					add_dynamic_modifier = { modifier = genocide_state }
+				}
+				if = {
+					limit = {
+						has_start_date < 100.1.1
+					}
+					every_state = {
+						limit = {
+							is_owned_by = NAT
+						}
+						add_dynamic_modifier = {
+							modifier = genocide_state
+						}
+					}
+				}
+			}
+			
+		}
+	}
+
+
+
+
+}

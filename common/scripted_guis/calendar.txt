@@ -1,5 +1,19 @@
 scripted_gui = {
 
+	calendar_topbar = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "knowledge_container"
+
+		effects = {
+			
+		}
+
+		triggers = {
+			
+		}
+	}
+
 	calendar = {
 		context_type = player_context
 		parent_window_token = top_bar
@@ -20,9 +34,9 @@ scripted_gui = {
 		}
 
 		triggers = {
-			calendar_button_click_enabled = {
-				always = no
-			}
+			#calendar_button_click_enabled = {
+			#	always = no
+			#}
 		}
 	}
 
@@ -39,81 +53,28 @@ scripted_gui = {
 			calendar_close_click = {
 				set_variable = { show_calendar = 0 }
 			}
-			calendar_list_button_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar_list }
-				set_variable = { show_calendar_list = show }
-				if = {
-					limit = {
-						check_variable = { show_calendar_effects > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_effects }
-					set_variable = { show_calendar_effects = show }
-				}
+		}
+
+		properties = {
+			calendar_top = {
+				image = GFX_seasons_strip
+				frame = global.season_frame_1
 			}
-			calendar_effects_button_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar_effects }
-				set_variable = { show_calendar_effects = show }
-				if = {
-					limit = {
-						check_variable = { show_calendar_list > 0.0 }
-					}
-					set_temp_variable = { show = 1 }
-					subtract_from_temp_variable = { show = show_calendar_list }
-					set_variable = { show_calendar_list = show }
-				}
+			calendar_right = {
+				image = GFX_seasons_strip
+				frame = global.season_frame_2
+			}
+			calendar_bottom = {
+				image = GFX_seasons_strip
+				frame = global.season_frame_3
+			}
+			calendar_left = {
+				image = GFX_seasons_strip
+				frame = global.season_frame_4
 			}
 		}
 
 	}
 
-	calendar_list_window = {
-		context_type = player_context
 
-		window_name = "calendar_list_window_container"
-		parent_window_name = "calendar_window_container"
-
-		visible = {
-			check_variable = { show_calendar_list > 0.0 }
-		}
-
-        #dynamic_lists = {
-        #    event_listing_grid = {
-        #        change_scope = yes
-        #        entry_container = nuclear_power_listing_entry
-        #    }
-        #}
-
-		effects = {
-			calendar_list_close_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar_list }
-				set_variable = { show_calendar_list = show }
-			}
-
-		}
-
-	}
-
-	calendar_effects_window = {
-		context_type = player_context
-
-		window_name = "calendar_effects_window_container"
-		parent_window_name = "calendar_window_container"
-
-		visible = {
-			check_variable = { show_calendar_effects > 0.0 }
-		}
-
-		effects = {
-			calendar_effects_close_click = {
-				set_temp_variable = { show = 1 }
-				subtract_from_temp_variable = { show = show_calendar_effects }
-				set_variable = { show_calendar_effects = show }
-			}
-		}
-
-	}
 }

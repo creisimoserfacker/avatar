@@ -1,0 +1,316 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "knowledge_container"
+		position = { x = 784 y = 5 }
+		Orientation = UPPER_LEFT
+
+		iconType ={
+			name ="knowledge_bg"
+			spriteType = "GFX_generic_box_smallest"
+			position = { x=0 y=0 }
+
+			pdx_tooltip = "knowledge_tooltip"
+			pdx_tooltip_delayed = "knowledge_tooltip_delayed"
+		}
+
+		iconType = {
+			name = "knowledge_icon"
+			position = {x=5 y=2}
+			spriteType = "GFX_knowledge_icon"
+			scale = 1
+			Orientation = top_left
+		
+			pdx_tooltip = "knowledge_tooltip"
+			pdx_tooltip_delayed = "knowledge_tooltip_delayed"
+		}
+
+		instantTextBoxType = {
+			name ="knowledge_text"
+			position = { x= 22 y = 4 }
+			font = "hoi_18mbs"
+			text = "knowledge_topbar"
+			format = center
+			maxWidth = 46
+			maxHeight = 24
+			fixedsize = yes
+
+			pdx_tooltip = "knowledge_tooltip"
+			pdx_tooltip_delayed = "knowledge_tooltip_delayed"
+		}
+	}
+
+	############## calendar ################
+
+	containerWindowType = {
+		name = "calendar_container"
+		position = { x = 0 y = 0 }
+		Orientation = UPPER_RIGHT
+
+		buttonType ={
+			name ="calendar_button"
+			spriteType = "GFX_topbar_calendar"
+			position = { x=-226 y=46 }
+			Orientation = "UPPER_RIGHT"
+			shortcut = "shift+k"
+			clicksound = click_default
+
+			pdx_tooltip = "DATE_TOOLTIP"
+			pdx_tooltip_delayed = "DATE_TOOLTIP_DELAYED"
+		}
+	}
+
+	containerWindowType = {
+		name = "calendar_window_container"
+		position = { x=-520 y=-340 }	
+		size = { width =1040 height=660 }
+		orientation= center
+		moveable = yes
+		fade_time = 200
+		fade_type = linear
+		click_to_front = yes
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_window"
+		}
+
+		iconType = {
+			name = "cbg"
+			spriteType = "GFX_calendar_background"
+			position = { x = 260 y = 105 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "calendar_needles"
+			spriteType = "GFX_calendar"
+			position = { x = 260 y = 105 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "calendar_top"
+			spriteType = "GFX_summer"
+			position = { x = 477 y = 250 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "calendar_bottom"
+			spriteType = "GFX_winter"
+			position = { x = 477 y = 400 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "calendar_left"
+			spriteType = "GFX_spring"
+			position = { x = 400 y = 325 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+		iconType = {
+			name = "calendar_right"
+			spriteType = "GFX_fall"
+			position = { x = 554 y = 325 }
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+
+		buttonType ={
+			name ="calendar_close"
+			spriteType = "GFX_closebutton"
+			position = { x = -38 y = 10 }
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_Right"
+			clicksound = click_default
+		}
+
+		iconType ={
+			name ="title_bg"
+			spriteType = "GFX_ink_1"
+			position = { x= -100 y = 16 }
+			scale = 0.8
+			Orientation = "CENTER_UP"
+			alwaystransparent = yes
+		}
+		instantTextboxType = {
+			name = "avatar_title"
+			position = { x = -60 y = 38 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = {x = 0 y = 0}
+			Orientation = "CENTER_UP"
+			text = "CALENDAR_TITLE"
+			maxWidth = 400
+			maxHeight = 20
+			fixedsize = yes
+		}
+
+		containerWindowType = {
+			name = "black_sun_container"
+			position = { x=-300 y=-200 }
+			orientation= center
+
+			iconType = {
+				name = "black_sun_icon"
+				position = {x=0 y=0}
+				spriteType = "GFX_black_sun_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "black_sun_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+			buttonType = {
+				name = "black_sun_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "black_sun_buy_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "black_sun_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "BLACK_SUN_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "black_sun_buy_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
+			name = "drought_container"
+			position = { x=-400 y=-100 }
+			orientation= center
+
+			iconType = {
+				name = "black_sun_icon"
+				position = {x=0 y=0}
+				spriteType = "GFX_black_sun_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "black_sun_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+			buttonType = {
+				name = "black_sun_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "black_sun_buy_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "black_sun_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "BLACK_SUN_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "black_sun_buy_tooltip"
+				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
+			name = "full_moon_container"
+			position = { x=200 y=-200 }
+			orientation= center
+
+			iconType = {
+				name = "full_moon_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_idea_full_moon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "full_moon_tooltip"
+				pdx_tooltip_delayed = "full_moon_tooltip_delayed"
+			}
+			buttonType = {
+				name = "full_moon_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "black_sun_buy_tooltip"
+				pdx_tooltip_delayed = "full_moon_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "full_moon_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "FULL_MOON_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "full_moon_buy_tooltip"
+				pdx_tooltip_delayed = "full_moon_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
+			name = "great_comet_container"
+			position = { x=300 y=-100 }
+			orientation= center
+
+			iconType = {
+				name = "great_comet_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_idea_sozins_comet_1"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "great_comet_tooltip"
+				pdx_tooltip_delayed = "great_comet_tooltip_delayed"
+			}
+			buttonType = {
+				name = "great_comet_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "great_comet_buy_tooltip"
+				pdx_tooltip_delayed = "great_comet_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "great_comet_text"
+				position = {x=-20 y=95}
+				font = "hoi_20bs"
+				text = "GREAT_COMET_SHOW"
+				maxWidth = 140
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "great_comet_buy_tooltip"
+				pdx_tooltip_delayed = "great_comet_tooltip_delayed"
+			}
+		}
+
+	
+	}
+
+}
