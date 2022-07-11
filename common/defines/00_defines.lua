@@ -119,13 +119,13 @@ NDiplomacy = {
 	TAKE_STATES_GIVE_CORE_TO_SUBJECT_MULT = 0.1,	-- Cost multiplier for feeding core states to a subject 
 	
 	RESOURCE_SENT_AUTONOMY_DAILY_BASE = 0.0,		-- If puppet provides resources to its master they increasy their autonomy by at least this amount
-	RESOURCE_SENT_AUTONOMY_DAILY_FACTOR = 0.005,	-- If puppet provides resources to its master they increasy their autonomy by the resources factored by this
+	RESOURCE_SENT_AUTONOMY_DAILY_FACTOR = -0.005,	-- If puppet provides resources to its master they increasy their autonomy by the resources factored by this
 	WAR_SCORE_AUTONOMY_BASE = 0.0,					-- Value added if any war score is contributed by puppet
 	WAR_SCORE_AUTONOMY_FACTOR = 0.6,				-- If puppet generates war score it get a boost to independence 
 	LL_TO_OVERLORD_AUTONOMY_DAILY_BASE = 0.0,		-- If puppet lend leases equipment to overlord of at least same tech level as they have, they gain autonomy
-	LL_TO_OVERLORD_AUTONOMY_DAILY_FACTOR = 0.05,	-- If puppet lend leases equipment to overlord of at least same tech level as they have, they gain autonomy
+	LL_TO_OVERLORD_AUTONOMY_DAILY_FACTOR = -0.01,	-- If puppet lend leases equipment to overlord of at least same tech level as they have, they gain autonomy
 	LL_TO_PUPPET_AUTONOMY_DAILY_BASE = 0.0,			-- If overlord lend leases equipment to puppet of higher tech level as they have, puppet losses autonomy
-	LL_TO_PUPPET_AUTONOMY_DAILY_FACTOR = -0.01,		-- If overlord lend leases equipment to puppet of higher tech level as they have, puppet losses autonomy
+	LL_TO_PUPPET_AUTONOMY_DAILY_FACTOR = -0.05,		-- If overlord lend leases equipment to puppet of higher tech level as they have, puppet losses autonomy
 	AUTONOMY_FREEDOM_FROM_CAPITULATE = 0.5,         -- if overlord capitulate you get this
 	ATTACHE_TO_SUBJECT_EFFECT = -0.05,				-- If overlord sent attaches to the subject it losses autonomy
 	ATTACHE_TO_OVERLORD_EFFECT = 0.05,				-- If subject sent attaches to the overlord it gains autonomy
@@ -631,11 +631,11 @@ NMilitary = {
 	MAX_NAVY_EXPERIENCE = 800,			--Max navy experience a country can store
 	MAX_AIR_EXPERIENCE = 800,				--Max air experience a country can store
 	
-	COMBAT_MINIMUM_TIME = 6,			-- Shortest time possible for a combat in hours
+	COMBAT_MINIMUM_TIME = 24,			-- Shortest time possible for a combat in hours
 	SPOTTING_QUALITY_DROP_HOURS = 4, 	-- Each X hours the intel quality drops after unit was spotted.
 	LEADER_GROUP_MAX_SIZE = 1000, --5,			-- Max slots for leader groups.
 
-	MIN_SUPPLY_CONSUMPTION = 0.1,					-- minimum value of supply consumption that a unit can get
+	MIN_SUPPLY_CONSUMPTION = 0.05,					-- minimum value of supply consumption that a unit can get
 	
 	LAND_COMBAT_ORG_DICE_SIZE = 8,                 -- nr of damage dice
 	LAND_COMBAT_STR_DICE_SIZE = 4,                 -- nr of damage dice
@@ -737,12 +737,12 @@ NMilitary = {
 	EXILE_ORG = 0.0,							   -- Amount of org to keep
 	EXPERIENCE_LOSS_FACTOR = 1.00,                 -- percentage of experienced solders who die when manpower is removed
 	EQUIPMENT_COMBAT_LOSS_FACTOR = 0.9,	 	       -- % of equipment lost to strength ratio in combat, so some % is returned if below 1
-	SUPPLY_USE_FACTOR_MOVING = 2.0,                -- supply use when moving/fighting vs inactive
-	SUPPLY_USE_FACTOR_INACTIVE = 1.0,
-	SUPPLY_GRACE = 730,							   -- troops always carry 1 month of food and supply
+	SUPPLY_USE_FACTOR_MOVING = 1.5,                -- Deprecated/Unused
+	SUPPLY_USE_FACTOR_INACTIVE = 0.95,			   -- Deprecated/Unused
+	SUPPLY_GRACE = 168,							   -- troops always carry 1 week of food and supply
 	SUPPLY_GRACE_MAX_REDUCE_PER_HOUR = 2,          -- supply grace is not decreased instantly when it is buffed temporarily and buff is removed
 	SUPPLY_ORG_MAX_CAP = 0.30,                     -- Max organization is factored by this if completely out of supply
-	MAX_OUT_OF_SUPPLY_DAYS = 90, 				   -- how many days of shitty supply until max penalty achieved
+	MAX_OUT_OF_SUPPLY_DAYS = 30, 				   -- how many days of shitty supply until max penalty achieved
 	OUT_OF_SUPPLY_ATTRITION = 0.1,                 -- max attrition when out of supply
 	OUT_OF_SUPPLY_SPEED = -0.1,                    -- max speed reduction from supply
 	NON_CORE_SUPPLY_SPEED = -0.5,				   -- we are not running on our own VP supply so need to steal stuff along the way
@@ -752,7 +752,7 @@ NMilitary = {
 	TRAINING_MIN_STRENGTH = 0.1,					-- if strength is less than this, the unit will pause training until it's been reinforced
 	TRAINING_MAX_DAILY_COUNTRY_EXP = 0.08,			-- Maximum army XP gained per day from training
 	AIR_SUPPORT_BASE = 0.25,                        -- CAS bonus factor for air support moddifier for land unit in combat
-	LOW_SUPPLY = 0.50,							   -- When the supply status of an unit becomes low.
+	LOW_SUPPLY = 0.5,							   -- When the supply status of an unit becomes low.
 	BORDER_WAR_ATTRITION_FACTOR = 0.1,			   -- How much of borderwar balance of power makes it into attrition
 	BORDER_WAR_VICTORY = 0.8,					   -- At wich border war balance of power is victory declared
 	REINFORCE_CHANCE = 0.02,                 	   -- base chance to join combat from back line when empty
@@ -3516,8 +3516,8 @@ NSupply = {
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
 	SUPPLY_DISRUPTION_DAILY_RECOVERY = 1.5,		-- every day nodes recover this much of their accumulated disruption.
 
-	RAILWAY_CONVERSION_COOLDOWN = 30, -- railways will be put on cooldown when they are captured by enemy and will not be usable during the cooldown
-	RAILWAY_CONVERSION_COOLDOWN_CORE = 5,
+	RAILWAY_CONVERSION_COOLDOWN = 0, -- railways will be put on cooldown when they are captured by enemy and will not be usable during the cooldown
+	RAILWAY_CONVERSION_COOLDOWN_CORE = 0,
 	RAILWAY_CONVERSION_COOLDOWN_CIVILWAR = 0,
 
 	DEFAULT_STARTING_TRUCK_RATIO = 1.5, -- countries get this ratio of starting truck in their buffers compared to their need
@@ -3588,7 +3588,7 @@ NSupply = {
 	NUMBER_OF_SHOWN_SUPPLY_SOURCES_IN_SUPPLY_MAPMODE = 3, -- number of supply flow sources shown in breakdown tooltip
 	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 8.0,	--Division supply consumption used for estimating frontline weight for order tooltips
 	AVAILABLE_MANPOWER_STATE_SUPPLY = 2000.0,						--Factor for state supply from max manpower (population) 1k = 0.001 supply / 100k = 0.1 supply / 1M = 1 supply
-	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.1,				--Multiplies consumption rate of stored supply (more/less easement)
+	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 1,				--Multiplies consumption rate of stored supply (more/less easement)
 },
 NAITheatre = {
 	AI_THEATRE_GENERATION_HOME_THEATRE_DEPTH_RESTRICTION = 2,			-- The home theatre is generated based off a initial depth restriction

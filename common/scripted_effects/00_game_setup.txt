@@ -1,4 +1,48 @@
 
+
+hemisphere_setup = {
+	every_state = {
+		limit = {
+			OR = {
+				is_on_continent = north_america
+				is_on_continent = africa
+				region = 96
+				region = 97
+				region = 98
+				region = 99
+				region = 114
+				region = 116
+				region = 117
+				region = 118
+				region = 121
+				region = 126
+			}
+		}
+		set_state_flag = northern_hemisphere
+	}
+
+	every_state = {
+		limit = {
+			OR = {
+				is_on_continent = south_america
+				is_on_continent = asia
+				region = 129
+				region = 105
+				region = 102
+				region = 115
+				region = 106
+			}
+			NOT = {
+				state = 394
+				state = 367
+			}
+		}
+		set_state_flag = southern_hemisphere
+	}
+	
+}
+
+
 war_setup_52 = {
 	KFC = {
 		add_to_war = {

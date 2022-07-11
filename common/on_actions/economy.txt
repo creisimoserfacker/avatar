@@ -348,26 +348,12 @@ on_actions = {
 			multiply_variable = { self_employed_food_supply = food_production_bonus }
 			add_to_variable = { food_supply = self_employed_food_supply }
 
-			#set_variable = { mill_production = mill_count }
-			#multiply_variable = { mill_production = mill_output }
-			#multiply_variable = { mill_production = food_production_bonus }
-			#add_to_variable = { food_supply = mill_production }
-
-			#set_variable = { fishing_stand_production = fishing_stand_count }
-			#multiply_variable = { fishing_stand_production = fishing_stand_output }
-			#multiply_variable = { fishing_stand_production = modififood_production_bonus }
-			#add_to_variable = { food_supply = fishing_stand_production }
-
 			set_variable = { employed_food_production = mill_production }
 			add_to_variable = { employed_food_production = fishing_stand_production }
 
 			set_variable = { self_employed_consumer_good_supply = self_employed_output }
 			multiply_variable = { self_employed_consumer_good_supply = capacity_for_consumer_good_supply }
 			add_to_variable = { consumer_good_supply = self_employed_consumer_good_supply }
-
-			#set_variable = { consumer_good_factory_production = consumer_good_factory_count }
-			#multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
-			#add_to_variable = { consumer_good_supply = consumer_good_factory_production }
 
 			set_temp_variable = { food_surplus = food_supply }
 			subtract_from_temp_variable = { food_surplus = food_demand }
@@ -425,54 +411,54 @@ on_actions = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = famine
+							has_dynamic_modifier = { modifier = famine }
 						}
 						check_variable = { food_supply < half_food_demand }
 					}
 				}
 				hidden_effect = {
-					add_ideas = famine
+					add_dynamic_modifier = { modifier = famine }
 				}
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = food_shortages
+							has_dynamic_modifier = { modifier = food_shortages }
 						}
 						check_variable = { food_supply < food_demand }
 						check_variable = { food_supply > half_food_demand }
 					}
 				}
 				hidden_effect = {
-					add_ideas = food_shortages
+					add_dynamic_modifier = { modifier = food_shortages }
 				}
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = food_surplus_idea
+							has_dynamic_modifier = { modifier = food_surplus_idea }
 						}
 						check_variable = { food_supply < double_food_demand }
 						check_variable = { food_supply > half_more_food_demand }
 					}
 				}
 				hidden_effect = {
-					add_ideas = food_surplus_idea
+					add_dynamic_modifier = { modifier = food_surplus_idea }
 				}
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = burgerking
+							has_dynamic_modifier = { modifier = burgerking }
 						}
 						check_variable = { food_supply > double_food_demand }
 					}
 				}
 				hidden_effect = {
-					add_ideas = burgerking
+					add_dynamic_modifier = { modifier = burgerking }
 				}
 			}
 
@@ -486,60 +472,52 @@ on_actions = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = extreme_poverty
+							add_dynamic_modifier = { modifier = extreme_poverty }
 						}
 						check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
 					}
 				}
-				add_ideas = extreme_poverty
+				add_dynamic_modifier = { modifier = extreme_poverty }
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = poverty
+							has_dynamic_modifier = { modifier = poverty }
 						}
 						check_variable = { consumer_and_luxury_goods_supply < consumer_good_demand }
 						check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
 					}
 				}
-				add_ideas = poverty
+				add_dynamic_modifier = { modifier = poverty }
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = wealth
+							has_dynamic_modifier = { modifier = wealth }
 						}
 						check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
 						check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
 					}
 				}
-				add_ideas = wealth
+				add_dynamic_modifier = { modifier = wealth }
 			}
 			else_if = {
 				limit = {
 					AND = {
 						NOT = {
-							has_idea = extreme_wealth
+							has_dynamic_modifier = { modifier = extreme_wealth }
 						}
 						check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
 					}
 				}
-				add_ideas = extreme_wealth
+				add_dynamic_modifier = { modifier = extreme_wealth }
 			}
 
 			set_variable = { planks = resource@planks_resource }
-			#add_to_variable = { planks = carpentry_count }
-			#multiply_variable = { planks = carpentry_output }
-
 			set_variable = { bricks = resource@bricks_resource }
-			#add_to_variable = { bricks = masonry_count }
-			#multiply_variable = { bricks = masonry_output }
-
 			set_variable = { steel_beams = resource@steel_beams_resource }
-			#add_to_variable = { steel_beams = steel_beam_factory_count }
-			#multiply_variable = { steel_beams = steel_beam_factory_output }
 
 			set_variable = { construction_material = 0 }
 			set_variable = { plank_factor = planks }
