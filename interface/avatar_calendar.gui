@@ -150,20 +150,47 @@ guiTypes = {
 			fixedsize = yes
 		}
 
+
+
 		containerWindowType = {
-			name = "black_sun_container"
+			name = "earthly_events_entry"
+			position = { x = 120 y = 76 }
+			size = { width = 550 height = 100%% }
+			verticalScrollbar = "right_vertical_slider"
+			clipping = no
+			
+			iconType ={
+				name ="category_header"
+				spriteType = "GFX_ink_2"
+				position = { x=5 y=-24 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.9
+			}
+			instantTextboxType = {
+				name = "name"
+				position = { x = 40 y = 14 }
+				font = "hoi_20b"
+				text = "EARTHLY_EVENTS"
+				maxWidth = 300
+				maxHeight = 20
+			}
+
+		}
+
+		containerWindowType = {
+			name = "flood_container"
 			position = { x=-300 y=-200 }
 			orientation= center
 
 			iconType = {
-				name = "black_sun_icon"
-				position = {x=0 y=0}
-				spriteType = "GFX_black_sun_icon"
+				name = "flood_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_flood_icon"
 				scale = 1
 				Orientation = center
 	
-				pdx_tooltip = "black_sun_tooltip"
-				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+				pdx_tooltip = "flood_tooltip"
+				pdx_tooltip_delayed = "flood_tooltip_delayed"
 			}
 			buttonType = {
 				name = "black_sun_buy"
@@ -172,32 +199,216 @@ guiTypes = {
 				scale = 0.4
 				Orientation = center
 
-				pdx_tooltip = "black_sun_buy_tooltip"
-				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+				pdx_tooltip = "flood_buy_tooltip"
+				pdx_tooltip_delayed = "flood_tooltip_delayed"
 			}
 			instantTextboxType = {
-				name = "black_sun_text"
+				name = "flood_text"
 				position = {x=-10 y=95}
 				font = "hoi_20bs"
-				text = "BLACK_SUN_SHOW"
+				text = "FLOOD_SHOW"
 				maxWidth = 120
 				maxHeight = 20
 				format = center
 				Orientation = center
 
-				pdx_tooltip = "black_sun_buy_tooltip"
-				pdx_tooltip_delayed = "black_sun_tooltip_delayed"
+				pdx_tooltip = "flood_buy_tooltip"
+				pdx_tooltip_delayed = "flood_tooltip_delayed"
 			}
 		}
 
 		containerWindowType = {
 			name = "drought_container"
-			position = { x=-400 y=-100 }
+			position = { x=-350 y=-50 }
+			orientation= center
+
+			iconType = {
+				name = "drought_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_drought_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "drought_tooltip"
+				pdx_tooltip_delayed = "drought_tooltip_delayed"
+			}
+			buttonType = {
+				name = "drought_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "drought_buy_tooltip"
+				pdx_tooltip_delayed = "drought_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "drought_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "DROUGHT_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "drought_buy_tooltip"
+				pdx_tooltip_delayed = "drought_tooltip_delayed"
+			}
+		}
+		containerWindowType = {
+			name = "volcano_container"
+			position = { x=-300 y=100 }
+			orientation= center
+
+			iconType = {
+				name = "volcano_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_volcano_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "calendar_volcano_tooltip"
+				pdx_tooltip_delayed = "calendar_volcano_tooltip_delayed"
+			}
+			buttonType = {
+				name = "volcano_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "volcano_buy_tooltip"
+				pdx_tooltip_delayed = "calendar_volcano_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "volcano_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "VOLCANO_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "volcano_buy_tooltip"
+				pdx_tooltip_delayed = "calendar_volcano_tooltip_delayed"
+			}
+		}
+		containerWindowType = {
+			name = "tornado_container"
+			position = { x=-480 y=-150 }
+			orientation= center
+
+			iconType = {
+				name = "tornado_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_tornado_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "tornado_tooltip"
+				pdx_tooltip_delayed = "tornado_tooltip_delayed"
+			}
+			buttonType = {
+				name = "tornado_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "tornado_buy_tooltip"
+				pdx_tooltip_delayed = "tornado_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "tornado_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "TORNADO_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "tornado_buy_tooltip"
+				pdx_tooltip_delayed = "tornado_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
+			name = "earthquake_container"
+			position = { x=-480 y=50 }
+			orientation= center
+
+			iconType = {
+				name = "earthquake_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_earthquake_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "earthquake_tooltip"
+				pdx_tooltip_delayed = "earthquake_tooltip_delayed"
+			}
+			buttonType = {
+				name = "earthquake_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "earthquake_buy_tooltip"
+				pdx_tooltip_delayed = "earthquake_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "earthquake_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "EARTHQUAKE_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "earthquake_buy_tooltip"
+				pdx_tooltip_delayed = "earthquake_tooltip_delayed"
+			}
+		}
+
+
+		containerWindowType = {
+			name = "cosmic_event_entry"
+			position = { x = 720 y = 76 }
+			size = { width = 550 height = 100%% }
+			clipping = no
+			
+			iconType ={
+				name ="category_header"
+				spriteType = "GFX_ink_2"
+				position = { x=5 y=-24 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.9
+			}
+			instantTextboxType = {
+				name = "name"
+				position = { x = 40 y = 14 }
+				font = "hoi_20b"
+				text = "COSMIC_EVENTS"
+				maxWidth = 300
+				maxHeight = 20
+			}
+
+		}
+
+
+		containerWindowType = {
+			name = "black_sun_container"
+			position = { x=200 y=-50 }
 			orientation= center
 
 			iconType = {
 				name = "black_sun_icon"
-				position = {x=0 y=0}
+				position = {x=20 y=20}
 				spriteType = "GFX_black_sun_icon"
 				scale = 1
 				Orientation = center
@@ -231,14 +442,94 @@ guiTypes = {
 		}
 
 		containerWindowType = {
+			name = "lunar_eclipse_container"
+			position = { x=330 y=50 }
+			orientation= center
+
+			iconType = {
+				name = "lunar_eclipse_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_lunar_eclipse_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "lunar_eclipse_tooltip"
+				pdx_tooltip_delayed = "lunar_eclipse_tooltip_delayed"
+			}
+			buttonType = {
+				name = "lunar_eclipse_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "lunar_eclipse_buy_tooltip"
+				pdx_tooltip_delayed = "lunar_eclipse_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "lunar_eclipse_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "LUNAR_ECLIPSE_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "lunar_eclipse_buy_tooltip"
+				pdx_tooltip_delayed = "lunar_eclipse_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
+			name = "comet_rain_container"
+			position = { x=150 y=100 }
+			orientation= center
+
+			iconType = {
+				name = "comet_rain_icon"
+				position = {x=20 y=20}
+				spriteType = "GFX_comet_rain_icon"
+				scale = 1
+				Orientation = center
+	
+				pdx_tooltip = "comet_rain_tooltip"
+				pdx_tooltip_delayed = "comet_rain_tooltip_delayed"
+			}
+			buttonType = {
+				name = "comet_rain_buy"
+				position = {x=80 y=50}
+				spriteType = "GFX_calendar_fox"
+				scale = 0.4
+				Orientation = center
+
+				pdx_tooltip = "comet_rain_buy_tooltip"
+				pdx_tooltip_delayed = "comet_rain_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "comet_rain_text"
+				position = {x=-10 y=95}
+				font = "hoi_20bs"
+				text = "COMET_RAIN_SHOW"
+				maxWidth = 120
+				maxHeight = 20
+				format = center
+				Orientation = center
+
+				pdx_tooltip = "comet_rain_buy_tooltip"
+				pdx_tooltip_delayed = "comet_rain_tooltip_delayed"
+			}
+		}
+
+		containerWindowType = {
 			name = "full_moon_container"
-			position = { x=200 y=-200 }
+			position = { x=150 y=-200 }
 			orientation= center
 
 			iconType = {
 				name = "full_moon_icon"
 				position = {x=20 y=20}
-				spriteType = "GFX_idea_full_moon"
+				spriteType = "GFX_full_moon_icon"
 				scale = 1
 				Orientation = center
 	
@@ -272,13 +563,13 @@ guiTypes = {
 
 		containerWindowType = {
 			name = "great_comet_container"
-			position = { x=300 y=-100 }
+			position = { x=330 y=-150 }
 			orientation= center
 
 			iconType = {
 				name = "great_comet_icon"
 				position = {x=20 y=20}
-				spriteType = "GFX_idea_sozins_comet_1"
+				spriteType = "GFX_great_comet_icon"
 				scale = 1
 				Orientation = center
 	
