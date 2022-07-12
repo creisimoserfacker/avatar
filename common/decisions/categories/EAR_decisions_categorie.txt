@@ -149,3 +149,19 @@ earth_military_buildup_category = {
 		has_country_flag = Earth_Nation
 	}
 }
+earth_chenbao_nwt_conflict = {
+	allowed = {
+		OR = {
+			original_tag = NWT
+			original_tag = MER
+			original_tag = NAT
+		}
+	}
+	priority = 950
+	icon = GFX_decision_category_military_buildup
+	visible = {
+		NOT = {
+			has_start_date > 15.1.1
+		}
+	}
+}

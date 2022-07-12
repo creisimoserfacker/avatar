@@ -1,0 +1,102 @@
+earth_chenbao_nwt_conflict = {
+	#for after the war with Sozin starts
+	NWT_restore_diplomatic_relations = {
+		allowed = {
+			tag = NWT
+		}
+		cost = 50
+		available = {
+			OR = {
+				has_global_flag = air_nomad_genocide
+				has_war_with = FIR
+			}
+		}
+		complete_effect = {
+			MER = {
+				country_event = {
+					id = north_passage.1
+					days = 20
+				}
+			}
+		}
+	}
+	#for after the war with Sozin starts
+	MER_restore_diplomatic_relations = {
+		allowed = {
+			tag = MER
+		}
+		cost = 50
+		available = {
+			OR = {
+				has_global_flag = air_nomad_genocide
+				has_war_with = FIR
+			}
+		}
+		complete_effect = {
+			NWT = {
+				country_event = {
+					id = north_passage.1
+					days = 20
+				}
+			}
+		}
+	}
+	#remilitarize the area
+	NWT_provoke_chenbao = {
+		allowed = {
+			tag = NWT
+		}
+		visible = {
+			has_global_flag = crisis_ongoing
+			has_country_flag = provocation_unlocked
+			NOT = {
+				has_war_with = FIR
+			}
+		}
+		cost = 20
+		available = {
+			ships_in_area = {
+				area = 45
+				size > 6
+			}
+		}
+		days_remove = 30
+		remove_effect = {
+			MER = {
+				country_event = north_passage.4
+			}
+		}
+	}
+	#if ship captured
+	# NWT_demand_compensation = {
+	# 	allowed = {
+	# 		tag = NWT
+	# 	}
+	# 	visible = {
+	# 	}
+	# }
+	MER_petition_earth_king = {
+		allowed = {
+			tag = MER
+		}
+		visible = {
+			has_country_flag = petition_earth_king
+			NOT = {
+				has_war_with = FIR
+			}
+		}
+		cost = 200
+		days_remove = 60
+		modifier = {
+			autonomy_gain = -0.1
+			political_power_factor = -0.05
+		}
+		remove_effect = {
+			EAR = {
+				country_event = north_passage.5
+			}
+		}
+	}
+	# MER_reinforce_high_tarrifs = {
+	# }
+}
