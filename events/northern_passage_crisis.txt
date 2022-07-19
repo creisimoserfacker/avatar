@@ -223,3 +223,21 @@ country_event = {
 		name = north_passage.7.b
 	}
 }
+###Earth King refused our request
+country_event = {
+	id = north_passage.8
+	title = north_passage.8.t
+	desc = north_passage.8.d
+	is_triggered_only = yes
+	trigger = {
+		tag = MER
+		not = {
+			has_global_flag = air_nomad_genocide
+		}
+	}
+	option = {
+		name = north_passage.8.a
+		add_war_support = -0.15
+		add_political_power = -150
+	}
+}
