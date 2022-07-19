@@ -206,7 +206,7 @@ country_event = {
 		}
 	}
 	immediate = {
-		set_country_flag = basingse_full_support
+		set_country_flag = basingse_partial_support
 	}
 	#send warning to north
 	option = {
@@ -221,6 +221,12 @@ country_event = {
 	#dat not enough, we back down
 	option = {
 		name = north_passage.7.b
+		NAT = {
+			country_event = {
+				id = north_passage.10
+				days = 30
+			}
+		}
 	}
 }
 ###Earth King refused our request
@@ -235,9 +241,79 @@ country_event = {
 			has_global_flag = air_nomad_genocide
 		}
 	}
+	###call in peacekeepers
 	option = {
 		name = north_passage.8.a
 		add_war_support = -0.15
 		add_political_power = -150
+		NAT = {
+			country_event = {
+				id = north_passage.10
+				days = 30
+			}
+		}
+	}
+}
+###Chenbao gained Earth King support
+country_event = {
+	id = north_passage.9
+	title = north_passage.9.t
+	desc = north_passage.9.d
+	is_triggered_only = yes
+	trigger = {
+		tag = NWT
+	}
+	###call in air nomad peacekeepers
+	option = {
+		name = north_passage.9.a
+		NAT = {
+			country_event = {
+				id = north_passage.10
+				days = 30
+			}
+		}
+	}
+	###demand support from SWT
+	option = {
+		name = north_passage.9.b
+		SWT = {
+			country_event = {
+				id = north_passage.11
+				days = 60
+			}
+		}
+	}
+}
+###FROM calls us to mediate the dispute 
+country_event = {
+	id = north_passage.10
+	title = north_passage.10.t
+	desc = north_passage.10.d
+	is_triggered_only = yes
+	trigger = {
+		tag = NAT
+		not = {
+			has_global_flag = air_nomad_genocide
+		}
+	}
+	option = {
+		name = north_passage.10.a
+		#todo
+	}
+}
+country_event = {
+	id = north_passage.11
+	title = north_passage.11.t
+	desc = north_passage.11.d
+	is_triggered_only = yes
+	trigger = {
+		tag = SWT
+	}
+	option = {
+		name = north_passage.11.a
+		NWT = {
+			add_war_support = 0.05
+			add_political_power = 50
+		}
 	}
 }
