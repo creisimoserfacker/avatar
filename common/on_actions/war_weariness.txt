@@ -6,6 +6,9 @@ on_actions = {
 				set_variable = { peace_exhaustion_daily = -5 }
 				set_variable = { war_exhaustion_max = 9000 }
 				set_variable = { war_exhaustion_next = 200 }
+
+				set_variable = { war_exhaustion_percentage = war_exhaustion_variable }
+				divide_variable = { war_exhaustion_percentage = 9000 }
 			}
 		}
 	}
@@ -85,6 +88,9 @@ on_actions = {
 			}
 
 			clamp_variable = { var = war_exhaustion_variable min = 0 max = war_exhaustion_max }
+
+			set_variable = { war_exhaustion_percentage = war_exhaustion_variable }
+			divide_variable = { war_exhaustion_percentage = 9000 }
 
 		}
 	}

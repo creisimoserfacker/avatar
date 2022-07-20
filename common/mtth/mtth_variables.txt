@@ -1,59 +1,33 @@
 
-avatar_age = {
+core_state_cost = {
 	base = 0
 	modifier = {
-		set_temp_variable = { aang_birth = 0 }
-		set_temp_variable = { aang_age = global.year }
-		add_to_temp_variable = { aang_age = aang_birth }
-
-		add = aang_age
-	}
-
-}
-
-sozin_age = {
-	base = 0
-	modifier = {
-		set_temp_variable = { sozin_birth = 72 }
-		set_temp_variable = { sozin_age = global.year }
-		add_to_temp_variable = { sozin_age = sozin_birth }
-
-		add = sozin_age
-	}
-
-}
-
-sozin_wife_age = {
-	base = 0
-	modifier = {
-		set_temp_variable = { sozin_wife_birth = 37 }
-		set_temp_variable = { sozin_wife_age = global.year }
-		add_to_temp_variable = { sozin_wife_age = sozin_wife_birth }
-
-		add = sozin_wife_age
-	}
-}
-
-azulon_age = {
-	base = 0
-	modifier = {
-		set_temp_variable = { azulon_birth = FIR.azulon_birth_event }
-		set_temp_variable = { azulon_age = global.year }
-		subtract_from_temp_variable = { azulon_age = azulon_birth }
+		set_temp_variable = { population_cost = state_population }
+		divide_temp_variable = { population_cost = 50 }
+		round_variable = population_cost
 		
-		add = azulon_age
+		add = population_cost
 	}
-
-}
-
-ilah_age = {
-	base = 0
 	modifier = {
-		set_temp_variable = { ilah_birth = 7 }
-		set_temp_variable = { ilah_age = global.year }
-		add_to_temp_variable = { ilah_age = ilah_birth }
+		set_temp_variable = { resistance_factor = resistance }
+		divide_temp_variable = { resistance_factor = 100 }
+		round_variable = resistance_factor
+		add_to_temp_variable = { resistance_factor = 1 }
+		round_variable = resistance_factor
 		
-		add = ilah_age
+		factor = resistance_factor
+	}
+	modifier = {
+		set_temp_variable = { compliance_reduction = 1 }
+		set_temp_variable = { compliance_factor = compliance }
+		round_variable = compliance_factor
+		divide_temp_variable = { compliance_factor = 100 }
+		subtract_from_temp_variable = { compliance_reduction = compliance_factor }
+		
+		factor = compliance_reduction
+	}
+	modifier = {
+		add = 50
 	}
 
 }

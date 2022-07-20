@@ -3436,8 +3436,8 @@ NSupply = {
 	--defines to calculate the capitals supply. This will be also used for max supply of other nodes depending on how well they are connected to capital. Using the formula:
 	--CapitalSupply = CAPITAL_SUPPLY_BASE + (NumberOfCivilianFactories * CAPITAL_SUPPLY_CIVILIAN_FACTORIES) + (NumberOfMilitaryFactories * CAPITAL_SUPPLY_MILITARY_FACTORIES) + (NumberOfDockyards * CAPITAL_SUPPLY_DOCKYARDS)
 	CAPITAL_SUPPLY_BASE = 10.0, -- base supply for capital
-	CAPITAL_SUPPLY_CIVILIAN_FACTORIES = 0.3, -- supply from one civilian factory
-	CAPITAL_SUPPLY_MILITARY_FACTORIES = 0.4, -- supply from one military factory
+	CAPITAL_SUPPLY_CIVILIAN_FACTORIES = 0.4, -- supply from one civilian factory
+	CAPITAL_SUPPLY_MILITARY_FACTORIES = 0.5, -- supply from one military factory
 	CAPITAL_SUPPLY_DOCKYARDS = 0.4, --supply from one naval factory
 
 	-- defines that are used for supply reach for capital
@@ -3511,7 +3511,7 @@ NSupply = {
 
 	INFRA_TO_SUPPLY = 0.3,							-- each level of infra gives this many supply
 	VP_TO_SUPPLY_BASE = 0.0,							-- Bonus to supply from a VP, no matter the level
-	VP_TO_SUPPLY_BONUS_CONVERSION = 1,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
+	VP_TO_SUPPLY_BONUS_CONVERSION = 0.1,  --0.05,			-- Bonus to supply local supplies from Victory Points, multiplied by this aspect and rounded to closest integer
 	SUPPLY_FROM_DAMAGED_INFRA = 0.1,                -- damaged infrastructure counts as this in supply calcs
 	SUPPLY_BASE_MULT = 0.2,							-- multiplier on supply base values
 	SUPPLY_DISRUPTION_DAILY_RECOVERY = 1.5,		-- every day nodes recover this much of their accumulated disruption.

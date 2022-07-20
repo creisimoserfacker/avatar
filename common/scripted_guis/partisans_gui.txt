@@ -129,7 +129,7 @@ scripted_gui = {
 				controller = {
 					country_event = { id = occupation_mechanic.4 days = 1 }
 
-					add_political_power = -50
+					add_political_power = -mtth:THIS.core_state_cost
 				}
 				ROOT = {
 					set_state_owner = PREV
@@ -140,7 +140,7 @@ scripted_gui = {
 		triggers = {
 			occupy_state_click_enabled = {
 				ROOT = {
-					has_political_power > 49
+					has_political_power > mtth:THIS.core_state_cost
 				}
 				compliance > 59
 				#controller = {
@@ -206,10 +206,12 @@ scripted_gui = {
 		
 		effects = {
 			core_state_click = {
+				set_temp_variable = { core_state_cost = mtth:core_state_cost }
+				multiply_temp_variable = { core_state_cost = -1 }
 				controller = {
 					country_event = { id = occupation_mechanic.5 days = 1 }
 
-					add_political_power = -100
+					add_political_power = var:core_state_cost
 				}
 				THIS = {
 					add_core_of = controller
@@ -220,17 +222,25 @@ scripted_gui = {
 		triggers = {
 			core_state_click_enabled = {
 				ROOT = {
-					has_political_power > 99
+					has_political_power > mtth:THIS.core_state_cost
 					has_war = no
 				}
-				compliance > 99
-				#controller = {
-				#	core_compliance = {
-				#		occupied_country_tag = FROM.FROM
-				#		value > 99
-				#	}
-				#}
-				is_owned_by = ROOT
+				if = { limit = { has_government = imperialism }
+					check_variable = { fire_pop > 50 }
+				}
+				if = { limit = { has_government = monarchism }
+					check_variable = { earth_pop > 50 }
+				}
+				if = { limit = { has_government = tribalism }
+					check_variable = { water_pop > 50 }
+				}
+				if = { limit = { has_government = pacifism }
+					check_variable = { air_pop > 50 }
+				}
+				if = { limit = { has_government = democratica }
+					check_variable = { nonbender_pop > 50 }
+				}
+				is_controlled_by = ROOT
 				NOT = {
 					is_core_of = ROOT
 				}

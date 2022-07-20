@@ -78,22 +78,27 @@ NMapMode = {
 
 	SUPPLY_MAP_MODE_REACH_COLOR = {
 		0.0,   0.6, 0.0, 0.4, 1.0, 			-- #990066 dark purple
-		0.05,  0.4, 0.17, 0.46, 1.0, 		-- 
-		0.1,   0.2, 0.17, 0.52, 1.0, 		-- #332B85 dark purple blue
-		0.15,  0.14, 0.17, 0.56, 1.0,		-- 
-		0.2,   0.04, 0.17, 0.60, 1.0,		-- #0A2B99 dark blue
-		0.25,  0.09, 0.27, 0.62, 1.0,		-- 
-		0.3,   0.13, 0.36, 0.65, 1.0,		-- #215CA6 blue
-		0.35,  0.12, 0.46, 0.70, 1.0,		-- 
-		0.4,   0.11, 0.56, 0.75, 1.0,		-- #1C8FBF light blue
-		0.5,   0.18, 0.63, 0.76, 1.0,		-- 
-		0.6,   0.25, 0.71, 0.77, 1.0,		-- #40B5C2 teal
-		0.7,   0.36, 0.74, 0.75, 1.0,		-- 
-		0.8,   0.47, 0.8, 0.73, 1.0,		-- #78CCBA light teal
-		0.9,   0.53, 0.81, 0.66, 1.0,			-- ibt
-		1.0,   0.6, 0.82, 0.6, 1.0,			-- #99D199 light green
+		0.01,  0.4, 0.17, 0.46, 1.0, 		-- 
+		0.02,   0.2, 0.17, 0.52, 1.0, 		-- #332B85 dark purple blue
+		0.03,  0.14, 0.17, 0.56, 1.0,		-- 
+		0.04,   0.04, 0.17, 0.60, 1.0,		-- #0A2B99 dark blue
+		0.05,  0.09, 0.27, 0.62, 1.0,		-- 
+		0.06,   0.13, 0.36, 0.65, 1.0,		-- #215CA6 blue
+		0.07,  0.12, 0.46, 0.70, 1.0,		-- 
+		0.08,   0.11, 0.56, 0.75, 1.0,		-- #1C8FBF light blue
+		0.09,   0.18, 0.63, 0.76, 1.0,		-- 
+		0.1,   0.25, 0.71, 0.77, 1.0,		-- #40B5C2 teal
+		0.2,   0.36, 0.74, 0.75, 1.0,		-- 
+		0.3,   0.47, 0.8, 0.73, 1.0,		-- #78CCBA light teal
+		0.4,   0.53, 0.81, 0.66, 1.0,		-- ibt
+		0.5,   0.6, 0.82, 0.6, 1.0,			-- #99D199 light green
+		0.6,   0.55, 0.83, 0.55, 1.0,		-- 
+		0.7,   0.5, 0.84, 0.5, 1.0,			-- 
+		0.8,   0.45, 0.85, 0.45, 1.0,		-- 
+		0.9,   0.4, 0.86, 0.4, 1.0,			-- 
+		1.0,   0.35, 0.87, 0.35, 1.0,		-- 
 	}, -- (last shown when supply flow is >= SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY)
-	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 200, -- Which supply cap availibility corresponds to best heatmap color
+	SUPPLY_MAP_MODE_BEST_FLOW_DISPLAY = 1000, -- Which supply cap availibility corresponds to best heatmap color
 	SUPPLY_MAP_MODE_STATUS_COLOR = {
 		0.0,   0.9, 0.0, 0.0, 1.0,			-- #E60000 red
 		0.7,   0.98, 0.4, 0.1, 1.0,			-- #FA661A orange
@@ -776,11 +781,11 @@ NGraphics = {
 	SOUTH_POLE_OFFSET = 0.17, -- Our map is missing big parts of globe on north and south (see also in shader daynight.fxh)
 	NORTH_POLE_OFFSET = 0.93,
 	COUNTRY_FLAG_TEX_WIDTH = 82, -- Expected texture size
-	COUNTRY_FLAG_TEX_HEIGHT = 52,
+	COUNTRY_FLAG_TEX_HEIGHT = 104,
 	COUNTRY_FLAG_MEDIUM_TEX_WIDTH = 41,
-	COUNTRY_FLAG_MEDIUM_TEX_HEIGHT = 26,
+	COUNTRY_FLAG_MEDIUM_TEX_HEIGHT = 51,
 	COUNTRY_FLAG_SMALL_TEX_WIDTH = 10,
-	COUNTRY_FLAG_SMALL_TEX_HEIGHT = 7,
+	COUNTRY_FLAG_SMALL_TEX_HEIGHT = 14,
 	COUNTRY_FLAG_TEX_MAX_SIZE = 256, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
 	COUNTRY_FLAG_SMALL_TEX_MAX_SIZE = 64, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
 	COUNTRY_FLAG_STRIPE_TEX_MAX_WIDTH = 10,
