@@ -350,6 +350,18 @@ culture_value_recalc = {
 culture_setup_calculation = {
 	every_controlled_state = {
 
+		limit = {
+			NOT = {
+				OR = {
+					check_variable = { fire_pop > 0 }
+					check_variable = { water_pop > 0 }
+					check_variable = { earth_pop > 0 }
+					check_variable = { air_pop > 0 }
+					check_variable = { nonbender_pop > 0 }
+				}
+			}
+		}
+
 		set_variable = { fire_pop = PREV.party_popularity_100@imperialism }
 		set_variable = { earth_pop = PREV.party_popularity_100@monarchism }
 		set_variable = { water_pop = PREV.party_popularity_100@tribalism }
