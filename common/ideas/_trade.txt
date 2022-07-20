@@ -1,0 +1,661 @@
+ideas = {
+
+	
+	trade_laws = { 
+		law = yes
+		use_list_view = yes
+		
+		global_trade = {
+
+			available = {
+				NOT = {
+					has_idea = hidden_economy
+					OR = {
+						has_idea = remote_isolation
+						has_idea = remote_isolation_1
+					}
+				}
+				OR = {
+					has_idea = state_1
+					has_idea = state_2
+				}
+			}
+						
+			cost = 150
+			removal_cost = -1
+			level = 1
+			
+			modifier = {
+				custom_modifier_tooltip = law_level_1_ttp
+
+				min_export = 0.6
+				trade_opinion_factor = 0.8
+
+				transport_capacity = -0.4
+				
+				civilian_intel_to_others = 40.0
+				navy_intel_to_others = 20.0
+
+				supply_node_range = 0.3
+			}
+			
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+   				modifier = {
+					factor = 300
+
+					is_in_faction = no
+				}
+
+
+				# Oil for hitlers oil throne!
+   			}
+		}
+		
+		intercontinental_trade = {
+			
+			available = {
+				NOT = {
+					has_idea = hidden_economy
+					OR = {
+						has_idea = remote_isolation
+						has_idea = remote_isolation_1
+					}
+				}
+				OR = {
+					has_idea = state_1
+					has_idea = state_2
+					has_idea = state_3
+				}
+			}
+			
+			
+			cost = 150
+			removal_cost = -1
+			level = 2
+			
+			modifier = {
+				custom_modifier_tooltip = law_level_2_ttp
+
+				min_export = 0.45
+				trade_opinion_factor = 0.6
+
+				transport_capacity = -0.2
+				
+				civilian_intel_to_others = 30.0
+				navy_intel_to_others = 15.0
+
+				supply_node_range = 0.2
+			}
+			
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+				modifier = {
+					factor = 0
+					
+					is_major = no
+					has_war = no
+					is_in_faction = no
+				}
+   			}
+		}
+
+		international_trade = {
+			
+			available = {
+				NOT = {
+					has_idea = hidden_economy
+					OR = {
+						has_idea = remote_isolation
+						has_idea = remote_isolation_1
+					}
+				}
+				OR = {
+					has_idea = state_2
+					has_idea = state_3
+					has_idea = state_4
+				}
+			}
+			
+			
+			cost = 150
+			removal_cost = -1
+			level = 3
+			
+			modifier = {
+				custom_modifier_tooltip = law_level_3_ttp
+
+				min_export = 0.3
+				trade_opinion_factor = 0.6
+				
+				civilian_intel_to_others = 20.0
+				navy_intel_to_others = 10.0
+
+				supply_node_range = 0.1
+				supply_combat_penalties_on_core_factor = -0.2
+			}
+			
+			default = yes
+			
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+				modifier = {
+					factor = 0
+					
+					is_major = no
+					has_war = no
+					is_in_faction = no
+				}
+   			}
+		}
+		
+		city_markets = {
+			available = {
+				OR = {
+					has_idea = state_3
+					has_idea = state_4
+					has_idea = state_5
+					AND = {
+						has_war = yes
+						any_enemy_country = {
+							ic_ratio = { 
+								tag = ROOT 
+								ratio > 0.2
+							}
+						}
+					}
+					AND = {
+						OR = {
+							has_idea = economy_3
+							has_idea = economy_4
+							has_idea = economy_5
+						}
+					}
+				}
+				NOT = {
+					has_idea = hidden_economy
+					OR = {
+						has_idea = remote_isolation
+						has_idea = remote_isolation_1
+					}
+				}
+			}
+		
+			cost = 150
+			removal_cost = -1
+			level = 4
+			
+			modifier = {
+				custom_modifier_tooltip = law_level_4_ttp
+
+				min_export = 0.15
+
+				peoples_initiative = 0.1
+				
+				civilian_intel_to_others = 10.0
+				navy_intel_to_others = 5
+
+				supply_combat_penalties_on_core_factor = -0.4
+			}
+			
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+   				modifier = {
+					add = -1
+					
+					is_major = no
+					is_in_faction = yes
+					has_war = yes
+				}
+
+				# minors not at war should want to get the bonuses from free trade
+				modifier = {
+					add = -1
+					
+					is_major = no
+					has_war = no
+				}
+				
+				modifier = {
+					add = 1500
+					
+					# revert from closed_economy if we have large allies
+					has_idea = closed_economy
+					has_large_ally_not_pick_closed_economy = yes
+				}
+   			}
+		}
+		
+		local_markets = {
+			
+			
+			available = {
+				has_war = yes
+				OR = {
+					has_idea = state_4
+					has_idea = state_5
+				}
+				OR = {
+					has_idea = economy_5
+					has_idea = remote_isolation
+					has_idea = remote_isolation_1
+				}
+				NOT = {
+					has_idea = hidden_economy
+				}
+			}
+			
+			cost = 150
+			removal_cost = -1
+			level = 5
+			
+			
+			modifier = {
+				custom_modifier_tooltip = law_level_5_ttp
+
+				min_export = 0
+
+				peoples_initiative = 0.2
+				
+				supply_combat_penalties_on_core_factor = -0.6
+			}
+			
+			on_add = {
+				custom_effect_tooltip = closed_economy_TT
+			}
+			
+			cancel_if_invalid = no
+
+			ai_will_do = {
+   				factor = 1
+
+   				modifier = {
+					factor = 0
+					
+					is_major = no
+					is_in_faction = yes
+					has_war = yes
+				}
+
+				# minors not at war should want to get the bonuses from free trade
+				modifier = {
+					factor = 0
+					
+					is_major = no
+					has_war = no
+				}
+				
+				modifier = {
+					factor = 0
+					
+					# don't take if we have a reasonable sized ally
+					# since they will require our trades
+					has_large_ally_not_pick_closed_economy = yes
+				}
+   			}
+		}
+		
+		hidden_economy = {
+			
+			available = {
+				has_country_flag = lost_civilisation
+			}
+			visible = {
+				has_country_flag = lost_civilisation
+			}
+
+			cost = 150
+			removal_cost = -1
+			
+			
+			modifier = {
+				min_export = 0
+				civilian_intel_to_others = -100
+			}
+			
+			on_add = {
+				custom_effect_tooltip = closed_economy_TT
+			}
+			
+			cancel_if_invalid = no
+		}
+	}
+
+
+
+
+	#trade_laws = { 
+	#	law = yes
+	#	use_list_view = yes
+	#	
+	#	free_trade = {
+#
+	#		available = {
+	#			NOT = {
+	#				has_idea = hidden_economy
+	#				OR = {
+	#					has_idea = remote_isolation
+	#					has_idea = remote_isolation_1
+	#				}
+	#			}
+	#			OR = {
+	#				has_idea = state_1
+	#				has_idea = state_2
+	#			}
+	#		}
+	#					
+	#		cost = 150
+	#		removal_cost = -1
+	#		level = 1
+	#		
+	#		modifier = {
+	#			custom_modifier_tooltip = law_level_1_ttp
+#
+	#			min_export = 0.8
+	#			industrial_capacity_factory = 0.2
+	#			industrial_capacity_dockyard = 0.2
+	#			production_speed_buildings_factor = 0.2
+	#			research_speed_factor = 0.10
+	#			civilian_intel_to_others = 40.0
+	#			navy_intel_to_others = 20.0
+	#		}
+	#		
+	#		cancel_if_invalid = no
+#
+	#		ai_will_do = {
+   	#			factor = 1
+#
+   	#			modifier = {
+	#				factor = 300
+#
+	#				is_in_faction = no
+	#			}
+#
+#
+	#			# Oil for hitlers oil throne!
+   	#		}
+	#	}
+	#	
+	#	export_focus = {
+	#		
+	#		available = {
+	#			NOT = {
+	#				has_idea = hidden_economy
+	#				OR = {
+	#					has_idea = remote_isolation
+	#					has_idea = remote_isolation_1
+	#				}
+	#			}
+	#			OR = {
+	#				has_idea = state_1
+	#				has_idea = state_2
+	#				has_idea = state_3
+	#			}
+	#		}
+	#		
+	#		
+	#		cost = 150
+	#		removal_cost = -1
+	#		level = 2
+	#		
+	#		modifier = {
+	#			custom_modifier_tooltip = law_level_2_ttp
+#
+	#			min_export = 0.6
+	#			industrial_capacity_factory = 0.15
+	#			industrial_capacity_dockyard = 0.15
+	#			production_speed_buildings_factor = 0.15
+	#			research_speed_factor = 0.075
+	#			civilian_intel_to_others = 30.0
+	#			navy_intel_to_others = 15.0
+	#		}
+	#		
+	#		cancel_if_invalid = no
+#
+	#		ai_will_do = {
+   	#			factor = 1
+#
+	#			modifier = {
+	#				factor = 0
+	#				
+	#				is_major = no
+	#				has_war = no
+	#				is_in_faction = no
+	#			}
+   	#		}
+	#	}
+#
+	#	regulated_trade = {
+	#		
+	#		available = {
+	#			NOT = {
+	#				has_idea = hidden_economy
+	#				OR = {
+	#					has_idea = remote_isolation
+	#					has_idea = remote_isolation_1
+	#				}
+	#			}
+	#			OR = {
+	#				has_idea = state_2
+	#				has_idea = state_3
+	#				has_idea = state_4
+	#			}
+	#		}
+	#		
+	#		
+	#		cost = 150
+	#		removal_cost = -1
+	#		level = 3
+	#		
+	#		modifier = {
+	#			custom_modifier_tooltip = law_level_3_ttp
+#
+	#			min_export = 0.4
+	#			industrial_capacity_factory = 0.1
+	#			industrial_capacity_dockyard = 0.1
+	#			production_speed_buildings_factor = 0.1
+	#			research_speed_factor = 0.05
+	#			civilian_intel_to_others = 20.0
+	#			navy_intel_to_others = 10.0
+	#		}
+	#		
+	#		default = yes
+	#		
+	#		cancel_if_invalid = no
+#
+	#		ai_will_do = {
+   	#			factor = 1
+#
+	#			modifier = {
+	#				factor = 0
+	#				
+	#				is_major = no
+	#				has_war = no
+	#				is_in_faction = no
+	#			}
+   	#		}
+	#	}
+	#	
+	#	limited_exports = {
+	#		available = {
+	#			OR = {
+	#				has_idea = state_3
+	#				has_idea = state_4
+	#				has_idea = state_5
+	#				AND = {
+	#					has_war = yes
+	#					any_enemy_country = {
+	#						ic_ratio = { 
+	#							tag = ROOT 
+	#							ratio > 0.2
+	#						}
+	#					}
+	#				}
+	#				AND = {
+	#					OR = {
+	#						has_idea = economy_3
+	#						has_idea = economy_4
+	#						has_idea = economy_5
+	#					}
+	#				}
+	#			}
+	#			NOT = {
+	#				has_idea = hidden_economy
+	#				OR = {
+	#					has_idea = remote_isolation
+	#					has_idea = remote_isolation_1
+	#				}
+	#			}
+	#		}
+	#	
+	#		cost = 150
+	#		removal_cost = -1
+	#		level = 4
+	#		
+	#		modifier = {
+	#			custom_modifier_tooltip = law_level_4_ttp
+#
+	#			min_export = 0.2
+	#			industrial_capacity_factory = 0.05
+	#			industrial_capacity_dockyard = 0.05
+	#			production_speed_buildings_factor = 0.05
+	#			research_speed_factor = 0.025
+	#			civilian_intel_to_others = 10.0
+	#			navy_intel_to_others = 5
+	#		}
+	#		
+	#		cancel_if_invalid = no
+#
+	#		ai_will_do = {
+   	#			factor = 1
+#
+   	#			modifier = {
+	#				add = -1
+	#				
+	#				is_major = no
+	#				is_in_faction = yes
+	#				has_war = yes
+	#			}
+#
+	#			# minors not at war should want to get the bonuses from free trade
+	#			modifier = {
+	#				add = -1
+	#				
+	#				is_major = no
+	#				has_war = no
+	#			}
+	#			
+	#			modifier = {
+	#				add = 1500
+	#				
+	#				# revert from closed_economy if we have large allies
+	#				has_idea = closed_economy
+	#				has_large_ally_not_pick_closed_economy = yes
+	#			}
+   	#		}
+	#	}
+	#	
+	#	closed_economy = {
+	#		
+	#		
+	#		available = {
+	#			has_war = yes
+	#			OR = {
+	#				has_idea = state_4
+	#				has_idea = state_5
+	#			}
+	#			OR = {
+	#				has_idea = economy_5
+	#				has_idea = remote_isolation
+	#				has_idea = remote_isolation_1
+	#			}
+	#			NOT = {
+	#				has_idea = hidden_economy
+	#			}
+	#		}
+	#		
+	#		cost = 150
+	#		removal_cost = -1
+	#		level = 5
+	#		
+	#		
+	#		modifier = {
+	#			custom_modifier_tooltip = law_level_5_ttp
+#
+	#			min_export = 0
+	#			#civilian_intel_to_others = 0.0
+	#		}
+	#		
+	#		on_add = {
+	#			custom_effect_tooltip = closed_economy_TT
+	#		}
+	#		
+	#		cancel_if_invalid = no
+#
+	#		ai_will_do = {
+   	#			factor = 1
+#
+   	#			modifier = {
+	#				factor = 0
+	#				
+	#				is_major = no
+	#				is_in_faction = yes
+	#				has_war = yes
+	#			}
+#
+	#			# minors not at war should want to get the bonuses from free trade
+	#			modifier = {
+	#				factor = 0
+	#				
+	#				is_major = no
+	#				has_war = no
+	#			}
+	#			
+	#			modifier = {
+	#				factor = 0
+	#				
+	#				# don't take if we have a reasonable sized ally
+	#				# since they will require our trades
+	#				has_large_ally_not_pick_closed_economy = yes
+	#			}
+   	#		}
+	#	}
+	#	
+	#	hidden_economy = {
+	#		
+	#		available = {
+	#			has_country_flag = lost_civilisation
+	#		}
+	#		visible = {
+	#			has_country_flag = lost_civilisation
+	#		}
+#
+	#		cost = 150
+	#		removal_cost = -1
+	#		
+	#		
+	#		modifier = {
+	#			min_export = 0
+	#			civilian_intel_to_others = -100
+	#		}
+	#		
+	#		on_add = {
+	#			custom_effect_tooltip = closed_economy_TT
+	#		}
+	#		
+	#		cancel_if_invalid = no
+	#	}
+	#}
+}
