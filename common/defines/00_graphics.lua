@@ -888,8 +888,8 @@ NGraphics = {
 	SUN_HEIGHT_WATER  = 5000,  -- higher means softer shadows and more intense light
 	MOON_LATITUDE = 0, -- NOT USED
 	SUN_LATITUDE  = 848,
-	SECOND_MOON_LATITUDE = 100, -- Used to put a "fake" sun/moon on the other side of the globe to hide the seem that would otherwise appear there
-	SECOND_SUN_LATITUDE = 100,
+	SECOND_MOON_LATITUDE = 848, -- Used to put a "fake" sun/moon on the other side of the globe to hide the seem that would otherwise appear there
+	SECOND_SUN_LATITUDE = 848,
 
 	-- hsv color ambient light
 	AMBIENT_LIGHT_POS_X = { 0.2,  0.2, 0.2 }, -- right
@@ -902,7 +902,7 @@ NGraphics = {
 	SUN_DIFFUSE_COLOR   = {0.14, 0.0, 1.0},
 	SUN_INTENSITY 		= 1.0; -- 0.4
 	MOON_DIFFUSE_COLOR  = {0.58, 0.5, 1.0},
-	MOON_INTENSITY 		= 2.5;
+	MOON_INTENSITY 		= 4.5;
 
 	CUBEMAP_INTENSITY = 1.0,
 	

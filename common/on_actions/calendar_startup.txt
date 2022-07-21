@@ -1,0 +1,162 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+
+			### hemispheres
+			random_country = {
+				hemisphere_setup = yes
+			}
+
+
+			#### startdate 1
+
+			if = {
+				limit = {
+					has_start_date < 13.1.1
+				}
+				set_variable = { global.calendar_month = 1 }
+				set_variable = { global.calendar_year = 12 }
+
+				set_variable = { global.flood_year = 14 }
+				set_variable = { global.flood_month = 8 }
+				set_variable = { global.flood_day = 3 }
+				set_variable = { global.flood_state = 50 }
+
+				set_variable = { global.tornado_year = 15 }
+				set_variable = { global.tornado_month = 6 }
+				set_variable = { global.tornado_day = 8 }
+				set_variable = { global.tornado_state = 200 }
+
+				set_variable = { global.drought_year = 13 }
+				set_variable = { global.drought_month = 3 }
+				set_variable = { global.drought_day = 2 }
+				set_variable = { global.drought_state = 150 }
+
+				set_variable = { global.earthquake_year = 17 }
+				set_variable = { global.earthquake_month = 4 }
+				set_variable = { global.earthquake_day = 5 }
+				set_variable = { global.earthquake_state = 210 }
+
+				set_variable = { global.volcano_year = 21 }
+				set_variable = { global.volcano_month = 1 }
+				set_variable = { global.volcano_day = 26 }
+				set_variable = { global.volcano_state = 230 }
+
+				set_variable = { global.black_sun_year = 19 }
+				set_variable = { global.black_sun_month = 5 }
+				set_variable = { global.black_sun_day = 17 }
+
+				set_variable = { global.full_moon_year = 12 }
+				set_variable = { global.full_moon_month = 1 }
+				set_variable = { global.full_moon_day = 27 }
+
+				set_variable = { global.great_comet_year = 12 }
+				set_variable = { global.great_comet_month = 8 }
+				set_variable = { global.great_comet_day = 20 }
+
+				set_variable = { global.meteor_rain_year = 37 }
+				set_variable = { global.meteor_rain_month = 9 }
+				set_variable = { global.meteor_rain_day = 12 }
+
+				set_variable = { global.lunar_eclipse_year = 16 }
+				set_variable = { global.lunar_eclipse_month = 7 }
+				set_variable = { global.lunar_eclipse_day = 18 }
+
+				random_country = {
+					news_event = { id = calendar.5 }
+				}
+			}
+
+			if = {
+				limit = {
+					has_start_date > 13.1.1
+					has_start_date < 60.1.1
+				}
+				set_variable = { global.calendar_month = 5 }
+				set_variable = { global.calendar_year = 52 }
+
+				set_variable = { global.flood_year = 57 }
+				set_variable = { global.flood_month = 8 }
+				set_variable = { global.flood_day = 3 }
+				set_variable = { global.flood_state = 50 }
+
+				set_variable = { global.tornado_year = 58 }
+				set_variable = { global.tornado_month = 6 }
+				set_variable = { global.tornado_day = 8 }
+				set_variable = { global.tornado_state = 200 }
+
+				set_variable = { global.drought_year = 55 }
+				set_variable = { global.drought_month = 3 }
+				set_variable = { global.drought_day = 2 }
+				set_variable = { global.drought_state = 150 }
+
+				set_variable = { global.earthquake_year = 52 }
+				set_variable = { global.earthquake_month = 7 }
+				set_variable = { global.earthquake_day = 5 }
+				set_variable = { global.earthquake_state = 210 }
+
+				set_variable = { global.volcano_year = 60 }
+				set_variable = { global.volcano_month = 1 }
+				set_variable = { global.volcano_day = 26 }
+				set_variable = { global.volcano_state = 230 }
+
+				set_variable = { global.black_sun_year = 59 }
+				set_variable = { global.black_sun_month = 5 }
+				set_variable = { global.black_sun_day = 17 }
+
+				set_variable = { global.full_moon_year = 52 }
+				set_variable = { global.full_moon_month = 7 }
+				set_variable = { global.full_moon_day = 12 }
+
+				set_variable = { global.great_comet_year = 112 }
+				set_variable = { global.great_comet_month = 8 }
+				set_variable = { global.great_comet_day = 20 }
+
+				set_variable = { global.meteor_rain_year = 72 }
+				set_variable = { global.meteor_rain_month = 9 }
+				set_variable = { global.meteor_rain_day = 12 }
+
+				set_variable = { global.lunar_eclipse_year = 68 }
+				set_variable = { global.lunar_eclipse_month = 7 }
+				set_variable = { global.lunar_eclipse_day = 18 }
+
+				random_country = {
+					news_event = { id = calendar.2 }
+				}
+			}
+
+			if = {
+				limit = {
+					has_start_date > 56.1.1
+					has_start_date < 107.1.1
+				}
+				set_variable = { global.calendar_month = 2 }
+				set_variable = { global.calendar_year = 106 }
+
+				random_country = {
+					news_event = { id = calendar.5 }
+				}
+			}
+
+			if = {
+				limit = {
+					has_start_date > 107.1.1
+					has_start_date < 120.1.1
+				}
+				set_variable = { global.calendar_month = 10 }
+				set_variable = { global.calendar_year = 111 }
+
+				random_country = {
+					news_event = { id = calendar.4 }
+				}
+			}
+			
+
+			random_country = {
+				set_country_flag = calculator
+			}
+		}
+	}
+
+}

@@ -49,9 +49,108 @@ scripted_gui = {
 			check_variable = { show_calendar > 0 }
 		}
 
+		triggers = {
+			flood_buy_click_enabled = {
+				check_variable = { knowledge_variable > 5}
+				check_variable = { flood_intel < 100 }
+			}
+			drought_buy_click_enabled = {
+				check_variable = { knowledge_variable > 20}
+				check_variable = { drough_intel < 100 }
+			}
+			volcano_buy_click_enabled = {
+				check_variable = { knowledge_variable > 25}
+				check_variable = { volcano_intel < 100 }
+			}
+			tornado_buy_click_enabled = {
+				check_variable = { knowledge_variable > 15}
+				check_variable = { tornado_intel < 100 }
+			}
+			earthquake_buy_click_enabled = {
+				check_variable = { knowledge_variable > 20}
+				check_variable = { earthquake_intel < 100 }
+			}
+
+			full_moon_buy_click_enabled = {
+				check_variable = { knowledge_variable > 1}
+				check_variable = { full_moon_intel < 100 }
+			}
+			black_sun_buy_click_enabled = {
+				check_variable = { knowledge_variable > 50}
+				check_variable = { black_sun_intel < 100 }
+			}
+			comet_rain_buy_click_enabled = {
+				check_variable = { knowledge_variable > 75}
+				check_variable = { meteor_rain_intel < 100 }
+			}
+			great_comet_buy_click_enabled = {
+				check_variable = { knowledge_variable > 20}
+				check_variable = { great_comet_intel < 100 }
+			}
+			lunar_eclipse_buy_click_enabled = {
+				check_variable = { knowledge_variable > 50}
+				check_variable = { lunar_eclipse_intel < 100 }
+			}
+		}
+
 		effects = {
 			calendar_close_click = {
 				set_variable = { show_calendar = 0 }
+			}
+			test_buy_click = {
+				set_variable = { flood_intel = 100 }
+				set_variable = { drought_intel = 100 }
+				set_variable = { tornado_intel = 100 }
+				set_variable = { earthquake_intel = 100 }
+				set_variable = { volcano_intel = 100 }
+
+				set_variable = { full_moon_intel = 100 }
+				set_variable = { black_sun_intel = 100 }
+				set_variable = { meteor_rain_intel = 100 }
+				set_variable = { great_comet_intel = 100 }
+				set_variable = { lunar_eclipse_intel = 100 }
+			}
+
+			flood_buy_click = {
+				add_to_variable = { flood_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 5 }
+			}
+			drought_buy_click = {
+				add_to_variable = { drought_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 20 }
+			}
+			volcano_buy_click = {
+				add_to_variable = { volcano_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 25 }
+			}
+			tornado_buy_click = {
+				add_to_variable = { tornado_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 15 }
+			}
+			earthquake_buy_click = {
+				add_to_variable = { earthquake_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 20 }
+			}
+
+			full_moon_buy_click = {
+				add_to_variable = { full_moon_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 1 }
+			}
+			black_sun_buy_click = {
+				add_to_variable = { black_sun_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 50 }
+			}
+			comet_rain_buy_click = {
+				add_to_variable = { meteor_rain_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 75 }
+			}
+			great_comet_buy_click = {
+				add_to_variable = { great_comet_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 20 }
+			}
+			lunar_eclipse_buy_click = {
+				add_to_variable = { lunar_eclipse_intel = 10 }
+				subtract_from_variable = { knowledge_variable = 50 }
 			}
 		}
 
@@ -71,6 +170,38 @@ scripted_gui = {
 			calendar_left = {
 				image = GFX_seasons_strip
 				frame = global.season_frame_4
+			}
+
+			flood_buy_unlock = {
+				frame = flood_buy_unlock
+			}
+			drought_buy_unlock = {
+				frame = drought_buy_unlock
+			}
+			volcano_buy_unlock = {
+				frame = volcano_buy_unlock
+			}
+			tornado_buy_unlock = {
+				frame = tornado_buy_unlock
+			}
+			earthquake_buy_unlock = {
+				frame = earthquake_buy_unlock
+			}
+
+			full_moon_buy_unlock = {
+				frame = full_moon_buy_unlock
+			}
+			black_sun_buy_unlock = {
+				frame = black_sun_buy_unlock
+			}
+			comet_rain_buy_unlock = {
+				frame = comet_rain_buy_unlock
+			}
+			great_comet_buy_unlock = {
+				frame = great_comet_buy_unlock
+			}
+			lunar_eclipse_buy_unlock = {
+				frame = lunar_eclipse_buy_unlock
 			}
 		}
 

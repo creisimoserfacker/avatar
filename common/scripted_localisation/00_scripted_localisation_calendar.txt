@@ -89,7 +89,7 @@ defined_text = {
 				compare = greater_than_or_equals
 			}
 		}
-		localization_key = [?global.flood_state]
+		localization_key = flood_state_key
 	}
 }
 
@@ -120,7 +120,7 @@ defined_text = {
 	name = GetTornadoMonth
 	text = {
 		trigger = {
-			check_variable = { tornado_intel < 40 }
+			check_variable = { tornado_intel < 20 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -128,7 +128,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = tornado_intel
-				value = 40
+				value = 20
 				compare = greater_than_or_equals
 			}
 		}
@@ -138,6 +138,26 @@ defined_text = {
 
 defined_text = {
 	name = GetTornadoDay
+	text = {
+		trigger = {
+			check_variable = { tornado_intel < 30 }
+		}
+		localization_key = calendar_unknown
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = tornado_intel
+				value = 30
+				compare = greater_than_or_equals
+			}
+		}
+		localization_key = [?global.tornado_day]
+	}
+}
+
+defined_text = {
+	name = GetTornadoState
 	text = {
 		trigger = {
 			check_variable = { tornado_intel < 70 }
@@ -152,27 +172,7 @@ defined_text = {
 				compare = greater_than_or_equals
 			}
 		}
-		localization_key = [?global.tornado_day]
-	}
-}
-
-defined_text = {
-	name = GetTornadoState
-	text = {
-		trigger = {
-			check_variable = { tornado_intel < 90 }
-		}
-		localization_key = calendar_unknown
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = tornado_intel
-				value = 90
-				compare = greater_than_or_equals
-			}
-		}
-		localization_key = [?global.tornado_state]
+		localization_key = tornado_state_key
 	}
 }
 
@@ -183,7 +183,7 @@ defined_text = {
 	name = GetDroughtYear
 	text = {
 		trigger = {
-			check_variable = { drought_intel < 10 }
+			check_variable = { drought_intel < 20 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -191,7 +191,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = drought_intel
-				value = 10
+				value = 20
 				compare = greater_than_or_equals
 			}
 		}
@@ -223,7 +223,7 @@ defined_text = {
 	name = GetDroughtDay
 	text = {
 		trigger = {
-			check_variable = { drought_intel < 70 }
+			check_variable = { drought_intel < 60 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -231,7 +231,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = drought_intel
-				value = 70
+				value = 60
 				compare = greater_than_or_equals
 			}
 		}
@@ -243,7 +243,7 @@ defined_text = {
 	name = GetDroughtState
 	text = {
 		trigger = {
-			check_variable = { drought_intel < 90 }
+			check_variable = { drought_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -251,11 +251,11 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = drought_intel
-				value = 90
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
-		localization_key = [?global.drought_state]
+		localization_key = drought_state_key
 	}
 }
 
@@ -267,7 +267,7 @@ defined_text = {
 	name = GetEarthquakeYear
 	text = {
 		trigger = {
-			check_variable = { earthquake_intel < 10 }
+			check_variable = { earthquake_intel < 20 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -275,7 +275,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = earthquake_intel
-				value = 10
+				value = 20
 				compare = greater_than_or_equals
 			}
 		}
@@ -307,7 +307,7 @@ defined_text = {
 	name = GetEarthquakeDay
 	text = {
 		trigger = {
-			check_variable = { earthquake_intel < 70 }
+			check_variable = { earthquake_intel < 60 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -315,7 +315,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = earthquake_intel
-				value = 70
+				value = 60
 				compare = greater_than_or_equals
 			}
 		}
@@ -327,7 +327,7 @@ defined_text = {
 	name = GetEarthquakeState
 	text = {
 		trigger = {
-			check_variable = { earthquake_intel < 90 }
+			check_variable = { earthquake_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -335,11 +335,11 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = earthquake_intel
-				value = 90
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
-		localization_key = [?global.earthquake_state]
+		localization_key = earthquake_state_key
 	}
 }
 
@@ -350,7 +350,7 @@ defined_text = {
 	name = GetVolcanoYear
 	text = {
 		trigger = {
-			check_variable = { volcano_intel < 10 }
+			check_variable = { volcano_intel < 20 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -358,7 +358,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = volcano_intel
-				value = 10
+				value = 20
 				compare = greater_than_or_equals
 			}
 		}
@@ -390,7 +390,7 @@ defined_text = {
 	name = GetVolcanoDay
 	text = {
 		trigger = {
-			check_variable = { volcano_intel < 70 }
+			check_variable = { volcano_intel < 60 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -398,7 +398,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = volcano_intel
-				value = 70
+				value = 60
 				compare = greater_than_or_equals
 			}
 		}
@@ -410,7 +410,7 @@ defined_text = {
 	name = GetVolcanoState
 	text = {
 		trigger = {
-			check_variable = { volcano_intel < 90 }
+			check_variable = { volcano_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -418,11 +418,11 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = volcano_intel
-				value = 90
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
-		localization_key = [?global.volcano_state]
+		localization_key = volcano_state_key
 	}
 }
 
@@ -434,7 +434,7 @@ defined_text = {
 	name = GetBlackSunYear
 	text = {
 		trigger = {
-			check_variable = { black_sun_intel < 10 }
+			check_variable = { black_sun_intel < 65 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -442,7 +442,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = black_sun_intel
-				value = 10
+				value = 65
 				compare = greater_than_or_equals
 			}
 		}
@@ -454,7 +454,7 @@ defined_text = {
 	name = GetBlackSunMonth
 	text = {
 		trigger = {
-			check_variable = { black_sun_intel < 40 }
+			check_variable = { black_sun_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -462,7 +462,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = black_sun_intel
-				value = 40
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
@@ -474,7 +474,7 @@ defined_text = {
 	name = GetBlackSunDay
 	text = {
 		trigger = {
-			check_variable = { black_sun_intel < 90 }
+			check_variable = { black_sun_intel < 95 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -482,7 +482,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = black_sun_intel
-				value = 90
+				value = 95
 				compare = greater_than_or_equals
 			}
 		}
@@ -498,7 +498,7 @@ defined_text = {
 	name = GetFullMoonYear
 	text = {
 		trigger = {
-			check_variable = { full_moon_intel < 10 }
+			check_variable = { full_moon_intel < 0 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -506,7 +506,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = full_moon_intel
-				value = 10
+				value = 0
 				compare = greater_than_or_equals
 			}
 		}
@@ -518,7 +518,7 @@ defined_text = {
 	name = GetFullMoonMonth
 	text = {
 		trigger = {
-			check_variable = { full_moon_intel < 40 }
+			check_variable = { full_moon_intel < 20 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -526,7 +526,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = full_moon_intel
-				value = 40
+				value = 20
 				compare = greater_than_or_equals
 			}
 		}
@@ -538,7 +538,7 @@ defined_text = {
 	name = GetFullMoonDay
 	text = {
 		trigger = {
-			check_variable = { full_moon_intel < 90 }
+			check_variable = { full_moon_intel < 30 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -546,7 +546,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = full_moon_intel
-				value = 90
+				value = 30
 				compare = greater_than_or_equals
 			}
 		}
@@ -601,7 +601,7 @@ defined_text = {
 	name = GetGreatCometDay
 	text = {
 		trigger = {
-			check_variable = { great_comet_intel < 90 }
+			check_variable = { great_comet_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -609,7 +609,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = great_comet_intel
-				value = 90
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
@@ -624,7 +624,7 @@ defined_text = {
 	name = GetMeteorRainYear
 	text = {
 		trigger = {
-			check_variable = { meteor_rain_intel < 10 }
+			check_variable = { meteor_rain_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -632,7 +632,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = meteor_rain_intel
-				value = 10
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
@@ -644,7 +644,7 @@ defined_text = {
 	name = GetMeteorRainMonth
 	text = {
 		trigger = {
-			check_variable = { meteor_rain_intel < 40 }
+			check_variable = { meteor_rain_intel < 90 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -652,7 +652,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = meteor_rain_intel
-				value = 40
+				value = 90
 				compare = greater_than_or_equals
 			}
 		}
@@ -664,7 +664,7 @@ defined_text = {
 	name = GetMeteorRainDay
 	text = {
 		trigger = {
-			check_variable = { meteor_rain_intel < 90 }
+			check_variable = { meteor_rain_intel < 95 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -672,7 +672,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = meteor_rain_intel
-				value = 90
+				value = 95
 				compare = greater_than_or_equals
 			}
 		}
@@ -688,26 +688,6 @@ defined_text = {
 	name = GetLunarEclipseYear
 	text = {
 		trigger = {
-			check_variable = { lunar_eclipse_intel < 10 }
-		}
-		localization_key = calendar_unknown
-	}
-	text = {
-		trigger = {
-			check_variable = {
-				var = lunar_eclipse_intel
-				value = 10
-				compare = greater_than_or_equals
-			}
-		}
-		localization_key = [?global.lunar_eclipse_year]
-	}
-}
-
-defined_text = {
-	name = GetLunarEclipseMonth
-	text = {
-		trigger = {
 			check_variable = { lunar_eclipse_intel < 40 }
 		}
 		localization_key = calendar_unknown
@@ -720,6 +700,26 @@ defined_text = {
 				compare = greater_than_or_equals
 			}
 		}
+		localization_key = [?global.lunar_eclipse_year]
+	}
+}
+
+defined_text = {
+	name = GetLunarEclipseMonth
+	text = {
+		trigger = {
+			check_variable = { lunar_eclipse_intel < 70 }
+		}
+		localization_key = calendar_unknown
+	}
+	text = {
+		trigger = {
+			check_variable = {
+				var = lunar_eclipse_intel
+				value = 70
+				compare = greater_than_or_equals
+			}
+		}
 		localization_key = [?global.lunar_eclipse_month]
 	}
 }
@@ -728,7 +728,7 @@ defined_text = {
 	name = GetLunarEclipseDay
 	text = {
 		trigger = {
-			check_variable = { lunar_eclipse_intel < 90 }
+			check_variable = { lunar_eclipse_intel < 80 }
 		}
 		localization_key = calendar_unknown
 	}
@@ -736,7 +736,7 @@ defined_text = {
 		trigger = {
 			check_variable = {
 				var = lunar_eclipse_intel
-				value = 90
+				value = 80
 				compare = greater_than_or_equals
 			}
 		}
