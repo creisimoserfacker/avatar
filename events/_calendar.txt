@@ -2,6 +2,7 @@
 add_namespace = calendar
 add_namespace = nature
 add_namespace = watertribe_barbarians
+add_namespace = calendar_event
 
 news_event = {
 	id = calendar.1
@@ -235,9 +236,9 @@ country_event = {
 
 # Sozins Comet
 news_event = {
-	id = calendar.6
-	title = news.1.t
-	desc = news.1.d
+	id = calendar_event.1
+	title = calendar_event.1.t
+	desc = calendar_event.1.d
 	picture = GFX_avatar_news_event_001
 	is_triggered_only = yes
 
@@ -246,20 +247,70 @@ news_event = {
 	immediate = {
 		hidden_effect = {
 			set_global_flag = sozins_comet_first
+
+			random_country = {
+				news_event = {
+					id = hidden.1
+					days = 20
+				}
+			}
+
+			every_country = {
+				add_dynamic_modifier = {
+					modifier = great_comet
+					days = 100
+				}
+			}
+
+			if = {
+				limit = {
+					EAR = {
+						has_country_flag = genocide_active
+					}
+				}
+				EAR = {
+					country_event = { id = air_gen.2 days = 1 }
+				}
+			}
+			if = {
+				limit = {
+					FIR = {
+						has_country_flag = genocide_active
+					}
+				}
+				FIR = {
+					country_event = { id = air_gen.8 days = 1 }
+				}
+			}
+		}
+
+		create_entity = { 
+			entity = great_comet_entity
+			id = great_comet
+			x = 0
+			y = 0
+			z = 200
+			province = 10785
+			rotation = 4
+			scale = 1.0
+			min_zoom = 5000.0
 		}
 	}
 
 	option = {
-		name = news.1.a
+		name = calendar_event.1.a
 		trigger = { 
 			TAG = FIR
 			NOT = {
 				has_country_flag = genocide_active
 			}
 		}
+		hidden_effect = {
+			scoped_sound_effect = "great_comet_sound"
+		}
 	}
 	option = {
-		name = news.1.b
+		name = calendar_event.1.b
 		trigger = { 
 			OR = {
 				TAG = FIR
@@ -267,9 +318,12 @@ news_event = {
 			}
 			has_country_flag = genocide_active
 		}
+		hidden_effect = {
+			scoped_sound_effect = "great_comet_sound"
+		}
 	}
 	option = {
-		name = news.1.c
+		name = calendar_event.1.c
 		trigger = {
 			NOT = {
 				TAG = FIR
@@ -286,60 +340,12 @@ news_event = {
 				}
 			}
 		}
+		hidden_effect = {
+			scoped_sound_effect = "great_comet_sound"
+		}
 	}
 }
 
-# Comet Trigger (HIDDEN)
-#news_event = {
-#	id = hidden.1
-#	hidden = yes
-#	
-#	fire_only_once = yes
-#	
-#	trigger = {
-#		date > 12.8.1
-#		date < 12.8.20
-#		#country_exists = FIR
-#		NOT = { has_global_flag = sozins_comet_first }
-#	}
-#	
-#	immediate = {
-#		FIR = { 
-#			news_event = { id = news.1 days = 12 }
-#		}
-#		every_country = {
-#			add_dynamic_modifier = {
-#				modifier = great_comet
-#				days = 100
-#			}
-#		}
-#
-#		if = {
-#			limit = {
-#				EAR = {
-#					has_country_flag = genocide_active
-#				}
-#			}
-#			EAR = {
-#				country_event = { id = air_gen.2 days = 1 }
-#			}
-#		}
-#		if = {
-#			limit = {
-#				FIR = {
-#					has_country_flag = genocide_active
-#				}
-#			}
-#			FIR = {
-#				country_event = { id = air_gen.8 days = 1 }
-#			}
-#		}
-#	}
-#	
-#	option = {
-#		name = hidden.1.a
-#	}
-#}
 
 country_event = {
 	id = watertribe_barbarians.1

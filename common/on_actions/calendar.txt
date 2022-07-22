@@ -114,6 +114,16 @@ on_actions = {
 					}
 				}
 
+				### great comet
+
+				if = {
+					limit = {
+						check_variable = { global.year = global.great_comet_year }
+						check_variable = { global.calendar_month = global.great_comet_month }
+					}
+					news_event = { id = calendar_event.1 days = global.great_comet_day }
+				}
+
 				### volcano
 
 				random_list = {

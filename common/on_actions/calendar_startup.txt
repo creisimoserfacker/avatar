@@ -41,7 +41,14 @@ on_actions = {
 				set_variable = { global.volcano_year = 21 }
 				set_variable = { global.volcano_month = 1 }
 				set_variable = { global.volcano_day = 26 }
-				set_variable = { global.volcano_state = 230 }
+				random_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = volcano
+						}
+					}
+					set_variable = { global.volcano_state = THIS.id }
+				}
 
 				set_variable = { global.black_sun_year = 19 }
 				set_variable = { global.black_sun_month = 5 }
@@ -99,7 +106,14 @@ on_actions = {
 				set_variable = { global.volcano_year = 60 }
 				set_variable = { global.volcano_month = 1 }
 				set_variable = { global.volcano_day = 26 }
-				set_variable = { global.volcano_state = 230 }
+				random_state = {
+					limit = {
+						has_dynamic_modifier = {
+							modifier = volcano
+						}
+					}
+					set_variable = { global.volcano_state = THIS.id }
+				}
 
 				set_variable = { global.black_sun_year = 59 }
 				set_variable = { global.black_sun_month = 5 }

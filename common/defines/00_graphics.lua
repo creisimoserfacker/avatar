@@ -601,7 +601,7 @@ NGraphics = {
 	RAILWAY_BRIDGE_LARGE_WIDTH = 4.5,				-- Railways will have straight segments of this length for large bridges
 	RAILWAY_BRIDGE_GAP_WIDTH = 2.4,					-- Railways will have gaps of this length for regular bridges
 	RAILWAY_BRIDGE_GAP_LARGE_WIDTH = 2.6,			-- Railways will have gaps of this length for large bridges
-	TRAIN_MAP_SPEED = 1.5,							-- Trains will move at this relative speed. This has no gameplay implications. Changing this value (originally 4.0) may cause audio effects to lose sync with animation.
+	TRAIN_MAP_SPEED = 1.4,							-- Trains will move at this relative speed. This has no gameplay implications. Changing this value (originally 4.0) may cause audio effects to lose sync with animation.
 	TUNNELBANA_TIMETABLE = { 10000, 100000 },			-- Frequency range in milliseconds for regular train service. Adjust this if changing speed to avoid LONGTRAIN
 
 	MAX_MESHES_LOADED_PER_FRAME = 10,
@@ -1277,7 +1277,7 @@ NFrontend = {
 	CAMERA_END_Y = 1000.0,
 	CAMERA_END_Z = 1400.0,
 	CAMERA_MIN_HEIGHT = 40.0,						-- Minimum camera height 50 is vanilla 30 too low
-	CAMERA_MAX_HEIGHT = 3000.0,						-- Maximum camera height
+	CAMERA_MAX_HEIGHT = 2980.0,						-- Maximum camera height
 	CAMERA_SPEED_IN_MENUS = 0.1,
 	CAMERA_INTERPOLATION_SPEED = 0.19,
 	
