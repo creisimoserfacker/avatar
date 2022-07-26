@@ -15,6 +15,15 @@ set_country_flag = WATER_special_forces
 
 set_cosmetic_tag = SWT_tribes
 
+OOB = "SWT_12"
+if = {
+	limit = { has_dlc = "Man the Guns" }
+	set_naval_oob = "SWT_12_naval_mtg"
+	else = {
+		set_naval_oob = "SWT_12_naval_legacy"
+	}
+}	
+
 set_technology = {
 # infantry
 	basic_armor = 1
@@ -214,17 +223,6 @@ if = {
 	}
 
 }
-12.1.1 = {
-	OOB = "SWT_12"
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "SWT_12_naval_mtg"
-		else = {
-			set_naval_oob = "SWT_12_naval_legacy"
-		}
-	}	
-}
-
 52.5.16 ={
 
 	OOB = "SWT_52"
@@ -237,69 +235,69 @@ if = {
 	}	
 
 
-set_variable = { var = SWT_unity_support value = 38 }
-set_variable = { var = SWT_unity_total value = 100 }
-SWT_recalc_unity_icon_frames = yes
-
-add_ideas = {
-	intercontinental_trade
-	water_exceptional
-	economy_1
-	limited_water_conscription
-	family_support_3
-	tribal_education
-
-	united_confederation
-}
-remove_ideas = {
-	loose_confederation
-	remote_isolation
-}
+	set_variable = { var = SWT_unity_support value = 38 }
+	set_variable = { var = SWT_unity_total value = 100 }
+	SWT_recalc_unity_icon_frames = yes
+	
+	add_ideas = {
+		intercontinental_trade
+		water_exceptional
+		economy_1
+		limited_water_conscription
+		family_support_3
+		tribal_education
+	
+		united_confederation
+	}
+	remove_ideas = {
+		loose_confederation
+		remote_isolation
+	}
 
 
 }
 
 106.2.4 ={
-OOB = "SWT_106"
-set_variable = { var = SWT_unity_support value = 24 }
-set_variable = { var = SWT_unity_total value = 100 }
-SWT_recalc_unity_icon_frames = yes
+	OOB = "SWT_106"
+	set_variable = { var = SWT_unity_support value = 24 }
+	set_variable = { var = SWT_unity_total value = 100 }
+	SWT_recalc_unity_icon_frames = yes
 
 
-add_ideas = {
-	local_markets
-	extensive_conscription
-	economy_3
-	water_indiscriminate
-	family_support_5
-	tribal_education
+	add_ideas = {
+		local_markets
+		extensive_conscription
+		economy_3
+		water_indiscriminate
+		family_support_5
+		tribal_education
 
-	water_raids_100
-}
-
-retire_character = SWT_salota
-
-set_technology = {
-
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "Man the Guns" }
+		water_raids_100
 	}
+
+	retire_character = SWT_salota
+
 	set_technology = {
-		
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	set_technology = {
-		
+
 	}
 
-}
+	if = {
+		limit = {
+			NOT = { has_dlc = "Man the Guns" }
+		}
+		set_technology = {
+
+		}
+	}
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		set_technology = {
+
+		}
+
+	}
 
 
 }
