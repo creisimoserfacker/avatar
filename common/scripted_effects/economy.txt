@@ -26,15 +26,6 @@ civil_factory_output = {
 
 extra_factory_output = {
 
-	set_temp_variable = { smithies_temp = smithy_count }
-	set_temp_variable = { smithies_already_have_1_output_temp = smithy_output }
-	subtract_from_temp_variable = { smithies_already_have_1_output_temp = 1 }
-	multiply_temp_variable = { smithies_temp = smithies_already_have_1_output_temp }
-	set_temp_variable = { factories_temp = factory_count }
-	multiply_temp_variable = { factories_temp = factory_output }
-	set_variable = { factory_duplicator = 0 }
-	add_to_variable = { factory_duplicator = smithies_temp }
-	add_to_variable = { factory_duplicator = factories_temp }
 	if = {
 		limit = {
 			check_variable = { extra_mils < factory_duplicator }
@@ -60,9 +51,6 @@ extra_factory_output = {
 
 extra_dockyard_output = {
 
-	set_temp_variable = { dockyards_temp = dockyard_count }
-	#multiply_temp_variable = { dockyards_temp = 2 }
-	set_variable = { dockyard_duplicator = dockyards_temp }
 	if = {
 		limit = {
 			check_variable = { extra_docks < dockyard_count }

@@ -547,6 +547,9 @@ on_actions = {
 			add_to_variable = { construction_resouces = brick_factor }
 			add_to_variable = { construction_resouces = steel_beam_factor }
 
+
+			#### civil capacity
+
 			set_variable = { ic = 0 }
 			set_variable = { employed_ic = plank_factor }
 			add_to_variable = { employed_ic = brick_factor }
@@ -561,7 +564,76 @@ on_actions = {
 
 			add_to_variable = { ic = stolen_to_construct }
 			multiply_variable = { ic = construction_material_factor }
+
+			set_variable = { ic_factor = 1 }
+			add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
+			multiply_variable = { ic = ic_factor }
+
 			round_variable = ic
+
+
+
+			#### military capacity
+
+			set_temp_variable = { smithies_temp = smithy_count }
+			set_temp_variable = { smithies_already_have_1_output_temp = smithy_output }
+			subtract_from_temp_variable = { smithies_already_have_1_output_temp = 1 }
+			multiply_temp_variable = { smithies_temp = smithies_already_have_1_output_temp }
+			set_temp_variable = { factories_temp = factory_count }
+			multiply_temp_variable = { factories_temp = factory_output }
+			set_variable = { factory_duplicator = 0 }
+			add_to_variable = { factory_duplicator = smithies_temp }
+			add_to_variable = { factory_duplicator = factories_temp }
+
+			set_variable = { military_ic_factor = 1 }
+			add_to_variable = { military_ic_factor = modifier@military_capacity_factor }
+			multiply_variable = { factory_duplicator = military_ic_factor }
+
+			round_variable = factory_duplicator
+
+
+			#### naval capacity 
+
+			set_temp_variable = { dockyards_temp = dockyard_count }
+			#multiply_temp_variable = { dockyards_temp = 2 }
+			set_variable = { dockyard_duplicator = dockyards_temp }
+
+			set_variable = { navy_ic_factor = 1 }
+			add_to_variable = { navy_ic_factor = modifier@naval_capacity_factor }
+			multiply_variable = { dockyard_duplicator = navy_ic_factor }
+
+			round_variable = dockyard_duplicator
+
+
+			### military to civil factor
+
+			set_temp_variable = { smithies_total_output = smithy_count }
+			multiply_temp_variable = { smithies_total_output = smithy_output }
+			set_temp_variable = { factories_total_output = factory_count }
+			multiply_temp_variable = { factories_total_output = factory_output }
+			set_temp_variable = { total_military_ic = smithies_total_output }
+			add_to_temp_variable = { total_military_ic = factories_total_output }
+
+			set_variable = { ic_real_transfer = modifier@military_to_civil_factory }
+			subtract_from_variable = { ic_real_transfer = modifier@civil_to_military_factory }
+
+			set_variable = { military_ic_transfer = total_military_ic }
+			multiply_variable = { military_ic_transfer = ic_real_transfer }
+
+			add_to_variable = { ic = military_ic_transfer }
+			round_variable = ic
+			subtract_from_variable = { factory_duplicator = military_ic_transfer }
+			round_variable = factory_duplicator
+			
+
+
+			civil_factory_output = yes
+			extra_factory_output = yes
+			extra_dockyard_output = yes
+
+
+
+
 
 			### deposites and deactivating
 
@@ -676,10 +748,6 @@ on_actions = {
 				}
 			}
 
-			### extra factories
-			civil_factory_output = yes
-			extra_factory_output = yes
-			extra_dockyard_output = yes
 
 			if = {
 				limit = {
