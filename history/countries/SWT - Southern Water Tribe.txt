@@ -226,14 +226,7 @@ if = {
 52.5.16 ={
 
 	OOB = "SWT_52"
-	if = {
-		limit = { has_dlc = "Man the Guns" }
-		set_naval_oob = "empty"
-		else = {
-			set_naval_oob = "empty"
-		}
-	}	
-
+	set_naval_oob = "empty"
 
 	set_variable = { var = SWT_unity_support value = 38 }
 	set_variable = { var = SWT_unity_total value = 100 }
@@ -253,7 +246,10 @@ if = {
 		loose_confederation
 		remote_isolation
 	}
-
+	set_technology = {
+		light_cavalry_1 = 1
+		heavy_cavalry_1 = 1
+	}
 
 }
 
