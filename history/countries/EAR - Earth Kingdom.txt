@@ -49,14 +49,18 @@ add_ideas = {
 	kyoshi_constitution
 	weak_legitimacy
 	corrupt_bureaucracy
-	humiliated_in_battle
 
 	volunteer_earth_nation
 	earth_benders_only
-	regulated_trade
+	city_markets
 	economy_1
 	family_support_2
 	no_education
+}
+
+add_timed_idea = {
+	idea = 	humiliated_in_battle
+	days = 3600
 }
 
 recruit_character = EAR_zaifeng
@@ -176,13 +180,16 @@ add_to_faction = YII
 
 
 
-52.5.16 ={
+52.5.16 = {
 	
 	OOB = "EAR_52"
 
 	add_political_power = 1198
 
 	earth_puppets_52 = yes
+
+	add_ideas = earth_exceptional
+	remove_ideas = humiliated_in_battle
 
 	remove_from_faction = WUL
 	remove_from_faction = YUE
@@ -192,34 +199,34 @@ add_to_faction = YII
 	remove_from_faction = HAN
 
 
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		WUL = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		TAK = {
+			become_exiled_in = { target = EAR legitimacy = 40 }
+		}
+		YUE = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		MAK = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		POH = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
+		HAN = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
 	}
-	WUL = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	TAK = {
-		become_exiled_in = { target = EAR legitimacy = 40 }
-	}
-	YUE = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	MAK = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	POH = {
-		become_exiled_in = { target = EAR legitimacy = 35 }
-	}
-	HAN = {
-		become_exiled_in = { target = EAR legitimacy = 35 }
-	}
-}
 
 
 }
 
-106.2.4 ={
+106.2.4 = {
 	
 	OOB = "EAR_106"
 
@@ -233,55 +240,55 @@ if = {
 	remove_from_faction = NIX
 	remove_from_faction = XIN
 
-add_ideas = {
-	extensive_conscription
-	earth_exceptional
+	add_ideas = {
+		extensive_conscription
+		earth_exceptional
 	
-}
-
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	MER = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	GDD = {
-		become_exiled_in = { target = EAR legitimacy = 20 }
-	}
-	XIN = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	NIX = {
-		become_exiled_in = { target = EAR legitimacy = 30 }
-	}
-	NOW = {
-		become_exiled_in = { target = EAR legitimacy = 35 }
-	}
-}
-
-
-set_technology = {
-
-}
-
-if = {
-	limit = {
-		NOT = { has_dlc = "Man the Guns" }
-	}
-	set_technology = {
-		
-	}
-}
-if = {
-	limit = {
-		has_dlc = "Man the Guns"
-	}
-	set_technology = {
-		
 	}
 
-}
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		MER = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		GDD = {
+			become_exiled_in = { target = EAR legitimacy = 20 }
+		}
+		XIN = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		NIX = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		NOW = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
+	}
+
+
+	# set_technology = {
+
+	# }
+
+	# if = {
+	# 	limit = {
+	# 		NOT = { has_dlc = "Man the Guns" }
+	# 	}
+	# 	set_technology = {
+
+	# 	}
+	# }
+	# if = {
+	# 	limit = {
+	# 		has_dlc = "Man the Guns"
+	# 	}
+	# 	set_technology = {
+
+	# 	}
+
+	# }
 
 
 
@@ -289,7 +296,7 @@ if = {
 
 111.10.30 ={
 	
-	OOB = "EAR_111"
+	OOB = "EAR_106"
 
 	add_political_power = 1198
 
