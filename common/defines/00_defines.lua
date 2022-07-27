@@ -3449,13 +3449,13 @@ NSupply = {
 
 	-- defines that are used for supply reach for built nodes
 	NODE_INITIAL_SUPPLY_FLOW = 10,
-	NODE_STARTING_PENALTY_PER_PROVINCE = 0.50,
-	NODE_ADDED_PENALTY_PER_PROVINCE = 0.60,
+	NODE_STARTING_PENALTY_PER_PROVINCE = 2,
+	NODE_ADDED_PENALTY_PER_PROVINCE = 2.40,
 
 	-- defines that are used for supply reach for dockyards
 	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 5,
-	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.5,
-	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.6,
+	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 1,
+	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 1.4,
 
 	-- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
 	NODE_FLOW_BONUS_PER_RAIL_LEVEL = 2.0,
@@ -3485,11 +3485,11 @@ NSupply = {
 	 -- node flow terrain falloff is scaled by logistics curve based on distance(d) (scalar / (1+e^(-k(d-midpoint))))
 	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_K = 1.3, -- How steep the curve is
 	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_MIDPOINT = 2.3, -- sigmoid inflection point
-	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_SCALAR = 0.9, -- Max Penalty adjustment due to distance
-	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_MIN_PENALTY_SCALE = 0.25, -- Logistics curve never reduces penalty facor below this limit
+	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_SCALAR = 1.0, -- Max Penalty adjustment due to distance
+	SUPPLY_FLOW_DIST_LOGISTICS_FALLOFF_MIN_PENALTY_SCALE = 0.75, -- Logistics curve never reduces penalty facor below this limit
 
 	-- The range bonus added to a fully motorized hub. This supply is added on top of the XXX_INITIAL_SUPPLY_FLOW defined above.
-	SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 4.5,
+	SUPPLY_HUB_FULL_MOTORIZATION_BONUS = 40.0,
 	-- How many trucks does it cost to fully motorize a hub
 	SUPPLY_HUB_FULL_MOTORIZATION_TRUCK_COST = 50.0,
 	-- For each additional level of motorization on a hub (i.e. contry with set motoriazation) reduce max bonus for next level by this amount
