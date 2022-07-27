@@ -15,10 +15,6 @@ ideas = {
 						has_idea = remote_isolation_1
 					}
 				}
-				OR = {
-					has_idea = state_5
-					has_idea = state_4
-				}
 			}
 						
 			cost = 150
@@ -26,8 +22,6 @@ ideas = {
 			level = 1
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_5_ttp
-
 				min_export = 0.6
 				trade_opinion_factor = 0.8
 
@@ -37,6 +31,8 @@ ideas = {
 				navy_intel_to_others = 20.0
 
 				supply_node_range = 0.3
+
+				weekly_centralisation = 0.06
 			}
 			
 			cancel_if_invalid = no
@@ -63,11 +59,6 @@ ideas = {
 						has_idea = remote_isolation_1
 					}
 				}
-				OR = {
-					has_idea = state_5
-					has_idea = state_4
-					has_idea = state_3
-				}
 			}
 			
 			
@@ -76,8 +67,6 @@ ideas = {
 			level = 2
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_4_ttp
-
 				min_export = 0.45
 				trade_opinion_factor = 0.6
 
@@ -87,6 +76,8 @@ ideas = {
 				navy_intel_to_others = 15.0
 
 				supply_node_range = 0.2
+
+				weekly_centralisation = 0.04
 			}
 			
 			cancel_if_invalid = no
@@ -114,11 +105,6 @@ ideas = {
 						has_idea = remote_isolation_1
 					}
 				}
-				OR = {
-					has_idea = state_4
-					has_idea = state_3
-					has_idea = state_2
-				}
 			}
 			
 			
@@ -127,8 +113,6 @@ ideas = {
 			level = 3
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_3_ttp
-
 				min_export = 0.3
 				trade_opinion_factor = 0.6
 				
@@ -137,6 +121,8 @@ ideas = {
 
 				supply_node_range = 0.1
 				supply_combat_penalties_on_core_factor = -0.2
+
+				weekly_centralisation = 0.02
 			}
 			
 			default = yes
@@ -159,9 +145,6 @@ ideas = {
 		city_markets = {
 			available = {
 				OR = {
-					has_idea = state_3
-					has_idea = state_2
-					has_idea = state_1
 					AND = {
 						has_war = yes
 						any_enemy_country = {
@@ -193,8 +176,6 @@ ideas = {
 			level = 4
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_2_ttp
-
 				min_export = 0.15
 
 				peoples_initiative = 0.1
@@ -204,6 +185,8 @@ ideas = {
 				navy_intel_to_others = 5
 
 				supply_combat_penalties_on_core_factor = -0.4
+
+				weekly_centralisation = -0.2
 			}
 			
 			cancel_if_invalid = no
@@ -239,15 +222,9 @@ ideas = {
 		
 		local_markets = {
 			
-			
 			available = {
 				has_war = yes
 				OR = {
-					has_idea = state_2
-					has_idea = state_1
-				}
-				OR = {
-					has_idea = economy_5
 					has_idea = remote_isolation
 					has_idea = remote_isolation_1
 				}
@@ -262,14 +239,14 @@ ideas = {
 			
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_1_ttp
-
 				min_export = 0
 
 				peoples_initiative = 0.2
 				peasant_output_factor = 0.3
 				
 				supply_combat_penalties_on_core_factor = -0.6
+
+				weekly_centralisation = -0.04
 			}
 			
 			on_add = {

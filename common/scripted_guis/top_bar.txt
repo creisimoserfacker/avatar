@@ -1,0 +1,55 @@
+scripted_gui = {
+
+	war_exhaustion = {
+		context_type = player_context
+
+		window_name = "increase_and_decrease"
+
+
+		triggers = {
+			stability_increase_visible = {
+				check_variable = { modifier@stability_weekly > 0 }
+			}
+			stability_decrease_visible = {
+				check_variable = { modifier@stability_weekly < 0 }
+			}
+
+			war_support_increase_visible = {
+				check_variable = { modifier@war_support_weekly > 0 }
+			}
+			war_support_decrease_visible = {
+				check_variable = { modifier@war_support_weekly < 0 }
+			}
+
+			war_weariness_increase_visible = {
+				check_variable = { war_exhaustion_daily > 0 }
+			}
+			war_weariness_decrease_visible = {
+				check_variable = { war_exhaustion_daily < 0 }
+			}
+
+			political_power_increase_visible = {
+				check_variable = { political_power_daily > 0 }
+			}
+			political_power_decrease_visible = {
+				check_variable = { political_power_daily < 0 }
+			}
+
+			honour_increase_visible = {
+				check_variable = { command_power_daily > 0 }
+			}
+			honour_decrease_visible = {
+				check_variable = { command_power_daily < 0 }
+			}
+
+			knowledge_increase_visible = {
+				check_variable = { knowledge_daily > 0 }
+			}
+			knowledge_decrease_visible = {
+				check_variable = { knowledge_daily < 0 }
+			}
+			
+		}
+
+	}
+}

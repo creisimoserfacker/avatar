@@ -1,6 +1,7 @@
 
 add_namespace = economy
 add_namespace = culture
+add_namespace = legitimacy_event
 
 country_event = {
 	id = culture.1
@@ -831,7 +832,14 @@ country_event = {
 	}	
 }
 
-add_namespace = legitimacy_event
+
+
+
+
+
+
+
+
 
 country_event = {
 	id = legitimacy_event.1
@@ -840,129 +848,16 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
-		set_variable = { legitimacy_var_max = 240 }
-		if = {
-			limit = {
-				NOT = {
-					has_idea = state_1
-					has_idea = state_2
-					has_idea = state_3
-					has_idea = state_4
-					has_idea = state_5
-				}
-			}
-			add_ideas = state_3
-		}
-		clamp_variable = { var = legitimacy_var min = 0 max = legitimacy_var_max }
-
-		set_temp_variable = { liberty_temp = legitimacy_var }
-		divide_temp_variable = { liberty_temp = legitimacy_var_max }
-		multiply_temp_variable = { liberty_temp = 100 }
-		set_variable = { current_liberty = liberty_temp }
+		set_variable = { current_liberty = centralisation_variable }
 
 		set_temp_variable = { authority_temp = 100 }
-		subtract_from_temp_variable = { authority_temp = liberty_temp }
+		subtract_from_temp_variable = { authority_temp = centralisation_variable }
 		set_variable = { current_authority = authority_temp }
 
-		
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_1
-					check_variable = { authority_temp > 20 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_1
-				add_idea = state_2
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_2
-					check_variable = { authority_temp > 40 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_2
-				add_idea = state_3
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_3
-					check_variable = { authority_temp > 60 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_3
-				add_idea = state_4
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_4
-					check_variable = { authority_temp > 80 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_4
-				add_idea = state_5
-			}
-		}
-		
+		clamp_variable = { var = centralisation_variable min = 0 max = 100 }
 
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_5
-					check_variable = { liberty_temp > 20 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_5
-				add_idea = state_4
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_4
-					check_variable = { liberty_temp > 40 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_4
-				add_idea = state_3
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_3
-					check_variable = { liberty_temp > 60 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_3
-				add_idea = state_2
-			}
-		}
-		if = {
-			limit = { 
-				AND = {
-					has_idea = state_2
-					check_variable = { liberty_temp > 80 } 
-				}
-			}
-			swap_ideas = {
-				remove_idea = state_2
-				add_idea = state_1
-			}
-		}
+		set_variable = { centralisation_show = centralisation_variable }
+		multiply_variable = { centralisation_show = 2.4 }
 	}
 
 	option = {

@@ -31,3 +31,81 @@ core_state_cost = {
 	}
 
 }
+
+legitimacy_target = {
+	base = 0
+	modifier = {
+		set_temp_variable = { target = 1 }
+		subtract_from_temp_variable = { target = modifier@centralisation_target_modifier }
+		multiply_temp_variable = { target = 240 }
+		clamp_temp_variable = { var = target min = 0 max = 240 }
+		
+		add = target
+	}
+}
+legitimacy_target_100 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { target = 1 }
+		subtract_from_temp_variable = { target = modifier@centralisation_target_modifier }
+		multiply_temp_variable = { target = 100 }
+		clamp_temp_variable = { var = target min = 0 max = 100 }
+		
+		add = target
+	}
+}
+
+legitimacy_autonomy = {
+	base = 0
+	modifier = {
+		set_temp_variable = { autonomy = centralisation_variable }
+		subtract_from_temp_variable = { autonomy = 50 }
+		divide_temp_variable = { autonomy = 50 }
+		
+		add = autonomy
+	}
+}
+
+legitimacy_war_weariness = {
+	base = 0
+	modifier = {
+		set_temp_variable = { weariness = centralisation_variable }
+		subtract_from_temp_variable = { weariness = 100 }
+		divide_temp_variable = { weariness = 100 }
+		
+		add = weariness
+	}
+}
+
+legitimacy_war_support = {
+	base = 0
+	modifier = {
+		set_temp_variable = { war_support = 50 }
+		subtract_from_temp_variable = { war_support = centralisation_variable }
+		divide_temp_variable = { war_support = 100 }
+		
+		add = war_support
+	}
+}
+
+legitimacy_stability = {
+	base = 0
+	modifier = {
+		set_temp_variable = { stability = -50 }
+		add_to_temp_variable = { stability = centralisation_variable }
+		divide_temp_variable = { stability = 100 }
+		
+		add = stability
+	}
+}
+
+legitimacy_peoples_initiative = {
+	base = 0
+	modifier = {
+		set_temp_variable = { peoples_initiative = centralisation_variable }
+		subtract_from_temp_variable = { peoples_initiative = 50 }
+		divide_temp_variable = { peoples_initiative = 100 }
+		
+		add = peoples_initiative
+	}
+}

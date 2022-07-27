@@ -16,11 +16,6 @@ ideas = {
 						ratio > 0.5
 					}
 				}
-				OR = {
-					has_idea = state_4
-					has_idea = state_5
-				}
-
 			}
 			ai_will_do = {
    				factor = 1
@@ -61,8 +56,6 @@ ideas = {
 			level = 1
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_5_ttp
-				
 				consumer_goods_demand = -0.2
 				daily_war_weariness = 2
 				army_morale_factor = 0.1
@@ -73,6 +66,8 @@ ideas = {
 				naval_capacity_factor = 0.2
 
 				fuel_gain_factor = 0.3
+
+				weekly_centralisation = 0.05
 			}
 			
 			cancel_if_invalid = no
@@ -85,9 +80,6 @@ ideas = {
 			available = {
 				has_war_support > 0.5
 				OR = {
-					has_idea = state_3
-					has_idea = state_4
-					has_idea = state_5
 					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
 					AND = {
 						has_war = yes
@@ -106,8 +98,6 @@ ideas = {
 			level = 2
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_4_ttp
-
 				consumer_goods_demand = -0.1
 				daily_war_weariness = 1
 				army_morale_factor = 0.05
@@ -116,6 +106,8 @@ ideas = {
 				naval_capacity_factor = 0.1
 
 				fuel_gain_factor = 0.1
+
+				weekly_centralisation = 0.025
 			}
 			
 			cancel_if_invalid = no
@@ -143,11 +135,6 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.25
-				OR = {
-					has_idea = state_2
-					has_idea = state_3
-					has_idea = state_4
-				}
 			}
 
 			cost = 150
@@ -155,9 +142,6 @@ ideas = {
 			level = 3
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_3_ttp
-
-				
 				consumer_goods_demand = -0.05
 				conversion_cost_civ_to_mil_factor = -0.5
 				conversion_cost_mil_to_civ_factor = -0.5
@@ -182,11 +166,6 @@ ideas = {
 			
 			available = {
 				has_war_support > 0.15
-				OR = {
-					has_idea = state_1
-					has_idea = state_2
-					has_idea = state_3
-				}
 			}
 
 			default = yes
@@ -196,11 +175,11 @@ ideas = {
 			level = 4
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_2_ttp
-
 				production_speed_buildings_factor = 0.15
 				military_to_civil_factory = 0.25
 				army_morale_factor = -0.25
+
+				weekly_centralisation = -0.025
 			}
 			
 			cancel_if_invalid = no
@@ -226,10 +205,6 @@ ideas = {
 			available = {
 				has_war = no
 				has_stability > 0.6
-				OR = {
-					has_idea = state_1
-					has_idea = state_2
-				}
 			}
 		
 			cost = 150
@@ -237,13 +212,12 @@ ideas = {
 			level = 5
 			
 			modifier = {
-				custom_modifier_tooltip = law_level_1_ttp
-
 				production_speed_buildings_factor = 0.3
 				military_to_civil_factory = 0.5
 
 				army_morale_factor = -0.5
 
+				weekly_centralisation = -0.05
 			}
 			
 			
