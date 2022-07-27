@@ -1,0 +1,602 @@
+
+add_namespace = centralisation
+
+
+#### invention
+country_event = {
+	id = centralisation.1
+	title = centralisation.1.title
+	desc = centralisation.1.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	option = {
+		name = centralisation.1.a
+
+		add_tech_bonus = {
+			bonus = 0.1
+			uses = 1
+			category = industry
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+
+
+#### carpentry
+country_event = {
+	id = centralisation.2
+	title = centralisation.2.title
+	desc = centralisation.2.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = carpentry_1
+					}
+				}
+				set_technology = {
+					carpentry_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.2.a
+
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = carpentry
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = carpentry
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### masonry
+country_event = {
+	id = centralisation.3
+	title = centralisation.3.title
+	desc = centralisation.3.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = masonry_1
+					}
+				}
+				set_technology = {
+					masonry_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.3.a
+
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = masonry
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = masonry
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### farm
+country_event = {
+	id = centralisation.4
+	title = centralisation.4.title
+	desc = centralisation.4.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = farm_1
+					}
+				}
+				set_technology = {
+					farm_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.4.a
+
+		random_owned_controlled_state = {
+			limit = {
+				check_variable = { field_available < 0 }
+				free_building_slots = {
+					building = farm
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = farm
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### ranch
+country_event = {
+	id = centralisation.5
+	title = centralisation.5.title
+	desc = centralisation.5.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = ranch_1
+					}
+				}
+				set_technology = {
+					ranch_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.5.a
+
+		random_owned_controlled_state = {
+			limit = {
+				check_variable = { animal_available < 0 }
+				free_building_slots = {
+					building = ranch
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = ranch
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### mill
+country_event = {
+	id = centralisation.6
+	title = centralisation.6.title
+	desc = centralisation.6.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = mill_1
+					}
+				}
+				set_technology = {
+					mill_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.6.a
+
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = mill
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = mill
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### lumber mill
+country_event = {
+	id = centralisation.7
+	title = centralisation.7.title
+	desc = centralisation.7.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = lumber_1
+					}
+				}
+				set_technology = {
+					lumber_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.7.a
+
+		random_owned_controlled_state = {
+			limit = {
+				check_variable = { forest_available < 0 }
+				free_building_slots = {
+					building = lumber_mill
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = lumber_mill
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### quarry
+country_event = {
+	id = centralisation.8
+	title = centralisation.8.title
+	desc = centralisation.8.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = quarry_1
+					}
+				}
+				set_technology = {
+					quarry_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.8.a
+
+		random_owned_controlled_state = {
+			limit = {
+				check_variable = { stonefield_available < 0 }
+				free_building_slots = {
+					building = quarry
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = quarry
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### weaving
+country_event = {
+	id = centralisation.9
+	title = centralisation.9.title
+	desc = centralisation.9.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = crop_weaving_1
+					}
+				}
+				set_technology = {
+					crop_weaving_1 = 1
+				}
+			}
+			if = {
+				limit = {
+					not = {
+						has_tech = animal_weaving_1
+					}
+				}
+				set_technology = {
+					animal_weaving_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.9.a
+
+		random_list = {
+			50 = { 
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = crop_weaving
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = crop_weaving
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+			50 = {
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = animal_weaving
+							size > 0
+							include_locked = no
+						}
+					}
+					add_building_construction = {
+						type = animal_weaving
+						level = 1
+						instant_build = yes
+					}
+				}
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### shop
+country_event = {
+	id = centralisation.10
+	title = centralisation.10.title
+	desc = centralisation.10.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = shops_1
+					}
+				}
+				set_technology = {
+					shops_1 = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.10.a
+
+		random_owned_controlled_state = {
+			limit = {
+				free_building_slots = {
+					building = consumer_good_factory
+					size > 0
+					include_locked = no
+				}
+			}
+			add_building_construction = {
+			    type = consumer_good_factory
+			    level = 1
+			    instant_build = yes
+			}
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+
+
+#### manpower
+country_event = {
+	id = centralisation.11
+	title = centralisation.11.title
+	desc = centralisation.11.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	option = {
+		name = centralisation.11.a
+
+		add_manpower = 2000
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### wagons
+country_event = {
+	id = centralisation.12
+	title = centralisation.12.title
+	desc = centralisation.12.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = {
+					not = {
+						has_tech = tech_transport
+					}
+				}
+				set_technology = {
+					tech_transport = 1
+				}
+			}
+		}
+	}
+
+	option = {
+		name = centralisation.12.a
+
+		add_equipment_to_stockpile = {
+			type = transport_equipment_1
+			amount = 100
+			producer = ROOT
+		}
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### political power
+country_event = {
+	id = centralisation.13
+	title = centralisation.13.title
+	desc = centralisation.13.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+
+	option = {
+		name = centralisation.13.a
+
+		add_political_power = 200
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
