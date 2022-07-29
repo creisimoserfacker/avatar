@@ -239,13 +239,42 @@ add_to_faction = YII
 	remove_from_faction = NOW
 	remove_from_faction = NIX
 	remove_from_faction = XIN
-
+	remove_ideas = corrupt_bureaucracy
+	if = {
+		limit = {
+			has_dlc = "La Resistance"
+		}
+		upgrade_intelligence_agency = upgrade_network_building
+	}
 	add_ideas = {
 		extensive_conscription
 		earth_exceptional
-	
+		dai_li_government
+		ear_quon
+		ear_hiroshi
+		ear_juno
+		ear_moku
+		ear_saiful
+		ear_cam
 	}
-
+	add_to_variable = {
+		dai_li_influence = 20
+	}
+	178 = {
+		add_building_construction = {
+			type = infrastructure
+			level = 2
+		}
+	}
+	set_country_flag = dai_li_headquater_expansion
+	set_country_flag = extremist_dai_li
+	set_country_flag = dai_li_ministers
+	set_country_flag = EAR_dai_li_minister_of_personnel
+	set_country_flag = EAR_dai_li_minister_of_finance
+	set_country_flag = EAR_dai_li_minister_of_culture
+	set_country_flag = EAR_dai_li_minister_of_justice
+	set_country_flag = EAR_dai_li_minister_of_works
+	set_country_flag = EAR_dai_li_minister_of_rites
 	if = {
 		limit = {
 			has_dlc = "Man the Guns"
@@ -266,32 +295,6 @@ add_to_faction = YII
 			become_exiled_in = { target = EAR legitimacy = 35 }
 		}
 	}
-
-
-	# set_technology = {
-
-	# }
-
-	# if = {
-	# 	limit = {
-	# 		NOT = { has_dlc = "Man the Guns" }
-	# 	}
-	# 	set_technology = {
-
-	# 	}
-	# }
-	# if = {
-	# 	limit = {
-	# 		has_dlc = "Man the Guns"
-	# 	}
-	# 	set_technology = {
-
-	# 	}
-
-	# }
-
-
-
 }
 
 111.10.30 ={
