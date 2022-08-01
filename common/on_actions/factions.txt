@@ -1,0 +1,81 @@
+on_actions = {
+	on_startup = {
+	    effect = {
+			every_country = {
+				limit = {
+					OR = {
+						TAG = EAR
+						TAG = POH
+						TAG = TAK
+						TAG = HAN
+						TAG = MAK
+						TAG = NIX
+						TAG = YUE
+						TAG = XIN
+						TAG = GAR
+						TAG = WUL
+						TAG = NOW
+						TAG = HEB
+						TAG = ISL
+						TAG = NCB
+						TAG = ECB
+						TAG = EBA
+						TAG = WBA
+						TAG = LAM
+						TAG = GDD
+						TAG = FMB
+						TAG = MER
+						TAG = OMS
+						TAG = MPO
+						TAG = SWA
+						TAG = ZAO
+						TAG = CHN
+						TAG = GAO
+						TAG = NAN
+						TAG = ZIN
+						TAG = YII
+					}
+				}
+				add_to_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				#add_to_tech_sharing_group = earth_research
+			}
+			set_variable = { global.earth_kingdom_leader = EAR.id}
+	    }
+	}
+
+	on_declare_war = { 
+		effect = {
+			if = {
+				limit = {
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
+					NOT = {
+						is_in_array = {
+							array = global.earth_kingdom
+							value = ROOT.id
+						}
+					}
+				}
+				var:global.earth_kingdom_leader = {
+					create_faction = Earth_Kingdom
+				}
+				every_country = {
+					limit = {
+						is_in_array = {
+							array = global.earth_kingdom
+							value = THIS.id
+						}
+					}
+					var:global.earth_kingdom_leader = {
+						add_to_faction = PREV
+					}
+				}
+			}
+		}
+	}
+}
