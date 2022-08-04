@@ -1070,9 +1070,6 @@ EAR_firenation_hostility_category = {
 		}
 
 		available = {
-			NOT = {
-				has_war_with = FIR
-			}
 			280 = {
 				OR = {
 					has_dynamic_modifier = { modifier = firenation_settlers }
@@ -1094,7 +1091,7 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 100
+		cost = 200
 
 		days_remove = 230
 
@@ -1209,7 +1206,7 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 75
+		cost = 125
 
 		days_remove = 30
 
@@ -1222,6 +1219,7 @@ EAR_firenation_hostility_category = {
 		}
 
 		remove_effect = {
+			set_country_flag = kingdom_rallied
 			every_country = {
 				limit = {
 					#is_in_faction_with = EAR
@@ -1271,6 +1269,9 @@ EAR_firenation_hostility_category = {
 		icon = water_and_earth_flag
 		
 		visible = {
+			NOT = {
+				has_war_with = FIR
+			}
 			tag = EAR
 			FIR = {
 				NOT = {
@@ -1284,9 +1285,23 @@ EAR_firenation_hostility_category = {
 		}
 
 		available = {
-			FIR = {
-				NOT = {
-					has_country_flag = earth_diplomacy_path
+			NOT = {
+				has_war_with = FIR
+			}
+			tag = EAR
+			custom_trigger_tooltip = {
+				tooltip = kingdom_rallied_tt
+				Or = {
+					has_cosmetic_tag = EAR_united
+					has_country_flag = kingdom_rallied
+				}
+			}
+			custom_trigger_tooltip = {
+				tooltip = no_diplomatic_relations_tt
+				FIR = {
+					NOT = {
+						has_country_flag = earth_diplomacy_path
+					}
 				}
 			}
 			has_global_flag = air_nomad_genocide
@@ -1294,7 +1309,7 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 25
+		cost = 75
 
 		days_remove = 14
 
@@ -1307,7 +1322,11 @@ EAR_firenation_hostility_category = {
 		}
 
 		remove_effect = {
-			EAR = { country_event = { id = ear_treaty.3 days = 1 } }
+			custom_effect_tooltip = anti_sozin_pact_tt
+			hidden_effect = {
+				EAR = { country_event = { id = ear_treaty.3 days = 1 } }
+			}
+
 		}
 	}
 
