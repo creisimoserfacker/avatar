@@ -1,45 +1,38 @@
-
 add_namespace = air_gen
-
-
 #### dai li suggestion
 country_event = {
 	id = air_gen.1
 	title = air_gen.1.t
 	desc = air_gen.1.d
 	picture = GFX_report_event_dai_li_proposal
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	option = {
 		name = air_gen.1.a
-
 		custom_effect_tooltip = dai_li_10
 		custom_effect_tooltip = air_genocide_decisions
-		add_to_variable = { dai_li_influence = 10 }
-
+		add_to_variable = {
+			dai_li_influence = 10
+		}
 		set_country_flag = genocide_active
-
-		set_variable = { genocide_preparation = 4 }
-		
+		set_variable = {
+			genocide_preparation = 4
+		}
 		ai_chance = {
 			base = 100
 			modifier = {
 				add = 100
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = EARTHKINGDOM_AIR_GENOCIDE
+				}
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.1.b
-
 		custom_effect_tooltip = dai_li_regulation_decisions
-
 		set_country_flag = regulate_the_dai_li
-		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -48,7 +41,10 @@ country_event = {
 			}
 			modifier = {
 				factor = 0
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = NO_AIR_GENOCIDE
+				}
 			}
 		}
 	}
@@ -60,11 +56,8 @@ country_event = {
 	title = air_gen.2.t
 	desc = air_gen.2.d
 	picture = GFX_report_event_dai_li_proposal
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
 		hidden_effect = {
 			if = {
@@ -72,195 +65,151 @@ country_event = {
 					has_country_flag = duplicate_units
 				}
 				clr_country_flag = duplicate_units
-				multiply_variable = { EAR.genocide_preparation = 2 }
+				multiply_variable = {
+					EAR.genocide_preparation = 2
+				}
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.2.a
-
 		custom_effect_tooltip = ear_genocide_description
-
 		hidden_effect = {
-
 			add_country_leader_trait = secret_genocide_plan
-
 			GIF = {
-
 				if = {
 					limit = {
 						has_country_flag = earth_transport_idea_flag
 					}
-					add_timed_idea = { idea = transportation_buff days = 90 }
+					add_timed_idea = {
+						idea = transportation_buff
+						days = 90
+					}
 				}
-
 				transfer_state = 297
 				set_country_flag = earth_nation
-
 				add_manpower = 4000
-
 				if = {
 					limit = {
-						NOT = { has_template = "Dai Li Agents" }
+						NOT = {
+							has_template = "Dai Li Agents"
+						}
 					}
 					division_template = {
 						name = "Dai Li Agents"
 						regiments = {
-							earthbender = { x = 0 y = 0 }
-							earthbender = { x = 0 y = 1 }
+							earthbender = {
+								x = 0
+								y = 0
+							}
+							earthbender = {
+								x = 0
+								y = 1
+							}
 						}
 						is_locked = yes
 					}
 				}
-
-				#### north temple
-				set_province_controller = 6087
-				set_province_controller = 4351
-				set_province_controller = 6090
-				set_province_controller = 6100
-				34 = {
-					set_variable = { sent_troops = EAR.genocide_preparation }
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
+				#West
+				WAT = {
+					every_owned_state = {
+						limit = {
+							is_capital = no
+						}
+						transfer_state_to = GIF
+					}
 				}
 				if = {
 					limit = {
-						EAR = {
-							is_ai = yes
+						FIR = {
+							has_country_flag = north_extra_construction
 						}
 					}
-					set_province_controller = 2388
-					316 = {
-						set_variable = { sent_troops = EAR.genocide_preparation }
-						dai_li_agents = yes
-					}
-				}
-
-				#### east temple coast
-				set_province_controller = 9201
-				set_province_controller = 4096
-				447 = {
-					set_variable = { sent_troops = EAR.genocide_preparation }
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
-				}
-				if = {
-					limit = {
-						EAR = {
-							is_ai = yes
+					405 = {
+						set_victory_points = {
+							province = 6065
+							value = 10
 						}
 					}
-					set_province_controller = 9075
-					188 = {
-						set_variable = { sent_troops = EAR.genocide_preparation }
-						dai_li_agents = yes
+				}
+				112 = {
+					set_variable = {
+						sent_troops = EAR.genocide_preparation
+					}
+					dai_li_agents = yes
+				}
+				#East
+				EAT = {
+					every_owned_state = {
+						limit = {
+							is_capital = no
+						}
+						transfer_state_to = GIF
 					}
 				}
 				if = {
 					limit = {
-						EAR = {
+						FIR = {
 							has_country_flag = east_extra_construction
 						}
 					}
-					247 = {
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							instant_build = yes
-							province = 9197
-						}
-						add_building_construction = {
-							type = naval_base
-							level = 2
-							instant_build = yes
-							province = 9138
-						}
+					447 = {
 						set_victory_points = {
-							province = 9197
+							province = 9201
 							value = 10
 						}
 						set_victory_points = {
-							province = 9138
+							province = 4096
 							value = 10
 						}
 					}
 				}
-
-				#### west temple coast
-				set_province_controller = 5406
-				set_province_controller = 6545
-				set_province_controller = 6531
-				112 = {
-					set_variable = { sent_troops = EAR.genocide_preparation }
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
+				421 = {
+					set_variable = {
+						sent_troops = EAR.genocide_preparation
+					}
 					dai_li_agents = yes
 				}
-				if = {
-					limit = {
-						EAR = {
-							is_ai = yes
+				#North
+				NAT = {
+					every_owned_state = {
+						limit = {
+							is_capital = no
 						}
-					}
-					set_province_controller = 6408
-					208 = {
-						set_variable = { sent_troops = EAR.genocide_preparation }
-						dai_li_agents = yes
+						transfer_state_to = GIF
 					}
 				}
 				if = {
 					limit = {
-						EAR = {
-							has_country_flag = west_extra_construction
+						FIR = {
+							has_country_flag = north_extra_construction
 						}
 					}
-					112 = {
-						add_building_construction = {
-							type = naval_base
-							level = 4
-							instant_build = yes
-							province = 6545
-						}
+					405 = {
 						set_victory_points = {
-							province = 6545
+							province = 6065
 							value = 10
 						}
 					}
 				}
-
-				#### south temple coast
-				set_province_controller = 9684
-				set_province_controller = 9654
-				set_province_controller = 9666
-				236 = {
-					set_variable = { sent_troops = EAR.genocide_preparation }
-					dai_li_agents = yes
-					dai_li_agents = yes
-					dai_li_agents = yes
+				172 = {
+					set_variable = {
+						sent_troops = EAR.genocide_preparation
+					}
 					dai_li_agents = yes
 				}
-				if = {
-					limit = {
-						EAR = {
-							is_ai = yes
+				#South
+				SAT = {
+					every_owned_state = {
+						limit = {
+							is_capital = no
 						}
-					}
-					set_province_controller = 9737
-					set_province_controller = 9711
-					329 = {
-						set_variable = { sent_troops = EAR.genocide_preparation }
-						dai_li_agents = yes
+						transfer_state_to = GIF
 					}
 				}
 				if = {
 					limit = {
-						EAR = {
+						FIR = {
 							has_country_flag = south_extra_construction
 						}
 					}
@@ -277,8 +226,12 @@ country_event = {
 						}
 					}
 				}
-
-
+				239 = {
+					set_variable = {
+						sent_troops = EAR.genocide_preparation
+					}
+					dai_li_agents = yes
+				}
 				declare_war_on = {
 					target = EAT
 					type = annex_everything
@@ -297,19 +250,31 @@ country_event = {
 				}
 			}
 			EAT = {
-				country_event = { id = eastern.1 days = 1 }
+				country_event = {
+					id = eastern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			WAT = {
-				country_event = { id = western.1 days = 1 }
+				country_event = {
+					id = western.1
+					days = 1
+				}
 				set_major = yes
 			}
 			NAT = {
-				country_event = { id = northern.1 days = 1 }
+				country_event = {
+					id = northern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			SAT = {
-				country_event = { id = southern.1 days = 1 }
+				country_event = {
+					id = southern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			EAR = {
@@ -317,31 +282,22 @@ country_event = {
 				activate_mission = EAR_western_temple_attack
 				activate_mission = EAR_northern_temple_attack
 				activate_mission = EAR_southern_temple_attack
-
 				remove_decision = gather_dai_li_units
 				#remove_decision = replicate_firenation_uniforms
 				remove_decision = send_royal_guards_as_support
-
 				remove_decision = northern_operation_base
 				remove_decision = eastern_operation_base
 				remove_decision = southern_operation_base
 				remove_decision = western_operation_base
-
 			}
 		}
-		
 		ai_chance = {
 			base = 100
-
 		}
 	}
-
 	option = {
 		name = air_gen.2.b
-
 		custom_effect_tooltip = ear_cold_feet_description
-
-		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -350,10 +306,7 @@ country_event = {
 			}
 		}
 	}
-
 }
-
-
 
 #West temple situation
 country_event = {
@@ -361,7 +314,9 @@ country_event = {
 	title = {
 		text = air_gen.3.t
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	title = {
@@ -375,7 +330,9 @@ country_event = {
 	desc = {
 		text = air_gen.3.d
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	desc = {
@@ -387,13 +344,10 @@ country_event = {
 		}
 	}
 	picture = GFX_report_event_west_temple
-
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
- 		hidden_effect = {
+		hidden_effect = {
 			WAT = {
 				set_politics = {
 					ruling_party = pacifism
@@ -427,7 +381,6 @@ country_event = {
 				transfer_state = 100
 				transfer_state = 82
 				give_military_access = GIF
-
 				delete_unit = {
 					disband = no
 				}
@@ -451,53 +404,52 @@ country_event = {
 						state = 82
 					}
 				}
-				add_dynamic_modifier = { modifier = genocide_state }
+				add_dynamic_modifier = {
+					modifier = genocide_state
+				}
 				add_compliance = 100
 			}
 		}
- 	}
-
+	}
 	option = {
 		name = air_gen.3.a
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.3.a_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
 	}
 	option = {
 		name = air_gen.3.b_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		FIR = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -521,14 +473,15 @@ country_event = {
 	}
 }
 
-
 #South temple situation
 country_event = {
 	id = air_gen.4
 	title = {
 		text = air_gen.4.t
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	title = {
@@ -542,7 +495,9 @@ country_event = {
 	desc = {
 		text = air_gen.4.d
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	desc = {
@@ -554,13 +509,10 @@ country_event = {
 		}
 	}
 	picture = GFX_report_event_south_temple
-
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
- 		hidden_effect = {
+		hidden_effect = {
 			SAT = {
 				set_politics = {
 					ruling_party = pacifism
@@ -599,7 +551,6 @@ country_event = {
 				transfer_state = 412
 				transfer_state = 409
 				give_military_access = GIF
-
 				delete_unit = {
 					disband = no
 				}
@@ -611,23 +562,36 @@ country_event = {
 					}
 				}
 				random_list = {
-					100 = { 
+					100 = {
 						modifier = {
-							check_variable = { global.avatar_state > 49}
+							check_variable = {
+								global.avatar_state > 49
+							}
 							add = -100
 						}
-						ROOT = { news_event = { id = news.8  days = 10 } }
+						ROOT = {
+							news_event = {
+								id = news.8
+								days = 10
+							}
+						}
 					}
-					0 = { 
+					0 = {
 						modifier = {
-							check_variable = { global.avatar_state > 49}
+							check_variable = {
+								global.avatar_state > 49
+							}
 							add = 100
 						}
-						ROOT = { news_event = { id = news.9  days = 10 } }
+						ROOT = {
+							news_event = {
+								id = news.9
+								days = 10
+							}
+						}
 					}
 				}
 			}
-
 			every_state = {
 				limit = {
 					OR = {
@@ -653,26 +617,28 @@ country_event = {
 						state = 409
 					}
 				}
-				add_dynamic_modifier = { modifier = genocide_state }
+				add_dynamic_modifier = {
+					modifier = genocide_state
+				}
 				add_compliance = 100
 			}
 		}
- 	}
-
+	}
 	option = {
 		name = air_gen.4.a
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
-				has_equipment = { firebender_equipment > 199 }
+				has_equipment = {
+					firebender_equipment > 199
+				}
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -680,53 +646,51 @@ country_event = {
 	}
 	option = {
 		name = air_gen.4.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
-			has_equipment = { firebender_equipment > 199 }
+			has_equipment = {
+				firebender_equipment > 199
+			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 		add_equipment_to_stockpile = {
 			type = firebender_equipment
 			amount = -200
 			producer = ROOT
 		}
-
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.4.a_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
 	}
-
 	option = {
 		name = air_gen.4.b_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		FIR = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -757,14 +721,15 @@ country_event = {
 	}
 }
 
-
 #North temple situation
 country_event = {
 	id = air_gen.5
 	title = {
 		text = air_gen.5.t
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	title = {
@@ -778,7 +743,9 @@ country_event = {
 	desc = {
 		text = air_gen.5.d
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	desc = {
@@ -790,13 +757,10 @@ country_event = {
 		}
 	}
 	picture = GFX_report_event_north_temple
-
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
- 		hidden_effect = {
+		hidden_effect = {
 			NAT = {
 				set_politics = {
 					ruling_party = pacifism
@@ -820,7 +784,6 @@ country_event = {
 				transfer_state = 405
 				transfer_state = 172
 				give_military_access = GIF
-
 				delete_unit = {
 					disband = no
 				}
@@ -834,54 +797,52 @@ country_event = {
 						state = 172
 					}
 				}
-				add_dynamic_modifier = { modifier = genocide_state }
+				add_dynamic_modifier = {
+					modifier = genocide_state
+				}
 				add_compliance = 100
 			}
 		}
- 	}
-
+	}
 	option = {
 		name = air_gen.5.a
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.5.a_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
 	}
-
 	option = {
 		name = air_gen.5.b_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		FIR = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -895,14 +856,15 @@ country_event = {
 	}
 }
 
-
 #East temple situation
 country_event = {
 	id = air_gen.6
 	title = {
 		text = air_gen.6.t
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	title = {
@@ -916,7 +878,9 @@ country_event = {
 	desc = {
 		text = air_gen.6.d
 		trigger = {
-			NOT = { tag = FIR }
+			NOT = {
+				tag = FIR
+			}
 		}
 	}
 	desc = {
@@ -928,13 +892,10 @@ country_event = {
 		}
 	}
 	picture = GFX_report_event_east_temple
-
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
- 		hidden_effect = {
+		hidden_effect = {
 			EAT = {
 				set_politics = {
 					ruling_party = pacifism
@@ -967,7 +928,6 @@ country_event = {
 				transfer_state = 413
 				transfer_state = 424
 				give_military_access = GIF
-
 				delete_unit = {
 					disband = no
 				}
@@ -990,54 +950,52 @@ country_event = {
 						state = 424
 					}
 				}
-				add_dynamic_modifier = { modifier = genocide_state }
+				add_dynamic_modifier = {
+					modifier = genocide_state
+				}
 				add_compliance = 100
 			}
 		}
- 	}
-
+	}
 	option = {
 		name = air_gen.6.a
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.6.a_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
 		GIF = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.6.b_fir
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
 		FIR = {
-			add_named_threat = { 
+			add_named_threat = {
 				threat = 10
 				name = FIR_air_nomad_genocide
 			}
@@ -1058,9 +1016,7 @@ country_event = {
 			transfer_state = 424
 		}
 	}
-
 }
-
 
 ### fire genocide decision
 country_event = {
@@ -1068,49 +1024,49 @@ country_event = {
 	title = air_gen.7.t
 	desc = air_gen.7.d
 	picture = GFX_report_event_air_genocide
-
 	trigger = {
 		tag = FIR
 		date > 12.1.20
 		has_start_date < 13.1.1
 	}
-
 	fire_only_once = yes
-
 	option = {
 		name = air_gen.7.a
-
 		custom_effect_tooltip = fir_air_genocide_decisions
-
 		set_country_flag = genocide_active
-
-		set_variable = { genocide_preparation = 4 }
-		
+		set_variable = {
+			genocide_preparation = 4
+		}
 		ai_chance = {
 			base = 100
 			modifier = {
 				factor = 0
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = NO_AIR_GENOCIDE
+				}
 			}
 			modifier = {
 				factor = 0
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = EARTHKINGDOM_AIR_GENOCIDE
+				}
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.7.b
-
 		custom_effect_tooltip = fir_no_genocide_decisions
-
 		set_country_flag = fire_no_genocide
 		hidden_effect = {
 			EAR = {
-				country_event = { id = air_gen.1 days = 31 }
+				country_event = {
+					id = air_gen.1
+					days = 31
+				}
 			}
 		}
-		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -1119,16 +1075,21 @@ country_event = {
 			}
 			modifier = {
 				add = 100
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = NO_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = NO_AIR_GENOCIDE
+				}
 			}
 			modifier = {
 				add = 100
-				has_game_rule = { rule = GENOCIDE_AI_BEHAVIOR option = EARTHKINGDOM_AIR_GENOCIDE }
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = EARTHKINGDOM_AIR_GENOCIDE
+				}
 			}
 		}
 	}
 }
-
 
 ##### fire beginns operation
 country_event = {
@@ -1136,11 +1097,8 @@ country_event = {
 	title = air_gen.8.t
 	desc = air_gen.8.d
 	picture = GFX_report_event_fire_operation
-	
 	is_triggered_only = yes
-
 	fire_only_once = yes
-
 	immediate = {
 		hidden_effect = {
 			if = {
@@ -1148,32 +1106,32 @@ country_event = {
 					has_country_flag = duplicate_units
 				}
 				clr_country_flag = duplicate_units
-				multiply_variable = { FIR.genocide_preparation = 2 }
+				multiply_variable = {
+					FIR.genocide_preparation = 2
+				}
 			}
 		}
 	}
-
 	option = {
 		name = air_gen.8.a
-
 		custom_effect_tooltip = fir_genocide_description
-
 		hidden_effect = {
-
 			add_country_leader_trait = secret_genocide_plan
-
 			GIF = {
-
 				transfer_state = 297
 				set_country_flag = fire_nation
-
 				add_manpower = 4000
-
 				division_template = {
 					name = "Fire Commando"
 					regiments = {
-						firebender = { x = 0 y = 0 }
-						firebender = { x = 0 y = 1 }
+						firebender = {
+							x = 0
+							y = 0
+						}
+						firebender = {
+							x = 0
+							y = 1
+						}
 					}
 					is_locked = yes
 				}
@@ -1200,7 +1158,9 @@ country_event = {
 					}
 				}
 				112 = {
-					set_variable = { sent_troops = FIR.genocide_preparation }
+					set_variable = {
+						sent_troops = FIR.genocide_preparation
+					}
 					fire_commando = yes
 				}
 				#East
@@ -1230,7 +1190,9 @@ country_event = {
 					}
 				}
 				421 = {
-					set_variable = { sent_troops = FIR.genocide_preparation }
+					set_variable = {
+						sent_troops = FIR.genocide_preparation
+					}
 					fire_commando = yes
 				}
 				#North
@@ -1256,7 +1218,9 @@ country_event = {
 					}
 				}
 				172 = {
-					set_variable = { sent_troops = FIR.genocide_preparation }
+					set_variable = {
+						sent_troops = FIR.genocide_preparation
+					}
 					fire_commando = yes
 				}
 				#South
@@ -1288,7 +1252,9 @@ country_event = {
 					}
 				}
 				239 = {
-					set_variable = { sent_troops = FIR.genocide_preparation }
+					set_variable = {
+						sent_troops = FIR.genocide_preparation
+					}
 					fire_commando = yes
 				}
 				#attac
@@ -1310,19 +1276,31 @@ country_event = {
 				}
 			}
 			EAT = {
-				country_event = { id = eastern.1 days = 1 }
+				country_event = {
+					id = eastern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			WAT = {
-				country_event = { id = western.1 days = 1 }
+				country_event = {
+					id = western.1
+					days = 1
+				}
 				set_major = yes
 			}
 			NAT = {
-				country_event = { id = northern.1 days = 1 }
+				country_event = {
+					id = northern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			SAT = {
-				country_event = { id = southern.1 days = 1 }
+				country_event = {
+					id = southern.1
+					days = 1
+				}
 				set_major = yes
 			}
 			FIR = {
@@ -1330,30 +1308,21 @@ country_event = {
 				activate_mission = FIR_western_temple_attack
 				activate_mission = FIR_northern_temple_attack
 				activate_mission = FIR_southern_temple_attack
-
 				remove_decision = gather_firebender_units
 				remove_decision = FIR_send_royal_guards_as_support
-
 				#remove_decision = northern_operation_base
 				#remove_decision = eastern_operation_base
 				#remove_decision = southern_operation_base
 				#remove_decision = western_operation_base
-
 			}
 		}
-		
 		ai_chance = {
 			base = 100
-
 		}
 	}
-
 	option = {
 		name = air_gen.8.b
-
 		custom_effect_tooltip = fir_cold_feet_description
-
-		
 		ai_chance = {
 			base = 0
 			modifier = {
@@ -1362,5 +1331,4 @@ country_event = {
 			}
 		}
 	}
-
 }
