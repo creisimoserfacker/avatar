@@ -787,6 +787,147 @@ EAR_dai_li_category = {
 
 	}
 	
+
+	EAR_occupy_northern_temple_lands = {
+		icon = northern_air_temple
+		allowed = {
+			tag = EAR
+		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = north_extra_construction
+		}
+		visible = {
+			has_country_flag = genocide_active
+			has_country_flag = north_extra_construction
+			NOT = {
+				has_war_with = NAT
+			}
+		}
+		fire_only_once = yes
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.15
+		}
+		remove_effect = {
+			custom_effect_tooltip = NAT_occupied_tt
+			NAT = {
+				every_owned_state = {
+					limit = {
+						is_capital = no
+					}
+					set_demilitarized_zone = yes
+				}
+			}
+			set_global_flag = NAT_occupied
+		}
+	}
+
+	EAR_occupy_western_temple_lands = {
+		icon = western_air_temple
+		allowed = {
+			tag = EAR
+		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = west_extra_construction
+		}
+		visible = {
+			has_country_flag = genocide_active
+			has_country_flag = west_extra_construction
+			NOT = {
+				has_war_with = WAT
+			}
+		}
+		fire_only_once = yes
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.15
+		}
+		remove_effect = {
+			custom_effect_tooltip = WAT_occupied_tt
+			WAT = {
+				every_owned_state = {
+					limit = {
+						is_capital = no
+					}
+					set_demilitarized_zone = yes
+				}
+			}
+			set_global_flag = WAT_occupied
+		}
+	}
+
+	EAR_occupy_southern_temple_lands = {
+		icon = southern_air_temple
+		allowed = {
+			tag = EAR
+		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = south_extra_construction
+		}
+		visible = {
+			has_country_flag = genocide_active
+			has_country_flag = south_extra_construction
+			NOT = {
+				has_war_with = SAT
+			}
+		}
+		fire_only_once = yes
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.15
+		}
+		remove_effect = {
+			custom_effect_tooltip = SAT_occupied_tt
+			SAT = {
+				every_owned_state = {
+					limit = {
+						is_capital = no
+					}
+					set_demilitarized_zone = yes
+				}
+			}
+			set_global_flag = SAT_occupied
+		}
+	}
+
+	EAR_occupy_eastern_temple_lands = {
+		icon = eastern_air_temple
+		allowed = {
+			tag = EAR
+		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = east_extra_construction
+		}
+		visible = {
+			has_country_flag = genocide_active
+			has_country_flag = east_extra_construction
+			NOT = {
+				has_war_with = EAT
+			}
+		}
+		fire_only_once = yes
+		days_remove = 20
+		modifier = {
+			consumer_goods_factor = 0.15
+		}
+		remove_effect = {
+			custom_effect_tooltip = EAT_occupied_tt
+			EAT = {
+				every_owned_state = {
+					limit = {
+						is_capital = no
+					}
+					set_demilitarized_zone = yes
+				}
+			}
+			set_global_flag = EAT_occupied
+		}
+	}
+
 	EAR_eastern_temple_attack = {
 
 		icon = eastern_air_temple
