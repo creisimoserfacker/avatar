@@ -264,31 +264,6 @@ war_setup_106 = {
 
 }
 
-omashu_puppet_12 = {
-	if = {
-		limit = {
-			has_start_date < 13.1.1
-		}
-		MPO = {
-			save_ideology = yes
-		}
-		if = {
-			limit = {
-				has_dlc = "Together for Victory"
-			}
-			set_autonomy = {
-				target = MPO
-				autonomous_state = autonomy_tributary
-			}
-			else = {
-				puppet = MPO
-			}
-		}
-		MPO = {
-			apply_ideology = yes
-		}
-	}
-}
 taku_puppet_12 = {
 	if = {
 		limit = {
