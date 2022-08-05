@@ -1,0 +1,67 @@
+#on_actions = {
+#
+#	on_startup = {
+#		effect = {
+#			every_state = {
+#				limit = {
+#					is_controlled_by = FIR
+#				}
+#				create_entity = { 
+#					entity = fir_banner_entity
+#					var = FROM.CONTROLLER@_banner@THIS.id
+#					x = 0
+#					y = 0
+#					z = 0
+#					state = THIS
+#					scale = 0.5
+#					min_zoom = 100.0
+#				}
+#			}
+#
+#			every_state = {
+#				limit = {
+#					is_controlled_by = EAR
+#				}
+#				create_entity = { 
+#					entity = ear_banner_entity
+#					var = FROM.CONTROLLER@_banner@THIS.id
+#					x = 0
+#					y = 0
+#					z = 0
+#					state = THIS
+#					scale = 0.5
+#					min_zoom = 100.0
+#				}
+#			}
+#
+#		}
+#	}
+#
+#
+#	on_state_control_changed = { 
+#		effect = {
+#			destroy_entity = FROM@_banner@FROM.FROM.id
+#
+#			if = {
+#				limit = {
+#					ROOT = {
+#						tag = FIR
+#					}
+#				}
+#				THIS.THIS = {
+#					create_entity = { 
+#					entity = fir_banner_entity
+#					var = FIR_banner@THIS.id
+#					x = 0
+#					y = 0
+#					z = 0
+#					state = THIS
+#					scale = 0.5
+#					min_zoom = 100.0
+#				}
+#				}
+#			}
+#		}
+#	}
+#
+#}

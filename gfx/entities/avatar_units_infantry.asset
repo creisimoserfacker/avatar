@@ -62,6 +62,32 @@ entity = {
 	scale = 0.4
 }
 
+#### generic spearmen with banner
+entity = {
+	name = "spearmen_entity_3"
+	pdxmesh = "melee_infantry_banner"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "defend"			animation = "attack" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "support_attack" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "banner_move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
+	
+	attach = { 
+		Right_hand_node = "banner_entity" 
+	}
+
+	scale = 0.4
+}
+
 entity = {
 	name = "spear_1_entity"
 	pdxmesh = "asian_spear_01"
@@ -70,6 +96,24 @@ entity = {
 entity = {
 	name = "shield_1_entity"
 	pdxmesh = "generic_shield"
+}
+
+entity = {
+	name = "banner_entity"
+	pdxmesh = "generic_banner"
+
+	default_state = "idle"
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 }
+}
+entity = {
+	clone = "banner_entity"
+	name = "fir_banner_entity"
+	pdxmesh = "fir_banner"
+}
+entity = {
+	clone = "banner_entity"
+	name = "ear_banner_entity"
+	pdxmesh = "ear_banner"
 }
 
 #### generic swordsmen
@@ -307,6 +351,31 @@ entity = {
 
 	attach = { 
 		Right_hand_node = "spear_1_entity" 
+	}
+
+	scale = 0.4
+}
+
+entity = {
+	clone = "spearmen_entity_2"
+	name = "FIR_spearmen_entity_2"
+	pdxmesh = "FIR_melee_infantry_2"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+
+entity = {
+	clone = "spearmen_entity_3"
+	name = "FIR_spearmen_entity_3"
+	pdxmesh = "FIR_melee_infantry_banner"
+
+	attach = { 
+		Right_hand_node = "fir_banner_entity" 
 	}
 
 	scale = 0.4

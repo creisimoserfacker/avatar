@@ -1108,7 +1108,9 @@ THE_EARTHKINGDOM = {
 		icon = leave_the_ek
 		
 		allowed = {
-			
+			NOT = {
+				tag = global.earth_kingdom_leader
+			}
 		}
 
 		available = {
@@ -1171,6 +1173,12 @@ earth_factions_category = {
 				}
 			}
 			is_in_faction = no
+			NOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = FROM.id
+				}
+			}
 			has_government = monarchism
 		}
 

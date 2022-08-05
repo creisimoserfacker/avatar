@@ -248,6 +248,9 @@ on_actions = {
 
 			###view food
 			set_variable = { food_supply = resource@food_resource }
+			set_variable = { food_supply_real = resource_produced@food_resource }
+			set_variable = { food_traded_away = food_supply_real }
+			subtract_from_variable = { food_traded_away = food_supply }
 
 			set_temp_variable = { food_demand_k = employed_population_k }
 			multiply_temp_variable = { food_demand_k = 10 }
@@ -258,7 +261,7 @@ on_actions = {
 			set_variable = { luxury_good_supply = 0 }
 
 			set_temp_variable = { consumer_good_demand_k = employed_population_k }
-			multiply_temp_variable = { consumer_good_demand_k = 10 }
+			multiply_temp_variable = { consumer_good_demand_k = 5 }
 			set_variable = { consumer_good_demand = consumer_good_demand_k }
 
 			set_variable = { consumer_good_demand_modifier = 1 }
@@ -342,11 +345,20 @@ on_actions = {
 				var = food_production_bonus
 				min = 0
 			}
+			multiply_variable = { food_supply = food_production_bonus }
 
 			set_variable = { self_employed_food_supply = self_employed_output }
 			multiply_variable = { self_employed_food_supply = capacity_for_food_supply }
 			multiply_variable = { self_employed_food_supply = food_production_bonus }
-			add_to_variable = { food_supply = self_employed_food_supply }
+
+			set_variable = { mill_production = mill_count }
+			multiply_variable = { mill_production = mill_output }
+
+			set_variable = { farm_production = farm_count }
+			multiply_variable = { farm_production = farm_output }
+
+			set_variable = { fishing_stand_production = fishing_stand_count }
+			multiply_variable = { fishing_stand_production = fishing_stand_output }
 
 			set_variable = { employed_food_production = mill_production }
 			add_to_variable = { employed_food_production = fishing_stand_production }
@@ -354,6 +366,9 @@ on_actions = {
 			set_variable = { self_employed_consumer_good_supply = self_employed_output }
 			multiply_variable = { self_employed_consumer_good_supply = capacity_for_consumer_good_supply }
 			add_to_variable = { consumer_good_supply = self_employed_consumer_good_supply }
+
+			set_variable = { consumer_good_factory_production = consumer_good_factory_count }
+			multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
 
 			set_temp_variable = { food_surplus = food_supply }
 			subtract_from_temp_variable = { food_surplus = food_demand }
