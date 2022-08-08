@@ -486,20 +486,13 @@ earth_economic_buildup_category = {
 		}
 		complete_effect = {
 			set_country_flag = economic_investments
-			add_to_variable = { state_stealing = 0.1 }
 		}
 		remove_effect = {
 			clr_country_flag = economic_investments
-			random_list = {
-				50 = {	
-					add_timed_idea = {
-					idea = depression
-					days = 180
-					}
-				}
-				50 = { }
+			add_timed_idea = {
+				idea = depression
+				days = 180
 			}
-			add_to_variable = { state_stealing = -0.1 }
 		}
         ai_will_do = {
             factor = 0.05
