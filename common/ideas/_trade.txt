@@ -15,6 +15,9 @@ ideas = {
 						has_idea = remote_isolation_1
 					}
 				}
+				has_equipment = {
+				    convoy_1 > 99
+				}
 			}
 						
 			cost = 150
@@ -144,24 +147,6 @@ ideas = {
 		
 		city_markets = {
 			available = {
-				OR = {
-					AND = {
-						has_war = yes
-						any_enemy_country = {
-							ic_ratio = { 
-								tag = ROOT 
-								ratio > 0.2
-							}
-						}
-					}
-					AND = {
-						OR = {
-							has_idea = economy_3
-							has_idea = economy_4
-							has_idea = economy_5
-						}
-					}
-				}
 				NOT = {
 					has_idea = hidden_economy
 					OR = {
@@ -223,11 +208,10 @@ ideas = {
 		local_markets = {
 			
 			available = {
-				has_war = yes
-				OR = {
-					has_idea = remote_isolation
-					has_idea = remote_isolation_1
-				}
+				#OR = {
+				#	has_idea = remote_isolation
+				#	has_idea = remote_isolation_1
+				#}
 				NOT = {
 					has_idea = hidden_economy
 				}
