@@ -430,53 +430,25 @@ country_event = {
 				clr_country_flag = air_council_active
 				white_peace = GIF
 				leave_faction = yes
-				retire_country_leader = yes
+				kill_country_leader = yes
 				promote_character = WAT_extinct_nation
 				country_lock_all_division_template = yes
 				add_ideas = no_ruler
 				remove_ideas = pacifist_detachment
-				transfer_state = 167
-				transfer_state = 232
-				transfer_state = 181
-				transfer_state = 200
-				transfer_state = 175
-				transfer_state = 222
-				transfer_state = 148
-				transfer_state = 123
-				transfer_state = 112
-				transfer_state = 208
-				transfer_state = 118
-				transfer_state = 111
-				transfer_state = 100
-				transfer_state = 82
+				every_state = {
+					limit = {
+						is_core_of = WAT
+					}
+					transfer_state_to = WAT
+					add_dynamic_modifier = {
+						modifier = genocide_state
+					}
+					add_compliance = 100	
+				}
 				give_military_access = GIF
 				delete_unit = {
 					disband = no
 				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 167
-						state = 232
-						state = 181
-						state = 200
-						state = 175
-						state = 222
-						state = 148
-						state = 123
-						state = 112
-						state = 208
-						state = 118
-						state = 111
-						state = 100
-						state = 82
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
-				add_compliance = 100
 			}
 		}
 	}
@@ -523,21 +495,11 @@ country_event = {
 				name = FIR_air_nomad_genocide
 			}
 		}
-		FIR = {
-			transfer_state = 167
-			transfer_state = 232
-			transfer_state = 181
-			transfer_state = 200
-			transfer_state = 175
-			transfer_state = 222
-			transfer_state = 148
-			transfer_state = 123
-			transfer_state = 112
-			transfer_state = 208
-			transfer_state = 118
-			transfer_state = 111
-			transfer_state = 100
-			transfer_state = 82
+		every_state = {
+			limit = {
+				is_core_of = SAT
+			}
+			transfer_state_to = FIR
 		}
 	}
 }
@@ -594,31 +556,21 @@ country_event = {
 				set_cosmetic_tag = SAT_exterminated
 				white_peace = GIF
 				clr_country_flag = air_council_active
-				retire_country_leader = yes
+				kill_country_leader = yes
 				promote_character = SAT_extinct_nation
 				add_ideas = no_ruler
 				remove_ideas = pacifist_detachment
 				country_lock_all_division_template = yes
-				transfer_state = 242
-				transfer_state = 319
-				transfer_state = 274
-				#transfer_state = 297
-				transfer_state = 137
-				transfer_state = 203
-				transfer_state = 134
-				transfer_state = 236
-				transfer_state = 329
-				transfer_state = 239
-				transfer_state = 296
-				transfer_state = 125
-				transfer_state = 356
-				transfer_state = 357
-				transfer_state = 258
-				transfer_state = 285
-				transfer_state = 228
-				transfer_state = 260
-				transfer_state = 412
-				transfer_state = 409
+				every_state = {
+					limit = {
+						is_core_of = SAT
+					}
+					transfer_state_to = SAT
+					add_dynamic_modifier = {
+						modifier = genocide_state
+					}
+					add_compliance = 100	
+				}
 				give_military_access = GIF
 				delete_unit = {
 					disband = no
@@ -660,36 +612,6 @@ country_event = {
 						}
 					}
 				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 242
-						state = 319
-						state = 274
-						state = 297
-						state = 137
-						state = 203
-						state = 134
-						state = 236
-						state = 329
-						state = 239
-						state = 296
-						state = 125
-						state = 356
-						state = 357
-						state = 258
-						state = 285
-						state = 228
-						state = 260
-						state = 412
-						state = 409
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
-				add_compliance = 100
 			}
 		}
 	}
@@ -765,27 +687,11 @@ country_event = {
 			}
 		}
 		set_country_flag = state_297_fir
-		FIR = {
-			transfer_state = 242
-			transfer_state = 319
-			transfer_state = 274
-			#transfer_state = 297
-			transfer_state = 137
-			transfer_state = 203
-			transfer_state = 134
-			transfer_state = 236
-			transfer_state = 329
-			transfer_state = 239
-			transfer_state = 296
-			transfer_state = 125
-			transfer_state = 356
-			transfer_state = 357
-			transfer_state = 258
-			transfer_state = 285
-			transfer_state = 228
-			transfer_state = 260
-			transfer_state = 412
-			transfer_state = 409
+		every_state = {
+			limit = {
+				is_core_of = SAT
+			}
+			transfer_state_to = FIR
 		}
 	}
 }
@@ -844,32 +750,24 @@ country_event = {
 				clr_country_flag = air_council_active
 				leave_faction = yes
 				remove_ideas = pacifist_detachment
-				retire_country_leader = yes
+				kill_country_leader = yes
 				promote_character = NAT_extinct_nation
 				add_ideas = no_ruler
 				country_lock_all_division_template = yes
-				transfer_state = 316
-				transfer_state = 34
-				transfer_state = 405
-				transfer_state = 172
+				every_state = {
+					limit = {
+						is_core_of = NAT 
+					}
+					transfer_state_to = NAT
+					add_dynamic_modifier = {
+						modifier = genocide_state
+					}	
+					add_compliance = 100
+				}
 				give_military_access = GIF
 				delete_unit = {
 					disband = no
 				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 316
-						state = 34
-						state = 405
-						state = 172
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
-				add_compliance = 100
 			}
 		}
 	}
@@ -916,11 +814,11 @@ country_event = {
 				name = FIR_air_nomad_genocide
 			}
 		}
-		FIR = {
-			transfer_state = 316
-			transfer_state = 34
-			transfer_state = 405
-			transfer_state = 172
+		every_state = {
+			limit = {
+				is_owned_by = NAT
+			}
+			transfer_state_to = FIR
 		}
 	}
 }
@@ -978,51 +876,25 @@ country_event = {
 				white_peace = GIF
 				clr_country_flag = air_council_active
 				leave_faction = yes
-				retire_country_leader = yes
+				kill_country_leader = yes
 				promote_character = EAT_extinct_nation
 				add_ideas = no_ruler
 				remove_ideas = pacifist_detachment
 				country_lock_all_division_template = yes
-				transfer_state = 320
-				transfer_state = 371
-				transfer_state = 373
-				transfer_state = 247
-				transfer_state = 447
-				transfer_state = 188
-				transfer_state = 22
-				transfer_state = 106
-				transfer_state = 24
-				transfer_state = 425
-				transfer_state = 421
-				transfer_state = 413
-				transfer_state = 424
+				every_state = {
+					limit = {
+						is_core_of = EAT
+					}
+					transfer_state_to = EAT
+					add_dynamic_modifier = {
+						modifier = genocide_state
+					}
+					add_compliance = 100	
+				}
 				give_military_access = GIF
 				delete_unit = {
 					disband = no
 				}
-			}
-			every_state = {
-				limit = {
-					OR = {
-						state = 320
-						state = 371
-						state = 373
-						state = 247
-						state = 447
-						state = 188
-						state = 22
-						state = 106
-						state = 24
-						state = 425
-						state = 421
-						state = 413
-						state = 424
-					}
-				}
-				add_dynamic_modifier = {
-					modifier = genocide_state
-				}
-				add_compliance = 100
 			}
 		}
 	}
@@ -1069,20 +941,11 @@ country_event = {
 				name = FIR_air_nomad_genocide
 			}
 		}
-		FIR = {
-			transfer_state = 320
-			transfer_state = 371
-			transfer_state = 373
-			transfer_state = 247
-			transfer_state = 447
-			transfer_state = 188
-			transfer_state = 22
-			transfer_state = 106
-			transfer_state = 24
-			transfer_state = 425
-			transfer_state = 421
-			transfer_state = 413
-			transfer_state = 424
+		every_state = {
+			limit = {
+				is_owned_by = EAT
+			}
+			transfer_state_to = FIR
 		}
 	}
 }
