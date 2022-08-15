@@ -22,6 +22,29 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = {
+
+		###view workers
+		set_variable = { working_percentage = 0.55 }
+
+		set_temp_variable = { recruits_k = max_available_manpower_k }
+		divide_temp_variable = { recruits_k = max_manpower_k }
+		set_variable = { recruited_percentage = recruits_k }
+		subtract_from_variable = { working_percentage = recruited_percentage }
+
+		set_temp_variable = { working_population_temp = max_manpower_k }
+		multiply_temp_variable = { working_population_temp = working_percentage }
+		set_variable = { working_population_k = working_population_temp }
+
+
+
+		set_variable = { core_population_k = 0 }
+		set_variable = { occupied_population_k = max_manpower_k }
+		every_core_state = {
+			add_to_variable = { ROOT.core_population_k = state_population_k }
+		}
+		subtract_from_variable = { occupied_population_k = core_population_k }
+
+
 		###view employed
 
 		set_variable = { employed_total_output = 0 }
@@ -141,7 +164,8 @@ country_event = {
 		add_to_variable = { building_count = anti_air_building_count }
 		add_to_variable = { building_count = air_base_count }
 
-		set_variable = { employed_population_k = 0 }
+		set_variable = { employed_population_k = modifier@manpower_requirement }
+		divide_variable = { employed_population_k = 1000 }
 		set_variable = { farm_employed = 0 }
 		set_variable = { mill_employed = 0 }
 		set_variable = { fishing_stand_employed = 0 }
@@ -166,98 +190,79 @@ country_event = {
 		set_temp_variable = { farm_employed_temp = farm_count }
 		multiply_temp_variable = { farm_employed_temp = 0.06 } #60men
 		set_variable = { farm_employed = farm_employed_temp }
-		add_to_variable = { employed_population_k = farm_employed }
 		###view mill
 		set_temp_variable = { mill_employed_temp = mill_count }
 		multiply_temp_variable = { mill_employed_temp = 0.04 } #40men
 		set_variable = { mill_employed = mill_employed_temp }
-		add_to_variable = { employed_population_k = mill_employed }
 		###view fishing_stand
 		set_temp_variable = { fishing_stand_employed_temp = fishing_stand_count }
 		multiply_temp_variable = { fishing_stand_employed_temp = 0.05 } #50men
 		set_variable = { fishing_stand_employed = fishing_stand_employed_temp }
-		add_to_variable = { employed_population_k = fishing_stand_employed }
 		###view ranch
 		set_temp_variable = { ranch_employed_temp = ranch_count }
 		multiply_temp_variable = { ranch_employed_temp = 0.06 } #60men
 		set_variable = { ranch_employed = ranch_employed_temp }
-		add_to_variable = { employed_population_k = ranch_employed }
 		###view lumber_mill
 		set_temp_variable = { lumber_mill_employed_temp = lumber_mill_count }
 		multiply_temp_variable = { lumber_mill_employed_temp = 0.03 } #30men
 		set_variable = { lumber_mill_employed = lumber_mill_employed_temp }
-		add_to_variable = { employed_population_k = lumber_mill_employed }
 		###view quarry
 		set_temp_variable = { quarry_employed_temp = quarry_count }
 		multiply_temp_variable = { quarry_employed_temp = 0.12 } #120men
 		set_variable = { quarry_employed = quarry_employed_temp }
-		add_to_variable = { employed_population_k = quarry_employed }
 		###view mine
 		set_temp_variable = { mine_employed_temp = mine_count }
 		multiply_temp_variable = { mine_employed_temp = 0.1 } #100men
 		set_variable = { mine_employed = mine_employed_temp }
-		add_to_variable = { employed_population_k = mine_employed }
 		###view crop weaving
 		set_temp_variable = { crop_weaving_employed_temp = crop_weaving_count }
 		multiply_temp_variable = { crop_weaving_employed_temp = 0.07 } #70men
 		add_to_variable = { weaving_employed = crop_weaving_employed_temp }
-		add_to_variable = { employed_population_k = crop_weaving_employed_temp }
 		###view animal weaving
 		set_temp_variable = { animal_weaving_employed_temp = animal_weaving_count }
 		multiply_temp_variable = { animal_weaving_employed_temp = 0.07 } #70men
 		add_to_variable = { weaving_employed = animal_weaving_employed_temp }
-		add_to_variable = { employed_population_k = animal_weaving_employed_temp }
 		###view farm
 		set_temp_variable = { steelworks_employed_temp = steelworks_count }
 		multiply_temp_variable = { steelworks_employed_temp = 0.2 } #200men
 		set_variable = { steelworks_employed = steelworks_employed_temp }
-		add_to_variable = { employed_population_k = steelworks_employed }
 
 		###view smithy
 		set_temp_variable = { smithy_employed_temp = smithy_count }
 		multiply_temp_variable = { smithy_employed_temp = 0.04 } #40men
 		set_variable = { smithy_employed = smithy_employed_temp }
-		add_to_variable = { employed_population_k = smithy_employed }
 		###view factory
 		set_temp_variable = { factory_employed_temp = factory_count }
 		multiply_temp_variable = { factory_employed_temp = 0.5 } #500men
 		set_variable = { factory_employed = factory_employed_temp }
-		add_to_variable = { employed_population_k = factory_employed }
 		###view harbour
 		set_temp_variable = { harbour_employed_temp = harbour_count }
 		multiply_temp_variable = { harbour_employed_temp = 0.1 } #100men
 		set_variable = { harbour_employed = harbour_employed_temp }
-		add_to_variable = { employed_population_k = harbour_employed }
 		###view dockyard
 		set_temp_variable = { dockyard_employed_temp = dockyard_count }
 		multiply_temp_variable = { dockyard_employed_temp = 0.2 } #200men
 		set_variable = { dockyard_employed = dockyard_employed_temp }
-		add_to_variable = { employed_population_k = dockyard_employed }
 		###view luxury good factory
 		set_temp_variable = { luxury_good_factory_employed_temp = luxury_good_factory_count }
 		multiply_temp_variable = { luxury_good_factory_employed_temp = 0.02 } #20men
 		set_variable = { luxury_good_factory_employed = luxury_good_factory_employed_temp }
-		add_to_variable = { employed_population_k = luxury_good_factory_employed }
 		###view consumer good factory
 		set_temp_variable = { consumer_good_factory_employed_temp = consumer_good_factory_count }
 		multiply_temp_variable = { consumer_good_factory_employed_temp = 0.02 } #20men
 		set_variable = { consumer_good_factory_employed = consumer_good_factory_employed_temp }
-		add_to_variable = { employed_population_k = consumer_good_factory_employed }
 		###view carpentry
 		set_temp_variable = { carpentry_employed_temp = carpentry_count }
 		multiply_temp_variable = { carpentry_employed_temp = 0.03 } #30men
 		set_variable = { carpentry_employed = carpentry_employed_temp }
-		add_to_variable = { employed_population_k = carpentry_employed }
 		###view masonry
 		set_temp_variable = { masonry_employed_temp = masonry_count }
 		multiply_temp_variable = { masonry_employed_temp = 0.04 } #40men
 		set_variable = { masonry_employed = masonry_employed_temp }
-		add_to_variable = { employed_population_k = masonry_employed }
 		###view steel_beam_factory
 		set_temp_variable = { steel_beam_factory_employed_temp = steel_beam_factory_count }
 		multiply_temp_variable = { steel_beam_factory_employed_temp = 0.1 } #100men
 		set_variable = { steel_beam_factory_employed = steel_beam_factory_employed_temp }
-		add_to_variable = { employed_population_k = steel_beam_factory_employed }
 
 		
 		set_temp_variable = { temp_epmployed_percentage = employed_population_k }
@@ -267,17 +272,27 @@ country_event = {
 
 		###view food
 		set_variable = { food_supply = resource@food_resource }
+		set_variable = { food_supply_real = resource_produced@food_resource }
+		set_variable = { food_traded_away = food_supply_real }
+		subtract_from_variable = { food_traded_away = food_supply }
 
-		set_temp_variable = { food_demand_k = employed_population_k }
-		multiply_temp_variable = { food_demand_k = 10 }
+		set_temp_variable = { food_demand_k = max_manpower_k }
+		multiply_temp_variable = { food_demand_k = 0.5 }
 		set_variable = { food_demand = food_demand_k }
 
 		###view consumer goods
 		set_variable = { consumer_good_supply = resource@consumer_goods_resource }
-		set_variable = { luxury_good_supply = 0 }
+		set_variable = { consumer_good_supply_real = resource_produced@consumer_goods_resource }
+		set_variable = { consumer_good_traded_away = consumer_good_supply_real }
+		subtract_from_variable = { consumer_good_traded_away = consumer_good_supply }
 
-		set_temp_variable = { consumer_good_demand_k = employed_population_k }
-		multiply_temp_variable = { consumer_good_demand_k = 10 }
+		set_variable = { luxury_good_supply = resource@luxury_goods_resource }
+		set_variable = { luxury_good_supply_real = resource_produced@luxury_goods_resource }
+		set_variable = { luxury_good_traded_away = luxury_good_supply_real }
+		subtract_from_variable = { luxury_good_traded_away = luxury_good_supply }
+
+		set_temp_variable = { consumer_good_demand_k = max_manpower_k }
+		multiply_temp_variable = { consumer_good_demand_k = 0.25 }
 		set_variable = { consumer_good_demand = consumer_good_demand_k }
 
 		set_variable = { consumer_good_demand_modifier = 1 }
@@ -301,16 +316,6 @@ country_event = {
 
 		subtract_from_variable = { consumer_good_demand = luxury_good_demand }
 
-		###view workers
-		set_variable = { working_percentage = 0.55 }
-		set_temp_variable = { recruits_k = max_available_manpower_k }
-		divide_temp_variable = { recruits_k = max_manpower_k }
-		set_variable = { recruited_percentage = recruits_k }
-		subtract_from_variable = { working_percentage = recruited_percentage }
-
-		set_temp_variable = { working_population_temp = max_manpower_k }
-		multiply_temp_variable = { working_population_temp = working_percentage }
-		set_variable = { working_population_k = working_population_temp }
 
 		###view selfsufficient
 		set_temp_variable = { self_employed_temp = working_population_k }
@@ -328,7 +333,9 @@ country_event = {
 		add_to_variable = { resource_surplus = resource@tungsten }
 		add_to_variable = { resource_surplus = resource@stone }
 		add_to_variable = { resource_surplus = resource@oil }
+		add_to_variable = { resource_surplus = resource@rubber }
 		divide_variable = { resource_surplus = max_manpower_k }
+		divide_variable = { resource_surplus = 2 }
 		clamp_variable = {
 			var = resource_surplus
 			min = -1
@@ -351,9 +358,16 @@ country_event = {
 		set_variable = { remaining_capacity = 1 }
 		subtract_from_variable = { remaining_capacity = modifier@taxation }
 		set_variable = { capacity_for_food_supply = remaining_capacity }
-		multiply_variable = { capacity_for_food_supply = modifier@peasant_food_factor }
+
+		set_variable = { peasant_food_factor_var = 1 }
+		add_to_variable = { peasant_food_factor_var = modifier@peasant_food_factor }
+		multiply_variable = { capacity_for_food_supply = peasant_food_factor_var }
+
 		set_variable = { capacity_for_consumer_good_supply = remaining_capacity }
-		multiply_variable = { capacity_for_consumer_good_supply = modifier@peasant_consumer_good_factor }
+
+		set_variable = { peasant_consumer_good_factor_var = 1 }
+		add_to_variable = { peasant_consumer_good_factor_var = modifier@peasant_consumer_good_factor }
+		multiply_variable = { capacity_for_consumer_good_supply = peasant_consumer_good_factor_var }
 
 		set_variable = { food_production_bonus = 1 }
 		add_to_variable = { food_production_bonus = modifier@food_production_bonus }
@@ -361,18 +375,30 @@ country_event = {
 			var = food_production_bonus
 			min = 0
 		}
+		multiply_variable = { food_supply = food_production_bonus }
 
 		set_variable = { self_employed_food_supply = self_employed_output }
 		multiply_variable = { self_employed_food_supply = capacity_for_food_supply }
 		multiply_variable = { self_employed_food_supply = food_production_bonus }
-		add_to_variable = { food_supply = self_employed_food_supply }
+
+		set_variable = { mill_production = mill_count }
+		multiply_variable = { mill_production = mill_output }
+
+		set_variable = { farm_production = farm_count }
+		multiply_variable = { farm_production = farm_output }
+
+		set_variable = { fishing_stand_production = fishing_stand_count }
+		multiply_variable = { fishing_stand_production = fishing_stand_output }
 
 		set_variable = { employed_food_production = mill_production }
 		add_to_variable = { employed_food_production = fishing_stand_production }
 
 		set_variable = { self_employed_consumer_good_supply = self_employed_output }
+		divide_variable = { self_employed_consumer_good_supply = 2 }
 		multiply_variable = { self_employed_consumer_good_supply = capacity_for_consumer_good_supply }
-		add_to_variable = { consumer_good_supply = self_employed_consumer_good_supply }
+
+		set_variable = { consumer_good_factory_production = consumer_good_factory_count }
+		multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
 
 		set_temp_variable = { food_surplus = food_supply }
 		subtract_from_temp_variable = { food_surplus = food_demand }
@@ -389,10 +415,6 @@ country_event = {
 		subtract_from_temp_variable = { consumer_good_surplus = consumer_good_demand }
 		set_variable = { consumer_good_surplus_real = consumer_good_surplus }
 
-		set_variable = { luxury_goods = 0 }
-		add_to_variable = { luxury_goods = luxury_good_factory_count }
-		multiply_variable = { luxury_goods =luxury_good_factory_output }
-		add_to_variable = { luxury_good_supply = luxury_goods }
 
 		set_temp_variable = { luxury_good_surplus = luxury_good_supply }
 		subtract_from_temp_variable = { luxury_good_surplus = luxury_good_demand }
@@ -428,10 +450,12 @@ country_event = {
 		multiply_variable = { double_food_demand = 2 }
 		if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = famine }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = famine }
+					}
+					check_variable = { food_supply < half_food_demand }
 				}
-				check_variable = { food_supply < half_food_demand }
 			}
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = famine }
@@ -439,11 +463,13 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = food_shortages }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = food_shortages }
+					}
+					check_variable = { food_supply < food_demand }
+					check_variable = { food_supply > half_food_demand }
 				}
-				check_variable = { food_supply < food_demand }
-				check_variable = { food_supply > half_food_demand }
 			}
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = food_shortages }
@@ -451,11 +477,13 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = food_surplus_idea }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = food_surplus_idea }
+					}
+					check_variable = { food_supply < double_food_demand }
+					check_variable = { food_supply > half_more_food_demand }
 				}
-				check_variable = { food_supply < double_food_demand }
-				check_variable = { food_supply > half_more_food_demand }
 			}
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = food_surplus_idea }
@@ -463,10 +491,12 @@ country_event = {
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = burgerking }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = burgerking }
+					}
+					check_variable = { food_supply > double_food_demand }
 				}
-				check_variable = { food_supply > double_food_demand }
 			}
 			hidden_effect = {
 				add_dynamic_modifier = { modifier = burgerking }
@@ -481,39 +511,47 @@ country_event = {
 		multiply_variable = { double_consumer_demand = 2 }
 		if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = extreme_poverty }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = extreme_poverty }
+					}
+					check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
 				}
-				check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
 			}
 			add_dynamic_modifier = { modifier = extreme_poverty }
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = poverty }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = poverty }
+					}
+					check_variable = { consumer_and_luxury_goods_supply < consumer_good_demand }
+					check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
 				}
-				check_variable = { consumer_and_luxury_goods_supply < consumer_good_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
 			}
 			add_dynamic_modifier = { modifier = poverty }
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = wealth }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = wealth }
+					}
+					check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
+					check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
 				}
-				check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
 			}
 			add_dynamic_modifier = { modifier = wealth }
 		}
 		else_if = {
 			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = extreme_wealth }
+				AND = {
+					NOT = {
+						has_dynamic_modifier = { modifier = extreme_wealth }
+					}
+					check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
 				}
-				check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
 			}
 			add_dynamic_modifier = { modifier = extreme_wealth }
 		}
@@ -550,6 +588,9 @@ country_event = {
 		add_to_variable = { construction_resouces = brick_factor }
 		add_to_variable = { construction_resouces = steel_beam_factor }
 
+
+		#### civil capacity
+
 		set_variable = { ic = 0 }
 		set_variable = { employed_ic = plank_factor }
 		add_to_variable = { employed_ic = brick_factor }
@@ -564,7 +605,76 @@ country_event = {
 
 		add_to_variable = { ic = stolen_to_construct }
 		multiply_variable = { ic = construction_material_factor }
+
+		set_variable = { ic_factor = 1 }
+		add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
+		multiply_variable = { ic = ic_factor }
+
 		round_variable = ic
+
+
+
+		#### military capacity
+
+		set_temp_variable = { smithies_temp = smithy_count }
+		set_temp_variable = { smithies_already_have_1_output_temp = smithy_output }
+		subtract_from_temp_variable = { smithies_already_have_1_output_temp = 1 }
+		multiply_temp_variable = { smithies_temp = smithies_already_have_1_output_temp }
+		set_temp_variable = { factories_temp = factory_count }
+		multiply_temp_variable = { factories_temp = factory_output }
+		set_variable = { factory_duplicator = 0 }
+		add_to_variable = { factory_duplicator = smithies_temp }
+		add_to_variable = { factory_duplicator = factories_temp }
+
+		set_variable = { military_ic_factor = 1 }
+		add_to_variable = { military_ic_factor = modifier@military_capacity_factor }
+		multiply_variable = { factory_duplicator = military_ic_factor }
+
+		round_variable = factory_duplicator
+
+
+		#### naval capacity 
+
+		set_temp_variable = { dockyards_temp = dockyard_count }
+		#multiply_temp_variable = { dockyards_temp = 2 }
+		set_variable = { dockyard_duplicator = dockyards_temp }
+
+		set_variable = { navy_ic_factor = 1 }
+		add_to_variable = { navy_ic_factor = modifier@naval_capacity_factor }
+		multiply_variable = { dockyard_duplicator = navy_ic_factor }
+
+		round_variable = dockyard_duplicator
+
+
+		### military to civil factor
+
+		set_temp_variable = { smithies_total_output = smithy_count }
+		multiply_temp_variable = { smithies_total_output = smithy_output }
+		set_temp_variable = { factories_total_output = factory_count }
+		multiply_temp_variable = { factories_total_output = factory_output }
+		set_temp_variable = { total_military_ic = smithies_total_output }
+		add_to_temp_variable = { total_military_ic = factories_total_output }
+
+		set_variable = { ic_real_transfer = modifier@military_to_civil_factory }
+		subtract_from_variable = { ic_real_transfer = modifier@civil_to_military_factory }
+
+		set_variable = { military_ic_transfer = total_military_ic }
+		multiply_variable = { military_ic_transfer = ic_real_transfer }
+
+		add_to_variable = { ic = military_ic_transfer }
+		round_variable = ic
+		subtract_from_variable = { factory_duplicator = military_ic_transfer }
+		round_variable = factory_duplicator
+		
+
+
+		civil_factory_output = yes
+		extra_factory_output = yes
+		extra_dockyard_output = yes
+
+
+
+
 
 		### deposites and deactivating
 
@@ -679,79 +789,89 @@ country_event = {
 			}
 		}
 
-		### extra factories
-		civil_factory_output = yes
-		extra_factory_output = yes
-		extra_dockyard_output = yes
 
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@oil < 0 }
-				OR = {
-					check_variable = { mill_count > 0 }
-					check_variable = { crop_weaving_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@oil < 0 }
+					OR = {
+						check_variable = { mill_count > 0 }
+						check_variable = { crop_weaving_count > 0 }
+					}
 				}
 			}
 			remove_crop_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@aluminium < 0 }
-				OR = {
-					check_variable = { consumer_good_factory_count > 0 }
-					check_variable = { carpentry_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@aluminium < 0 }
+					OR = {
+						check_variable = { consumer_good_factory_count > 0 }
+						check_variable = { carpentry_count > 0 }
+					}
 				}
 			}
 			remove_wood_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@tungsten < 0 }
-				check_variable = { consumer_good_factory_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@tungsten < 0 }
+					check_variable = { consumer_good_factory_count > 0 }
+				}
 			}
 			remove_textile_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@stone < 0 }
-				check_variable = { masonry_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@stone < 0 }
+					check_variable = { masonry_count > 0 }
+				}
 			}
 			remove_stone_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@chromium < 0 }
-				check_variable = { animal_weaving_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@chromium < 0 }
+					check_variable = { animal_weaving_count > 0 }
+				}
 			}
 			remove_animal_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@steel < 0 }
-				check_variable = { steel_beam_factory_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@steel < 0 }
+					check_variable = { steel_beam_factory_count > 0 }
+				}
 			}
 			remove_steel_consumer = yes
 		}
 		if = {
 			limit = {
-				is_ai = no
-				has_game_rule = { rule = building_deactivation option = enabled }
-				check_variable = { resource@iron < 0 }
-				OR = {
-					check_variable = { luxury_good_factory_count > 0 }
-					check_variable = { steelworks_count > 0 }
+				AND = {
+					is_ai = no
+					has_game_rule = { rule = building_deactivation option = enabled }
+					check_variable = { resource@iron < 0 }
+					OR = {
+						check_variable = { luxury_good_factory_count > 0 }
+						check_variable = { steelworks_count > 0 }
+					}
 				}
 			}
 			remove_iron_consumer = yes
@@ -794,6 +914,15 @@ country_event = {
 					remove_crop_consumer = yes
 				}
 			}
+		}
+
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = additional_scripted_resources }
+				}
+			}
+			add_dynamic_modifier = { modifier = additional_scripted_resources }
 		}
 	}
 
