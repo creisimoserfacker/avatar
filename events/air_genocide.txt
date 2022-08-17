@@ -77,15 +77,6 @@ country_event = {
 		hidden_effect = {
 			add_country_leader_trait = secret_genocide_plan
 			GIF = {
-				if = {
-					limit = {
-						has_country_flag = earth_transport_idea_flag
-					}
-					add_timed_idea = {
-						idea = transportation_buff
-						days = 90
-					}
-				}
 				transfer_state = 297
 				set_country_flag = earth_nation
 				add_manpower = 4000
@@ -108,6 +99,22 @@ country_event = {
 							}
 						}
 						is_locked = yes
+					}
+				}
+				if = {
+					limit = {
+						FIR = {
+							AND = {
+								has_country_flag = south_extra_construction
+								has_country_flag = east_extra_construction
+								has_country_flag = north_extra_construction
+								has_country_flag = west_extra_construction
+							}
+						}
+					}
+					add_timed_idea = {
+						idea = transportation_buff
+						days = 100
 					}
 				}
 				#West
@@ -295,7 +302,7 @@ country_event = {
 						}
 					}
 				}
-				239 = {
+				412 = {
 					set_variable = {
 						sent_troops = EAR.genocide_preparation
 					}
@@ -1067,6 +1074,22 @@ country_event = {
 					}
 					is_locked = yes
 				}
+				if = {
+					limit = {
+						FIR = {
+							AND = {
+								has_country_flag = south_extra_construction
+								has_country_flag = east_extra_construction
+								has_country_flag = north_extra_construction
+								has_country_flag = west_extra_construction
+							}
+						}
+					}
+					add_timed_idea = {
+						idea = transportation_buff
+						days = 100
+					}
+				}
 				#West
 				WAT = {
 					if = {
@@ -1252,7 +1275,7 @@ country_event = {
 				# 		}
 				# 	}
 				# }
-				239 = {
+				412 = {
 					set_variable = {
 						sent_troops = FIR.genocide_preparation
 					}

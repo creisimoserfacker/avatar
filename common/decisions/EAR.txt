@@ -821,6 +821,10 @@ EAR_dai_li_category = {
 			}
 			set_global_flag = NAT_occupied
 		}
+
+		ai_will_do = {
+			factor = 100
+		}
 	}
 
 	EAR_occupy_western_temple_lands = {
@@ -855,6 +859,10 @@ EAR_dai_li_category = {
 				}
 			}
 			set_global_flag = WAT_occupied
+		}
+
+		ai_will_do = {
+			factor = 100
 		}
 	}
 
@@ -891,6 +899,10 @@ EAR_dai_li_category = {
 			}
 			set_global_flag = SAT_occupied
 		}
+
+		ai_will_do = {
+			factor = 100
+		}
 	}
 
 	EAR_occupy_eastern_temple_lands = {
@@ -925,6 +937,10 @@ EAR_dai_li_category = {
 				}
 			}
 			set_global_flag = EAT_occupied
+		}
+
+		ai_will_do = {
+			factor = 100
 		}
 	}
 
@@ -979,6 +995,12 @@ EAR_dai_li_category = {
 					white_peace = GIF
 					#give_military_access = GIF
 					leave_faction = yes
+					every_state = {
+						limit = {
+							is_core_of = EAT
+						}
+						transfer_state_to = EAT
+					}
 				}
 				set_global_flag = east_temple_survived
 			}
@@ -1042,6 +1064,12 @@ EAR_dai_li_category = {
 					white_peace = GIF
 					#give_military_access = GIF
 					leave_faction = yes
+					every_state = {
+						limit = {
+							is_core_of = WAT
+						}
+						transfer_state_to = WAT
+					}
 				}
 				set_global_flag = west_temple_survived
 			}
@@ -1105,6 +1133,12 @@ EAR_dai_li_category = {
 					white_peace = GIF
 					#give_military_access = GIF
 					leave_faction = yes
+					every_state = {
+						limit = {
+							is_core_of = NAT
+						}
+						transfer_state_to = NAT
+					}
 				}
 				set_global_flag = north_temple_survived
 			}
@@ -1171,6 +1205,12 @@ EAR_dai_li_category = {
 					white_peace = GIF
 					#give_military_access = GIF
 					leave_faction = yes
+					every_state = {
+						limit = {
+							is_core_of = SAT
+						}
+						transfer_state_to = SAT
+					}
 				}
 				set_global_flag = south_temple_survived
 			}
