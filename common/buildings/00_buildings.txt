@@ -38,17 +38,6 @@ buildings = {
 	#}
 
 
-	industrial_complex = {
-		show_on_map = 6
-		base_cost = 25000
-		base_cost_conversion = 10000
-		general_production = 1
-		icon_frame = 46
-		max_level = 1000000000
-		shares_slots = yes
-		value = 6
-	}
-
 	farm = {
 		show_on_map = 1
 		base_cost = 3700
@@ -57,13 +46,13 @@ buildings = {
 		shares_slots = yes
 		value = 9
 		infrastructure_construction_effect = yes
-		refinery = yes
 
-		local_resources_oil = 2
-		local_resources_food_resource = 1
+		#local_resources_oil = 2
+		#local_resources_food_resource = 1
 
 		show_modifier = yes
-		manpower_requirement = 60
+		manpower_requirement_k = 0.060
+		building_upkeep_cost = 1
 	}
 
 	ranch = {
@@ -74,12 +63,13 @@ buildings = {
 		shares_slots = yes
 		value = 6
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		local_resources_chromium = 6
+		#local_resources_chromium = 6
 
 		show_modifier = yes
-		manpower_requirement = 60
+		manpower_requirement_k = 0.060
+		building_upkeep_cost = 1
 	}
 
 	fishing_stand = {
@@ -90,12 +80,13 @@ buildings = {
 		shares_slots = yes
 		value = 7
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		local_resources_food_resource = 2
+		#local_resources_food_resource = 2
 
 		show_modifier = yes
-		manpower_requirement = 50
+		manpower_requirement_k = 0.050
+		building_upkeep_cost = 1
 	}
 
 	lumber_mill = {
@@ -107,12 +98,13 @@ buildings = {
 		shares_slots = yes
 		value = 12
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		local_resources_aluminium = 10
+		#local_resources_aluminium = 10
 
 		show_modifier = yes
-		manpower_requirement = 30
+		manpower_requirement_k = 0.030
+		building_upkeep_cost = 1
 	}
 
 	quarry = {
@@ -120,18 +112,18 @@ buildings = {
 		base_cost = 5800
 		#per_level_extra_cost = 640
 		icon_frame = 5
-		#local_resources_aluminium = -1000
+		##local_resources_aluminium = -1000
 		max_level = 50 # This is the max unlock level
 		shares_slots = yes
 		value = 16
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		local_resources_stone = 6
+		#local_resources_stone = 6
 
 		show_modifier = yes
-		manpower_requirement = 120
-		#fuel_gain_from_states = 1.0 #per hour
+		manpower_requirement_k = 0.120
+		building_upkeep_cost = 2
 	}
 
 	crop_weaving = {
@@ -142,11 +134,13 @@ buildings = {
 		shares_slots = yes
 		value = 4
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		country_resource_cost_oil = 6
-		local_resources_tungsten = 10
-		manpower_requirement = 70
+		show_modifier = yes
+		#country_resource_cost_oil = 6
+		#local_resources_tungsten = 10
+		manpower_requirement_k = 0.070
+		building_upkeep_cost = 1
 	}
 
 	animal_weaving = {
@@ -157,11 +151,13 @@ buildings = {
 		shares_slots = yes
 		value = 4
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		country_resource_cost_chromium = 5
-		local_resources_tungsten = 10
-		manpower_requirement = 70
+		show_modifier = yes
+		#country_resource_cost_chromium = 5
+		#local_resources_tungsten = 10
+		manpower_requirement_k = 0.070
+		building_upkeep_cost = 1
 	}
 
 	mine = {
@@ -173,14 +169,14 @@ buildings = {
 		shares_slots = yes
 		value = 8
 		infrastructure_construction_effect = yes
-		refinery = yes
+		
 
-		local_resources_iron = 9
-		local_resources_rubber = 1
+		#local_resources_iron = 9
+		#local_resources_rubber = 1
 
 		show_modifier = yes
-		manpower_requirement = 100
-		#fuel_gain_from_states = 3.0 #per hour
+		manpower_requirement_k = 0.100
+		building_upkeep_cost = 2
 	}
 
 	mill = {
@@ -194,11 +190,12 @@ buildings = {
 		value = 3
 		infrastructure_construction_effect = yes
 
-		local_resources_food_resource = 4
-		country_resource_cost_oil = 4
+		#local_resources_food_resource = 4
+		#country_resource_cost_oil = 4
 
 		show_modifier = yes
-		manpower_requirement = 40
+		manpower_requirement_k = 0.040
+		building_upkeep_cost = 1
 	}
 
 	steelworks = {
@@ -209,15 +206,18 @@ buildings = {
 		shares_slots = yes
 		value = 5
 		infrastructure_construction_effect = yes
-		refinery = yes
+
+		#country_resource_cost_iron = 20
+		#country_resource_cost_stone = 1
+		#local_resources_steel = 10
+
+		custom_modifier_tooltip = steelworks_tt
+
+		manpower_requirement_k = 0.200
+
 		show_modifier = yes
-
-		country_resource_cost_iron = 20
-		country_resource_cost_stone = 1
-		local_resources_steel = 10
-
-		fuel_gain_from_states = -10.0 #per hour
-		manpower_requirement = 200
+		#fuel_gain_from_states = -10.0 #per hour
+		building_upkeep_cost = 3
 	}
 
 	arms_factory = {
@@ -232,11 +232,12 @@ buildings = {
 		value = 6
 		infrastructure_construction_effect = yes
 
-		military_capacity_modifier = 20
-		manpower_requirement = 40
+		#military_capacity_modifier = 4
+		manpower_requirement_k = 0.040
 		show_modifier = yes
 
-		fuel_gain_from_states = -1.0 #per hour
+		#fuel_gain_from_states = -1.0 #per hour
+		building_upkeep_fake = 2
 	}
 
 	factory = {
@@ -248,15 +249,15 @@ buildings = {
 		shares_slots = yes
 		value = 5
 		infrastructure_construction_effect = yes
-		refinery = yes
 
-		military_capacity_modifier = 1
-		naval_capacity_modifier = 1
+		#military_capacity_modifier = 1
+		#naval_capacity_modifier = 1
 		show_modifier = yes
 
-		manpower_requirement = 500
+		manpower_requirement_k = 0.500
 
-		fuel_gain_from_states = -5.0 #per hour
+		#fuel_gain_from_states = -5.0 #per hour
+		building_upkeep_cost = 4
 	}
 
 	harbour = {
@@ -273,9 +274,10 @@ buildings = {
 		infrastructure_construction_effect = yes
 
 		show_modifier = yes
-		manpower_requirement = 100
+		manpower_requirement_k = 0.100
 
-		naval_capacity_modifier = 10
+		#naval_capacity_modifier = 10
+		building_upkeep_fake = 2
 	}
 
 	dockyard = {
@@ -292,9 +294,10 @@ buildings = {
 		infrastructure_construction_effect = yes
 
 		show_modifier = yes
-		manpower_requirement = 200
+		manpower_requirement_k = 0.200
 
-		naval_capacity_modifier = 20
+		#naval_capacity_modifier = 20
+		building_upkeep_cost = 3
 	}
 
 	consumer_good_factory = {
@@ -308,12 +311,13 @@ buildings = {
 		value = 4
 		infrastructure_construction_effect = yes
 
-		country_resource_cost_aluminium = 2
-		country_resource_cost_tungsten = 2
-		local_resources_consumer_goods_resource = 4
+		#country_resource_cost_aluminium = 2
+		#country_resource_cost_tungsten = 2
+		#local_resources_consumer_goods_resource = 4
 
 		show_modifier = yes
-		manpower_requirement = 20
+		manpower_requirement_k = 0.020
+		building_upkeep_cost = 2
 	}
 	luxury_good_factory = {
 		show_on_map = 6
@@ -326,12 +330,28 @@ buildings = {
 		value = 4
 		infrastructure_construction_effect = yes
 
-		country_resource_cost_iron = 2
-		country_resource_cost_stone = 1
-		local_resources_luxury_goods_resource = 4
+		#country_resource_cost_iron = 2
+		#country_resource_cost_stone = 1
+		#local_resources_luxury_goods_resource = 4
 
 		show_modifier = yes
-		manpower_requirement = 20
+		manpower_requirement_k = 0.020
+		building_upkeep_cost = 2
+	}
+
+	industrial_complex = {
+		show_on_map = 6
+		base_cost = 25000
+		base_cost_conversion = 10000
+		general_production = 1
+		icon_frame = 32
+		max_level = 1000000000
+		shares_slots = yes
+		value = 6
+
+		show_modifier = yes
+		civilian_capacity_modifier = 1
+		building_upkeep_fake = 2
 	}
 
 	carpentry = {
@@ -345,11 +365,12 @@ buildings = {
 		value = 6
 		infrastructure_construction_effect = yes
 
-		country_resource_cost_aluminium = 2
-		local_resources_planks_resource = 6
+		#country_resource_cost_aluminium = 2
+		#local_resources_planks_resource = 6
 
 		show_modifier = yes
-		manpower_requirement = 30
+		manpower_requirement_k = 0.030
+		building_upkeep_cost = 2
 	}
 	masonry = {
 		show_on_map = 6
@@ -362,11 +383,12 @@ buildings = {
 		value = 7
 		infrastructure_construction_effect = yes
 
-		country_resource_cost_stone = 2
-		local_resources_bricks_resource = 6
+		#country_resource_cost_stone = 2
+		#local_resources_bricks_resource = 6
 
 		show_modifier = yes
-		manpower_requirement = 40
+		manpower_requirement_k = 0.040
+		building_upkeep_cost = 2
 	}
 	steel_beam_factory = {
 		show_on_map = 6
@@ -379,15 +401,15 @@ buildings = {
 		value = 6
 		infrastructure_construction_effect = yes
 
-		country_resource_cost_steel = 6
-		local_resources_steel_beams_resource = 6
+		#country_resource_cost_steel = 6
+		#local_resources_steel_beams_resource = 6
 
-		fuel_gain_from_states = -2.0 #per hour
+		#fuel_gain_from_states = -2.0 #per hour
 
 		show_modifier = yes
-		manpower_requirement = 100
+		manpower_requirement_k = 0.100
+		building_upkeep_cost = 3
 	}
-
 
 	fuel_repository = {
 		show_on_map = 1
@@ -401,6 +423,22 @@ buildings = {
 		
 		show_modifier = yes
 		max_fuel_building = 100.0 #k
+		building_upkeep_cost = 2
+	}
+
+	granary = {
+		show_on_map = 1
+		show_on_map_meshes = 1
+		base_cost = 9000
+		icon_frame = 31
+		max_level = 50
+		shares_slots = yes
+		value = 1
+		infrastructure_construction_effect = yes
+		
+		show_modifier = yes
+		max_rations_building_k = 100.0 #k
+		building_upkeep_cost = 2
 	}
 
 	scout_tower = {
@@ -414,6 +452,9 @@ buildings = {
 		damage_factor = 0.5
 		shares_slots = yes
 		value = 2
+
+		show_modifier = yes
+		building_upkeep_cost = 1
 	}
 
 	anti_air_building = {
@@ -427,6 +468,9 @@ buildings = {
 		damage_factor = 0.1
 		shares_slots = yes
 		value = 1
+
+		show_modifier = yes
+		building_upkeep_cost = 1
 	}
 
 	air_base = {
@@ -438,6 +482,9 @@ buildings = {
 		value = 1
 		shares_slots = yes
 		damage_factor = 0.5
+
+		show_modifier = yes
+		building_upkeep_cost = 1
 	}
 
 	rail_way = {
@@ -509,149 +556,5 @@ buildings = {
 		value = 1
 	}
 
-
-
-	#    ####      ####      ####  
-	#   #    #    #    #    #    # 
-	#  #      #  #      #  #      #
-	#  #      #  #      #  #      #
-	#   #    #    #    #    #    # 
-	#    ####      ####      ####  
-
-	farm_ooo = {
-		show_on_map = 1
-		base_cost = 3700
-		icon_frame = 31
-		max_level = 50
-		shares_slots = yes
-		value = 9
-		always_shown = no
-	}
-	ranch_ooo = {
-		show_on_map = 1
-		base_cost = 4000
-		icon_frame = 34
-		max_level = 50
-		shares_slots = yes
-		value = 6
-		always_shown = no
-	}
-	fishing_stand_ooo = {
-		show_on_map = 1
-		base_cost = 3500
-		icon_frame = 39
-		max_level = 50
-		shares_slots = yes
-		value = 7
-		always_shown = no
-	}
-	lumber_mill_ooo = {
-		show_on_map = 1
-		base_cost = 5200
-		icon_frame = 32
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 12
-		always_shown = no
-	}
-	quarry_ooo = {
-		show_on_map = 1
-		base_cost = 5800
-		icon_frame = 33
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 16
-		always_shown = no
-	}
-	crop_weaving_ooo = {
-		show_on_map = 1
-		base_cost = 4100
-		icon_frame = 36
-		max_level = 50
-		shares_slots = yes
-		value = 4
-		always_shown = no
-	}
-	animal_weaving_ooo = {
-		show_on_map = 1
-		base_cost = 4100
-		icon_frame = 37
-		max_level = 50
-		shares_slots = yes
-		value = 4
-		always_shown = no
-	}
-	mine_ooo = {
-		show_on_map = 1
-		base_cost = 9000
-		icon_frame = 35
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 8
-		always_shown = no
-	}
-	mill_ooo = {
-		show_on_map = 6
-		base_cost = 4600
-		icon_frame = 45
-		max_level = 50
-		shares_slots = yes
-		value = 3
-		always_shown = no
-	}
-	steelworks_ooo = {
-		show_on_map = 1
-		base_cost = 18000
-		icon_frame = 38
-		max_level = 50 # This is the max unlock level
-		shares_slots = yes
-		value = 5
-		always_shown = no
-	}
-	consumer_good_factory_ooo = {
-		show_on_map = 6
-		base_cost = 8000
-		icon_frame = 43
-		max_level = 50
-		shares_slots = yes
-		value = 4
-		always_shown = no
-	}
-	luxury_good_factory_ooo = {
-		show_on_map = 6
-		base_cost = 12000
-		icon_frame = 42
-		max_level = 50
-		shares_slots = yes
-		value = 4
-		always_shown = no
-	}
-	carpentry_ooo = {
-		show_on_map = 6
-		base_cost = 14000
-		icon_frame = 41
-		max_level = 50
-		shares_slots = yes
-		value = 6
-		always_shown = no
-	}
-	masonry_ooo = {
-		show_on_map = 6
-		base_cost = 14000
-		icon_frame = 40
-		max_level = 50
-		shares_slots = yes
-		value = 7
-		always_shown = no
-	}
-	steel_beam_factory_ooo = {
-		show_on_map = 6
-		base_cost = 24000
-		icon_frame = 44
-		max_level = 50
-		shares_slots = yes
-		value = 6
-		always_shown = no
-	}
 
 }

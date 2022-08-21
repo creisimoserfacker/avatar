@@ -14,14 +14,96 @@ scripted_gui = {
 		parent_window_token = construction_tab
 
 		triggers = {
+
+			toggle_auto_visible = {
+				NOT = {
+					has_country_flag = auto_construction_interface
+				}
+			}
+			toggle_vanilla_visible = {
+				has_country_flag = auto_construction_interface
+			}
+
+			famine_icon_visible = {
+				has_dynamic_modifier = { modifier = famine }
+			}
+			food_shortages_icon_visible = {
+				has_dynamic_modifier = { modifier = food_shortages }
+			}
+			food_surplus_icon_visible = {
+				has_dynamic_modifier = { modifier = food_surplus_idea }
+			}
+			burgerking_icon_visible = {
+				has_dynamic_modifier = { modifier = burgerking }
+			}
+
+			extreme_poverty_icon_visible = {
+				has_dynamic_modifier = { modifier = extreme_poverty }
+			}
+			poverty_icon_visible = {
+				has_dynamic_modifier = { modifier = poverty }
+			}
+			wealth_icon_visible = {
+				has_dynamic_modifier = { modifier = wealth }
+			}
+			extreme_wealth_icon_visible = {
+				has_dynamic_modifier = { modifier = extreme_wealth }
+			}
+
 			toggle_core_visible = {
 				NOT = {
 					has_country_flag = core_all_construction_flag
 				}
+				has_country_flag = auto_construction_interface
 			}
 			toggle_all_visible = {
 				has_country_flag = core_all_construction_flag
+				has_country_flag = auto_construction_interface
 			}
+
+		}
+
+		effects = {
+
+			toggle_core_click = {
+				ROOT = {
+					set_country_flag = core_all_construction_flag
+				}
+			}
+			toggle_all_click = {
+				ROOT = {
+					clr_country_flag = core_all_construction_flag
+				}
+			}
+
+
+			toggle_auto_click = {
+				ROOT = {
+					set_country_flag = auto_construction_interface
+				}
+			}
+			toggle_vanilla_click = {
+				ROOT = {
+					clr_country_flag = auto_construction_interface
+				}
+			}
+		}
+
+	}
+	
+
+
+
+	auto_construction_ui = {
+		context_type = player_context
+		window_name = "auto_construction_ui_window"
+		parent_window_token = construction_tab
+
+		visible = {
+			has_country_flag = auto_construction_interface
+		}
+
+		triggers = {
 
 			famine_icon_visible = {
 				has_dynamic_modifier = { modifier = famine }
@@ -551,17 +633,6 @@ scripted_gui = {
 		}
 
 		effects = {
-
-			toggle_core_click = {
-				ROOT = {
-					set_country_flag = core_all_construction_flag
-				}
-			}
-			toggle_all_click = {
-				ROOT = {
-					clr_country_flag = core_all_construction_flag
-				}
-			}
 
 			farm_construction_click = {
 				add_farm_random = yes

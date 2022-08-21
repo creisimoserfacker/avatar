@@ -2,6 +2,18 @@ on_actions = {
 
 	on_startup = {
 		effect = {
+			every_state = {
+				add_dynamic_modifier = { modifier = farm_scripted_resources }
+				add_dynamic_modifier = { modifier = ranch_scripted_resources }
+				add_dynamic_modifier = { modifier = fishing_stand_scripted_resources }
+				add_dynamic_modifier = { modifier = lumber_mill_scripted_resources }
+				add_dynamic_modifier = { modifier = quarry_scripted_resources }
+				add_dynamic_modifier = { modifier = mine_scripted_resources }
+				add_dynamic_modifier = { modifier = crop_weaving_scripted_resources }
+				add_dynamic_modifier = { modifier = animal_weaving_scripted_resources }
+				add_dynamic_modifier = { modifier = mill_scripted_resources }
+				add_dynamic_modifier = { modifier = steelworks_scripted_resources }
+			}
 			every_country = {
 				country_event = { id = economy.1 }
 
@@ -17,9 +29,14 @@ on_actions = {
 				set_variable = { quarry_output = 6 }
 				set_variable = { mine_output1 = 9 }
 				set_variable = { mine_output2 = 1 }
+				set_variable = { crop_weaving_need = 6 }
 				set_variable = { crop_weaving_output = 10 }
+				set_variable = { animal_weaving_need = 6 }
 				set_variable = { animal_weaving_output = 10 }
+				set_variable = { mill_need = 4 }
 				set_variable = { mill_output = 4 }
+				set_variable = { steelworks_need1 = 20 }
+				set_variable = { steelworks_need2 = 1 }
 				set_variable = { steelworks_output = 10 }
 
 				set_variable = { smithy_output = 3 } # max 4
