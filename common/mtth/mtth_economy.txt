@@ -398,10 +398,10 @@ luxury_store_luxury_goods_gain = {
 				limit = {
 					check_variable = { resource@iron < 0 }
 				}	
-				set_temp_variable = { shop_consumed = luxury_good_factory_count }
-				multiply_temp_variable = { shop_consumed = luxury_good_factory_need1 }
+				set_temp_variable = { store_consumed = luxury_good_factory_count }
+				multiply_temp_variable = { store_consumed = luxury_good_factory_need2 }
 				set_temp_variable = { resource_lack_penalty = resource@iron }
-				divide_temp_variable = { resource_lack_penalty = shop_consumed }
+				divide_temp_variable = { resource_lack_penalty = store_consumed }
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
@@ -411,10 +411,10 @@ luxury_store_luxury_goods_gain = {
 				limit = {
 					check_variable = { resource@stone < 0 }
 				}
-				set_temp_variable = { shop_consumed_2 = luxury_good_factory_count }
-				multiply_temp_variable = { shop_consumed_2 = luxury_good_factory_need2 }
+				set_temp_variable = { store_consumed_2 = luxury_good_factory_count }
+				multiply_temp_variable = { store_consumed_2 = luxury_good_factory_need1 }
 				set_temp_variable = { resource_lack_penalty_2 = resource@stone }
-				divide_temp_variable = { resource_lack_penalty_2 = shop_consumed_2 }
+				divide_temp_variable = { resource_lack_penalty_2 = store_consumed_2 }
 				add_to_temp_variable = { resource_lack_penalty_2 = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }

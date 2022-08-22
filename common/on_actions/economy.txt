@@ -234,9 +234,9 @@ on_actions = {
 			set_variable = { food_traded_away = food_supply_real }
 			subtract_from_variable = { food_traded_away = food_supply }
 
-			set_temp_variable = { food_demand_k = max_manpower_k }
-			multiply_temp_variable = { food_demand_k = 0.5 }
-			set_variable = { food_demand = food_demand_k }
+			#set_temp_variable = { food_demand_k = max_manpower_k }
+			#multiply_temp_variable = { food_demand_k = 0.5 }
+			#set_variable = { food_demand = food_demand_k }
 
 			###view consumer goods
 			set_variable = { consumer_good_supply = resource@consumer_goods_resource }
@@ -376,12 +376,12 @@ on_actions = {
 			subtract_from_temp_variable = { food_surplus = food_demand }
 			set_variable = { food_surplus_real = food_surplus }
 
-			set_variable = { food_supply_2 = food_supply }
-			clamp_variable = {
-				var = food_supply_2
-				min = 0
-				max = food_demand
-			}
+			#set_variable = { food_supply_2 = food_supply }
+			#clamp_variable = {
+			#	var = food_supply_2
+			#	min = 0
+			#	max = food_demand
+			#}
 
 			set_temp_variable = { consumer_good_surplus = consumer_good_supply }
 			subtract_from_temp_variable = { consumer_good_surplus = consumer_good_demand }
@@ -414,66 +414,66 @@ on_actions = {
 				add_to_variable = { consumer_and_luxury_goods_supply = luxury_good_supply }
 			}
 
-			set_variable = { half_food_demand = food_demand }
-			divide_variable = { half_food_demand = 2 }
-			set_variable = { half_more_food_demand = food_demand }
-			add_to_variable = { half_more_food_demand = half_food_demand }
-			set_variable = { double_food_demand = food_demand }
-			multiply_variable = { double_food_demand = 2 }
-			if = {
-				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = famine }
-						}
-						check_variable = { food_supply < half_food_demand }
-					}
-				}
-				hidden_effect = {
-					add_dynamic_modifier = { modifier = famine }
-				}
-			}
-			else_if = {
-				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = food_shortages }
-						}
-						check_variable = { food_supply < food_demand }
-						check_variable = { food_supply > half_food_demand }
-					}
-				}
-				hidden_effect = {
-					add_dynamic_modifier = { modifier = food_shortages }
-				}
-			}
-			else_if = {
-				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = food_surplus_idea }
-						}
-						check_variable = { food_supply < double_food_demand }
-						check_variable = { food_supply > half_more_food_demand }
-					}
-				}
-				hidden_effect = {
-					add_dynamic_modifier = { modifier = food_surplus_idea }
-				}
-			}
-			else_if = {
-				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = burgerking }
-						}
-						check_variable = { food_supply > double_food_demand }
-					}
-				}
-				hidden_effect = {
-					add_dynamic_modifier = { modifier = burgerking }
-				}
-			}
+			#set_variable = { half_food_demand = food_demand }
+			#divide_variable = { half_food_demand = 2 }
+			#set_variable = { half_more_food_demand = food_demand }
+			#add_to_variable = { half_more_food_demand = half_food_demand }
+			#set_variable = { double_food_demand = food_demand }
+			#multiply_variable = { double_food_demand = 2 }
+			#if = {
+			#	limit = {
+			#		AND = {
+			#			NOT = {
+			#				has_dynamic_modifier = { modifier = famine }
+			#			}
+			#			check_variable = { food_supply < half_food_demand }
+			#		}
+			#	}
+			#	hidden_effect = {
+			#		add_dynamic_modifier = { modifier = famine }
+			#	}
+			#}
+			#else_if = {
+			#	limit = {
+			#		AND = {
+			#			NOT = {
+			#				has_dynamic_modifier = { modifier = food_shortages }
+			#			}
+			#			check_variable = { food_supply < food_demand }
+			#			check_variable = { food_supply > half_food_demand }
+			#		}
+			#	}
+			#	hidden_effect = {
+			#		add_dynamic_modifier = { modifier = food_shortages }
+			#	}
+			#}
+			#else_if = {
+			#	limit = {
+			#		AND = {
+			#			NOT = {
+			#				has_dynamic_modifier = { modifier = food_surplus_idea }
+			#			}
+			#			check_variable = { food_supply < double_food_demand }
+			#			check_variable = { food_supply > half_more_food_demand }
+			#		}
+			#	}
+			#	hidden_effect = {
+			#		add_dynamic_modifier = { modifier = food_surplus_idea }
+			#	}
+			#}
+			#else_if = {
+			#	limit = {
+			#		AND = {
+			#			NOT = {
+			#				has_dynamic_modifier = { modifier = burgerking }
+			#			}
+			#			check_variable = { food_supply > double_food_demand }
+			#		}
+			#	}
+			#	hidden_effect = {
+			#		add_dynamic_modifier = { modifier = burgerking }
+			#	}
+			#}
 
 			set_variable = { half_consumer_demand = consumer_good_demand }
 			divide_variable = { half_consumer_demand = 2 }
@@ -590,6 +590,10 @@ on_actions = {
 			add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
 			multiply_variable = { ic = ic_factor }
 
+			set_variable = { expenses_variable = ic }
+			multiply_variable = { expenses_variable = modifier@expenses_factor }
+			subtract_from_variable = { ic = expenses_variable }
+
 			round_variable = ic
 
 
@@ -673,7 +677,13 @@ on_actions = {
 
 			#### daily consumption
 
-			set_variable = { ration_consumption = 0 }
+			set_variable = { daily_ration_need = 0 }
+
+			set_variable = { ration_demand_k = max_manpower_k }
+			divide_variable = { ration_demand_k = 7 }
+			add_to_variable = { daily_ration_need = ration_demand_k }
+
+			set_variable = { potential_consumption_max = daily_ration_need }
 
 
 			subtract_from_variable = { ration_variable = daily_ration_need }
@@ -695,7 +705,7 @@ on_actions = {
 
 			# base gain
 			set_variable = { resource_gain = resource@food_resource }
-			divide_variable = { resource_gain = 50 }
+			divide_variable = { resource_gain = 3.5 }
 			add_to_variable = { ration_daily = resource_gain }
 
 			# factor
@@ -730,8 +740,8 @@ on_actions = {
 
 			set_variable = { ration_max = 0 }
 			add_to_variable = { ration_max = owned_controlled_states }
-			multiply_variable = { ration_max = 10 }
-			set_temp_variable = { ration_storage = modifier@ration_capacity_k }
+			multiply_variable = { ration_max = 100 }
+			set_temp_variable = { ration_storage = modifier@max_rations_building_k }
 			add_to_variable = { ration_max = ration_storage }
 			set_temp_variable = { ration_capacity_factor = 1 }
 			add_to_temp_variable = { ration_capacity_factor = modifier@ration_capacity_factor }
@@ -755,10 +765,10 @@ on_actions = {
 					check_variable = { ration_balance < 0 }
 					check_variable = { ration_variable < ration_balance_int }
 					NOT = {
-						has_dynamic_modifier = { modifier = ration_effects }
+						has_dynamic_modifier = { modifier = food_shortages }
 					}
 				}
-				add_dynamic_modifier = { modifier = ration_effects }
+				add_dynamic_modifier = { modifier = food_shortages }
 			}
 
 

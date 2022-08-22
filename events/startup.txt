@@ -270,15 +270,15 @@ country_event = {
 		set_variable = { epmployed_percentage = temp_epmployed_percentage }
 
 
-		###view food
-		set_variable = { food_supply = resource@food_resource }
-		set_variable = { food_supply_real = resource_produced@food_resource }
-		set_variable = { food_traded_away = food_supply_real }
-		subtract_from_variable = { food_traded_away = food_supply }
-
-		set_temp_variable = { food_demand_k = max_manpower_k }
-		multiply_temp_variable = { food_demand_k = 0.5 }
-		set_variable = { food_demand = food_demand_k }
+		####view food
+		#set_variable = { food_supply = resource@food_resource }
+		#set_variable = { food_supply_real = resource_produced@food_resource }
+		#set_variable = { food_traded_away = food_supply_real }
+		#subtract_from_variable = { food_traded_away = food_supply }
+#
+		#set_temp_variable = { food_demand_k = max_manpower_k }
+		#multiply_temp_variable = { food_demand_k = 0.5 }
+		#set_variable = { food_demand = food_demand_k }
 
 		###view consumer goods
 		set_variable = { consumer_good_supply = resource@consumer_goods_resource }
@@ -400,16 +400,16 @@ country_event = {
 		set_variable = { consumer_good_factory_production = consumer_good_factory_count }
 		multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
 
-		set_temp_variable = { food_surplus = food_supply }
-		subtract_from_temp_variable = { food_surplus = food_demand }
-		set_variable = { food_surplus_real = food_surplus }
-
-		set_variable = { food_supply_2 = food_supply }
-		clamp_variable = {
-			var = food_supply_2
-			min = 0
-			max = food_demand
-		}
+		#set_temp_variable = { food_surplus = food_supply }
+		#subtract_from_temp_variable = { food_surplus = food_demand }
+		#set_variable = { food_surplus_real = food_surplus }
+#
+		#set_variable = { food_supply_2 = food_supply }
+		#clamp_variable = {
+		#	var = food_supply_2
+		#	min = 0
+		#	max = food_demand
+		#}
 
 		set_temp_variable = { consumer_good_surplus = consumer_good_supply }
 		subtract_from_temp_variable = { consumer_good_surplus = consumer_good_demand }
@@ -442,66 +442,66 @@ country_event = {
 			add_to_variable = { consumer_and_luxury_goods_supply = luxury_good_supply }
 		}
 
-		set_variable = { half_food_demand = food_demand }
-		divide_variable = { half_food_demand = 2 }
-		set_variable = { half_more_food_demand = food_demand }
-		add_to_variable = { half_more_food_demand = half_food_demand }
-		set_variable = { double_food_demand = food_demand }
-		multiply_variable = { double_food_demand = 2 }
-		if = {
-			limit = {
-				AND = {
-					NOT = {
-						has_dynamic_modifier = { modifier = famine }
-					}
-					check_variable = { food_supply < half_food_demand }
-				}
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = famine }
-			}
-		}
-		else_if = {
-			limit = {
-				AND = {
-					NOT = {
-						has_dynamic_modifier = { modifier = food_shortages }
-					}
-					check_variable = { food_supply < food_demand }
-					check_variable = { food_supply > half_food_demand }
-				}
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = food_shortages }
-			}
-		}
-		else_if = {
-			limit = {
-				AND = {
-					NOT = {
-						has_dynamic_modifier = { modifier = food_surplus_idea }
-					}
-					check_variable = { food_supply < double_food_demand }
-					check_variable = { food_supply > half_more_food_demand }
-				}
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = food_surplus_idea }
-			}
-		}
-		else_if = {
-			limit = {
-				AND = {
-					NOT = {
-						has_dynamic_modifier = { modifier = burgerking }
-					}
-					check_variable = { food_supply > double_food_demand }
-				}
-			}
-			hidden_effect = {
-				add_dynamic_modifier = { modifier = burgerking }
-			}
-		}
+		#set_variable = { half_food_demand = food_demand }
+		#divide_variable = { half_food_demand = 2 }
+		#set_variable = { half_more_food_demand = food_demand }
+		#add_to_variable = { half_more_food_demand = half_food_demand }
+		#set_variable = { double_food_demand = food_demand }
+		#multiply_variable = { double_food_demand = 2 }
+		#if = {
+		#	limit = {
+		#		AND = {
+		#			NOT = {
+		#				has_dynamic_modifier = { modifier = famine }
+		#			}
+		#			check_variable = { food_supply < half_food_demand }
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		add_dynamic_modifier = { modifier = famine }
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		AND = {
+		#			NOT = {
+		#				has_dynamic_modifier = { modifier = food_shortages }
+		#			}
+		#			check_variable = { food_supply < food_demand }
+		#			check_variable = { food_supply > half_food_demand }
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		add_dynamic_modifier = { modifier = food_shortages }
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		AND = {
+		#			NOT = {
+		#				has_dynamic_modifier = { modifier = food_surplus_idea }
+		#			}
+		#			check_variable = { food_supply < double_food_demand }
+		#			check_variable = { food_supply > half_more_food_demand }
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		add_dynamic_modifier = { modifier = food_surplus_idea }
+		#	}
+		#}
+		#else_if = {
+		#	limit = {
+		#		AND = {
+		#			NOT = {
+		#				has_dynamic_modifier = { modifier = burgerking }
+		#			}
+		#			check_variable = { food_supply > double_food_demand }
+		#		}
+		#	}
+		#	hidden_effect = {
+		#		add_dynamic_modifier = { modifier = burgerking }
+		#	}
+		#}
 
 		set_variable = { half_consumer_demand = consumer_good_demand }
 		divide_variable = { half_consumer_demand = 2 }

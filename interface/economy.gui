@@ -442,8 +442,7 @@ guiTypes = {
 	
 			iconType ={
 				name ="food_icon"
-				spriteType = "GFX_economy_resources"
-				frame = 1
+				spriteType = "GFX_rations_icon"
 				position = { x= 10 y = 40 }
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "foodstuffs0"
@@ -460,17 +459,17 @@ guiTypes = {
 				pdx_tooltip = "foodstuffs0"
 				pdx_tooltip_delayed = "foodstuffs_delayed"
 			}
-			instantTextboxType = {
-				name = "food_count"
-				position = {x = 200 y = 46}
-				font = "hoi_18mbs"
-				text = "food_count"
-				maxWidth = 80
-				maxHeight = 20
-				format = left
-				pdx_tooltip = "foodstuffs"
-				pdx_tooltip_delayed = "foodstuffs_delayed"
-			}
+			#instantTextboxType = {
+			#	name = "food_count"
+			#	position = {x = 200 y = 46}
+			#	font = "hoi_18mbs"
+			#	text = "food_count"
+			#	maxWidth = 80
+			#	maxHeight = 20
+			#	format = left
+			#	pdx_tooltip = "foodstuffs"
+			#	pdx_tooltip_delayed = "foodstuffs_delayed"
+			#}
 
 			iconType ={
 				name ="famine_icon"
@@ -498,6 +497,15 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "food_surplus_extended"
 				pdx_tooltip_delayed = "food_surplus_delayed"
+			}
+			iconType = {
+				name ="large_ratio_bar"
+				spriteType = "GFX_large_ration_bar"
+				position = { x= 200 y = 50 }
+				frame = 50
+				#alwaystransparent = yes
+				pdx_tooltip = "ration_topbar_tooltip"
+				pdx_tooltip_delayed = "ration_topbar_tooltip_delayed"
 			}
 			iconType ={
 				name ="burgerking_icon"
@@ -815,7 +823,6 @@ guiTypes = {
 				pdx_tooltip = "building_requirements_tooltip"
 				pdx_tooltip_delayed = "building_requirements_tooltip_delayed"
 			}
-
 			instantTextboxType ={
 				name ="construction_resource_icon"
 				position = {x = 336 y = 4}
@@ -826,6 +833,46 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "construction_capacity_tooltip"
 				pdx_tooltip_delayed = "construction_capacity_tooltip_delayed"
+			}
+
+			iconType ={
+				name ="tax_icon"
+				spriteType = "GFX_tax_icon"
+				position = { x= 260 y = 8 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "taxation_tooltip"
+				pdx_tooltip_delayed = "taxation_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "tax_value"
+				position = {x = 276 y = 10}
+				font = "hoi_18mbs"
+				text = "tax_number"
+				maxWidth = 60
+				maxHeight = 30
+				format = right
+				pdx_tooltip = "taxation_tooltip"
+				pdx_tooltip_delayed = "taxation_tooltip_delayed"
+			}
+
+			iconType ={
+				name ="expense_icon"
+				spriteType = "GFX_expense_icon"
+				position = { x= 260 y = 40 }
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "expenses_tooltip"
+				pdx_tooltip_delayed = "expenses_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "expense_value"
+				position = {x = 276 y = 42}
+				font = "hoi_18mbs"
+				text = "expense_number"
+				maxWidth = 60
+				maxHeight = 30
+				format = right
+				pdx_tooltip = "expenses_tooltip"
+				pdx_tooltip_delayed = "expenses_tooltip_delayed"
 			}
 
 		}
