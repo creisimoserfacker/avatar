@@ -693,6 +693,11 @@ on_actions = {
 			divide_variable = { modifier_gain = 1000 }
 			add_to_variable = { ration_daily = modifier_gain }
 
+			# base gain
+			set_variable = { resource_gain = resource@food_resource }
+			divide_variable = { resource_gain = 50 }
+			add_to_variable = { ration_daily = resource_gain }
+
 			# factor
 			set_variable = { ration_factor_calc = 1 }
 			add_to_variable = { ration_factor_calc = modifier@ration_factor }
@@ -726,8 +731,11 @@ on_actions = {
 			set_variable = { ration_max = 0 }
 			add_to_variable = { ration_max = owned_controlled_states }
 			multiply_variable = { ration_max = 10 }
-			set_variable = { ration_storage = modifier@ration_capacity_k }
+			set_temp_variable = { ration_storage = modifier@ration_capacity_k }
 			add_to_variable = { ration_max = ration_storage }
+			set_temp_variable = { ration_capacity_factor = 1 }
+			add_to_temp_variable = { ration_capacity_factor = modifier@ration_capacity_factor }
+			multiply_variable = { ration_max = ration_capacity_factor }
 
 			clamp_variable = { 
 				var = ration_variable 

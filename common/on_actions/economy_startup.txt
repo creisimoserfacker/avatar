@@ -13,6 +13,12 @@ on_actions = {
 				add_dynamic_modifier = { modifier = animal_weaving_scripted_resources }
 				add_dynamic_modifier = { modifier = mill_scripted_resources }
 				add_dynamic_modifier = { modifier = steelworks_scripted_resources }
+
+				add_dynamic_modifier = { modifier = consumer_good_factory_scripted_resources }
+				add_dynamic_modifier = { modifier = luxury_good_factory_scripted_resources }
+				add_dynamic_modifier = { modifier = carpentry_scripted_resources }
+				add_dynamic_modifier = { modifier = masonry_scripted_resources }
+				add_dynamic_modifier = { modifier = steel_beam_factory_scripted_resources }
 			}
 			every_country = {
 				country_event = { id = economy.1 }
@@ -44,10 +50,17 @@ on_actions = {
 				set_variable = { harbour_output = 1 }
 				set_variable = { dockyard_output = 2 }
 				set_variable = { manufactory_output = 1 } # max 1
+				set_variable = { consumer_good_factory_need1 = 2 }
+				set_variable = { consumer_good_factory_need2 = 2 }
 				set_variable = { consumer_good_factory_output = 4 }
+				set_variable = { luxury_good_factory_need1 = 2 }
+				et_variable = { luxury_good_factory_need2 = 1 }
 				set_variable = { luxury_good_factory_output = 3 }
+				set_variable = { carpentry_need = 2 }
 				set_variable = { carpentry_output = 6 }
+				set_variable = { masonry_need = 2 }
 				set_variable = { masonry_output = 6 }
+				set_variable = { steel_beam_factory_need = 6 }
 				set_variable = { steel_beam_factory_output = 6 }
 
 				if = {
@@ -1019,34 +1032,6 @@ on_actions = {
 						}
 					}
 				}
-
-				every_owned_state = {
-					set_variable = { forest_available = forest }
-					subtract_from_variable = { forest_available = building_level@lumber_mill }
-					set_variable = { forest_used = forest }
-					subtract_from_variable = { forest_used = forest_available }
-					set_variable = { field_available = field }
-					subtract_from_variable = { field_available = building_level@farm }
-					set_variable = { field_used = field }
-					subtract_from_variable = { field_used = field_available }
-					set_variable = { animal_available = animal }
-					subtract_from_variable = { animal_available = building_level@ranch }
-					set_variable = { animal_used = animal }
-					subtract_from_variable = { animal_used = animal_available }
-					set_variable = { mountain_available = mountain }
-					subtract_from_variable = { mountain_available = building_level@mine }
-					set_variable = { mountain_used = mountain }
-					subtract_from_variable = { mountain_used = mountain_available }
-					set_variable = { stonefield_available = stonefield }
-					subtract_from_variable = { stonefield_available = building_level@quarry }
-					set_variable = { stonefield_used = stonefield }
-					subtract_from_variable = { stonefield_used = stonefield_available }
-					set_variable = { water_available = water }
-					subtract_from_variable = { water_available = building_level@fishing_stand }
-					set_variable = { water_used = water }
-					subtract_from_variable = { water_used = water_available }
-				}
-
 
 			}
 		}
