@@ -44,6 +44,82 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetTimeToFillingTop
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_full > 364 }
+		}
+		localization_key = ration_filling_years
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_full < 365 }
+		}
+		localization_key = ration_filling_days
+	}
+}
+
+defined_text = {
+	name = GetTimeToEmptyTop
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_empty > 364 }
+		}
+		localization_key = ration_empty_years
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_empty < 365 }
+		}
+		localization_key = ration_empty_days
+	}
+}
+
+defined_text = {
+	name = GetTimeToFilling
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_full > 364 }
+		}
+		localization_key = ration_filling_years
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_full > 31 }
+		}
+		localization_key = ration_filling_months
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_full < 31 }
+		}
+		localization_key = ration_filling_days
+	}
+}
+
+defined_text = {
+	name = GetTimeToEmpty
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_empty > 364 }
+		}
+		localization_key = ration_empty_years
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_empty > 31 }
+		}
+		localization_key = ration_empty_months
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_days_to_empty < 31 }
+		}
+		localization_key = ration_empty_days
+	}
+}
+
+defined_text = {
 	name = GetRationHundreds
 	text = {
 		trigger = {
@@ -120,5 +196,43 @@ defined_text = {
 			check_variable = { potential_consumption_max > 1 }
 		}
 		localization_key = potential_need_thousands
+	}
+}
+
+
+defined_text = {
+	name = GetRationPopulationNeed
+	text = {
+		trigger = {
+			check_variable = { family_demand_k > 0 }
+		}
+		localization_key = family_ration_consumption
+	}
+	text = {
+		localization_key = no_ration_consumed_ttp
+	}
+}
+defined_text = {
+	name = GetRationWorkersNeed
+	text = {
+		trigger = {
+			check_variable = { working_demand_k > 0 }
+		}
+		localization_key = workers_ration_consumption
+	}
+	text = {
+		localization_key = no_ration_consumed_ttp
+	}
+}
+defined_text = {
+	name = GetRationSoldiersNeed
+	text = {
+		trigger = {
+			check_variable = { soldier_demand_k > 0 }
+		}
+		localization_key = soldiers_ration_consumption
+	}
+	text = {
+		localization_key = no_ration_consumed_ttp
 	}
 }

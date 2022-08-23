@@ -1,0 +1,136 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+defined_text = {
+	name = GetFoodSurplus
+	text = {
+		trigger = {
+			check_variable = { food_supply < food_demand }
+		}
+		localization_key = food_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { food_supply = food_demand }
+		}
+		localization_key = enough_food
+	}
+	text = {
+		trigger = {
+			check_variable = { food_supply > food_demand }
+		}
+		localization_key = food_surplus
+	}
+}
+defined_text = {
+	name = GetConsumerSurplus
+	text = {
+		trigger = {
+			check_variable = { consumer_good_supply < consumer_good_demand }
+		}
+		localization_key = consumer_good_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { consumer_good_supply = consumer_good_demand }
+		}
+		localization_key = enough_consumer_good
+	}
+	text = {
+		trigger = {
+			check_variable = { consumer_good_supply > consumer_good_demand }
+		}
+		localization_key = consumer_good_surplus
+	}
+}
+defined_text = {
+	name = GetLuxurySurplus
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply < luxury_good_demand }
+		}
+		localization_key = consumer_good_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply = luxury_good_demand }
+		}
+		localization_key = enough_consumer_good
+	}
+	text = {
+		trigger = {
+			check_variable = { luxury_good_supply > luxury_good_demand }
+		}
+		localization_key = consumer_good_surplus
+	}
+}
+defined_text = {
+	name = GetConsumerAndLuxurySurplus
+	text = {
+		trigger = {
+			check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
+		}
+		localization_key = consumer_good_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { consumer_and_luxury_goods_supply = consumer_and_luxury_good_demand }
+		}
+		localization_key = enough_consumer_good
+	}
+	text = {
+		trigger = {
+			check_variable = { consumer_and_luxury_goods_supply > consumer_and_luxury_good_demand }
+		}
+		localization_key = consumer_good_surplus
+	}
+}
+defined_text = {
+	name = GetResourceSurplus
+	text = {
+		trigger = {
+			check_variable = { resource_surplus < 0 }
+		}
+		localization_key = resouce_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { resource_surplus = 0 }
+		}
+		localization_key = enough_resource
+	}
+	text = {
+		trigger = {
+			check_variable = { resource_surplus > 0 }
+		}
+		localization_key = resouce_surplus
+	}
+}
+defined_text = {
+	name = GetConstruction
+	text = {
+		trigger = {
+			check_variable = { construction_material < 0 }
+		}
+		localization_key = construction_shortage
+	}
+	text = {
+		trigger = {
+			check_variable = { construction_material = 0 }
+		}
+		localization_key = enough_construction
+	}
+	text = {
+		trigger = {
+			check_variable = { construction_material > 0 }
+		}
+		localization_key = construction_surplus
+	}
+}

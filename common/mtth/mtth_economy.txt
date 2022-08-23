@@ -205,7 +205,14 @@ crop_weaving_textile_gain = {
 				set_temp_variable = { crop_weaving_consumed = crop_weaving_count }
 				multiply_temp_variable = { crop_weaving_consumed = crop_weaving_need }
 				set_temp_variable = { resource_lack_penalty = resource@oil }
-				divide_temp_variable = { resource_lack_penalty = crop_weaving_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { crop_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = crop_weaving_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
@@ -233,7 +240,14 @@ animal_weaving_textile_gain = {
 				set_temp_variable = { crop_weaving_consumed = animal_weaving_count }
 				multiply_temp_variable = { crop_weaving_consumed = animal_weaving_need }
 				set_temp_variable = { resource_lack_penalty = resource@chromium }
-				divide_temp_variable = { resource_lack_penalty = animal_weaving_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { animal_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = animal_weaving_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
@@ -289,7 +303,14 @@ mill_food_gain = {
 				set_temp_variable = { mill_consumed = mill_count }
 				multiply_temp_variable = { mill_consumed = mill_need }
 				set_temp_variable = { resource_lack_penalty = resource@oil }
-				divide_temp_variable = { resource_lack_penalty = mill_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { mill_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = mill_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
@@ -317,7 +338,14 @@ steelworks_steel_gain = {
 				set_temp_variable = { steelworks_consumed = steelworks_count }
 				multiply_temp_variable = { steelworks_consumed = steelworks_need1 }
 				set_temp_variable = { resource_lack_penalty = resource@iron }
-				divide_temp_variable = { resource_lack_penalty = steelworks_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { steelworks_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = steelworks_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
@@ -330,7 +358,14 @@ steelworks_steel_gain = {
 				set_temp_variable = { steelworks_consumed_2 = steelworks_count }
 				multiply_temp_variable = { steelworks_consumed_2 = steelworks_need2 }
 				set_temp_variable = { resource_lack_penalty_2 = resource@stone }
-				divide_temp_variable = { resource_lack_penalty_2 = steelworks_consumed_2 }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { steelworks_consumed_2 = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty_2 = steelworks_consumed_2 }
+				}
 				add_to_temp_variable = { resource_lack_penalty_2 = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
@@ -359,7 +394,14 @@ shop_consumer_goods_gain = {
 				set_temp_variable = { shop_consumed = consumer_good_factory_count }
 				multiply_temp_variable = { shop_consumed = consumer_good_factory_need1 }
 				set_temp_variable = { resource_lack_penalty = resource@aluminium }
-				divide_temp_variable = { resource_lack_penalty = shop_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { shop_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = shop_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
@@ -372,7 +414,14 @@ shop_consumer_goods_gain = {
 				set_temp_variable = { shop_consumed_2 = consumer_good_factory_count }
 				multiply_temp_variable = { shop_consumed_2 = consumer_good_factory_need2 }
 				set_temp_variable = { resource_lack_penalty_2 = resource@tungsten }
-				divide_temp_variable = { resource_lack_penalty_2 = shop_consumed_2 }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { shop_consumed_2 = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty_2 = shop_consumed_2 }
+				}
 				add_to_temp_variable = { resource_lack_penalty_2 = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
@@ -401,7 +450,14 @@ luxury_store_luxury_goods_gain = {
 				set_temp_variable = { store_consumed = luxury_good_factory_count }
 				multiply_temp_variable = { store_consumed = luxury_good_factory_need2 }
 				set_temp_variable = { resource_lack_penalty = resource@iron }
-				divide_temp_variable = { resource_lack_penalty = store_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { store_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = store_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
@@ -414,7 +470,14 @@ luxury_store_luxury_goods_gain = {
 				set_temp_variable = { store_consumed_2 = luxury_good_factory_count }
 				multiply_temp_variable = { store_consumed_2 = luxury_good_factory_need1 }
 				set_temp_variable = { resource_lack_penalty_2 = resource@stone }
-				divide_temp_variable = { resource_lack_penalty_2 = store_consumed_2 }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { store_consumed_2 = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty_2 = store_consumed_2 }
+				}
 				add_to_temp_variable = { resource_lack_penalty_2 = 1 }
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
@@ -443,7 +506,14 @@ carpentry_plank_gain = {
 				set_temp_variable = { carpentry_consumed = carpentry_count }
 				multiply_temp_variable = { carpentry_consumed = carpentry_need }
 				set_temp_variable = { resource_lack_penalty = resource@aluminium }
-				divide_temp_variable = { resource_lack_penalty = carpentry_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { carpentry_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = carpentry_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
@@ -471,7 +541,14 @@ masonry_brick_gain = {
 				set_temp_variable = { masonry_consumed = masonry_count }
 				multiply_temp_variable = { masonry_consumed = masonry_need }
 				set_temp_variable = { resource_lack_penalty = resource@stone }
-				divide_temp_variable = { resource_lack_penalty = masonry_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { masonry_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = masonry_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
@@ -499,7 +576,14 @@ steel_beam_factory_steel_beam_gain = {
 				set_temp_variable = { steel_beam_factory_consumed = steel_beam_factory_count }
 				multiply_temp_variable = { steel_beam_factory_consumed = steel_beam_factory_need }
 				set_temp_variable = { resource_lack_penalty = resource@steel }
-				divide_temp_variable = { resource_lack_penalty = steel_beam_factory_consumed }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { steel_beam_factory_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = steel_beam_factory_consumed }
+				}
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}

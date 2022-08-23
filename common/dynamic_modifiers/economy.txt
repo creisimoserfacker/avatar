@@ -4,8 +4,8 @@ famine = {
 
 	remove_trigger = {
 		NOT = {
-			check_variable = { ration_balance < 0 }
-			check_variable = { ration_variable < ration_balance_int }
+			check_variable = { famine_check < -0.5 }
+			check_variable = { ration_variable = 0 }
 		}
 	}
 	MONTHLY_POPULATION = -2
@@ -14,36 +14,36 @@ famine = {
 food_shortages = {
 	enable = { always = yes }
 	remove_trigger = {
-		NOT = {
-			check_variable = { ration_balance < 0 }
-			check_variable = { ration_variable < ration_balance_int }
+		OR = {
+			NOT = {
+				check_variable = { ration_variable = 0 }
+			}
+			check_variable = { ration_penalty < -0.5 }
 		}
 	}
-	MONTHLY_POPULATION = -0.5
-	stability_factor = -0.5
+	MONTHLY_POPULATION = ration_penalty
+	stability_factor = ration_penalty
 }
 food_surplus_idea = {
 	enable = { always = yes }
 	remove_trigger = {
-		NOT = {
-			AND = {
-				check_variable = { food_supply < double_food_demand }
-				check_variable = { food_supply > half_more_food_demand }
-			}
+		OR = {
+			check_variable = { ration_variable = 0 }
+			check_variable = { ration_variable = ration_max }
 		}
 	}
-	MONTHLY_POPULATION = 0.25
-	stability_factor = 0.25
+	MONTHLY_POPULATION = ration_buff
+	stability_factor = ration_buff
 }
 burgerking = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { food_supply > double_food_demand }
+			check_variable = { ration_variable = ration_max }
 		}
 	}
-	MONTHLY_POPULATION = 0.5
-	stability_factor = 0.5
+	MONTHLY_POPULATION = 1
+	stability_factor = 1
 }
 
 extreme_poverty = {
@@ -60,7 +60,7 @@ poverty = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { consumer_and_luxury_goods_supply < consumer_good_demand }
+				check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
 				check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
 			}
 		}
