@@ -13,11 +13,13 @@ buildings = {
 		max_level = 10
 		value = 10
 		damage_factor = 0.1
+		allied_build = yes
 
 		show_modifier = yes
 		max_fuel_building = 1.5 #k
 		#local_manpower = 0.01
 		#local_building_slots = 1
+		army_speed_factor_for_controller = 0.1
 	}
 
 	#settlement = {
@@ -53,6 +55,7 @@ buildings = {
 		show_modifier = yes
 		manpower_requirement_k = 0.060
 		building_upkeep_cost = 1
+		local_supplies_for_controller = 0.05
 	}
 
 	ranch = {
@@ -70,6 +73,7 @@ buildings = {
 		show_modifier = yes
 		manpower_requirement_k = 0.060
 		building_upkeep_cost = 1
+		local_supplies_for_controller = 0.025
 	}
 
 	fishing_stand = {
@@ -87,6 +91,7 @@ buildings = {
 		show_modifier = yes
 		manpower_requirement_k = 0.050
 		building_upkeep_cost = 1
+		local_supplies_for_controller = 0.025
 	}
 
 	lumber_mill = {
@@ -425,6 +430,7 @@ buildings = {
 		show_modifier = yes
 		max_rations_building_k = 100.0 #k
 		building_upkeep_cost = 2
+		local_supplies_for_controller = 0.1
 	}
 
 	scout_tower = {
@@ -473,9 +479,40 @@ buildings = {
 		building_upkeep_cost = 1
 	}
 
+	trainingscamp = {
+		show_on_map = 1
+		base_cost = 12000
+		icon_frame = 33
+		max_level = 5
+		value = 1
+		shares_slots = yes
+
+		show_modifier = yes
+		building_upkeep_cost = 3
+		mobilization_speed = 0.1
+		#experience_gain_army = 0.01
+		local_non_core_manpower = 0.05
+	}
+
+	garrison_building = {
+		show_on_map = 1
+		base_cost = 8000
+		per_level_extra_cost = 4000
+		icon_frame = 34
+		max_level = 5
+		value = 1
+		shares_slots = yes
+
+		show_modifier = yes
+		building_upkeep_cost = 3
+		resistance_target = -0.05
+		resistance_damage_to_garrison = -0.1
+		resistance_decay = 0.1
+	}
+
 	rail_way = {
-		base_cost = 170
-		per_level_extra_cost = 130
+		base_cost = 200
+		per_level_extra_cost = 200
 		provincial = yes
 		disabled_in_dmz = yes
 		icon_frame = 16
@@ -484,7 +521,7 @@ buildings = {
 
 	supply_node = {
 		show_on_map = 1
-		base_cost = 40000
+		base_cost = 12000
 		provincial = yes
 		disabled_in_dmz = yes
 		icon_frame = 15

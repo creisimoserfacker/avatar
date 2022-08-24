@@ -516,13 +516,6 @@ on_actions = {
 			add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
 			multiply_variable = { ic = ic_factor }
 
-			set_variable = { expenses_variable = ic }
-			multiply_variable = { expenses_variable = modifier@expenses_factor }
-			subtract_from_variable = { ic = expenses_variable }
-
-			round_variable = ic
-
-
 
 			#### military capacity
 
@@ -572,7 +565,17 @@ on_actions = {
 			multiply_variable = { military_ic_transfer = ic_real_transfer }
 
 			add_to_variable = { ic = military_ic_transfer }
+
+			set_variable = { expenses_variable = ic }
+			multiply_variable = { expenses_variable = modifier@expenses_factor }
+			subtract_from_variable = { ic = expenses_variable }
+
 			round_variable = ic
+			clamp_variable = { 
+				var = ic
+				min = 0
+			}
+
 			subtract_from_variable = { factory_duplicator = military_ic_transfer }
 			round_variable = factory_duplicator
 			
