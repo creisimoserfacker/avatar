@@ -698,7 +698,7 @@ on_actions = {
 			subtract_from_variable = { ration_penalty = ration_daily }
 			divide_variable = { ration_penalty = daily_ration_need }
 			multiply_variable = { ration_penalty = -1 }
-			set_temp_variable = { famine_check = ration_penalty }
+			set_variable = { famine_check = ration_penalty }
 			clamp_variable = { 
 				var = ration_penalty 
 				min = -0.5 
@@ -706,7 +706,7 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { famine_check < -0.5 }
+					check_variable = { famine_check < ration_penalty }
 					check_variable = { ration_variable = 0 }
 					NOT = {
 						has_dynamic_modifier = { modifier = famine }

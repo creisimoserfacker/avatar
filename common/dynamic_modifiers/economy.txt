@@ -3,9 +3,12 @@ famine = {
 	enable = { always = yes }
 
 	remove_trigger = {
-		NOT = {
-			check_variable = { famine_check < -0.5 }
-			check_variable = { ration_variable = 0 }
+		OR = {
+			NOT = {
+				check_variable = { famine_check < ration_penalty }
+				check_variable = { ration_variable = 0 }
+			}
+			check_variable = { ration_penalty > -0.5 }
 		}
 	}
 	MONTHLY_POPULATION = -2
@@ -18,7 +21,7 @@ food_shortages = {
 			NOT = {
 				check_variable = { ration_variable = 0 }
 			}
-			check_variable = { ration_penalty < -0.5 }
+			check_variable = { famine_check < -0.5 }
 		}
 	}
 	MONTHLY_POPULATION = ration_penalty

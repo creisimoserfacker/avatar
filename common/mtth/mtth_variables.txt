@@ -109,3 +109,22 @@ legitimacy_peoples_initiative = {
 		add = peoples_initiative
 	}
 }
+
+unit_quality_1 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { unit_quality = unit_quality_variable }
+		add_to_temp_variable = { unit_quality = 0.5 }
+		
+		add = unit_quality
+	}
+}
+unit_quality_variable_bad = {
+	base = 0
+	modifier = {
+		set_temp_variable = { unit_quality_bad = unit_quality_variable }
+		multiply_temp_variable = { unit_quality_bad = -1 }
+		
+		add = unit_quality_bad
+	}
+}
