@@ -3497,7 +3497,7 @@ NSupply = {
 
 
 	-- used for calculating "flow" for railways.
-	RAILWAY_BASE_FLOW = 5.0, 		-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
+	RAILWAY_BASE_FLOW = 0.0, 		-- how much base flow railway gives when a node connected to its capital/a naval node by a railway
 	RAILWAY_FLOW_PER_LEVEL = 5.0, 	-- how much additional flow a railway level gives
 	RAILWAY_FLOW_PENALTY_PER_DAMAGED = 5.0, -- penalty to flow per damaged railway
 	RAILWAY_MIN_FLOW = 5.0, 		-- minimum railway flow can be reduced to

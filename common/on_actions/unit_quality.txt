@@ -1,0 +1,28 @@
+on_actions = {
+	on_startup = {
+		effect = {
+			every_country = {
+				
+				add_dynamic_modifier = { modifier = unit_quality_effects }
+			}
+
+		}
+	}
+
+	on_monthly = {
+		effect = {
+
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = unit_quality_effects }
+					}
+				}
+				add_dynamic_modifier = { modifier = unit_quality_effects }
+			}
+		}
+	}
+
+
+	
+}
