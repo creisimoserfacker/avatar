@@ -28,9 +28,6 @@ scripted_gui = {
 							regiments = {
 								skirmishers = { x = 0 y = 0 }
 								skirmishers = { x = 0 y = 1 }
-
-								#skirmishers = { x = 1 y = 0 }
-								#skirmishers = { x = 1 y = 1 }
 							}
 						}
 						set_division_template_lock = { division_template = "Skirmisher Partisans" is_locked = yes }
@@ -49,6 +46,52 @@ scripted_gui = {
 						set_division_template_lock = { division_template = Partisans is_locked = yes }
 					}
 				}
+
+				set_variable = { available_partisans = state_population_k }
+
+				### resistance factor
+				set_temp_variable = { resistance_factor = resistance }
+				divide_temp_variable = { resistance_factor = 100 }
+				add_to_temp_variable = { resistance_factor = 1 }
+				multiply_variable = { available_partisans = resistance_factor }
+
+				### compliance factor
+				set_temp_variable = { compliance_factor = compliance }
+				divide_temp_variable = { compliance_factor = 100 }
+				add_to_temp_variable = { compliance_factor = 1 }
+				divide_variable = { available_partisans = compliance_factor }
+
+				### culture factor
+				if = {
+					limit = { ROOT = { has_government = imperialism } }
+					set_temp_variable = { culture_factor = fire_pop }
+				}
+				if = {
+					limit = { ROOT = { has_government = monarchism } }
+					set_temp_variable = { culture_factor = earth_pop }
+				}
+				if = {
+					limit = { ROOT = { has_government = tribalism } }
+					set_temp_variable = { culture_factor = water_pop }
+				}
+				if = {
+					limit = { ROOT = { has_government = pacifism } }
+					set_temp_variable = { culture_factor = air_pop }
+				}
+				if = {
+					limit = { ROOT = { has_government = democratica } }
+					set_temp_variable = { culture_factor = nonbender_pop }
+				}
+				divide_temp_variable = { culture_factor = 100 }
+				add_to_temp_variable = { culture_factor = 0.1 }
+				multiply_variable = { available_partisans = culture_factor }
+				round_variable = available_partisans
+
+				add_dynamic_modifier = {
+					modifier = recent_rebel_activity
+					days = 190
+				}
+
 				create_partisan_units = yes
 				var:original_controller = {
 					set_state_controller = PREV
@@ -58,11 +101,16 @@ scripted_gui = {
 		
 		triggers = {
 			state_riseup_partisan_click_enabled = {
-				resistance > 54
+				resistance > 49
 				controller = {
 					core_resistance = {
 					    occupied_country_tag = ROOT
 					    value > 50
+					}
+				}
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = recent_rebel_activity
 					}
 				}
 			}

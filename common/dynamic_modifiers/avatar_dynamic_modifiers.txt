@@ -56,6 +56,14 @@ destroyed_city = {
 
 firenation_settlers = {
 	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { fire_pop < 10 }
+			THIS.CONTROLLER = {
+				has_government = imperialism
+			}
+		}
+	}
 
 	icon = GFX_modifiers_firenation_settlers
 	
@@ -67,6 +75,14 @@ firenation_settlers = {
 }
 earthkingdom_settlers = {
 	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { earth_pop < 10 }
+			THIS.CONTROLLER = {
+				has_government = monarchism
+			}
+		}
+	}
 
 	icon = GFX_modifiers_earthkingdom_settlers
 	
@@ -78,6 +94,14 @@ earthkingdom_settlers = {
 }
 watertribe_settlers = {
 	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { water_pop < 10 }
+			THIS.CONTROLLER = {
+				has_government = tribalism
+			}
+		}
+	}
 
 	icon = GFX_modifiers_watertribe_settlers
 	
@@ -89,6 +113,14 @@ watertribe_settlers = {
 }
 airnomad_settlers = {
 	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { air_pop < 10 }
+			THIS.CONTROLLER = {
+				has_government = pacifism
+			}
+		}
+	}
 
 	icon = GFX_modifiers_airnomad_settlers
 	
@@ -100,6 +132,14 @@ airnomad_settlers = {
 }
 pluralist_settlers = {
 	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { nonbender_pop < 10 }
+			THIS.CONTROLLER = {
+				has_government = democratica
+			}
+		}
+	}
 
 	icon = GFX_modifiers_pluralist_settlers
 	
@@ -118,6 +158,15 @@ occupied_has_dominant_culture = {
 	compliance_gain = 0.08
 	resistance_target = -0.15
 	resistance_decay = 0.5
+}
+
+recent_rebel_activity = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_rebel_activity
+	
+	resistance_target = -0.6
+	disable_strategic_redeployment = 1
 }
 
 watertribe_riots = {

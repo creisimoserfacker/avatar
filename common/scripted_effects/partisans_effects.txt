@@ -1,7 +1,7 @@
 create_partisan_units = {
 	if = {
 		limit = {
-			resistance > 50
+			check_variable = { available_partisans > 0 }
 		}
 		random_list = {
 			50 = {
@@ -18,7 +18,7 @@ create_partisan_units = {
 			}
 		}
 		THIS = {
-			add_resistance = -5
+			subtract_from_variable = { available_partisans = 1 }
 		}
 		create_partisan_units = yes
 	}

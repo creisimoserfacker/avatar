@@ -3443,19 +3443,19 @@ NSupply = {
 	-- defines that are used for supply reach for capital
 	-- supply flow will start from INITIAL_SUPPLY_FLOW and will be reduced by a penalty on each province it travels (which depends on how far we are from our origin, terrain etc)
 	-- a supply reach >= 1.0 considered "perfect" and will be able to fully support units on that particular province (assuming you are not over capacity)
-	CAPITAL_INITIAL_SUPPLY_FLOW = 0.50, -- starting supply from
-	CAPITAL_STARTING_PENALTY_PER_PROVINCE = 0.05, -- starting penalty that will be added as supply moves away from its origin (modified by stuff like terrain)
-	CAPITAL_ADDED_PENALTY_PER_PROVINCE = 0.12, -- added penalty as we move away from origin
+	CAPITAL_INITIAL_SUPPLY_FLOW = 10, -- starting supply from
+	CAPITAL_STARTING_PENALTY_PER_PROVINCE = 2.5, -- starting penalty that will be added as supply moves away from its origin (modified by stuff like terrain)
+	CAPITAL_ADDED_PENALTY_PER_PROVINCE = 1, -- added penalty as we move away from origin
 
 	-- defines that are used for supply reach for built nodes
-	NODE_INITIAL_SUPPLY_FLOW = 1,
-	NODE_STARTING_PENALTY_PER_PROVINCE = 0.2,
-	NODE_ADDED_PENALTY_PER_PROVINCE = 0.24,
+	NODE_INITIAL_SUPPLY_FLOW = 10,
+	NODE_STARTING_PENALTY_PER_PROVINCE = 2.5,
+	NODE_ADDED_PENALTY_PER_PROVINCE = 1,
 
 	-- defines that are used for supply reach for dockyards
-	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 0.5,
-	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 0.1,
-	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 0.14,
+	NAVAL_BASE_INITIAL_SUPPLY_FLOW = 5,
+	NAVAL_BASE_STARTING_PENALTY_PER_PROVINCE = 1.4,
+	NAVAL_BASE_ADDED_PENALTY_PER_PROVINCE = 1,
 
 	-- Node Flow (i.e. province caps) increase by this amount per railway level of the node's bottleneck
 	NODE_FLOW_BONUS_PER_RAIL_LEVEL = 0.2,
@@ -3573,10 +3573,10 @@ NSupply = {
 	LOCAL_SUPPLY_PER_AIR_MISSION = 0.2, -- each assigned plane gives this much supply at full efficiency
 
 	-- reinforcements depends on distance to capital and following defines are used for calculating reinforcement time
-	SUPPLY_PATH_MAX_DISTANCE = 15,	-- max time it can take
+	SUPPLY_PATH_MAX_DISTANCE = 30,	-- max time it can take
 	RAILWAY_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.3, -- time factor for total railway distance
-	TRUCK_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.01, -- time factor for total truck distance
-	NAVAL_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.08, -- time factor for total naval distance
+	TRUCK_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.4, -- time factor for total truck distance
+	NAVAL_DISTANCE_FACTOR_FOR_REINFORCEMENT_SPEED = 0.2, -- time factor for total naval distance
 
 	ALERT_VERY_LOW_SUPPLY_LEVEL = 0.2,			   -- At which point we show up the low and very low supply level alert. Value is in % of supplies supported vs required.
 	ALERT_LOW_SUPPLY_LEVEL = 0.5,
