@@ -75,312 +75,312 @@ extra_dockyard_output = {
 }
 
 
-remove_crop_consumer = {
-	random_list = {
-		50 = {
-			random_owned_state = {
-				limit = {
-					mill > 0
-				}
-				remove_building = {
-				    type = mill
-				    level = 1
-				}
-				add_building_construction = {
-					type = mill_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { crop_weaving_count < mill_count }
-			}
-		}
-		50 = {
-			random_owned_state = {
-				limit = {
-					crop_weaving > 0
-				}
-				remove_building = {
-				    type = crop_weaving
-				    level = 1
-				}
-				add_building_construction = {
-					type = crop_weaving_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { mill_count < crop_weaving_count }
-			}
-		}
-	}
-}
+# remove_crop_consumer = {
+# 	random_list = {
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					mill > 0
+# 				}
+# 				remove_building = {
+# 				    type = mill
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = mill_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { crop_weaving_count < mill_count }
+# 			}
+# 		}
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					crop_weaving > 0
+# 				}
+# 				remove_building = {
+# 				    type = crop_weaving
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = crop_weaving_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { mill_count < crop_weaving_count }
+# 			}
+# 		}
+# 	}
+# }
 
-remove_textile_consumer = {
-	random_owned_state = {
-		limit = {
-			consumer_good_factory > 0
-		}
-		remove_building = {
-		    type = consumer_good_factory
-		    level = 1
-		}
-		add_building_construction = {
-			type = consumer_good_factory_ooo
-			level = 1
-			instant_build = yes
-		}
-	}
-}
+# remove_textile_consumer = {
+# 	random_owned_state = {
+# 		limit = {
+# 			consumer_good_factory > 0
+# 		}
+# 		remove_building = {
+# 		    type = consumer_good_factory
+# 		    level = 1
+# 		}
+# 		add_building_construction = {
+# 			type = consumer_good_factory_ooo
+# 			level = 1
+# 			instant_build = yes
+# 		}
+# 	}
+# }
 
-remove_animal_consumer = {
-	random_owned_state = {
-		limit = {
-			animal_weaving > 0
-		}
-		remove_building = {
-		    type = animal_weaving
-		    level = 1
-		}
-		add_building_construction = {
-			type = animal_weaving_ooo
-			level = 1
-			instant_build = yes
-		}
-	}
-}
+# remove_animal_consumer = {
+# 	random_owned_state = {
+# 		limit = {
+# 			animal_weaving > 0
+# 		}
+# 		remove_building = {
+# 		    type = animal_weaving
+# 		    level = 1
+# 		}
+# 		add_building_construction = {
+# 			type = animal_weaving_ooo
+# 			level = 1
+# 			instant_build = yes
+# 		}
+# 	}
+# }
 
-remove_steel_consumer = {
-	random_owned_state = {
-		limit = {
-			steel_beam_factory > 0
-		}
-		remove_building = {
-		    type = steel_beam_factory
-		    level = 1
-		}
-		add_building_construction = {
-			type = steel_beam_factory_ooo
-			level = 1
-			instant_build = yes
-		}
-	}
-}
+# remove_steel_consumer = {
+# 	random_owned_state = {
+# 		limit = {
+# 			steel_beam_factory > 0
+# 		}
+# 		remove_building = {
+# 		    type = steel_beam_factory
+# 		    level = 1
+# 		}
+# 		add_building_construction = {
+# 			type = steel_beam_factory_ooo
+# 			level = 1
+# 			instant_build = yes
+# 		}
+# 	}
+# }
 
-remove_stone_consumer = {
-	random_owned_state = {
-		limit = {
-			masonry > 0
-		}
-		remove_building = {
-		    type = masonry
-		    level = 1
-		}
-		add_building_construction = {
-			type = masonry_ooo
-			level = 1
-			instant_build = yes
-		}
-	}
-}
+# remove_stone_consumer = {
+# 	random_owned_state = {
+# 		limit = {
+# 			masonry > 0
+# 		}
+# 		remove_building = {
+# 		    type = masonry
+# 		    level = 1
+# 		}
+# 		add_building_construction = {
+# 			type = masonry_ooo
+# 			level = 1
+# 			instant_build = yes
+# 		}
+# 	}
+# }
 
-remove_wood_consumer = {
-	random_list = {
-		50 = {
-			random_owned_state = {
-				limit = {
-					consumer_good_factory > 0
-				}
-				remove_building = {
-				    type = consumer_good_factory
-				    level = 1
-				}
-				add_building_construction = {
-					type = consumer_good_factory_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { carpentry_count < consumer_good_factory_count }
-			}
-		}
-		50 = {
-			random_owned_state = {
-				limit = {
-					carpentry > 0
-				}
-				remove_building = {
-				    type = carpentry
-				    level = 1
-				}
-				add_building_construction = {
-					type = carpentry_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { consumer_good_factory_count < carpentry_count }
-			}
-		}
-	}
-}
+# remove_wood_consumer = {
+# 	random_list = {
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					consumer_good_factory > 0
+# 				}
+# 				remove_building = {
+# 				    type = consumer_good_factory
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = consumer_good_factory_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { carpentry_count < consumer_good_factory_count }
+# 			}
+# 		}
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					carpentry > 0
+# 				}
+# 				remove_building = {
+# 				    type = carpentry
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = carpentry_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { consumer_good_factory_count < carpentry_count }
+# 			}
+# 		}
+# 	}
+# }
 
-remove_iron_consumer = {
-	random_list = {
-		50 = {
-			random_owned_state = {
-				limit = {
-					steelworks > 0
-				}
-				remove_building = {
-				    type = steelworks
-				    level = 1
-				}
-				add_building_construction = {
-					type = steelworks_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { luxury_good_factory_count < steelworks_count }
-			}
-		}
-		50 = {
-			random_owned_state = {
-				limit = {
-					luxury_good_factory > 0
-				}
-				remove_building = {
-				    type = luxury_good_factory
-				    level = 1
-				}
-				add_building_construction = {
-					type = luxury_good_factory_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { steelworks_count < luxury_good_factory_count }
-			}
-		}
-	}
-}
+# remove_iron_consumer = {
+# 	random_list = {
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					steelworks > 0
+# 				}
+# 				remove_building = {
+# 				    type = steelworks
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = steelworks_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { luxury_good_factory_count < steelworks_count }
+# 			}
+# 		}
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					luxury_good_factory > 0
+# 				}
+# 				remove_building = {
+# 				    type = luxury_good_factory
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = luxury_good_factory_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { steelworks_count < luxury_good_factory_count }
+# 			}
+# 		}
+# 	}
+# }
 
-remove_fuel_consumer = {
-	random_list = {
-		50 = {
-			random_owned_state = {
-				limit = {
-					steelworks > 0
-				}
-				remove_building = {
-				    type = steelworks
-				    level = 1
-				}
-				add_building_construction = {
-					type = steelworks_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { steel_beam_factory_count < steelworks_count }
-			}
-		}
-		50 = {
-			random_owned_state = {
-				limit = {
-					steel_beam_factory > 0
-				}
-				remove_building = {
-				    type = steel_beam_factory
-				    level = 1
-				}
-				add_building_construction = {
-					type = steel_beam_factory_ooo
-					level = 1
-					instant_build = yes
-				}
-			}
-			modifier = {
-				factor = 100
-				check_variable = { steelworks_count < steel_beam_factory_count }
-			}
-		}
-	}
-}
+# remove_fuel_consumer = {
+# 	random_list = {
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					steelworks > 0
+# 				}
+# 				remove_building = {
+# 				    type = steelworks
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = steelworks_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { steel_beam_factory_count < steelworks_count }
+# 			}
+# 		}
+# 		50 = {
+# 			random_owned_state = {
+# 				limit = {
+# 					steel_beam_factory > 0
+# 				}
+# 				remove_building = {
+# 				    type = steel_beam_factory
+# 				    level = 1
+# 				}
+# 				add_building_construction = {
+# 					type = steel_beam_factory_ooo
+# 					level = 1
+# 					instant_build = yes
+# 				}
+# 			}
+# 			modifier = {
+# 				factor = 100
+# 				check_variable = { steelworks_count < steel_beam_factory_count }
+# 			}
+# 		}
+# 	}
+# }
 
 add_farm = {
+	# if = {
+	# 	limit = {
+	# 		farm_ooo > 0
+	# 		check_variable = { field_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = farm_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = farm
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			farm_ooo > 0
 			check_variable = { field_available > 0}
 		}
 		THIS = {
-			remove_building = {
-			    type = farm_ooo
-			    level = 1
-			}
 			add_building_construction = {
 				type = farm
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
-	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { field_available > 0}
-			}
-			THIS = {
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = no
-				}
-			}
-		}
+	# }
 	}
 }
 add_farm_random = {
-	if = {
-		limit = {
-			any_owned_state = {
-				farm_ooo > 0
-				check_variable = { field_available > 0}
-			}
-		}
-		random_owned_state = {
-			limit = {
-				farm_ooo > 0
-				check_variable = { field_available > 0}
-			}
-			remove_building = {
-			    type = farm_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = farm
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			farm_ooo > 0
+	# 			check_variable = { field_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			farm_ooo > 0
+	# 			check_variable = { field_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = farm_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = farm
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 		if = {
 			limit = {
 				has_country_flag = core_all_construction_flag
@@ -419,45 +419,88 @@ add_farm_random = {
 				}
 			}
 		}
-	}
+	# }
 }
-remove_farm = {
-	if = {
-		limit = {
-			farm > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = farm
-			    level = 1
-			}
-			add_building_construction = {
-				type = farm_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+# remove_farm = {
+# 	if = {
+# 		limit = {
+# 			farm > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = farm
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = farm_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_mill = {
-	if = {
-		limit = {
-			mill_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = mill_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = mill
-				level = 1
-				instant_build = yes
-			}
+	# if = {
+	# 	limit = {
+	# 		mill_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = mill_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = mill
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = mill
+			level = 1
+			instant_build = no
 		}
 	}
-	else = {
-		THIS = {
+	# }
+}
+add_mill_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			mill_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			mill_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = mill_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = mill
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	if = {
+		limit = {
+			has_country_flag = core_all_construction_flag
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = mill
+					size > 0
+					include_locked = no
+				}
+			}
 			add_building_construction = {
 				type = mill
 				level = 1
@@ -465,569 +508,526 @@ add_mill = {
 			}
 		}
 	}
-}
-add_mill_random = {
-	if = {
-		limit = {
-			any_owned_state = {
-				mill_ooo > 0
-			}
-		}
+	else = {
 		random_owned_state = {
 			limit = {
-				mill_ooo > 0
-			}
-			remove_building = {
-			    type = mill_ooo
-			    level = 1
+				free_building_slots = {
+					building = mill
+					size > 0
+					include_locked = no
+				}
+				is_core_of = ROOT
 			}
 			add_building_construction = {
 				type = mill
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = mill
-						size > 0
-						include_locked = no
-					}
-				}
-				add_building_construction = {
-					type = mill
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = mill
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = mill
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
-remove_mill = {
-	if = {
-		limit = {
-			mill > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = mill
-			    level = 1
-			}
-			add_building_construction = {
-				type = mill_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+# remove_mill = {
+# 	if = {
+# 		limit = {
+# 			mill > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = mill
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = mill_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_fishing_stand = {
+	# if = {
+	# 	limit = {
+	# 		fishing_stand_ooo > 0
+	# 		check_variable = { water_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = fishing_stand_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = fishing_stand
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			fishing_stand_ooo > 0
 			check_variable = { water_available > 0}
 		}
 		THIS = {
-			remove_building = {
-			    type = fishing_stand_ooo
-			    level = 1
-			}
 			add_building_construction = {
 				type = fishing_stand
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { water_available > 0}
-			}
-			THIS = {
-				add_building_construction = {
-					type = fishing_stand
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
 add_fishing_stand_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			fishing_stand_ooo > 0
+	# 			check_variable = { water_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			fishing_stand_ooo > 0
+	# 			check_variable = { water_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = fishing_stand_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = fishing_stand
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				fishing_stand_ooo > 0
-				check_variable = { water_available > 0}
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				fishing_stand_ooo > 0
-				check_variable = { water_available > 0}
-			}
-			remove_building = {
-			    type = fishing_stand_ooo
-			    level = 1
+				free_building_slots = {
+					building = fishing_stand
+					size > 0
+					include_locked = no
+				}
+				check_variable = { water_available > 0 }
 			}
 			add_building_construction = {
 				type = fishing_stand
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = fishing_stand
-						size > 0
-						include_locked = no
-					}
-					check_variable = { water_available > 0 }
+				free_building_slots = {
+					building = fishing_stand
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = fishing_stand
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = fishing_stand
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-					check_variable = { water_available > 0 }
-				}
-				add_building_construction = {
-					type = fishing_stand
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_fishing_stand = {
-	if = {
-		limit = {
-			fishing_stand > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = fishing_stand
-			    level = 1
+				is_core_of = ROOT
+				check_variable = { water_available > 0 }
 			}
 			add_building_construction = {
-				type = fishing_stand_ooo
+				type = fishing_stand
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_fishing_stand = {
+# 	if = {
+# 		limit = {
+# 			fishing_stand > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = fishing_stand
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = fishing_stand_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_ranch = {
+	# if = {
+	# 	limit = {
+	# 		ranch_ooo > 0
+	# 		check_variable = { animal_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = ranch_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = ranch
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			ranch_ooo > 0
 			check_variable = { animal_available > 0}
 		}
 		THIS = {
-			remove_building = {
-			    type = ranch_ooo
-			    level = 1
-			}
 			add_building_construction = {
 				type = ranch
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { animal_available > 0}
-			}
-			THIS = {
-				add_building_construction = {
-					type = ranch
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
 add_ranch_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			ranch_ooo > 0
+	# 			check_variable = { animal_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			ranch_ooo > 0
+	# 			check_variable = { animal_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = ranch_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = ranch
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				ranch_ooo > 0
-				check_variable = { animal_available > 0}
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				ranch_ooo > 0
-				check_variable = { animal_available > 0}
-			}
-			remove_building = {
-			    type = ranch_ooo
-			    level = 1
+				free_building_slots = {
+					building = ranch
+					size > 0
+					include_locked = no
+				}
+				check_variable = { animal_available > 0 }
 			}
 			add_building_construction = {
 				type = ranch
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = ranch
-						size > 0
-						include_locked = no
-					}
-					check_variable = { animal_available > 0 }
+				free_building_slots = {
+					building = ranch
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = ranch
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = ranch
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-					check_variable = { animal_available > 0 }
-				}
-				add_building_construction = {
-					type = ranch
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_ranch = {
-	if = {
-		limit = {
-			ranch > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = ranch
-			    level = 1
+				is_core_of = ROOT
+				check_variable = { animal_available > 0 }
 			}
 			add_building_construction = {
-				type = ranch_ooo
+				type = ranch
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_ranch = {
+# 	if = {
+# 		limit = {
+# 			ranch > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = ranch
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = ranch_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_lumber_mill = {
+	# if = {
+	# 	limit = {
+	# 		lumber_mill_ooo > 0
+	# 		check_variable = { forest_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = lumber_mill_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = lumber_mill
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			lumber_mill_ooo > 0
 			check_variable = { forest_available > 0}
 		}
 		THIS = {
-			remove_building = {
-			    type = lumber_mill_ooo
-			    level = 1
-			}
 			add_building_construction = {
 				type = lumber_mill
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { forest_available > 0}
-			}
-			THIS = {
-				add_building_construction = {
-					type = lumber_mill
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
 add_lumber_mill_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			lumber_mill_ooo > 0
+	# 			check_variable = { forest_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			lumber_mill_ooo > 0
+	# 			check_variable = { forest_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = lumber_mill_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = lumber_mill
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				lumber_mill_ooo > 0
-				check_variable = { forest_available > 0}
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				lumber_mill_ooo > 0
-				check_variable = { forest_available > 0}
-			}
-			remove_building = {
-			    type = lumber_mill_ooo
-			    level = 1
+				free_building_slots = {
+					building = lumber_mill
+					size > 0
+					include_locked = no
+				}
+				check_variable = { forest_available > 0 }
 			}
 			add_building_construction = {
 				type = lumber_mill
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = lumber_mill
-						size > 0
-						include_locked = no
-					}
-					check_variable = { forest_available > 0 }
+				free_building_slots = {
+					building = lumber_mill
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = lumber_mill
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = lumber_mill
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-					check_variable = { forest_available > 0 }
-				}
-				add_building_construction = {
-					type = lumber_mill
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_lumber_mill = {
-	if = {
-		limit = {
-			lumber_mill > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = lumber_mill
-			    level = 1
+				is_core_of = ROOT
+				check_variable = { forest_available > 0 }
 			}
 			add_building_construction = {
-				type = lumber_mill_ooo
+				type = lumber_mill
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_lumber_mill = {
+# 	if = {
+# 		limit = {
+# 			lumber_mill > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = lumber_mill
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = lumber_mill_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_quarry = {
+	# if = {
+	# 	limit = {
+	# 		quarry_ooo > 0
+	# 		check_variable = { stonefield_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = quarry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = quarry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			quarry_ooo > 0
 			check_variable = { stonefield_available > 0}
 		}
 		THIS = {
-			remove_building = {
-			    type = quarry_ooo
-			    level = 1
-			}
 			add_building_construction = {
 				type = quarry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				check_variable = { stonefield_available > 0}
-			}
-			THIS = {
-				add_building_construction = {
-					type = quarry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
 add_quarry_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			quarry_ooo > 0
+	# 			check_variable = { stonefield_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			quarry_ooo > 0
+	# 			check_variable = { stonefield_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = quarry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = quarry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				quarry_ooo > 0
-				check_variable = { stonefield_available > 0}
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				quarry_ooo > 0
-				check_variable = { stonefield_available > 0}
-			}
-			remove_building = {
-			    type = quarry_ooo
-			    level = 1
+				free_building_slots = {
+					building = quarry
+					size > 0
+					include_locked = no
+				}
+				check_variable = { stonefield_available > 0 }
 			}
 			add_building_construction = {
 				type = quarry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = quarry
-						size > 0
-						include_locked = no
-					}
-					check_variable = { stonefield_available > 0 }
+				free_building_slots = {
+					building = quarry
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = quarry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = quarry
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-					check_variable = { stonefield_available > 0 }
-				}
-				add_building_construction = {
-					type = quarry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_quarry = {
-	if = {
-		limit = {
-			quarry > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = quarry
-			    level = 1
+				is_core_of = ROOT
+				check_variable = { stonefield_available > 0 }
 			}
 			add_building_construction = {
-				type = quarry_ooo
+				type = quarry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_quarry = {
+# 	if = {
+# 		limit = {
+# 			quarry > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = quarry
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = quarry_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_mine = {
-	if = {
-		limit = {
-			mine_ooo > 0
-			check_variable = { mountain_available > 0}
-		}
-		THIS = {
-			remove_building = {
-			    type = mine_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = mine
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
+	# if = {
+	# 	limit = {
+	# 		mine_ooo > 0
+	# 		check_variable = { mountain_available > 0}
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = mine_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = mine
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 		if = {
 			limit = {
 				check_variable = { mountain_available > 0}
@@ -1040,322 +1040,365 @@ add_mine = {
 				}
 			}
 		}
-	}
+	# }
 }
 add_mine_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			mine_ooo > 0
+	# 			check_variable = { mountain_available > 0}
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			mine_ooo > 0
+	# 			check_variable = { mountain_available > 0}
+	# 		}
+	# 		remove_building = {
+	# 		    type = mine_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = mine
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				mine_ooo > 0
-				check_variable = { mountain_available > 0}
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				mine_ooo > 0
+				free_building_slots = {
+					building = mine
+					size > 0
+					include_locked = no
+				}
 				check_variable = { mountain_available > 0}
-			}
-			remove_building = {
-			    type = mine_ooo
-			    level = 1
 			}
 			add_building_construction = {
 				type = mine
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = mine
-						size > 0
-						include_locked = no
-					}
-					check_variable = { mountain_available > 0}
+				free_building_slots = {
+					building = mine
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = mine
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = mine
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-					check_variable = { mountain_available > 0}
-				}
-				add_building_construction = {
-					type = mine
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_mine = {
-	if = {
-		limit = {
-			mine > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = mine
-			    level = 1
+				is_core_of = ROOT
+				check_variable = { mountain_available > 0}
 			}
 			add_building_construction = {
-				type = mine_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
-add_crop_weaving = {
-	if = {
-		limit = {
-			crop_weaving_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = crop_weaving_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = crop_weaving
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
-		THIS = {
-			add_building_construction = {
-				type = crop_weaving
+				type = mine
 				level = 1
 				instant_build = no
 			}
 		}
 	}
+	# }
+}
+# remove_mine = {
+# 	if = {
+# 		limit = {
+# 			mine > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = mine
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = mine_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
+add_crop_weaving = {
+	# if = {
+	# 	limit = {
+	# 		crop_weaving_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = crop_weaving_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = crop_weaving
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = crop_weaving
+			level = 1
+			instant_build = no
+		}
+	}
+	# }
 }
 add_crop_weaving_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			crop_weaving_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			crop_weaving_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = crop_weaving_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = crop_weaving
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				crop_weaving_ooo > 0
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				crop_weaving_ooo > 0
-			}
-			remove_building = {
-			    type = crop_weaving_ooo
-			    level = 1
+				free_building_slots = {
+					building = crop_weaving
+					size > 0
+					include_locked = no
+				}
 			}
 			add_building_construction = {
 				type = crop_weaving
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = crop_weaving
-						size > 0
-						include_locked = no
-					}
+				free_building_slots = {
+					building = crop_weaving
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = crop_weaving
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = crop_weaving
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = crop_weaving
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_crop_weaving = {
-	if = {
-		limit = {
-			crop_weaving > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = crop_weaving
-			    level = 1
+				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = crop_weaving_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
-add_animal_weaving = {
-	if = {
-		limit = {
-			animal_weaving_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = animal_weaving_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = animal_weaving
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
-		THIS = {
-			add_building_construction = {
-				type = animal_weaving
+				type = crop_weaving
 				level = 1
 				instant_build = no
 			}
 		}
 	}
+	# }
+}
+# remove_crop_weaving = {
+# 	if = {
+# 		limit = {
+# 			crop_weaving > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = crop_weaving
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = crop_weaving_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
+add_animal_weaving = {
+	# if = {
+	# 	limit = {
+	# 		animal_weaving_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = animal_weaving_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = animal_weaving
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = animal_weaving
+			level = 1
+			instant_build = no
+		}
+	}
+	# }
 }
 add_animal_weaving_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			animal_weaving_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			animal_weaving_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = animal_weaving_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = animal_weaving
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				animal_weaving_ooo > 0
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				animal_weaving_ooo > 0
-			}
-			remove_building = {
-			    type = animal_weaving_ooo
-			    level = 1
+				free_building_slots = {
+					building = animal_weaving
+					size > 0
+					include_locked = no
+				}
 			}
 			add_building_construction = {
 				type = animal_weaving
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = animal_weaving
-						size > 0
-						include_locked = no
-					}
+				free_building_slots = {
+					building = animal_weaving
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = animal_weaving
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = animal_weaving
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = animal_weaving
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_animal_weaving = {
-	if = {
-		limit = {
-			animal_weaving > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = animal_weaving
-			    level = 1
+				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = animal_weaving_ooo
+				type = animal_weaving
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_animal_weaving = {
+# 	if = {
+# 		limit = {
+# 			animal_weaving > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = animal_weaving
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = animal_weaving_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_steelworks = {
-	if = {
-		limit = {
-			steelworks_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = steelworks_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = steelworks
-				level = 1
-				instant_build = yes
-			}
+	# if = {
+	# 	limit = {
+	# 		steelworks_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = steelworks_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = steelworks
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = steelworks
+			level = 1
+			instant_build = no
 		}
 	}
-	else = {
-		THIS = {
+	# }
+}
+add_steelworks_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			steelworks_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			steelworks_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = steelworks_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = steelworks
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	if = {
+		limit = {
+			has_country_flag = core_all_construction_flag
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = steelworks
+					size > 0
+					include_locked = no
+				}
+			}
 			add_building_construction = {
 				type = steelworks
 				level = 1
@@ -1363,86 +1406,43 @@ add_steelworks = {
 			}
 		}
 	}
-}
-add_steelworks_random = {
-	if = {
-		limit = {
-			any_owned_state = {
-				steelworks_ooo > 0
-			}
-		}
+	else = {
 		random_owned_state = {
 			limit = {
-				steelworks_ooo > 0
-			}
-			remove_building = {
-			    type = steelworks_ooo
-			    level = 1
+				free_building_slots = {
+					building = steelworks
+					size > 0
+					include_locked = no
+				}
+				is_core_of = ROOT
 			}
 			add_building_construction = {
 				type = steelworks
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = steelworks
-						size > 0
-						include_locked = no
-					}
-				}
-				add_building_construction = {
-					type = steelworks
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = steelworks
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = steelworks
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
-remove_steelworks = {
-	if = {
-		limit = {
-			steelworks > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = steelworks
-			    level = 1
-			}
-			add_building_construction = {
-				type = steelworks_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+# remove_steelworks = {
+# 	if = {
+# 		limit = {
+# 			steelworks > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = steelworks
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = steelworks_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 
 add_smithy = {
 	THIS = {
@@ -1637,136 +1637,175 @@ add_dockyard_random = {
 	}
 }
 add_consumer_good_factory = {
-	if = {
-		limit = {
-			AND = {
-				consumer_good_factory_ooo > 0
-				check_variable = { resource@tungsten > 0 }
-			}
-		}
-		THIS = {
-			remove_building = {
-			    type = consumer_good_factory_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = consumer_good_factory
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
-		THIS = {
-			add_building_construction = {
-				type = consumer_good_factory
-				level = 1
-				instant_build = no
-			}
+	# if = {
+	# 	limit = {
+	# 		consumer_good_factory_ooo > 0
+	# 		check_variable = { resource@tungsten > 0 }
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = consumer_good_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = consumer_good_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = consumer_good_factory
+			level = 1
+			instant_build = no
 		}
 	}
+	# }
 }
 add_consumer_good_factory_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			consumer_good_factory_ooo > 0
+	# 		}
+	# 		check_variable = { resource@tungsten > 0 }
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			consumer_good_factory_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = consumer_good_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = consumer_good_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			AND = {
-				any_owned_state = {
-					consumer_good_factory_ooo > 0
-				}
-				check_variable = { resource@tungsten > 0 }
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				consumer_good_factory_ooo > 0
-			}
-			remove_building = {
-			    type = consumer_good_factory_ooo
-			    level = 1
+				free_building_slots = {
+					building = consumer_good_factory
+					size > 0
+					include_locked = no
+				}
 			}
 			add_building_construction = {
 				type = consumer_good_factory
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = consumer_good_factory
-						size > 0
-						include_locked = no
-					}
+				free_building_slots = {
+					building = consumer_good_factory
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = consumer_good_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = consumer_good_factory
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = consumer_good_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_consumer_good_factory = {
-	if = {
-		limit = {
-			consumer_good_factory > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = consumer_good_factory
-			    level = 1
+				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = consumer_good_factory_ooo
+				type = consumer_good_factory
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_consumer_good_factory = {
+# 	if = {
+# 		limit = {
+# 			consumer_good_factory > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = consumer_good_factory
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = consumer_good_factory_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_luxury_good_factory = {
-	if = {
-		limit = {
-			luxury_good_factory_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = luxury_good_factory_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = luxury_good_factory
-				level = 1
-				instant_build = yes
-			}
+	# if = {
+	# 	limit = {
+	# 		luxury_good_factory_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = luxury_good_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = luxury_good_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = luxury_good_factory
+			level = 1
+			instant_build = no
 		}
 	}
-	else = {
-		THIS = {
+	# }
+}
+add_luxury_good_factory_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			luxury_good_factory_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			luxury_good_factory_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = luxury_good_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = luxury_good_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	if = {
+		limit = {
+			has_country_flag = core_all_construction_flag
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = luxury_good_factory
+					size > 0
+					include_locked = no
+				}
+			}
 			add_building_construction = {
 				type = luxury_good_factory
 				level = 1
@@ -1774,86 +1813,43 @@ add_luxury_good_factory = {
 			}
 		}
 	}
-}
-add_luxury_good_factory_random = {
-	if = {
-		limit = {
-			any_owned_state = {
-				luxury_good_factory_ooo > 0
-			}
-		}
+	else = {
 		random_owned_state = {
 			limit = {
-				luxury_good_factory_ooo > 0
-			}
-			remove_building = {
-			    type = luxury_good_factory_ooo
-			    level = 1
+				free_building_slots = {
+					building = luxury_good_factory
+					size > 0
+					include_locked = no
+				}
+				is_core_of = ROOT
 			}
 			add_building_construction = {
 				type = luxury_good_factory
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = luxury_good_factory
-						size > 0
-						include_locked = no
-					}
-				}
-				add_building_construction = {
-					type = luxury_good_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = luxury_good_factory
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = luxury_good_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
-remove_luxury_good_factory = {
-	if = {
-		limit = {
-			luxury_good_factory > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = luxury_good_factory
-			    level = 1
-			}
-			add_building_construction = {
-				type = luxury_good_factory_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+# remove_luxury_good_factory = {
+# 	if = {
+# 		limit = {
+# 			luxury_good_factory > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = luxury_good_factory
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = luxury_good_factory_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 
 add_manufactory = {
 	THIS = {
@@ -1904,236 +1900,279 @@ add_manufactory_random = {
 }
 
 add_carpentry = {
-	if = {
-		limit = {
-			carpentry_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = carpentry_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = carpentry
-				level = 1
-				instant_build = yes
-			}
+	# if = {
+	# 	limit = {
+	# 		carpentry_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = carpentry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = carpentry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = carpentry
+			level = 1
+			instant_build = no
 		}
 	}
-	else = {
-		THIS = {
-			add_building_construction = {
-				type = carpentry
-				level = 1
-				instant_build = no
-			}
-		}
-	}
+	# }
 }
 add_carpentry_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			carpentry_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			carpentry_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = carpentry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = carpentry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				carpentry_ooo > 0
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				carpentry_ooo > 0
-			}
-			remove_building = {
-			    type = carpentry_ooo
-			    level = 1
+				free_building_slots = {
+					building = carpentry
+					size > 0
+					include_locked = no
+				}
 			}
 			add_building_construction = {
 				type = carpentry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = carpentry
-						size > 0
-						include_locked = no
-					}
+				free_building_slots = {
+					building = carpentry
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = carpentry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = carpentry
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = carpentry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_carpentry = {
-	if = {
-		limit = {
-			carpentry > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = carpentry
-			    level = 1
+				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = carpentry_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
-add_masonry = {
-	if = {
-		limit = {
-			masonry_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = masonry_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = masonry
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-	else = {
-		THIS = {
-			add_building_construction = {
-				type = masonry
+				type = carpentry
 				level = 1
 				instant_build = no
 			}
 		}
 	}
+	# }
+}
+# remove_carpentry = {
+# 	if = {
+# 		limit = {
+# 			carpentry > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = carpentry
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = carpentry_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
+add_masonry = {
+	# if = {
+	# 	limit = {
+	# 		masonry_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = masonry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = masonry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = masonry
+			level = 1
+			instant_build = no
+		}
+	}
+	# }
 }
 add_masonry_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			masonry_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			masonry_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = masonry_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = masonry
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
 	if = {
 		limit = {
-			any_owned_state = {
-				masonry_ooo > 0
-			}
+			has_country_flag = core_all_construction_flag
 		}
 		random_owned_state = {
 			limit = {
-				masonry_ooo > 0
-			}
-			remove_building = {
-			    type = masonry_ooo
-			    level = 1
+				free_building_slots = {
+					building = masonry
+					size > 0
+					include_locked = no
+				}
 			}
 			add_building_construction = {
 				type = masonry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
 	else = {
-		if = {
+		random_owned_state = {
 			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = masonry
-						size > 0
-						include_locked = no
-					}
+				free_building_slots = {
+					building = masonry
+					size > 0
+					include_locked = no
 				}
-				add_building_construction = {
-					type = masonry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = masonry
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = masonry
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
-}
-remove_masonry = {
-	if = {
-		limit = {
-			masonry > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = masonry
-			    level = 1
+				is_core_of = ROOT
 			}
 			add_building_construction = {
-				type = masonry_ooo
+				type = masonry
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
+	# }
 }
+# remove_masonry = {
+# 	if = {
+# 		limit = {
+# 			masonry > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = masonry
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = masonry_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 add_steel_beam_factory = {
-	if = {
-		limit = {
-			steel_beam_factory_ooo > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = steel_beam_factory_ooo
-			    level = 1
-			}
-			add_building_construction = {
-				type = steel_beam_factory
-				level = 1
-				instant_build = yes
-			}
+	# if = {
+	# 	limit = {
+	# 		steel_beam_factory_ooo > 0
+	# 	}
+	# 	THIS = {
+	# 		remove_building = {
+	# 		    type = steel_beam_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = steel_beam_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	THIS = {
+		add_building_construction = {
+			type = steel_beam_factory
+			level = 1
+			instant_build = no
 		}
 	}
-	else = {
-		THIS = {
+	# }
+}
+add_steel_beam_factory_random = {
+	# if = {
+	# 	limit = {
+	# 		any_owned_state = {
+	# 			steel_beam_factory_ooo > 0
+	# 		}
+	# 	}
+	# 	random_owned_state = {
+	# 		limit = {
+	# 			steel_beam_factory_ooo > 0
+	# 		}
+	# 		remove_building = {
+	# 		    type = steel_beam_factory_ooo
+	# 		    level = 1
+	# 		}
+	# 		add_building_construction = {
+	# 			type = steel_beam_factory
+	# 			level = 1
+	# 			instant_build = yes
+	# 		}
+	# 	}
+	# }
+	# else = {
+	if = {
+		limit = {
+			has_country_flag = core_all_construction_flag
+		}
+		random_owned_state = {
+			limit = {
+				free_building_slots = {
+					building = steel_beam_factory
+					size > 0
+					include_locked = no
+				}
+			}
 			add_building_construction = {
 				type = steel_beam_factory
 				level = 1
@@ -2141,86 +2180,43 @@ add_steel_beam_factory = {
 			}
 		}
 	}
-}
-add_steel_beam_factory_random = {
-	if = {
-		limit = {
-			any_owned_state = {
-				steel_beam_factory_ooo > 0
-			}
-		}
+	else = {
 		random_owned_state = {
 			limit = {
-				steel_beam_factory_ooo > 0
-			}
-			remove_building = {
-			    type = steel_beam_factory_ooo
-			    level = 1
+				free_building_slots = {
+					building = steel_beam_factory
+					size > 0
+					include_locked = no
+				}
+				is_core_of = ROOT
 			}
 			add_building_construction = {
 				type = steel_beam_factory
 				level = 1
-				instant_build = yes
+				instant_build = no
 			}
 		}
 	}
-	else = {
-		if = {
-			limit = {
-				has_country_flag = core_all_construction_flag
-			}
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = steel_beam_factory
-						size > 0
-						include_locked = no
-					}
-				}
-				add_building_construction = {
-					type = steel_beam_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-		else = {
-			random_owned_state = {
-				limit = {
-					free_building_slots = {
-						building = steel_beam_factory
-						size > 0
-						include_locked = no
-					}
-					is_core_of = ROOT
-				}
-				add_building_construction = {
-					type = steel_beam_factory
-					level = 1
-					instant_build = no
-				}
-			}
-		}
-	}
+	# }
 }
-remove_steel_beam_factory = {
-	if = {
-		limit = {
-			steel_beam_factory > 0
-		}
-		THIS = {
-			remove_building = {
-			    type = steel_beam_factory
-			    level = 1
-			}
-			add_building_construction = {
-				type = steel_beam_factory_ooo
-				level = 1
-				instant_build = yes
-			}
-		}
-	}
-}
+# remove_steel_beam_factory = {
+# 	if = {
+# 		limit = {
+# 			steel_beam_factory > 0
+# 		}
+# 		THIS = {
+# 			remove_building = {
+# 			    type = steel_beam_factory
+# 			    level = 1
+# 			}
+# 			add_building_construction = {
+# 				type = steel_beam_factory_ooo
+# 				level = 1
+# 				instant_build = yes
+# 			}
+# 		}
+# 	}
+# }
 
 add_fuel_repository = {
 	THIS = {
