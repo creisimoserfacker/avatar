@@ -5,6 +5,9 @@ reoccupy_category = {
 	picture = GFX_decision_cat_reoccupation
 
 	visible = {
+		NOT = {
+			has_idea = no_ruler
+		}
 		any_state = {
 			has_dynamic_modifier = {
 				modifier = genocide_state
@@ -64,6 +67,9 @@ taxation_category = {
 	picture = GFX_decision_cat_taxation
 
 	visible = {
+		NOT = {
+			has_idea = no_ruler
+		}
 		OR = {
 			has_idea = family_support_1
 			has_idea = family_support_2
@@ -90,6 +96,9 @@ generic_research_slot_category = {
 	picture = GFX_decision_cat_research
 
 	visible = {
+		NOT = {
+			has_idea = no_ruler
+		}
 		amount_research_slots < 5
 		NOT = { has_country_flag = hide_generic_decisions }
 	}

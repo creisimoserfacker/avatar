@@ -297,47 +297,39 @@ on_actions = {
 
 			if = {
 				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = extreme_poverty }
-						}
-						check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
+					NOT = {
+						has_dynamic_modifier = { modifier = extreme_poverty }
 					}
+					check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
 				}
 				add_dynamic_modifier = { modifier = extreme_poverty }
 			}
 			else_if = {
 				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = poverty }
-						}
-						check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
-						check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
+					NOT = {
+						has_dynamic_modifier = { modifier = poverty }
 					}
+					check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
+					check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
 				}
 				add_dynamic_modifier = { modifier = poverty }
 			}
 			else_if = {
 				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = wealth }
-						}
-						check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
-						check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
+					NOT = {
+						has_dynamic_modifier = { modifier = wealth }
 					}
+					check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
+					check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
 				}
 				add_dynamic_modifier = { modifier = wealth }
 			}
 			else_if = {
 				limit = {
-					AND = {
-						NOT = {
-							has_dynamic_modifier = { modifier = extreme_wealth }
-						}
-						check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
+					NOT = {
+						has_dynamic_modifier = { modifier = extreme_wealth }
 					}
+					check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
 				}
 				add_dynamic_modifier = { modifier = extreme_wealth }
 			}

@@ -164,13 +164,11 @@ on_actions = {
 			# Game Rules - Fire Colonies
 			if = {
 				limit = {
-					AND = {
-						has_game_rule = {
-							rule = firenation_colony_status
-							option = FIRENATION_COLONIES
-						}
-						has_start_date < 20.1.1
+					has_game_rule = {
+						rule = firenation_colony_status
+						option = FIRENATION_COLONIES
 					}
+					has_start_date < 20.1.1
 				}
 				FIR = {
 					set_state_owner = 230
@@ -181,15 +179,13 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					AND = {
-						NOT = {
-							has_game_rule = {
-								rule = firenation_colony_status
-								option = FIRENATION_COLONIES
-							}
+					NOT = {
+						has_game_rule = {
+							rule = firenation_colony_status
+							option = FIRENATION_COLONIES
 						}
-						has_start_date < 20.1.1
 					}
+					has_start_date < 20.1.1
 				}
 				230 = { add_dynamic_modifier = { modifier = firenation_settlers } }
 				280 = { add_dynamic_modifier = { modifier = firenation_settlers } }

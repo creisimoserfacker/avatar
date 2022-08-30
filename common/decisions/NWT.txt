@@ -1017,120 +1017,120 @@ NWT_isolation_policies = {
 
 	}
 
-	NWT_approach_air_nomads = {
+	# NWT_approach_air_nomads = {
 
-		icon = air_and_water_flag
+	# 	icon = air_and_water_flag
 
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_global_flag = air_nomad_genocide
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_firenation
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = FIR_accepts_cooperation
-				}
-			}
-		}
+	# 	visible = {
+	# 		tag = NWT
+	# 		has_idea = remote_isolation_1
+	# 		NOT = {
+	# 			OR = {
+	# 				has_global_flag = air_nomad_genocide
+	# 				has_country_flag = approach_earthkingdom
+	# 				has_country_flag = approach_firenation
+	# 				has_country_flag = EAR_accepts_cooperation
+	# 				has_country_flag = FIR_accepts_cooperation
+	# 			}
+	# 		}
+	# 	}
 		
-		available = {
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_firenation
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = FIR_accepts_cooperation
-				}
-			}
-			NAT = {
-				has_opinion = {
-					target = NWT
-					value > 49
-				}
-			}
-		}
+	# 	available = {
+	# 		has_idea = remote_isolation_1
+	# 		NOT = {
+	# 			OR = {
+	# 				has_country_flag = approach_earthkingdom
+	# 				has_country_flag = approach_firenation
+	# 				has_country_flag = EAR_accepts_cooperation
+	# 				has_country_flag = FIR_accepts_cooperation
+	# 			}
+	# 		}
+	# 		NAT = {
+	# 			has_opinion = {
+	# 				target = NWT
+	# 				value > 49
+	# 			}
+	# 		}
+	# 	}
 		
-		fire_only_once = yes		
+	# 	fire_only_once = yes		
 
-		cost = 30
+	# 	cost = 30
 
-		complete_effect = {
-			set_country_flag = approach_airnomads
-		}
+	# 	complete_effect = {
+	# 		set_country_flag = approach_airnomads
+	# 	}
 
-		days_remove = 30
+	# 	days_remove = 30
 
-		remove_effect = {
-			NAT = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
-			if = {
-				limit = {
-					NAT = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-		}
+	# 	remove_effect = {
+	# 		NAT = { country_event = { id = eb_bulgaria_rearmament.7 hours = 1 } }
+	# 		if = {
+	# 			limit = {
+	# 				NAT = { is_ai = yes }
+	# 			}
+	# 			custom_effect_tooltip = NWT_approach_earth_main_factors_tt
+	# 		}
+	# 	}
 
-	}
+	# }
 
-	NWT_approach_fire_nation = {
+	# NWT_approach_fire_nation = {
 
-		icon = fire_and_water_flag
+	# 	icon = fire_and_water_flag
 
-		visible = {
-			tag = NWT
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_airnomads
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-		}
+	# 	visible = {
+	# 		tag = NWT
+	# 		has_idea = remote_isolation_1
+	# 		NOT = {
+	# 			OR = {
+	# 				has_country_flag = approach_earthkingdom
+	# 				has_country_flag = approach_airnomads
+	# 				has_country_flag = EAR_accepts_cooperation
+	# 				has_country_flag = AIR_accepts_cooperation
+	# 			}
+	# 		}
+	# 	}
 		
-		available = {
-			has_idea = remote_isolation_1
-			NOT = {
-				OR = {
-					has_country_flag = approach_earthkingdom
-					has_country_flag = approach_airnomads
-					has_country_flag = EAR_accepts_cooperation
-					has_country_flag = AIR_accepts_cooperation
-				}
-			}
-			FIR = {
-				has_opinion = {
-					target = NWT
-					value > 49
-				}
-			}
-		}
+	# 	available = {
+	# 		has_idea = remote_isolation_1
+	# 		NOT = {
+	# 			OR = {
+	# 				has_country_flag = approach_earthkingdom
+	# 				has_country_flag = approach_airnomads
+	# 				has_country_flag = EAR_accepts_cooperation
+	# 				has_country_flag = AIR_accepts_cooperation
+	# 			}
+	# 		}
+	# 		FIR = {
+	# 			has_opinion = {
+	# 				target = NWT
+	# 				value > 49
+	# 			}
+	# 		}
+	# 	}
 		
-		fire_only_once = yes		
+	# 	fire_only_once = yes		
 
-		cost = 35
+	# 	cost = 35
 
-		complete_effect = {
-			set_country_flag = approach_firenation
-		}
+	# 	complete_effect = {
+	# 		set_country_flag = approach_firenation
+	# 	}
 
-		days_remove = 30
+	# 	days_remove = 30
 
-		remove_effect = {
-			FIR = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
-			if = {
-				limit = {
-					FIR = { is_ai = yes }
-				}
-				custom_effect_tooltip = NWT_approach_earth_main_factors_tt
-			}
-		}
+	# 	remove_effect = {
+	# 		FIR = { country_event = { id = bftb_bulgaria_rearmament.7 hours = 1 } }
+	# 		if = {
+	# 			limit = {
+	# 				FIR = { is_ai = yes }
+	# 			}
+	# 			custom_effect_tooltip = NWT_approach_earth_main_factors_tt
+	# 		}
+	# 	}
 
-	}
+	# }
 
 	NWT_protective_isolation_spirit = {
 
