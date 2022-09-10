@@ -2370,7 +2370,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 3.6
+		research_cost = 1.5
 
 		start_year = 25
 		
@@ -2425,7 +2425,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 3.6
+		research_cost = 1
 
 		start_year = 20
 		
@@ -3457,5 +3457,150 @@ technologies = {
 			ranged_weapons
 		}
 	} 
+
+	trebuchets_1 = {
+
+		enable_equipments = {
+			trebuchet_equipment_1
+		}
+		enable_subunits = {
+			trebuchet
+		}
+		sub_technologies = {
+			projectile0
+		}
+
+		path = {
+			leads_to_tech = trebuchet_upgrade_1
+			research_cost_coeff = 1
+		}
+
+		research_cost = 1.2
+		start_year = 20
+		folder = {
+			name = artillery_folder
+			position = { x = 19 y = 6 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchet_upgrade_1 = {
+
+		trebuchet = {
+			breakthrough = 0.1
+			hard_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = trebuchets_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 30
+		folder = {
+			name = artillery_folder
+			position = { x = 19 y = 10 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchets_2 = {
+
+		enable_equipments = {
+			trebuchet_equipment_2
+		}
+
+		sub_technologies = {
+			projectile1
+		}
+
+		path = {
+			leads_to_tech = trebuchet_upgrade_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 40
+		folder = {
+			name = artillery_folder
+			position = { x = 19 y = 14 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchet_upgrade_2 = {
+
+		trebuchet = {
+			breakthrough = 0.1
+			hard_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = trebuchets_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		start_year = 55
+		folder = {
+			name = artillery_folder
+			position = { x = 19 y = 20 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+	trebuchets_3 = {
+
+		enable_equipments = {
+			trebuchet_equipment_3
+		}
+		sub_technologies = {
+			projectile2
+		}
+
+		research_cost = 3
+		start_year = 70
+		folder = {
+			name = artillery_folder
+			position = { x = 19 y = 26 }
+		}
+		
+		categories = {
+			ranged_weapons
+		}
+		
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	
 }
