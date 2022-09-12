@@ -39,7 +39,18 @@ set_technology = {
 	polearm_2 = 1
 	basic_armor = 1
 	heavy_armor_1 = 1
-	#heavy_armor_2 = 1
+	sidearm_update_1 = 1
+	spear_update_1 = 1
+	basic_sword_1 = 1
+	armor_a_1 = 1
+	armor_b_1 = 1
+	blade_update_1 = 1
+	pole_update_1 = 1
+	shield_update_1 = 1
+	sparring_1 = 1
+	armor_a_2 = 1
+	armor_e_2 = 1
+	armor_b_2 = 1
 
 # ranged
 	ranged_weapons = 1
@@ -48,17 +59,39 @@ set_technology = {
 	light_armor_1 = 1
 	arrow0 = 1
 	ballista0 = 1
+	catapult0 = 1
+	projectile0 = 1
 	bolt0 = 1
-	#catapult0 = 1
-	#projectile0 =1
+	projectile1 = 1
+	bolt1 = 1
+	projectile2 = 1
+	bolt2 = 1
+	projectile3 = 1
+	bolt3 = 1
+	projectile4 = 1
+	bolt4 = 1
+	projectile5 = 1
+	bolt5 = 1
+	tip0 = 1
+	uniform0 = 1
+	guard0 = 1
 
 # support
 	tech_support = 1
-	tech_military_police = 1
+	tech_combat_pioneers = 1
 	tech_engineers = 1
 	tech_scouts = 1
-
+	tech_high_command = 1
+	tech_military_police = 1
+	tech_scavengers = 1
+	tech_transport = 1
+	tech_armored_transport = 1
+	tech_field_hospital = 1
+	tech_supply_wagons = 1
 	basic_train = 1
+
+# air
+	birb_tech_1 = 1
 
 # mounted
 	light_cavalry_1 = 1
@@ -115,12 +148,19 @@ set_technology = {
 	shops_1 = 1
 
  # industry
- 	basic_construction = 1
- 	basic_production = 1
+	basic_construction = 1
+	basic_production = 1
 	gathering_tech_1 = 1
+	construction_l1 = 1
+	repair_1 = 1
+	production_1 = 1
+	tanning_1 = 1
 	farming_1 = 1
-	food_1 = 1
+	storage_1 = 1
+	fish_1 = 1
+	basic_gathering = 1
 	stone_1 = 1
+	food_1 = 1
 
 }
 
@@ -293,7 +333,7 @@ if = {
 		parent_version = 0
 		modules = {
 			fixed_ship_crew_slot = ship_archers_1
-    	}
+		}
 	}
 
 	create_equipment_variant = {
@@ -302,11 +342,11 @@ if = {
 		#name_group = GER_CA_HISTORICAL
 		parent_version = 0
 		modules = {
-        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_engine_slot = steam_engine_1
 			fixed_ship_armor_slot = light_armor_plates_1
 			fixed_ship_crew_slot = ship_firebender_crew_1
 			fixed_ship_bridge_slot = lookout_1
-    	}
+		}
 	}
 
 	create_equipment_variant = {
@@ -315,12 +355,12 @@ if = {
 		#name_group = GER_CA_HISTORICAL
 		parent_version = 0
 		modules = {
-        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_engine_slot = steam_engine_1
 			fixed_ship_storage_slot = storage_room_1
 			fixed_ship_crew_slot = ship_firebender_crew_1
 			fixed_ship_armor_slot = light_armor_plates_1
 			fixed_ship_bridge_slot = lookout_1
-    	}
+		}
 	}
 
 	create_equipment_variant = {
@@ -329,12 +369,12 @@ if = {
 		#name_group = GER_CA_HISTORICAL
 		parent_version = 0
 		modules = {
-        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_engine_slot = steam_engine_1
 			fixed_ship_armor_slot = light_armor_plates_1
 			fixed_ship_crew_slot = boarding_crew_1
 			deck_1_custom_slot = ship_catapult_1
 			fixed_ship_artillery_slot = ship_catapult_1
-    	}
+		}
 	}
 
 	create_equipment_variant = {
@@ -343,14 +383,14 @@ if = {
 		#name_group = GER_CA_HISTORICAL
 		parent_version = 0
 		modules = {
-        	fixed_ship_engine_slot = steam_engine_1
+			fixed_ship_engine_slot = steam_engine_1
 			fixed_ship_armor_slot = medium_armor_plates_1
 			fixed_ship_crew_slot = ship_firebender_crew_1
 			deck_1_custom_slot = ship_trebuchet_1
 			fixed_ship_artillery_slot = ship_trebuchet_1
 			fixed_ship_bridge_slot = lookout_1
 			fixed_ship_storage_slot = storage_room_1
-    	}
+		}
 	}
 
 }
@@ -955,7 +995,7 @@ if = {
 	}
 
 	set_portraits = {
-	    character = FIR_azulon
+		character = FIR_azulon
 		army = { large="gfx/leaders/FIR/Portrait_Firenation_Azulon1.dds" }
 		civilian = { large="gfx/leaders/FIR/Portrait_Firenation_Azulon1.dds" }
 	}
