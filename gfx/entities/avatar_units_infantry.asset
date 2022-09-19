@@ -219,31 +219,54 @@ entity = {
 	name = "bow_entity"
 	pdxmesh = "bow_mesh"
 
+	#get_state_from_parent = yes
 	default_state = "idle"
-	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "shoot"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "move" }
+	state = { name = "retreat" }
+	state = { name = "idle"				animation = "idle" }
+	state = { name = "attack"			animation = "attack_01"}
+	state = { name = "defend"			animation = "attack_01"}
+	state = { name = "support_attack"	animation = "attack_01"}
 }
 
 entity = {
 	name = "arrow_entity"
 	pdxmesh = "arrow_mesh"
 
+	#get_state_from_parent = yes
 	default_state = "idle"
-	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "shoot"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "move" }
+	state = { name = "retreat" }
+	state = { name = "idle"				animation = "idle" }
+	state = { name = "attack"			animation = "attack_01"}
+	state = { name = "defend"			animation = "attack_01"}
+	state = { name = "support_attack"	animation = "attack_01"}
 }
 
 
 entity = {
 	name = "archers_entity"
-	pdxmesh = "frame_archer_mesh"
+	pdxmesh = "archer_generic"
 
 	default_state = "idle"
 	state = { 
-		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } propagate_state = { Arrow = "shoot" } 
+		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0
+		looping = no next_state = "attack" chance = 1
+		propagate_state = { Bow = "attack" } 
+		propagate_state = { Arrow = "attack" } 
 	}
-	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } propagate_state = { Arrow = "shoot" } }
-	state = { name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } propagate_state = { Arrow = "shoot" } }
+	state = { 
+		name = "defend"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0  
+		looping = no next_state = "defend" chance = 1
+		propagate_state = { Bow = "defend" } 
+		propagate_state = { Arrow = "defend" } 
+	}
+	state = { 
+		name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0 
+		looping = no next_state = "support_attack" chance = 1
+		propagate_state = { Bow = "support_attack" } 
+		propagate_state = { Arrow = "support_attack" } 
+	}
 	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
 		event = { sound = { soundeffect = "infantry_move_animation" } }
 	}
@@ -251,39 +274,12 @@ entity = {
 		event = { sound = { soundeffect = "infantry_move_animation" } }
 	}
 	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
 	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
-	
-	attach = { 	name = "Archer"	root = "archer_guy_entity" }
+
 	attach = { 	name = "Bow"	Left_hand_node = "bow_entity" }
 	attach = { 	name = "Arrow"	root = "arrow_entity" }
 
 	scale = 0.4
-}
-
-entity = {
-	name = "archer_guy_entity"
-	pdxmesh = "archer_generic"
-	
-	default_state = "idle"
-	state = { 
-		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } 
-		#event = { time = 0.8 node="Right_hand_node" particle = "arrow_draw_particle"  keep_particle = no } 
-		#event = { time = 4.8 node="Right_hand_node" particle = "arrow_shoot_particle"  keep_particle = no }
-	}
-	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
-	state = { name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
-	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
-		event = { sound = { soundeffect = "infantry_move_animation" } }
-	}
-	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
-		event = { sound = { soundeffect = "infantry_move_animation" } }
-	}
-	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
-
-	scale = 1
 }
 
 
@@ -447,27 +443,6 @@ entity = {
 	attach = { 	name = "Bow"	Left_hand_node = "bow_entity" }
 
 	scale = 0.4
-}
-
-entity = {
-	name = "FIR_archer_guy_entity"
-	pdxmesh = "FIR_archer"
-	
-	default_state = "idle"
-	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
-	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
-	state = { name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0  propagate_state = { Bow = "shoot" } }
-	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
-		event = { sound = { soundeffect = "infantry_move_animation" } }
-	}
-	state = { name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
-		event = { sound = { soundeffect = "infantry_move_animation" } }
-	}
-	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
-	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
-
-	scale = 1
 }
 
 
