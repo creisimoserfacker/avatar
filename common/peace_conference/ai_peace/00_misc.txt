@@ -1,0 +1,15 @@
+# Scripted AI desire for peace actions.
+# See documentation.info file for more detailed scripting information.
+
+peace_ai_desires = {
+
+	take_our_cores = {
+        peace_action_type = { take_states }
+        enable = {
+            ROOT = { tag = ROOT.FROM } #We are negotiating for ourselves
+            ROOT.FROM.FROM.FROM = { is_core_of = ROOT.FROM } #It is ours
+        }
+        ai_desire = 100
+    }
+
+}

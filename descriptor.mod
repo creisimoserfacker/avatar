@@ -1,4 +1,8 @@
 name="avatar"
+replace_path="common/peace_conference/ai_peace"
+replace_path="common/peace_conference/categories"
+replace_path="common/peace_conference/cost_modifiers"
+replace_path="common/bop"
 replace_path="history/states"
 replace_path="map/strategicregions"
 replace_path="map/supplyareas"
@@ -43,5 +47,5 @@ tags={
 	"Utilities"
 }
 picture="thumbnail.png"
-supported_version="1.11.*"
+supported_version="1.12.*"
 remote_file_id="1508151299"
