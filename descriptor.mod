@@ -1,4 +1,5 @@
 name="avatar"
+replace_path="common/dynamic_modifiers"
 replace_path="common/peace_conference/ai_peace"
 replace_path="common/peace_conference/categories"
 replace_path="common/peace_conference/cost_modifiers"
