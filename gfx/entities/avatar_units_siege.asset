@@ -68,6 +68,145 @@ entity = {
 
 
 
+
+
+entity = {
+	name = "catapult_brigade_entity"
+	pdxmesh = "catapult_mesh"
+	
+	default_state = "idle"
+	state = { 
+		name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no 
+		propagate_state = { Infantry_1 = "idle" } 
+	}
+
+	state = { 
+		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0
+		looping = no next_state = "attack" chance = 1
+		propagate_state = { Infantry_1 = "attack" } 
+	}
+	state = { 
+		name = "defend"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0  
+		looping = no next_state = "defend" chance = 1
+		propagate_state = { Infantry_1 = "defend" } 
+	}
+	state = { 
+		name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0 
+		looping = no next_state = "support_attack" chance = 1
+		propagate_state = { Infantry_1 = "support_attack" } 
+	}
+
+	#attach = { 	name = "Infantry_1"	root = "catapult_gunner_entity" }
+	
+	scale = 0.4
+}	
+
+entity = {
+	name = "catapult_gunner_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	default_state = "idle"
+	state = { 
+		name = "attack"			animation = "catapult_attack_1_1" 			animation_blend_time = 0.3  animation_speed = 1.0 
+	}
+	state = { 
+		name = "defend"			animation = "catapult_attack_1_1" 			animation_blend_time = 0.3  animation_speed = 1.0 
+	}
+	state = { 
+		name = "support_attack"	animation = "catapult_attack_1_1" 	animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { 
+		name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { 
+		name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "idle"				animation = "catapult_idle_1"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no 
+	}
+
+
+	scale = 1
+}
+
+
+entity = {
+	name = "trebuchet_entity"
+	pdxmesh = "trebuchet_mesh"
+	
+	default_state = "idle"
+	state = { 
+		name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no 
+		propagate_state = { Infantry_1 = "idle" } 
+	}
+
+	state = { 
+		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0
+		looping = no next_state = "attack" chance = 1
+		propagate_state = { Infantry_1 = "attack" } 
+	}
+	state = { 
+		name = "defend"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0  
+		looping = no next_state = "defend" chance = 1
+		propagate_state = { Infantry_1 = "defend" } 
+	}
+	state = { 
+		name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0 
+		looping = no next_state = "support_attack" chance = 1
+		propagate_state = { Infantry_1 = "support_attack" } 
+	}
+
+	#attach = { 	name = "Infantry_1"	root = "trebuchet_gunner_entity" }
+	
+	scale = 0.4
+}	
+
+entity = {
+	name = "trebuchet_gunner_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	default_state = "idle"
+	state = { 
+		name = "attack"			animation = "trebuchet_attack_1_1" 			animation_blend_time = 0.3  animation_speed = 1.0 
+	}
+	state = { 
+		name = "defend"			animation = "trebuchet_attack_1_1" 			animation_blend_time = 0.3  animation_speed = 1.0 
+	}
+	state = { 
+		name = "support_attack"	animation = "trebuchet_attack_1_1" 	animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { 
+		name = "move"				animation = "march_move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1
+		event = { sound = { soundeffect = "infantry_move_animation" } }
+	}
+	state = { 
+		name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 
+	}
+	state = { 
+		name = "idle"				animation = "trebuchet_idle_1"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no 
+	}
+
+
+	scale = 1
+}
+
+
+
 #### firenation
 entity = {
 	clone = "ballista_entity"
