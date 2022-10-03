@@ -1,0 +1,330 @@
+guiTypes = {
+	containerWindowType = {
+		name = "logistics_tab_ui_window"
+		position = {x=0 y=0}
+		size = { width=1036 height=100%% }
+
+		containerWindowType = {
+			name = "ration_info"
+			position = { x = 0 y = -115 }
+			size = { width = 546 height = 103 }
+			verticalScrollbar = "right_vertical_slider"
+			Orientation = LOWER_LEFT
+			clipping = yes
+			
+			
+			iconType ={
+				name ="trade_filter_bg"
+				spriteType = "GFX_trade_filter_bg"
+				position = { x= 20 y = 0 }
+				Orientation = "UPPER_LEFT"
+			}
+			
+			iconType ={
+				name ="ration_header"
+				spriteType = "GFX_deployment_binding"
+				position = { x= 7 y = 0 }
+				Orientation = "UPPER_LEFT"
+			}
+			
+			iconType = {
+				name = "icon"
+				position = { x=23 y=4 }
+				spriteType = "GFX_ration_logistics"
+			}
+
+			instantTextboxType = {
+				name = "label"
+				position = { x = 60 y = 7 }
+				font = "hoi_18mbs"
+				text = "LOGISTICS_RATION_PRIORITIZATION"
+				maxWidth = 160
+				maxHeight = 20
+				format = left
+			}
+
+			containerWindowType = {
+				name = "army_info"
+				position = { x = 20 y = 33 }
+				size = { width = 120 height = 68 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite ="GFX_mini_tooltip"
+					position = { x = 0 y = 3 }		
+					alwaystransparent = yes			
+				}
+				
+				instantTextboxType = {
+					name = "type_text"
+					position = { x=10 y=8 }
+					font = "hoi_16mbs"
+					text = "RATION_ARMY"
+					maxWidth = 80
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				
+				buttonType = {
+					name = "low_prio"
+					position = { x = 7 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_LOW_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "medium_prio"
+					position = { x = 27 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_MEDIUM_PRIORITY_DESC"
+					frame = 3
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "high_prio"
+					position = { x = 47 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_HIGH_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				iconType = {
+					name = "details_button"
+					position = { x=78 y=10 }	
+					spriteType ="GFX_ration_types_icon"
+					frame=1
+				}
+				
+				iconType = {
+					name ="fulfilled"
+					spriteType = "GFX_logistics_fuelbar"
+					position = { x=10 y = 46 }
+					frame = 100
+				}
+			}
+			
+			containerWindowType = {
+				name = "navy_info"
+				position = { x = 147 y = 33 }
+				size = { width = 120 height = 68 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite ="GFX_mini_tooltip"
+					position = { x = 0 y = 3 }
+					alwaystransparent = yes					
+				}
+				instantTextboxType = {
+					name = "type_text"
+					position = { x=10 y=8 }
+					font = "hoi_16mbs"
+					text = "RATION_CORE_POPULATION"
+					maxWidth = 80
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				
+				buttonType = {
+					name = "low_prio"
+					position = { x = 7 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_LOW_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "medium_prio"
+					position = { x = 27 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_MEDIUM_PRIORITY_DESC"
+					frame = 3
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "high_prio"
+					position = { x = 47 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_HIGH_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				iconType = {
+					name = "details_button"
+					position = { x=78 y=10 }	
+					spriteType ="GFX_ration_types_icon"
+					frame=2
+				}
+				
+				iconType = {
+					name ="fulfilled"
+					spriteType = "GFX_logistics_fuelbar"
+					position = { x=10 y = 46 }
+					frame = 100
+				}
+			}
+			
+			
+			containerWindowType = {
+				name = "air_info"
+				position = { x = 274 y = 33 }
+				size = { width = 120 height = 68 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite ="GFX_mini_tooltip"
+					position = { x = 0 y = 3 }
+					alwaystransparent = yes					
+				}
+				instantTextboxType = {
+					name = "type_text"
+					position = { x=10 y=8 }
+					font = "hoi_16mbs"
+					text = "RATION_WORKERS"
+					maxWidth = 80
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				
+				buttonType = {
+					name = "low_prio"
+					position = { x = 7 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_LOW_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "medium_prio"
+					position = { x = 27 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_MEDIUM_PRIORITY_DESC"
+					frame = 3
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "high_prio"
+					position = { x = 47 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_HIGH_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				iconType = {
+					name = "details_button"
+					position = { x=78 y=10 }	
+					spriteType ="GFX_ration_types_icon"
+					frame=3
+				}
+				
+				iconType = {
+					name ="fulfilled"
+					spriteType = "GFX_logistics_fuelbar"
+					position = { x=10 y = 46 }
+					frame = 100
+				}
+			}
+			
+			containerWindowType = {
+				name = "general_info"
+				position = { x = 401 y = 33 }
+				size = { width = 120 height = 68 }
+
+				background = {
+					name = "bg"
+					quadTextureSprite ="GFX_mini_tooltip"
+					position = { x = 0 y = 3 }	
+					alwaystransparent = yes	
+				}
+				instantTextboxType = {
+					name = "type_text"
+					position = { x=10 y=8 }
+					font = "hoi_16mbs"
+					text = "RATION_OCCUPIED"
+					maxWidth = 80
+					maxHeight = 20
+					format = left
+					alwaystransparent = yes
+				}
+				
+				buttonType = {
+					name = "low_prio"
+					position = { x = 7 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_LOW_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "medium_prio"
+					position = { x = 27 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_MEDIUM_PRIORITY_DESC"
+					frame = 3
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "high_prio"
+					position = { x = 47 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_HIGH_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+		
+				instantTextboxType = {
+					name = "type_text"
+					position = { x=3 y=15 }
+					font = "hoi_16mbs"
+					text = "PRODUCTION_OUTPUT"
+					maxWidth = 80
+					maxHeight = 20
+					format = center
+					alwaystransparent = yes
+				}
+				
+				
+				iconType = {
+					name = "details_button"
+					position = { x=78 y=10 }	
+					spriteType ="GFX_ration_types_icon"
+					frame=4
+				}
+				
+				iconType = {
+					name ="fulfilled"
+					spriteType = "GFX_logistics_fuelbar"
+					position = { x=10 y = 46 }
+					frame = 100
+				}
+			}
+		}
+
+	}
+}
