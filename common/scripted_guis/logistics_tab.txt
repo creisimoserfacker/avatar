@@ -19,18 +19,192 @@ scripted_gui = {
 
 		effects = {
 
-			toggle_auto_click = {
+			low_prio_1_click = {
 				ROOT = {
-					set_country_flag = auto_construction_interface
+					set_variable = { 1_low_prio_var = 2 }
+					set_variable = { 1_medium_prio_var = 1 }
+					set_variable = { 1_high_prio_var = 1 }
+
+					set_variable = { 1_priority_var = 1 }
+					ration_distribution = yes
+				}
+			}
+			medium_prio_1_click = {
+				ROOT = {
+					set_variable = { 1_low_prio_var = 1 }
+					set_variable = { 1_medium_prio_var = 3 }
+					set_variable = { 1_high_prio_var = 1 }
+
+					set_variable = { 1_priority_var = 2 }
+					ration_distribution = yes
+				}
+			}
+			high_prio_1_click = {
+				ROOT = {
+					set_variable = { 1_low_prio_var = 1 }
+					set_variable = { 1_medium_prio_var = 1 }
+					set_variable = { 1_high_prio_var = 4 }
+
+					set_variable = { 1_priority_var = 6 }
+					ration_distribution = yes
+				}
+			}
+
+			low_prio_2_click = {
+				ROOT = {
+					set_variable = { 2_low_prio_var = 2 }
+					set_variable = { 2_medium_prio_var = 1 }
+					set_variable = { 2_high_prio_var = 1 }
+
+					set_variable = { 2_priority_var = 1 }
+					ration_distribution = yes
+				}
+			}
+			medium_prio_2_click = {
+				ROOT = {
+					set_variable = { 2_low_prio_var = 1 }
+					set_variable = { 2_medium_prio_var = 3 }
+					set_variable = { 2_high_prio_var = 1 }
+
+					set_variable = { 2_priority_var = 2 }
+					ration_distribution = yes
+				}
+			}
+			high_prio_2_click = {
+				ROOT = {
+					set_variable = { 2_low_prio_var = 1 }
+					set_variable = { 2_medium_prio_var = 1 }
+					set_variable = { 2_high_prio_var = 4 }
+
+					set_variable = { 2_priority_var = 6 }
+					ration_distribution = yes
+				}
+			}
+
+			low_prio_3_click = {
+				ROOT = {
+					set_variable = { 3_low_prio_var = 2 }
+					set_variable = { 3_medium_prio_var = 1 }
+					set_variable = { 3_high_prio_var = 1 }
+
+					set_variable = { 3_priority_var = 1 }
+					ration_distribution = yes
+				}
+			}
+			medium_prio_3_click = {
+				ROOT = {
+					set_variable = { 3_low_prio_var = 1 }
+					set_variable = { 3_medium_prio_var = 3 }
+					set_variable = { 3_high_prio_var = 1 }
+
+					set_variable = { 3_priority_var = 2 }
+					ration_distribution = yes
+				}
+			}
+			high_prio_3_click = {
+				ROOT = {
+					set_variable = { 3_low_prio_var = 1 }
+					set_variable = { 3_medium_prio_var = 1 }
+					set_variable = { 3_high_prio_var = 4 }
+
+					set_variable = { 3_priority_var = 6 }
+					ration_distribution = yes
+				}
+			}
+
+			low_prio_4_click = {
+				ROOT = {
+					set_variable = { 4_low_prio_var = 2 }
+					set_variable = { 4_medium_prio_var = 1 }
+					set_variable = { 4_high_prio_var = 1 }
+
+					set_variable = { 4_priority_var = 1 }
+					ration_distribution = yes
+				}
+			}
+			medium_prio_4_click = {
+				ROOT = {
+					set_variable = { 4_low_prio_var = 1 }
+					set_variable = { 4_medium_prio_var = 3 }
+					set_variable = { 4_high_prio_var = 1 }
+
+					set_variable = { 4_priority_var = 2 }
+					ration_distribution = yes
+				}
+			}
+			high_prio_4_click = {
+				ROOT = {
+					set_variable = { 4_low_prio_var = 1 }
+					set_variable = { 4_medium_prio_var = 1 }
+					set_variable = { 4_high_prio_var = 4 }
+
+					set_variable = { 4_priority_var = 6 }
+					ration_distribution = yes
 				}
 			}
 
 		}
 
 		properties = {
-			large_ratio_bar = {
-				frame = ration_ratio_var
+
+			soldier_fulfilled = {
+				frame = soldier_ratio_percent
 			}
+			family_fulfilled = {
+				frame = family_ratio_percent
+			}
+			working_fulfilled = {
+				frame = working_ratio_percent
+			}
+			occupied_fulfilled = {
+				frame = occupied_ratio_percent
+			}
+
+
+
+			low_prio_1 = {
+				frame = 1_low_prio_var
+			}
+			medium_prio_1 = {
+				frame = 1_medium_prio_var
+			}
+			high_prio_1 = {
+				frame = 1_high_prio_var
+			}
+
+
+			low_prio_2 = {
+				frame = 2_low_prio_var
+			}
+			medium_prio_2 = {
+				frame = 2_medium_prio_var
+			}
+			high_prio_2 = {
+				frame = 2_high_prio_var
+			}
+
+			low_prio_3 = {
+				frame = 3_low_prio_var
+			}
+			medium_prio_3 = {
+				frame = 3_medium_prio_var
+			}
+			high_prio_3 = {
+				frame = 3_high_prio_var
+			}
+
+
+			low_prio_4 = {
+				frame = 4_low_prio_var
+			}
+			medium_prio_4 = {
+				frame = 4_medium_prio_var
+			}
+			high_prio_4 = {
+				frame = 4_high_prio_var
+			}
+
+
         }
 
 	}
