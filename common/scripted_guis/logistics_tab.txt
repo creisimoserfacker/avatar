@@ -1,0 +1,39 @@
+
+scripted_gui = {
+
+	logistics_tab_ui = {
+		context_type = player_context
+		window_name = "logistics_tab_ui_window"
+		parent_window_token = logistics_tab
+
+		triggers = {
+
+			toggle_auto_visible = {
+				NOT = {
+					has_country_flag = auto_construction_interface
+				}
+			}
+
+
+		}
+
+		effects = {
+
+			toggle_auto_click = {
+				ROOT = {
+					set_country_flag = auto_construction_interface
+				}
+			}
+
+		}
+
+		properties = {
+			large_ratio_bar = {
+				frame = ration_ratio_var
+			}
+        }
+
+	}
+
+	
+}

@@ -600,19 +600,21 @@ on_actions = {
 
 			set_variable = { daily_ration_need = 0 }
 
-			set_variable = { working_demand_k = working_population_k }
-			divide_variable = { working_demand_k = 7 }
-			add_to_variable = { daily_ration_need = working_demand_k }
-
 			set_variable = { soldier_demand_k = max_available_manpower_k }
 			divide_variable = { soldier_demand_k = 3.5 }
 			add_to_variable = { daily_ration_need = soldier_demand_k }
 
-			set_variable = { family_demand_k = max_manpower_k }
-			subtract_from_variable = { family_demand_k = working_population_k }
-			subtract_from_variable = { family_demand_k = max_available_manpower_k }
+			set_variable = { family_demand_k = core_population_k }
 			divide_variable = { family_demand_k = 7 }
 			add_to_variable = { daily_ration_need = family_demand_k }
+
+			set_variable = { working_demand_k = working_population_k }
+			divide_variable = { working_demand_k = 4 }
+			add_to_variable = { daily_ration_need = working_demand_k }
+
+			set_variable = { occupied_demand_k = occupied_population_k }
+			divide_variable = { occupied_demand_k = 7 }
+			add_to_variable = { daily_ration_need = occupied_demand_k }
 
 			set_variable = { potential_consumption_max = daily_ration_need }
 
@@ -722,7 +724,7 @@ on_actions = {
 
 			if = {
 				limit = {
-					check_variable = { ration_balance > 0 }
+					check_variable = { ration_variable > 0 }
 					NOT = {
 						check_variable = { ration_variable = ration_max }
 						has_dynamic_modifier = { modifier = food_surplus_idea }
