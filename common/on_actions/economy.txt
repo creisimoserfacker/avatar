@@ -344,14 +344,12 @@ on_actions = {
 			
 			set_variable = { working_percentage = 0.55 }
 
-			set_temp_variable = { recruits_k = max_available_manpower_k }
-			divide_temp_variable = { recruits_k = max_manpower_k }
-			set_variable = { recruited_percentage = recruits_k }
-			subtract_from_variable = { working_percentage = recruited_percentage }
+			set_variable = { recruits_percentage = max_available_manpower_k }
+			divide_variable = { recruits_percentage = max_manpower_k }
+			subtract_from_variable = { working_percentage = recruits_percentage }
 
-			set_temp_variable = { working_population_temp = max_manpower_k }
-			multiply_temp_variable = { working_population_temp = working_percentage }
-			set_variable = { working_population_k = working_population_temp }
+			set_variable = { working_population_k = max_manpower_k }
+			multiply_variable = { working_population_k = working_percentage }
 
 
 			###view selfsufficient
@@ -640,6 +638,7 @@ on_actions = {
 			divide_variable = { soldier_demand_percentage = daily_ration_need }
 
 			set_variable = { soldier_priority_percentage = 1_priority_factor }
+			multiply_variable = { soldier_priority_percentage = 10 }
 			multiply_variable = { soldier_priority_percentage = soldier_demand_percentage }
 			add_to_variable = { average_need = soldier_priority_percentage }
 
@@ -648,6 +647,7 @@ on_actions = {
 			divide_variable = { family_demand_percentage = daily_ration_need }
 
 			set_variable = { family_priority_percentage = 2_priority_factor }
+			multiply_variable = { family_priority_percentage = 10 }
 			multiply_variable = { family_priority_percentage = family_demand_percentage }
 			add_to_variable = { average_need = family_priority_percentage }
 
@@ -656,6 +656,7 @@ on_actions = {
 			divide_variable = { working_demand_percentage = daily_ration_need }
 			
 			set_variable = { working_priority_percentage = 3_priority_factor }
+			multiply_variable = { working_priority_percentage = 10 }
 			multiply_variable = { working_priority_percentage = working_demand_percentage }
 			add_to_variable = { average_need = working_priority_percentage }
 
@@ -664,8 +665,11 @@ on_actions = {
 			divide_variable = { occupied_demand_percentage = daily_ration_need }
 			
 			set_variable = { occupied_priority_percentage = 4_priority_factor }
+			multiply_variable = { occupied_priority_percentage = 10 }
 			multiply_variable = { occupied_priority_percentage = occupied_demand_percentage }
 			add_to_variable = { average_need = occupied_priority_percentage }
+
+			divide_variable = { average_need = 10 }
 
 			divide_variable = { soldier_priority_percentage = average_need }
 			divide_variable = { family_priority_percentage = average_need }
@@ -697,56 +701,33 @@ on_actions = {
 			add_to_variable = { ration_factor_calc = modifier@ration_factor }
 			clamp_variable = { 
 				var = ration_factor_calc 
-				min = 0 
-				#max = 0
+				min = 0
 			}
 
 			multiply_variable = { ration_daily = ration_factor_calc }
 
 			################## end daily addition
 
-
-
 			set_variable = { soldier_get_k = ration_variable }
 			add_to_variable = { soldier_get_k = ration_daily }
 			multiply_variable = { soldier_get_k = soldier_priority_percentage }
-			#divide_variable = { soldier_get_k = 1_priority_factor }
-			#clamp_variable = { 
-			#	var = soldier_get_k 
-			#	min = 0 
-			#	max = soldier_demand_k
-			#}
+			divide_variable = { soldier_get_k = 10 }
 
 			set_variable = { family_get_k = ration_variable }
 			add_to_variable = { family_get_k = ration_daily }
 			multiply_variable = { family_get_k = family_priority_percentage }
-			#divide_variable = { family_get_k = 2_priority_factor }
-			#clamp_variable = { 
-			#	var = family_get_k 
-			#	min = 0 
-			#	max = family_demand_k
-			#}
-
+			divide_variable = { family_get_k = 10 }
+			
 			set_variable = { working_get_k = ration_variable }
 			add_to_variable = { working_get_k = ration_daily }
 			multiply_variable = { working_get_k = working_priority_percentage }
-			#divide_variable = { working_get_k = 3_priority_factor }
-			#clamp_variable = { 
-			#	var = working_get_k 
-			#	min = 0 
-			#	max = working_demand_k
-			#}
-
+			divide_variable = { working_get_k = 10 }
+			
 			set_variable = { occupied_get_k = ration_variable }
 			add_to_variable = { occupied_get_k = ration_daily }
 			multiply_variable = { occupied_get_k = occupied_priority_percentage }
-			#divide_variable = { occupied_get_k = 4_priority_factor }
-			#clamp_variable = { 
-			#	var = occupied_get_k 
-			#	min = 0 
-			#	max = occupied_demand_k
-			#}
-
+			divide_variable = { occupied_get_k = 10 }
+			
 			set_variable = { surplus_rations_1 = 0 }
 			set_variable = { total_missing = 0 }
 
@@ -869,21 +850,25 @@ on_actions = {
 				add_to_variable = { occupied_get_k = occupied_missing }
 			}
 
-			set_variable = { soldier_ratio_percent = soldier_get_k }
-			divide_variable = { soldier_ratio_percent = soldier_demand_k }
-			multiply_variable = { soldier_ratio_percent = 100 }
+			set_variable = { soldier_ratio_hundred = soldier_get_k }
+			divide_variable = { soldier_ratio_hundred = soldier_demand_k }
+			set_variable = { soldier_ratio_percent = soldier_ratio_hundred }
+			multiply_variable = { soldier_ratio_hundred = 100 }
 
-			set_variable = { family_ratio_percent = family_get_k }
-			divide_variable = { family_ratio_percent = family_demand_k }
-			multiply_variable = { family_ratio_percent = 100 }
+			set_variable = { family_ratio_hundred = family_get_k }
+			divide_variable = { family_ratio_hundred = family_demand_k }
+			set_variable = { family_ratio_percent = family_ratio_hundred }
+			multiply_variable = { family_ratio_hundred = 100 }
 
-			set_variable = { working_ratio_percent = working_get_k }
-			divide_variable = { working_ratio_percent = working_demand_k }
-			multiply_variable = { working_ratio_percent = 100 }
+			set_variable = { working_ratio_hundred = working_get_k }
+			divide_variable = { working_ratio_hundred = working_demand_k }
+			set_variable = { working_ratio_percent = working_ratio_hundred }
+			multiply_variable = { working_ratio_hundred = 100 }
 
-			set_variable = { occupied_ratio_percent = occupied_get_k }
-			divide_variable = { occupied_ratio_percent = occupied_demand_k }
-			multiply_variable = { occupied_ratio_percent = 100 }
+			set_variable = { occupied_ratio_hundred = occupied_get_k }
+			divide_variable = { occupied_ratio_hundred = occupied_demand_k }
+			set_variable = { occupied_ratio_percent = occupied_ratio_hundred }
+			multiply_variable = { occupied_ratio_hundred = 100 }
 
 
 
@@ -932,6 +917,48 @@ on_actions = {
 				min = -0.5 
 				max = 0
 			}
+			set_variable = { soldier_penalty = 1 }
+			subtract_from_variable = { soldier_penalty = soldier_ratio_percent }
+			set_variable = { soldier_penalty_good = soldier_penalty }
+			clamp_variable = { 
+				var = soldier_penalty_good 
+				min = 0 
+				max = 0.5
+			}
+			multiply_variable = { soldier_penalty = -1 }
+			clamp_variable = { 
+				var = soldier_penalty 
+				min = -0.5 
+				max = 0
+			}
+
+			set_variable = { family_penalty = 1 }
+			subtract_from_variable = { family_penalty = family_ratio_percent }
+			multiply_variable = { family_penalty = -1 }
+			clamp_variable = { 
+				var = family_penalty 
+				min = -0.5 
+				max = 0
+			}
+
+			set_variable = { working_penalty = 1 }
+			subtract_from_variable = { working_penalty = working_ratio_percent }
+			multiply_variable = { working_penalty = -1 }
+			clamp_variable = { 
+				var = working_penalty 
+				min = -0.5 
+				max = 0
+			}
+
+			set_variable = { occupied_penalty = 1 }
+			subtract_from_variable = { occupied_penalty = occupied_ratio_percent }
+			#multiply_variable = { occupied_penalty = -1 }
+			clamp_variable = { 
+				var = occupied_penalty 
+				min = 0 
+				max = 0.5
+			}
+
 			if = {
 				limit = {
 					check_variable = { famine_check < ration_penalty }
