@@ -247,9 +247,11 @@ on_actions = {
 			set_variable = { luxury_good_traded_away = luxury_good_supply_real }
 			subtract_from_variable = { luxury_good_traded_away = luxury_good_supply }
 
-			set_temp_variable = { consumer_good_demand_k = max_manpower_k }
-			multiply_temp_variable = { consumer_good_demand_k = 0.25 }
-			set_variable = { consumer_good_demand = consumer_good_demand_k }
+			set_variable = { consumer_good_demand = max_manpower_k }
+			multiply_variable = { consumer_good_demand = 0.25 }
+			set_variable = { currency_amount = 1 }
+			add_to_variable = { currency_amount = modifier@currency_amount }
+			multiply_variable = { consumer_good_demand = currency_amount }
 
 			set_variable = { consumer_good_demand_modifier = 1 }
 			add_to_variable = { consumer_good_demand_modifier = modifier@consumer_goods_demand }
@@ -599,7 +601,7 @@ on_actions = {
 			set_variable = { daily_ration_need = 0 }
 
 			set_variable = { soldier_demand_k = max_available_manpower_k }
-			divide_variable = { soldier_demand_k = 5 }
+			divide_variable = { soldier_demand_k = 7 }
 			set_variable = { soldier_demand_factor = 1 }
 			add_to_variable = { soldier_demand_factor = modifier@military_ration_need_factor }
 			multiply_variable = { soldier_demand_k = soldier_demand_factor }
@@ -610,14 +612,14 @@ on_actions = {
 
 			set_variable = { family_demand_k = core_population_k }
 			multiply_variable = { family_demand_k = not_working_temp }
-			divide_variable = { family_demand_k = 6 }
+			divide_variable = { family_demand_k = 9 }
 			set_variable = { family_demand_factor = 1 }
 			add_to_variable = { family_demand_factor = modifier@population_ration_need_factor }
 			multiply_variable = { family_demand_k = family_demand_factor }
 			add_to_variable = { daily_ration_need = family_demand_k }
 
 			set_variable = { working_demand_k = working_population_k }
-			divide_variable = { working_demand_k = 4 }
+			divide_variable = { working_demand_k = 7 }
 			set_variable = { working_demand_factor = 1 }
 			add_to_variable = { working_demand_factor = modifier@workers_ration_need_factor }
 			multiply_variable = { working_demand_k = working_demand_factor }
@@ -625,7 +627,7 @@ on_actions = {
 
 			set_variable = { occupied_demand_k = occupied_population_k }
 			multiply_variable = { occupied_demand_k = not_working_temp }
-			divide_variable = { occupied_demand_k = 6 }
+			divide_variable = { occupied_demand_k = 9 }
 			set_variable = { occupied_demand_factor = 1 }
 			add_to_variable = { occupied_demand_factor = modifier@occupied_ration_need_factor }
 			multiply_variable = { occupied_demand_k = occupied_demand_factor }
