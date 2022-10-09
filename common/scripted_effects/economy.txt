@@ -2,105 +2,12 @@
 
 ration_distribution = {
 
-	set_variable = { total_low_priority = 0 }
-	set_variable = { total_medium_priority = 0 }
-	set_variable = { total_high_priority = 0 }
-
-	if = {
-		limit = {	
-			check_variable = { 1_low_prio_var > 1 }
-		}
-		add_to_variable = { total_low_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 2_low_prio_var > 1 }
-		}
-		add_to_variable = { total_low_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 3_low_prio_var > 1 }
-		}
-		add_to_variable = { total_low_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 4_low_prio_var > 1 }
-		}
-		add_to_variable = { total_low_priority = 1 }
-	}
-
-	if = {
-		limit = {	
-			check_variable = { 1_medium_prio_var > 1 }
-		}
-		add_to_variable = { total_medium_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 2_medium_prio_var > 1 }
-		}
-		add_to_variable = { total_medium_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 3_medium_prio_var > 1 }
-		}
-		add_to_variable = { total_medium_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 4_medium_prio_var > 1 }
-		}
-		add_to_variable = { total_medium_priority = 1 }
-	}
-
-	if = {
-		limit = {	
-			check_variable = { 1_high_prio_var > 1 }
-		}
-		add_to_variable = { total_high_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 2_high_prio_var > 1 }
-		}
-		add_to_variable = { total_high_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 3_high_prio_var > 1 }
-		}
-		add_to_variable = { total_high_priority = 1 }
-	}
-	if = {
-		limit = {	
-			check_variable = { 4_high_prio_var > 1 }
-		}
-		add_to_variable = { total_high_priority = 1 }
-	}
-
-	clamp_variable = { 
-		var = total_low_priority 
-		min = 1
-	}
-	clamp_variable = { 
-		var = total_medium_priority 
-		min = 1
-	}
-	clamp_variable = { 
-		var = total_high_priority 
-		min = 1
-	}
-
 	set_variable = { total_ration_priority = 0 }
 
 	add_to_variable = { total_ration_priority = 1_priority_var }
 	add_to_variable = { total_ration_priority = 2_priority_var }
 	add_to_variable = { total_ration_priority = 3_priority_var }
 	add_to_variable = { total_ration_priority = 4_priority_var }
-
 
 	set_variable = { 1_priority_factor = 1_priority_var }
 	set_variable = { 2_priority_factor = 2_priority_var }
@@ -112,27 +19,6 @@ ration_distribution = {
 	divide_variable = { 3_priority_factor = total_ration_priority }
 	divide_variable = { 4_priority_factor = total_ration_priority }
 
-	set_variable = { total_mh_factor = total_medium_priority }
-	add_to_variable = { total_mh_factor = total_high_priority }
-
-	if = {
-		limit = {	
-			check_variable = { total_mh_factor = 0 }
-		}
-		set_variable = { total_mh_factor = 1 }
-	}
-
-	set_variable = { total_medium_factor = total_medium_priority }
-	divide_variable = { total_medium_factor = total_mh_factor }
-	divide_variable = { total_medium_factor = 2 }
-
-	set_variable = { total_high_factor = 1 }
-	subtract_from_variable = { total_high_factor = total_medium_factor }
-
-	#divide_variable = { 1_priority_factor = 4 }
-	#divide_variable = { 2_priority_factor = 4 }
-	#divide_variable = { 3_priority_factor = 4 }
-	#divide_variable = { 4_priority_factor = 4 }
 }
 
 civil_factory_output = {

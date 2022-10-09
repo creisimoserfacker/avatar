@@ -13,6 +13,11 @@ famine = {
 	}
 	MONTHLY_POPULATION = -2
 	stability_factor = -1
+
+	army_org_factor = -0.75
+	supply_consumption_factor = 1
+	production_factory_max_efficiency_factor = -1
+	resistance_target = 1
 }
 food_shortages = {
 	enable = { always = yes }
@@ -25,7 +30,19 @@ food_shortages = {
 		}
 	}
 	MONTHLY_POPULATION = ration_penalty
-	stability_factor = ration_penalty
+
+	#### army
+	army_org_factor = soldier_penalty
+	supply_consumption_factor = soldier_penalty_good
+
+	#### population
+	stability_factor = family_penalty
+
+	#### workers
+	production_factory_max_efficiency_factor = working_penalty
+
+	#### occupied
+	resistance_target = occupied_penalty
 }
 food_surplus_idea = {
 	enable = { always = yes }
