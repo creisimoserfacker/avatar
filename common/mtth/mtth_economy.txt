@@ -100,6 +100,15 @@ steel_cost = {
 
 
 
+local_resource_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_resource_factor = 1 }
+		add_to_temp_variable = { local_resource_factor = THIS.modifier@local_resources }
+		
+		add = local_resource_factor
+	}
+}
 
 farm_grain_gain = {
 	base = 0
@@ -113,6 +122,7 @@ farm_grain_gain = {
 		set_temp_variable = { harvest = 1 }
 		add_to_temp_variable = { harvest = modifier@harvesting_factor }
 		multiply_temp_variable = { local_resource = harvest }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -130,6 +140,7 @@ farm_food_gain = {
 		set_temp_variable = { harvest = 1 }
 		add_to_temp_variable = { harvest = modifier@harvesting_factor }
 		multiply_temp_variable = { local_resource = harvest }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -144,6 +155,7 @@ ranch_leather_gain = {
 			multiply_temp_variable = { local_resource = ranch_output }
 		}
 		multiply_temp_variable = { local_resource = animal }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -158,6 +170,7 @@ fishing_stand_food_gain = {
 			multiply_temp_variable = { local_resource = fishing_stand_output }
 		}
 		multiply_temp_variable = { local_resource = water }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -172,6 +185,7 @@ lumber_mill_wood_gain = {
 			multiply_temp_variable = { local_resource = lumber_mill_output }
 		}
 		multiply_temp_variable = { local_resource = forest }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -186,6 +200,7 @@ quarry_stone_gain = {
 			multiply_temp_variable = { local_resource = quarry_output }
 		}
 		multiply_temp_variable = { local_resource = stonefield }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -221,6 +236,7 @@ crop_weaving_textile_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -256,6 +272,7 @@ animal_weaving_textile_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -270,6 +287,7 @@ mine_iron_gain = {
 			multiply_temp_variable = { local_resource = mine_output1 }
 		}
 		multiply_temp_variable = { local_resource = mountain }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -284,6 +302,7 @@ mine_coal_gain = {
 			multiply_temp_variable = { local_resource = mine_output2 }
 		}
 		multiply_temp_variable = { local_resource = mountain }
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -319,6 +338,7 @@ mill_food_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -375,6 +395,7 @@ steelworks_steel_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -431,6 +452,7 @@ shop_consumer_goods_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -487,6 +509,7 @@ luxury_store_luxury_goods_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -522,6 +545,7 @@ carpentry_plank_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -557,6 +581,7 @@ masonry_brick_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
@@ -592,6 +617,7 @@ steel_beam_factory_steel_beam_gain = {
 			var = local_resource
 			min = 0
 		}
+		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
 	}
