@@ -11,7 +11,7 @@
 
 #### generic spearmen
 entity = {
-	name = "spearmen_entity"
+	name = "template_spearmen_entity"
 	pdxmesh = "melee_infantry_generic_01"
 
 	default_state = "idle"
@@ -28,16 +28,18 @@ entity = {
 	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
 	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
 	
-	attach = { 
-		Right_hand_node = "spear_1_entity" 
-	}
+	#attach = { 
+	#	Right_hand_node = "spear_1_entity"
+	#	Left_hand_node = "shield_1_entity"
+	#}
 
 	scale = 0.4
 }
 
-#### generic spearmen with shield
+#### generic spearmen without shield
+
 entity = {
-	name = "spearmen_entity_2"
+	name = "template_spearmen_entity_2"
 	pdxmesh = "melee_infantry_generic_03"
 
 	default_state = "idle"
@@ -54,10 +56,9 @@ entity = {
 	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
 	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no }
 	
-	attach = { 
-		Right_hand_node = "spear_1_entity"
-		Left_hand_node = "shield_1_entity"
-	}
+	#attach = { 
+	#	Right_hand_node = "spear_1_entity" 
+	#}
 
 	scale = 0.4
 }
@@ -95,7 +96,27 @@ entity = {
 
 entity = {
 	name = "shield_1_entity"
-	pdxmesh = "generic_shield"
+	pdxmesh = "generic_shield_1"
+}
+
+entity = {
+	name = "shield_2_entity"
+	pdxmesh = "generic_shield_2"
+}
+
+entity = {
+	name = "shield_3_entity"
+	pdxmesh = "generic_shield_3"
+}
+
+entity = {
+	name = "shield_4_entity"
+	pdxmesh = "generic_shield_4"
+}
+
+entity = {
+	name = "shield_5_entity"
+	pdxmesh = "generic_shield_5"
 }
 
 entity = {
@@ -194,11 +215,6 @@ entity = {
 entity = {
 	name = "sword_2_entity"
 	pdxmesh = "sword_2"
-}
-
-entity = {
-	name = "shield_2_entity"
-	pdxmesh = "generic_shield_2"
 }
 
 
@@ -307,9 +323,22 @@ entity = {
 
 ############### generic infantry
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "infantry_entity"
 	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+
+entity = {
+	clone = "template_spearmen_entity_2"
+	name = "infantry_entity_2"
+	pdxmesh = "melee_infantry_generic_03"
 
 	attach = { 
 		Right_hand_node = "spear_1_entity" 
@@ -319,13 +348,73 @@ entity = {
 }
 
 entity = {
-	clone = "spearmen_shield_entity"
-	name = "infantry_entity_2"
+	clone = "template_spearmen_entity"
+	name = "spearmen_entity"
 	pdxmesh = "melee_infantry_generic_01"
 
 	attach = { 
-		Right_hand_node = "spear_1_entity" 
+		Right_hand_node = "spear_1_entity"
 		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "spearmen_2_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_2_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "spearmen_3_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_3_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "spearmen_4_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_4_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "spearmen_5_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_5_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "spearmen_6_entity"
+	pdxmesh = "melee_infantry_generic_01"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_5_entity"
 	}
 
 	scale = 0.4
@@ -333,24 +422,26 @@ entity = {
 
 ############### water culture
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "watertribes_gfx_spearmen_entity"
 	pdxmesh = "WATER_melee_infantry"
 
 	attach = { 
-		Right_hand_node = "spear_1_entity" 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
 	}
 
 	scale = 0.4
 }
 
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "watertribes_gfx_spearmen_entity_snow"
 	pdxmesh = "WATER_cold_climate"
 
 	attach = { 
-		Right_hand_node = "spear_1_entity" 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
 	}
 
 	scale = 0.4
@@ -359,12 +450,13 @@ entity = {
 
 ############### earth culture
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "earthkingdom_gfx_spearmen_entity"
 	pdxmesh = "EARTH_melee_infantry"
 
 	attach = { 
-		Right_hand_node = "spear_1_entity" 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
 	}
 
 	scale = 0.4
@@ -394,25 +486,85 @@ entity = {
 
 ############### firenation
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "FIR_spearmen_entity"
 	pdxmesh = "FIR_melee_infantry"
 
 	attach = { 
-		Right_hand_node = "spear_1_entity" 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "FIR_spearmen_2_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_2_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "FIR_spearmen_3_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_3_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "FIR_spearmen_4_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_4_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "FIR_spearmen_5_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_5_entity"
+	}
+
+	scale = 0.4
+}
+entity = {
+	clone = "template_spearmen_entity"
+	name = "FIR_spearmen_6_entity"
+	pdxmesh = "FIR_melee_infantry"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_5_entity"
 	}
 
 	scale = 0.4
 }
 
 entity = {
-	clone = "spearmen_entity_2"
+	clone = "template_spearmen_entity_2"
 	name = "FIR_spearmen_entity_2"
 	pdxmesh = "FIR_melee_infantry_2"
 
 	attach = { 
 		Right_hand_node = "spear_1_entity"
-		Left_hand_node = "shield_1_entity"
 	}
 
 	scale = 0.4
@@ -563,7 +715,7 @@ entity = {
 
 ############### sand culture
 entity = {
-	clone = "spearmen_entity"
+	clone = "template_spearmen_entity"
 	name = "desert_gfx_spearmen_entity"
 	pdxmesh = "EARTH_melee_infantry"
 
