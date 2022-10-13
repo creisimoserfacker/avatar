@@ -1,3 +1,17 @@
+
+local_resource_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_resource_factor = 1 }
+		add_to_temp_variable = { local_resource_factor = THIS.modifier@local_resources }
+		
+		add = local_resource_factor
+	}
+}
+
+
+
+
 crop_cost = {
 	base = 0
 	modifier = {
@@ -11,6 +25,8 @@ crop_cost = {
 
 		add_to_temp_variable = { modifier_1 = modifier_2 }
 
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
+
 		add = modifier_1
 	}
 }
@@ -20,6 +36,8 @@ leather_cost = {
 		set_temp_variable = { modifier_1 = 0 }
 		add_to_temp_variable = { modifier_1 = animal_weaving_count }
 		multiply_temp_variable = { modifier_1 = animal_weaving_need }
+
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
 
 		add = modifier_1
 	}
@@ -42,6 +60,8 @@ stone_cost = {
 		add_to_temp_variable = { modifier_1 = modifier_2 }
 		add_to_temp_variable = { modifier_1 = modifier_3 }
 
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
+
 		add = modifier_1
 	}
 }
@@ -57,6 +77,8 @@ iron_cost = {
 		multiply_temp_variable = { modifier_2 = luxury_good_factory_need1 }
 
 		add_to_temp_variable = { modifier_1 = modifier_2 }
+
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
 
 		add = modifier_1
 	}
@@ -74,6 +96,8 @@ wood_cost = {
 
 		add_to_temp_variable = { modifier_1 = modifier_2 }
 
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
+
 		add = modifier_1
 	}
 }
@@ -83,6 +107,8 @@ textile_cost = {
 		set_temp_variable = { modifier_1 = 0 }
 		add_to_temp_variable = { modifier_1 = consumer_good_factory_count }
 		multiply_temp_variable = { modifier_1 = consumer_good_factory_need2 }
+
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
 
 		add = modifier_1
 	}
@@ -94,21 +120,14 @@ steel_cost = {
 		add_to_temp_variable = { modifier_1 = steel_beam_factory_count }
 		multiply_temp_variable = { modifier_1 = steel_beam_factory_need }
 
+		multiply_temp_variable = { modifier_1 = mtth:local_resource_factor }
+
 		add = modifier_1
 	}
 }
 
 
 
-local_resource_factor = {
-	base = 0
-	modifier = {
-		set_temp_variable = { local_resource_factor = 1 }
-		add_to_temp_variable = { local_resource_factor = THIS.modifier@local_resources }
-		
-		add = local_resource_factor
-	}
-}
 
 farm_grain_gain = {
 	base = 0

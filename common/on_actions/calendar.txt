@@ -18,32 +18,6 @@ on_actions = {
 	    }
 	}
 
-	on_daily = {
-		effect = {
-
-			set_variable = { knowledge_daily = 0 }
-
-			# base gain
-			add_to_variable = { knowledge_daily = 0.1 }
-
-			# modifiers
-			add_to_variable = { knowledge_daily = modifier@knowledge }
-
-			# factor
-			set_variable = { knowledge_factor_calc = 1 }
-			add_to_variable = { knowledge_factor_calc = modifier@knowledge_gain }
-			clamp_variable = { 
-				var = knowledge_factor_calc 
-				min = 0 
-				#max = 0
-			}
-			multiply_variable = { knowledge_daily = knowledge_factor_calc }
-
-			add_to_variable = { knowledge_variable = knowledge_daily }
-
-		}
-	}
-
 	on_monthly = {
 		effect = {
 
