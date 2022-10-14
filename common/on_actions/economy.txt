@@ -35,26 +35,44 @@ on_actions = {
 			set_variable = { air_base_count = 0 }
 			every_controlled_state = {
 				add_to_variable = { ROOT.farm_count = building_level@farm }
-				add_to_variable = { ROOT.mill_count = building_level@mill }
+				set_variable = { mill_count = building_level@mill }
+				multiply_variable = { mill_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.mill_count = mill_count }
 				add_to_variable = { ROOT.fishing_stand_count = building_level@fishing_stand }
 				add_to_variable = { ROOT.ranch_count = building_level@ranch }
 				add_to_variable = { ROOT.lumber_mill_count = building_level@lumber_mill }
 				add_to_variable = { ROOT.quarry_count = building_level@quarry }
-				add_to_variable = { ROOT.crop_weaving_count = building_level@crop_weaving }
+				set_variable = { crop_weaving_count = building_level@crop_weaving }
+				multiply_variable = { crop_weaving_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.crop_weaving_count = crop_weaving_count }
+				set_variable = { animal_weaving_count = building_level@animal_weaving }
+				multiply_variable = { animal_weaving_count = mtth:local_resource_factor }
 				add_to_variable = { ROOT.animal_weaving_count = building_level@animal_weaving }
 				add_to_variable = { ROOT.mine_count = building_level@mine }
-				add_to_variable = { ROOT.steelworks_count = building_level@steelworks }
+				set_variable = { steelworks_count = building_level@steelworks }
+				multiply_variable = { steelworks_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.steelworks_count = steelworks_count }
 
 				add_to_variable = { ROOT.smithy_count = building_level@arms_factory }
 				add_to_variable = { ROOT.factory_count = building_level@factory }
 				add_to_variable = { ROOT.harbour_count = building_level@harbour }
 				add_to_variable = { ROOT.dockyard_count = building_level@dockyard }
 				add_to_variable = { ROOT.manufactory_count = building_level@industrial_complex }
-				add_to_variable = { ROOT.consumer_good_factory_count = building_level@consumer_good_factory }
-				add_to_variable = { ROOT.luxury_good_factory_count = building_level@luxury_good_factory }
-				add_to_variable = { ROOT.carpentry_count = building_level@carpentry }
-				add_to_variable = { ROOT.masonry_count = building_level@masonry }
-				add_to_variable = { ROOT.steel_beam_factory_count = building_level@steel_beam_factory }
+				set_variable = { consumer_good_factory_count = building_level@consumer_good_factory }
+				multiply_variable = { consumer_good_factory_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.consumer_good_factory_count = consumer_good_factory_count }
+				set_variable = { luxury_good_factory_count = building_level@luxury_good_factory }
+				multiply_variable = { luxury_good_factory_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.luxury_good_factory_count = luxury_good_factory_count }
+				set_variable = { carpentry_count = building_level@carpentry }
+				multiply_variable = { carpentry_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.carpentry_count = carpentry_count }
+				set_variable = { masonry_count = building_level@masonry }
+				multiply_variable = { masonry_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.masonry_count = masonry_count }
+				set_variable = { steel_beam_factory_count = building_level@steel_beam_factory }
+				multiply_variable = { steel_beam_factory_count = mtth:local_resource_factor }
+				add_to_variable = { ROOT.steel_beam_factory_count = steel_beam_factory_count }
 
 				add_to_variable = { ROOT.fuel_repository_count = building_level@fuel_repository }
 				add_to_variable = { ROOT.scout_tower_count = building_level@scout_tower }
