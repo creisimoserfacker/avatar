@@ -11,6 +11,57 @@
 
 #### war weariness 
 
+
+defined_text = {
+	name = GetWearinessLevel
+	#text = {
+	#	trigger = { has_idea = war_weariness_1 }
+	#	localization_key = weariness_modifiers_1
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_2 }
+	#	localization_key = weariness_modifiers_2
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_3 }
+	#	localization_key = weariness_modifiers_3
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_4 }
+	#	localization_key = weariness_modifiers_4
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_5 }
+	#	localization_key = weariness_modifiers_5
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_6 }
+	#	localization_key = weariness_modifiers_6
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_7 }
+	#	localization_key = weariness_modifiers_7
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_8 }
+	#	localization_key = weariness_modifiers_8
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_9 }
+	#	localization_key = weariness_modifiers_9
+	#}
+	#text = {
+	#	trigger = { has_idea = war_weariness_10 }
+	#	localization_key = weariness_modifiers_10
+	#}
+
+	text = {
+		localization_key = weariness_modifiers
+	}
+
+	
+}
+
 defined_text = {
 	name = CurrentWWC
 	text = {
@@ -34,22 +85,22 @@ defined_text = {
 }
 
 defined_text = {
-	name = DailyWWC
+	name = OccupiedWWC
 	text = {
 		trigger = {
-			check_variable = { modifier@daily_war_weariness < 0 }
+			check_variable = { occupation_war_exhaustion < 0 }
 		}
 		localization_key = weariness_good
 	}
 	text = {
 		trigger = {
-			check_variable = { modifier@daily_war_weariness = 0 }
+			check_variable = { occupation_war_exhaustion = 0 }
 		}
 		localization_key = weariness_neutral
 	}
 	text = {
 		trigger = {
-			check_variable = { modifier@daily_war_weariness > 0 }
+			check_variable = { occupation_war_exhaustion > 0 }
 		}
 		localization_key = weariness_bad
 	}

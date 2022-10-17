@@ -246,8 +246,6 @@ free_license = {
 
 # applies when stability > 50%
 stability_good_modifier = {
-	industrial_capacity_factory = 0.20
-	industrial_capacity_dockyard = 0.20
 	production_speed_buildings_factor = 0.1
 	expenses_factor = -0.1
 	political_power_factor = 0.2
@@ -257,8 +255,6 @@ stability_good_modifier = {
 
 # applies when stability < 50%
 stability_bad_modifier = {
-	industrial_capacity_factory = -0.50
-	industrial_capacity_dockyard = -0.50
 	production_speed_buildings_factor = -0.2
 	expenses_factor = 0.1
 	political_power_factor = -0.2
@@ -272,17 +268,20 @@ war_support_good_modifier = {
 	army_core_defence_factor = 0.1
 	command_power_gain_mult = 0.5
 	surrender_limit = 0.5
+	industrial_capacity_factory = 0.20
+	industrial_capacity_dockyard = 0.20
 }
 
 war_support_bad_modifier = {
 	mobilization_speed = -0.500 # Reduce mobilization speed by half.
 	command_power_gain_mult = -0.95
 	surrender_limit = -0.5
+	industrial_capacity_factory = -0.50
+	industrial_capacity_dockyard = -0.50
 }
 
 war_support_during_war = { #Applied during war, scaled from 0-100% with war support, not split.
 	stability_factor = -0.3
-	daily_war_weariness = 10
 }
 
 
@@ -479,6 +478,9 @@ capital_screening_bonus = {
 
 country_is_at_peace = {
 	decryption_power_factor = -0.5
+	weekly_war_weariness = -0.5
+	weekly_occupation_war_weariness = -0.5
+	weekly_casualty_war_weariness = -0.5
 }
 
 country_is_at_war = {

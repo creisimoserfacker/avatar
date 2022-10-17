@@ -138,3 +138,33 @@ unit_quality_variable_bad = {
 		add = unit_quality_bad
 	}
 }
+
+war_weariness_peanalty = {
+	base = 0
+	modifier = {
+		set_temp_variable = { war_weariness = war_exhaustion_percentage }
+		multiply_temp_variable = { war_weariness = war_weariness }
+		multiply_temp_variable = { war_weariness = -1 }
+		
+		add = war_weariness
+	}
+}
+war_weariness_peanalty_halfed = {
+	base = 0
+	modifier = {
+		set_temp_variable = { war_weariness = war_exhaustion_percentage }
+		multiply_temp_variable = { war_weariness = war_weariness }
+		multiply_temp_variable = { war_weariness = -0.5 }
+		
+		add = war_weariness
+	}
+}
+war_weariness_peanalty_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { war_weariness = war_exhaustion_percentage }
+		multiply_temp_variable = { war_weariness = war_weariness }
+		
+		add = war_weariness
+	}
+}
