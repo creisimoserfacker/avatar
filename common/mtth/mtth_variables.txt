@@ -32,6 +32,18 @@ core_state_cost = {
 
 }
 
+
+state_revolt_mtth = {
+	base = 0
+	modifier = {
+		set_temp_variable = { revolt_temp = 100 }
+		subtract_fom_temp_variable = { revolt_temp = state_loyalty_variable }
+
+		add = revolt_temp
+	}
+
+}
+
 legitimacy_target = {
 	base = 0
 	modifier = {
@@ -49,6 +61,16 @@ legitimacy_target_100 = {
 		set_temp_variable = { target = 1 }
 		subtract_from_temp_variable = { target = modifier@centralisation_target_modifier }
 		multiply_temp_variable = { target = 100 }
+		clamp_temp_variable = { var = target min = 0 max = 100 }
+		
+		add = target
+	}
+}
+
+literacy_target_100 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { target = modifier@knowledge_gain }
 		clamp_temp_variable = { var = target min = 0 max = 100 }
 		
 		add = target

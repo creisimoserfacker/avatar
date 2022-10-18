@@ -1,0 +1,44 @@
+scripted_gui = {
+
+	loyalty_scripted_gui = {
+		context_type = selected_state_context
+		
+		window_name = "loyalty_state_ui_window"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			THIS = {
+				is_core_of = ROOT
+			}
+		}
+		
+		triggers = {
+			idea_extreme_poverty_visible = {
+				has_idea = extreme_poverty
+			}
+			idea_poverty_visible = {
+				has_idea = poverty
+			}
+			idea_wealth_visible = {
+				has_idea = wealth
+			}
+			idea_extreme_wealth_visible = {
+				has_idea = extreme_wealth
+			}
+
+			idea_invention_made_visible = {
+				has_idea = invention_made
+			}
+		}
+
+		properties = {
+
+			uprising_bar = {
+				frame = state_loyalty_variable
+			}
+
+		}
+		
+	}
+
+}

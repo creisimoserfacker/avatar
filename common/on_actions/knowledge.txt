@@ -12,8 +12,9 @@ on_actions = {
 			add_to_variable = { knowledge_daily = modifier@knowledge }
 
 			# factor
-			set_variable = { knowledge_factor_calc = 1 }
-			add_to_variable = { knowledge_factor_calc = modifier@knowledge_gain }
+			set_variable = { knowledge_factor_calc = literacy_variable }
+			divide_variable = { knowledge_factor_calc = 100 }
+			add_to_variable = { knowledge_factor_calc = 1 }
 			clamp_variable = { 
 				var = knowledge_factor_calc 
 				min = 0 
@@ -23,6 +24,44 @@ on_actions = {
 
 			add_to_variable = { knowledge_variable = knowledge_daily }
 
+		}
+	}
+
+
+	on_daily = {
+		effect = {
+
+			if = {
+				limit = {
+					check_variable = { literacy_variable < mtth:literacy_target_100 }
+					check_variable = { modifier@knowledge < 0.01 }
+				}
+				add_to_variable = { literacy_variable = 0.01 }
+			}
+			if = {
+				limit = {
+					check_variable = { literacy_variable < mtth:literacy_target_100 }
+					check_variable = { modifier@knowledge > 0.01 }
+				}
+				add_to_variable = { literacy_variable = modifier@knowledge }
+			}
+
+			if = {
+				limit = {
+					check_variable = { literacy_variable > mtth:literacy_target_100 }
+					check_variable = { modifier@knowledge > 0 }
+				}
+				subtract_from_variable = { literacy_variable = 0.01 }
+			}
+			if = {
+				limit = {
+					check_variable = { literacy_variable > mtth:literacy_target_100 }
+					check_variable = { modifier@knowledge < 0 }
+				}
+				add_to_variable = { literacy_variable = modifier@knowledge }
+			}
+			clamp_variable = { var = literacy_variable min = 0 max = 100 }
+			
 		}
 	}
 
