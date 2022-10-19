@@ -1,6 +1,54 @@
 guiTypes = {
 
 	containerWindowType = {
+		name = "loyalty_state_ui_window"
+		position = { x = 254 y = -40 }
+		Orientation = UPPER_LEFT
+
+		iconType = {
+			name = "icon_loyalty"
+			spriteType = "GFX_loyalty_icon"
+			centerPosition = yes
+			position = { x = -76 y = 43 }
+			pdx_tooltip = "loyalty_tooltip"
+		}
+
+		iconType = {
+			name = "bg"
+			spriteType = "GFX_uprising_bar_state_bg"
+			centerPosition = yes
+			position = { x = -11 y = 43 }
+			pdx_tooltip = "loyalty_and_revolt_tooltip"
+		}
+
+		iconType = {
+			name = "uprising_bar"
+			spriteType = "GFX_loyalty_bar"
+			centerPosition = yes
+			position = { x = -11 y = 43 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name ="progress_text"
+			position = { x = -90 y = 34 }
+			font = "hoi_18mbs"
+			text = "loyalty_revolt_number"
+			maxWidth = 160
+			format = center
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "icon_revolt"
+			spriteType = "GFX_revolt_icon"
+			centerPosition = yes
+			position = { x = 54 y = 43 }
+			pdx_tooltip = "revolt_tooltip"
+		}
+	}
+
+	containerWindowType = {
 		name = "population_culture_ui_window"
 		position = { x = 17 y = 6 }
 		Orientation = UPPER_LEFT
