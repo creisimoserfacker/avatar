@@ -7,8 +7,52 @@ on_actions = {
 		}
 	}
 
-	on_monthly = {
+	on_daily = {
 		effect = {
+
+			##### revolt risk
+
+			set_variable = { peasant_revolt_risk_variable = 0 }
+
+			##### literacy base
+
+			add_to_variable = { peasant_revolt_risk_variable = literacy_variable }
+
+			### freedom factor
+
+			set_variable = { authority_revolt_facor = current_authority }
+			multiply_variable = { authority_revolt_facor = 0.01 }
+			multiply_variable = { authority_revolt_facor = authority_revolt_facor }
+
+			multiply_variable = { peasant_revolt_risk_variable = authority_revolt_facor }
+			multiply_variable = { peasant_revolt_risk_variable = authority_revolt_facor }
+
+			### stability factor
+
+			set_variable = { stability_revolt_facor = 1 }
+			subtract_from_variable = { stability_revolt_facor = stability }
+			multiply_variable = { stability_revolt_facor = stability_revolt_facor }
+
+			multiply_variable = { peasant_revolt_risk_variable = stability_revolt_facor }
+
+			### modifier factor
+
+			set_variable = { revolt_factor_modifier = 1 }
+			add_to_variable = { revolt_factor_modifier = modifier@revolt_risk }
+			clamp_variable = {
+				var = revolt_factor_modifier
+				min = 0
+			}
+
+			multiply_variable = { peasant_revolt_risk_variable = revolt_factor_modifier }
+
+
+			every_core_state = {
+				limit = {
+					is_controlled_by = ROOT
+				}
+
+			}
 
 			
 		}
