@@ -7,25 +7,23 @@ on_actions = {
 		}
 	}
 
-	on_daily = {
+	on_monthly = {
 		effect = {
 
 			##### revolt risk
 
-			set_variable = { peasant_revolt_risk_variable = 0 }
+			set_variable = { peasant_revolt_risk_variable = current_authority }
 
-			##### literacy base
+			##### freedom factor
 
-			add_to_variable = { peasant_revolt_risk_variable = literacy_variable }
+			set_variable = { peasant_revolt_risk_variable = 100 }
+			
+			### literacy base
 
-			### freedom factor
+			set_variable = { literacy_revolt_facor = literacy_variable }
+			multiply_variable = { literacy_revolt_facor = 0.01 }
 
-			set_variable = { authority_revolt_facor = current_authority }
-			multiply_variable = { authority_revolt_facor = 0.01 }
-			multiply_variable = { authority_revolt_facor = authority_revolt_facor }
-
-			multiply_variable = { peasant_revolt_risk_variable = authority_revolt_facor }
-			multiply_variable = { peasant_revolt_risk_variable = authority_revolt_facor }
+			multiply_variable = { peasant_revolt_risk_variable = literacy_revolt_facor }
 
 			### stability factor
 
@@ -47,13 +45,32 @@ on_actions = {
 			multiply_variable = { peasant_revolt_risk_variable = revolt_factor_modifier }
 
 
-			every_core_state = {
+			if = {
 				limit = {
-					is_controlled_by = ROOT
+					NOT = {
+						has_country_flag = active_peasant_revolt
+					}
 				}
-
+				random = {
+					chance = peasant_revolt_risk_variable
+					country_event = { id = generic_peasant.1  random_days = 31 }
+					set_country_flag = active_peasant_revolt
+				}
 			}
 
+
+			if = {
+				limit = {
+					has_country_flag = active_peasant_revolt
+				}
+
+				every_core_state = {
+					limit = {
+						is_controlled_by = ROOT
+					}
+
+				}
+			}
 			
 		}
 	}

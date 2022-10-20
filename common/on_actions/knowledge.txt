@@ -1,5 +1,14 @@
 on_actions = {
 
+	on_startup = {
+		effect = {
+			every_country = {
+				set_variable = { literacy_variable = modifier@knowledge_gain }
+				clamp_variable = { var = literacy_variable min = 0 max = 100 }
+			}
+		}
+	}
+
 	on_daily = {
 		effect = {
 
@@ -24,12 +33,9 @@ on_actions = {
 
 			add_to_variable = { knowledge_variable = knowledge_daily }
 
-		}
-	}
+	
 
 
-	on_daily = {
-		effect = {
 
 			if = {
 				limit = {
@@ -49,14 +55,14 @@ on_actions = {
 			if = {
 				limit = {
 					check_variable = { literacy_variable > mtth:literacy_target_100 }
-					check_variable = { modifier@knowledge > 0 }
+					check_variable = { modifier@knowledge > -0.01 }
 				}
-				subtract_from_variable = { literacy_variable = 0.01 }
+				add_to_variable = { literacy_variable = -0.01 }
 			}
 			if = {
 				limit = {
 					check_variable = { literacy_variable > mtth:literacy_target_100 }
-					check_variable = { modifier@knowledge < 0 }
+					check_variable = { modifier@knowledge < -0.01 }
 				}
 				add_to_variable = { literacy_variable = modifier@knowledge }
 			}
