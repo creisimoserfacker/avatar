@@ -10,15 +10,11 @@ on_actions = {
 	on_monthly = {
 		effect = {
 
-			##### revolt risk
+			##### revolt risk authority base
 
 			set_variable = { peasant_revolt_risk_variable = current_authority }
 
-			##### freedom factor
-
-			set_variable = { peasant_revolt_risk_variable = 100 }
-			
-			### literacy base
+			### literacy factor
 
 			set_variable = { literacy_revolt_facor = literacy_variable }
 			multiply_variable = { literacy_revolt_facor = 0.01 }
@@ -44,6 +40,15 @@ on_actions = {
 
 			multiply_variable = { peasant_revolt_risk_variable = revolt_factor_modifier }
 
+			subtract_from_variable = { peasant_revolt_risk_variable = peasant_anger_variable }
+			add_to_variable = { peasant_revolt_risk_variable = peasant_anger_variable }
+
+			clamp_variable = {
+				var = peasant_revolt_risk_variable
+				min = 0
+				max = 100
+			}
+
 
 			if = {
 				limit = {
@@ -67,6 +72,10 @@ on_actions = {
 				every_core_state = {
 					limit = {
 						is_controlled_by = ROOT
+					}
+
+					subtract_from_variable = { 
+						THIS.state_loyalty_variable = THIS.modifier@revolt_growth
 					}
 
 				}

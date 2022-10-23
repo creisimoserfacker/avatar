@@ -248,7 +248,7 @@ scripted_gui = {
 		visible = {
 			is_controlled_by = ROOT
 			NOT = {
-				is_core_of = ROOT
+				has_resistance = no
 			}
 		}
 		
@@ -263,6 +263,25 @@ scripted_gui = {
 				}
 				THIS = {
 					add_core_of = controller
+				}
+				if = { 
+					limit = {
+						THIS = {
+							OR = {
+								is_core_of = PEG
+								is_core_of = PEE
+								is_core_of = PEF
+								is_core_of = PEA
+								is_core_of = PEW
+							}
+						}
+					}
+					cancel_resistance = yes
+					remove_core_of = PEG
+					remove_core_of = PEE
+					remove_core_of = PEF
+					remove_core_of = PEA
+					remove_core_of = PEW
 				}
 			}
 		}
@@ -289,9 +308,11 @@ scripted_gui = {
 					check_variable = { nonbender_pop > 50 }
 				}
 				is_controlled_by = ROOT
-				NOT = {
-					is_core_of = ROOT
-				}
+				#NOT = {
+				#	is_core_of = ROOT
+				#}
+				compliance > 50
+				resistance < 10
 			}
 		}
 		

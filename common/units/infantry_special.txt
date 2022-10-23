@@ -1,0 +1,63 @@
+# options for map_icon_category:
+# For land units: infantry,armored,other
+# For sea units: ship,transport,uboat
+
+sub_units = {
+
+	peasant_unit = {
+		sprite = infantry
+		map_icon_category = infantry
+		
+		priority = 1000
+		ai_priority = 400
+		active = no
+
+		type = {
+			infantry
+		}
+		
+		group = melee
+		
+		categories = {
+			category_all_foot
+			category_melee
+			category_all_spear
+			category_front_army
+		}
+		
+		combat_width = 3
+		
+		#Size Definitions
+		max_strength = 100
+		max_organisation = 200
+		default_morale = 0.25
+		manpower = 100
+
+		#Misc Abilities
+		training_time = 1
+		suppression = 100
+		weight = 0.2
+		
+		supply_consumption = 0.5
+	
+		need = {
+			spear_equipment = 100
+			light_armor_equipment = 100
+		}
+
+		forest = {
+			attack = -0.15
+		}
+		jungle = {
+			attack = -0.3
+			defence = -0.1
+		}
+		fort = {
+			attack =	-0.1
+			#defence =	0.1
+		}
+		
+	}
+
+
+}

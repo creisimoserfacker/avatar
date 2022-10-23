@@ -4,7 +4,11 @@ war_weariness_category = {
 			is_debug = yes
 		}
 		complete_effect = {
-			add_to_variable = { war_exhaustion_variable = 100 }
+			add_to_variable = {
+				var = weekly_accumulated_exhaustion
+				value = 10
+				tooltip = war_weariness_add_tooltip
+			}
 		}
 	}
 	set_0 = {
@@ -12,7 +16,21 @@ war_weariness_category = {
 			is_debug = yes
 		}
 		complete_effect = {
-			set_variable = { war_exhaustion_variable = 0 }
+			set_variable = {
+				var = weekly_accumulated_exhaustion
+				value = 0
+				tooltip = war_weariness_set_tooltip
+			}
+			set_variable = {
+				var = casualty_accumulated_exhaustion
+				value = 0
+				tooltip = casualty_war_weariness_set_tooltip
+			}
+			set_variable = {
+				var = occupation_accumulated_exhaustion
+				value = 0
+				tooltip = occupation_war_weariness_set_tooltip
+			}
 		}
 	}
 }

@@ -554,8 +554,11 @@ FIR_dragon_category = {
 					add_manpower = 90
 					random_list = {
 						60 = {
-							custom_effect_tooltip = war_weariness_remove_2
-							add_to_variable = { war_exhaustion_variable = -200 }
+							add_to_variable = {
+								var = weekly_accumulated_exhaustion
+								value = -10
+								tooltip = war_weariness_remove_tooltip
+							}
 							random_army_leader = {
 								limit = {
 									NOT = {

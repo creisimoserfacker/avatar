@@ -244,8 +244,11 @@ war_measures_category = {
         }
 
 		remove_effect = {
-			custom_effect_tooltip = war_weariness_remove_2
-			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_200 }
+			add_to_variable = {
+				var = weekly_accumulated_exhaustion
+				value = -10
+				tooltip = war_weariness_remove_tooltip
+			}
 		}
 
 		cost = 100
@@ -332,8 +335,11 @@ war_measures_category = {
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
-			custom_effect_tooltip = war_weariness_remove_1
-			add_to_variable = { war_exhaustion_variable = war_exhaustion_remove_100 }
+			add_to_variable = {
+				var = weekly_accumulated_exhaustion
+				value = -5
+				tooltip = war_weariness_remove_tooltip
+			}
 		}
 
         ai_will_do = {
