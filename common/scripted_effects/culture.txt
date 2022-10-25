@@ -8,46 +8,46 @@ culture_pie_chart_recalc = {
 			size = 100 # 100 pieces, each percent is one piece
 		}
 
-		set_temp_variable = { imperialism_pop = fire_pop }
-		round_temp_variable = imperialism_pop
+		set_temp_variable = { fire_culture_pop = fire_pop }
+		round_temp_variable = fire_culture_pop
 	
-		set_temp_variable = { monarchism_pop = earth_pop }
-		round_temp_variable = monarchism_pop 
-		set_variable = { last_idx = imperialism_pop }
-		add_to_temp_variable = { monarchism_pop = last_idx }
+		set_temp_variable = { earth_culture_pop = earth_pop }
+		round_temp_variable = earth_culture_pop 
+		set_variable = { last_idx = fire_culture_pop }
+		add_to_temp_variable = { earth_culture_pop = last_idx }
 		for_loop_effect = {
 			start = last_idx
-			end = monarchism_pop
+			end = earth_culture_pop
 			set_variable = { pie_chart^v = 2 }
 			add_to_variable = { last_idx = 1 }
 		}
 	
-		set_temp_variable = { tribalism_pop = water_pop }
-		round_temp_variable = tribalism_pop
-		add_to_temp_variable = { tribalism_pop = last_idx }
+		set_temp_variable = { water_culture_pop = water_pop }
+		round_temp_variable = water_culture_pop
+		add_to_temp_variable = { water_culture_pop = last_idx }
 		for_loop_effect = {
 			start = last_idx
-			end = tribalism_pop
+			end = water_culture_pop
 			set_variable = { pie_chart^v = 3 }
 			add_to_variable = { last_idx = 1 }
 		}
 	
-		set_temp_variable = { pacifism_pop = air_pop }
-		round_temp_variable = pacifism_pop 
-		add_to_temp_variable = { pacifism_pop = last_idx }
+		set_temp_variable = { air_culture_pop = air_pop }
+		round_temp_variable = air_culture_pop 
+		add_to_temp_variable = { air_culture_pop = last_idx }
 		for_loop_effect = {
 			start = last_idx
-			end = pacifism_pop
+			end = air_culture_pop
 			set_variable = { pie_chart^v = 4 }
 			add_to_variable = { last_idx = 1 }
 		}
 	
-		set_temp_variable = { democratica_pop = nonbender_pop }
-		round_temp_variable = democratica_pop 
-		add_to_temp_variable = { democratica_pop = last_idx }
+		set_temp_variable = { pluralist_culture_pop = nonbender_pop }
+		round_temp_variable = pluralist_culture_pop 
+		add_to_temp_variable = { pluralist_culture_pop = last_idx }
 		for_loop_effect = {
 			start = last_idx
-			end = democratica_pop
+			end = pluralist_culture_pop
 			set_variable = { pie_chart^v = 5 }
 		}
 
@@ -362,10 +362,10 @@ culture_setup_calculation = {
 			}
 		}
 
-		set_variable = { fire_pop = PREV.party_popularity_100@imperialism }
-		set_variable = { earth_pop = PREV.party_popularity_100@monarchism }
-		set_variable = { water_pop = PREV.party_popularity_100@tribalism }
-		set_variable = { air_pop = PREV.party_popularity_100@pacifism }
+		set_variable = { fire_pop = PREV.party_popularity_100@fire_culture }
+		set_variable = { earth_pop = PREV.party_popularity_100@earth_culture }
+		set_variable = { water_pop = PREV.party_popularity_100@water_culture }
+		set_variable = { air_pop = PREV.party_popularity_100@air_culture }
 
 
 		randomize_temp_variable = {

@@ -785,11 +785,11 @@ country_event = {
 		limit = { check_variable = { global.aang_final_strength > global.ozai_final_strength } }
 		#if Aang wins:
 			EAR = { annex_country = { target = FIR transfer_troops = no } release = FIR }
-			FIR = { set_politics= { ruling_party = imperialism elections_allowed = no } }
+			FIR = { set_politics= { ruling_party = fire_culture elections_allowed = no } }
 			set_global_flag = ozai_lost_news
 			#Zuko becomes the new firelord:
 			if = { limit = { has_global_flag = avatar_team_zuko } set_global_flag = Zuko's_Coronation }
-			retire_ideology_leader = imperialism
+			retire_ideology_leader = fire_culture
 			#create_country_leader = {
 			#	name = "Zuko"
 			#	desc = "POLITICS_ADOLF_HITLER_DESC"

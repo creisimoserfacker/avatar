@@ -63,23 +63,23 @@ scripted_gui = {
 
 				### culture factor
 				if = {
-					limit = { ROOT = { has_government = imperialism } }
+					limit = { ROOT = { has_government = fire_culture } }
 					set_temp_variable = { culture_factor = fire_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = monarchism } }
+					limit = { ROOT = { has_government = earth_culture } }
 					set_temp_variable = { culture_factor = earth_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = tribalism } }
+					limit = { ROOT = { has_government = water_culture } }
 					set_temp_variable = { culture_factor = water_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = pacifism } }
+					limit = { ROOT = { has_government = air_culture } }
 					set_temp_variable = { culture_factor = air_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = democratica } }
+					limit = { ROOT = { has_government = pluralist_culture } }
 					set_temp_variable = { culture_factor = nonbender_pop }
 				}
 				divide_temp_variable = { culture_factor = 100 }
@@ -292,19 +292,19 @@ scripted_gui = {
 					has_political_power > mtth:THIS.core_state_cost
 					has_war = no
 				}
-				if = { limit = { has_government = imperialism }
+				if = { limit = { has_government = fire_culture }
 					check_variable = { fire_pop > 50 }
 				}
-				if = { limit = { has_government = monarchism }
+				if = { limit = { has_government = earth_culture }
 					check_variable = { earth_pop > 50 }
 				}
-				if = { limit = { has_government = tribalism }
+				if = { limit = { has_government = water_culture }
 					check_variable = { water_pop > 50 }
 				}
-				if = { limit = { has_government = pacifism }
+				if = { limit = { has_government = air_culture }
 					check_variable = { air_pop > 50 }
 				}
-				if = { limit = { has_government = democratica }
+				if = { limit = { has_government = pluralist_culture }
 					check_variable = { nonbender_pop > 50 }
 				}
 				is_controlled_by = ROOT

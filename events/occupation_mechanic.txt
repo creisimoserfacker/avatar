@@ -128,11 +128,11 @@ country_event = {
 					}
 					
 					# booleans that will be allowed to change ideology
-					set_temp_variable = { allowed_party_pacifism = 1 }
-					set_temp_variable = { allowed_party_monarchism = 1 }
-					set_temp_variable = { allowed_party_imperialism = 1 }
-					set_temp_variable = { allowed_party_tribalism = 1 }
-					set_temp_variable = { allowed_party_democratica = 1 }
+					set_temp_variable = { allowed_party_air_culture = 1 }
+					set_temp_variable = { allowed_party_earth_culture = 1 }
+					set_temp_variable = { allowed_party_fire_culture = 1 }
+					set_temp_variable = { allowed_party_water_culture = 1 }
+					set_temp_variable = { allowed_party_pluralist_culture = 1 }
 					
 					# do not change ideology of occupier country
 					var:occupier_country = {
@@ -155,58 +155,58 @@ country_event = {
 							limit = { 
 								OR = {
 									AND = {
-										has_government = pacifism
-										check_variable = { allowed_party_pacifism = 0 }
+										has_government = air_culture
+										check_variable = { allowed_party_air_culture = 0 }
 									}
 									AND = {
-										has_government = monarchism
-										check_variable = { allowed_party_monarchism = 0 }
+										has_government = earth_culture
+										check_variable = { allowed_party_earth_culture = 0 }
 									}
 									AND = {
-										has_government = imperialism
-										check_variable = { allowed_party_imperialism = 0 }
+										has_government = fire_culture
+										check_variable = { allowed_party_fire_culture = 0 }
 									}
 									AND = { 
-										has_government = tribalism
-										check_variable = { allowed_party_tribalism = 0 }
+										has_government = water_culture
+										check_variable = { allowed_party_water_culture = 0 }
 									}
 									AND = { 
-										has_government = democratica
-										check_variable = { allowed_party_democratica = 0 }
+										has_government = pluralist_culture
+										check_variable = { allowed_party_pluralist_culture = 0 }
 									}
 								}
 							}
 							
 							random_list = {
-								allowed_party_pacifism = {
+								allowed_party_air_culture = {
 									set_popularities = {
-										pacifism = 100
+										air_culture = 100
 									}
-									set_politics = { ruling_party = pacifism elections_allowed = yes }
+									set_politics = { ruling_party = air_culture elections_allowed = yes }
 								}
-								allowed_party_monarchism = {
+								allowed_party_earth_culture = {
 									set_popularities = {
-										monarchism = 100
+										earth_culture = 100
 									}
-									set_politics = { ruling_party = monarchism elections_allowed = no }
+									set_politics = { ruling_party = earth_culture elections_allowed = no }
 								}
-								allowed_party_imperialism = {
+								allowed_party_fire_culture = {
 									set_popularities = {
-										imperialism = 100
+										fire_culture = 100
 									}
-									set_politics = { ruling_party = imperialism elections_allowed = no }
+									set_politics = { ruling_party = fire_culture elections_allowed = no }
 								}
-								allowed_party_tribalism = {
+								allowed_party_water_culture = {
 									set_popularities = {
-										tribalism = 100
+										water_culture = 100
 									}
-									set_politics = { ruling_party = tribalism elections_allowed = yes }
+									set_politics = { ruling_party = water_culture elections_allowed = yes }
 								}
-								allowed_party_democratica = {
+								allowed_party_pluralist_culture = {
 									set_popularities = {
-										democratica = 100
+										pluralist_culture = 100
 									}
-									set_politics = { ruling_party = democratica elections_allowed = yes }
+									set_politics = { ruling_party = pluralist_culture elections_allowed = yes }
 								}
 							}
 						}

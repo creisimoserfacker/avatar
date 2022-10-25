@@ -1,15 +1,39 @@
-#      pacifism        255 255 255
-#      monarchism      0 119 0
-#      imperialism     158 0 0
-#      tribalism       20 80 180
-#	   democratica     50 50 50
+#      air_culture        255 255 255
+#      earth_culture      0 119 0
+#      fire_culture     158 0 0
+#      water_culture       20 80 180
+#	   pluralist_culture     50 50 50
+
+#	monarchy = {
+#
+#	}
+#
+#	tyranny = {
+#
+#	}
+#
+#	aristrocracy = {
+#
+#	}
+#
+#	oligarchy = {
+#
+#	}
+#
+#	polity = {
+#
+#	}
+#
+#	democracy = {
+#
+#	}
 
 
 ideologies = {
 
-################### imperialism #####################
+################### Fire Culture #####################
 
-	imperialism = {
+	fire_culture = {
 	
 		types = {
 		
@@ -47,7 +71,7 @@ ideologies = {
 		can_collaborate = yes
 		
 		modifiers = {
-			imperialism_drift = 0.05
+			fire_culture_drift = 0.05
 			
 			justify_war_goal_when_in_major_war_time = -0.50
 			hidden_modifier = { join_faction_tension = -0.1 }
@@ -61,9 +85,9 @@ ideologies = {
 		ai_fascist = yes # uses the fascist AI behaviour
 	}
 
-####################### monarchism #####################
+####################### Earth Culture #####################
 
-	monarchism = {
+	earth_culture = {
 		
 		types = {
 		
@@ -91,7 +115,7 @@ ideologies = {
 			"FACTION_NAME_COMMUNIST_5"
 		}
 		
-		color = { 0 119 0 }
+		color = { 0 90 0 }
 		
 		war_impact_on_world_tension = 0.75		#Commie less threatening
 		faction_impact_on_world_tension = 0.5
@@ -110,7 +134,7 @@ ideologies = {
 		can_host_government_in_exile = yes
 		
 		modifiers = {
-			monarchism_drift = 0.05
+			earth_culture_drift = 0.05
 
 			puppet_cost_factor = -0.3
 			hidden_modifier = { join_faction_tension = -0.1 }
@@ -127,9 +151,9 @@ ideologies = {
 
 	}
 
-######################## tribalism #####################
+######################## Water Culture #####################
 
-	tribalism = {
+	water_culture = {
 	
 		types = {
 		
@@ -155,7 +179,7 @@ ideologies = {
 			"FACTION_NAME_NONALIGNED_5"
 		}
 		
-		color = { 20 80 180 } #17 37 195 / 38 151 173
+		color = { 10 60 140 } #17 37 195 / 38 151 173
 		
 		
 		war_impact_on_world_tension = 0.25		#no major danger
@@ -170,7 +194,7 @@ ideologies = {
 		}
 		
 		modifiers = {
-			tribalism_drift = 0.05
+			water_culture_drift = 0.05
 
 			#increased_influence_factor = 0.3 #30% easier to influence
 			#generate_wargoal_tension = 0.5
@@ -195,16 +219,16 @@ ideologies = {
 		ai_neutral = yes # 
 	}
 
-######################## pacifism ####################
+######################## Air Culture ####################
 
-	pacifism = {
+	air_culture = {
 	
 		types = {
 			
-			absolute_pacifism = {
+			absolute_air_culture = {
 			}
 		
-			active_pacifism = {
+			active_air_culture = {
 			}
 		}
 		
@@ -217,7 +241,7 @@ ideologies = {
 			"FACTION_NAME_DEMOCRATIC_6"
 		}
 		
-		color = { 255 255 255 }
+		color = { 190 150 0 }
 		
 		rules = {
 			can_create_collaboration_government = no
@@ -238,7 +262,7 @@ ideologies = {
 		faction_impact_on_world_tension = -1.0
 		
 		modifiers = {
-			pacifism_drift = 0.05
+			air_culture_drift = 0.05
 
 			generate_wargoal_tension = 1.00
 			join_faction_tension = 0.80
@@ -259,9 +283,9 @@ ideologies = {
 		ai_democratic = yes # uses the democratic AI behaviour
 	}
 
-##################### democratic ##################
+##################### Pluralistic ##################
 
-	democratica = {
+	pluralist_culture = {
 	
 		types = {
 		
@@ -296,7 +320,7 @@ ideologies = {
 			"FACTION_NAME_FASCIST_5"
 		}
 		
-		color = { 50 50 50 }
+		color = { 150 110 90 }
 		
 		rules = {
 			can_create_collaboration_government = no
@@ -317,7 +341,7 @@ ideologies = {
 		faction_impact_on_world_tension = 0.1
 		
 		modifiers = {
-			democratica_drift = 0.05
+			pluralist_culture_drift = 0.05
 
 			generate_wargoal_tension = 1.00
 			join_faction_tension = 0.25

@@ -1,40 +1,40 @@
 save_ideology = {
 	ROOT = {
 		set_variable = {
-			nonbending_popularity_save = party_popularity_100@democratica
+			nonbending_popularity_save = party_popularity_100@pluralist_culture
 		}
 		set_variable = {
-			air_popularity_save = party_popularity_100@pacifism
+			air_popularity_save = party_popularity_100@air_culture
 		}
 		set_variable = {
-			earth_popularity_save = party_popularity_100@monarchism
+			earth_popularity_save = party_popularity_100@earth_culture
 		}
 		set_variable = {
-			fire_popularity_save = party_popularity_100@imperialism
+			fire_popularity_save = party_popularity_100@fire_culture
 		}
 		set_variable = {
-			water_popularity_save = party_popularity_100@tribalism
+			water_popularity_save = party_popularity_100@water_culture
 		}
 
 		if = {
-			limit = { has_government = democratica }
-			set_country_flag = { flag = was_democratica value = 1 days = 1 }
+			limit = { has_government = pluralist_culture }
+			set_country_flag = { flag = was_pluralist_culture value = 1 days = 1 }
 		}
 		if = {
-			limit = { has_government = pacifism }
-			set_country_flag = { flag = was_pacifism value = 1 days = 1 }
+			limit = { has_government = air_culture }
+			set_country_flag = { flag = was_air_culture value = 1 days = 1 }
 		}
 		if = {
-			limit = { has_government = monarchism }
-			set_country_flag = { flag = was_monarchism value = 1 days = 1 }
+			limit = { has_government = earth_culture }
+			set_country_flag = { flag = was_earth_culture value = 1 days = 1 }
 		}
 		if = {
-			limit = { has_government = imperialism }
-			set_country_flag = { flag = was_imperialism value = 1 days = 1 }
+			limit = { has_government = fire_culture }
+			set_country_flag = { flag = was_fire_culture value = 1 days = 1 }
 		}
 		if = {
-			limit = { has_government = tribalism }
-			set_country_flag = { flag = was_tribalism value = 1 days = 1 }
+			limit = { has_government = water_culture }
+			set_country_flag = { flag = was_water_culture value = 1 days = 1 }
 		}
 	}
 }
@@ -43,31 +43,31 @@ save_ideology = {
 apply_ideology = {
 	ROOT = {
 		set_popularities = {
-			democratica = nonbending_popularity_save
-			pacifism = air_popularity_save
-			monarchism = earth_popularity_save
-			imperialism = fire_popularity_save
-			tribalism = water_popularity_save
+			pluralist_culture = nonbending_popularity_save
+			air_culture = air_popularity_save
+			earth_culture = earth_popularity_save
+			fire_culture = fire_popularity_save
+			water_culture = water_popularity_save
 		}
 		if = {
-			limit = { has_country_flag = was_democratica }
-			set_politics = { ruling_party = democratica }
+			limit = { has_country_flag = was_pluralist_culture }
+			set_politics = { ruling_party = pluralist_culture }
 		}
 		if = {
-			limit = { has_country_flag = was_pacifism }
-			set_politics = { ruling_party = pacifism }
+			limit = { has_country_flag = was_air_culture }
+			set_politics = { ruling_party = air_culture }
 		}
 		if = {
-			limit = { has_country_flag = was_monarchism }
-			set_politics = { ruling_party = monarchism }
+			limit = { has_country_flag = was_earth_culture }
+			set_politics = { ruling_party = earth_culture }
 		}
 		if = {
-			limit = { has_country_flag = was_imperialism }
-			set_politics = { ruling_party = imperialism }
+			limit = { has_country_flag = was_fire_culture }
+			set_politics = { ruling_party = fire_culture }
 		}
 		if = {
-			limit = { has_country_flag = was_tribalism }
-			set_politics = { ruling_party = tribalism }
+			limit = { has_country_flag = was_water_culture }
+			set_politics = { ruling_party = water_culture }
 		}
 	
 		clear_variable = nonbending_popularity_save
