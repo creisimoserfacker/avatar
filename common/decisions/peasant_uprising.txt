@@ -1,105 +1,157 @@
 peasant_uprising_category = {
 
-	token_variable_test = {
-		complete_effect = {
-			random_core_state = {
+	
+	peasant_initiate_uprising = {
+		icon = peasant_uprising
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 90
+		is_good = yes
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = check_revolt_risk_0
+				check_variable = {
+					var = peasant_revolt_risk_variable
+					value = 0
+					compare = equals
+				}
+			}
+		}
+
+		timeout_effect = {
+			random_owned_state = {
 				limit = {
-					is_owned_by = ROOT
+					has_state_flag = NWT_build_carpentry
 				}
-				set_variable = { ROOT.give_state_name = THIS.id }
+				clr_state_flag = NWT_build_carpentry
+				clear_variable = factory_goal
 			}
+			
+			NWT_unity_medium_opposition = yes 
+			clr_country_flag = unity_buildup_in_progress
 		}
-	}
-
-	appease_peasants = {
 		complete_effect = {
-			add_to_variable = {
-				var = peasant_appeasement_variable
-				value = 5
-				tooltip = peasant_appeasement_add_tooltip
-			}
-		}
-	}
-
-	anger_peasants = {
-		complete_effect = {
-			add_to_variable = {
-				var = peasant_anger_variable
-				value = 5
-				tooltip = peasant_appeasement_add_tooltip
-			}
-		}
-	}
-
-	peasants_division = {
-		complete_effect = {
-			division_template = {
-				name = "Angry Peasants"
-				#is_locked = yes
-				priority = 0
-				regiments = {
-					peasant_unit = { x = 0 y = 0 }
-					peasant_unit = { x = 0 y = 1 }
-					peasant_unit = { x = 1 y = 0 }
-					peasant_unit = { x = 1 y = 1 }
+			random_owned_state = {
+				limit = {
+					has_state_flag = NWT_build_carpentry
 				}
+				clr_state_flag = NWT_build_carpentry
+				clear_variable = factory_goal
 			}
+			ROOT = {
+				NWT_unity_large_support = yes
+				clr_country_flag = unity_buildup_in_progress
+			}
+			
 		}
 	}
 
-	discontent_test = {
-		complete_effect = {
-			random_core_state = {
-				add_dynamic_modifier = { modifier = peasant_discontent }
-			}
-		}
-	}
 
-	test_peasant_state_controll = {
-		complete_effect = {
-			random_core_state = {
-				add_core_of = PEF
-				set_variable = { THIS.removed_core_state = CONTROLLER }
-				remove_core_of = CONTROLLER
 
-				
-				start_resistance = yes
-			}
-		}
-	}
-
-	test_peasant_war = {
-		complete_effect = {
-			PEF = {
-				every_core_state = {
-					set_state_owner_to = PREV
-				}
-				declare_war_on = {
-					target = FIR
-					type = annex_everything
-				}
-			}
-		}
-	}
-
-	my_state_targeted_decision = {
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				check_variable = { THIS.removed_core_state = CONTROLLER }
-				is_controlled_by = ROOT
-			}
-		}
-
-		on_map_mode = map_and_decisions_view
-		icon = my_icon
-		cost = 20
-		complete_effect = {
-			FROM = {
-				remove_core_of = GER
-			}
-		}
-	}
+#	token_variable_test = {
+#		complete_effect = {
+#			random_core_state = {
+#				limit = {
+#					is_owned_by = ROOT
+#				}
+#				set_variable = { ROOT.give_state_name = THIS.id }
+#			}
+#		}
+#	}
+#
+#	appease_peasants = {
+#		complete_effect = {
+#			add_to_variable = {
+#				var = peasant_appeasement_variable
+#				value = 5
+#				tooltip = peasant_appeasement_add_tooltip
+#			}
+#		}
+#	}
+#
+#	anger_peasants = {
+#		complete_effect = {
+#			add_to_variable = {
+#				var = peasant_anger_variable
+#				value = 5
+#				tooltip = peasant_appeasement_add_tooltip
+#			}
+#		}
+#	}
+#
+#	peasants_division = {
+#		complete_effect = {
+#			division_template = {
+#				name = "Angry Peasants"
+#				#is_locked = yes
+#				priority = 0
+#				regiments = {
+#					peasant_unit = { x = 0 y = 0 }
+#					peasant_unit = { x = 0 y = 1 }
+#					peasant_unit = { x = 1 y = 0 }
+#					peasant_unit = { x = 1 y = 1 }
+#				}
+#			}
+#		}
+#	}
+#
+#	discontent_test = {
+#		complete_effect = {
+#			random_core_state = {
+#				add_dynamic_modifier = { modifier = peasant_discontent }
+#			}
+#		}
+#	}
+#
+#	test_peasant_state_controll = {
+#		complete_effect = {
+#			random_core_state = {
+#				add_core_of = PEF
+#				set_variable = { THIS.removed_core_state = CONTROLLER }
+#				remove_core_of = CONTROLLER
+#
+#				
+#				start_resistance = yes
+#			}
+#		}
+#	}
+#
+#	test_peasant_war = {
+#		complete_effect = {
+#			PEF = {
+#				every_core_state = {
+#					set_state_owner_to = PREV
+#				}
+#				declare_war_on = {
+#					target = FIR
+#					type = annex_everything
+#				}
+#			}
+#		}
+#	}
+#
+#	my_state_targeted_decision = {
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				check_variable = { THIS.removed_core_state = CONTROLLER }
+#				is_controlled_by = ROOT
+#			}
+#		}
+#
+#		on_map_mode = map_and_decisions_view
+#		icon = my_icon
+#		cost = 20
+#		complete_effect = {
+#			FROM = {
+#				remove_core_of = GER
+#			}
+#		}
+#	}
 	
 }

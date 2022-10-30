@@ -10,10 +10,12 @@ ideas = {
 			available = {
 				has_war = yes
 				has_war_support > 0.8
-				any_enemy_country = {
-					ic_ratio = { 
-						tag = ROOT 
-						ratio > 0.5
+				custom_trigger_tooltip = {
+					tooltip = check_authority_75_tooltip		
+					check_variable = {
+						var = current_authority
+						value = 75
+						compare = greater_than_or_equals
 					}
 				}
 			}
@@ -78,18 +80,17 @@ ideas = {
 			
 			
 			available = {
-				has_war_support > 0.5
-				OR = {
-					custom_trigger_tooltip = { tooltip = or_clarification_tooltip always = no }
-					AND = {
-						has_war = yes
-						any_enemy_country = {
-							ic_ratio = { 
-								tag = ROOT 
-								ratio > 0.4
-							}
-						}
+				custom_trigger_tooltip = {
+					tooltip = check_authority_50_tooltip		
+					check_variable = {
+						var = current_authority
+						value = 50
+						compare = greater_than_or_equals
 					}
+				}
+				OR = {
+					has_war = yes
+					has_war_support > 0.5
 				}
 			}
 		
@@ -134,7 +135,7 @@ ideas = {
 		economy_3 = {
 			
 			available = {
-				has_war_support > 0.25
+				allways = yes
 			}
 
 			cost = 150
@@ -165,7 +166,17 @@ ideas = {
 		economy_2 = {
 			
 			available = {
-				has_war_support > 0.15
+				OR = {
+					has_war = no
+					custom_trigger_tooltip = {
+						tooltip = check_liberty_50_tooltip		
+						check_variable = {
+							var = current_authority
+							value = 50
+							compare = less_than_or_equals
+						}
+					}
+				}
 			}
 
 			default = yes
@@ -204,8 +215,17 @@ ideas = {
 		economy_1 = {
 			
 			available = {
-				has_war = no
-				has_stability > 0.6
+				OR = {
+					has_war = no
+					custom_trigger_tooltip = {
+						tooltip = check_liberty_25_tooltip		
+						check_variable = {
+							var = current_authority
+							value = 25
+							compare = less_than_or_equals
+						}
+					}
+				}
 			}
 		
 			cost = 150

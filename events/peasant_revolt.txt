@@ -11,6 +11,25 @@ country_event = {
 	
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			add_to_variable = {
+				var = peasant_anger_variable
+				value = peasant_revolt_risk_variable
+				tooltip = peasant_appeasement_add_tooltip
+			}
+			round_variable = peasant_anger_variable
+			clamp_variable = {
+				var = peasant_anger_variable
+				min = 0
+				max = 100
+			}
+
+			activate_mission = peasant_initiate_uprising
+			add_ideas = { peasant_distrust }
+		}
+	}
+
 	option = {
 		name = generic_peasant.1.a
 		

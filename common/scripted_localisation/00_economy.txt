@@ -134,3 +134,25 @@ defined_text = {
 		localization_key = construction_surplus
 	}
 }
+
+defined_text = {
+	name = GetFactoryConversion
+	text = {
+		trigger = {
+			check_variable = { military_ic_transfer < 0 }
+		}
+		localization_key = civ_to_mil_tooltip
+	}
+	text = {
+		trigger = {
+			check_variable = { military_ic_transfer > 0 }
+		}
+		localization_key = mil_to_civ_tooltip
+	}
+	text = {
+		trigger = {
+			check_variable = { military_ic_transfer = 0 }
+		}
+		localization_key = neither_mil_or_civ_tooltip
+	}
+}

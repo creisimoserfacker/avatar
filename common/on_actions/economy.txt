@@ -236,40 +236,50 @@ on_actions = {
 			set_variable = { epmployed_percentage = temp_epmployed_percentage }
 
 
+
+			#### inflation
+
+			set_variable = { currency_amount = 1 }
+			add_to_variable = { currency_amount = modifier@currency_amount }
+			clamp_variable = {
+				var = currency_amount
+				min = 0.1
+			}
+			set_variable = { buying_power = 1 }
+			subtract_from_variable = { buying_power = modifier@currency_amount }
+			clamp_variable = {
+				var = buying_power
+				min = 0
+			}
+
+
+
 			###view food
 			set_variable = { food_supply = resource@food_resource }
 			set_variable = { food_supply_real = resource_produced@food_resource }
 			set_variable = { food_traded_away = food_supply_real }
 			subtract_from_variable = { food_traded_away = food_supply }
 
-			#set_temp_variable = { food_demand_k = max_manpower_k }
-			#multiply_temp_variable = { food_demand_k = 0.5 }
-			#set_variable = { food_demand = food_demand_k }
-
-
-
-
-
-
-
 
 
 			###view consumer goods
 			set_variable = { consumer_good_supply = resource@consumer_goods_resource }
+			multiply_variable = { consumer_good_supply = buying_power }
+
 			set_variable = { consumer_good_supply_real = resource_produced@consumer_goods_resource }
 			set_variable = { consumer_good_traded_away = consumer_good_supply_real }
 			subtract_from_variable = { consumer_good_traded_away = consumer_good_supply }
 
 			set_variable = { luxury_good_supply = resource@luxury_goods_resource }
+			multiply_variable = { luxury_good_supply = buying_power }
+
 			set_variable = { luxury_good_supply_real = resource_produced@luxury_goods_resource }
 			set_variable = { luxury_good_traded_away = luxury_good_supply_real }
 			subtract_from_variable = { luxury_good_traded_away = luxury_good_supply }
 
 			set_variable = { consumer_good_demand = max_manpower_k }
 			multiply_variable = { consumer_good_demand = 0.25 }
-			set_variable = { currency_amount = 1 }
-			add_to_variable = { currency_amount = modifier@currency_amount }
-			multiply_variable = { consumer_good_demand = currency_amount }
+			#multiply_variable = { consumer_good_demand = currency_amount }
 
 			set_variable = { consumer_good_demand_modifier = 1 }
 			add_to_variable = { consumer_good_demand_modifier = modifier@consumer_goods_demand }
@@ -314,6 +324,13 @@ on_actions = {
 			set_variable = { double_consumer_demand = consumer_and_luxury_good_demand }
 			multiply_variable = { double_consumer_demand = 2 }
 
+			set_variable = { consumer_fulfilled_ratio = consumer_and_luxury_goods_supply }
+			divide_variable = { consumer_fulfilled_ratio = consumer_and_luxury_good_demand }
+			clamp_variable = {
+				var = consumer_fulfilled_ratio
+				min = 0.1
+				max = 1
+			}
 
 			if = {
 				limit = {
@@ -522,6 +539,8 @@ on_actions = {
 
 			add_to_variable = { ic = stolen_to_construct }
 
+			multiply_variable = { ic = consumer_fulfilled_ratio }
+
 			set_variable = { ic_factor = 1 }
 			add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
 			multiply_variable = { ic = ic_factor }
@@ -573,6 +592,13 @@ on_actions = {
 
 			set_variable = { military_ic_transfer = total_military_ic }
 			multiply_variable = { military_ic_transfer = ic_real_transfer }
+			set_variable = { ic_transfer_integer = military_ic_transfer }
+			if = {
+				limit = {
+					check_variable = { ic_transfer_integer < 0 }
+				}
+				multiply_variable = { ic_transfer_integer = -1 }
+			}
 
 			add_to_variable = { ic = military_ic_transfer }
 

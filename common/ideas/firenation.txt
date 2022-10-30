@@ -49,8 +49,8 @@ ideas = {
 			
 			modifier = {
 				#bad
-				war_support_factor = -0.35
-				war_support_weekly = -0.005
+				war_support_factor = -0.4
+				war_support_weekly = -0.002
 				consumer_goods_demand = 0.2
 
 				#good
@@ -110,7 +110,10 @@ ideas = {
 		promote_war_support = {
 
 			available = {
-				always = yes
+				OR = {
+					has_war_support < 0.25
+					has_idea = national_prosperity
+				}
 			}
 			
 			allowed = {
@@ -124,7 +127,7 @@ ideas = {
 			removal_cost = -1
 
 			modifier = {
-				war_support_weekly = 0.005
+				war_support_weekly = 0.002
 			}
 		}
 

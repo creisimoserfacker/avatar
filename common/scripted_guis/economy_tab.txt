@@ -67,6 +67,13 @@ scripted_gui = {
 				has_dynamic_modifier = { modifier = extreme_wealth }
 			}
 
+			mil_to_civ_icon_visible = {
+				check_variable = { military_ic_transfer > 0 }
+			}
+			civ_to_mil_icon_visible = {
+				check_variable = { military_ic_transfer < 0 }
+			}
+
 			toggle_core_visible = {
 				NOT = {
 					has_country_flag = core_all_construction_flag
