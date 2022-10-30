@@ -41,10 +41,45 @@ ideas = {
 			ai_will_do = {
    				factor = 1
 
-   				modifier = {
-					factor = 300
+   				# minors not at war should want to get the bonuses from local markets
+				modifier = {
+					factor = 0
+					
+					is_major = no
+					has_war = no
+				}
 
-					is_in_faction = no
+   				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = oil
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = food_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = consumer_goods_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = luxury_goods_resource
+						amount < 0
+					}
 				}
 
    			}
@@ -84,14 +119,47 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 1
+   				factor = 2
 
+   				# minors not at war should want to get the bonuses from local markets
 				modifier = {
 					factor = 0
 					
 					is_major = no
 					has_war = no
-					is_in_faction = no
+				}
+
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = oil
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = food_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = consumer_goods_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = luxury_goods_resource
+						amount < 0
+					}
 				}
    			}
 		}
@@ -126,19 +194,50 @@ ideas = {
 				weekly_centralisation = 0.02
 			}
 			
-			default = yes
-			
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 1
+   				factor = 3
 
+   				# minors not at war should want to get the bonuses from local markets
 				modifier = {
 					factor = 0
 					
 					is_major = no
 					has_war = no
-					is_in_faction = no
+				}
+
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = oil
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = food_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = consumer_goods_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = luxury_goods_resource
+						amount < 0
+					}
 				}
    			}
 		}
@@ -157,6 +256,8 @@ ideas = {
 			cost = 150
 			removal_cost = -1
 			level = 4
+
+			default = yes
 			
 			modifier = {
 				min_export = 0.15
@@ -175,22 +276,39 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 1
+   				factor = 4
 
    				modifier = {
 					add = -1
-					
-					is_major = no
-					is_in_faction = yes
-					has_war = yes
-				}
 
-				# minors not at war should want to get the bonuses from free trade
+					has_resources_in_country = {
+						resource = oil
+						amount < 0
+					}
+				}
 				modifier = {
 					add = -1
-					
-					is_major = no
-					has_war = no
+
+					has_resources_in_country = {
+						resource = food_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = consumer_goods_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					add = -1
+
+					has_resources_in_country = {
+						resource = luxury_goods_resource
+						amount < 0
+					}
 				}
 				
 				modifier = {
@@ -238,30 +356,51 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 1
+   				factor = 5
 
    				modifier = {
-					factor = 0
+					add = -4
 					
-					is_major = no
-					is_in_faction = yes
-					has_war = yes
-				}
-
-				# minors not at war should want to get the bonuses from free trade
-				modifier = {
-					factor = 0
-					
-					is_major = no
-					has_war = no
+					is_major = yes
 				}
 				
 				modifier = {
 					factor = 0
 					
-					# don't take if we have a reasonable sized ally
-					# since they will require our trades
 					has_large_ally_not_pick_local_markets = yes
+				}
+
+				modifier = {
+					factor = 10
+
+					has_resources_in_country = {
+						resource = oil
+						amount < 0
+					}
+				}
+				modifier = {
+					factor = 10
+
+					has_resources_in_country = {
+						resource = food_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					factor = 10
+
+					has_resources_in_country = {
+						resource = consumer_goods_resource
+						amount < 0
+					}
+				}
+				modifier = {
+					factor = 10
+
+					has_resources_in_country = {
+						resource = luxury_goods_resource
+						amount < 0
+					}
 				}
    			}
 		}
