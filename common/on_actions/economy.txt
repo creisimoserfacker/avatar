@@ -1113,25 +1113,6 @@ on_actions = {
 
 	on_monthly = {
 		effect = {
-
-			if = {
-				limit = {
-					NOT = {
-						has_dynamic_modifier = { modifier = additional_scripted_resources }
-					}
-				}
-				add_dynamic_modifier = { modifier = additional_scripted_resources }
-			}
-			if = {
-				limit = {
-					NOT = {
-						has_dynamic_modifier = { modifier = factory_resource_consumption }
-					}
-				}
-				add_dynamic_modifier = { modifier = factory_resource_consumption }
-			}
-
-
 			set_variable = { core_population_k = 0 }
 			set_variable = { occupied_population_k = max_manpower_k }
 			every_core_state = {

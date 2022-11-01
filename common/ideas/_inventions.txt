@@ -16,6 +16,109 @@ ideas = {
 				research_speed_factor = -0.2
 			}
 		}
+
+		age_1_bonus = {
+
+			available = {
+				check_variable = { tech_age < 2 }
+			}
+			on_remove = {
+				add_ideas = age_2_bonus
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_1 = 9
+				age_2 = 7
+				age_3 = 5
+				age_4 = 3
+				age_5 = 1
+				age_6 = 0
+			}
+		}
+		age_2_bonus = {
+
+			available = {
+				check_variable = { tech_age < 3 }
+			}
+			on_remove = {
+				add_ideas = age_3_bonus
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_2 = 9
+				age_3 = 7
+				age_4 = 5
+				age_5 = 3
+				age_6 = 1
+			}
+		}
+		age_3_bonus = {
+
+			available = {
+				check_variable = { tech_age < 4 }
+			}
+			on_remove = {
+				add_ideas = age_4_bonus
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_3 = 9
+				age_4 = 7
+				age_5 = 5
+				age_6 = 3
+			}
+		}
+		age_4_bonus = {
+
+			available = {
+				check_variable = { tech_age < 5 }
+			}
+			on_remove = {
+				add_ideas = age_5_bonus
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_4 = 9
+				age_5 = 7
+				age_6 = 5
+			}
+		}
+		age_5_bonus = {
+
+			available = {
+				check_variable = { tech_age < 6 }
+			}
+			on_remove = {
+				add_ideas = age_6_bonus
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_5 = 9
+				age_6 = 7
+			}
+		}
+		age_6_bonus = {
+
+			available = {
+				check_variable = { tech_age < 6 }
+			}
+			
+			removal_cost = -1
+
+			research_bonus = {
+				age_6 = 9
+			}
+		}
 		
 	}
 }

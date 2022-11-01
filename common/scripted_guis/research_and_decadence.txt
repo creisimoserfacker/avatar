@@ -14,19 +14,167 @@ scripted_gui = {
 			idea_extreme_poverty_visible = {
 				has_idea = extreme_poverty
 			}
-			idea_poverty_visible = {
-				has_idea = poverty
-			}
-			idea_wealth_visible = {
-				has_idea = wealth
-			}
-			idea_extreme_wealth_visible = {
-				has_idea = extreme_wealth
+			
+		}
+
+		effects = {
+
+			invention_button_click = {
+				ROOT = {
+					set_country_flag = invention_tab_open
+				}
 			}
 
-			idea_invention_made_visible = {
-				has_idea = invention_made
+		}
+		
+	}
+
+	inventions_window = {
+		context_type = player_context
+		
+		window_name = "inventions_window"
+		#parent_window_token = technology_tab
+		
+		visible = {
+			has_country_flag = invention_tab_open
+		}
+		
+		triggers = {
+			age_1_glow_visible = { always = yes }
+			age_2_glow_visible = { check_variable = { tech_age > 1 } }
+			age_3_glow_visible = { check_variable = { tech_age > 2 } }
+			age_4_glow_visible = { check_variable = { tech_age > 3 } }
+			age_5_glow_visible = { check_variable = { tech_age > 4 } }
+			age_6_glow_visible = { check_variable = { tech_age > 5 } }
+
+			age_1_lock_visible = { always = no }
+			age_2_lock_visible = { check_variable = { tech_age < 2 } }
+			age_3_lock_visible = { check_variable = { tech_age < 3 } }
+			age_4_lock_visible = { check_variable = { tech_age < 4 } }
+			age_5_lock_visible = { check_variable = { tech_age < 5 } }
+			age_6_lock_visible = { check_variable = { tech_age < 6 } }
+
+			domestication_0_1_visible = { AND = { not = { has_tech = domestication_0 } check_variable = { tech_age < 1 } } }
+			domestication_0_2_click_enabled = { not = { has_tech = domestication_0 } }
+			domestication_0_2_visible = { not = { has_tech = domestication_0 } }
+			domestication_0_3_visible = { has_tech = domestication_0 }
+
+			the_wheel_1_visible = { AND = { not = { has_tech = the_wheel } check_variable = { tech_age < 1 } } }
+			the_wheel_2_click_enabled = { not = { has_tech = the_wheel } }
+			the_wheel_2_visible = { not = { has_tech = the_wheel } }
+			the_wheel_3_visible = { has_tech = the_wheel }
+
+			basic_tool_making_1_visible = { AND = { not = { has_tech = basic_tool_making } check_variable = { tech_age < 1 } } }
+			basic_tool_making_2_click_enabled = { not = { has_tech = basic_tool_making } }
+			basic_tool_making_2_visible = { not = { has_tech = basic_tool_making } }
+			basic_tool_making_3_visible = { has_tech = basic_tool_making }
+
+			plow_1_visible = { AND = { not = { has_tech = plow } check_variable = { tech_age < 1 } } }
+			plow_2_click_enabled = { not = { has_tech = plow } }
+			plow_2_visible = { not = { has_tech = plow } }
+			plow_3_visible = { has_tech = plow }
+
+
+			domestication_1_1_visible = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age < 2 } } }
+			domestication_1_2_click_enabled = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age > 1 } } }
+			domestication_1_2_visible = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age > 1 } } }
+			domestication_1_3_visible = { has_tech = domestication_1 }
+
+			botanics_1_visible = { AND = { not = { has_tech = botanics } check_variable = { tech_age < 2 } } }
+			botanics_2_click_enabled = { AND = { not = { has_tech = botanics } check_variable = { tech_age > 1 } } }
+			botanics_2_visible = { AND = { not = { has_tech = botanics } check_variable = { tech_age > 1 } } }
+			botanics_3_visible = { has_tech = botanics }
+
+			candles_1_visible = { AND = { not = { has_tech = candles } check_variable = { tech_age < 2 } } }
+			candles_2_click_enabled = { AND = { not = { has_tech = candles } check_variable = { tech_age > 1 } } }
+			candles_2_visible = { AND = { not = { has_tech = candles } check_variable = { tech_age > 1 } } }
+			candles_3_visible = { has_tech = candles }
+
+			metal_processing_1_visible = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age < 2 } } }
+			metal_processing_2_click_enabled = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age > 1 } } }
+			metal_processing_2_visible = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age > 1 } } }
+			metal_processing_3_visible = { has_tech = metal_processing }
+
+
+			
+			domestication_2_1_visible = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age < 3 } } }
+			domestication_2_2_click_enabled = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age > 2 } } }
+			domestication_2_2_visible = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age > 2 } } }
+			domestication_2_3_visible = { has_tech = domestication_2 }
+
+			basic_gear_1_visible = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age < 3 } } }
+			basic_gear_2_click_enabled = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age > 2 } } }
+			basic_gear_2_visible = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age > 2 } } }
+			basic_gear_3_visible = { has_tech = basic_gear }
+
+			heal_practices_1_visible = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age < 3 } } }
+			heal_practices_2_click_enabled = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age > 2 } } }
+			heal_practices_2_visible = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age > 2 } } }
+			heal_practices_3_visible = { has_tech = heal_practices }
+
+			ink_1_visible = { AND = { not = { has_tech = ink } check_variable = { tech_age < 3 } } }
+			ink_2_click_enabled = { AND = { not = { has_tech = ink } check_variable = { tech_age > 2 } } }
+			ink_2_visible = { AND = { not = { has_tech = ink } check_variable = { tech_age > 2 } } }
+			ink_3_visible = { has_tech = ink }
+
+
+			domestication_3_1_visible = { AND = { not = { has_tech = domestication_3 } check_variable = { tech_age < 4 } } }
+			domestication_3_2_click_enabled = { AND = { not = { has_tech = domestication_3 } check_variable = { tech_age > 3 } } }
+			domestication_3_2_visible = { AND = { not = { has_tech = domestication_3 } check_variable = { tech_age > 3 } } }
+			domestication_3_3_visible = { has_tech = domestication_3 }
+
+			libraries_1_visible = { AND = { not = { has_tech = libraries } check_variable = { tech_age < 4 } } }
+			libraries_2_click_enabled = { AND = { not = { has_tech = libraries } check_variable = { tech_age > 3 } } }
+			libraries_2_visible = { AND = { not = { has_tech = libraries } check_variable = { tech_age > 3 } } }
+			libraries_3_visible = { has_tech = libraries }
+
+			steelmaking_1_visible = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age < 4 } } }
+			steelmaking_2_click_enabled = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age > 3 } } }
+			steelmaking_2_visible = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age > 3 } } }
+			steelmaking_3_visible = { has_tech = steelmaking }
+
+			steam_engine_1_visible = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age < 4 } } }
+			steam_engine_2_click_enabled = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age > 3 } } }
+			steam_engine_2_visible = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age > 3 } } }
+			steam_engine_3_visible = { has_tech = steam_engine }
+
+
+			improved_coal_engine_1_visible = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age < 5 } } }
+			improved_coal_engine_2_click_enabled = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age > 4 } } }
+			improved_coal_engine_2_visible = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age > 4 } } }
+			improved_coal_engine_3_visible = { has_tech = improved_coal_engine }
+
+			aerodynamics_1_visible = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age < 5 } } }
+			aerodynamics_2_click_enabled = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age > 4 } } }
+			aerodynamics_2_visible = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age > 4 } } }
+			aerodynamics_3_visible = { has_tech = aerodynamics }
+
+
+			advanced_gear_1_visible = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age < 6 } } }
+			advanced_gear_2_click_enabled = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age > 5 } } }
+			advanced_gear_2_visible = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age > 5 } } }
+			advanced_gear_3_visible = { has_tech = advanced_gear }
+
+			thermodynamics_1_visible = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age < 6 } } }
+			thermodynamics_2_click_enabled = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age > 5 } } }
+			thermodynamics_2_visible = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age > 5 } } }
+			thermodynamics_3_visible = { has_tech = thermodynamics }
+
+			modern_engine_1_visible = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age < 6 } } }
+			modern_engine_2_click_enabled = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age > 5 } } }
+			modern_engine_2_visible = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age > 5 } } }
+			modern_engine_3_visible = { has_tech = modern_engine }
+
+		}
+
+		effects = {
+
+			close_button_click = {
+				ROOT = {
+					clr_country_flag = invention_tab_open
+				}
 			}
+
 		}
 		
 	}

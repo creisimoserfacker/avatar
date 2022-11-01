@@ -1,74 +1,1219 @@
-#guiTypes = {
-#	containerWindowType = {
-#		name = "research_and_decadence"
-#		position = {x=2 y=166}
-#		size = { width=550 height=144 }
-#
-#		background = {
-#			name = "Background"
-#			spriteType ="GFX_research_middle_win"
-#			alwaystransparent = yes
-#		}
-#
-#		containerWindowType = {
-#			name = "research_ideas"
-#			position = {x=364 y=28}
-#			size = { width=84 height=84 }
-#
-#			iconType = {
-#				name ="idea_invention_made"
-#				spriteType = "GFX_idea_invention_made"
-#				position = { x= 0 y = 0 }
-#				Orientation = "UPPER_LEFT"
-#		
-#				pdx_tooltip = "invention_made_extended"
-#				pdx_tooltip_delayed = "invention_made_delayed"
-#			}
-#
-#		}
-#		containerWindowType = {
-#			name = "wealth_ideas"
-#			position = {x=454 y=28}
-#			size = { width=84 height=84 }
-#
-#			iconType = {
-#				name ="idea_extreme_poverty"
-#				spriteType = "GFX_idea_extreme_poverty"
-#				position = { x= 0 y = 0 }
-#				Orientation = "UPPER_LEFT"
-#	
-#				pdx_tooltip = "extreme_poverty_extended"
-#				pdx_tooltip_delayed = "extreme_poverty_delayed"
-#			}
-#			iconType = {
-#				name ="idea_poverty"
-#				spriteType = "GFX_idea_poverty"
-#				position = { x= 0 y = 0 }
-#				Orientation = "UPPER_LEFT"
-#	
-#				pdx_tooltip = "poverty_extended"
-#				pdx_tooltip_delayed = "poverty_delayed"
-#			}
-#			iconType = {
-#				name ="idea_wealth"
-#				spriteType = "GFX_idea_wealth"
-#				position = { x= 0 y = 0 }
-#				Orientation = "UPPER_LEFT"
-#	
-#				pdx_tooltip = "wealth_extended"
-#				pdx_tooltip_delayed = "wealth_delayed"
-#			}
-#			iconType = {
-#				name ="idea_extreme_wealth"
-#				spriteType = "GFX_idea_extreme_wealth"
-#				position = { x= 0 y = 0 }
-#				Orientation = "UPPER_LEFT"
-#	
-#				pdx_tooltip = "extreme_wealth_extended"
-#				pdx_tooltip_delayed = "extreme_wealth_delayed"
-#			}
-#
-#		}
-#		
-#	}
-#}
+
+@TECH_HEIGHT = 60
+
+@SLOT_1 = 75
+@SLOT_2 = 175
+@SLOT_3 = 275
+@SLOT_4 = 375
+@SLOT_5 = 475
+@SLOT_6 = 575
+@SLOT_7 = 675
+@SLOT_8 = 775
+
+guiTypes = {
+	containerWindowType = {
+		name = "research_and_decadence"
+		position = {x=6 y=54}
+		size = { width=550 height=144 }
+
+
+		containerWindowType = {
+			name = "tech_level"
+			position = {x=14 y=30}
+
+			iconType = {
+				name ="tech_level_glow_strip"
+				spriteType = "GFX_tech_level_glow"
+				position = { x= 4 y = 0 }
+				Orientation = "UPPER_LEFT"
+			}
+
+			iconType = {
+				name ="tech_level_bg_strip"
+				spriteType = "GFX_tech_level_bg"
+				position = { x= 4 y = 0 }
+				Orientation = "UPPER_LEFT"
+		
+				pdx_tooltip = "invention_made_extended"
+				pdx_tooltip_delayed = "invention_made_delayed"
+			}
+
+			iconType = {
+				name ="tech_level_strip"
+				spriteType = "GFX_tech_level_strip"
+				position = { x= 4 y = 0 }
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+		}
+
+
+		containerWindowType = {
+			name = "invention_pick"
+			position = {x=14 y=130}
+
+			buttonType = {
+				name ="invention_button"
+				spriteType = "GFX_technology_invention_folder_available_item_bg"
+				position = { x= 0 y = 0 }
+				Orientation = "UPPER_LEFT"
+			
+				pdx_tooltip = "invention_made_extended"
+				pdx_tooltip_delayed = "invention_made_delayed"
+			}
+			instantTextBoxType = {
+				name = "inventions_title"
+				position = { x = 8 y = 18 }
+				textureFile = ""
+				font = "hoi_16mbs"
+				borderSize = { x = 0 y = 0}
+				text = "PICK_INVENTION"
+				maxWidth = 58
+				maxHeight = 62
+				format = left
+				Orientation = "UPPER_LEFT"
+				alwaystransparent = yes
+			}
+
+
+		}
+		
+	}
+
+
+	containerWindowType = {
+		name = "inventions_window"
+		position = { x=-3 y=110 }
+		size = { width = 100%% height = 100%% }
+		fade_time = 400
+		fade_type = linear
+
+		background = {
+			name = "Background"
+			quadTextureSprite ="GFX_tiled_plain_bg2"
+		}
+
+		instantTextBoxType = {
+			name = "inventions_title"
+			position = { x = 60 y = 10 }
+			textureFile = ""
+			font = "hoi_36header"
+			borderSize = { x = 0 y = 0}
+			text = "inventions_title"
+			maxWidth = 600
+			maxHeight = 62
+			format = left
+			Orientation = "UPPER_LEFT"
+		}
+
+		buttonType = {
+			name = "close_button"
+			quadTextureSprite = "GFX_closebutton"
+			buttonFont = "vic_18"
+			position = { x=-43 y=10 }
+			shortcut = "ESCAPE"
+			Orientation = "UPPER_RIGHT"
+			pdx_tooltip = "CLOSE"
+			clicksound = click_close
+		}
+
+
+
+
+		containerWindowType = {
+			name = "invention_folder"
+			position = { x=0 y=47 }
+			size = { width = 100%% height = 100%% }
+			margin = { top = 13 left = 13 bottom = 24 right = 25}
+			drag_scroll = { left middle }
+			verticalScrollbar = "right_vertical_slider"
+			horizontalScrollbar = "bottom_horizontal_slider"
+			scroll_wheel_factor = 60
+
+			background = {
+				name = "Background"
+				quadTextureSprite ="GFX_tiled_window_2b_border"
+			}
+
+			containerWindowType = {
+				name = "techtree_stripes"
+				position = { x= 0 y= 0 }
+				size = { 
+					width = 2250 height = 840
+					min = { width = 100%% height = 100%% }
+				}
+				background = {
+					name = "Background"
+					quadTextureSprite ="GFX_techtree_stripes"
+				}
+				clipping = no
+
+			}
+
+			containerWindowType = {
+				name = "age_1_container"
+				position = { x= 0 y= 0 }
+				iconType = {
+					name ="age_1"
+					spriteType = "GFX_age_one_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+				iconType = {
+					name ="age_1_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_1_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 1
+					pdx_tooltip = "age_1_tooltip"
+					pdx_tooltip_delayed = "age_1_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_1_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 1
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_1_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_1_locked"
+					pdx_tooltip_delayed = "age_1_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "basic_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_1_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_1_tooltip"
+					pdx_tooltip_delayed = "age_1_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "domestication_0"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="domestication_0_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="domestication_0_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "domestication_0_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="domestication_0_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="domestication_0_icon"
+						spriteType = "GFX_domestication_0_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "the_wheel"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="the_wheel_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="the_wheel_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "the_wheel_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="the_wheel_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="the_wheel_icon"
+						spriteType = "GFX_the_wheel_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "basic_tool_making"
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="basic_tool_making_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="basic_tool_making_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "basic_tool_making_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="basic_tool_making_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="basic_tool_making_icon"
+						spriteType = "GFX_basic_tool_making_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "plow"
+					position = { x= @SLOT_4 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="plow_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="plow_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "plow_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="plow_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="plow_icon"
+						spriteType = "GFX_plow_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+			}
+
+			containerWindowType = {
+				name = "age_2_container"
+				position = { x= 0 y= 140 }
+				iconType = {
+					name ="age_2"
+					spriteType = "GFX_age_two_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+				iconType = {
+					name ="age_2_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_2_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 2
+					pdx_tooltip = "age_2_tooltip"
+					pdx_tooltip_delayed = "age_2_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_2_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 2
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_2_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_2_locked"
+					pdx_tooltip_delayed = "age_2_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "early_settlement_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_2_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_2_tooltip"
+					pdx_tooltip_delayed = "age_2_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "domestication_1"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="domestication_1_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="domestication_1_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "domestication_1_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="domestication_1_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="domestication_1_icon"
+						spriteType = "GFX_domestication_1_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "botanics"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="botanics_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="botanics_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "botanics_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="botanics_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="botanics_icon"
+						spriteType = "GFX_botanics_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "candles"
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="candles_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="candles_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "candles_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="candles_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="candles_icon"
+						spriteType = "GFX_candles_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "metal_processing"
+					position = { x= @SLOT_4 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="metal_processing_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="metal_processing_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "metal_processing_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="metal_processing_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="metal_processing_icon"
+						spriteType = "GFX_metal_processing_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+
+			}
+
+			containerWindowType = {
+				name = "age_3_container"
+				position = { x= 0 y= 280 }
+				iconType = {
+					name ="age_3"
+					spriteType = "GFX_age_three_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+
+				iconType = {
+					name ="age_3_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_3_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 3
+					pdx_tooltip = "age_3_tooltip"
+					pdx_tooltip_delayed = "age_3_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_3_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 3
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_3_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_3_locked"
+					pdx_tooltip_delayed = "age_3_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "feudalist_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_3_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_3_tooltip"
+					pdx_tooltip_delayed = "age_3_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "domestication_2"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="domestication_2_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="domestication_2_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "domestication_2_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="domestication_2_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="domestication_2_icon"
+						spriteType = "GFX_domestication_2_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "basic_gear"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="basic_gear_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="basic_gear_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "basic_gear_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="basic_gear_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="basic_gear_icon"
+						spriteType = "GFX_basic_gear_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "heal_practices"
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="heal_practices_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="heal_practices_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "heal_practices_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="heal_practices_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="heal_practices_icon"
+						spriteType = "GFX_heal_practices_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "ink"
+					position = { x= @SLOT_4 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="ink_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="ink_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "ink_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="ink_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="ink_icon"
+						spriteType = "GFX_ink_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+			}
+
+			containerWindowType = {
+				name = "age_4_container"
+				position = { x= 0 y= 420 }
+				iconType = {
+					name ="age_4"
+					spriteType = "GFX_age_four_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+
+				iconType = {
+					name ="age_4_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_4_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 4
+					pdx_tooltip = "age_4_tooltip"
+					pdx_tooltip_delayed = "age_4_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_4_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 4
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_4_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_4_locked"
+					pdx_tooltip_delayed = "age_4_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "late_feudalist_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_4_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_4_tooltip"
+					pdx_tooltip_delayed = "age_4_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "domestication_3"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="domestication_3_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="domestication_3_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "domestication_2_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="domestication_3_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="domestication_3_icon"
+						spriteType = "GFX_domestication_3_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "libraries"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="libraries_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="libraries_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "libraries_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="libraries_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="libraries_icon"
+						spriteType = "GFX_libraries_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "steelmaking"
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="steelmaking_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="steelmaking_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "steelmaking_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="steelmaking_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="steelmaking_icon"
+						spriteType = "GFX_steelmaking_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "steam_engine"
+					position = { x= @SLOT_4 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="steam_engine_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="steam_engine_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "steam_engine_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="steam_engine_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="steam_engine_icon"
+						spriteType = "GFX_steam_engine_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+			}
+
+			containerWindowType = {
+				name = "age_5_container"
+				position = { x= 0 y= 560 }
+				iconType = {
+					name ="age_5"
+					spriteType = "GFX_age_five_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+
+				iconType = {
+					name ="age_5_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_5_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 5
+					pdx_tooltip = "age_5_tooltip"
+					pdx_tooltip_delayed = "age_5_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_5_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 5
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_5_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_5_locked"
+					pdx_tooltip_delayed = "age_5_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "renaissance_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_5_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_5_tooltip"
+					pdx_tooltip_delayed = "age_5_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "aerodynamics"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="aerodynamics_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="aerodynamics_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "aerodynamics_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="aerodynamics_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="aerodynamics_icon"
+						spriteType = "GFX_aerodynamics_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "improved_coal_engine"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="improved_coal_engine_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="improved_coal_engine_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "improved_coal_engine_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="improved_coal_engine_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="improved_coal_engine_icon"
+						spriteType = "GFX_improved_coal_engine_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+			}
+
+			containerWindowType = {
+				name = "age_6_container"
+				position = { x= 0 y= 700 }
+				iconType = {
+					name ="age_6"
+					spriteType = "GFX_age_six_bg"
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+
+
+				iconType = {
+					name ="age_6_glow"
+					spriteType = "GFX_tech_level_glow"
+					position = { x= 0 y = 0 }
+					Orientation = "UPPER_LEFT"
+				}
+				iconType = {
+					name ="age_6_icon_bg"
+					spriteType = "GFX_tech_level_bg"
+					position = { x=0 y=0 }
+					frame = 6
+					pdx_tooltip = "age_6_tooltip"
+					pdx_tooltip_delayed = "age_6_tooltip_delayed"
+				}
+				iconType = {
+					name ="age_6_icon"
+					spriteType = "GFX_tech_level_strip"
+					frame = 6
+					position = { x=0 y=0 }
+					alwaystransparent = yes
+				}
+				iconType = {
+					name ="age_6_lock"
+					spriteType = "GFX_tech_lock"
+					position = { x=0 y=0 }
+					pdx_tooltip = "age_6_locked"
+					pdx_tooltip_delayed = "age_6_tooltip_delayed"
+				}
+
+				instantTextBoxType = {
+					name = "industrialisation_tech"
+					position = { x = 70 y = 10 }
+					textureFile = ""
+					font = "hoi_33"
+					borderSize = { x = 0 y = 0}
+					text = "age_6_tech_title"
+					maxWidth = 600
+					maxHeight = 62
+					format = left
+					Orientation = "UPPER_LEFT"
+					pdx_tooltip = "age_6_tooltip"
+					pdx_tooltip_delayed = "age_6_tooltip_delayed"
+				}
+
+
+				containerWindowType = {
+					name = "advanced_gear"
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
+
+					iconType = {
+						name ="advanced_gear_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="advanced_gear_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "advanced_gear_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="advanced_gear_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="advanced_gear_icon"
+						spriteType = "GFX_advanced_gear_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "thermodynamics"
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="thermodynamics_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="thermodynamics_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "thermodynamics_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="thermodynamics_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="thermodynamics_icon"
+						spriteType = "GFX_thermodynamics_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+				containerWindowType = {
+					name = "modern_engine"
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+					
+					iconType = {
+						name ="modern_engine_1"
+						spriteType = "GFX_tech_unavailable"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					buttonType = {
+						name ="modern_engine_2"
+						spriteType = "GFX_tech_available"
+						position = { x= 0 y = 0 }
+						Orientation = "UPPER_LEFT"
+						
+						pdx_tooltip = "modern_engine_ttp"
+						pdx_tooltip_delayed = "unlock_tooltip"
+					}
+					iconType = {
+						name ="modern_engine_3"
+						spriteType = "GFX_tech_unlocked"
+						position = { x= 0 y= 0 }
+						alwaystransparent = yes
+					}
+					iconType = {
+						name ="modern_engine_icon"
+						spriteType = "GFX_modern_engine_medium"
+						position = { x= 4 y= 4 }
+						alwaystransparent = yes
+					}
+
+				}
+
+			}
+
+
+		}
+		
+	}
+}
