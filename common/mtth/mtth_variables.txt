@@ -190,3 +190,19 @@ war_weariness_peanalty_2 = {
 		add = war_weariness
 	}
 }
+
+
+allowed_bender_units = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bender_unit_cap = max_available_manpower_k }
+		multiply_temp_variable = { bender_unit_cap = modifier@bender_unit_factor }
+		clamp_temp_variable = {
+			var = bender_unit_cap
+			min = 0
+		}
+		multiply_temp_variable = { bender_unit_cap = 100 }
+		
+		add = bender_unit_cap
+	}
+}
