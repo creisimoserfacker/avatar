@@ -195,14 +195,69 @@ war_weariness_peanalty_2 = {
 allowed_bender_units = {
 	base = 0
 	modifier = {
+		set_temp_variable = { bender_population_k = max_manpower_k }
+		multiply_temp_variable = { bender_population_k = bender_percentage }
+
 		set_temp_variable = { bender_unit_cap = max_available_manpower_k }
-		multiply_temp_variable = { bender_unit_cap = modifier@bender_unit_factor }
+
+		set_temp_variable = { nonbender_ratio = 1 }
+		subtract_from_temp_variable = { nonbender_ratio = bender_percentage }
+
+		set_temp_variable = { nonbender_factor = 1 }
+		add_to_temp_variable = { nonbender_factor = modifier@nonbender_factor }
+
+		multiply_temp_variable = { nonbender_ratio = nonbender_factor }
+
+		set_temp_variable = { bender_unit_ratio = 1 }
+		subtract_from_temp_variable = { bender_unit_ratio = nonbender_ratio }
+
+		multiply_temp_variable = { bender_unit_cap = bender_unit_ratio }
+
+		set_temp_variable = { bender_unit_factor = 1 }
+		add_to_temp_variable = { bender_unit_factor = modifier@bender_unit_factor }
+		clamp_temp_variable = {
+			var = bender_unit_factor
+			min = 0
+		}
+		multiply_temp_variable = { bender_unit_cap = bender_unit_factor }
 		clamp_temp_variable = {
 			var = bender_unit_cap
 			min = 0
+			max = bender_population_k
 		}
 		multiply_temp_variable = { bender_unit_cap = 100 }
 		
 		add = bender_unit_cap
+	}
+}
+
+nonbender_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { nonbender_modifier = -1 }
+		add_to_temp_variable = { nonbender_modifier = bender_percentage }
+
+		set_temp_variable = { nonbender_factor = modifier@nonbender_factor }
+		multiply_temp_variable = { nonbender_factor = -1 }
+		clamp_temp_variable = {
+			var = nonbender_factor
+			min = 0
+			max = 1
+		}
+
+		multiply_temp_variable = { nonbender_modifier = nonbender_factor }
+		
+		add = nonbender_modifier
+	}
+}
+
+bender_k = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bender_manpower_k = max_manpower_k }
+
+		multiply_temp_variable = { bender_manpower_k = bender_percentage }
+		
+		add = bender_manpower_k
 	}
 }

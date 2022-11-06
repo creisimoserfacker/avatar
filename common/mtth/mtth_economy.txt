@@ -9,7 +9,43 @@ local_resource_factor = {
 	}
 }
 
+fuel_cost = {
+	base = 0
+	modifier = {
+		set_temp_variable = { modifier_1 = smithy_count }
+		multiply_temp_variable = { modifier_1 = smithy_fuel }
 
+		set_temp_variable = { modifier_2 = steelworks_count }
+		multiply_temp_variable = { modifier_2 = steelworks_fuel }
+
+		add_to_temp_variable = { modifier_1 = modifier_2 }
+
+		set_temp_variable = { modifier_3 = factory_count }
+		multiply_temp_variable = { modifier_3 = factory_fuel }
+
+		add_to_temp_variable = { modifier_1 = modifier_3 }
+
+		set_temp_variable = { modifier_4 = dockyard_count }
+		multiply_temp_variable = { modifier_4 = dockyard_fuel }
+
+		add_to_temp_variable = { modifier_1 = modifier_4 }
+
+		set_temp_variable = { modifier_5 = steel_beam_factory_count }
+		multiply_temp_variable = { modifier_5 = steel_beam_factory_fuel }
+
+		add_to_temp_variable = { modifier_1 = modifier_5 }
+
+
+		multiply_temp_variable = { modifier_1 = 0.02 }
+
+		set_temp_variable = { fuel_factor = 1 }
+		add_to_temp_variable = { fuel_factor = modifier@fuel_burning }
+
+		multiply_temp_variable = { modifier_1 = fuel_factor }
+
+		add = modifier_1
+	}
+}
 
 
 crop_cost = {
