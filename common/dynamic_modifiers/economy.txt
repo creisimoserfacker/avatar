@@ -72,7 +72,7 @@ extreme_poverty = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
+			check_variable = { average_gdp_netto < cost_of_living_half }
 		}
 	}
 	research_speed_factor = -0.3
@@ -82,8 +82,32 @@ poverty = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
+				check_variable = { average_gdp_netto < cost_of_living_75 }
+				check_variable = { average_gdp_netto > cost_of_living_half }
+			}
+		}
+	}
+	research_speed_factor = -0.15
+}
+struggeling = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			AND = {
+				check_variable = { average_gdp_netto < cost_of_living }
+				check_variable = { average_gdp_netto > cost_of_living_75 }
+			}
+		}
+	}
+	research_speed_factor = -0.15
+}
+middeling = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			AND = {
+				check_variable = { average_gdp_netto < cost_of_living_150 }
+				check_variable = { average_gdp_netto > cost_of_living }
 			}
 		}
 	}
@@ -94,8 +118,8 @@ wealth = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
+				check_variable = { average_gdp_netto < cost_of_living_double }
+				check_variable = { average_gdp_netto > cost_of_living_150 }
 			}
 		}
 	}
@@ -105,8 +129,31 @@ extreme_wealth = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
+			check_variable = { average_gdp_netto > cost_of_living_double }
 		}
 	}
 	research_speed_factor = 0.2
+}
+
+
+workless_debuff = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { workless_malus > 0 }
+			check_variable = { workless_malus = 0 }
+		}
+	}
+	stability_factor = workless_malus
+}
+
+missing_workers = {
+	enable = { always = yes }
+	remove_trigger = {
+		OR = {
+			check_variable = { worker_deficit_malus > 0 }
+			check_variable = { worker_deficit_malus = 0 }
+		}
+	}
+	local_resources_factor = worker_deficit_malus
 }

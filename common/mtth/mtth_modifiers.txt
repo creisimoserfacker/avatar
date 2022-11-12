@@ -1,0 +1,120 @@
+
+
+inflation_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_variable = { factor = modifier@currency_amount }
+		clamp_variable = { var = factor min = 0.1 }
+		add = factor
+	}
+}
+
+farmer_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@farmer_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+miller_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@miller_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+fisher_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@fisher_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+rancher_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@rancher_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+lumberjack_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@lumberjack_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+miner_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@miner_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+weaver_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@weaver_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+smith_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@smith_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+harbour_worker_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@harbour_worker_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+shopkeeper_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@shopkeeper_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+craftsman_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@craftsman_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+industrial_worker_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@industrial_worker_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}

@@ -19,6 +19,14 @@ on_actions = {
 				}
 				add_dynamic_modifier = { modifier = factory_resource_consumption }
 			}
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = population_resource_bought_on_market }
+					}
+				}
+				add_dynamic_modifier = { modifier = population_resource_bought_on_market }
+			}
 
 			if = {
 				limit = {

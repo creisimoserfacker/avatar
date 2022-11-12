@@ -705,7 +705,7 @@ guiTypes = {
 	
 			iconType ={
 				name ="consumer_goods_icon"
-				spriteType = "GFX_consumer_goods_econ"
+				spriteType = "GFX_local_market"
 				position = { x= 7 y = 69 }
 				Orientation = "UPPER_LEFT"
 				scale = 1
@@ -714,10 +714,10 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "consumer_goods_title"
-				position = {x = 64 y = 76}
+				position = {x = 44 y = 76}
 				font = "hoi_18mbs"
 				text = "consumer_goods_title"
-				maxWidth = 120
+				maxWidth = 140
 				maxHeight = 20
 				format = right
 				pdx_tooltip = "consumer_goods0"
@@ -728,7 +728,7 @@ guiTypes = {
 				position = {x = 200 y = 76}
 				font = "hoi_18mbs"
 				text = "consumer_goods_supply"
-				maxWidth = 140
+				maxWidth = 240
 				maxHeight = 20
 				format = left
 				pdx_tooltip = "consumer_goods"
@@ -752,6 +752,24 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "poverty_extended"
 				pdx_tooltip_delayed = "poverty_delayed"
+			}
+			iconType ={
+				name ="struggeling_icon"
+				spriteType = "GFX_idea_struggeling"
+				position = { x= 340 y = 68 }
+				scale = 0.5
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "struggeling_extended"
+				pdx_tooltip_delayed = "struggeling_delayed"
+			}
+			iconType ={
+				name ="middeling_icon"
+				spriteType = "GFX_idea_middeling"
+				position = { x= 340 y = 68 }
+				scale = 0.5
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "middeling_extended"
+				pdx_tooltip_delayed = "middeling_delayed"
 			}
 			iconType ={
 				name ="wealth_icon"
@@ -808,19 +826,51 @@ guiTypes = {
 				format = left
 				pdx_tooltip = "workers_tooltip"
 			}
+
+			iconType ={
+				name ="workless_icon"
+				spriteType = "GFX_workless"
+				position = { x= 46 y = 44 }
+				Orientation = "UPPER_LEFT"
+				scale = 0.50
+				pdx_tooltip = "workless1"
+				pdx_tooltip_delayed = "workless_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "workless_title"
+				position = {x = -66 y = 46}
+				font = "hoi_18mbs"
+				text = "workless_title"
+				maxWidth = 250
+				maxHeight = 20
+				format = right
+				pdx_tooltip = "workless1"
+				pdx_tooltip_delayed = "workless_tooltip_delayed"
+			}
+			instantTextboxType = {
+				name = "workless_count"
+				position = {x = 200 y = 46}
+				font = "hoi_18mbs"
+				text = "workless_count"
+				maxWidth = 130
+				maxHeight = 20
+				format = left
+				pdx_tooltip = "workless2"
+				pdx_tooltip_delayed = "workless_tooltip_delayed"
+			}
 	
 			iconType ={
 				name ="self_sufficient_icon"
 				spriteType = "GFX_self_sufficient"
-				position = { x= 16 y = 44 }
+				position = { x= 46 y = 74 }
 				Orientation = "UPPER_LEFT"
-				scale = 0.60
+				scale = 0.50
 				pdx_tooltip = "self_sufficient1"
 				pdx_tooltip_delayed = "self_sufficient_delayed"
 			}
 			instantTextboxType = {
 				name = "self_sufficient_title"
-				position = {x = -66 y = 46}
+				position = {x = -66 y = 76}
 				font = "hoi_18mbs"
 				text = "self_sufficient_title"
 				maxWidth = 250
@@ -831,7 +881,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "self_sufficient_count"
-				position = {x = 200 y = 46}
+				position = {x = 200 y = 76}
 				font = "hoi_18mbs"
 				text = "self_sufficient_count"
 				maxWidth = 130
@@ -842,7 +892,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "surplus_resource_buff"
-				position = {x = 326 y = 46}
+				position = {x = 326 y = 76}
 				font = "hoi_18mbs"
 				text = "surplus_resource_buff"
 				maxWidth = 100
@@ -854,7 +904,7 @@ guiTypes = {
 			iconType ={
 				name ="surplus_resource_icon"
 				spriteType = "GFX_resource_surplus"
-				position = {x = 386 y = 46}
+				position = {x = 386 y = 76}
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "surplus_resource_ttp"
 				pdx_tooltip_delayed = "surplus_resource_buff_ttp_delayed"
@@ -863,15 +913,15 @@ guiTypes = {
 			iconType ={
 				name ="employed_icon"
 				spriteType = "GFX_employed"
-				position = { x= 14 y = 72 }
+				position = { x= 46 y = 104 }
 				Orientation = "UPPER_LEFT"
-				scale = 0.65
+				scale = 0.50
 				pdx_tooltip = "employed_tooltip0"
 				pdx_tooltip_delayed = "employed_tooltip_delayed"
 			}
 			instantTextboxType = {
 				name = "employed_title"
-				position = {x = 86 y = 76}
+				position = {x = 86 y = 104}
 				font = "hoi_18mbs"
 				text = "employed_title"
 				maxWidth = 100
@@ -882,7 +932,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "employed_count"
-				position = {x = 200 y = 76}
+				position = {x = 200 y = 104}
 				font = "hoi_18mbs"
 				text = "employed_count"
 				maxWidth = 120
@@ -893,7 +943,7 @@ guiTypes = {
 			}
 			instantTextboxType = {
 				name = "construction_resource_buff"
-				position = {x = 326 y = 74}
+				position = {x = 326 y = 102}
 				font = "hoi_18mbs"
 				text = "construction_resource_buff"
 				maxWidth = 100
@@ -905,7 +955,7 @@ guiTypes = {
 			iconType ={
 				name ="construction_resource_icon"
 				spriteType = "GFX_building_cost"
-				position = {x = 386 y = 74}
+				position = {x = 386 y = 102}
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "construction_resource_ttp"
 				pdx_tooltip_delayed = "construction_resource_buff_ttp_delayed"
@@ -913,60 +963,9 @@ guiTypes = {
 
 		}
 
-		#iconType ={
-		#	name ="trade_icon"
-		#	spriteType = "GFX_trade"
-		#	position = { x= 430 y = 46 }
-		#	Orientation = "UPPER_LEFT"
-		#	pdx_tooltip = "trade"
-		#	pdx_tooltip_delayed = "trade_delayed"
-		#}
-		#instantTextboxType = {
-		#	name = "import"
-		#	position = {x = 432 y = 96}
-		#	font = "hoi_18mbs"
-		#	text = "import_text"
-		#	maxWidth = 120
-		#	maxHeight = 50
-		#	format = left
-		#	pdx_tooltip = "import"
-		#	pdx_tooltip_delayed = "import_delayed"
-		#}
-		#instantTextboxType = {
-		#	name = "export"
-		#	position = {x = 432 y = 134}
-		#	font = "hoi_18mbs"
-		#	text = "export_text"
-		#	maxWidth = 120
-		#	maxHeight = 50
-		#	format = left
-		#	pdx_tooltip = "export"
-		#	pdx_tooltip_delayed = "export_delayed"
-		#}
-
-		#iconType ={
-		#	name ="state_icon"
-		#	spriteType = "GFX_state_type"
-		#	position = { x= 430 y = 186 }
-		#	Orientation = "UPPER_LEFT"
-		#	pdx_tooltip = "state_type_steal"
-		#	pdx_tooltip_delayed = "state_type_steal_delayed"
-		#}
-		#instantTextboxType = {
-		#	name = "state_steal"
-		#	position = {x = 468 y = 192}
-		#	font = "hoi_24header"
-		#	text = "state_steal_number"
-		#	maxWidth = 100
-		#	maxHeight = 20
-		#	format = left
-		#	pdx_tooltip = "construction_capacity_tooltip"
-		#	pdx_tooltip_delayed = "construction_capacity_tooltip_delayed"
-		#}
-
 		containerWindowType = {
 			name = "stat_bar"
-			position = {x=-10 y=270}
+			position = {x=-10 y=300}
 			size = { width=236 height=296 }
 
 			iconType ={
