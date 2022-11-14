@@ -10,6 +10,113 @@ inflation_factor = {
 	}
 }
 
+grain_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@grain_demand } 
+		add = factor
+	}
+}
+animal_products_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@animal_products_demand } 
+		add = factor
+	}
+}
+textile_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@textile_demand } 
+		add = factor
+	}
+}
+wood_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@wood_demand } 
+		add = factor
+	}
+}
+minerals_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@minerals_demand } 
+		add = factor
+	}
+}
+fossile_fuels_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@fossile_fuels_demand } 
+		add = factor
+	}
+}
+iron_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@iron_demand } 
+		add = factor
+	}
+}
+steel_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@steel_demand } 
+		add = factor
+	}
+}
+consumer_goods_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@consumer_goods_demand } 
+		add = factor
+	}
+}
+luxury_goods_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@luxury_goods_demand } 
+		add = factor
+	}
+}
+planks_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@planks_demand } 
+		add = factor
+	}
+}
+bricks_demand = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_variable = { factor = modifier@bricks_demand } 
+		add = factor
+	}
+}
+
+upkeep_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@building_upkeep_factor }
+		clamp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
 farmer_factor = {
 	base = 0
 	modifier = {
