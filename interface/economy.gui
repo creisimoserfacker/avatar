@@ -590,24 +590,24 @@ guiTypes = {
 			iconType ={
 				name ="population_icon"
 				spriteType = "GFX_population_icon"
-				position = { x= 10 y = 8 }
+				position = { x= 80 y = 8 }
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "population_tooltip"
 			}
 	
 			instantTextboxType = {
 				name = "population_title"
-				position = {x = -66 y = 12}
+				position = {x = 46 y = 12}
 				font = "hoi_24header"
 				text = "population_title"
-				maxWidth = 250
+				maxWidth = 200
 				maxHeight = 20
 				format = right
 				pdx_tooltip = "population_tooltip"
 			}
 			instantTextboxType = {
 				name = "population_count"
-				position = {x = 200 y = 12}
+				position = {x = 255 y = 12}
 				font = "hoi_24header"
 				text = "population_count"
 				maxWidth = 160
@@ -616,17 +616,9 @@ guiTypes = {
 				pdx_tooltip = "population_tooltip"
 			}
 	
-			iconType ={
-				name ="food_icon"
-				spriteType = "GFX_rations_icon"
-				position = { x= 16 y = 42 }
-				Orientation = "UPPER_LEFT"
-				pdx_tooltip = "foodstuffs0"
-				pdx_tooltip_delayed = "foodstuffs_delayed"
-			}
 			instantTextboxType = {
 				name = "food_title"
-				position = {x = 64 y = 46}
+				position = {x = 224 y = 48}
 				font = "hoi_18mbs"
 				text = "food_title"
 				maxWidth = 120
@@ -635,23 +627,12 @@ guiTypes = {
 				pdx_tooltip = "foodstuffs0"
 				pdx_tooltip_delayed = "foodstuffs_delayed"
 			}
-			#instantTextboxType = {
-			#	name = "food_count"
-			#	position = {x = 200 y = 46}
-			#	font = "hoi_18mbs"
-			#	text = "food_count"
-			#	maxWidth = 80
-			#	maxHeight = 20
-			#	format = left
-			#	pdx_tooltip = "foodstuffs"
-			#	pdx_tooltip_delayed = "foodstuffs_delayed"
-			#}
 
 			iconType ={
 				name ="famine_icon"
 				spriteType = "GFX_idea_famine"
-				position = { x= 340 y = 38 }
-				scale = 0.5
+				position = { x= 350 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "famine_extended"
 				pdx_tooltip_delayed = "famine_delayed"
@@ -659,8 +640,8 @@ guiTypes = {
 			iconType ={
 				name ="food_shortages_icon"
 				spriteType = "GFX_idea_food_shortages"
-				position = { x= 340 y = 38 }
-				scale = 0.5
+				position = { x= 350 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "food_shortages_extended"
 				pdx_tooltip_delayed = "food_shortages_delayed"
@@ -668,78 +649,74 @@ guiTypes = {
 			iconType ={
 				name ="food_surplus_icon"
 				spriteType = "GFX_idea_food_surplus"
-				position = { x= 340 y = 38 }
-				scale = 0.5
+				position = { x= 350 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "food_surplus_extended"
 				pdx_tooltip_delayed = "food_surplus_delayed"
 			}
-			iconType = {
-				name ="large_ratio_bar"
-				spriteType = "GFX_large_ration_bar"
-				position = { x= 200 y = 50 }
-				frame = 50
-				#alwaystransparent = yes
-				pdx_tooltip = "ration_topbar_tooltip"
-				pdx_tooltip_delayed = "ration_topbar_tooltip_delayed"
-			}
 			iconType ={
 				name ="burgerking_icon"
 				spriteType = "GFX_idea_burgerking"
-				position = { x= 340 y = 38 }
-				scale = 0.5
+				position = { x= 350 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "burgerking_extended"
 				pdx_tooltip_delayed = "burgerking_delayed"
 			}
 
-			#buttonType = {
-			#	name ="ration_logistics"
-			#	spriteType = "GFX_ration_logistics"
-			#	position = { x = 380 y = 38 }
-			#	Orientation = "UPPER_LEFT"
-			#	clicksound = click_default
-			#	pdx_tooltip = "ration_logistics_ttp"
-			#	pdx_tooltip_delayed = "ration_logistics_ttp_delayed"
-			#}
-	
-			iconType ={
-				name ="consumer_goods_icon"
-				spriteType = "GFX_local_market"
-				position = { x= 7 y = 69 }
+			iconType = {
+				name = "rations_bg"
+				spriteType = "GFX_generic_box_ratio"
+				position = { x= 237 y = 79 }
 				Orientation = "UPPER_LEFT"
-				scale = 1
-				pdx_tooltip = "consumer_goods0"
-				pdx_tooltip_delayed = "consumergoods_delayed"
+				pdx_tooltip = "ration_topbar_tooltip"
+				pdx_tooltip_delayed = "ration_topbar_tooltip_delayed"
 			}
+			iconType = {
+				name ="large_ratio_bar"
+				spriteType = "GFX_large_ration_bar"
+				position = { x= 240 y = 80 }
+				frame = 50
+				alwaystransparent = yes
+			}
+
+	
 			instantTextboxType = {
 				name = "consumer_goods_title"
-				position = {x = 44 y = 76}
+				position = {x = 16 y = 48}
 				font = "hoi_18mbs"
 				text = "consumer_goods_title"
 				maxWidth = 140
 				maxHeight = 20
-				format = right
+				format = left
 				pdx_tooltip = "consumer_goods0"
 				pdx_tooltip_delayed = "consumer_goods_delayed"
 			}
+			iconType = {
+				name = "consumer_goods_bg"
+				spriteType = "GFX_generic_box_125"
+				position = {x = 20 y = 73}
+				Orientation = "UPPER_LEFT"
+				pdx_tooltip = "consumer_goods"
+				pdx_tooltip_delayed = "consumergoods_delayed"
+			}
 			instantTextboxType = {
 				name = "consumer_goods_count"
-				position = {x = 200 y = 76}
+				position = {x = -8 y = 76}
 				font = "hoi_18mbs"
 				text = "consumer_goods_supply"
-				maxWidth = 240
+				maxWidth = 180
 				maxHeight = 20
-				format = left
-				pdx_tooltip = "consumer_goods"
-				pdx_tooltip_delayed = "consumer_goods_delayed"
+				format = center
+				alwaystransparent = yes
 			}
 
 			iconType ={
 				name ="extreme_poverty_icon"
 				spriteType = "GFX_idea_extreme_poverty"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "extreme_poverty_extended"
 				pdx_tooltip_delayed = "extreme_poverty_delayed"
@@ -747,8 +724,8 @@ guiTypes = {
 			iconType ={
 				name ="poverty_icon"
 				spriteType = "GFX_idea_poverty"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "poverty_extended"
 				pdx_tooltip_delayed = "poverty_delayed"
@@ -756,8 +733,8 @@ guiTypes = {
 			iconType ={
 				name ="struggeling_icon"
 				spriteType = "GFX_idea_struggeling"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "struggeling_extended"
 				pdx_tooltip_delayed = "struggeling_delayed"
@@ -765,8 +742,8 @@ guiTypes = {
 			iconType ={
 				name ="middeling_icon"
 				spriteType = "GFX_idea_middeling"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "middeling_extended"
 				pdx_tooltip_delayed = "middeling_delayed"
@@ -774,8 +751,8 @@ guiTypes = {
 			iconType ={
 				name ="wealth_icon"
 				spriteType = "GFX_idea_wealth"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "wealth_extended"
 				pdx_tooltip_delayed = "wealth_delayed"
@@ -783,8 +760,8 @@ guiTypes = {
 			iconType ={
 				name ="extreme_wealth_icon"
 				spriteType = "GFX_idea_extreme_wealth"
-				position = { x= 340 y = 68 }
-				scale = 0.5
+				position = { x= 155 y = 38 }
+				scale = 1
 				Orientation = "UPPER_LEFT"
 				pdx_tooltip = "extreme_wealth_extended"
 				pdx_tooltip_delayed = "extreme_wealth_delayed"
@@ -800,7 +777,7 @@ guiTypes = {
 			iconType ={
 				name ="workers_icon"
 				spriteType = "GFX_workers"
-				position = { x= 14 y = 10 }
+				position = { x= 54 y = 10 }
 				Orientation = "UPPER_LEFT"
 				scale = 0.75
 				pdx_tooltip = "workers_tooltip"
@@ -827,100 +804,122 @@ guiTypes = {
 				pdx_tooltip = "workers_tooltip"
 			}
 
-			iconType ={
-				name ="workless_icon"
-				spriteType = "GFX_workless"
-				position = { x= 46 y = 44 }
-				Orientation = "UPPER_LEFT"
-				scale = 0.50
-				pdx_tooltip = "workless1"
-				pdx_tooltip_delayed = "workless_tooltip_delayed"
-			}
-			instantTextboxType = {
-				name = "workless_title"
-				position = {x = -66 y = 46}
-				font = "hoi_18mbs"
-				text = "workless_title"
-				maxWidth = 250
-				maxHeight = 20
-				format = right
-				pdx_tooltip = "workless1"
-				pdx_tooltip_delayed = "workless_tooltip_delayed"
-			}
-			instantTextboxType = {
-				name = "workless_count"
-				position = {x = 200 y = 46}
-				font = "hoi_18mbs"
-				text = "workless_count"
-				maxWidth = 130
-				maxHeight = 20
-				format = left
-				pdx_tooltip = "workless2"
-				pdx_tooltip_delayed = "workless_tooltip_delayed"
-			}
-	
-			iconType ={
-				name ="self_sufficient_icon"
-				spriteType = "GFX_self_sufficient"
-				position = { x= 46 y = 74 }
-				Orientation = "UPPER_LEFT"
-				scale = 0.50
-				pdx_tooltip = "self_sufficient1"
-				pdx_tooltip_delayed = "self_sufficient_delayed"
-			}
-			instantTextboxType = {
-				name = "self_sufficient_title"
-				position = {x = -66 y = 76}
-				font = "hoi_18mbs"
-				text = "self_sufficient_title"
-				maxWidth = 250
-				maxHeight = 20
-				format = right
-				pdx_tooltip = "self_sufficient1"
-				pdx_tooltip_delayed = "self_sufficient_delayed"
-			}
-			instantTextboxType = {
-				name = "self_sufficient_count"
-				position = {x = 200 y = 76}
-				font = "hoi_18mbs"
-				text = "self_sufficient_count"
-				maxWidth = 130
-				maxHeight = 20
-				format = left
-				pdx_tooltip = "self_sufficient2"
-				pdx_tooltip_delayed = "self_sufficient_delayed"
+
+			containerWindowType = {
+				name = "workless_container"
+				position = {x=0 y=0}
+				size = { width=236 height=296 }
+
+				iconType ={
+					name ="workless_icon"
+					spriteType = "GFX_workless"
+					position = { x= 36 y = 50 }
+					Orientation = "UPPER_LEFT"
+					scale = 1
+					pdx_tooltip = "workless1"
+					pdx_tooltip_delayed = "workless_tooltip_delayed"
+				}
+				instantTextboxType = {
+					name = "workless_title"
+					position = {x = 0 y = 92}
+					font = "hoi_18mbs"
+					text = "workless_title"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "workless1"
+					pdx_tooltip_delayed = "workless_tooltip_delayed"
+				}
+				instantTextboxType = {
+					name = "workless_count"
+					position = {x = 0 y = 112}
+					font = "hoi_18mbs"
+					text = "workless_count"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "workless2"
+					pdx_tooltip_delayed = "workless_tooltip_delayed"
+				}
+
 			}
 	
-			iconType ={
-				name ="employed_icon"
-				spriteType = "GFX_employed"
-				position = { x= 46 y = 104 }
-				Orientation = "UPPER_LEFT"
-				scale = 0.50
-				pdx_tooltip = "employed_tooltip0"
-				pdx_tooltip_delayed = "employed_tooltip_delayed"
+			containerWindowType = {
+				name = "self_sufficient_container"
+				position = {x=140 y=0}
+				size = { width=236 height=296 }
+
+				iconType ={
+					name ="self_sufficient_icon"
+					spriteType = "GFX_self_sufficient"
+					position = { x= 36 y = 50 }
+					Orientation = "UPPER_LEFT"
+					scale = 1
+					pdx_tooltip = "self_sufficient1"
+					pdx_tooltip_delayed = "self_sufficient_delayed"
+				}
+				instantTextboxType = {
+					name = "self_sufficient_title"
+					position = {x = 0 y = 92}
+					font = "hoi_18mbs"
+					text = "self_sufficient_title"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "self_sufficient1"
+					pdx_tooltip_delayed = "self_sufficient_delayed"
+				}
+				instantTextboxType = {
+					name = "self_sufficient_count"
+					position = {x = 0 y = 112}
+					font = "hoi_18mbs"
+					text = "self_sufficient_count"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "self_sufficient2"
+					pdx_tooltip_delayed = "self_sufficient_delayed"
+				}
+
 			}
-			instantTextboxType = {
-				name = "employed_title"
-				position = {x = 86 y = 104}
-				font = "hoi_18mbs"
-				text = "employed_title"
-				maxWidth = 100
-				maxHeight = 20
-				format = right
-				pdx_tooltip = "employed_tooltip1"
-				pdx_tooltip_delayed = "employed_tooltip_delayed"
-			}
-			instantTextboxType = {
-				name = "employed_count"
-				position = {x = 200 y = 104}
-				font = "hoi_18mbs"
-				text = "employed_count"
-				maxWidth = 120
-				maxHeight = 20
-				format = left
-				pdx_tooltip = "employed_tooltip2"
-				pdx_tooltip_delayed = "employed_tooltip_delayed"
+
+			containerWindowType = {
+				name = "employed_container"
+				position = {x=280 y=0}
+				size = { width=236 height=296 }
+	
+				iconType ={
+					name ="employed_icon"
+					spriteType = "GFX_employed"
+					position = { x= 36 y = 50 }
+					Orientation = "UPPER_LEFT"
+					scale = 1
+					pdx_tooltip = "employed_tooltip0"
+					pdx_tooltip_delayed = "employed_tooltip_delayed"
+				}
+				instantTextboxType = {
+					name = "employed_title"
+					position = {x = 0 y = 92}
+					font = "hoi_18mbs"
+					text = "employed_title"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "employed_tooltip1"
+					pdx_tooltip_delayed = "employed_tooltip_delayed"
+				}
+				instantTextboxType = {
+					name = "employed_count"
+					position = {x = 0 y = 112}
+					font = "hoi_18mbs"
+					text = "employed_count"
+					maxWidth = 120
+					maxHeight = 20
+					format = center
+					pdx_tooltip = "employed_tooltip2"
+					pdx_tooltip_delayed = "employed_tooltip_delayed"
+				}
+
 			}
 
 		}
