@@ -464,42 +464,55 @@ on_actions = {
 
 			set_variable = { steel_price = resource@steel }
 			multiply_variable = { steel_price = steel_need }
+			multiply_variable = { steel_price = -1 }
 
 			set_variable = { animal_products_price = resource@chromium }
 			multiply_variable = { animal_products_price = animal_products_need }
+			multiply_variable = { animal_products_price = -1 }
 
 			set_variable = { wood_price = resource@aluminium }
 			multiply_variable = { wood_price = wood_need }
+			multiply_variable = { wood_price = -1 }
 
 			set_variable = { iron_price = resource@iron }
 			multiply_variable = { iron_price = iron_need }
+			multiply_variable = { iron_price = -1 }
 
 			set_variable = { textile_price = resource@tungsten }
 			multiply_variable = { textile_price = textile_need }
+			multiply_variable = { textile_price = -1 }
 
 			set_variable = { minerals_price = resource@stone }
 			multiply_variable = { minerals_price = minerals_need }
+			multiply_variable = { minerals_price = -1 }
 
 			set_variable = { grain_price = resource@oil }
 			multiply_variable = { grain_price = grain_need }
+			multiply_variable = { grain_price = -1 }
 
 			set_variable = { fossile_fuels_price = resource@rubber }
 			multiply_variable = { fossile_fuels_price = fossile_fuels_need }
+			multiply_variable = { fossile_fuels_price = -1 }
 
 			set_variable = { consumer_goods_price = resource@consumer_goods_resource }
 			multiply_variable = { consumer_goods_price = consumer_goods_need }
+			multiply_variable = { consumer_goods_price = -1 }
 
 			set_variable = { luxury_goods_price = resource@luxury_goods_resource }
 			multiply_variable = { luxury_goods_price = luxury_goods_need }
+			multiply_variable = { luxury_goods_price = -1 }
 
 			set_variable = { planks_price = resource@planks_resource }
 			multiply_variable = { planks_price = planks_need }
+			multiply_variable = { planks_price = -1 }
 
 			set_variable = { bricks_price = resource@bricks_resource }
 			multiply_variable = { bricks_price = bricks_need }
+			multiply_variable = { bricks_price = -1 }
 
 			set_variable = { steel_beams_price = resource@steel_beams_resource }
 			multiply_variable = { steel_beams_price = steel_beams_need }
+			multiply_variable = { steel_beams_price = -1 }
 
 	
 
@@ -599,12 +612,14 @@ on_actions = {
 
 			set_variable = { average_gdp = country_gdp }
 			add_to_variable = { average_gdp = self_employed_gdp }
+			divide_variable = { average_gdp = 2 }
 
 			set_variable = { average_gdp_per_capita = average_gdp }
 			divide_variable = { average_gdp_per_capita = max_manpower_k }
 
 			set_variable = { average_gdp_netto = country_gdp_netto }
 			add_to_variable = { average_gdp_netto = self_employed_gdp_netto }
+			divide_variable = { average_gdp_netto = 2 }
 
 			set_variable = { average_gdp_per_capita_netto = average_gdp_netto }
 			divide_variable = { average_gdp_per_capita_netto = max_manpower_k }
@@ -634,6 +649,10 @@ on_actions = {
 				min = -1
 				max = 1
 			}
+
+			set_variable = { average_market_price = resource_surplus }
+
+			multiply_variable = { resource_surplus = -1 }
 
 
 			set_variable = { cost_of_living = average_gdp }
@@ -720,13 +739,25 @@ on_actions = {
 
 
 
+			set_variable = { total_tax_money = self_employed_tax }
+			add_to_variable = { total_tax_money = country_tax }
 
+			set_variable = { self_employed_tax_percentage_of_gdp = self_employed_tax }
+			divide_variable = { self_employed_tax_percentage_of_gdp = cost_of_living }
 
-			set_variable = { stolen_to_construct = self_employed_output }
-			multiply_variable = { stolen_to_construct = modifier@taxation }
+			set_variable = { country_tax_percentage_of_gdp = country_tax }
+			divide_variable = { country_tax_percentage_of_gdp = cost_of_living }
+
+			set_variable = { tax_balance = total_tax_money }
+
+			set_variable = { state_expenses = modifier@expenses_factor }
+			clamp_variable = { var = state_expenses  min = 0 }
+			multiply_variable = { state_expenses = -1 }
+			add_to_variable = { tax_balance = state_expenses }
+
 
 			set_variable = { remaining_capacity = 1 }
-			subtract_from_variable = { remaining_capacity = modifier@taxation }
+			subtract_from_variable = { remaining_capacity = self_employed_tax_percentage_of_gdp }
 			set_variable = { capacity_for_food_supply = remaining_capacity }
 
 			set_variable = { peasant_food_factor_var = 1 }
@@ -793,19 +824,13 @@ on_actions = {
 			multiply_variable = { fake_buildings = 2 }
 
 			add_to_variable = { building_factor = fake_buildings }
-			set_variable = { upkeep_factor = 1 }
-			add_to_variable = { upkeep_factor = modifier@building_upkeep_factor }
-			clamp_variable = {
-				var = upkeep_factor
-				min = 0
-			}
-			multiply_variable = { building_factor = upkeep_factor }
+			multiply_variable = { building_factor = mtth:upkeep_factor }
 
 			subtract_from_variable = { construction_material = building_factor }
 			divide_variable = { construction_material = building_factor }
 			clamp_variable = {
 				var = construction_material
-				min = -0.5
+				min = -0.75
 				max = 1
 			}
 			set_variable = { construction_material_factor = 1 }
@@ -820,21 +845,23 @@ on_actions = {
 
 			#### civil capacity
 
-			set_variable = { ic = 0 }
 			set_variable = { employed_ic = employed_population_k }
 			multiply_variable = { employed_ic = 2 }
-			multiply_variable = { employed_ic = construction_material_factor }
 			set_variable = { employed_ic_show = employed_ic }
-			multiply_variable = { employed_ic = modifier@taxation }
-			add_to_variable = { ic = employed_ic }
+			multiply_variable = { employed_ic = country_tax_percentage_of_gdp }
 
 			set_variable = { employed_total_output = employed_ic }
 			add_to_variable = { employed_total_output = consumer_good_supply }
 			add_to_variable = { employed_total_output = employed_food_production }
 
-			add_to_variable = { ic = stolen_to_construct }
 
-			multiply_variable = { ic = consumer_fulfilled_ratio }
+			set_variable = { factories_bought = tax_balance }
+			multiply_variable = { factories_bought = 10 }
+			round_variable = factories_bought
+
+			set_variable = { ic = factories_bought }
+
+			multiply_variable = { ic = construction_material_factor }
 
 			set_variable = { ic_factor = 1 }
 			add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
@@ -896,10 +923,6 @@ on_actions = {
 			}
 
 			add_to_variable = { ic = military_ic_transfer }
-
-			set_variable = { expenses_variable = ic }
-			multiply_variable = { expenses_variable = modifier@expenses_factor }
-			subtract_from_variable = { ic = expenses_variable }
 
 			round_variable = ic
 			clamp_variable = { 
