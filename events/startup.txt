@@ -56,26 +56,44 @@ country_event = {
 		set_variable = { air_base_count = 0 }
 		every_controlled_state = {
 			add_to_variable = { ROOT.farm_count = building_level@farm }
-			add_to_variable = { ROOT.mill_count = building_level@mill }
+			set_variable = { mill_count = building_level@mill }
+			multiply_variable = { mill_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.mill_count = mill_count }
 			add_to_variable = { ROOT.fishing_stand_count = building_level@fishing_stand }
 			add_to_variable = { ROOT.ranch_count = building_level@ranch }
 			add_to_variable = { ROOT.lumber_mill_count = building_level@lumber_mill }
 			add_to_variable = { ROOT.quarry_count = building_level@quarry }
-			add_to_variable = { ROOT.crop_weaving_count = building_level@crop_weaving }
+			set_variable = { crop_weaving_count = building_level@crop_weaving }
+			multiply_variable = { crop_weaving_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.crop_weaving_count = crop_weaving_count }
+			set_variable = { animal_weaving_count = building_level@animal_weaving }
+			multiply_variable = { animal_weaving_count = mtth:local_resource_factor }
 			add_to_variable = { ROOT.animal_weaving_count = building_level@animal_weaving }
 			add_to_variable = { ROOT.mine_count = building_level@mine }
-			add_to_variable = { ROOT.steelworks_count = building_level@steelworks }
+			set_variable = { steelworks_count = building_level@steelworks }
+			multiply_variable = { steelworks_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.steelworks_count = steelworks_count }
 
 			add_to_variable = { ROOT.smithy_count = building_level@arms_factory }
 			add_to_variable = { ROOT.factory_count = building_level@factory }
 			add_to_variable = { ROOT.harbour_count = building_level@harbour }
 			add_to_variable = { ROOT.dockyard_count = building_level@dockyard }
 			add_to_variable = { ROOT.manufactory_count = building_level@industrial_complex }
-			add_to_variable = { ROOT.consumer_good_factory_count = building_level@consumer_good_factory }
-			add_to_variable = { ROOT.luxury_good_factory_count = building_level@luxury_good_factory }
-			add_to_variable = { ROOT.carpentry_count = building_level@carpentry }
-			add_to_variable = { ROOT.masonry_count = building_level@masonry }
-			add_to_variable = { ROOT.steel_beam_factory_count = building_level@steel_beam_factory }
+			set_variable = { consumer_good_factory_count = building_level@consumer_good_factory }
+			multiply_variable = { consumer_good_factory_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.consumer_good_factory_count = consumer_good_factory_count }
+			set_variable = { luxury_good_factory_count = building_level@luxury_good_factory }
+			multiply_variable = { luxury_good_factory_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.luxury_good_factory_count = luxury_good_factory_count }
+			set_variable = { carpentry_count = building_level@carpentry }
+			multiply_variable = { carpentry_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.carpentry_count = carpentry_count }
+			set_variable = { masonry_count = building_level@masonry }
+			multiply_variable = { masonry_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.masonry_count = masonry_count }
+			set_variable = { steel_beam_factory_count = building_level@steel_beam_factory }
+			multiply_variable = { steel_beam_factory_count = mtth:local_resource_factor }
+			add_to_variable = { ROOT.steel_beam_factory_count = steel_beam_factory_count }
 
 			add_to_variable = { ROOT.fuel_repository_count = building_level@fuel_repository }
 			add_to_variable = { ROOT.scout_tower_count = building_level@scout_tower }
@@ -109,501 +127,79 @@ country_event = {
 		add_to_variable = { building_count = anti_air_building_count }
 		add_to_variable = { building_count = air_base_count }
 
-		set_variable = { employed_population_k = modifier@manpower_requirement_k }
-		set_variable = { farm_employed = 0 }
-		set_variable = { mill_employed = 0 }
-		set_variable = { fishing_stand_employed = 0 }
-		set_variable = { ranch_employed = 0 }
-		set_variable = { lumber_mill_employed = 0 }
-		set_variable = { quarry_employed = 0 }
-		set_variable = { mine_employed = 0 }
-		set_variable = { weaving_employed = 0 }
-		set_variable = { steelworks_employed = 0 }
 
-		set_variable = { smithy_employed = 0 }
-		set_variable = { factory_employed = 0 }
-		set_variable = { harbour_employed = 0 }
-		set_variable = { dockyard_employed = 0 }
-		set_variable = { consumer_good_factory_employed = 0 }
-		set_variable = { luxury_good_factory_employed = 0 }
-		set_variable = { carpentry_employed = 0 }
-		set_variable = { masonry_employed = 0 }
-		set_variable = { steel_beam_factory_employed = 0 }
+		set_variable = { employment_need_k = 0 }
 
 		###view farm
-		set_temp_variable = { farm_employed_temp = farm_count }
-		multiply_temp_variable = { farm_employed_temp = 0.06 } #60men
-		set_variable = { farm_employed = farm_employed_temp }
+		set_variable = { farm_employed = modifier@farmer_k }
+		multiply_variable = { farm_employed = mtth:farmer_factor }
+		add_to_variable = { employment_need_k = farm_employed }
 
 		###view mill
-		set_temp_variable = { mill_employed_temp = mill_count }
-		multiply_temp_variable = { mill_employed_temp = 0.04 } #40men
-		set_variable = { mill_employed = mill_employed_temp }
+		set_variable = { mill_employed = modifier@miller_k }
+		multiply_variable = { mill_employed = mtth:miller_factor }
+		add_to_variable = { employment_need_k = mill_employed }
 
 		###view fishing_stand
-		set_temp_variable = { fishing_stand_employed_temp = fishing_stand_count }
-		multiply_temp_variable = { fishing_stand_employed_temp = 0.05 } #50men
-		set_variable = { fishing_stand_employed = fishing_stand_employed_temp }
+		set_variable = { fishing_stand_employed = modifier@fisher_k }
+		multiply_variable = { fishing_stand_employed = mtth:fisher_factor }
+		add_to_variable = { employment_need_k = fishing_stand_employed }
 
 		###view ranch
-		set_temp_variable = { ranch_employed_temp = ranch_count }
-		multiply_temp_variable = { ranch_employed_temp = 0.06 } #60men
-		set_variable = { ranch_employed = ranch_employed_temp }
+		set_variable = { ranch_employed = modifier@rancher_k }
+		multiply_variable = { ranch_employed = mtth:rancher_factor }
+		add_to_variable = { employment_need_k = ranch_employed }
 
 		###view lumber_mill
-		set_temp_variable = { lumber_mill_employed_temp = lumber_mill_count }
-		multiply_temp_variable = { lumber_mill_employed_temp = 0.03 } #30men
-		set_variable = { lumber_mill_employed = lumber_mill_employed_temp }
-
-		###view quarry
-		set_temp_variable = { quarry_employed_temp = quarry_count }
-		multiply_temp_variable = { quarry_employed_temp = 0.12 } #120men
-		set_variable = { quarry_employed = quarry_employed_temp }
+		set_variable = { lumber_mill_employed = modifier@lumberjack_k }
+		multiply_variable = { lumber_mill_employed = mtth:lumberjack_factor }
+		add_to_variable = { employment_need_k = lumber_mill_employed }
 
 		###view mine
-		set_temp_variable = { mine_employed_temp = mine_count }
-		multiply_temp_variable = { mine_employed_temp = 0.1 } #100men
-		set_variable = { mine_employed = mine_employed_temp }
+		set_variable = { mine_employed = modifier@miner_k }
+		multiply_variable = { mine_employed = mtth:miner_factor }
+		add_to_variable = { employment_need_k = mine_employed }
 
-		###view crop weaving
-		set_temp_variable = { crop_weaving_employed_temp = crop_weaving_count }
-		multiply_temp_variable = { crop_weaving_employed_temp = 0.07 } #70men
-		add_to_variable = { weaving_employed = crop_weaving_employed_temp }
-
-		###view animal weaving
-		set_temp_variable = { animal_weaving_employed_temp = animal_weaving_count }
-		multiply_temp_variable = { animal_weaving_employed_temp = 0.07 } #70men
-		add_to_variable = { weaving_employed = animal_weaving_employed_temp }
-
-		###view steelworks
-		set_temp_variable = { steelworks_employed_temp = steelworks_count }
-		multiply_temp_variable = { steelworks_employed_temp = 0.2 } #200men
-		set_variable = { steelworks_employed = steelworks_employed_temp }
+		###view weaving
+		set_variable = { weaving_employed = modifier@weaver_k }
+		multiply_variable = { weaving_employed = mtth:weaver_factor }
+		add_to_variable = { employment_need_k = weaving_employed }
 
 		###view smithy
 		set_temp_variable = { smithy_employed_temp = smithy_count }
-		multiply_temp_variable = { smithy_employed_temp = 0.04 } #40men
+		multiply_temp_variable = { smithy_employed_temp = 0.10 } #40men
 		set_variable = { smithy_employed = smithy_employed_temp }
-		add_to_variable = { employed_population_k = smithy_employed }
+		multiply_variable = { smithy_employed = mtth:smith_factor }
+		add_to_variable = { employment_need_k = smithy_employed }
 
 		###view factory
-		set_temp_variable = { factory_employed_temp = factory_count }
-		multiply_temp_variable = { factory_employed_temp = 0.5 } #500men
-		set_variable = { factory_employed = factory_employed_temp }
+		set_variable = { factory_employed = modifier@industrial_worker_k }
+		multiply_variable = { factory_employed = mtth:industrial_worker_factor }
+		add_to_variable = { employment_need_k = factory_employed }
+
+		###view shopkeeper
+		set_variable = { shopkeeper_employed = modifier@shopkeeper_k }
+		multiply_variable = { shopkeeper_employed = mtth:shopkeeper_factor }
+		add_to_variable = { employment_need_k = shopkeeper_employed }
 
 		###view harbour
 		set_temp_variable = { harbour_employed_temp = harbour_count }
-		multiply_temp_variable = { harbour_employed_temp = 0.1 } #100men
+		multiply_temp_variable = { harbour_employed_temp = 0.400 } #400men
 		set_variable = { harbour_employed = harbour_employed_temp }
-		add_to_variable = { employed_population_k = harbour_employed }
-
-		###view dockyard
 		set_temp_variable = { dockyard_employed_temp = dockyard_count }
-		multiply_temp_variable = { dockyard_employed_temp = 0.2 } #200men
-		set_variable = { dockyard_employed = dockyard_employed_temp }
+		multiply_temp_variable = { dockyard_employed_temp = 0.200 } #200men
+		add_to_variable = { harbour_employed = dockyard_employed_temp }
+		multiply_variable = { harbour_employed = mtth:harbour_worker_factor }
+		add_to_variable = { employment_need_k = harbour_employed }
 
-		###view luxury good factory
-		set_temp_variable = { luxury_good_factory_employed_temp = luxury_good_factory_count }
-		multiply_temp_variable = { luxury_good_factory_employed_temp = 0.02 } #20men
-		set_variable = { luxury_good_factory_employed = luxury_good_factory_employed_temp }
-
-		###view consumer good factory
-		set_temp_variable = { consumer_good_factory_employed_temp = consumer_good_factory_count }
-		multiply_temp_variable = { consumer_good_factory_employed_temp = 0.02 } #20men
-		set_variable = { consumer_good_factory_employed = consumer_good_factory_employed_temp }
-
-		###view manufactory
+		###view craftsman
+		set_variable = { craftsman_employed = modifier@craftsman_k }
 		set_temp_variable = { manufactory_employed_temp = manufactory_count }
-		multiply_temp_variable = { manufactory_employed_temp = 0.02 } #20men
+		multiply_temp_variable = { manufactory_employed_temp = 0.1 } #20men
 		set_variable = { manufactory_employed = manufactory_employed_temp }
-		add_to_variable = { employed_population_k = manufactory_employed }
-
-		###view carpentry
-		set_temp_variable = { carpentry_employed_temp = carpentry_count }
-		multiply_temp_variable = { carpentry_employed_temp = 0.03 } #30men
-		set_variable = { carpentry_employed = carpentry_employed_temp }
-
-		###view masonry
-		set_temp_variable = { masonry_employed_temp = masonry_count }
-		multiply_temp_variable = { masonry_employed_temp = 0.04 } #40men
-		set_variable = { masonry_employed = masonry_employed_temp }
-
-		###view steel_beam_factory
-		set_temp_variable = { steel_beam_factory_employed_temp = steel_beam_factory_count }
-		multiply_temp_variable = { steel_beam_factory_employed_temp = 0.1 } #100men
-		set_variable = { steel_beam_factory_employed = steel_beam_factory_employed_temp }
-
-		
-		set_temp_variable = { temp_epmployed_percentage = employed_population_k }
-		divide_temp_variable = { temp_epmployed_percentage = working_population_k }
-		set_variable = { epmployed_percentage = temp_epmployed_percentage }
-
-
-		###view food
-		set_variable = { food_supply = resource@food_resource }
-		set_variable = { food_supply_real = resource_produced@food_resource }
-		set_variable = { food_traded_away = food_supply_real }
-		subtract_from_variable = { food_traded_away = food_supply }
-
-		#set_temp_variable = { food_demand_k = max_manpower_k }
-		#multiply_temp_variable = { food_demand_k = 0.5 }
-		#set_variable = { food_demand = food_demand_k }
-
-
-
-
-
-
-
-
-
-		###view consumer goods
-		set_variable = { consumer_good_supply = resource@consumer_goods_resource }
-		set_variable = { consumer_good_supply_real = resource_produced@consumer_goods_resource }
-		set_variable = { consumer_good_traded_away = consumer_good_supply_real }
-		subtract_from_variable = { consumer_good_traded_away = consumer_good_supply }
-
-		set_variable = { luxury_good_supply = resource@luxury_goods_resource }
-		set_variable = { luxury_good_supply_real = resource_produced@luxury_goods_resource }
-		set_variable = { luxury_good_traded_away = luxury_good_supply_real }
-		subtract_from_variable = { luxury_good_traded_away = luxury_good_supply }
-
-		set_variable = { consumer_good_demand = max_manpower_k }
-		multiply_variable = { consumer_good_demand = 0.25 }
-		set_variable = { currency_amount = 1 }
-		add_to_variable = { currency_amount = modifier@currency_amount }
-		multiply_variable = { consumer_good_demand = currency_amount }
-
-		set_variable = { consumer_good_demand_modifier = 1 }
-		add_to_variable = { consumer_good_demand_modifier = modifier@consumer_goods_demand }
-		clamp_variable = {
-			var = consumer_good_demand_modifier
-			min = 0
-		}
-
-		set_variable = { luxury_good_demand_factor = consumer_good_demand_modifier }
-		subtract_from_variable = { luxury_good_demand_factor = 1 }
-		clamp_variable = {
-			var = luxury_good_demand_factor
-			min = 0
-		}
-		set_variable = { luxury_good_demand = consumer_good_demand }
-		multiply_variable = { luxury_good_demand = luxury_good_demand_factor }
-
-		set_variable = { consumer_and_luxury_good_demand = consumer_good_demand }
-		multiply_variable = { consumer_and_luxury_good_demand = consumer_good_demand_modifier }
-
-		set_temp_variable = { consumer_good_surplus = consumer_good_supply }
-		subtract_from_temp_variable = { consumer_good_surplus = consumer_good_demand }
-		set_variable = { consumer_good_surplus_real = consumer_good_surplus }
-
-
-		set_temp_variable = { luxury_good_surplus = luxury_good_supply }
-		subtract_from_temp_variable = { luxury_good_surplus = luxury_good_demand }
-		set_variable = { luxury_good_surplus_real = luxury_good_surplus }
-
-		set_variable = { consumer_and_luxury_goods_supply = consumer_good_supply }
-		clamp_variable = {
-			var = consumer_and_luxury_goods_supply
-			min = 0
-			max = consumer_good_demand
-		}
-		add_to_variable = { consumer_and_luxury_goods_supply = luxury_good_supply }
-
-		set_variable = { half_consumer_demand = consumer_and_luxury_good_demand }
-		divide_variable = { half_consumer_demand = 2 }
-		set_variable = { half_more_consumer_demand = consumer_and_luxury_good_demand }
-		add_to_variable = { half_more_consumer_demand = half_consumer_demand }
-		set_variable = { double_consumer_demand = consumer_and_luxury_good_demand }
-		multiply_variable = { double_consumer_demand = 2 }
-
-
-		if = {
-			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = extreme_poverty }
-				}
-				check_variable = { consumer_and_luxury_goods_supply < half_consumer_demand }
-			}
-			add_dynamic_modifier = { modifier = extreme_poverty }
-		}
-		else_if = {
-			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = poverty }
-				}
-				check_variable = { consumer_and_luxury_goods_supply < consumer_and_luxury_good_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_consumer_demand }
-			}
-			add_dynamic_modifier = { modifier = poverty }
-		}
-		else_if = {
-			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = wealth }
-				}
-				check_variable = { consumer_and_luxury_goods_supply < double_consumer_demand }
-				check_variable = { consumer_and_luxury_goods_supply > half_more_consumer_demand }
-			}
-			add_dynamic_modifier = { modifier = wealth }
-		}
-		else_if = {
-			limit = {
-				NOT = {
-					has_dynamic_modifier = { modifier = extreme_wealth }
-				}
-				check_variable = { consumer_and_luxury_goods_supply > double_consumer_demand }
-			}
-			add_dynamic_modifier = { modifier = extreme_wealth }
-		}
-
-
-
-
-
-
-
-		###view workers
-		
-		set_variable = { working_percentage = 0.55 }
-
-		set_variable = { recruits_percentage = max_available_manpower_k }
-		divide_variable = { recruits_percentage = max_manpower_k }
-		subtract_from_variable = { working_percentage = recruits_percentage }
-
-		set_variable = { working_population_k = max_manpower_k }
-		multiply_variable = { working_population_k = working_percentage }
-
-
-		###view selfsufficient
-		set_temp_variable = { self_employed_temp = working_population_k }
-		subtract_from_temp_variable = { self_employed_temp = employed_population_k }
-		set_variable = { self_employed = self_employed_temp }
-		set_temp_variable = { temp_unepmployed_percentage = 1 }
-		subtract_from_temp_variable = { temp_unepmployed_percentage = epmployed_percentage }
-		set_variable = { unepmployed_percentage = temp_unepmployed_percentage }
-
-		set_variable = { resource_surplus = 0 }
-		add_to_variable = { resource_surplus = resource@steel }
-		add_to_variable = { resource_surplus = resource@chromium }
-		add_to_variable = { resource_surplus = resource@aluminium }
-		add_to_variable = { resource_surplus = resource@iron }
-		add_to_variable = { resource_surplus = resource@tungsten }
-		add_to_variable = { resource_surplus = resource@stone }
-		add_to_variable = { resource_surplus = resource@oil }
-		add_to_variable = { resource_surplus = resource@rubber }
-		divide_variable = { resource_surplus = max_manpower_k }
-		divide_variable = { resource_surplus = 2 }
-		clamp_variable = {
-			var = resource_surplus
-			min = -1
-			max = 1
-		}
-
-		set_variable = { self_employed_output = self_employed }
-
-		set_variable = { self_employed_factor = 1 }
-		add_to_variable = { self_employed_factor = modifier@peasant_output_factor }
-		multiply_variable = { self_employed_output = self_employed_factor }
-
-		set_temp_variable = { resource_factor = 1 }
-		add_to_temp_variable = { resource_factor = resource_surplus }
-		multiply_variable = { self_employed_output = resource_factor }
-
-		set_variable = { stolen_to_construct = self_employed_output }
-		multiply_variable = { stolen_to_construct = modifier@taxation }
-
-		set_variable = { remaining_capacity = 1 }
-		subtract_from_variable = { remaining_capacity = modifier@taxation }
-		set_variable = { capacity_for_food_supply = remaining_capacity }
-
-		set_variable = { peasant_food_factor_var = 1 }
-		add_to_variable = { peasant_food_factor_var = modifier@peasant_food_factor }
-		multiply_variable = { capacity_for_food_supply = peasant_food_factor_var }
-
-		set_variable = { capacity_for_consumer_good_supply = remaining_capacity }
-
-		set_variable = { peasant_consumer_good_factor_var = 1 }
-		add_to_variable = { peasant_consumer_good_factor_var = modifier@peasant_consumer_good_factor }
-		multiply_variable = { capacity_for_consumer_good_supply = peasant_consumer_good_factor_var }
-
-		set_variable = { food_production_bonus = 1 }
-		add_to_variable = { food_production_bonus = modifier@food_production_bonus }
-		clamp_variable = {
-			var = food_production_bonus
-			min = 0
-		}
-		multiply_variable = { food_supply = food_production_bonus }
-
-		set_variable = { self_employed_food_supply = self_employed_output }
-		multiply_variable = { self_employed_food_supply = capacity_for_food_supply }
-		multiply_variable = { self_employed_food_supply = food_production_bonus }
-
-		set_variable = { mill_production = mill_count }
-		multiply_variable = { mill_production = mill_output }
-
-		set_variable = { farm_production = farm_count }
-		multiply_variable = { farm_production = farm_output }
-
-		set_variable = { fishing_stand_production = fishing_stand_count }
-		multiply_variable = { fishing_stand_production = fishing_stand_output }
-
-		set_variable = { employed_food_production = mill_production }
-		add_to_variable = { employed_food_production = fishing_stand_production }
-
-		set_variable = { self_employed_consumer_good_supply = self_employed_output }
-		divide_variable = { self_employed_consumer_good_supply = 2 }
-		multiply_variable = { self_employed_consumer_good_supply = capacity_for_consumer_good_supply }
-
-		set_variable = { consumer_good_factory_production = consumer_good_factory_count }
-		multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
-
-		set_temp_variable = { food_surplus = food_supply }
-		subtract_from_temp_variable = { food_surplus = food_demand }
-		set_variable = { food_surplus_real = food_surplus }
-
-
-
-
-
-
-		set_variable = { planks = resource@planks_resource }
-		set_variable = { bricks = resource@bricks_resource }
-		set_variable = { steel_beams = resource@steel_beams_resource }
-
-		set_variable = { construction_material = 0 }
-		set_variable = { plank_factor = planks }
-		multiply_variable = { plank_factor = 1 }
-		add_to_variable = { construction_material = plank_factor }
-		set_variable = { brick_factor = bricks }
-		multiply_variable = { brick_factor = 2 }
-		add_to_variable = { construction_material = brick_factor }
-		set_variable = { steel_beam_factor = steel_beams }
-		multiply_variable = { steel_beam_factor = 3 }
-		add_to_variable = { construction_material = steel_beam_factor }
-		set_variable = { building_factor = 0 }
-		add_to_variable = { building_factor = modifier@building_upkeep_cost }
-
-		set_variable = { fake_buildings = smithy_count }
-		add_to_variable = { fake_buildings = harbour_count }
-		add_to_variable = { fake_buildings = manufactory_count }
-		multiply_variable = { fake_buildings = 2 }
-
-		add_to_variable = { building_factor = fake_buildings }
-
-		subtract_from_variable = { construction_material = building_factor }
-		divide_variable = { construction_material = building_factor }
-		clamp_variable = {
-			var = construction_material
-			min = -0.5
-			max = 1
-		}
-		set_variable = { construction_material_factor = 1 }
-		add_to_variable = { construction_material_factor = construction_material }
-
-		set_variable = { construction_resouces = 0 }
-		subtract_from_variable = { construction_resouces = building_factor }
-		add_to_variable = { construction_resouces = plank_factor }
-		add_to_variable = { construction_resouces = brick_factor }
-		add_to_variable = { construction_resouces = steel_beam_factor }
-
-
-		#### civil capacity
-
-		set_variable = { ic = 0 }
-		set_variable = { employed_ic = plank_factor }
-		add_to_variable = { employed_ic = brick_factor }
-		add_to_variable = { employed_ic = steel_beam_factor }
-		multiply_variable = { employed_ic = construction_material_factor }
-		set_variable = { employed_ic_show = employed_ic }
-		multiply_variable = { employed_ic = modifier@taxation }
-		add_to_variable = { ic = employed_ic }
-
-		set_variable = { employed_total_output = employed_ic }
-		add_to_variable = { employed_total_output = consumer_good_supply }
-		add_to_variable = { employed_total_output = employed_food_production }
-
-		add_to_variable = { ic = stolen_to_construct }
-
-		set_variable = { ic_factor = 1 }
-		add_to_variable = { ic_factor = modifier@civilian_capacity_factor }
-		multiply_variable = { ic = ic_factor }
-
-
-		#### military capacity
-
-		set_temp_variable = { smithies_temp = smithy_count }
-		set_temp_variable = { smithies_already_have_1_output_temp = smithy_output }
-		subtract_from_temp_variable = { smithies_already_have_1_output_temp = 1 }
-		multiply_temp_variable = { smithies_temp = smithies_already_have_1_output_temp }
-		set_temp_variable = { factories_temp = factory_count }
-		multiply_temp_variable = { factories_temp = factory_output }
-		set_variable = { factory_duplicator = 0 }
-		add_to_variable = { factory_duplicator = smithies_temp }
-		add_to_variable = { factory_duplicator = factories_temp }
-
-		set_variable = { military_ic_factor = 1 }
-		add_to_variable = { military_ic_factor = modifier@military_capacity_factor }
-		multiply_variable = { factory_duplicator = military_ic_factor }
-
-		round_variable = factory_duplicator
-
-
-		#### naval capacity 
-
-		set_temp_variable = { dockyards_temp = dockyard_count }
-		#multiply_temp_variable = { dockyards_temp = 2 }
-		set_variable = { dockyard_duplicator = dockyards_temp }
-
-		set_variable = { navy_ic_factor = 1 }
-		add_to_variable = { navy_ic_factor = modifier@naval_capacity_factor }
-		multiply_variable = { dockyard_duplicator = navy_ic_factor }
-
-		round_variable = dockyard_duplicator
-
-
-		### military to civil factor
-
-		set_temp_variable = { smithies_total_output = smithy_count }
-		multiply_temp_variable = { smithies_total_output = smithy_output }
-		set_temp_variable = { factories_total_output = factory_count }
-		multiply_temp_variable = { factories_total_output = factory_output }
-		set_temp_variable = { total_military_ic = smithies_total_output }
-		add_to_temp_variable = { total_military_ic = factories_total_output }
-
-		set_variable = { ic_real_transfer = modifier@military_to_civil_factory }
-		subtract_from_variable = { ic_real_transfer = modifier@civil_to_military_factory }
-
-		set_variable = { military_ic_transfer = total_military_ic }
-		multiply_variable = { military_ic_transfer = ic_real_transfer }
-
-		add_to_variable = { ic = military_ic_transfer }
-
-		set_variable = { expenses_variable = ic }
-		multiply_variable = { expenses_variable = modifier@expenses_factor }
-		subtract_from_variable = { ic = expenses_variable }
-
-		round_variable = ic
-		clamp_variable = { 
-			var = ic
-			min = 0
-		}
-
-		subtract_from_variable = { factory_duplicator = military_ic_transfer }
-		round_variable = factory_duplicator
-		
-
-
-		civil_factory_output = yes
-		extra_factory_output = yes
-		extra_dockyard_output = yes
-
-
-
-
-
-
-
+		add_to_variable = { craftsman_employed = manufactory_employed }
+		multiply_variable = { craftsman_employed = mtth:craftsman_factor }
+		add_to_variable = { employment_need_k = craftsman_employed }
 
 
 

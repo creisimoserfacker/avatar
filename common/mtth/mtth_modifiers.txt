@@ -10,6 +10,26 @@ inflation_factor = {
 	}
 }
 
+peasant_food_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@peasant_food_factor }
+		clamp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
+peasant_output_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@peasant_output_factor }
+		clamp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
 grain_demand = {
 	base = 0
 	modifier = { 

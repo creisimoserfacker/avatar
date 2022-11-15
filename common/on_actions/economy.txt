@@ -1,6 +1,6 @@
 on_actions = {
 
-	on_daily = {
+	on_weekly = {
 		effect = {
 
 			###view employed
@@ -218,6 +218,9 @@ on_actions = {
 				}
 				set_variable = { highest_employment_need_k = employed_and_military_k }
 			}
+			set_variable = { workless_to_self = workless_population_k }
+			multiply_variable = { workless_to_self = 0.02 }
+			subtract_from_variable = { highest_employment_need_k = workless_to_self }
 			clamp_variable = { 
 				var = highest_employment_need_k
 				max = working_population_k 
@@ -532,10 +535,7 @@ on_actions = {
 
 
 			set_variable = { self_employed_output = self_employed_k }
-
-			set_variable = { self_employed_factor = 1 }
-			add_to_variable = { self_employed_factor = modifier@peasant_output_factor }
-			multiply_variable = { self_employed_output = self_employed_factor }
+			multiply_variable = { self_employed_output = mtth:peasant_output_factor }
 
 			
 			set_variable = { self_animal_products_supply = self_employed_output }
@@ -772,15 +772,7 @@ on_actions = {
 			subtract_from_variable = { remaining_capacity = self_employed_tax_percentage_of_gdp }
 			set_variable = { capacity_for_food_supply = remaining_capacity }
 
-			set_variable = { peasant_food_factor_var = 1 }
-			add_to_variable = { peasant_food_factor_var = modifier@peasant_food_factor }
-			multiply_variable = { capacity_for_food_supply = peasant_food_factor_var }
-
-			set_variable = { capacity_for_consumer_good_supply = remaining_capacity }
-
-			set_variable = { peasant_consumer_good_factor_var = 1 }
-			add_to_variable = { peasant_consumer_good_factor_var = modifier@peasant_consumer_good_factor }
-			multiply_variable = { capacity_for_consumer_good_supply = peasant_consumer_good_factor_var }
+			multiply_variable = { capacity_for_food_supply = mtth:peasant_food_factor }
 
 			set_variable = { food_production_bonus = 1 }
 			add_to_variable = { food_production_bonus = modifier@food_production_bonus }
@@ -827,6 +819,8 @@ on_actions = {
 			set_variable = { steel_beam_factor = steel_beams }
 			multiply_variable = { steel_beam_factor = 3 }
 			add_to_variable = { construction_material = steel_beam_factor }
+			set_variable = { construction_material_show = construction_material }
+
 			set_variable = { building_factor = 0 }
 			add_to_variable = { building_factor = modifier@building_upkeep_cost }
 
@@ -951,6 +945,8 @@ on_actions = {
 			extra_factory_output = yes
 			extra_dockyard_output = yes
 
+		}
+	}
 
 
 
@@ -959,9 +955,8 @@ on_actions = {
 
 
 
-
-
-
+	on_daily = {
+		effect = {
 
 
 
