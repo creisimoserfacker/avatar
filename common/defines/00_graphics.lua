@@ -790,17 +790,13 @@ NGraphics = {
 	NORTH_POLE_OFFSET = 0.93,
 	COUNTRY_FLAG_TEX_WIDTH = 82, -- Expected texture size
 	COUNTRY_FLAG_TEX_HEIGHT = 104,
+	COUNTRY_FLAG_TEX_MAX_SIZE = 512, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
 	COUNTRY_FLAG_MEDIUM_TEX_WIDTH = 41,
 	COUNTRY_FLAG_MEDIUM_TEX_HEIGHT = 51,
 	COUNTRY_FLAG_MEDIUM_TEX_MAX_SIZE = 1024, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
 	COUNTRY_FLAG_SMALL_TEX_WIDTH = 10,
 	COUNTRY_FLAG_SMALL_TEX_HEIGHT = 14,
-	COUNTRY_FLAG_TEX_MAX_SIZE = 256, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
-	COUNTRY_FLAG_SMALL_TEX_MAX_SIZE = 64, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
-	COUNTRY_FLAG_STRIPE_TEX_MAX_WIDTH = 10,
-	COUNTRY_FLAG_STRIPE_TEX_MAX_HEIGHT = 2048,
-	COUNTRY_FLAG_LARGE_STRIPE_MAX_WIDTH = 41,
-	COUNTRY_FLAG_LARGE_STRIPE_MAX_HEIGHT = 8192,
+	COUNTRY_FLAG_SMALL_TEX_MAX_SIZE = 512, -- Tweak dependly on amount of countries. Must be power of 2. No more then 2048.
 	VICTORY_POINT_LEVELS = 2,
 	VICTORY_POINT_MAP_ICON_AFTER = {0, 20, 30}, -- After this amount of VP the map icon becomes bigger dot.
 	VICTORY_POINT_MAP_ICON_TEXT_CUTOFF = { 150, 300, 600},  -- At what camera distance the VP name text disappears.
@@ -897,8 +893,8 @@ NGraphics = {
 	SUN_HEIGHT_WATER  = 5000,  -- higher means softer shadows and more intense light
 	MOON_LATITUDE = 0, -- NOT USED
 	SUN_LATITUDE  = 848,
-	SECOND_MOON_LATITUDE = 848, -- Used to put a "fake" sun/moon on the other side of the globe to hide the seem that would otherwise appear there
-	SECOND_SUN_LATITUDE = 848,
+	SECOND_MOON_LATITUDE = 100, -- Used to put a "fake" sun/moon on the other side of the globe to hide the seem that would otherwise appear there
+	SECOND_SUN_LATITUDE = 100,
 
 	-- hsv color ambient light
 	AMBIENT_LIGHT_POS_X = { 0.2,  0.2, 0.2 }, -- right
@@ -912,7 +908,7 @@ NGraphics = {
 	SUN_INTENSITY 			= 1.0; -- 0.4
 	SUN_SPECULAR_INTENSITY 	= 1.0;
 	MOON_DIFFUSE_COLOR  	= {0.58, 0.5, 1.0},
-	MOON_INTENSITY 			= 4.5;
+	MOON_INTENSITY 			= 2.5;
 
 	CUBEMAP_INTENSITY = 1.0,
 	

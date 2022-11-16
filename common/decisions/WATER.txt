@@ -1,34 +1,64 @@
 
 WATER_industry = {
 
-	extra_water_wood = {
+	nwt_wood_raids = {
 
 		icon = wood
 
-		visible = {
-			OR = {
-				tag = NWT
-				tag = SWT
-			}
-		}
-				
-		fire_only_once = yes		
-
-		cost = 100
-
-		days_remove = 90
-
-		modifier = {
-			industrial_capacity_factory = -0.3
+		allowed = {
+			tag = NWT
 		}
 
-		remove_effect = {
-			random_owned_state = {
-				add_resource = {
-					type = aluminium
-					amount = 5
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				distance_to = {
+					value < 300
+					target = 17
+				}
+				has_resources_amount = {
+				    resource = aluminium
+				    amount > 0
+				}
+				NOT = {
+					has_resources_rights = {
+						receiver = NWT
+					}
+					is_controlled_by = NWT
 				}
 			}
+		}
+		visible = {
+			#NOT = {
+			#	has_country_flag = is_commencing_raid
+			#}
+		}
+		on_map_mode = map_only
+				
+		fire_only_once = no		
+
+		cost = 0
+
+		days_remove = 12
+
+		modifier = {
+			
+		}
+
+
+		complete_effect = {
+			#set_country_flag = is_commencing_raid
+			FROM.OWNER = {
+				give_resource_rights = {
+					receiver = NWT
+					state = FROM.id
+					resources = { aluminium }
+				}
+			}
+		}
+		remove_effect = {
+			#clr_country_flag = is_commencing_raid
+			NWT = { remove_resource_rights = FROM.id }
 		}
 	}
 
