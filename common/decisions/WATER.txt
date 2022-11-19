@@ -62,6 +62,41 @@ WATER_industry = {
 		}
 	}
 
+	start_state_conflict = {
+
+		icon = border_war
+
+		#allowed = {
+		#	is_debug = yes
+		#}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				state = 51
+			}
+		}
+		visible = {
+			#NOT = {
+			#	has_country_flag = is_commencing_raid
+			#}
+		}
+		#on_map_mode = map_only
+				
+		fire_only_once = no		
+
+		cost = 0
+
+		#days_remove = 12
+
+		complete_effect = {
+			start_state_conflict = yes
+			aggressive_negotiations = yes
+			diplomatic_plays = yes
+		}
+		
+	}
+
 	extra_water_textile = {
 
 		icon = textile

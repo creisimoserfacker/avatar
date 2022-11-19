@@ -1,0 +1,21 @@
+state_conflict_category = {
+	icon = peasant
+
+	scripted_gui = state_conflict_ui
+	
+	priority = 100099
+
+	allowed = {
+		always = yes 
+	}
+	visible = {
+		any_state = {
+			OR = {
+				check_variable = { attacker = ROOT }
+				check_variable = { defender = ROOT }
+			}
+		}
+	}
+
+	visible_when_empty = yes
+}

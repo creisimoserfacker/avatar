@@ -1,0 +1,50 @@
+
+scripted_gui = {
+
+	state_scripted_ui = {
+		context_type = selected_state_context
+		
+		window_name = "state_scripted_ui_window"
+		parent_window_token = selected_state_view
+
+		visible = {
+			always = yes
+		}
+
+		effects = {
+			
+		}
+
+		properties = {
+			attacker_country_flag = {
+				image = [THIS.attacker.GetFlag]
+			}
+			defender_country_flag = {
+				image = [THIS.attacker.GetFlag]
+			}
+		}
+
+		dynamic_lists = {
+			state_attacker_gridbox = {
+				array = THIS.attackers
+				entry_container = attacker_list_entry
+				change_scope = yes
+			}
+			state_defender_gridbox = {
+				array = THIS.defenders
+				entry_container = defender_list_entry
+				change_scope = yes
+			}
+		}
+
+		triggers = {
+			state_conflict_modifier_visible = {
+				FROM = {
+					has_dynamic_modifier = { modifier = state_conflict_modifier }
+				}
+			}
+		}
+
+	}
+	
+}

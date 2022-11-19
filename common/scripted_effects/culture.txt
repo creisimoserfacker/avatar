@@ -366,186 +366,74 @@ culture_setup_calculation = {
 		set_variable = { earth_pop = PREV.party_popularity_100@earth_culture }
 		set_variable = { water_pop = PREV.party_popularity_100@water_culture }
 		set_variable = { air_pop = PREV.party_popularity_100@air_culture }
+		set_variable = { nonbender_pop = PREV.party_popularity_100@pluralist_culture }
 
 
 		randomize_temp_variable = {
 			var = cultural_offset_1
 			distribution = uniform
-			min = 0
-			max = 5
+			min = 0.5
+			max = 1.5
 		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { fire_pop > 9 }
-					check_variable = { fire_pop < 40 }
-				}
-			}
-			subtract_from_variable = { fire_pop = cultural_offset_1 }
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { fire_pop > 40 }
-					check_variable = { fire_pop < 60 }
-				}
-			}
-			multiply_temp_variable = { cultural_offset_1 = 2 }
-			add_to_temp_variable = { cultural_offset_1 = 5 }
-			subtract_from_variable = { fire_pop = cultural_offset_1 }
-		}
-		if = {
-			limit = {
-				check_variable = {
-					fire_pop > 60
-				}
-			}
-			multiply_temp_variable = { cultural_offset_1 = 3 }
-			add_to_temp_variable = { cultural_offset_1 = 15 }
-			subtract_from_variable = { fire_pop = cultural_offset_1 }
-		}
-		else = {
-			add_to_variable = { fire_pop = cultural_offset_1 }
-		}
+		set_temp_variable_to_random = culture_1
+		add_to_variable = { fire_pop = culture_1 }
+		multiply_variable = { fire_pop = cultural_offset_1 }
+		
 		randomize_temp_variable = {
 			var = cultural_offset_2
 			distribution = uniform
-			min = 0
-			max = 5
+			min = 0.5
+			max = 1.5
 		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { earth_pop > 9 }
-					check_variable = { earth_pop < 40 }
-				}
-			}
-			subtract_from_variable = { earth_pop = cultural_offset_2 }
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { earth_pop > 40 }
-					check_variable = { earth_pop < 60 }
-				}
-			}
-			multiply_temp_variable = { cultural_offset_2 = 2 }
-			add_to_temp_variable = { cultural_offset_2 = 5 }
-			subtract_from_variable = { earth_pop = cultural_offset_2 }
-		}
-		if = {
-			limit = {
-				check_variable = {
-					earth_pop > 60
-				}
-			}
-			multiply_temp_variable = { cultural_offset_2 = 3 }
-			add_to_temp_variable = { cultural_offset_2 = 15 }
-			subtract_from_variable = { earth_pop = cultural_offset_2 }
-		}
-		else = {
-			add_to_variable = { earth_pop = cultural_offset_2 }
-		}
+		set_temp_variable_to_random = culture_2
+		add_to_variable = { earth_pop = culture_2 }
+		multiply_variable = { earth_pop = cultural_offset_2 }
+		
 		randomize_temp_variable = {
 			var = cultural_offset_3
 			distribution = uniform
-			min = 0
-			max = 5
+			min = 0.5
+			max = 1.5
 		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { water_pop > 9 }
-					check_variable = { water_pop < 40 }
-				}
-			}
-			subtract_from_variable = { water_pop = cultural_offset_3 }
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { water_pop > 40 }
-					check_variable = { water_pop < 60 }
-				}
-			}
-			multiply_temp_variable = { cultural_offset_3 = 2 }
-			add_to_temp_variable = { cultural_offset_3 = 5 }
-			subtract_from_variable = { water_pop = cultural_offset_3 }
-		}
-		if = {
-			limit = {
-				check_variable = {
-					water_pop > 60
-				}
-			}
-			multiply_temp_variable = { cultural_offset_3 = 3 }
-			add_to_temp_variable = { cultural_offset_3 = 15 }
-			subtract_from_variable = { water_pop = cultural_offset_3 }
-		}
-		else = {
-			add_to_variable = { water_pop = cultural_offset_3 }
-		}
+		set_temp_variable_to_random = culture_3
+		add_to_variable = { water_pop = culture_3 }
+		multiply_variable = { water_pop = cultural_offset_3 }
+		
 		randomize_temp_variable = {
 			var = cultural_offset_4
 			distribution = uniform
-			min = 0
-			max = 5
+			min = 0.5
+			max = 1.5
 		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { air_pop > 9 }
-					check_variable = { air_pop < 40 }
-				}
-			}
-			subtract_from_variable = { air_pop = cultural_offset_4 }
-		}
-		if = {
-			limit = {
-				AND = {
-					check_variable = { air_pop > 40 }
-					check_variable = { air_pop < 60 }
-				}
-			}
-			multiply_temp_variable = { cultural_offset_4 = 2 }
-			add_to_temp_variable = { cultural_offset_4 = 5 }
-			subtract_from_variable = { air_pop = cultural_offset_4 }
-		}
-		if = {
-			limit = {
-				check_variable = {
-					air_pop > 60
-				}
-			}
-			multiply_temp_variable = { cultural_offset_4 = 3 }
-			add_to_temp_variable = { cultural_offset_4 = 15 }
-			subtract_from_variable = { air_pop = cultural_offset_4 }
-		}
-		else = {
-			add_to_variable = { air_pop = cultural_offset_4 }
-		}
+		set_temp_variable_to_random = culture_4
+		add_to_variable = { air_pop = culture_4 }
+		multiply_variable = { air_pop = cultural_offset_4 }
 
-#		set_variable = { neighbour_states = 1 }
-#
-#		every_neighbor_state = {
-#			add_to_variable = { PREV.fire_pop = fire_pop }
-#			add_to_variable = { PREV.earth_pop = earth_pop }
-#			add_to_variable = { PREV.water_pop = water_pop }
-#			add_to_variable = { PREV.air_pop = air_pop }
-#			add_to_variable = { PREV.neighbour_states = 1 }
-#		}
-#
-#		divide_variable = { fire_pop = neighbour_states }
-#		divide_variable = { earth_pop = neighbour_states }
-#		divide_variable = { water_pop = neighbour_states }
-#		divide_variable = { air_pop = neighbour_states }
+		randomize_temp_variable = {
+			var = cultural_offset_5
+			distribution = uniform
+			min = 0.5
+			max = 1.5
+		}
+		set_temp_variable_to_random = culture_5
+		add_to_variable = { nonbender_pop = culture_5 }
+		multiply_variable = { nonbender_pop = cultural_offset_5 }
+		
 
 		
-		set_variable = { nonbender_pop = 100 }
-		subtract_from_variable = { nonbender_pop = fire_pop }
-		subtract_from_variable = { nonbender_pop = earth_pop }
-		subtract_from_variable = { nonbender_pop = water_pop }
-		subtract_from_variable = { nonbender_pop = air_pop }
+		set_temp_variable = { total_pop = nonbender_pop }
+		add_to_temp_variable = { total_pop = fire_pop }
+		add_to_temp_variable = { total_pop = earth_pop }
+		add_to_temp_variable = { total_pop = water_pop }
+		add_to_temp_variable = { total_pop = air_pop }
+
+		multiply_temp_variable = { total_pop = 0.01 }
+
+		divide_variable = { fire_pop = total_pop }
+		divide_variable = { earth_pop = total_pop }
+		divide_variable = { water_pop = total_pop }
+		divide_variable = { air_pop = total_pop }
+		divide_variable = { nonbender_pop = total_pop }
 
 	}
 	
