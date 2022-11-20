@@ -35,44 +35,28 @@ reoccupy_category = {
 
 		icon = onmap_colonising
 
+
+		allowed = {
+			always = no
+		}
+		visible = {
+			has_country_flag = show_genocided_territories
+		}
 		available = {
 			NOT = {
 				has_country_flag = establishing_a_colony
 			}
-			has_country_flag = show_genocided_territories
 			FROM = {
 				NOT = {
 					is_core_of = ROOT
 					has_state_flag = recolonisation_in_progress
-				}
-				has_dynamic_modifier = {
-					modifier = genocide_state
 				}
 			}
 		}
 
 		state_target = yes
 		target_trigger = {
-			FROM = {
-				AND = {
-					OR = {
-						is_coastal = yes
-						is_owned_by = ROOT
-						any_neighbor_state = { is_owned_by = ROOT }
-					}
-					has_dynamic_modifier = {
-						modifier = genocide_state
-					}
-				}
-			}
-		}
-		visible = {
-			has_country_flag = show_genocided_territories
-			FROM = {
-				has_dynamic_modifier = {
-					modifier = genocide_state
-				}
-			}
+			
 		}
 
 		fire_only_once = no

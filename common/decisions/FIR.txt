@@ -59,169 +59,8 @@ FIR_industrialisation_category = {
 		}
 	}
 
-#	dockyard_construction_efforts = {
-#
-#		icon = military_buildup
-#
-#		allowed = {
-#			has_start_date < 13.1.1
-#			tag = FIR
-#		}
-#		visible = {
-#			has_start_date < 13.1.1
-#			has_tech = reform_2
-#		}
-#		available = {
-#			hidden_trigger = {
-#				has_start_date < 13.1.1
-#				has_tech = reform_2
-#			}
-#		}
-#
-#		modifier = {
-#			stability_weekly_factor = -0.005
-#			production_speed_dockyard_factor = 0.1
-#		}
-#
-#		remove_effect = {
-#			random_owned_state = {
-#				limit = { 
-#					is_core_of = ROOT 
-#					THIS = {
-#						free_building_slots = {
-#						    building = dockyard
-#						    size > 0
-#						    include_locked = yes
-#						}
-#					}
-#				}
-#				add_building_construction = {
-#					type = dockyard
-#					level = 1
-#				}
-#			}
-#			random_owned_state = {
-#				limit = { 
-#					is_core_of = ROOT 
-#					THIS = {
-#						free_building_slots = {
-#						    building = dockyard
-#						    size > 0
-#						    include_locked = yes
-#						}
-#					}
-#				}
-#				add_building_construction = {
-#					type = dockyard
-#					level = 1
-#				}
-#			}
-#		}
-#
-#		cost = 50
-#		fire_only_once = yes
-#		days_remove = 180
-#
-#        ai_will_do = {
-#			factor = 10
-#		}
-#	}
-
-#	industry_research_efforts = {
-#
-#		icon = research_boost
-#
-#		visible = {
-#			has_start_date < 60.01.01
-#			has_tech = reform_2
-#		}
-#		available = {
-#			hidden_trigger = {
-#				has_start_date < 60.01.01
-#				has_tech = reform_2
-#			}
-#		}
-#
-#		modifier = {
-#			civilian_factory_use = 5
-#		}
-#
-#		remove_effect = {
-#			add_tech_bonus = {
-#				name = FIR_industry_research_efforts
-#				bonus = 1
-#				uses = 1
-#				category = industry_tech
-#			}
-#		}
-#
-#		custom_cost_trigger = {
-#			num_of_civilian_factories > 4
-#		}
-#		custom_cost_text = manufactory_5
-#		#fire_only_once = yes
-#		days_remove = 40
-#		days_re_enable = 140
-#
-#        ai_will_do = {
-#			factor = 10
-#		}
-#	}
-
-	#experimental_factories = {
-#
-	#	icon = buildup
-#
-	#	visible = {
-	#		has_tech = reform_3
-	#	}
-#
-	#	available = {
-	#		any_owned_state = {
-	#			arms_factory > 0
-	#			factory < 1
-	#		}
-	#		has_tech = reform_3
-	#	}
-#
-	#	remove_effect = {
-	#		random_owned_state = {
-	#			limit = { 
-	#				is_core_of = ROOT 
-	#				THIS = {
-	#					arms_factory > 0
-	#					factory < 1
-	#				}
-	#			}
-	#			add_building_construction = {
-	#				type = factory
-	#				level = 1
-	#				instant_build = yes
-	#			}
-	#			remove_building = {
-	#				type = arms_factory
-	#				level = 1
-	#			}
-	#		}
-	#	}
-#
-	#	cost = 50
-   #     #fire_only_once = yes
-   #     days_remove = 60
-   #     days_re_enable = 30
-#
-   #     ai_will_do = {
-	#		factor = 10
-	#	}
-	#}
-
 }
 
-#war_weariness_category = {
-#	
-#	
-#
-#}
 
 FIR_royal_family_category = {
 
@@ -330,7 +169,7 @@ FIR_royal_family_category = {
 		icon = book
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {	
 			has_country_flag = sozin_wife_elua
@@ -375,7 +214,7 @@ FIR_royal_family_category = {
 		icon = general
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {	
 			has_character = FIR_azulon
@@ -427,7 +266,7 @@ FIR_royal_family_category = {
 	crown_azulon = {
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {	
 			has_country_leader = {
@@ -493,6 +332,20 @@ FIR_dragon_category = {
 		complete_effect = {
 			custom_effect_tooltip = dragons_angry_tt
 			set_country_flag = hunting_dragons
+			unlock_decision_tooltip = dragon_hunt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						has_dynamic_modifier = { modifier = dragon_herd }
+					}
+					FIR = {
+						activate_targeted_decision = {
+							target = PREV
+							decision = dragon_hunt
+						}
+					}
+				}
+			}
 		}
 
 		cost = 100
@@ -512,21 +365,13 @@ FIR_dragon_category = {
 		available = {
 			has_country_flag = hunting_dragons
 			FROM = {
-				NOT = {
-					state = 302
-				}
 				has_dynamic_modifier = { modifier = dragon_herd }
 			}
 		}
 
 		state_target = yes
 		target_trigger = {
-			FROM = {
-				NOT = {
-					state = 302
-				}
-				has_dynamic_modifier = { modifier = dragon_herd }
-			}
+			
 		}
 
 		complete_effect = {
@@ -566,6 +411,10 @@ FIR_dragon_category = {
 								remove_dynamic_modifier = { modifier = dragon_herd }
 								clr_state_flag = hunt_failed_once
 								clr_state_flag = hunt_failed_twice
+							}
+							remove_targeted_decision = {
+								target = FROM
+								decision = dragon_hunt
 							}
 						}
 						40 = { 
@@ -621,7 +470,7 @@ FIR_dragon_category = {
 	the_dragon_of_the_west_is_born = {
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 
 		visible = {	
@@ -1105,7 +954,7 @@ FIR_conquest_category = {
 		icon = war
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_global_flag = air_nomad_genocide
@@ -1142,7 +991,7 @@ FIR_conquest_category = {
 		icon = war
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_global_flag = air_nomad_genocide
@@ -1545,7 +1394,7 @@ FIR_colonies_category = {
 		icon = convoy
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_active_mission = evacuate_fire_citizen_mission
@@ -1596,7 +1445,7 @@ FIR_colonies_category = {
 		icon = fire_navy
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_active_mission = evacuate_fire_citizen_mission
@@ -2361,7 +2210,7 @@ air_genocide_category = {
 		icon = fire_helmet
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2417,7 +2266,7 @@ air_genocide_category = {
 		icon = fire_royal_guard
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2459,7 +2308,7 @@ air_genocide_category = {
 		icon = northern_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2510,7 +2359,7 @@ air_genocide_category = {
 		icon = eastern_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2569,7 +2418,7 @@ air_genocide_category = {
 		icon = southern_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2628,7 +2477,7 @@ air_genocide_category = {
 		icon = western_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2687,7 +2536,7 @@ air_genocide_category = {
 		icon = northern_air_temple
 		
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2730,7 +2579,7 @@ air_genocide_category = {
 		icon = western_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2774,7 +2623,7 @@ air_genocide_category = {
 		icon = southern_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -2818,7 +2667,7 @@ air_genocide_category = {
 		icon = eastern_air_temple
 
 		allowed = {
-			always = no
+			tag = FIR
 		}
 		visible = {
 			has_country_flag = genocide_active
