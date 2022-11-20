@@ -238,100 +238,19 @@ THE_EARTHKINGDOM = {
 
 		fire_only_once = no
 
-		#modifier = {
-		#	political_power_factor = -0.05
-		#	autonomy_gain = 0.6
-		#}
-
 		complete_effect = { 
-			add_to_array = {
-				array = ROOT.border_conflict_array
-				value = var:FROM.OWNER
-			}
-			set_country_flag = ongoing_border_conflict
+			
+			start_state_conflict = yes
+			aggressive_negotiations = yes
+			diplomatic_plays = yes
 
-			set_variable = { ROOT.defender_state_id = FROM.ID }
-			var:defender_state_id = {
-				random_neighbor_state = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					set_variable = { ROOT.attacker_state_id = THIS.ID }
-				}
-			}
-
-			start_border_war = {
-				change_state_after_war = yes
-				attacker = {
-					state = ROOT.attacker_state_id
-					num_provinces = 4
-					#on_win = japan_border_conflict.2
-					#on_lose = japan_border_conflict.3
-					#on_cancel = japan_border_conflict.4
-				}
-							
-				defender = {
-					state = ROOT.defender_state_id
-					num_provinces = 4
-					#on_win = japan_border_conflict.3
-					#on_lose = japan_border_conflict.2
-					#on_cancel = japan_border_conflict.4
-				}
-			}
-
-			OVERLORD = {
-				country_event = { id = struggles_ek.14 }
-			}
+			#OVERLORD = {
+			#	country_event = { id = struggles_ek.14 }
+			#}
 		}
 
 		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	vassalage_contest_border_mission = {
-
-		#target_array = ROOT.border_conflict_array
-
-		icon = riot
-		available = {
-			not = {
-				has_country_flag = ongoing_border_conflict
-			}
-		}
-		days_mission_timeout = 4
-		is_good = no
-		activation = {
-			has_country_flag = ongoing_border_conflict
-		}
-		timeout_effect = {
-			add_political_power = 1
-			country_event = { id = struggles_ek.13 }
-			clr_country_flag = ongoing_border_conflict
-
-			start_border_war = {
-				change_state_after_war = yes
-				attacker = {
-					state = attacker_state_id
-					num_provinces = 4
-					on_win = japan_border_conflict.2
-					on_lose = japan_border_conflict.3
-					on_cancel = japan_border_conflict.4
-				}
-							
-				defender = {
-					state = defender_state_id
-					num_provinces = 4
-					on_win = japan_border_conflict.3
-					on_lose = japan_border_conflict.2
-					on_cancel = japan_border_conflict.4
-				}
-			}
-		}
-		complete_effect = {
-			add_political_power = 1
-			country_event = { id = struggles_ek.13 }
-			clr_country_flag = ongoing_border_conflict
+			factor = 0
 		}
 	}
 

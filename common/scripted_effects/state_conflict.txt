@@ -33,6 +33,14 @@ start_state_conflict = {
 		}
 		set_variable = { defender_points = 20 }
 		hidden_effect = {
+			state_event = { 
+				id = state_conflict.1
+				trigger_for = ROOT
+			}
+			state_event = { 
+				id = state_conflict.1
+				trigger_for = CONTROLLER
+			}
 			add_dynamic_modifier = { modifier = state_conflict_modifier }
 		}
 	}
@@ -56,36 +64,31 @@ aggressive_negotiations = {
 		}
 	}
 	FROM.CONTROLLER = {
-		set_temp_variable = { defender_manpower = max_available_manpower_k }
-		multiply_temp_variable = { defender_manpower = 100 }
-		round_temp_variable = defender_manpower
-		set_temp_variable = {
-			var = defender_manpower_tooltip
-			value = defender_manpower
-			tooltip = transfer_manpower_to_state
-		}
-		multiply_temp_variable = { defender_manpower = -1 }
+		defender_combatants = yes
+
 		hidden_effect = {
-			add_manpower = defender_manpower
+			activate_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_send_manpower
+			}
+			activate_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_mobilise_reserves
+			}
 		}
 	}
 
 	FROM = {
 		set_variable = { attacker_strength = attacker_manpower_tooltip }
 		set_variable = { defender_strength = defender_manpower_tooltip }
-
-		set_variable = { attacker_strength_min = defender_strength }
-		multiply_variable = { attacker_strength_min = 3 }
-
-		set_variable = { defender_strength_min = attacker_strength }
-		multiply_variable = { defender_strength_min = 3 }
 	}
 
+	recalc_state_strength = yes
 }
 
 attacker_combatants = {
 	
-	set_temp_variable = { attacker_manpower = PREV.max_available_manpower_k }
+	set_temp_variable = { attacker_manpower = max_available_manpower_k }
 	multiply_temp_variable = { attacker_manpower = 50 }
 	round_temp_variable = attacker_manpower
 	set_temp_variable = {
@@ -98,17 +101,11 @@ attacker_combatants = {
 		add_manpower = attacker_manpower
 	}
 
-	FROM = {
-		set_variable = { attacker_strength_min = defender_strength }
-		multiply_variable = { attacker_strength_min = 3 }
-
-		set_variable = { defender_strength_min = attacker_strength }
-		multiply_variable = { defender_strength_min = 3 }
-	}
+	recalc_state_strength = yes
 }
 attacker_reserves = {
 	
-	set_temp_variable = { attacker_manpower = PREV.max_available_manpower }
+	set_temp_variable = { attacker_manpower = max_available_manpower }
 	set_temp_variable = {
 		var = attacker_manpower_tooltip
 		value = attacker_manpower
@@ -119,6 +116,43 @@ attacker_reserves = {
 		add_manpower = attacker_manpower
 	}
 
+	recalc_state_strength = yes
+}
+
+defender_combatants = {
+	
+	set_temp_variable = { defender_manpower = max_available_manpower_k }
+	multiply_temp_variable = { defender_manpower = 50 }
+	round_temp_variable = defender_manpower
+	set_temp_variable = {
+		var = defender_manpower_tooltip
+		value = defender_manpower
+		tooltip = transfer_manpower_to_state
+	}
+	multiply_temp_variable = { defender_manpower = -1 }
+	hidden_effect = {
+		add_manpower = defender_manpower
+	}
+
+	recalc_state_strength = yes
+}
+defender_reserves = {
+	
+	set_temp_variable = { defender_manpower = max_available_manpower }
+	set_temp_variable = {
+		var = defender_manpower_tooltip
+		value = defender_manpower
+		tooltip = transfer_manpower_to_state
+	}
+	multiply_temp_variable = { defender_manpower = -1 }
+	hidden_effect = {
+		add_manpower = defender_manpower
+	}
+
+	recalc_state_strength = yes
+}
+
+recalc_state_strength = {
 	FROM = {
 		set_variable = { attacker_strength_min = defender_strength }
 		multiply_variable = { attacker_strength_min = 3 }
@@ -126,6 +160,48 @@ attacker_reserves = {
 		set_variable = { defender_strength_min = attacker_strength }
 		multiply_variable = { defender_strength_min = 3 }
 	}
+}
+
+battle_calculation = {
+
+	FROM = {
+		set_temp_variable = { attacker_kills = attacker_strength }
+		set_temp_variable = { attacker_kills = attacker_strength }
+		set_temp_variable_to_random = attacker_kill_ratio
+		add_to_temp_variable = { attacker_kill_ratio = 0.5 }
+		multiply_temp_variable = { attacker_kills = attacker_kill_ratio }
+		clamp_temp_variable = {
+			var = attacker_kills
+			max = defender_strength
+		}
+		round_temp_variable = attacker_kills
+
+		set_temp_variable = { defender_kills = defender_strength }
+		set_temp_variable = { defender_kills = defender_strength }
+		set_temp_variable_to_random = defender_kill_ratio
+		add_to_temp_variable = { defender_kill_ratio = 0.5 }
+		multiply_temp_variable = { defender_kills = defender_kill_ratio }
+		clamp_temp_variable = {
+			var = defender_kills
+			max = attacker_strength
+		}
+		round_temp_variable = defender_kills
+	}
+	FROM = {
+		subtract_from_variable = {
+			var = defender_strength
+			value = attacker_kills
+			tooltip = defender_kill_ttp
+		}
+	}
+	FROM = {
+		subtract_from_variable = {
+			var = attacker_strength
+			value = defender_kills
+			tooltip = attacker_kill_ttp
+		}
+	}
+
 }
 
 diplomatic_plays = {
@@ -143,20 +219,33 @@ diplomatic_plays = {
 		}
 	}
 	FROM.CONTROLLER = {
-
+		hidden_effect = {
+			activate_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_political_pressure
+			}
+			activate_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_discredit
+			}
+		}
 	}
 
 }
 
 end_state_conflict = {
 
-	ROOT = {
+	var:attacker = {
 		custom_effect_tooltip = clear_state_attacker
 		hidden_effect = {
-			add_manpower = attacker_strength
+			add_manpower = PREV.FROM.attacker_strength
 			remove_targeted_decision = {
 				target = PREV.FROM
 				decision = state_conflict_show_attacker
+			}
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_attacker_send_manpower
 			}
 			remove_targeted_decision = {
 				target = PREV.FROM
@@ -173,15 +262,35 @@ end_state_conflict = {
 		}
 	}
 	
-	FROM.CONTROLLER = {
+	var:defender = {
 		hidden_effect = {
-			add_manpower = defender_strength
+			add_manpower = PREV.FROM.defender_strength
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_show_defender
+			}
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_send_manpower
+			}
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_mobilise_reserves
+			}
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_political_pressure
+			}
+			remove_targeted_decision = {
+				target = PREV.FROM
+				decision = state_conflict_defender_discredit
+			}
 		}
 	}
 
 	FROM = {
-		clear_variable  = attacker
-		clear_array  = THIS.attackers
+		clear_variable = attacker
+		clear_array = THIS.attackers
 		clear_variable = attacker_points
 		clear_variable = attacker_strength
 		clear_variable = attacker_strength_min

@@ -37,7 +37,10 @@ state_conflict_category = {
 
 
 		complete_effect = {
-			end_state_conflict = yes
+			state_event = { 
+				id = state_conflict.2
+				trigger_for = ROOT
+			}
 		}
 
 	}
@@ -224,7 +227,154 @@ state_conflict_category = {
 
 
 		complete_effect = {
-			end_state_conflict = yes
+			state_event = { 
+				id = state_conflict.2
+				trigger_for = ROOT
+			}
+		}
+
+	}
+
+	state_conflict_defender_send_manpower = {
+
+		icon = draft
+
+		allowed = {
+			always = no
+		}
+
+		available = {
+			has_manpower > 0
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				check_variable = { defender = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+				
+		#fire_only_once = no
+
+		days_remove = 12
+
+
+		remove_effect = {
+			defender_combatants = yes
+			add_to_variable = { FROM.defender_strength = defender_manpower_tooltip }
+
+			add_to_variable = {
+				var = FROM.defender_points
+				value = 5
+				tooltip = pressure_points_defender
+			}
+		}
+	}
+
+	state_conflict_defender_mobilise_reserves = {
+
+		icon = draft
+
+		allowed = {
+			always = no
+		}
+
+		available = {
+			has_manpower > 0
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				check_variable = { defender = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+				
+		#fire_only_once = no
+
+		modifier = {
+			industrial_capacity_factory = -0.3
+		}
+
+		days_remove = 90
+
+
+		remove_effect = {
+			defender_reserves = yes
+			add_to_variable = { FROM.defender_strength = defender_manpower_tooltip }
+
+			add_to_variable = {
+				var = FROM.defender_points
+				value = 25
+				tooltip = pressure_points_defender
+			}
+		}
+	}
+
+	state_conflict_defender_political_pressure = {
+
+		icon = draft
+
+		allowed = {
+			always = no
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				check_variable = { defender = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+				
+		#fire_only_once = no
+
+		cost = 100
+
+		days_remove = 7
+
+
+		remove_effect = {
+			add_to_variable = {
+				var = FROM.defender_points
+				value = 10
+				tooltip = pressure_points_defender
+			}
+		}
+
+	}
+
+	state_conflict_defender_discredit = {
+
+		icon = draft
+
+		allowed = {
+			always = no
+		}
+
+		state_target = yes
+		target_trigger = {
+			FROM = {
+				check_variable = { defender = ROOT }
+			}
+		}
+		on_map_mode = map_and_decisions_view
+				
+		#fire_only_once = no
+
+		cost = 100
+
+		days_remove = 7
+
+
+		remove_effect = {
+			add_to_variable = {
+				var = FROM.attacker_points
+				value = -5
+				tooltip = pressure_points_attacker
+			}
 		}
 
 	}
