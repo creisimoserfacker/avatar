@@ -5,7 +5,21 @@ on_actions = {
 			every_country = {
 				add_ideas = {
 					strategic_redeployment_blocker
-					age_1_bonus
+				}
+				if = {
+					limit = {
+						NOT = {
+							OR = {
+								has_idea = age_1_bonus
+								has_idea = age_2_bonus
+								has_idea = age_3_bonus
+								has_idea = age_4_bonus
+								has_idea = age_5_bonus
+								has_idea = age_6_bonus
+							}
+						}
+					}
+					add_ideas = age_1_bonus
 				}
 				add_dynamic_modifier = { modifier = dynamic_bender_capacity }
 				add_dynamic_modifier = { modifier = fast_manpower days = 10 }

@@ -24,8 +24,6 @@ set_country_flag = FIR_air_techs
 set_country_flag = FIR_special_forces
 set_country_flag = fire_nation
 
-set_variable = { tech_age = 4 }
-
 set_variable = { legitimacy_var = 120 }
 
 
@@ -239,7 +237,11 @@ add_ideas = {
 	national_prosperity
 	legacy_of_roku_and_sozin
 	FIR_guiding_wind_opposition
+
+	age_4_bonus
 }
+
+set_variable = { tech_age = 4 }
 
 recruit_character = FIR_minister_of_personnel_1
 recruit_character = FIR_minister_of_personnel_2
@@ -408,8 +410,6 @@ if = {
 	OOB = "FIR_52"
 
 	add_political_power = 1198
-
-	set_variable = { tech_age = 5 }
 
 	set_country_flag = hunting_dragons
 	clr_country_flag = arrival_of_the_great_comet_mission
@@ -847,20 +847,24 @@ if = {
 
 	add_ideas = {
 
-		war_weariness_2
-
 		extensive_conscription
 		fire_volunteers
 		international_trade
 		economy_4
 		family_support_3
 		indoctrination
+
+		age_5_bonus
 	}
+
+	set_variable = { tech_age = 5 }
 
 	remove_ideas = {
 		national_prosperity
 		legacy_of_roku_and_sozin
 		FIR_guiding_wind_opposition
+
+		age_4_bonus
 	}
 
 	if = {
@@ -929,13 +933,31 @@ if = {
 	
 	OOB = "FIR_106"
 
-	set_variable = { tech_age = 6 }
-
 	add_political_power = 1198
 
 	set_variable = { weekly_accumulated_exhaustion = 4 }
 	set_variable = { casualty_accumulated_exhaustion = 12 }
 	set_variable = { occupation_accumulated_exhaustion = 17 }
+
+
+	add_ideas = {
+
+		extensive_conscription
+		fire_volunteers
+		international_trade
+		economy_4
+		family_support_3
+		indoctrination
+
+		age_6_bonus
+	}
+
+	set_variable = { tech_age = 6 }
+
+	remove_ideas = {
+		
+		age_5_bonus
+	}
 
 
 	if = {
@@ -1004,86 +1026,6 @@ if = {
 		civilian = { large="gfx/leaders/FIR/Portrait_Firenation_Azulon1.dds" }
 	}
 
-	#create_field_marshal = {
-	#	name = "Azulon"
-	#	picture = "Portrait_Firenation_Azulon1.dds"
-	#	traits = {  offensive_doctrine armor_officer }
-	#	skill = 8
-	#	attack_skill = 7
-	#	defense_skill = 2
-	#	planning_skill = 4
-	#	logistics_skill = 3
-	#}
-
-	#remove_unit_leader = 1
-	#remove_unit_leader = 70
-
-	#create_field_marshal = {
-	#	name = "Iroh"
-	#	picture = "Portrait_Firenation_Iroh1.dds"
-	#	traits = { dragon_of_the_west calm supply_organisation besieger defensive_infantry #thorough_planner }
-	#	skill = 4
-	#	attack_skill = 3
-	#	defense_skill = 3
-	#	planning_skill = 1
-	#	logistics_skill = 2
-	#}
-	#
-	#create_field_marshal = {
-	#	name = "Joeng Joeng"
-	#	picture = "Portrait_Firenation_Joengjoeng.dds"
-	#	traits = { offensive_infantry powerful_attack trait_engineer bridge_builder }
-	#	skill = 3
-	#	attack_skill = 1
-	#	defense_skill = 3
-	#	planning_skill = 1
-	#	logistics_skill = 2
-	#}
-	#
-	#create_corps_commander = {
-	#	name = "Lu Ten"
-	#	picture = "Portrait_Firenation_Lu_Ten.dds"
-	#	traits = { trait_reckless offensive_infantry }
-	#	skill = 2
-	#	attack_skill = 2
-	#	defense_skill = 1
-	#	planning_skill = 2
-	#	logistics_skill = 1
-	#}
-	#
-
-	# WAR
-		#declare_war_on = {
-		#	target = EAR
-		#	type = annex_everything
-		#}
-
-
-
-
-	# set_technology = {
-
-	# }
-
-	# if = {
-	# 	limit = {
-	# 		NOT = { has_dlc = "Man the Guns" }
-	# 	}
-	# 	set_technology = {
-
-	# 	}
-	# }
-	# if = {
-	# 	limit = {
-	# 		has_dlc = "Man the Guns"
-	# 	}
-	# 	set_technology = {
-
-	# 	}
-
-	# }
-
-
 }
 
 
@@ -1121,89 +1063,6 @@ if = {
 		}
 
 	}
-
-
-	#
-	#remove_unit_leader = 1
-	#remove_unit_leader = 2
-	#remove_unit_leader = 3
-	#remove_unit_leader = 4
-	#
-	#
-	#create_field_marshal = {
-	#	name = "Shinu"
-	#	picture = "Portrait_Firenation_Shinu.dds"
-	#	traits = {  }
-	#	skill = 2
-	#	attack_skill = 1
-	#	defense_skill = 2
-	#	planning_skill = 1
-	#	logistics_skill = 3
-	#}
-	#
-	#create_field_marshal = {
-	#	name = "Bujing"
-	#	picture = "Portrait_Firenation_Bujing.dds"
-	#	traits = {  }
-	#	skill = 2
-	#	attack_skill = 2
-	#	defense_skill = 2
-	#	planning_skill = 1
-	#	logistics_skill = 1
-	#}
-	#
-	#create_corps_commander = {
-	#	name = "Li"
-	#	picture = "Portrait_Firenation_Li.dds"
-	#	traits = {  }
-	#	skill = 2
-	#	attack_skill = 1
-	#	defense_skill = 2
-	#	planning_skill = 1
-	#	logistics_skill = 1
-	#}
-	#
-	#create_corps_commander = {
-	#	name = "Mak"
-	#	picture = "Portrait_Firenation_Mak.dds"
-	#	traits = {  }
-	#	skill = 1
-	#	attack_skill = 1
-	#	defense_skill = 1
-	#	planning_skill = 1
-	#	logistics_skill = 1
-	#}
-	#
-	#create_corps_commander = {
-	#	name = "Mung"
-	#	picture = "Portrait_Firenation_Mung.dds"
-	#	traits = {  }
-	#	skill = 1
-	#	attack_skill = 1
-	#	defense_skill = 1
-	#	planning_skill = 1
-	#	logistics_skill = 1
-	#}
-	#
-	#create_corps_commander = {
-	#	name = "Zhao"
-	#	picture = "Portrait_Firenation_Zhao.dds"
-	#	traits = {  }
-	#	skill = 2
-	#	attack_skill = 2
-	#	defense_skill = 1
-	#	planning_skill = 2
-	#	logistics_skill = 2
-	#}
-
-
-	# WAR
-		#declare_war_on = {
-		#	target = EAR
-		#	type = annex_everything
-		#}
-
-	# DIPLOMACY
 		
 
 }
