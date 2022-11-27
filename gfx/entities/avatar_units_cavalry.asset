@@ -1,6 +1,6 @@
 	entity = {
 		name = "generic_spearmen_rider_entity"
-		pdxmesh = "melee_infantry_generic_01"
+		pdxmesh = "melee_infantry_generic_03"
 		
 		default_state = "idle"
 		state = { name = "attack"			animation = "attack" 			animation_blend_time = 0.3 animation_speed = 1.0 propagate_state = { rifle2 = "defend" } }
@@ -40,7 +40,51 @@
 		}
 		
 		scale = 1
-	}	
+	}
+
+
+
+	############## generic cavalry
+
+	entity = {
+		name = "cavalry_entity"
+		pdxmesh = "avatar_cavalry_frame_mesh"
+		
+		default_state = "idle"
+		state = { name = "idle"				animation = "idle" 		animation_blend_time = 0.0 }
+		state = { name = "move"				animation = "move" 		animation_blend_time = 0.0 }
+		state = { name = "attack"					animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "support_attack"			animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "defend"					animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "retreat"					animation = "move" 		animation_blend_time = 0.0 }
+		state = { name = "training"					animation = "attack" 		animation_blend_time = 0.0 }
+		
+		attach = { 	name = "infantry"			infantry = "generic_spearmen_rider_entity" }
+		attach = { 	name = "cavalry"			cavalry = "generic_ostrich_horse_combined_entity" }
+		attach = { 	name = "horse"				horse = "mount_ostrich_horse_entity" }
+		
+		scale = 0.4
+	}
+
+	entity = {
+		name = "cavalry_2_entity"
+		pdxmesh = "avatar_cavalry_frame_mesh"
+		
+		default_state = "idle"
+		state = { name = "idle"				animation = "idle" 		animation_blend_time = 0.0 }
+		state = { name = "move"				animation = "move" 		animation_blend_time = 0.0 }
+		state = { name = "attack"					animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "support_attack"			animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "defend"					animation = "attack" 	animation_blend_time = 0.0 }
+		state = { name = "retreat"					animation = "move" 		animation_blend_time = 0.0 }
+		state = { name = "training"					animation = "attack" 		animation_blend_time = 0.0 }
+		
+		attach = { 	name = "infantry"			infantry = "generic_spearmen_rider_entity" }
+		attach = { 	name = "cavalry"			cavalry = "generic_ostrich_horse_combined_entity" }
+		attach = { 	name = "horse"				horse = "mount_ostrich_horse_entity" }
+		
+		scale = 0.4
+	}
 
 
 ############
@@ -96,7 +140,7 @@
 		state = { name = "retreat"					animation = "move" 		animation_blend_time = 0.0 }
 		state = { name = "training"					animation = "attack" 		animation_blend_time = 0.0 }
 		
-		attach = { 	name = "infantry"			infantry = "infantry_rider_entity" }
+		attach = { 	name = "infantry"			infantry = "generic_spearmen_rider_entity" }
 		attach = { 	name = "cavalry"			cavalry = "generic_ostrich_horse_combined_entity" }
 		attach = { 	name = "horse"				horse = "mount_ostrich_horse_entity" }
 		
@@ -116,7 +160,7 @@
 		state = { name = "retreat"					animation = "move" 		animation_blend_time = 0.0 }
 		state = { name = "training"					animation = "attack" 		animation_blend_time = 0.0 }
 		
-		attach = { 	name = "infantry"			infantry = "infantry_rider_entity" }
+		attach = { 	name = "infantry"			infantry = "generic_spearmen_rider_entity" }
 		attach = { 	name = "cavalry"			cavalry = "earth_ostrich_horse_combined_entity" }
 		attach = { 	name = "horse"				horse = "earth_ostrich_horse_entity" }
 		
