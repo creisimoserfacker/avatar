@@ -1,92 +1,8 @@
 objectTypes = {
 
-
-	pdxmesh = {
-		name = "asian_spear_01"
-		file = "gfx/models/units/asian_spear.mesh"
-	}
-
-	pdxmesh = {
-		name = "sword_1"
-		file = "gfx/models/units/generic_club.mesh"
-	}
-	pdxmesh = {
-		name = "sword_2"
-		file = "gfx/models/units/generic_sword.mesh"
-	}
-
-	pdxmesh = {
-		name = "generic_shield_1"
-		file = "gfx/models/units/generic_shield_1.mesh"
-	}
-	pdxmesh = {
-		name = "generic_shield_2"
-		file = "gfx/models/units/generic_shield_2.mesh"
-	}
-	pdxmesh = {
-		name = "generic_shield_3"
-		file = "gfx/models/units/generic_shield_2.mesh"
-	}
-	pdxmesh = {
-		name = "generic_shield_4"
-		file = "gfx/models/units/generic_shield_4.mesh"
-	}
-	pdxmesh = {
-		name = "generic_shield_5"
-		file = "gfx/models/units/generic_shield_5.mesh"
-	}
-
-	pdxmesh = {
-		name = "generic_banner"
-		file = "gfx/models/units/banners/banner.mesh"
-
-		animation = { id = "idle"			type = "banner_idle_animation" }
-	}
-	pdxmesh = {
-		name = "fir_banner"
-		file = "gfx/models/units/banners/banner.mesh"
-
-		animation = { id = "idle"			type = "banner_idle_animation" }
-
-		meshsettings = {
-			texture_diffuse = "fir_banner_d.dds"
-		}
-	}
-	pdxmesh = {
-		name = "ear_banner"
-		file = "gfx/models/units/banners/banner.mesh"
-
-		animation = { id = "idle"			type = "banner_idle_animation" }
-
-		meshsettings = {
-			texture_diffuse = "ear_banner_d.dds"
-		}
-	}
-
-	pdxmesh = {
-		name = "bow_mesh"
-		file = "gfx/models/units/bow.mesh"
-
-		animation = { id = "idle"			type = "bow_idle_animation" }
-		animation = { id = "attack_01"		type = "bow_attack_1_animation" }
-		animation = { id = "move"			type = "bow_idle_animation" }
-		animation = { id = "march_move"		type = "bow_idle_animation" }
-		animation = { id = "retreat"		type = "bow_idle_animation" }
-	}
-	pdxmesh = {
-		name = "arrow_mesh"
-		file = "gfx/models/units/arrow.mesh"
-
-		animation = { id = "idle"			type = "arrow_idle_animation" }
-		animation = { id = "attack_01"		type = "arrow_attack_1_animation" }
-		animation = { id = "move"			type = "arrow_idle_animation" }
-		animation = { id = "march_move"		type = "arrow_idle_animation" }
-		animation = { id = "retreat"		type = "arrow_idle_animation" }
-	}
-
 	pdxmesh = {
 		name = "melee_infantry_generic_01"
-		file = "gfx/models/units/melee_infantry_generic_01_type1.mesh"
+		file = "gfx/models/units/infantry/melee_infantry_generic_01_type1.mesh"
 
 		animation = { id = "idle"			type = "spear_shield_idle_animation" }
 		animation = { id = "attack"			type = "spear_shield_attack_animation" }
@@ -102,7 +18,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "melee_infantry_generic_03"
-		file = "gfx/models/units/melee_infantry_generic_01_type1.mesh"
+		file = "gfx/models/units/infantry/melee_infantry_generic_01_type1.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }
@@ -116,7 +32,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "melee_infantry_generic_02"
-		file = "gfx/models/units/melee_infantry_generic_02_type1.mesh"
+		file = "gfx/models/units/infantry/melee_infantry_generic_02_type1.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }
@@ -129,20 +45,20 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "melee_infantry_banner"
-		file = "gfx/models/units/melee_infantry_generic_01_type1.mesh"
+		file = "gfx/models/units/infantry/melee_infantry_generic_01_type1.mesh"
 
 		animation = { id = "idle"			type = "banner_carrier_idle_animation" }
-		animation = { id = "attack"			type = "banner_carrier_idle_animation" }
+		animation = { id = "attack"			type = "banner_carrier_moving_animation" }
 		animation = { id = "support_attack"	type = "polearm_twohanded_attack_animation" }
-		animation = { id = "move"			type = "polearm_twohanded_moving_animation" }
-		animation = { id = "march_move"		type = "polearm_twohanded_moving_animation" }
-		animation = { id = "retreat"		type = "polearm_twohanded_retreat_animation" }
+		animation = { id = "move"			type = "banner_carrier_moving_animation" }
+		animation = { id = "march_move"		type = "banner_carrier_moving_animation" }
+		animation = { id = "retreat"		type = "banner_carrier_retreat_animation" }
 		animation = { id = "ride"			type = "spear_cavalry_idle_animation" }
 	}
 
 	pdxmesh = {
 		name = "swordsmen_generic"
-		file = "gfx/models/units/swordmen_generic.mesh"
+		file = "gfx/models/units/infantry/swordmen_generic.mesh"
 
 		animation = { id = "idle"			type = "swordmen_idle_animation" }
 		animation = { id = "attack_01"		type = "swordmen_attack_1_animation" }
@@ -156,7 +72,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "archer_generic"
-		file = "gfx/models/units/archer_generic.mesh"
+		file = "gfx/models/units/infantry/archer_generic.mesh"
 
 		animation = { id = "idle"			type = "archer_idle_animation" }
 		animation = { id = "attack_01"		type = "archer_attack_1_animation" }
@@ -168,7 +84,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "frame_archer_mesh"
-		file = "gfx/models/units/archer_frame.mesh"
+		file = "gfx/models/units/infantry/archer_frame.mesh"
 		
 		animation = { id = "idle"			type = "archer_idle_animation" }
 		animation = { id = "attack_01"		type = "archer_attack_1_animation" }
@@ -181,7 +97,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "FIR_spearmen"
-		file = "gfx/models/units/FIR_melee_infantry_type1.mesh"
+		file = "gfx/models/units/infantry/FIR_melee_infantry_type1.mesh"
 
 		animation = { id = "idle"			type = "spear_shield_idle_animation" }
 		animation = { id = "attack"			type = "spear_shield_attack_animation" }
@@ -197,7 +113,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "FIR_pikemen"
-		file = "gfx/models/units/FIR_melee_infantry_type1.mesh"
+		file = "gfx/models/units/infantry/FIR_melee_infantry_type1.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }
@@ -210,7 +126,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "FIR_banner"
-		file = "gfx/models/units/FIR_melee_infantry_type1.mesh"
+		file = "gfx/models/units/infantry/FIR_melee_infantry_type1.mesh"
 
 		animation = { id = "idle"			type = "banner_carrier_idle_animation" }
 		animation = { id = "attack"			type = "banner_carrier_idle_animation" }
@@ -222,7 +138,7 @@ objectTypes = {
 	}
 	pdxmesh = {
 		name = "FIR_swordsmen"
-		file = "gfx/models/units/FIR_melee_infantry_type2.mesh"
+		file = "gfx/models/units/infantry/FIR_melee_infantry_type2.mesh"
 
 		animation = { id = "idle"			type = "swordmen_idle_animation" }
 		animation = { id = "attack_01"		type = "swordmen_attack_1_animation" }
@@ -236,7 +152,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "FIR_archer"
-		file = "gfx/models/units/FIR_archer.mesh"
+		file = "gfx/models/units/infantry/FIR_archer.mesh"
 
 		animation = { id = "idle"			type = "archer_idle_animation" }
 		animation = { id = "attack_01"		type = "archer_attack_1_animation" }
@@ -263,7 +179,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "EARTH_spearmen"
-		file = "gfx/models/units/EARTH_melee_infantry_1.mesh"
+		file = "gfx/models/units/infantry/EARTH_melee_infantry_1.mesh"
 
 		animation = { id = "idle"			type = "spear_shield_idle_animation" }
 		animation = { id = "attack"			type = "spear_shield_attack_animation" }
@@ -279,7 +195,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "EARTH_melee_infantry_2"
-		file = "gfx/models/units/EARTH_melee_infantry_1.mesh"
+		file = "gfx/models/units/infantry/EARTH_melee_infantry_1.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }
@@ -304,7 +220,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "WATER_spearmen"
-		file = "gfx/models/units/WATER_melee_infantry_1.mesh"
+		file = "gfx/models/units/infantry/WATER_melee_infantry_1.mesh"
 
 		animation = { id = "idle"			type = "spear_shield_idle_animation" }
 		animation = { id = "attack"			type = "spear_shield_attack_animation" }
@@ -319,7 +235,7 @@ objectTypes = {
 	}
 	pdxmesh = {
 		name = "WATER_spearmen_cold_climate"
-		file = "gfx/models/units/WATER_cold_climate.mesh"
+		file = "gfx/models/units/infantry/WATER_cold_climate.mesh"
 
 		animation = { id = "idle"			type = "spear_shield_idle_animation" }
 		animation = { id = "attack"			type = "spear_shield_attack_animation" }
@@ -335,7 +251,7 @@ objectTypes = {
 
 	pdxmesh = {
 		name = "WATER_pikemen"
-		file = "gfx/models/units/WATER_melee_infantry_1.mesh"
+		file = "gfx/models/units/infantry/WATER_melee_infantry_1.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }
@@ -348,7 +264,7 @@ objectTypes = {
 	}
 	pdxmesh = {
 		name = "WATER_pikemen_cold_climate"
-		file = "gfx/models/units/WATER_cold_climate.mesh"
+		file = "gfx/models/units/infantry/WATER_cold_climate.mesh"
 
 		animation = { id = "idle"			type = "polearm_twohanded_idle_animation" }
 		animation = { id = "attack"			type = "polearm_twohanded_attack_animation" }

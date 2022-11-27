@@ -239,7 +239,7 @@ NDiplomacy = {
 },
 
 NCountry = {
-	EVENT_PROCESS_OFFSET = 14,						-- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
+	EVENT_PROCESS_OFFSET = 20,						-- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
 	BASE_RESEARCH_SLOTS = 2,						-- Base number of research slots per country.
 	POPULATION_YEARLY_GROWTH_BASE = 0.014,			-- basic population growth per year, used for monthly manpower gain
 	RESISTANCE_STRENGTH_FROM_VP = 0.001,			-- How much strength ticking speed gives each VP score.
@@ -319,8 +319,6 @@ NCountry = {
 	STATE_VALUE_BASE = 10.0,                        -- Base value of a state (value is used to determine costs in e.g. peace conferences)
 	STATE_VALUE_BUILDING_SLOTS_MULT = 4.0,			-- The Value of each building slot in a state ( Value is used to determine costs in peace conference and PP cost to occupy )
 	STATE_VALUE_MANPOWER_FACTOR = 10,               -- State cost increases with this for every 10k population (so 3.1M becomes 310 and then multiplied by this)
-	STATE_OCCUPATION_COST_MULTIPLIER = 0.01,		-- Multiplier for state value to PP cost for occupation
-	STATE_VALUE_NON_CORE_STATE_FRACTION = 0.5,		-- If a state is not a core we assume we will get 50% of the factory slots
 	INVASION_REPORT_EXPERATION_DAYS = 30,			-- Invasion experation days
 	MIN_FOCUSES_FOR_CONTINUOUS = 0,					-- Focuses needed to unlock continuous focuses
 	AUTONOMOUS_TOTAL_SCORE = 10000,					-- Total score for autonomous scale
@@ -524,11 +522,11 @@ NResistance = {
 	GARRISON_EQUIPMENT_DELIVERY_SPEED = 4.0,	-- Modifier for garrison equipment reinforcement speed
 	
 	GARRISON_STR_POW_MANPOWER = 2,	--Scales impact of manpower deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - manpower_deficiency^GARRISON_STR_POW_MANPOWER
-	GARRISON_STR_POW_EQUIPMENT = 3,	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
+	GARRISON_STR_POW_EQUIPMENT = 2,	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
-	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 1, -- Number of suppression point we need for each 1% of resistance
-	SUPPRESSION_NEEDED_LOWER_CAP = 10.0,	-- if resistance is lower than this value then we always act as though it is at the define for the purpose of suppresion requirements
-	SUPPRESSION_NEEDED_UPPER_CAP = 50.0, -- if resistance is greater than this value then we always act as though it is at the define for the purpose of suppresion requirements
+	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.5, -- Number of suppression point we need for each 1% of resistance
+	SUPPRESSION_NEEDED_LOWER_CAP = 5.0,	-- if resistance is lower than this value then we always act as though it is at the define for the purpose of suppresion requirements
+	SUPPRESSION_NEEDED_UPPER_CAP = 100.0, -- if resistance is greater than this value then we always act as though it is at the define for the purpose of suppresion requirements
 	
 	GARRISON_MANPOWER_LOST_BY_ATTACK = 0.002, 	-- Ratio of manpower lost by garrison at each attack on garrison (this number will be reduced by the hardness of garrison template)
 	GARRISON_EQUIPMENT_LOST_BY_ATTACK = 0.002, 	-- Ratio of equipment lost by garrison at each attack on garrison (this number will be reduced by the hardness of garrison template)
@@ -825,12 +823,7 @@ NMilitary = {
 	ANTI_AIR_ATTACK_TO_AMOUNT = 0.005,				-- Balancing value to convert equipment stat anti_air_attack to the random % value of airplanes being hit.
 
 	ENCIRCLED_PENALTY = -0.3,                      -- penalty when completely encircled
-	WARSCORE_WINNER_FACTOR = 1,						-- Warscore effect on winners
-	WARSCORE_DEFENDER_FACTOR = 0.3,					-- Warscore effect on defender
-	WARSCORE_LOSS_FACTOR = 0.2,						-- Warscore effect on losing
-	WARSCORE_TOTAL_FACTOR = 3,						-- Warscore balancing value
-	WARSCORE_PROVINCE_FACTOR = 0.2,					-- Warscore effect from province
-	WARSCORE_MIN_HOURS = 48,						-- minimum hours
+	
 	UNIT_EXPERIENCE_PER_COMBAT_HOUR = 0.0001,
 	UNIT_EXPERIENCE_SCALE = 0.4,
 	UNIT_EXPERIENCE_PER_TRAINING_DAY = 0.0015,
@@ -840,7 +833,7 @@ NMilitary = {
 	TRAINING_ORG = 0.2,
 	ARMY_EXP_BASE_LEVEL = 1,
 	UNIT_EXP_LEVELS = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 },		-- Experience needed to progress to the next level
-	FIELD_EXPERIENCE_SCALE = 0.06,
+	FIELD_EXPERIENCE_SCALE = 0.15,
 	FIELD_EXPERIENCE_MAX_PER_DAY = 2,				-- Most xp you can gain per day
 	EXPEDITIONARY_FIELD_EXPERIENCE_SCALE = 0.5,		-- reduction factor in Xp from expeditionary forces
 	LEND_LEASE_FIELD_EXPERIENCE_SCALE = 0.005,		-- Experience scale for lend leased equipment used in combat.
@@ -3857,7 +3850,7 @@ NSupply = {
 	-- otherwuse they will lose up to 100% supply every day depending on how bad supply flow is
 	ARMY_SUPPLY_RATIO_STARTING_GAIN = 0.0,
 	ARMY_SUPPLY_RATIO_SPEED_GAIN_PER_HOUR = 0.01,
-	ARMY_MAX_SUPPLY_RATIO_GAIN_PER_HOUR = 0.15,
+	ARMY_MAX_SUPPLY_RATIO_GAIN_PER_HOUR = 1,
 
 	MIN_SURRENDER_LIMIT_TO_MOVE_SUPPLY_CAPITAL = 0.15, -- country needs to be above thos surrender ratio to be able to move its capital
 	COOLDOWN_DAYS_AFTER_MOVING_SUPPLY_CAPITAL = 30, -- cooldown for moving supply again after last move
@@ -3885,7 +3878,7 @@ NSupply = {
 	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 1.0,	--Division supply consumption used for estimating frontline weight for order tooltips
 	AVAILABLE_MANPOWER_STATE_SUPPLY = 200.0,						--Factor for state supply from max manpower (population)
 	NON_CORE_MANPOWER_STATE_SUPPLY = 1.5,						--Factor for population sttate supply when controlled by an occupier (NO TAKE FOOD)
-	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 1.0,				--Multiplies consumption rate of stored supply (more/less easement)
+	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.1,				--Multiplies consumption rate of stored supply (more/less easement)
 },
 NAITheatre = {
 	AI_THEATRE_GENERATION_HOME_THEATRE_DEPTH_RESTRICTION = 2,			-- The home theatre is generated based off a initial depth restriction
