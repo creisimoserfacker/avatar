@@ -689,6 +689,8 @@ NGraphics = {
 		0.1, 0.6, 0.2, 1.0,   -- 2: good, while active
 		0.8, 0.3, 0.0, 1.0,   -- 3: bad, while passive
 		0.0, 0.4, 0.8, 1.0,   -- 4: good, while passive
+		0.3, 0.9, 0.3, 0.8,   -- 5: controlled, neutral positive
+		0.7, 0.7, 0.0, 1.0,   -- 6: not ours, neutral negative
 	},
 	BORDER_COLOR_TUTORIAL_HIGHLIGHT_R = 0.0,
 	BORDER_COLOR_TUTORIAL_HIGHLIGHT_G = 0.61,
@@ -1068,7 +1070,6 @@ NGraphics = {
 	INTEL_NETWORK_VALID_TARGET_STRIPE_COLOR = { 0.1, 0.5, 0.8, 1.0 },	-- Color of the stripes of painted over a valid state to start building an intel network
 	INTEL_NETWORK_VALID_COUNTRY_TARGET_STRIPE_COLOR = { 0.1, 0.8, 0.5, 0.5 },	-- Color of the stripes painted over valid countries
 
-
 	OCCUPATION_RESISTANCE_NON_INITIALIZED_COLOR = { 1.0, 1.0, 1.0, 0.05 }, -- player owned state color with no resistance
 	
 	-- color that will be used in resistance/compliance map mode
@@ -1267,7 +1268,8 @@ NInterface = {
 	NAVY_UNIT_LEADER_ICON_SPRITE_ID = 3,
 	POLITICAL_LEADER_ICON_SPRITE_ID = 13,
 
-	EQUIPMENT_DESIGNER_SHOW_MODULE_FORBIDS_BASE_ROLE_ICON = 0, -- When selecting a module in the tank designer, for each role the module forbids a role icon will be displayed. If this is set to 0 no icon will be displayed if the main tank role is forbidden. If set to 1 the icon will be displayed as normal.
+	-- When selecting a module in the tank designer, for each role the module forbids a role icon may be displayed.
+	EQUIPMENT_DESIGNER_SHOW_MODULE_FORBIDS_BASE_ROLE_ICON = 0, -- If this is set to 0 no icon will be displayed if the main tank role is forbidden. If set to 1 the icon will be displayed as normal.
 	EQUIPMENT_DESIGNER_SHOW_MODULE_FORBIDS_SPECIALIZED_ROLE_ICON = 0, -- If this is set to 0 no icons will be displayed for any forbidden specialized roles. If set to 1 the icons will be displayed as normal.
 
 	SLOW_INTERFACE_THRESHOLD = 5000, -- Show warning "SLOW INTERFACE" in debug when interface refresh takes more that this (in microseconds)
