@@ -149,6 +149,24 @@ on_actions = {
 			set_variable = { war_exhaustion_check = war_exhaustion_weekly }
 			add_to_variable = { war_exhaustion_check = weariness_casualties }
 			add_to_variable = { war_exhaustion_check = occupation_war_exhaustion }
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_variable = 0 }
+				}
+				clamp_variable = {
+					var = war_exhaustion_check
+					min = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_variable = 100 }
+				}
+				clamp_variable = {
+					var = war_exhaustion_check
+					max = 0
+				}
+			}
 
 		}
 	}
