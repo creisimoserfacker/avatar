@@ -149,8 +149,8 @@ FIR_royal_family_category = {
 			}
 			add_trait = {
 				character = FIR_sozin
-				slot = country_leader
 				trait = out_of_controll
+				ideology = colonialism
 			}
 
 			custom_effect_tooltip = continue_expansion_plans_ttp
@@ -589,9 +589,9 @@ FIR_conquest_category = {
 		days_remove = 90
 
 		custom_cost_trigger = {
-			num_of_civilian_factories > 1
+			check_variable = { tax_balance > 0.2 }
 		}
-		custom_cost_text = expenses_20
+		custom_cost_text = expenses_200
 
 		fire_only_once = yes
 		ai_will_do = {
@@ -1026,180 +1026,6 @@ FIR_conquest_category = {
 
 
 }
-
-
-FIR_outpost_category = {
-	
-	boiling_rock_base = {
-
-		icon = buildup
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 264
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-
-		}
-		available = {
-			ships_in_area = { area = 36 size > 9 type = firenation_cruiser }
-			264 = {
-				is_controlled_by = FIR
-			}
-		}
-
-		days_remove = 120
-
-		modifier = {
-			civilian_factory_use = 4
-			country_resource_cost_aluminium = 10
-			country_resource_cost_steel = 2
-		}
-		custom_cost_trigger = {
-			num_of_civilian_factories > 3
-		}
-		custom_cost_text = manufactory_4
-
-		remove_effect = {
-			264 = {
-				set_building_level = {
-					type = naval_base
-					level = 6
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-			}
-			set_victory_points = {
-				province = 7281
-				value = 10
-			}
-		}
-
-		#cost = 50
-		fire_only_once = yes
-	}
-
-	earthkingdom_harbour_base = {
-
-		icon = buildup
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 73
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-
-		}
-		available = {
-			ships_in_area = { area = 101 size > 9 type = firenation_cruiser }
-			73 = {
-				is_controlled_by = FIR
-			}
-		}
-
-		days_remove = 120
-
-		modifier = {
-			civilian_factory_use = 4
-			country_resource_cost_aluminium = 10
-			country_resource_cost_steel = 2
-		}
-
-		custom_cost_trigger = {
-			num_of_civilian_factories > 3
-		}
-		custom_cost_text = manufactory_4
-
-		remove_effect = {
-			73 = {
-				set_building_level = {
-					type = naval_base
-					level = 6
-					instant_build = yes
-					province = {
-						all_provinces = yes
-					}
-				}
-			}
-			set_victory_points = {
-				province = 10554
-				value = 10
-			}
-		}
-
-		#cost = 50
-		fire_only_once = yes
-	}
-
-	whale_tail_base = {
-
-		icon = buildup
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 356
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-
-		}
-		available = {
-			ships_in_area = { area = 158 size > 9 type = firenation_cruiser }
-			356 = {
-				is_controlled_by = FIR
-			}
-		}
-
-		days_remove = 120
-
-		modifier = {
-			civilian_factory_use = 4
-			country_resource_cost_aluminium = 10
-			country_resource_cost_steel = 2
-		}
-
-		custom_cost_trigger = {
-			num_of_civilian_factories > 3
-		}
-		custom_cost_text = manufactory_4
-
-		remove_effect = {
-			356 = {
-				add_building_construction = {
-				    type = naval_base
-				    level = 4
-				    instant_build = yes
-				    province = 9354
-				}
-			}
-			set_victory_points = {
-				province = 3134
-				value = 10
-			}
-		}
-
-		#cost = 50
-		fire_only_once = yes
-	}
-
-}
-
 
 FIR_civil_decision_category = {
 	
@@ -1755,457 +1581,6 @@ FIR_colonies_category = {
         fire_only_once = yes
 	}
 
-	pohuai_buildup_1 = {
-
-		icon = buildup
-
-		state_target = yes
-
-		targets = {
-			155
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			controls_state = 155
-		}
-		available = {
-			155 = {
-				infrastructure > 9
-			}
-		}
-
-		complete_effect = {
-			155 = {
-				add_compliance = 10
-			}
-		}
-
-		cost = 20
-        fire_only_once = yes
-	}
-
-	pohuai_buildup_2 = {
-
-		icon = fortify
-
-		highlight_states = {
-			highlight_state_targets = { state = 155 }
-			#highlight_provinces = {
-			#	6682
-			#}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			controls_state = 155
-		}
-		available = {
-			155 = {
-				any_province_building_level = {
-				    province = {
-						id = 6682
-					}
-				    building = wall
-				    level > 9
-				}
-			}
-		}
-
-		complete_effect = {
-			set_victory_points = {
-				province = 6682
-				value = 30
-			}
-			155 = {
-				add_compliance = 10
-				add_resistance_target = -5
-			}
-		}
-		cost = 20
-		fire_only_once = yes
-	}
-	
-	pohuai_colony = {
-
-		icon = fir_colony
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 155
-				#state = 154
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				country_exists = PFC
-			}
-			has_government = fire_culture
-			has_war_with = EAR
-		}
-		available = {
-			has_government = fire_culture
-			controls_state = 155
-			controls_state = 154
-			155 = {
-				compliance > 80
-			}
-		}
-
-		complete_effect = {
-
-			PFC = {
-				transfer_state = 155
-				transfer_state = 154
-				add_state_core = 155
-				add_state_core = 154
-			}
-
-			FIR = {
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "Together for Victory"
-						}
-					}
-					puppet = PFC
-					else = {
-						set_autonomy = { target = PFC autonomy_state = autonomy_imperial_colony }
-					}
-				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-	yu_dao_buildup_1 = {
-
-		icon = buildup
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 230
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			controls_state = 230
-		}
-		available = {
-			230 = {
-				infrastructure > 9
-			}
-		}
-
-		complete_effect = {
-			230 = {
-				add_compliance = 10
-			}
-		}
-
-		cost = 20
-        fire_only_once = yes
-	}
-
-	yu_dao_buildup_2 = {
-
-		icon = buildup
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 230
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			controls_state = 230
-		}
-		available = {
-			230 = {
-				naval_base > 5
-			}
-		}
-
-		complete_effect = {
-			230 = {
-				add_compliance = 10
-			}
-		}
-
-		cost = 20
-        fire_only_once = yes
-	}
-
-	yu_dao_colony = {
-
-		icon = fir_colony
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 230
-				#state = 184
-				#state = 191
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				country_exists = YFC
-			}
-			has_government = fire_culture
-			has_war_with = EAR
-		}
-		available = {
-			has_government = fire_culture
-			controls_state = 230
-			controls_state = 184
-			controls_state = 191
-			230 = {
-				compliance > 80
-			}
-		}
-
-		complete_effect = {
-
-			YFC = {
-				transfer_state = 230
-				transfer_state = 184
-				transfer_state = 191
-				add_state_core = 230
-				add_state_core = 184
-				add_state_core = 191
-			}
-
-			FIR = {
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "Together for Victory"
-						}
-					}
-					puppet = YFC
-					else = {
-						set_autonomy = { target = YFC autonomy_state = autonomy_imperial_colony }
-					}
-				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-	makapu_colony = {
-
-		icon = fir_colony
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 227
-				#state = 204
-				#state = 214
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				country_exists = MFC
-			}
-			has_government = fire_culture
-			has_war_with = EAR
-		}
-		available = {
-			has_government = fire_culture
-			controls_state = 227
-			controls_state = 204
-			controls_state = 214
-			227 = {
-				compliance > 80
-			}
-		}
-
-		complete_effect = {
-
-			MFC = {
-				transfer_state = 227
-				transfer_state = 204
-				transfer_state = 214
-				add_state_core = 227
-				add_state_core = 204
-				add_state_core = 214
-			}
-
-			FIR = {
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "Together for Victory"
-						}
-					}
-					puppet = MFC
-					else = {
-						set_autonomy = { target = MFC autonomy_state = autonomy_imperial_colony }
-					}
-				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-	tienhai_colony = {
-
-		icon = fir_colony
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 171
-				#state = 165
-				#state = 220
-			}
-		}
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				country_exists = HFC
-			}
-			has_government = fire_culture
-			has_war_with = EAR
-		}
-		available = {
-			has_government = fire_culture
-			controls_state = 171
-			controls_state = 165
-			controls_state = 220
-			171 = {
-				compliance > 80
-			}
-		}
-
-		complete_effect = {
-
-			HFC = {
-				transfer_state = 171
-				transfer_state = 165
-				transfer_state = 220
-				add_state_core = 171
-				add_state_core = 165
-				add_state_core = 220
-			}
-
-			FIR = {
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "Together for Victory"
-						}
-					}
-					puppet = HFC
-					else = {
-						set_autonomy = { target = HFC autonomy_state = autonomy_imperial_colony }
-					}
-				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-	han_tui_colony = {
-
-		icon = fir_colony
-
-		highlight_states = {
-			highlight_state_targets = {
-				state = 280
-				#state = 244
-				#state = 270
-			}
-		}
-	
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				country_exists = KFC
-			}
-			has_government = fire_culture
-			has_war_with = EAR
-		}
-		available = {
-			has_government = fire_culture
-			controls_state = 280
-			controls_state = 244
-			controls_state = 270
-			280 = {
-				compliance > 80
-			}
-		}
-
-		complete_effect = {
-
-			KFC = {
-				transfer_state = 280
-				transfer_state = 244
-				transfer_state = 270
-				add_state_core = 280
-				add_state_core = 244
-				add_state_core = 270
-			}
-
-			FIR = {
-				if = {
-					limit = {
-						NOT = {
-							has_dlc = "Together for Victory"
-						}
-					}
-					puppet = KFC
-					else = {
-						set_autonomy = { target = KFC autonomy_state = autonomy_imperial_colony }
-					}
-				}
-			}
-
-		}
-
-		cost = 100
-        fire_only_once = yes
-	}
-
-
 }
 
 
@@ -2339,9 +1714,9 @@ air_genocide_category = {
 		fire_only_once = yes
 
 		custom_cost_trigger = {
-			num_of_civilian_factories > 1
+			check_variable = { tax_balance > 0.1 }
 		}
-		custom_cost_text = expenses_10
+		custom_cost_text = expenses_100
 
 		modifier = {
 			expenses_factor = 0.1
@@ -2390,9 +1765,9 @@ air_genocide_category = {
 		fire_only_once = yes
 
 		custom_cost_trigger = {
-			num_of_civilian_factories > 1
+			check_variable = { tax_balance > 0.1 }
 		}
-		custom_cost_text = expenses_10
+		custom_cost_text = expenses_100
 
 		modifier = {
 			expenses_factor = 0.1
@@ -2449,9 +1824,9 @@ air_genocide_category = {
 		fire_only_once = yes
 
 		custom_cost_trigger = {
-			num_of_civilian_factories > 1
+			check_variable = { tax_balance > 0.1 }
 		}
-		custom_cost_text = expenses_10
+		custom_cost_text = expenses_100
 
 		modifier = {
 			expenses_factor = 0.1
@@ -2508,9 +1883,9 @@ air_genocide_category = {
 		fire_only_once = yes
 
 		custom_cost_trigger = {
-			num_of_civilian_factories > 1
+			check_variable = { tax_balance > 0.1 }
 		}
-		custom_cost_text = expenses_10
+		custom_cost_text = expenses_100
 
 		modifier = {
 			expenses_factor = 0.1

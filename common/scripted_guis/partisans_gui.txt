@@ -290,7 +290,6 @@ scripted_gui = {
 			core_state_click_enabled = {
 				ROOT = {
 					has_political_power > mtth:THIS.core_state_cost
-					has_war = no
 				}
 				if = { limit = { has_government = fire_culture }
 					check_variable = { fire_pop > 50 }
@@ -308,17 +307,13 @@ scripted_gui = {
 					check_variable = { nonbender_pop > 50 }
 				}
 				is_controlled_by = ROOT
-				#NOT = {
-				#	is_core_of = ROOT
-				#}
-				compliance > 50
-				resistance < 10
+				compliance > 99.99
 			}
 		}
 		
 		ai_test_scopes = test_self_owned_states
 		ai_test_scopes = test_enemy_owned_states
-		ai_test_interval = 170
+		ai_test_interval = 1200    #50 days
 		ai_test_variance = 0.5
 		
 		ai_enabled = {
