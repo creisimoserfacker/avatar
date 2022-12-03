@@ -2041,7 +2041,7 @@ NAI = {
 	RESEARCH_NEW_WEIGHT_FACTOR = 0.3, 			-- Impact of previously unexplored tech weights. Higher means more random exploration.
 	RESEARCH_NEW_DOCTRINE_RANDOM_FACTOR = 0.05,	-- How much randomness is allowed to contribute to do new research expressed as a factor of total tech weights. Higher means more random exploration.
 	RESEARCH_AHEAD_BONUS_FACTOR = 2.0,          -- To which extent AI should care about ahead of time bonuses to research
-	RESEARCH_BONUS_FACTOR = 0.9, 				-- To which extent AI should care about bonuses to research
+	RESEARCH_BONUS_FACTOR = 5.0, 				-- To which extent AI should care about bonuses to research
 	MAX_AHEAD_RESEARCH_PENALTY = 2,             -- max ahead of tiem penalty ai will pick ever
 	RESEARCH_AHEAD_OF_TIME_FACTOR = 4.0, 		-- To which extent AI should care about ahead of time penalties to research
 	RESEARCH_BASE_DAYS = 60,					-- AI adds a base number of days when weighting completion time for techs to ensure it doesn't only research quick techs
@@ -2410,15 +2410,15 @@ NAI = {
 
 	START_TRAINING_EQUIPMENT_LEVEL = 0.95,               -- ai will not start to train if equipment drops below this level
 	STOP_TRAINING_EQUIPMENT_LEVEL = 0.90,                -- ai will not train if equipment drops below this level
-	BUILD_REFINERY_LACK_OF_RESOURCE_MODIFIER = 0.003,	-- How much lack of resources are worth when evaluating what to build.
+	BUILD_REFINERY_LACK_OF_RESOURCE_MODIFIER = 0.0,		-- How much lack of resources are worth when evaluating what to build.
 	DIVISION_DESIGN_WEIGHTS = {							-- Base values used by AI to evaluate value of a stat
 		-- Army Values
 		0.5, -- default_morale
 		1.0, -- defense
 		1.0, -- breakthrough
-		1.0, -- hardness
+		0.0, -- hardness
 		1.2, -- soft_attack
-		0.0, -- hard_attack
+		2.0, -- hard_attack
 		0.0, -- recon
 		0.0, -- entrenchment
 		0.0, -- initiative
@@ -2466,7 +2466,7 @@ NAI = {
 		0.0, -- railway_gun_attack_range
 		-- Common Values
 		1.0, -- max_organisation
-		1.0, -- max_strength
+		1.2, -- max_strength
 		1.0, -- maximum_speed
 		1.0, -- armor_value
 		0.5, -- ap_attack
@@ -2916,9 +2916,9 @@ NAI = {
 
 	MAX_FULLY_TRAINED_SHIP_RATIO_FOR_TRAINING = 0.7,			-- ai will not train a taskforce if fully trained ships are above this ratio
 
-	NUM_SILOS_PER_CIVILIAN_FACTORIES = 0.0025,					-- ai will try to build a silo per this ratio of civ factories
-	NUM_SILOS_PER_MILITARY_FACTORIES = 0.012,					-- ai will try to build a silo per this ratio of mil factories
-	NUM_SILOS_PER_DOCKYARDS = 0.02,								-- ai will try to build a silo per this ratio of dockyards
+	NUM_SILOS_PER_CIVILIAN_FACTORIES = 0.0,					-- ai will try to build a silo per this ratio of civ factories
+	NUM_SILOS_PER_MILITARY_FACTORIES = 0.0,					-- ai will try to build a silo per this ratio of mil factories
+	NUM_SILOS_PER_DOCKYARDS = 0.0,								-- ai will try to build a silo per this ratio of dockyards
 
 	SHIP_STR_RATIO_PUT_ON_REPAIRS = 0.8,						-- if ships are damaged below this ratio, they are put for repairs
 	SHIP_STR_RATIO_EXIT_REPAIRS = 1.00,							-- the ships will leave repairs if they are >= this ratio of total str
@@ -2981,7 +2981,7 @@ NAI = {
 	FAILED_INVASION_PORT_PRIO_FACTOR = 0.66,                -- for every failed invasion on a target port (province), factor the chance that we try to invade that same port again (relative to other ports)
 
 	BUILDING_TARGETS_BUILDING_PRIORITIES = {				-- buildings in order of pirority when considering building targets strategies. First has the greatest priority, omitted has the lowest. NOTE: not all buildings are supported by building targets strategies.
-		'farm', 'lumber_mill', 'carpentry', 'mine', 'quarry', 'industrial_complex',
+		'farm', 'lumber_mill', 'carpentry', 'mine', 'quarry', 'smithy', 'ranch',
 	},
 
 	MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.2,				-- ai will only activate invasions if plan value is above this
@@ -3062,11 +3062,11 @@ NAI = {
 	ARMY_LEADER_ASSIGN_EXILED_LEADS_OWN_EXILED_TROOPS = 100,    -- If exiled leader, increase chance of leading army with exiled troops from same country as the leader
 
 	-- the following defines concern the general's modifiers
-	ARMY_LEADER_ASSIGN_DEFENSE_MAX_DIG_IN_FACTOR = 1.0,         -- If defensive army, importance of general's MAX_DIG_IN_FACTOR modifier
+	ARMY_LEADER_ASSIGN_DEFENSE_MAX_DIG_IN_FACTOR = 2.0,         -- If defensive army, importance of general's MAX_DIG_IN_FACTOR modifier
 	ARMY_LEADER_ASSIGN_DEFENSE_ARMY_ARMOR_DEFENCE_FACTOR = 1.0, -- If defensive army, importance of general's ARMY_ARMOR_DEFENCE_FACTOR modifier (proportional to armor ratio in the army)
-	ARMY_LEADER_ASSIGN_PLANNING_SPEED = 0.1,                    -- Importance of general's PLANNING_SPEED modifier
-	ARMY_LEADER_ASSIGN_MAX_PLANNING = 0.1,                      -- Importance of general's MAX_PLANNING modifier
-	ARMY_LEADER_ASSIGN_RECON_FACTOR = 2.0,                      -- Importance of general's RECON_FACTOR modifier
+	ARMY_LEADER_ASSIGN_PLANNING_SPEED = 1.0,                    -- Importance of general's PLANNING_SPEED modifier
+	ARMY_LEADER_ASSIGN_MAX_PLANNING = 1.0,                      -- Importance of general's MAX_PLANNING modifier
+	ARMY_LEADER_ASSIGN_RECON_FACTOR = 0.0,                      -- Importance of general's RECON_FACTOR modifier
 	ARMY_LEADER_ASSIGN_OUT_OF_SUPPLY_FACTOR = 1.0,              -- Importance of general's OUT_OF_SUPPLY_FACTOR modifier
 	ARMY_LEADER_ASSIGN_WINTER_ATTRITION_FACTOR = 1.0,           -- Importance of general's WINTER_ATTRITION_FACTOR modifier
 	ARMY_LEADER_ASSIGN_ARMY_ARMOR_SPEED_FACTOR = 20.0,          -- Importance of general's ARMY_ARMOR_SPEED_FACTOR modifier (proportional to armor ratio in the army)
@@ -3076,8 +3076,8 @@ NAI = {
 	ARMY_LEADER_ASSIGN_AMPHIBIOUS_INVASION = 1.0,               -- If involved in invasion, importance of general's AMPHIBIOUS_INVASION modifier
 	ARMY_LEADER_ASSIGN_NAVAL_INVASION_PREPARATION = 1.0,        -- If involved in invasion, importance of general's NAVAL_INVASION_PREPARATION modifier
 	ARMY_LEADER_ASSIGN_XP_GAIN_FACTOR = 2.0,                    -- Importance of general's XP_GAIN_FACTOR modifier
-	ARMY_LEADER_ASSIGN_SUPPLY_CONSUMPTION_FACTOR = 1.0,         -- Importance of general's SUPPLY_CONSUMPTION_FACTOR modifier
-	ARMY_LEADER_ASSIGN_LAND_REINFORCE_RATE = 1.0,               -- Importance of general's LAND_REINFORCE_RATE modifier
+	ARMY_LEADER_ASSIGN_SUPPLY_CONSUMPTION_FACTOR = 40.0,         -- Importance of general's SUPPLY_CONSUMPTION_FACTOR modifier
+	ARMY_LEADER_ASSIGN_LAND_REINFORCE_RATE = 5.0,               -- Importance of general's LAND_REINFORCE_RATE modifier
 	ARMY_LEADER_ASSIGN_ARMY_MORALE_FACTOR = 1.0,                -- Importance of general's ARMY_MORALE_FACTOR modifier
 	ARMY_LEADER_ASSIGN_TERRAIN_FACTOR = 0.2,                    -- Importance of general's terrain skills
 	-- <end> assigning leaders to armies

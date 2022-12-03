@@ -110,7 +110,7 @@ technologies = {
 		}
 		
 		political_power_gain = 0.2
-		expenses_factor = -0.01
+		expenses_factor = -0.1
 		
 		research_cost = 2.5
 		#start_year = 5
@@ -185,6 +185,7 @@ technologies = {
 		}
 
 		local_resources_factor = 0.06
+		farmer_factor = 1
 
 		research_cost = 2.5
 		#start_year = 8
@@ -450,6 +451,8 @@ technologies = {
 		
 		political_power_gain = 0.5
 		max_command_power = 20
+		weekly_centralisation = 0.02
+		centralisation_target_modifier = 0.05
 		
 		research_cost = 2.5
 		#start_year = 20
@@ -953,7 +956,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		expenses_factor = -0.01
+		expenses_factor = -0.1
 		research_speed_factor = 0.04
 
 		research_cost = 2.5
@@ -1020,6 +1023,18 @@ technologies = {
 	}
 	
 	progressive_3 = {
+
+		allow = {
+			NOT = {
+				has_active_mission = abolish_the_nobility
+			}
+		}
+		on_research_complete = {
+			set_technology = {
+				progressive_3 = 0
+			}
+			activate_mission = abolish_the_nobility
+		}
 		
 		path = {
 			leads_to_tech = progressive_economy_3
@@ -1084,7 +1099,7 @@ technologies = {
 		}
 		
 		political_power_gain = 0.5
-		expenses_factor = -0.01
+		expenses_factor = -0.1
 		
 		research_cost = 2.5
 		#start_year = 52
@@ -1271,7 +1286,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		expenses_factor = -0.01
+		expenses_factor = -0.1
 		research_speed_factor = 0.06
 
 		research_cost = 2.5
@@ -1409,7 +1424,7 @@ technologies = {
 		
 		political_power_gain = 0.5
 		industry_free_repair_factor = 0.2
-		expenses_factor = -0.03
+		expenses_factor = -0.3
 		
 		research_cost = 2.5
 		#start_year = 68
@@ -1598,7 +1613,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		expenses_factor = -0.02
+		expenses_factor = -0.2
 		research_speed_factor = 0.04
 
 		research_cost = 2.5

@@ -1,76 +1,60 @@
 earth_economic_buildup_category = {
-    populational_census = { 
 
-    	icon = population_census
+	populational_census = { 
 
-        cost = 25
+		icon = population_census
+
+		allowed = {
+			has_country_flag = Earth_Nation
+		}
+		visible = { 
+
+		}
+		available = {
+			
+		}
+
+		cost = 50
 		days_remove = 100
-        available = {
-            has_country_flag = Earth_Nation
-			NOT = { 
-				has_country_flag = economic_investments
-			}
-			has_tech = farm_1
-        }
-        visible = { 
-          always = yes
+		days_re_enable = 1825    ### 5 years
 
-        }
 		modifier = {
 			political_power_gain = -0.15
 		}
-        remove_effect = { 
-			random_owned_state = {
-				limit = { 
-					is_fully_controlled_by = ROOT 
-					free_building_slots = {
-						building = farm
-						size > 0
-						include_locked = yes
-					}
-				}
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = yes
-				}
-			}
-        }
+
 		complete_effect = {
 			set_country_flag = economic_investments
 		}
 		remove_effect = {
+			add_timed_idea = {
+				idea = population_counted
+				days = 365
+			}
 			clr_country_flag = economic_investments
 		}
-        ai_will_do = {
-            factor = 0.05
-        }
-		fire_only_once = yes
-    }
+
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
 	
 	patronise_local_enterprises = { 
 
-        icon = patronise_enterprises
+		icon = patronise_enterprises
+
+		allowed = {
+			has_country_flag = Earth_Nation
+		}
+		visible = { 
+			has_tech = crop_weaving_1
+		}
 
 		cost = 50
-		available = {
-            has_country_flag = Earth_Nation
-			NOT = { 
-				has_country_flag = economic_investments
-			}
-			has_tech = crop_weaving_1
-        }
-		modifier = {
-			stability_weekly = 0.002
-			expenses_factor = 0.05
-		}
-		days_remove = 75
-        visible = { 
-          always = yes
-
-        }
-        remove_effect = { 
-			random_owned_state = {
+		#days_remove = 100
+		days_re_enable = 1825    ### 5 years
+		
+		remove_effect = { 
+			every_owned_state = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
 					free_building_slots = {
@@ -79,142 +63,201 @@ earth_economic_buildup_category = {
 						include_locked = yes
 					}
 				}
-				add_building_construction = {
-					type = crop_weaving
-					level = 1
-					instant_build = yes
+				ROOT = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = TARGETED_patronise_local_enterprises
+					}
 				}
 			}
-        }
-				complete_effect = {
-			set_country_flag = economic_investments
+			#every_owned_state = {
+			#	limit = { 
+			#		is_fully_controlled_by = ROOT 
+			#		free_building_slots = {
+			#			building = farm
+			#			size > 0
+			#			include_locked = yes
+			#		}
+			#		check_variable = {
+			#			field > 0.4
+			#		}
+			#	}
+			#	add_building_construction = {
+			#		type = farm
+			#		level = 1
+			#		instant_build = yes
+			#	}
+			#}
 		}
+
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+	TARGETED_patronise_local_enterprises = {
+
+		icon = patronise_enterprises
+
+		allowed = {
+			always = no
+		}
+
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 30
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.5 }
+				add_to_variable = { state_expenses = 0.5 }
+			}
+		}
+		modifier = {
+			expenses_factor = 0.5
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
 		remove_effect = {
-			clr_country_flag = economic_investments
+			add_building_construction = {
+				type = crop_weaving
+				level = 1
+				instant_build = yes
+			}
 		}
-        ai_will_do = {
-            factor = 0.05
-        }
-		fire_only_once = yes
-    }
+	}
+
 	
 	rescue_struggling_artisans = {
 
 		icon = artisans
 
-        cost = 75
-		days_remove = 50
-        available = {
-            has_country_flag = Earth_Nation
-			NOT = { 
-				has_country_flag = economic_investments
-			}
+
+		allowed = {
+			has_country_flag = Earth_Nation
+		}
+		visible = { 
 			OR = {
 				has_tech = carpentry_1
 				has_tech = masonry_1
 			}
-        }
-        visible = { 
-          always = yes
-
-        }
-		modifier = {
-			stability_weekly = 0.003
-			expenses_factor = 0.1
 		}
+		available = {
+			
+		}
+
+        cost = 75
+		#days_remove = 50
+		days_re_enable = 1825    ### 5 years
+		
         remove_effect = { 
 
-        	####carpentry
-
-			random_owned_state = {
+        	every_owned_state = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
-					free_building_slots = {
-						building = carpentry
-						size > 0
-						include_locked = yes
-					}
+					carpentry > 0
 				}
-				add_building_construction = {
-					type = carpentry
-					level = 1
-					instant_build = yes
-				}
-			}
-			if = {
-				limit = {
-					not = {
-						has_tech = masonry_1
-					}
-				}
-				random_owned_state = {
-					limit = { 
-						is_fully_controlled_by = ROOT 
-						free_building_slots = {
-							building = carpentry
-							size > 0
-							include_locked = yes
-						}
-					}
-					add_building_construction = {
-						type = carpentry
-						level = 1
-						instant_build = yes
+				ROOT = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = TARGETED_rescue_struggling_carpenters
 					}
 				}
 			}
-
-			#### masonry
-
-			random_owned_state = {
+			every_owned_state = {
 				limit = { 
 					is_fully_controlled_by = ROOT 
-					free_building_slots = {
-						building = masonry
-						size > 0
-						include_locked = yes
-					}
+					masonry > 0
 				}
-				add_building_construction = {
-					type = masonry
-					level = 1
-					instant_build = yes
-				}
-			}
-			if = {
-				limit = {
-					not = {
-						has_tech = carpentry_1
-					}
-				}
-				random_owned_state = {
-					limit = { 
-						is_fully_controlled_by = ROOT 
-						free_building_slots = {
-							building = masonry
-							size > 0
-							include_locked = yes
-						}
-					}
-					add_building_construction = {
-						type = masonry
-						level = 1
-						instant_build = yes
+				ROOT = {
+					activate_targeted_decision = {
+						target = PREV
+						decision = TARGETED_rescue_struggling_masons
 					}
 				}
 			}
-        }
-		complete_effect = {
-			set_country_flag = economic_investments
 		}
-		remove_effect = {
-			clr_country_flag = economic_investments
-		}
+
         ai_will_do = {
             factor = 0.05
         }
-		fire_only_once = yes
     }
+
+    TARGETED_rescue_struggling_carpenters = {
+
+		icon = artisans
+
+		allowed = {
+			always = no
+		}
+
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 30
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.5 }
+				add_to_variable = { state_expenses = 0.5 }
+			}
+		}
+		modifier = {
+			expenses_factor = 0.5
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
+		remove_effect = {
+			add_building_construction = {
+				type = carpentry
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
+
+	TARGETED_rescue_struggling_masons = {
+
+		icon = artisans
+
+		allowed = {
+			always = no
+		}
+
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 30
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.5 }
+				add_to_variable = { state_expenses = 0.5 }
+			}
+		}
+		modifier = {
+			expenses_factor = 0.5
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
+		remove_effect = {
+			add_building_construction = {
+				type = masonry
+				level = 1
+				instant_build = yes
+			}
+		}
+	}
 
 	distribute_land_charters = { 
 
@@ -234,9 +277,21 @@ earth_economic_buildup_category = {
           always = yes
 
         }
-		modifier = {
-			expenses_factor = 0.05
+
+        complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 		}
+		modifier = {
+			expenses_factor = 0.1
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
+
         remove_effect = { 
 			random_owned_state = {
 				limit = { 
@@ -329,10 +384,22 @@ earth_economic_buildup_category = {
         icon = land_clearence
 
 		cost = 100
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
+		}
 		modifier = {
 			industrial_capacity_factory = -0.1
 			expenses_factor = 0.1
 		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
+
 		days_remove = 150
         available = {
             has_country_flag = Earth_Nation
@@ -402,19 +469,21 @@ earth_economic_buildup_category = {
           always = yes
 
         }
+
 		modifier = {
-			expenses_factor = 0.1
-			food_gain = -0.5
 			stability_weekly = 0.005
 			war_support_weekly = 0.002
+			military_ration_need_factor = 0.5
+			population_ration_need_factor = 0.5
+			workers_ration_need_factor = 0.5
+			occupied_ration_need_factor = 0.5
 		}
+
 		complete_effect = {
-			add_to_variable = { food_production_bonus = -0.5 }
-			set_country_flag = economic_investments
+			
 		}
 		remove_effect = {
-			add_to_variable = { food_production_bonus = 0.5 }
-			clr_country_flag = economic_investments
+			
 		}
         ai_will_do = {
             factor = 0.05
@@ -461,43 +530,89 @@ earth_economic_buildup_category = {
 
 		icon = inflation
 
-        cost = 300
-		days_remove = 400
-		days_re_enable = 100
+		cost = 100
 
-        available = {
-            has_country_flag = Earth_Nation
-			NOT = { 
-			has_country_flag = economic_investments
-			}
-        }
-        visible = { 
-          always = yes
-
-        }
-		modifier = {
-			expenses_factor = -0.1
-			political_power_cost = 0.4
-			taxation = 0.1
-			production_speed_buildings_factor = 0.1
-			industrial_capacity_factory = 0.25
-			industrial_capacity_dockyard = 0.25
-			stability_weekly = 0.005
+		allowed = {
+			has_country_flag = Earth_Nation
 		}
+		visible = { 
+			NOT = {
+				has_active_mission = money_minting
+			}
+		}
+		available = {
+			
+		}
+		
 		complete_effect = {
-			set_country_flag = economic_investments
-		}
-		remove_effect = {
-			clr_country_flag = economic_investments
-			add_timed_idea = {
-				idea = depression
-				days = 180
+			activate_mission = money_minting
+
+			hidden_effect = {
+				add_dynamic_modifier = { modifier = money_printing }
 			}
 		}
-        ai_will_do = {
-            factor = 0.05
-        }
-    }
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+	money_minting = {
+
+		allowed = { always = no }
+
+		icon = ger_mefo_bills
+
+		available = {
+			
+		}
+
+		cost = 200
+
+		selectable_mission = yes
+
+		days_mission_timeout = 90
+		is_good = yes
+		fire_only_once = yes
+
+		cancel_trigger = {
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		complete_effect = {
+			remove_mission = money_minting
+		}
+
+		timeout_effect = {
+			add_to_variable = {
+				var = var_money_printing
+				value = 0.01
+				tooltip = var_money_printing_add_tooltip
+			}
+			add_to_variable = { depression_days = 20 }
+
+			random_list = {
+				var_money_printing = {
+					add_timed_idea = { idea = depression  days = depression_days?30 }
+					remove_mission = money_minting
+				}
+				1 = {
+					
+				}
+			}
+
+			hidden_effect = {
+				activate_mission = money_minting
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
 	
 }
 earth_military_buildup_category = {
