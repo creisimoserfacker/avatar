@@ -2981,7 +2981,7 @@ NAI = {
 	FAILED_INVASION_PORT_PRIO_FACTOR = 0.66,                -- for every failed invasion on a target port (province), factor the chance that we try to invade that same port again (relative to other ports)
 
 	BUILDING_TARGETS_BUILDING_PRIORITIES = {				-- buildings in order of pirority when considering building targets strategies. First has the greatest priority, omitted has the lowest. NOTE: not all buildings are supported by building targets strategies.
-		'farm', 'lumber_mill', 'carpentry', 'mine', 'quarry', 'smithy', 'ranch',
+		'farm', 'lumber_mill', 'carpentry', 'mine', 'quarry', 'arms_factory', 'ranch',
 	},
 
 	MIN_INVASION_PLAN_VALUE_TO_EXECUTE = 0.2,				-- ai will only activate invasions if plan value is above this

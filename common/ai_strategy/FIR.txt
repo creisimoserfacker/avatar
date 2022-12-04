@@ -1,11 +1,13 @@
 
 FIR_unit_production = {
+	allowed = {
+		tag = FIR
+	}
 	enable = {
 		OR = { 
 			date < 106.2.4 
 			date > 107.6.19 
 		}
-		original_tag = FIR
 	}
 	abort = {
 		always = no
@@ -58,9 +60,12 @@ FIR_unit_production = {
 }
 
 FIR_naval_role_ratios_historical = {
-	enable = {
+	allowed = {
+		tag = FIR
 		has_dlc = "Man the Guns"
-		original_tag = FIR
+	}
+	enable = {
+		
 	}
 
 	ai_strategy = {
@@ -71,12 +76,14 @@ FIR_naval_role_ratios_historical = {
 }
 
 FIR_area_priority = {
+	allowed = {
+		tag = FIR
+	}
 	enable = {
 		OR = { 
 			date < 106.2.4 
 			date > 107.6.19 
 		}
-		original_tag = FIR
 	}
 
 	ai_strategy = {
@@ -105,93 +112,11 @@ FIR_area_priority = {
 }
 
 
-temple_march = {
-	enable = {
-		original_tag = FIR
-		has_idea = sozins_comet_1
-	}
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 30 #earth coast
-	}
-
-	ai_strategy = {
-		type = conquer
-		id = "NAT"
-		value = 100
-	}
-	ai_strategy = {
-		type = front_control
-		tag = NAT
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-	ai_strategy = {
-		type = invade
-		id = "NAT"
-		value = -500
-	}
-	ai_strategy = {
-		type = conquer
-		id = "SAT"
-		value = 100
-	}
-	ai_strategy = {
-		type = front_control
-		tag = SAT
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-	ai_strategy = {
-		type = invade
-		id = "SAT"
-		value = -500
-	}
-	ai_strategy = {
-		type = conquer
-		id = "WAT"
-		value = 100
-	}
-	ai_strategy = {
-		type = front_control
-		tag = WAT
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-	ai_strategy = {
-		type = invade
-		id = "WAT"
-		value = -500
-	}
-	ai_strategy = {
-		type = conquer
-		id = "EAT"
-		value = 100
-	}
-	ai_strategy = {
-		type = front_control
-		tag = EAT
-		ordertype = front
-		execution_type = rush
-		manual_attack = yes
-	}
-	ai_strategy = {
-		type = invade
-		id = "EAT"
-		value = -500
-	}
-	
-}
-
-
 FIR_far_waters = {
+	allowed = {
+		tag = FIR
+	}
 	enable = {
-		original_tag = FIR
 		has_war_with = EAR
 		NOT = { has_war_with = NWT }
 	}
@@ -223,27 +148,23 @@ FIR_far_waters = {
 
 # lets make sure the earthkingdom is properly invaded
 pohuai_taku_invasions = {
+	allowed = {
+		tag = FIR	
+	}
 	enable = {
-		tag = FIR
-		NOT = {
-			OR = {
-				is_on_continent = north_america
-			}
-		}
+		always = yes
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = strike_force_home_base
-		id = 29 #earth coast
-	}
-	ai_strategy = {
-		type = strike_force_home_base
 		id = 30 #earth coast
+		value = 1000
 	}
 	ai_strategy = {
 		type = strike_force_home_base
 		id = 31 #earth coast
+		value = 1000
 	}
 
 	ai_strategy = {
@@ -262,6 +183,11 @@ pohuai_taku_invasions = {
 		id = "TAK"			
 		value = 1000
 	}
+	ai_strategy = {
+		type = conquer
+		id = "TAK"
+		value = 1000
+	}
 
 	ai_strategy = {
 		type = invade
@@ -269,10 +195,22 @@ pohuai_taku_invasions = {
 		value = 500
 	}
 	ai_strategy = {
+		type = conquer
+		id = "HAN"
+		value = 500
+	}
+
+	ai_strategy = {
 		type = invade
 		id = "WUL"
 		value = 500
 	}
+	ai_strategy = {
+		type = conquer
+		id = "WUL"
+		value = 500
+	}
+
 
 	ai_strategy = {
 		type = invade
@@ -314,6 +252,11 @@ pohuai_taku_invasions = {
 		id = "OMS"
 		value = -100000
 	}
+	ai_strategy = {
+		type = invade
+		id = "GAO"
+		value = -100000
+	}
 	
 }
 
@@ -325,6 +268,7 @@ deploy_some_units = {
 			size < 10000
         }
 	}
+	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = force_build_armies

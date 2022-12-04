@@ -48,6 +48,11 @@ scripted_gui = {
 				}
 
 				set_variable = { available_partisans = state_population_k }
+				divide_variable = { available_partisans = 5 }
+				clamp_variable = { 
+					var = available_partisans 
+					min = 1
+				}
 
 				### resistance factor
 				set_temp_variable = { resistance_factor = resistance }
@@ -63,27 +68,27 @@ scripted_gui = {
 
 				### culture factor
 				if = {
-					limit = { ROOT = { has_government = fire_culture } }
+					limit = { FROM.OWNER = { has_government = fire_culture } }
 					set_temp_variable = { culture_factor = fire_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = earth_culture } }
+					limit = { FROM.OWNER = { has_government = earth_culture } }
 					set_temp_variable = { culture_factor = earth_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = water_culture } }
+					limit = { FROM.OWNER = { has_government = water_culture } }
 					set_temp_variable = { culture_factor = water_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = air_culture } }
+					limit = { FROM.OWNER = { has_government = air_culture } }
 					set_temp_variable = { culture_factor = air_pop }
 				}
 				if = {
-					limit = { ROOT = { has_government = pluralist_culture } }
+					limit = { FROM.OWNER = { has_government = pluralist_culture } }
 					set_temp_variable = { culture_factor = nonbender_pop }
 				}
 				divide_temp_variable = { culture_factor = 100 }
-				add_to_temp_variable = { culture_factor = 0.1 }
+				#add_to_temp_variable = { culture_factor = 1 }
 				multiply_variable = { available_partisans = culture_factor }
 				round_variable = available_partisans
 
@@ -117,6 +122,7 @@ scripted_gui = {
 		}
 		
 		ai_test_scopes = test_enemy_controlled_states
+		ai_test_scopes = test_self_owned_states
 		ai_test_interval = 170
 		ai_test_variance = 0.5
 		

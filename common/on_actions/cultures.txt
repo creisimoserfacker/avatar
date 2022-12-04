@@ -336,39 +336,42 @@ on_actions = {
 
 			##### fire forced resettlement
 
-			every_controlled_state = {
-				### month 2
-				if = {
-					limit = {
-						occupation_law = fire_forceful_resettlement
-						check_variable = { forceful_resettlement_activated < 1 }
-					}
-					set_variable = { forceful_resettlement_activated = 1 }
-				}
-				### activation month
-				if = {
-					limit = {
-						occupation_law = fire_forceful_resettlement
-						check_variable = { forceful_resettlement_activated = 1 }
-					}
-					set_variable = { forceful_resettlement_activated = 2 }
-					add_to_variable = { fire_pop_growth = 1 }
-					culture_growth_calculation = yes
-				}
-				### removing
-				if = {
-					limit = {
-						check_variable = { forceful_resettlement_activated > 0 }
-						NOT = { occupation_law = fire_forceful_resettlement }
-					}
-					clear_variable = forceful_resettlement_activated
-					subtract_from_variable = { fire_pop_growth = 1 }
-				}
-			}
+			## causing errors and is a whacky mechanic
+
+			#every_controlled_state = {
+			#	### month 2
+			#	if = {
+			#		limit = {
+			#			occupation_law = fire_forceful_resettlement
+			#			check_variable = { forceful_resettlement_activated < 1 }
+			#		}
+			#		set_variable = { forceful_resettlement_activated = 1 }
+			#	}
+			#	### activation month
+			#	if = {
+			#		limit = {
+			#			occupation_law = fire_forceful_resettlement
+			#			check_variable = { forceful_resettlement_activated = 1 }
+			#		}
+			#		set_variable = { forceful_resettlement_activated = 2 }
+			#		add_to_variable = { fire_pop_growth = 1 }
+			#		culture_growth_calculation = yes
+			#	}
+			#	### removing
+			#	if = {
+			#		limit = {
+			#			check_variable = { forceful_resettlement_activated > 0 }
+			#			NOT = { occupation_law = fire_forceful_resettlement }
+			#		}
+			#		clear_variable = forceful_resettlement_activated
+			#		subtract_from_variable = { fire_pop_growth = 1 }
+			#	}
+			#}
 
 
 
 			### expected growth
+
 			culture_growth_calculation = yes
 
 

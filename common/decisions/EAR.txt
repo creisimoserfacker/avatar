@@ -559,6 +559,9 @@ EAR_dai_li_category = {
 
 		icon = northern_air_temple
 
+		allowed = {
+			tag = EAR
+		}
 		visible = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -566,7 +569,6 @@ EAR_dai_li_category = {
 				has_war = yes
 			}
 		}
-
 		available = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -622,6 +624,9 @@ EAR_dai_li_category = {
 
 		icon = eastern_air_temple
 
+		allowed = {
+			tag = EAR
+		}
 		visible = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -629,7 +634,6 @@ EAR_dai_li_category = {
 				has_war = yes
 			}
 		}
-
 		available = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -679,6 +683,9 @@ EAR_dai_li_category = {
 
 		icon = southern_air_temple
 
+		allowed = {
+			tag = EAR
+		}
 		visible = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -686,7 +693,6 @@ EAR_dai_li_category = {
 				has_war = yes
 			}
 		}
-
 		available = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -736,6 +742,9 @@ EAR_dai_li_category = {
 
 		icon = western_air_temple
 
+		allowed = {
+			tag = EAR
+		}
 		visible = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -743,7 +752,6 @@ EAR_dai_li_category = {
 				has_war = yes
 			}
 		}
-
 		available = {
 			has_country_flag = genocide_active
 			NOT = {
@@ -791,13 +799,11 @@ EAR_dai_li_category = {
 	
 
 	EAR_occupy_northern_temple_lands = {
+
 		icon = northern_air_temple
+
 		allowed = {
 			tag = EAR
-		}
-		available = {
-			has_country_flag = genocide_active
-			has_country_flag = north_extra_construction
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -806,6 +812,11 @@ EAR_dai_li_category = {
 				has_war_with = NAT
 			}
 		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = north_extra_construction
+		}
+
 		fire_only_once = yes
 		days_remove = 20
 		modifier = {
@@ -830,13 +841,11 @@ EAR_dai_li_category = {
 	}
 
 	EAR_occupy_western_temple_lands = {
+
 		icon = western_air_temple
+
 		allowed = {
 			tag = EAR
-		}
-		available = {
-			has_country_flag = genocide_active
-			has_country_flag = west_extra_construction
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -845,6 +854,11 @@ EAR_dai_li_category = {
 				has_war_with = WAT
 			}
 		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = west_extra_construction
+		}
+		
 		fire_only_once = yes
 		days_remove = 20
 		modifier = {
@@ -869,13 +883,11 @@ EAR_dai_li_category = {
 	}
 
 	EAR_occupy_southern_temple_lands = {
+
 		icon = southern_air_temple
+
 		allowed = {
 			tag = EAR
-		}
-		available = {
-			has_country_flag = genocide_active
-			has_country_flag = south_extra_construction
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -884,6 +896,11 @@ EAR_dai_li_category = {
 				has_war_with = SAT
 			}
 		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = south_extra_construction
+		}
+	
 		fire_only_once = yes
 		days_remove = 20
 		modifier = {
@@ -908,13 +925,11 @@ EAR_dai_li_category = {
 	}
 
 	EAR_occupy_eastern_temple_lands = {
+
 		icon = eastern_air_temple
+
 		allowed = {
 			tag = EAR
-		}
-		available = {
-			has_country_flag = genocide_active
-			has_country_flag = east_extra_construction
 		}
 		visible = {
 			has_country_flag = genocide_active
@@ -923,6 +938,11 @@ EAR_dai_li_category = {
 				has_war_with = EAT
 			}
 		}
+		available = {
+			has_country_flag = genocide_active
+			has_country_flag = east_extra_construction
+		}
+		
 		fire_only_once = yes
 		days_remove = 20
 		modifier = {
@@ -1274,18 +1294,18 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 200
+		cost = 100
 
 		days_remove = 230
 
 		ai_will_do = {
-			factor = 0
+			base = 1
 			modifier = {
 				add = 100
-				is_historical_focus_on = no
+				is_historical_focus_on = yes
 			}
 			modifier = {
-				add = 100
+				factor = 100
 				has_global_flag = anti_sozin_pact_signed
 			}
 		}
@@ -1389,14 +1409,14 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 125
+		cost = 75
 
 		days_remove = 30
 
 		ai_will_do = {
 			base = 100
 			modifier = {
-				add = 100
+				factor = 100
 				is_historical_focus_on = yes
 			}
 		}
@@ -1492,14 +1512,14 @@ EAR_firenation_hostility_category = {
 		
 		fire_only_once = yes
 
-		cost = 75
+		cost = 50
 
 		days_remove = 14
 
 		ai_will_do = {
 			base = 100
 			modifier = {
-				add = 200
+				factor = 200
 				is_historical_focus_on = yes
 			}
 		}
@@ -1522,7 +1542,7 @@ EAR_ba_sing_se_wall = {
 		icon = quarry
 		
 		visible = {
-			tag = EAR
+			is_debug = yes
 		}
 
 		available = {
@@ -1561,7 +1581,7 @@ EAR_ba_sing_se_wall = {
 		icon = quarry
 		
 		visible = {
-			tag = EAR
+			is_debug = yes
 		}
 
 		available = {

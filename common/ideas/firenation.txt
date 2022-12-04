@@ -23,10 +23,7 @@ ideas = {
 		national_prosperity = {
 
 			available = {
-				#has_stability > 0.99
-				NOT = {
-					has_idea = war_weariness_1
-				}
+				has_war = no
 			}
 			
 			allowed = {
@@ -40,7 +37,12 @@ ideas = {
 			removal_cost = -1
 
 			on_remove = {
-				remove_ideas = promote_war_support
+				remove_ideas = FIR_popaganda_1
+				add_ideas = FIR_popaganda_2
+				add_timed_idea = {
+					idea = national_prosperity_decline_1
+					days = 90
+				}
 			}
 
 			research_bonus = {
@@ -60,6 +62,73 @@ ideas = {
 				production_speed_consumer_good_factory_factor = 0.15
 				production_speed_luxury_good_factory_factor = 0.15
 				industrial_capacity_factory = 0.1
+			}
+		}
+
+		national_prosperity_decline_1 = {
+
+			picture = national_prosperity
+			name = national_prosperity
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			on_remove = {
+				add_timed_idea = {
+					idea = national_prosperity_decline_2
+					days = 90
+				}
+			}
+
+			research_bonus = {
+				society_reforms = 1.0
+			}
+			
+			modifier = {
+				#bad
+				consumer_goods_demand = 0.1
+
+				#good
+				currency_amount = -0.1
+				production_speed_infrastructure_factor = 0.1
+				production_speed_consumer_good_factory_factor = 0.1
+				production_speed_luxury_good_factory_factor = 0.1
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		national_prosperity_decline_2 = {
+
+			picture = national_prosperity
+			name = national_prosperity
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			on_remove = {
+				
+			}
+
+			research_bonus = {
+				society_reforms = 0.5
+			}
+			
+			modifier = {
+				#bad
+				consumer_goods_demand = 0.05
+
+				#good
+				currency_amount = -0.05
+				production_speed_infrastructure_factor = 0.05
+				production_speed_consumer_good_factory_factor = 0.05
+				production_speed_luxury_good_factory_factor = 0.05
+				industrial_capacity_factory = 0.05
 			}
 		}
 
@@ -107,27 +176,35 @@ ideas = {
 			}
 		}
 
-		promote_war_support = {
+		FIR_popaganda_1 = {
 
-			available = {
-				OR = {
-					has_war_support < 0.25
-					has_idea = national_prosperity
-				}
-			}
-			
+			name = promote_war_support
+			picture = promote_war_support
+
 			allowed = {
 				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
 			}
 
 			removal_cost = -1
 
 			modifier = {
 				war_support_weekly = 0.002
+			}
+		}
+
+		FIR_popaganda_2 = {
+
+			name = promote_war_support
+			picture = promote_war_support
+
+			allowed = {
+				always = no
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = 0.15
 			}
 		}
 

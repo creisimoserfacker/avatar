@@ -19,6 +19,10 @@ ideas = {
 				industrial_capacity_factory = 0.1
 				production_speed_buildings_factor = 0.1
 			}
+
+			ai_will_do = {
+				factor = 10
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -42,6 +46,10 @@ ideas = {
 				industrial_capacity_factory = 0.1
 				production_speed_buildings_factor = 0.1
 			}
+
+			ai_will_do = {
+				factor = 10
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -63,6 +71,27 @@ ideas = {
 				nonbender_factor = -0.75
 				#conscription_factor = -0.3
 				pluralist_culture_drift = 0.01
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = swamp_siwong_benders_only }
+				}
+
 			}
 
 			cancel_if_invalid = no
@@ -156,6 +185,10 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -182,6 +215,28 @@ ideas = {
 
 				weekly_centralisation = 0.02
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = water_benders_only }
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -295,6 +350,10 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+			}
+
 			cancel_if_invalid = no
 		}
 		earth_exceptional = {
@@ -323,6 +382,27 @@ ideas = {
 				pluralist_culture_drift = 0.01
 
 				weekly_centralisation = 0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = earth_benders_only }
+				}
+
 			}
 
 			cancel_if_invalid = no
@@ -441,6 +521,10 @@ ideas = {
 
 				weekly_centralisation = 0.03
 			}
+
+			ai_will_do = {
+				factor = 10
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -468,6 +552,27 @@ ideas = {
 				pluralist_culture_drift = 0.01
 
 				weekly_centralisation = 0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = fire_benders_only }
+				}
+
 			}
 			
 			cancel_if_invalid = no
@@ -580,6 +685,10 @@ ideas = {
 
 				weekly_centralisation = 0.03
 			}
+
+			ai_will_do = {
+				factor = 10
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -634,6 +743,10 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -657,6 +770,27 @@ ideas = {
 				pluralist_culture_drift = 0.03
 
 				weekly_centralisation = 0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = kyoshi_benders_only }
+				}
+
 			}
 
 			cancel_if_invalid = no

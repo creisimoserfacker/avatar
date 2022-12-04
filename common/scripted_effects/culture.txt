@@ -65,11 +65,11 @@ culture_growth_calculation = {
 		set_variable = { air_pop_new = air_pop }
 		set_variable = { nonbender_pop_new = nonbender_pop }
 	
-		set_temp_variable = { fire_reduction = fire_pop_growth }
-		set_temp_variable = { earth_reduction = earth_pop_growth }
-		set_temp_variable = { water_reduction = water_pop_growth }
-		set_temp_variable = { air_reduction = air_pop_growth }
-		set_temp_variable = { nonbender_reduction = nonbender_pop_growth }
+		set_temp_variable = { fire_reduction = THIS:modifier@monthly_fire_culture_in_state }
+		set_temp_variable = { earth_reduction = THIS:modifier@monthly_earth_culture_in_state }
+		set_temp_variable = { water_reduction = THIS:modifier@monthly_water_culture_in_state }
+		set_temp_variable = { air_reduction = THIS:modifier@monthly_air_culture_in_state }
+		set_temp_variable = { nonbender_reduction = THIS:modifier@monthly_pluralist_culture_in_state }
 	
 		divide_temp_variable = { fire_reduction = 4 }
 		divide_temp_variable = { earth_reduction = 4 }
@@ -77,31 +77,31 @@ culture_growth_calculation = {
 		divide_temp_variable = { air_reduction = 4 }
 		divide_temp_variable = { nonbender_reduction = 4 }
 	
-		set_temp_variable = { fire_pop_exp = fire_pop_growth }
+		set_temp_variable = { fire_pop_exp = THIS:modifier@monthly_fire_culture_in_state }
 		subtract_from_temp_variable = { fire_pop_exp = earth_reduction }
 		subtract_from_temp_variable = { fire_pop_exp = water_reduction }
 		subtract_from_temp_variable = { fire_pop_exp = air_reduction }
 		subtract_from_temp_variable = { fire_pop_exp = nonbender_reduction }
 	
-		set_temp_variable = { earth_pop_exp = earth_pop_growth }
+		set_temp_variable = { earth_pop_exp = THIS:modifier@monthly_earth_culture_in_state }
 		subtract_from_temp_variable = { earth_pop_exp = fire_reduction }
 		subtract_from_temp_variable = { earth_pop_exp = water_reduction }
 		subtract_from_temp_variable = { earth_pop_exp = air_reduction }
 		subtract_from_temp_variable = { earth_pop_exp = nonbender_reduction }
 	
-		set_temp_variable = { water_pop_exp = water_pop_growth }
+		set_temp_variable = { water_pop_exp = THIS:modifier@monthly_water_culture_in_state }
 		subtract_from_temp_variable = { water_pop_exp = earth_reduction }
 		subtract_from_temp_variable = { water_pop_exp = fire_reduction }
 		subtract_from_temp_variable = { water_pop_exp = air_reduction }
 		subtract_from_temp_variable = { water_pop_exp = nonbender_reduction }
 	
-		set_temp_variable = { air_pop_exp = air_pop_growth }
+		set_temp_variable = { air_pop_exp = THIS:modifier@monthly_air_culture_in_state }
 		subtract_from_temp_variable = { air_pop_exp = earth_reduction }
 		subtract_from_temp_variable = { air_pop_exp = water_reduction }
 		subtract_from_temp_variable = { air_pop_exp = fire_reduction }
 		subtract_from_temp_variable = { air_pop_exp = nonbender_reduction }
 	
-		set_temp_variable = { nonbender_pop_exp = nonbender_pop_growth }
+		set_temp_variable = { nonbender_pop_exp = THIS:modifier@monthly_pluralist_culture_in_state }
 		subtract_from_temp_variable = { nonbender_pop_exp = earth_reduction }
 		subtract_from_temp_variable = { nonbender_pop_exp = water_reduction }
 		subtract_from_temp_variable = { nonbender_pop_exp = air_reduction }
@@ -206,11 +206,11 @@ culture_growth_calculation_state = {
 	set_variable = { air_pop_new = air_pop }
 	set_variable = { nonbender_pop_new = nonbender_pop }
 
-	set_temp_variable = { fire_reduction = fire_pop_growth }
-	set_temp_variable = { earth_reduction = earth_pop_growth }
-	set_temp_variable = { water_reduction = water_pop_growth }
-	set_temp_variable = { air_reduction = air_pop_growth }
-	set_temp_variable = { nonbender_reduction = nonbender_pop_growth }
+	set_temp_variable = { fire_reduction = THIS:modifier@monthly_fire_culture_in_state }
+	set_temp_variable = { earth_reduction = THIS:modifier@monthly_earth_culture_in_state }
+	set_temp_variable = { water_reduction = THIS:modifier@monthly_water_culture_in_state }
+	set_temp_variable = { air_reduction = THIS:modifier@monthly_air_culture_in_state }
+	set_temp_variable = { nonbender_reduction = THIS:modifier@monthly_pluralist_culture_in_state }
 
 	divide_temp_variable = { fire_reduction = 4 }
 	divide_temp_variable = { earth_reduction = 4 }
@@ -218,31 +218,31 @@ culture_growth_calculation_state = {
 	divide_temp_variable = { air_reduction = 4 }
 	divide_temp_variable = { nonbender_reduction = 4 }
 
-	set_temp_variable = { fire_pop_exp = fire_pop_growth }
+	set_temp_variable = { fire_pop_exp = THIS:modifier@monthly_fire_culture_in_state }
 	subtract_from_temp_variable = { fire_pop_exp = earth_reduction }
 	subtract_from_temp_variable = { fire_pop_exp = water_reduction }
 	subtract_from_temp_variable = { fire_pop_exp = air_reduction }
 	subtract_from_temp_variable = { fire_pop_exp = nonbender_reduction }
 
-	set_temp_variable = { earth_pop_exp = earth_pop_growth }
+	set_temp_variable = { earth_pop_exp = THIS:modifier@monthly_earth_culture_in_state }
 	subtract_from_temp_variable = { earth_pop_exp = fire_reduction }
 	subtract_from_temp_variable = { earth_pop_exp = water_reduction }
 	subtract_from_temp_variable = { earth_pop_exp = air_reduction }
 	subtract_from_temp_variable = { earth_pop_exp = nonbender_reduction }
 
-	set_temp_variable = { water_pop_exp = water_pop_growth }
+	set_temp_variable = { water_pop_exp = THIS:modifier@monthly_water_culture_in_state }
 	subtract_from_temp_variable = { water_pop_exp = earth_reduction }
 	subtract_from_temp_variable = { water_pop_exp = fire_reduction }
 	subtract_from_temp_variable = { water_pop_exp = air_reduction }
 	subtract_from_temp_variable = { water_pop_exp = nonbender_reduction }
 
-	set_temp_variable = { air_pop_exp = air_pop_growth }
+	set_temp_variable = { air_pop_exp = THIS:modifier@monthly_air_culture_in_state }
 	subtract_from_temp_variable = { air_pop_exp = earth_reduction }
 	subtract_from_temp_variable = { air_pop_exp = water_reduction }
 	subtract_from_temp_variable = { air_pop_exp = fire_reduction }
 	subtract_from_temp_variable = { air_pop_exp = nonbender_reduction }
 
-	set_temp_variable = { nonbender_pop_exp = nonbender_pop_growth }
+	set_temp_variable = { nonbender_pop_exp = THIS:modifier@monthly_pluralist_culture_in_state }
 	subtract_from_temp_variable = { nonbender_pop_exp = earth_reduction }
 	subtract_from_temp_variable = { nonbender_pop_exp = water_reduction }
 	subtract_from_temp_variable = { nonbender_pop_exp = air_reduction }

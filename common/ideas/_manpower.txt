@@ -295,7 +295,6 @@ ideas = {
 			cost = 150
 			default = yes
 			available = {
-				
 				has_war_support > 0.2
 			}
 			
@@ -308,6 +307,34 @@ ideas = {
 				conscription = 0.12
 				mobilization_speed = -0.05
 				training_time_factor = 0.1
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = limited_air_conscription
+							has_idea = limited_fire_conscription
+							has_idea = limited_earth_conscription
+							has_idea = limited_water_conscription
+						}
+					}
+				}
+
 			}
 
 			cancel_if_invalid = no
@@ -345,6 +372,43 @@ ideas = {
 				training_time_factor = 0.2
 			}
 
+			ai_will_do = {
+   				factor = 1
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  70
+				}
+				modifier = {
+					#Lower chance if has decent amount
+					factor = 0.5
+					manpower_per_military_factory >  100
+				}
+				modifier = {
+					#Block has plenty manpower
+					factor = 0
+					manpower_per_military_factory >  300
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = extensive_conscription }
+				}
+
+				modifier = {
+					factor = 0
+					OR = {
+						has_idea = swamp_siwong_benders_only
+						has_idea = water_benders_only
+						has_idea = earth_benders_only
+						has_idea = fire_benders_only
+						has_idea = sun_benders_only
+						has_idea = kyoshi_benders_only
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -377,6 +441,43 @@ ideas = {
 				women_recruitment_modifier = 1
 			}
 
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  60
+				}
+				modifier = {
+					#Lower chance if has decent amount
+					factor = 0.5
+					manpower_per_military_factory >  100
+				}
+				modifier = {
+					#Block has plenty manpower
+					factor = 0
+					manpower_per_military_factory >  280
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = service_by_requirement }
+				}
+
+				modifier = {
+					factor = 0
+					OR = {
+						has_idea = swamp_siwong_benders_only
+						has_idea = water_benders_only
+						has_idea = earth_benders_only
+						has_idea = fire_benders_only
+						has_idea = sun_benders_only
+						has_idea = kyoshi_benders_only
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -407,6 +508,44 @@ ideas = {
 				training_time_factor = 0.5
 
 				women_recruitment_modifier = 1
+			}
+
+			ai_will_do = {
+				factor = 1
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  50
+				}
+				modifier = {
+					#Lower chance if has decent amount
+					factor = 0.5
+					manpower_per_military_factory >  100
+				}
+				modifier = {
+					#Block has plenty manpower
+					factor = 0
+					manpower_per_military_factory >  500
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = all_adults_serve }
+				}
+
+				modifier = {
+					factor = 0
+					NOT = {
+						OR = {
+							has_idea = swamp_siwong_indiscriminate
+							has_idea = water_indiscriminate
+							has_idea = earth_indiscriminate
+							has_idea = fire_indiscriminate
+							has_idea = kyoshi_indiscriminate
+						}
+					}
+				}
+
 			}
 
 			cancel_if_invalid = no
