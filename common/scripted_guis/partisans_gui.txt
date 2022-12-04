@@ -296,19 +296,19 @@ scripted_gui = {
 				ROOT = {
 					has_political_power > mtth:THIS.core_state_cost
 				}
-				if = { limit = { has_government = fire_culture }
+				if = { limit = { FROM.OWNER = { has_government = fire_culture } }
 					check_variable = { fire_pop > 50 }
 				}
-				if = { limit = { has_government = earth_culture }
+				if = { limit = { FROM.OWNER = { has_government = earth_culture } }
 					check_variable = { earth_pop > 50 }
 				}
-				if = { limit = { has_government = water_culture }
+				if = { limit = { FROM.OWNER = { has_government = water_culture } }
 					check_variable = { water_pop > 50 }
 				}
-				if = { limit = { has_government = air_culture }
+				if = { limit = { FROM.OWNER = { has_government = air_culture } }
 					check_variable = { air_pop > 50 }
 				}
-				if = { limit = { has_government = pluralist_culture }
+				if = { limit = { FROM.OWNER = { has_government = pluralist_culture } }
 					check_variable = { nonbender_pop > 50 }
 				}
 				is_controlled_by = ROOT
