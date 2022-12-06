@@ -6,10 +6,30 @@ on_actions = {
 		}
 	}
 
+	#on_naval_invasion = { 
+	#	effect = {
+	#		if = {
+	#			limit = {
+	#				tag = FIR
+	#				NOT = {
+	#					is_on_continent = europe
+	#					is_on_continent = north_america
+	#					is_on_continent = south_america
+	#				}
+	#			}
+	#			set_country_flag = {
+	#				flag = careful_invasions
+	#				days = 50
+	#			}
+	#		}
+	#	}
+	#}
+
 
 	on_monthly = {
 		effect = {
 
+			set_variable = { ai_priority_food = 0 }
 			set_variable = { ai_priority_steel = steel_price }
 			set_variable = { ai_priority_animal_products = animal_products_price }
 			set_variable = { ai_priority_wood = wood_price }

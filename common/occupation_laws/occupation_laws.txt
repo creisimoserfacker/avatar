@@ -210,18 +210,6 @@ martial_law_occupation_law = {
 			check_variable  = { resistance_target_without_law > 0.49}
 			add = 100
 		}
-		modifier = {
-			FROM = {
-				has_manpower > 10000
-			}
-			factor = 2
-		}
-		modifier = {
-			FROM = {
-				has_manpower > 50000
-			}
-			factor = 2
-		}
 	}
 
 }
@@ -251,10 +239,10 @@ resistance_hunting = {
 			FROM = {
 				has_manpower < 10000
 			}
-			factor = 0
+			factor = 0.8
 		}
 		modifier = {
-			compliance > 0
+			compliance > 5
 			add = -40
 		}
 		modifier = {
@@ -271,6 +259,14 @@ resistance_hunting = {
 		}
 		modifier = {
 			resistance > 60
+			factor = 2
+		}
+		modifier = {
+			resistance > 50
+			factor = 2
+		}
+		modifier = {
+			resistance > 40
 			factor = 2
 		}
 	}
@@ -337,7 +333,7 @@ longterm_occupation = {
 			FROM = {
 				tag = FIR
 			}
-			add = 100
+			add = 200
 		}
 		modifier = {
 			check_variable = { resistance_target_without_law > 0.45}

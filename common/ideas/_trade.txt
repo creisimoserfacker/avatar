@@ -58,37 +58,29 @@ ideas = {
 						has_dynamic_modifier = { modifier = food_shortages }
 					}
 				}
+
    				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = oil
-						amount < 0
+					factor = 0
+					NOT = { 
+						has_idea = intercontinental_trade
 					}
 				}
-				modifier = {
-					add = -1
 
-					has_resources_in_country = {
-						resource = food_resource
-						amount < 0
-					}
+				modifier = {
+					add = 2
+					check_variable = { ai_priority_grain = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = consumer_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_animal_products = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = luxury_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_wood = 0 }
+				}
+				modifier = {
+					add = 2
+					check_variable = { ai_priority_iron = 0 }
 				}
 
    			}
@@ -128,7 +120,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 2
+   				factor = 1
 
    				# minors not at war should want to get the bonuses from local markets
 				modifier = {
@@ -148,36 +140,30 @@ ideas = {
 				}
 
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = oil
-						amount < 0
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = global_trade
+							has_idea = international_trade
+						}
 					}
 				}
-				modifier = {
-					add = -1
 
-					has_resources_in_country = {
-						resource = food_resource
-						amount < 0
-					}
+				modifier = {
+					add = 2
+					check_variable = { ai_priority_grain = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = consumer_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_animal_products = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = luxury_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_wood = 0 }
+				}
+				modifier = {
+					add = 2
+					check_variable = { ai_priority_iron = 0 }
 				}
    			}
 		}
@@ -215,7 +201,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 3
+   				factor = 1
 
    				# minors not at war should want to get the bonuses from local markets
 				modifier = {
@@ -235,37 +221,32 @@ ideas = {
 				}
 
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = oil
-						amount < 0
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = intercontinental_trade
+							has_idea = city_markets
+						}
 					}
+				}
+
+				modifier = {
+					add = 2
+					check_variable = { ai_priority_grain = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = food_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_animal_products = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = consumer_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_wood = 0 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = luxury_goods_resource
-						amount < 0
-					}
+					add = 2
+					check_variable = { ai_priority_iron = 0 }
 				}
+
    			}
 		}
 		
@@ -303,41 +284,35 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 4
+   				factor = 1
 
    				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = oil
-						amount < 0
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = international_trade
+							has_idea = local_markets
+						}
 					}
+				}
+
+   				modifier = {
+					factor = 10
+					check_variable = { ai_priority_grain > 1 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = food_resource
-						amount < 0
-					}
+					factor = 10
+					check_variable = { ai_priority_animal_products > 1 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = consumer_goods_resource
-						amount < 0
-					}
+					factor = 10
+					check_variable = { ai_priority_wood > 1 }
 				}
 				modifier = {
-					add = -1
-
-					has_resources_in_country = {
-						resource = luxury_goods_resource
-						amount < 0
-					}
+					factor = 10
+					check_variable = { ai_priority_iron > 1 }
 				}
-
+				
 				modifier = {
 					add = 50
 					
@@ -392,7 +367,7 @@ ideas = {
 			cancel_if_invalid = no
 
 			ai_will_do = {
-   				factor = 5
+   				factor = 1
 
    				modifier = {
 					add = -4
@@ -416,36 +391,25 @@ ideas = {
 				}
 
 				modifier = {
-					factor = 10
+					factor = 0
+					NOT = { has_idea = city_markets }
+				}
 
-					has_resources_in_country = {
-						resource = oil
-						amount < 0
-					}
+				modifier = {
+					factor = 10
+					check_variable = { ai_priority_grain > 1 }
 				}
 				modifier = {
 					factor = 10
-
-					has_resources_in_country = {
-						resource = food_resource
-						amount < 0
-					}
+					check_variable = { ai_priority_animal_products > 1 }
 				}
 				modifier = {
 					factor = 10
-
-					has_resources_in_country = {
-						resource = consumer_goods_resource
-						amount < 0
-					}
+					check_variable = { ai_priority_wood > 1 }
 				}
 				modifier = {
 					factor = 10
-
-					has_resources_in_country = {
-						resource = luxury_goods_resource
-						amount < 0
-					}
+					check_variable = { ai_priority_iron > 1 }
 				}
    			}
 		}
