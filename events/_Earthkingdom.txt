@@ -518,7 +518,6 @@ country_event = {
 
 		set_country_flag = emergency_intervention_atrocity
 		custom_effect_tooltip = fire_goes_to_war
-		activate_mission = rescue_fire_citizen_mission
 
 	}
 	option = { #evacuate
@@ -531,12 +530,6 @@ country_event = {
 			}
 		}
 
-		activate_mission = evacuate_fire_citizen_mission
-
-		set_variable = {
-			fire_people_in_ek = 10000
-			tooltip = fire_people_in_ek_bad_tooltip
-		}
 	}
 	option = { #they are on their own
 		name = ear_treaty.6.c
@@ -549,6 +542,8 @@ country_event = {
 		}
 
 		add_stability = -0.5
+		remove_mission = rescue_fire_citizen_mission
+		clear_variable = fire_people_in_ek
 
 	}
 
