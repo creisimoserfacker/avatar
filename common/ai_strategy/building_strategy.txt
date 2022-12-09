@@ -243,7 +243,11 @@ build_construction = {
 		always = yes
 	}
 	enable = {
-		check_variable = { construction_material_factor < 0 }
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = aluminium
+			amount > 50
+		}
 	}
 	abort_when_not_enabled = yes
 
@@ -252,11 +256,41 @@ build_construction = {
 		id = carpentry
 		value = 1000
 	}
+}
+
+build_masonry = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = stone
+			amount > 50
+		}
+	}
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 		type = building_target
 		id = masonry
 		value = 1000
 	}
+}
+
+build_steel_beam_factory = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = steel
+			amount > 50
+		}
+	}
+	abort_when_not_enabled = yes
+
 	ai_strategy = {
 		type = building_target
 		id = steel_beam_factory

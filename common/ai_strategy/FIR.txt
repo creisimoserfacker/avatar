@@ -97,7 +97,7 @@ invasion_manager = {
 	enable = {
 		always = yes
 	}
-	abort_when_not_enabled = yes
+	#abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = invade
@@ -190,15 +190,13 @@ pohuai_invasions = {
 		tag = FIR	
 	}
 	enable = {
-		OR = {
-			NOT = {
-				has_active_mission = rescue_fire_citizen_mission
-			}
-			has_country_flag = central_attack_planned
-		}
 		NOT = {
 			controls_state = 155
 			has_active_mission = rescue_fire_citizen_mission
+		}
+		OR = {
+			has_country_flag = central_attack_planned
+			date > 14.01.01
 		}
 	}
 	abort_when_not_enabled = yes
@@ -276,7 +274,7 @@ pohuai_conquest_movement = {
 	}
 	enable = {
 		FIR = {
-			has_country_flag = central_attack_planned
+			#has_country_flag = central_attack_planned
 			controls_state = 155
 		}
 		NOT = {
@@ -336,7 +334,7 @@ pohuai_secured = {
 
 
 
-yu_dao_and_colony_invasions = {
+yu_dao_invasions = {
 	allowed = {
 		tag = FIR	
 	}
@@ -344,7 +342,6 @@ yu_dao_and_colony_invasions = {
 		has_active_mission = rescue_fire_citizen_mission
 		NOT = {
 			controls_state = 230
-			controls_state = 280
 		}
 	}
 	abort_when_not_enabled = yes
@@ -388,17 +385,6 @@ yu_dao_and_colony_invasions = {
 	}
 
 	ai_strategy = {
-		type = invasion_unit_request
-		tag = HAN
-		value = 100
-	}
-	ai_strategy = {
-		type = invade
-		id = HAN			
-		value = 1000
-	}
-
-	ai_strategy = {
 		type = area_priority
 		id = north_plate
 		value = 120
@@ -427,6 +413,64 @@ yu_dao_conquest = {
 	ai_strategy = {
 		type = front_control
 		tag = WUL
+		priority = 500
+		ratio = 0.0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 120
+	}
+}
+
+colony_invasions = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		has_active_mission = rescue_fire_citizen_mission
+		NOT = {
+			controls_state = 280
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30 #earth coast
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 31 #earth coast
+		value = 200
+	}
+
+
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = HAN
+		value = 100
+	}
+	ai_strategy = {
+		type = invade
+		id = HAN			
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = HAN
+		value = 500
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = HAN
 		priority = 500
 		ratio = 0.0
 		ordertype = front

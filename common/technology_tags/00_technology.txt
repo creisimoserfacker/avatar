@@ -173,7 +173,7 @@ technology_folders = {
 		available = {
 			not = {
 				and = {
-					has_government = air_culture
+					has_country_flag = air_nation
 					has_idea = pacifist_detachment
 				}
 			}
@@ -184,7 +184,7 @@ technology_folders = {
 		available = {
 			not = {
 				and = {
-					has_government = air_culture
+					has_country_flag = air_nation
 					has_idea = pacifist_detachment
 				}
 			}
@@ -192,33 +192,26 @@ technology_folders = {
 	}
 	support_folder = {
 		ledger = army
-		# available = {
-		# 	not = {
-		# 		and = {
-		# 			has_government = air_culture
-		# 			has_idea = pacifist_detachment
-		# 		}
-		# 	}
-		# }
 	}
 	armour_folder = { 
 		ledger = army
 		available = {
 			not = {
 				and = {
-					has_government = air_culture
+					has_country_flag = air_nation
 					has_idea = pacifist_detachment
 				}
 			}
 		}
 	}
+
 	special_forces_folder = { 
 		available = { 
 			not = { 
-				has_country_flag = FIR_special_forces
-				has_country_flag = AIR_special_forces
-				has_country_flag = WATER_special_forces
-				has_country_flag = EARTH_special_forces
+				has_country_flag = fire_nation
+				has_country_flag = air_nation
+				has_country_flag = water_nation
+				has_country_flag = earth_nation
 				has_country_flag = SNW_special_forces
 			}
 		}
@@ -226,7 +219,7 @@ technology_folders = {
 	}
 	fir_special_forces_folder = { 
 		available = { 
-			has_country_flag = FIR_special_forces
+			has_country_flag = fire_nation
 		}
 		ledger = army
 	}
@@ -238,33 +231,34 @@ technology_folders = {
 	}
 	air_special_forces_folder = { 
 		available = { 
-			has_country_flag = AIR_special_forces
+			has_country_flag = air_nation
 		}
 		ledger = army
 	}
 	earth_special_forces_folder = { 
 		available = { 
-			has_country_flag = EARTH_special_forces
+			has_country_flag = earth_nation
 		}
 		ledger = army
 	}
 	water_special_forces_folder = { 
 		available = { 
-			has_country_flag = WATER_special_forces
+			has_country_flag = water_nation
 		}
 		ledger = army
 	}
+
 	air_techs_folder = {
 		available = { 
 			not = { 
-				has_country_flag = AIR_air_techs
+				has_country_flag = air_nation
 			}
 		}
 		ledger = air
 	}
 	AIR_air_techs_folder = { 
 		available = { 
-			has_country_flag = AIR_air_techs
+			has_country_flag = air_nation
 		}
 		ledger = air
 	}
@@ -321,6 +315,24 @@ technology_folders = {
 		}
 		ledger = navy
 	}
+
+	innovation_army_folder = {
+		ledger = army
+		ledger = navy
+		ledger = air
+	}
+
+	industry_folder = {
+		ledger = civilian
+	}
+	electronics_folder = {
+		ledger = civilian
+	}
+	construction_folder = {
+		ledger = civilian
+	}
+
+
 	land_doctrine_folder = {
 		ledger = army
 		doctrine = yes
@@ -332,24 +344,6 @@ technology_folders = {
 	air_doctrine_folder = {
 		ledger = air
 		doctrine = yes
-	}
-	innovation_army_folder = {
-		ledger = army
-		ledger = navy
-		ledger = air
-		#doctrine = yes
-	}
-	#invention_folder = {
-	#	ledger = civilian
-	#}
-	industry_folder = {
-		ledger = civilian
-	}
-	electronics_folder = {
-		ledger = civilian
-	}
-	construction_folder = {
-		ledger = civilian
 	}
 }
 
