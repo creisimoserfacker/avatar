@@ -629,25 +629,31 @@ FIR_conquest_category = {
 		}
 
 		available = {
-			AND = {
-				NOT = { 
-					AND = {
-						#has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
+			OR = {
+				AND = {
+					NOT = { 
+						AND = {
+							#has_war_with = EAR 
+							has_country_flag = FIR_attack_plan_made
+							has_country_flag = earth_diplomacy_path
+						}
 					}
-					OR = {
-						has_decision = central_attack_plan
-						has_decision = southern_attack_plan
-					}
+					has_country_flag = military_preparations_complete
 				}
-				has_country_flag = military_preparations_complete
+				AND = {
+					has_war_with = EAR
+					NOT = { has_country_flag = FIR_attack_plan_made }
+				}
 			}
 		}
 
         modifier = {
 			command_power_gain = -0.5
 			civilian_factory_use = 5
+		}
+
+		complete_effect = {
+			set_country_flag = FIR_attack_plan_made
 		}
 
 		remove_effect = {
@@ -679,7 +685,11 @@ FIR_conquest_category = {
 			base = 0
 			modifier = {
 				has_war = yes
-				add = 50
+				add = 100
+			}
+			modifier = {
+				has_active_mission = rescue_fire_citizen_mission
+				factor = 100
 			}
 		}
 	}
@@ -702,7 +712,10 @@ FIR_conquest_category = {
 					}
 					has_country_flag = military_preparations_complete
 				}
-				has_war_with = EAR 
+				AND = {
+					has_war_with = EAR
+					NOT = { has_country_flag = FIR_attack_plan_made }
+				}
 			}
 			NOT = { 
 				has_country_flag = FIR_attack_plan_made
@@ -710,19 +723,18 @@ FIR_conquest_category = {
 		}
 
 		available = {
-			AND = {
-				NOT = { 
-					AND = {
-						#has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
+			OR = {
+				AND = {
+					NOT = { 
+						AND = {
+							#has_war_with = EAR 
+							has_country_flag = FIR_attack_plan_made
+							has_country_flag = earth_diplomacy_path
+						}
 					}
-					OR = {
-						has_decision = northern_attack_plan
-						has_decision = southern_attack_plan
-					}
+					has_country_flag = military_preparations_complete
 				}
-				has_country_flag = military_preparations_complete
+				has_war_with = EAR
 			}
 		}
 
@@ -731,8 +743,11 @@ FIR_conquest_category = {
 			civilian_factory_use = 5
 		}
 
-		remove_effect = {
+		complete_effect = {
 			set_country_flag = FIR_attack_plan_made
+		}
+
+		remove_effect = {
 			if = {
 				limit = {
 					NOT = {
@@ -762,6 +777,10 @@ FIR_conquest_category = {
 				has_war = yes
 				factor = 100
 			}
+			modifier = {
+				has_active_mission = rescue_fire_citizen_mission
+				factor = 0
+			}
 		}
 	}
 
@@ -783,7 +802,10 @@ FIR_conquest_category = {
 					}
 					has_country_flag = military_preparations_complete
 				}
-				has_war_with = EAR 
+				AND = {
+					has_war_with = EAR
+					NOT = { has_country_flag = FIR_attack_plan_made }
+				}
 			}
 			NOT = { 
 				has_country_flag = FIR_attack_plan_made
@@ -791,19 +813,18 @@ FIR_conquest_category = {
 		}
 
 		available = {
-			AND = {	
-				NOT = { 
-					AND = {
-						#has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
+			OR = {
+				AND = {	
+					NOT = { 
+						AND = {
+							#has_war_with = EAR 
+							has_country_flag = FIR_attack_plan_made
+							has_country_flag = earth_diplomacy_path
+						}
 					}
-					OR = {
-						has_decision = central_attack_plan
-						has_decision = northern_attack_plan
-					}
+					has_country_flag = military_preparations_complete
 				}
-				has_country_flag = military_preparations_complete
+				has_war_with = EAR
 			}
 		}
 
@@ -812,8 +833,11 @@ FIR_conquest_category = {
 			civilian_factory_use = 5
 		}
 
-		remove_effect = {
+		complete_effect = {
 			set_country_flag = FIR_attack_plan_made
+		}
+
+		remove_effect = {
 			if = {
 				limit = {
 					NOT = {
@@ -877,12 +901,6 @@ FIR_conquest_category = {
 					has_country_flag = FIR_attack_plan_made	
 					threat > 0.5	
 					NOT = { 
-						#has_decision = military_preparations
-						#OR = {
-						#	has_decision = central_attack_plan
-						#	has_decision = southern_attack_plan
-						#	has_decision = northern_attack_plan
-						#}
 						has_country_flag = approach_earthkingdom
 						has_country_flag = earth_diplomacy_path
 					}
@@ -1149,48 +1167,15 @@ FIR_colonies_category = {
 
 		}
 		available = {
-			controls_state = 230
-			controls_state = 280
-		}
-
-
-		days_mission_timeout = 230
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			add_stability = 0.1
-		}
-
-		timeout_effect = {
-			add_stability = -0.5
-		}
-
-		ai_will_do = {
-			factor = 100
-		}
-
-	}
-
-	evacuate_fire_citizen_mission = {
-
-		icon = rescue_fire_citizen
-
-		allowed = {
-			always = no
-		}
-		visible = {
-
-		}
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = citizens_evacuated_tt
-				check_variable = { fire_people_in_ek < 0 }
+			OR = {
+				AND = {
+					controls_state = 230
+					controls_state = 280
+				}
+				custom_trigger_tooltip = {
+					tooltip = citizens_evacuated_tt
+					check_variable = { fire_people_in_ek < 0 }
+				}
 			}
 		}
 
@@ -1205,22 +1190,78 @@ FIR_colonies_category = {
 		is_good = no
 
 		complete_effect = {
-			add_stability = 0.1
+			add_stability = 0.25
 		}
 
 		timeout_effect = {
-			add_stability = -0.5
+			if = {
+				limit = {
+					NOT = {
+						controls_state = 230
+					}
+				}
+				add_stability = -0.25
+			}
+			if = {
+				limit = {
+					NOT = {
+						controls_state = 280
+					}
+				}
+				add_stability = -0.25
+			}
 		}
 
 		ai_will_do = {
 			factor = 100
 		}
 
-		#priority = {
-		#	base = 100
-		#}
-
 	}
+
+#	evacuate_fire_citizen_mission = {
+#
+#		icon = rescue_fire_citizen
+#
+#		allowed = {
+#			always = no
+#		}
+#		visible = {
+#
+#		}
+#		available = {
+#			custom_trigger_tooltip = {
+#				tooltip = citizens_evacuated_tt
+#				check_variable = { fire_people_in_ek < 0 }
+#			}
+#		}
+#
+#
+#		days_mission_timeout = 230
+#		fire_only_once = yes
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = no
+#
+#		complete_effect = {
+#			add_stability = 0.1
+#		}
+#
+#		timeout_effect = {
+#			add_stability = -0.5
+#		}
+#
+#		ai_will_do = {
+#			factor = 100
+#		}
+#
+#		#priority = {
+#		#	base = 100
+#		#}
+#
+#	}
 
 	evacuation_convoy = {
 
@@ -1230,10 +1271,10 @@ FIR_colonies_category = {
 			tag = FIR
 		}
 		visible = {
-			has_active_mission = evacuate_fire_citizen_mission
+			has_active_mission = rescue_fire_citizen_mission
 		}
 		available = {
-			has_active_mission = evacuate_fire_citizen_mission
+			has_active_mission = rescue_fire_citizen_mission
 		}
 
 		days_remove = 28
@@ -1281,10 +1322,10 @@ FIR_colonies_category = {
 			tag = FIR
 		}
 		visible = {
-			has_active_mission = evacuate_fire_citizen_mission
+			has_active_mission = rescue_fire_citizen_mission
 		}
 		available = {
-			has_active_mission = evacuate_fire_citizen_mission
+			has_active_mission = rescue_fire_citizen_mission
 			OR = {
 				ships_in_area = { area = 23 size > 9 }
 				ships_in_area = { area = 26 size > 9 }
@@ -1327,7 +1368,7 @@ FIR_colonies_category = {
 				FIR = {
 					has_war_with = EAR
 				}
-				has_active_mission = evacuate_fire_citizen_mission
+				has_active_mission = rescue_fire_citizen_mission
 			}
 			OR = {
 				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
@@ -1387,7 +1428,7 @@ FIR_colonies_category = {
 				has_war_with = EAR
 			}
 			NOT = {
-				has_active_mission = evacuate_fire_citizen_mission
+				has_active_mission = rescue_fire_citizen_mission
 			}
 			has_start_date < 15.1.1
 		}
@@ -1439,7 +1480,7 @@ FIR_colonies_category = {
 		}
 		visible = {
 			NOT = {
-				has_active_mission = evacuate_fire_citizen_mission
+				has_active_mission = rescue_fire_citizen_mission
 				has_war_with = WUL
 				country_exists = YFC
 			}
@@ -1521,7 +1562,7 @@ FIR_colonies_category = {
 		}
 		visible = {
 			NOT = {
-				has_active_mission = evacuate_fire_citizen_mission
+				has_active_mission = rescue_fire_citizen_mission
 				has_war_with = HAN
 				country_exists = KFC
 			}

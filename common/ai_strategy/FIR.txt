@@ -101,72 +101,72 @@ invasion_manager = {
 
 	ai_strategy = {
 		type = invade
-		id = "POH"			
+		id = POH			
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "TAK"			
+		id = TAK			
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "HAN"
+		id = HAN
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "WUL"
+		id = WUL
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "YUE"
+		id = YUE
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "XIN"
+		id = XIN
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "HEB"
+		id = HEB
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "GAR"
+		id = GAR
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "MAK"
+		id = MAK
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "NOW"
+		id = NOW
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "NIX"
+		id = NIX
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "OMS"
+		id = OMS
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "GAO"
+		id = GAO
 		value = -500
 	}
 	ai_strategy = {
 		type = invade
-		id = "MER"
+		id = MER
 		value = -500
 	}
 
@@ -190,9 +190,15 @@ pohuai_invasions = {
 		tag = FIR	
 	}
 	enable = {
-		has_country_flag = central_attack_planned
+		OR = {
+			NOT = {
+				has_active_mission = rescue_fire_citizen_mission
+			}
+			has_country_flag = central_attack_planned
+		}
 		NOT = {
 			controls_state = 155
+			has_active_mission = rescue_fire_citizen_mission
 		}
 	}
 	abort_when_not_enabled = yes
@@ -209,8 +215,14 @@ pohuai_invasions = {
 	}
 
 	ai_strategy = {
+		type = invasion_unit_request
+		tag = POH
+		value = 100
+	}
+
+	ai_strategy = {
 		type = invade
-		id = "POH"			
+		id = POH			
 		value = 1000
 	}
 
@@ -221,47 +233,12 @@ pohuai_invasions = {
 	}
 }
 
-pohuai_invasion_preperation = {
-	allowed = {
-		tag = FIR
-	}
-
-	# only allow invasion on ek on every second month
-
-	enable = {
-		has_country_flag = central_attack_planned
-		NOT = {
-			controls_state = 155
-		}
-
-		set_temp_variable = { days = global.num_days }
-		modulo_temp_variable = { days = 60 }
-		check_variable = { days < 30 }
-	}
-
-	abort_when_not_enabled = yes
-
-	ai_strategy = {
-		type = front_control
-
-		area = north_plate
-
-		ordertype = invasion
-		execute_order = no
-
-		priority = 1000
-	}
-}
-
 pohuai_conquest = {
 	allowed = {
 		tag = FIR	
 	}
 	enable = {
-		FIR = {
-			has_country_flag = central_attack_planned
-			controls_state = 155
-		}
+		controls_state = 155
 		NOT = {
 			POH = { is_fully_controlled_by = FIR }
 		}
@@ -273,11 +250,6 @@ pohuai_conquest = {
 	    type = front_unit_request
 	    tag = POH
 	    value = 500
-	}
-	ai_strategy = {
-		type = conquer
-		id = "POH"
-		value = 1000
 	}
 
 	ai_strategy = {
@@ -308,7 +280,7 @@ pohuai_conquest_movement = {
 			controls_state = 155
 		}
 		NOT = {
-			POH = { is_fully_controlled_by = FIR }
+			POH = { all_core_state = { is_fully_controlled_by = FIR } }
 		}
 
 		set_temp_variable = { days = global.num_days }
@@ -338,7 +310,7 @@ pohuai_secured = {
 			has_country_flag = central_attack_planned
 			controls_state = 155
 		}
-		POH = { is_fully_controlled_by = FIR }
+		POH = { all_core_state = { is_fully_controlled_by = FIR } }
 	}
 	abort_when_not_enabled = yes
 
@@ -361,6 +333,198 @@ pohuai_secured = {
 	}
 	
 }
+
+
+
+yu_dao_and_colony_invasions = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		has_active_mission = rescue_fire_citizen_mission
+		NOT = {
+			controls_state = 230
+			controls_state = 280
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30 #earth coast
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 31 #earth coast
+		value = 200
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = WUL
+		value = 100
+	}
+	ai_strategy = {
+		type = invade
+		id = WUL			
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = WUL
+		value = 500
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = WUL
+		priority = 500
+		ratio = 0.0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = invasion_unit_request
+		tag = HAN
+		value = 100
+	}
+	ai_strategy = {
+		type = invade
+		id = HAN			
+		value = 1000
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 120
+	}
+}
+
+yu_dao_conquest = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		controls_state = 230
+		NOT = {
+			WUL = { all_core_state = { is_fully_controlled_by = FIR } }
+		}
+	}
+	abort_when_not_enabled = yes
+
+
+	ai_strategy = {
+		type = front_unit_request
+		tag = WUL
+		value = 500
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = WUL
+		priority = 500
+		ratio = 0.0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 120
+	}
+}
+
+colony_conquest = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		controls_state = 280
+		NOT = {
+			HAN = { all_core_state = { is_fully_controlled_by = FIR } }
+		}
+	}
+	abort_when_not_enabled = yes
+
+
+	ai_strategy = {
+	    type = front_unit_request
+	    tag = HAN
+	    value = 500
+	}
+
+	ai_strategy = {
+		type = front_control
+		tag = HAN
+		priority = 500
+		ratio = 0.0
+		ordertype = front
+		execution_type = balanced
+		execute_order = yes
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 120
+	}
+	
+}
+
+
+
+
+fire_invasion_preperation = {
+	allowed = {
+		tag = FIR
+	}
+
+	# only allow invasion on northern ek on every second month
+
+	enable = {
+		#NOT = {
+		#	any_enemy_country = {
+		#		limit = {
+		#			capital_scope = {
+		#				is_on_continent = north_america
+		#			}
+		#		}
+		#		any_core_state = {
+		#			is_controlled_by = FIR
+		#		}
+		#	}
+		#}
+
+		set_temp_variable = { days = global.num_days }
+		modulo_temp_variable = { days = 60 }
+		check_variable = { days < 30 }
+	}
+
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+
+		area = north_plate
+
+		ordertype = invasion
+		execute_order = no
+
+		priority = 1000
+	}
+}
+
+
+
+
+
 
 FIR_deploy_some_units = {
 	enable = {
@@ -388,31 +552,31 @@ Siege_Invasions = {
 	
 	ai_strategy = {
 		type = invade
-		id = "HEB"			
+		id = HEB			
 		value = -75
 	}
 	
 	ai_strategy = {
 		type = invade
-		id = "NAT"			
+		id = NAT			
 		value = -10000
 	}
 	
 	ai_strategy = {
 		type = invade
-		id = "OMS"			
+		id = OMS			
 		value = -75
 	}
 	
 	ai_strategy = {
 		type = invade
-		id = "NWT"			
+		id = NWT			
 		value = -75
 	}
 	
 	ai_strategy = {
 		type = invade
-		id = "FMB"			
+		id = FMB			
 		value = -75
 	}
 	

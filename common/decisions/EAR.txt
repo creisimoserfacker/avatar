@@ -1312,7 +1312,14 @@ EAR_firenation_hostility_category = {
 
 		complete_effect = {
 			custom_effect_tooltip = the_colonial_question_ttp
-			FIR = { country_event = { id = ear_treaty.6 days = 1 } }
+			FIR = { 
+				country_event = { id = ear_treaty.6 days = 1 } 
+				activate_mission = rescue_fire_citizen_mission
+				set_variable = {
+					fire_people_in_ek = 10000
+					tooltip = fire_people_in_ek_bad_tooltip
+				}
+			}
 			hidden_effect = {
 				if = {
 					limit = {
