@@ -6,7 +6,7 @@ FIR_naval_role_ratios_historical = {
 		has_dlc = "Man the Guns"
 	}
 	enable = {
-		
+		always = yes
 	}
 
 	ai_strategy = {
@@ -30,17 +30,6 @@ FIR_area_priority = {
 		value = 10
 	}
 
-	#ai_strategy = {
-	#	type = area_priority
-	#	id = northpole
-	#	value = 10
-	#}
-	#
-	#ai_strategy = {
-	#	type = area_priority
-	#	id = southpole
-	#	value = 10
-	#}
 }
 
 
@@ -190,8 +179,14 @@ pohuai_invasions = {
 		tag = FIR	
 	}
 	enable = {
+		POH = {
+			NOT = {
+				any_core_state = {
+					is_controlled_by = FIR
+				}
+			}
+		}
 		NOT = {
-			controls_state = 155
 			has_active_mission = rescue_fire_citizen_mission
 		}
 		OR = {
@@ -202,19 +197,12 @@ pohuai_invasions = {
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
-		type = strike_force_home_base
-		id = 30 #earth coast
-		value = 200
-	}
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 31 #earth coast
-		value = 200
-	}
-
-	ai_strategy = {
 		type = invasion_unit_request
 		tag = POH
+		value = 1000
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
 		value = 100
 	}
 
@@ -225,9 +213,30 @@ pohuai_invasions = {
 	}
 
 	ai_strategy = {
-		type = area_priority
+		type = north_plate
 		id = north_plate
-		value = 120
+		value = 10
+	}
+	ai_strategy = {
+		type = area_priority
+		id = firelands
+		value = 20
+	}
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 4
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 26
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30
+		value = 200
 	}
 }
 
@@ -236,9 +245,13 @@ pohuai_conquest = {
 		tag = FIR	
 	}
 	enable = {
-		controls_state = 155
+		POH = {
+			any_core_state = {
+				is_controlled_by = FIR
+			}
+		}
 		NOT = {
-			POH = { is_fully_controlled_by = FIR }
+			POH = { all_core_state = { is_fully_controlled_by = FIR } }
 		}
 	}
 	abort_when_not_enabled = yes
@@ -263,7 +276,7 @@ pohuai_conquest = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 20
 	}
 	
 }
@@ -273,9 +286,10 @@ pohuai_conquest_movement = {
 		tag = FIR	
 	}
 	enable = {
-		FIR = {
-			#has_country_flag = central_attack_planned
-			controls_state = 155
+		POH = {
+			any_core_state = {
+				is_controlled_by = FIR
+			}
 		}
 		NOT = {
 			POH = { all_core_state = { is_fully_controlled_by = FIR } }
@@ -304,10 +318,6 @@ pohuai_secured = {
 		tag = FIR	
 	}
 	enable = {
-		FIR = {
-			has_country_flag = central_attack_planned
-			controls_state = 155
-		}
 		POH = { all_core_state = { is_fully_controlled_by = FIR } }
 	}
 	abort_when_not_enabled = yes
@@ -327,7 +337,7 @@ pohuai_secured = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 20
 	}
 	
 }
@@ -339,29 +349,27 @@ yu_dao_invasions = {
 		tag = FIR	
 	}
 	enable = {
-		has_active_mission = rescue_fire_citizen_mission
-		NOT = {
-			controls_state = 230
+		has_country_flag = invade_yu_dao
+		WUL = {
+			NOT = {
+				any_core_state = {
+					is_controlled_by = FIR
+				}
+			}
 		}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
-		type = strike_force_home_base
-		id = 30 #earth coast
-		value = 200
-	}
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 31 #earth coast
-		value = 200
-	}
-
-	ai_strategy = {
 		type = invasion_unit_request
 		tag = WUL
+		value = 1000
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
 		value = 100
 	}
+
 	ai_strategy = {
 		type = invade
 		id = WUL			
@@ -387,7 +395,33 @@ yu_dao_invasions = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 10
+	}
+	ai_strategy = {
+		type = area_priority
+		id = firelands
+		value = 20
+	}
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 33
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 24
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 23
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30
+		value = 200
 	}
 }
 
@@ -396,7 +430,11 @@ yu_dao_conquest = {
 		tag = FIR	
 	}
 	enable = {
-		controls_state = 230
+		WUL = {
+			any_core_state = {
+				is_controlled_by = FIR
+			}
+		}
 		NOT = {
 			WUL = { all_core_state = { is_fully_controlled_by = FIR } }
 		}
@@ -423,7 +461,7 @@ yu_dao_conquest = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 20
 	}
 }
 
@@ -432,30 +470,28 @@ colony_invasions = {
 		tag = FIR	
 	}
 	enable = {
-		has_active_mission = rescue_fire_citizen_mission
-		NOT = {
-			controls_state = 280
+		has_country_flag = invade_colony
+		HAN = {
+			NOT = {
+				any_core_state = {
+					is_controlled_by = FIR
+					is_in_home_area = yes
+				}
+			}
 		}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
-		type = strike_force_home_base
-		id = 30 #earth coast
-		value = 200
-	}
-	ai_strategy = {
-		type = strike_force_home_base
-		id = 31 #earth coast
-		value = 200
-	}
-
-
-	ai_strategy = {
 		type = invasion_unit_request
 		tag = HAN
+		value = 1000
+	}
+	ai_strategy = {
+		type = naval_invasion_focus
 		value = 100
 	}
+
 	ai_strategy = {
 		type = invade
 		id = HAN			
@@ -481,7 +517,12 @@ colony_invasions = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 10
+	}
+	ai_strategy = {
+		type = area_priority
+		id = firelands
+		value = 20
 	}
 }
 
@@ -490,9 +531,18 @@ colony_conquest = {
 		tag = FIR	
 	}
 	enable = {
-		controls_state = 280
+		HAN = {
+			any_core_state = {
+				is_controlled_by = FIR
+				is_in_home_area = yes
+			}
+		}
 		NOT = {
-			HAN = { all_core_state = { is_fully_controlled_by = FIR } }
+			HAN = { 
+				all_core_state = {
+					is_fully_controlled_by = FIR 
+				}
+			}
 		}
 	}
 	abort_when_not_enabled = yes
@@ -517,7 +567,7 @@ colony_conquest = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 120
+		value = 20
 	}
 	
 }

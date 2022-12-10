@@ -45,6 +45,7 @@ replace_path="common/technologies"
 replace_path="common/units"
 replace_path="music"
 replace_path="tests"
+replace_path="portraits"
 tags={
 	"Map"
 	"Utilities"

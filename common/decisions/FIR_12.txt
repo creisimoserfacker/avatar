@@ -1180,7 +1180,7 @@ FIR_colonies_category = {
 		}
 
 
-		days_mission_timeout = 230
+		days_mission_timeout = 400
 		fire_only_once = yes
 
 		activation = {
@@ -1196,16 +1196,16 @@ FIR_colonies_category = {
 		timeout_effect = {
 			if = {
 				limit = {
-					NOT = {
-						controls_state = 230
+					230 = {
+						has_dynamic_modifier = { modifier = relocate_fire_population }
 					}
 				}
 				add_stability = -0.25
 			}
 			if = {
 				limit = {
-					NOT = {
-						controls_state = 280
+					280 = {
+						has_dynamic_modifier = { modifier = relocate_fire_population }
 					}
 				}
 				add_stability = -0.25

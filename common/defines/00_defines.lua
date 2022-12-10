@@ -258,7 +258,7 @@ NCountry = {
 	BASE_RESEARCH_SLOTS = 2,						-- Base number of research slots per country.
 	POPULATION_YEARLY_GROWTH_BASE = 0.014,			-- basic population growth per year, used for monthly manpower gain
 	RESISTANCE_STRENGTH_FROM_VP = 0.001,			-- How much strength ticking speed gives each VP score.
-	RESISTANCE_STRENGTH_FROM_NEIGHBORS = 0.5, 		-- Multiplies how much resistance can spread from one state to its neighbors, a state will spread whatever is highest of its victorypoints resistance increase or half of any of its neighbors spread, multiplied by this
+	RESISTANCE_STRENGTH_FROM_NEIGHBORS = 0.25, 		-- Multiplies how much resistance can spread from one state to its neighbors, a state will spread whatever is highest of its victorypoints resistance increase or half of any of its neighbors spread, multiplied by this
 	RESISTANCE_DECAY_WHEN_NO_GROWTH = 0.005,		-- Resistance will fall by this much each day if there is nothing increasing it ( no VPs and no spread from neighbors )
 	REINFORCEMENT_DIVISION_PRIORITY_COUNT = 3, 		-- How many priority stages we have in division template? 0)Reserves, 1)Normal, 2)Elite.
 	REINFORCEMENT_DIVISION_PRIORITY_DEFAULT = 1, 	-- Each template by default is 1)Normal
@@ -512,7 +512,7 @@ NResistance = {
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
-	COMPLIANCE_GROWTH_BASE = 0.001, -- base compliance grow
+	COMPLIANCE_GROWTH_BASE = 0.01, -- base compliance grow
 	COMPLIANCE_GROWTH_MIN = -100.0, -- min compliance grow
 	COMPLIANCE_GROWTH_MAX = 100.0, -- max compliance grow
 	
@@ -547,7 +547,7 @@ NResistance = {
 	GARRISON_EQUIPMENT_LOST_BY_ATTACK = 0.002, 	-- Ratio of equipment lost by garrison at each attack on garrison (this number will be reduced by the hardness of garrison template)
 	MAXIMUM_GARRISON_HARDNESS_WHEN_ATTACKED = 0.90,   -- Cap to be sure that garrison will suffer lost in attack, even with a almost 100% hardness
 	
-	FOREIGN_MANPOWER_MIN_THRESHOLD = 1000,		 -- The minimum number of Manpower that AI will accept to give at once, in order to avoid many weird little transfer.
+	FOREIGN_MANPOWER_MIN_THRESHOLD = 500,		 -- The minimum number of Manpower that AI will accept to give at once, in order to avoid many weird little transfer.
 	MANPOWER_BUFFER_TO_NOT_GIVE_MINOR = 0.3, -- To determine how much AI can give as foreign manpower, we calculate how much manpower we use, and add this buffer. The result is what we want to keep, for minor countries. So higher this number is, lower we will give Manpower.
 	MANPOWER_BUFFER_TO_NOT_GIVE_MAJOR = 0.6, -- To determine how much AI can give as foreign manpower, we calculate how much manpower we use, and add this buffer. The result is what we want to keep, for major countries. So higher this number is, lower we will give Manpower.
 	MAX_GARRISON_RATIO_WE_AGREE_TO_SUPPORT = 3.0,	-- The part of the manpower needed by the foreign garrison, that AI will agree to support with our manpower. If negative number, AI will not take into consideration the need, and just calculate how much they can give.
@@ -849,7 +849,7 @@ NMilitary = {
 	TRAINING_ORG = 0.2,
 	ARMY_EXP_BASE_LEVEL = 1,
 	UNIT_EXP_LEVELS = { 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 },		-- Experience needed to progress to the next level
-	FIELD_EXPERIENCE_SCALE = 1.0,
+	FIELD_EXPERIENCE_SCALE = 1.5,
 	FIELD_EXPERIENCE_MAX_PER_DAY = 2,				-- Most xp you can gain per day
 	EXPEDITIONARY_FIELD_EXPERIENCE_SCALE = 0.5,		-- reduction factor in Xp from expeditionary forces
 	LEND_LEASE_FIELD_EXPERIENCE_SCALE = 0.005,		-- Experience scale for lend leased equipment used in combat.
@@ -1457,7 +1457,7 @@ NNavy = {
 	BATTLE_NAME_VP_CUTOFF = 1.0,									-- If best score of above calculation is below this, name will be that of region.
 	AMPHIBIOUS_LANDING_PENALTY = -0.7,								-- amphibious landing penalty
 	AMPHIBIOUS_INVADE_SPEED_BASE = 0.5, 							-- every hour movement progress on amphibious invasion
-	AMPHIBIOUS_INVADE_MOVEMENT_COST = 24.0, 						-- total progress cost of movement while amphibious invading
+	AMPHIBIOUS_INVADE_MOVEMENT_COST = 12.0, 						-- total progress cost of movement while amphibious invading
 	AMPHIBIOUS_INVADE_ATTACK_LOW = 0.2, 							-- low and high cap of attack modifier scale. Scale interpolated by invasion progress.
 	AMPHIBIOUS_INVADE_ATTACK_HIGH = 1.0,
 	AMPHIBIOUS_INVADE_DEFEND_LOW = 1.5, 							-- low and high cap of defend modifier scale. Scale interpolated by invasion progress.
@@ -1470,7 +1470,7 @@ NNavy = {
 	NAVAL_INVASION_PREPARE_HOURS = 720,								-- base hours needed to prepare an invasion
 	NAVAL_COMBAT_RESULT_TIMEOUT_YEARS = 2,							-- after that many years, we clear the naval combat results, so they don't get stuck forever in the memory.
 	CONVOY_LOSS_HISTORY_TIMEOUT_MONTHS = 24,						-- after this many months remove the history of lost convoys to not bloat savegames and memory since there is no way to see them anyway
-	NAVAL_TRANSFER_BASE_SPEED = 6,                                  -- base speed of units on water being transported
+	NAVAL_TRANSFER_BASE_SPEED = 10,                                 -- base speed of units on water being transported
 	NAVAL_TRANSFER_BASE_NAVAL_DIST_ADD = 100,						-- Extra cost for naval movement ( compared to land movement ) when deciding what ports to use for a naval transfer
 	NAVAL_TRANSFER_BASE_NAVAL_DIST_MULT = 20,						-- Multiplier for the cost of naval movement ( compared to land movement ) when deciding what ports to use for naval transfer
 	NAVAL_SUPREMACY_CAN_INVADE = 0.2,								-- required naval supremacy to perform invasions on an area
@@ -2130,7 +2130,7 @@ NAI = {
 	DESIRE_USE_XP_TO_UNLOCK_LAND_DOCTRINE = 0.5,    -- How quickly is desire to unlock land doctrines accumulated?
 	DESIRE_USE_XP_TO_UNLOCK_NAVAL_DOCTRINE = 0.5,   -- How quickly is desire to unlock naval doctrines accumulated?
 	DESIRE_USE_XP_TO_UNLOCK_AIR_DOCTRINE = 0.5,     -- How quickly is desire to unlock air doctrines accumulated?
-	DESIRE_USE_XP_TO_UPDATE_LAND_TEMPLATE = 2.0,    -- How quickly is desire to update/create templates accumulated?
+	DESIRE_USE_XP_TO_UPDATE_LAND_TEMPLATE = 1.5,    -- How quickly is desire to update/create templates accumulated?
 	DESIRE_USE_XP_TO_UPGRADE_LAND_EQUIPMENT = 1.0,  -- How quickly is desire to update/create land equipment variants accumulated?
 	DESIRE_USE_XP_TO_UPGRADE_NAVAL_EQUIPMENT = 1.0, -- How quickly is desire to update/create naval equipment variants accumulated?
 	DESIRE_USE_XP_TO_UPGRADE_AIR_EQUIPMENT = 1.0,   -- How quickly is desire to update/create air equipment variants accumulated?
@@ -2138,9 +2138,9 @@ NAI = {
 	DESIRE_USE_XP_TO_UNLOCK_NAVY_SPIRIT = 0.4,   -- How quickly is desire to unlock naval spirits accumulated?
 	DESIRE_USE_XP_TO_UNLOCK_AIR_SPIRIT = 0.4,     -- How quickly is desire to unlock air spirits accumulated?
 
-	DAYS_BETWEEN_CHECK_BEST_DOCTRINE = 7;       -- Recalculate desired best doctrine to unlock with this many days inbetween.
-	DAYS_BETWEEN_CHECK_BEST_TEMPLATE = 7;       -- Recalculate desired best template to upgrade with this many days inbetween.
-	DAYS_BETWEEN_CHECK_BEST_EQUIPMENT = 7;      -- Recalculate desired best equipment to upgrade with this many days inbetween.
+	DAYS_BETWEEN_CHECK_BEST_DOCTRINE = 14;       -- Recalculate desired best doctrine to unlock with this many days inbetween.
+	DAYS_BETWEEN_CHECK_BEST_TEMPLATE = 14;       -- Recalculate desired best template to upgrade with this many days inbetween.
+	DAYS_BETWEEN_CHECK_BEST_EQUIPMENT = 14;      -- Recalculate desired best equipment to upgrade with this many days inbetween.
 
 	UNLOCK_SPIRIT_AI_WILL_DO_FACTOR = 10,       -- Factor for scripted ai_will_do value
 	UNLOCK_SPIRIT_MODIFIER_FACTOR = 0.1,        -- Factor for AI's evaluated value of the modifiers connected to the spirit
@@ -2390,7 +2390,7 @@ NAI = {
 	NAVAL_ACCESS_SCORE_PENALTY_PER_EXISTING_ACCESS_AT_WAR = 150,
 	NAVAL_ACCESS_SCORE_PENALTY_PER_EXISTING_ACCESS = 250,
 
-	NAVAL_SUPREMACY_WEIGHT_PER_DIVISION_ON_INVASION_ORDER = 6,	-- adds to supremacy requests for regions with active or pending naval invasions
+	NAVAL_SUPREMACY_WEIGHT_PER_DIVISION_ON_INVASION_ORDER = 10,	-- adds to supremacy requests for regions with active or pending naval invasions
 
 	TOO_INSIGNIFICANT_ARMY_RATIO_BEGIN = 0.75,					-- if army ratio is of a country is larger than this threshold, it will be less reluctant to accept certain diplo actions
 	TOO_INSIGNIFICANT_MAX_PENALTY = 350,						-- max penalty that will be applied for thinking a country is too insignificant
@@ -2773,11 +2773,11 @@ NAI = {
 	LOW_PRIO_TEMPLATE_PENALTY_FOR_FRONTS = 1000,		-- penalty to make ai less likely to assign low prio units to fronts
 
 
-	DEPLOYED_UNIT_MANPOWER_RATIO_TO_BUFFER_WARTIME = 0.3, 				-- deployment will try to buffer a ratio of deployed manpower (for reinforcements) during war time
-	DEPLOYED_UNIT_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.1,     		-- deployment will try to buffer a ratio of deployed manpower (for reinforcements) during peace time
+	DEPLOYED_UNIT_MANPOWER_RATIO_TO_BUFFER_WARTIME = 1.0, 				-- deployment will try to buffer a ratio of deployed manpower (for reinforcements) during war time
+	DEPLOYED_UNIT_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.5,     		-- deployment will try to buffer a ratio of deployed manpower (for reinforcements) during peace time
 
-	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_WARTIME = 0.4,			-- deployment will try to buffer a ratio of manpower (for reinforcements) during war time
-	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.2,		-- deployment will try to buffer a ratio of manpower (for reinforcements) during peace time
+	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_WARTIME = 1.0,			-- deployment will try to buffer a ratio of manpower (for reinforcements) during war time
+	MAX_AVAILABLE_MANPOWER_RATIO_TO_BUFFER_PEACETIME = 0.5,		-- deployment will try to buffer a ratio of manpower (for reinforcements) during peace time
 
 	MANPOWER_RATIO_REQUIRED_TO_PRIO_MOBILIZATION_LAW = 0.4,		-- percentage of manpower in field is desired to be buffered for AI when it has upcoming wars or already at war. if it has less manpower, it will prio manpower laws
 	UPGRADES_DEFICIT_LIMIT_DAYS = 50,                           -- Ai will avoid upgrading units in the field to new templates if it takes longer than this to fullfill their equipment need

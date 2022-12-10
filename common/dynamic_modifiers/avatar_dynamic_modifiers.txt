@@ -160,6 +160,19 @@ occupied_has_dominant_culture = {
 	resistance_decay = 0.5
 }
 
+relocate_fire_population  = {
+	enable = { always = yes }
+	remove_trigger = {
+		THIS.CONTROLLER = {
+			has_government = fire_culture
+		}
+	}
+
+	icon = GFX_modifiers_relocate_fire_population
+	
+	monthly_fire_culture_in_state = -2.5
+}
+
 recent_rebel_activity = {
 	enable = { always = yes }
 
