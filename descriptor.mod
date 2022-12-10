@@ -44,6 +44,7 @@ replace_path="common/continous_focus"
 replace_path="common/technologies"
 replace_path="common/units"
 replace_path="music"
+replace_path="tests"
 tags={
 	"Map"
 	"Utilities"
