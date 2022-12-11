@@ -2,10 +2,6 @@ ideas = {
 	
 	hidden_ideas = {
 		fire_supremacy_spirit = {
-
-			allowed = {
-				always = no
-			}
 			
 			removal_cost = -1
 			
@@ -22,16 +18,8 @@ ideas = {
 		
 		national_prosperity = {
 
-			available = {
-				has_war = no
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
+			cancel = {
+				has_war = yes
 			}
 
 			removal_cost = -1
@@ -70,10 +58,6 @@ ideas = {
 			picture = national_prosperity
 			name = national_prosperity
 
-			allowed = {
-				always = no
-			}
-
 			removal_cost = -1
 
 			on_remove = {
@@ -105,10 +89,6 @@ ideas = {
 			picture = national_prosperity
 			name = national_prosperity
 
-			allowed = {
-				always = no
-			}
-
 			removal_cost = -1
 
 			on_remove = {
@@ -134,18 +114,6 @@ ideas = {
 
 		legacy_of_roku_and_sozin = {
 
-			available = {
-				always = yes
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
 			removal_cost = -1
 
 			modifier = {
@@ -155,18 +123,6 @@ ideas = {
 			}
 		}
 		ruthless_expansionism = {
-
-			available = {
-				always = yes
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
 
 			removal_cost = -1
 
@@ -181,10 +137,6 @@ ideas = {
 			name = promote_war_support
 			picture = promote_war_support
 
-			allowed = {
-				always = no
-			}
-
 			removal_cost = -1
 
 			modifier = {
@@ -197,10 +149,6 @@ ideas = {
 			name = promote_war_support
 			picture = promote_war_support
 
-			allowed = {
-				always = no
-			}
-
 			removal_cost = -1
 
 			modifier = {
@@ -209,14 +157,6 @@ ideas = {
 		}
 
 		spirit_prince_azulon = {
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
 
 			removal_cost = -1
 			
@@ -226,13 +166,6 @@ ideas = {
 		}
 		
 		FIR_first_invasion = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
 
 			removal_cost = -1
 
@@ -245,19 +178,21 @@ ideas = {
 		}
 
 		FIR_northern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					WUL = { has_capitulated = yes }
+					NOW = { has_capitulated = yes }
+					XIN = { has_capitulated = yes }
+					NIX = { has_capitulated = yes }
+					YUE = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
 
 			modifier = {
 				invasion_preparation = -0.90
-				naval_speed_factor = 1
 			}
 
 			targeted_modifier = {
@@ -283,19 +218,21 @@ ideas = {
 		}
 
 		FIR_central_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					POH = { has_capitulated = yes }
+					TAK = { has_capitulated = yes }
+					HAN = { has_capitulated = yes }
+					MAK = { has_capitulated = yes }
+					MER = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
 
 			modifier = {
 				invasion_preparation = -0.90
-				naval_speed_factor = 1
 			}
 
 			targeted_modifier = {
@@ -321,19 +258,21 @@ ideas = {
 		}
 
 		FIR_southern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					HEB = { has_capitulated = yes }
+					OMS = { has_capitulated = yes }
+					CHN = { has_capitulated = yes }
+					ZAO = { has_capitulated = yes }
+					GAO = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
 
 			modifier = {
 				invasion_preparation = -0.90
-				naval_speed_factor = 1
 			}
 
 			targeted_modifier = {

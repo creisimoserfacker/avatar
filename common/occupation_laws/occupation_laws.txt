@@ -123,6 +123,10 @@ rudimentary_occupation = {
 			check_variable  = { resistance_target_without_law < 0.05}
 			add = 100
 		}
+		modifier = {
+			check_variable  = { resistance_target_without_law > 0.05}
+			factor = 0.5
+		}
 	}
 
 }
@@ -183,7 +187,7 @@ secret_police_occupation = {
 		}
 		modifier = {
 			check_variable  = { uncapped_resistance_target > -0.1}
-			factor = 0
+			factor = 0.1
 		}
 	}
 
@@ -246,28 +250,48 @@ resistance_hunting = {
 			add = -40
 		}
 		modifier = {
-			resistance > 90
+			check_variable  = { resistance_target_without_law > 0.90 }
 			factor = 10
 		}
 		modifier = {
-			resistance > 80
+			check_variable  = { resistance_target_without_law > 0.80 }
 			factor = 10
 		}
 		modifier = {
-			resistance > 70
+			check_variable  = { resistance_target_without_law > 0.70 }
 			factor = 10
 		}
 		modifier = {
-			resistance > 60
+			check_variable  = { resistance_target_without_law > 0.60 }
 			factor = 2
 		}
 		modifier = {
-			resistance > 50
+			check_variable  = { resistance_target_without_law > 0.50 }
 			factor = 2
 		}
 		modifier = {
-			resistance > 40
+			check_variable  = { resistance_target_without_law > 0.40 }
 			factor = 2
+		}
+		modifier = {
+			has_occupation_modifier = resistance_5
+			add = 50
+		}
+		modifier = {
+			has_occupation_modifier = resistance_25
+			add = 100
+		}
+		modifier = {
+			has_occupation_modifier = resistance_45
+			add = 150
+		}
+		modifier = {
+			has_occupation_modifier = resistance_65
+			add = 200
+		}
+		modifier = {
+			has_occupation_modifier = resistance_85
+			add = 250
 		}
 	}
 
@@ -336,16 +360,16 @@ longterm_occupation = {
 			add = 200
 		}
 		modifier = {
-			check_variable = { resistance_target_without_law > 0.45}
-			factor = 0
+			check_variable = { resistance_target_without_law > 0.1 }
+			factor = 0.1
 		}
 		modifier = {
-			check_variable = { resistance_target_without_law < 0.45}
+			check_variable = { resistance_target_without_law < 0.1 }
 			factor = 2
 		}
 		modifier = {
-			compliance > 49
-			add = -100
+			compliance > 19
+			add = -200
 		}
 		
 	}
@@ -393,6 +417,10 @@ fire_forceful_resettlement = {
 			}
 			add = 100
 		}
+		modifier = {
+			check_variable = { resistance_target_without_law > 0.1 }
+			factor = 0.1
+		}
 		
 	}
 
@@ -438,6 +466,10 @@ earth_forceful_resettlement = {
 				garrison_manpower_need < 5000
 			}
 			add = 100
+		}
+		modifier = {
+			check_variable = { resistance_target_without_law > 0.1 }
+			factor = 0.1
 		}
 		
 	}
@@ -485,6 +517,10 @@ water_forceful_resettlement = {
 			}
 			add = 100
 		}
+		modifier = {
+			check_variable = { resistance_target_without_law > 0.1 }
+			factor = 0.1
+		}
 		
 	}
 
@@ -531,6 +567,10 @@ pluralist_forceful_resettlement = {
 			}
 			add = 100
 		}
+		modifier = {
+			check_variable = { resistance_target_without_law > 0.1 }
+			factor = 0.1
+		}
 		
 	}
 
@@ -563,7 +603,7 @@ border_fortifications = {
 					has_war_with = FROM
 				}
 			}
-			factor = 2
+			factor = 2.5
 		}
 		modifier = {
 			NOT = {
@@ -572,7 +612,7 @@ border_fortifications = {
 			add = 100
 		}
 		modifier = {
-			compliance > 0
+			compliance > 5
 			factor = 0
 		}
 		
