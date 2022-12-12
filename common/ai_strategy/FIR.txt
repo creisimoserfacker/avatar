@@ -346,9 +346,14 @@ pohuai_secured = {
 
 
 	ai_strategy = {
-	    type = front_unit_request
-	    tag = POH
-	    value = 500
+		type = front_unit_request
+		tag = TAK
+		value = 250
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = NIX
+		value = 250
 	}
 
 	ai_strategy = {
@@ -507,6 +512,67 @@ yu_dao_conquest = {
 		id = north_plate
 		value = 20
 	}
+}
+
+yu_dao_conquest_movement = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		WUL = {
+			any_core_state = {
+				is_controlled_by = FIR
+			}
+		}
+		NOT = {
+			WUL = { all_core_state = { is_fully_controlled_by = FIR } }
+		}
+
+		set_temp_variable = { days = global.num_days }
+		modulo_temp_variable = { days = 60 }
+		check_variable = { days < 10 }
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_control
+		tag = WUL
+		priority = 1000
+		ratio = 0.0
+		ordertype = front
+		execution_type = rush
+		execute_order = yes
+	}
+	
+}
+
+yu_dao_secured = {
+	allowed = {
+		tag = FIR	
+	}
+	enable = {
+		WUL = { all_core_state = { is_fully_controlled_by = FIR } }
+	}
+	abort_when_not_enabled = yes
+
+
+	ai_strategy = {
+	    type = front_unit_request
+	    tag = XIN
+	    value = 200
+	}
+
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = 50
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 20
+	}
+	
 }
 
 colony_invasions = {

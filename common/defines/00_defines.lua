@@ -483,7 +483,7 @@ NResistance = {
 		50,  20.0, -- 50 - ...
 	},
 
-	RESISTANCE_TARGET_MODIFIER_OCCUPIED_CAPITULATED = 10.0, -- resistance target modifier when the enemy is capitulated
+	RESISTANCE_TARGET_MODIFIER_OCCUPIED_CAPITULATED = 20.0, -- resistance target modifier when the enemy is capitulated
 	
 	RESISTANCE_TARGET_MODIFIER_OCCUPIED_IS_EXILE_MIN = 2.0,   -- min & max resistance target modifier resistance target modifier for exile countries. interpolated using legitimacy
 	RESISTANCE_TARGET_MODIFIER_OCCUPIED_IS_EXILE_MAX = 20.0,
@@ -2944,9 +2944,9 @@ NAI = {
 	AGGRESSIVENESS_CHECK_FULLY_FORTIFIED = 10,					-- if front strength balance is at or above this value versus a fully fortified enemy with no weak points, we do a balanced attack instead being careful
 	AGGRESSIVENESS_CHECK_FULLY_FORTIFIED_POCKET = 6,			-- if front strength balance is at or above this value versus a fully fortified enemy in a pocket, we do a balanced attack instead being careful
 	FRONT_EVAL_UNIT_ACCURACY = 1.0,								-- scale how stupid ai will act on fronts. 0 is potato
-	FRONT_EVAL_UNIT_AIR_SUP_IMPACT = 0.5,						-- scale how good the AI thinks air superiority is for units
+	FRONT_EVAL_UNIT_AIR_SUP_IMPACT = 0.25,						-- scale how good the AI thinks air superiority is for units
 	FRONT_EVAL_UNIT_SUPPLY_AND_ORG_LACK_IMPACT = 1.0,			-- scale how painful the AI thinks a combined lack of supply and organization is for units
-	FRONT_EVAL_PERCENT_TO_ASSIST_ALLY_FRONT = 3, 				-- percentage of how many units the AI thinks it should have compared to an ally before considering sending units
+	FRONT_EVAL_PERCENT_TO_ASSIST_ALLY_FRONT = 0.75, 				-- percentage of how many units the AI thinks it should have compared to an ally before considering sending units
 
 	PRODUCTION_CARRIER_PLANE_BUFFER_RATIO = 1.5,				-- in additiona to total deck size of carriers, we want at list this ratio to buffer it
 	PRODUCTION_CARRIER_PLANE_PRODUCTION_BOOST_TO_BUFFER = 4.0,  -- production of carrier planes will go up by this ratio if we lack buffers
