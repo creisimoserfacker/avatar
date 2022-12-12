@@ -163,7 +163,6 @@ invasion_manager = {
 		type = front_control
 		area = north_plate
 		priority = 100
-		ratio = 0.0
 		ordertype = front
 		execution_type = careful
 		execute_order = yes
@@ -225,7 +224,7 @@ pohuai_invasions = {
 	}
 	ai_strategy = {
 		type = naval_invasion_focus
-		value = 100
+		value = 1000
 	}
 
 	ai_strategy = {
@@ -235,14 +234,14 @@ pohuai_invasions = {
 	}
 
 	ai_strategy = {
-		type = north_plate
+		type = area_priority
 		id = north_plate
-		value = 10
+		value = 20
 	}
 	ai_strategy = {
 		type = area_priority
 		id = firelands
-		value = 20
+		value = 10
 	}
 
 	ai_strategy = {
@@ -289,7 +288,6 @@ pohuai_conquest = {
 		type = front_control
 		tag = POH
 		priority = 500
-		ratio = 0.0
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -327,7 +325,6 @@ pohuai_conquest_movement = {
 		type = front_control
 		tag = POH
 		priority = 1000
-		ratio = 0.0
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -348,12 +345,17 @@ pohuai_secured = {
 	ai_strategy = {
 		type = front_unit_request
 		tag = TAK
-		value = 250
+		value = 500
 	}
 	ai_strategy = {
 		type = front_unit_request
 		tag = NIX
-		value = 250
+		value = 500
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = MAK
+		value = 500
 	}
 
 	ai_strategy = {
@@ -416,7 +418,7 @@ yu_dao_invasions = {
 	}
 	ai_strategy = {
 		type = naval_invasion_focus
-		value = 100
+		value = 1000
 	}
 
 	ai_strategy = {
@@ -435,7 +437,6 @@ yu_dao_invasions = {
 		type = front_control
 		tag = WUL
 		priority = 500
-		ratio = 0.0
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -444,12 +445,12 @@ yu_dao_invasions = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 10
+		value = 20
 	}
 	ai_strategy = {
 		type = area_priority
 		id = firelands
-		value = 20
+		value = 10
 	}
 
 	ai_strategy = {
@@ -501,7 +502,6 @@ yu_dao_conquest = {
 		type = front_control
 		tag = WUL
 		priority = 500
-		ratio = 0.0
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -538,7 +538,6 @@ yu_dao_conquest_movement = {
 		type = front_control
 		tag = WUL
 		priority = 1000
-		ratio = 0.0
 		ordertype = front
 		execution_type = rush
 		execute_order = yes
@@ -559,7 +558,7 @@ yu_dao_secured = {
 	ai_strategy = {
 	    type = front_unit_request
 	    tag = XIN
-	    value = 200
+	    value = 500
 	}
 
 	ai_strategy = {
@@ -621,7 +620,7 @@ colony_invasions = {
 	}
 	ai_strategy = {
 		type = naval_invasion_focus
-		value = 100
+		value = 1000
 	}
 
 	ai_strategy = {
@@ -640,7 +639,6 @@ colony_invasions = {
 		type = front_control
 		tag = HAN
 		priority = 500
-		ratio = 0.0
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -649,12 +647,28 @@ colony_invasions = {
 	ai_strategy = {
 		type = area_priority
 		id = north_plate
-		value = 10
+		value = 20
 	}
 	ai_strategy = {
 		type = area_priority
 		id = firelands
-		value = 20
+		value = 10
+	}
+
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 26
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 30
+		value = 200
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 31
+		value = 200
 	}
 }
 
@@ -690,7 +704,6 @@ colony_conquest = {
 		type = front_control
 		tag = HAN
 		priority = 500
-		ratio = 0.0
 		ordertype = front
 		execution_type = balanced
 		execute_order = yes
@@ -744,6 +757,39 @@ fire_invasion_preperation = {
 		execute_order = no
 
 		priority = 1000
+	}
+}
+
+
+FIR_raid_north_earth_convoys = {
+	allowed = {
+		tag = FIR
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_CONVOY_RAIDING
+		value = 100
+	}
+
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 22
+		value = 1000
+	}
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 23
+		value = 1000
+	}
+	ai_strategy = {
+		type = naval_convoy_raid_region
+		id = 26
+		value = 1000
 	}
 }
 
