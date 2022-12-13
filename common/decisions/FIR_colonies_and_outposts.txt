@@ -560,6 +560,78 @@ FIR_colonies_category = {
 		cost = 100
         fire_only_once = yes
 	}
+	
+	new_ozai = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205
+
+			}
+		}
+	
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = OMC
+			}
+			has_government = fire_culture
+			controls_state = 205
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 205
+			205 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			OMC = {
+				set_province_name = { id = 8584 name = "New Ozai" }
+				transfer_state = 205
+				add_state_core = 205
+				transfer_state = 335
+				add_state_core = 335
+				transfer_state = 119
+				add_state_core = 119
+				transfer_state = 245
+				add_state_core = 245
+				transfer_state = 427
+				add_state_core = 427
+				transfer_state = 198
+				add_state_core = 198
+				transfer_state = 444
+				add_state_core = 444
+				transfer_state = 377
+				add_state_core = 377
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = OMC
+					else = {
+						set_autonomy = { target = OMC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
 
 
 }
