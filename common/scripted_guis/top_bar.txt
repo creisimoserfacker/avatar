@@ -103,6 +103,13 @@ scripted_gui = {
 			knowledge_decrease_visible = {
 				check_variable = { knowledge_daily < 0 }
 			}
+
+			quality_increase_visible = {
+				check_variable = { unit_quality_variable < modifier@unit_quality_target }
+			}
+			quality_decrease_visible = {
+				check_variable = { unit_quality_variable > modifier@unit_quality_target }
+			}
 			
 		}
 

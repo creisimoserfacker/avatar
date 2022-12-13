@@ -20,6 +20,48 @@ on_actions = {
 				}
 				add_dynamic_modifier = { modifier = unit_quality_effects }
 			}
+
+			add_to_variable = { unit_quality_variable = modifier@monthly_unit_quality }
+
+			if = {
+				limit = {
+					check_variable = { unit_quality_variable > modifier@unit_quality_target }
+				}
+				set_variable = { quality_reduction = modifier@experience_loss_factor }
+				multiply_variable = { quality_reduction = 0.01 }
+				subtract_from_variable = { unit_quality_variable = quality_reduction }
+
+				if = {
+					limit = {
+						check_variable = { unit_quality_variable < modifier@unit_quality_target }
+					}
+					set_variable = { unit_quality_variable = modifier@unit_quality_target }
+				}
+			}
+
+			if = {
+				limit = {
+					check_variable = { unit_quality_variable < modifier@unit_quality_target }
+				}
+				set_variable = { quality_increase = modifier@experience_gain_army_unit_factor }
+				multiply_variable = { quality_increase = 0.01 }
+				add_to_variable = { unit_quality_variable = quality_increase }
+
+				if = {
+					limit = {
+						check_variable = { unit_quality_variable > modifier@unit_quality_target }
+					}
+					set_variable = { unit_quality_variable = modifier@unit_quality_target }
+				}
+			}
+
+			clamp_variable = { 
+				var = unit_quality_variable 
+				min = -0.5 
+				max = 0.5
+			}
+
+
 		}
 	}
 

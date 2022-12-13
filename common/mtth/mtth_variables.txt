@@ -183,6 +183,7 @@ war_weariness_peanalty_2 = {
 	modifier = {
 		set_temp_variable = { war_weariness = war_exhaustion_percentage }
 		multiply_temp_variable = { war_weariness = war_weariness }
+		multiply_temp_variable = { war_weariness = -2 }
 		
 		add = war_weariness
 	}
@@ -256,5 +257,16 @@ bender_k = {
 		multiply_temp_variable = { bender_manpower_k = bender_percentage }
 		
 		add = bender_manpower_k
+	}
+}
+
+field_manpower_k = {
+	base = 0
+	modifier = {
+		set_temp_variable = { field_manpower_k = max_available_manpower_k }
+
+		subtract_from_temp_variable = { field_manpower_k = manpower_k }
+		
+		add = field_manpower_k
 	}
 }

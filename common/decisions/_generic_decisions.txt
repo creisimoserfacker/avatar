@@ -210,47 +210,6 @@ recruitment_decision_category = {
 
 
 war_measures_category = {
-	
-	rotate_frontlines = {
-
-		available = {
-            casualties > 200
-        }
-
-        days_remove = 30
-		days_re_enable = 150
-
-        modifier = {
-        	stability_weekly_factor = 0.005
-			army_org_factor = 0.05
-			army_org_regain = 0.1
-			army_attack_factor = -0.25
-			army_defence_factor = -0.25
-			experience_gain_army_unit_factor = -0.5
-			land_reinforce_rate =  -0.015
-        }
-
-		remove_effect = {
-			add_to_variable = {
-				var = weekly_accumulated_exhaustion
-				value = -10
-				tooltip = war_weariness_remove_tooltip
-			}
-		}
-
-		cost = 100
-
-        ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
 
 	campaign_season = {
 

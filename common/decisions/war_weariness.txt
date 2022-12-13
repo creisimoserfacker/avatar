@@ -33,4 +33,53 @@ war_weariness_category = {
 			}
 		}
 	}
+
+	rotate_frontlines = {
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = compare_manpower_tt
+				check_variable = {
+					var = manpower_k
+					value = mtth:field_manpower_k
+					compare = greater_than
+				}
+			}
+		}
+
+		days_remove = 30
+		days_re_enable = 150
+
+		modifier = {
+			army_attack_factor = -0.25
+			army_defence_factor = -0.25
+			land_reinforce_rate =  -0.015
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				var = casualty_accumulated_exhaustion
+				value = -10
+				tooltip = casualty_war_weariness_remove_tooltip
+			}
+			add_to_variable = {
+				var = unit_quality_variable
+				value = -0.1
+				tooltip = unit_quality_remove_tooltip
+			}
+		}
+
+		cost = 100
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				AND = {
+					has_war = yes
+					check_variable = { casualty_accumulated_exhaustion > 50 }
+				}
+				add = 50
+			}
+		}
+	}
 }

@@ -9,6 +9,32 @@
 # that'll be used if trigger passes
 
 
+defined_text = {
+	name = GetQualityGrowth
+	text = {
+		trigger = {
+			check_variable = { unit_quality_variable > modifier@unit_quality_target }
+		}
+		localization_key = qualitydecrease
+	}
+	text = {
+		trigger = {
+			check_variable = { unit_quality_variable < modifier@unit_quality_target }
+		}
+		localization_key = qualityincrease
+	}
+	text = {
+		localization_key = qualitystale
+	}
+}
+
+defined_text = {
+	name = GetQualityModifiers
+	text = {
+		localization_key = qualitymodifiers
+	}
+}
+
 ### peace
 
 defined_text = {
