@@ -46,6 +46,7 @@ replace_path="common/units"
 replace_path="music"
 replace_path="tests"
 replace_path="portraits"
+replace_path="gfx/interface/equipmentdesigner/graphic_db"
 tags={
 	"Map"
 	"Utilities"

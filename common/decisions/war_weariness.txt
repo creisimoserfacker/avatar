@@ -37,13 +37,11 @@ war_weariness_category = {
 	rotate_frontlines = {
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = compare_manpower_tt
-				check_variable = {
-					var = manpower_k
-					value = mtth:field_manpower_k
-					compare = greater_than
+			meta_trigger = {
+				text = {
+					has_army_manpower = { size < [field_manpower] }
 				}
+				field_manpower = "[?manpower]"
 			}
 		}
 

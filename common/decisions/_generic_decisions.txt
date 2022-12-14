@@ -216,37 +216,43 @@ war_measures_category = {
 		icon = attack_plan
 
 		available = {
-            has_war = yes
+			has_war = yes
 			NOT = { 
-			has_country_flag = military_campaign
+				has_country_flag = military_campaign
 			}
-        }
+		}
 
-        days_remove = 100
+		days_remove = 100
 
-        modifier = {
+		modifier = {
 			weekly_war_weariness = 0.01
-        	army_attack_factor = 0.05
+			army_attack_factor = 0.05
 			army_speed_factor = 0.05
 			land_reinforce_rate = 0.01
-        }
+		}
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
 		}
 		
-        ai_will_do = {
-			factor = 00
+		ai_will_do = {
+			factor = 1
 			modifier = {
 				AND = {
 					has_war = yes
 					original_tag = FIR
-					check_variable = { war_exhaustion_variable < 300 }
+					check_variable = { war_exhaustion_weekly < 5 }
 				}
 				add = 50
 			}
@@ -272,31 +278,42 @@ war_measures_category = {
 			army_attack_factor = -0.15
 			army_speed_factor = -0.15
 			breakthrough_factor = -0.15
+			out_of_supply_factor = -0.25
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
-			add_to_variable = {
-				var = weekly_accumulated_exhaustion
-				value = -5
-				tooltip = war_weariness_remove_tooltip
+
+			every_unit_leader = {
+				supply_units = 720
 			}
+			#add_to_variable = {
+			#	var = weekly_accumulated_exhaustion
+			#	value = -5
+			#	tooltip = war_weariness_remove_tooltip
+			#}
 		}
 
         ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
+			factor = 1
+			#modifier = {
+			#	AND = {
+			#		has_war = yes
+			#		check_variable = { war_exhaustion_variable > 199 }
+			#	}
+			#	add = 100
+			#}
 		}
 	}
 
@@ -317,22 +334,27 @@ war_measures_category = {
         modifier = {
 			army_attack_factor = -0.1
         	resistance_damage_to_garrison_on_our_occupied_states = 0.05
-			war_support_weekly = 0.01
 			army_core_defence_factor = 0.05
 			org_loss_when_moving = 0.05
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
 		}
 		
         ai_will_do = {
-			factor = 02
+			factor = 1
 		}
 	}
 
@@ -357,10 +379,16 @@ war_measures_category = {
 			dont_lose_dig_in_on_attack = 1
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign

@@ -62,6 +62,10 @@ on_actions = {
 			}
 
 			every_country = {
+				every_controlled_state = {
+					add_settlers_effect = yes
+					add_occupation_culture_buff = yes
+				}
 				culture_pie_chart_recalc = yes
 			}
 
@@ -91,290 +95,26 @@ on_actions = {
 
 
 			### add settlers
-			every_controlled_state = {
-				if = {
-					limit = {
-						AND = {
-							check_variable = { fire_pop > 50 }
-							THIS.CONTROLLER = {
-								NOT = {
-									has_government = fire_culture
-								}
-							}
-							NOT = {
-								has_dynamic_modifier = { modifier = firenation_settlers }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = firenation_settlers }
-				}
-				if = {
-					limit = {
-						AND = {
-							check_variable = { earth_pop > 50 }
-							THIS.CONTROLLER = {
-								NOT = {
-									has_government = earth_culture
-								}
-							}
-							NOT = {
-								has_dynamic_modifier = { modifier = earthkingdom_settlers }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = earthkingdom_settlers }
-				}
-				if = {
-					limit = {
-						AND = {
-							check_variable = { water_pop > 50 }
-							THIS.CONTROLLER = {
-								NOT = {
-									has_government = water_culture
-								}
-							}
-							NOT = {
-								has_dynamic_modifier = { modifier = watertribe_settlers }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = watertribe_settlers }
-				}
-				if = {
-					limit = {
-						AND = {
-							check_variable = { air_pop > 50 }
-							THIS.CONTROLLER = {
-								NOT = {
-									has_government = air_culture
-								}
-							}
-							NOT = {
-								has_dynamic_modifier = { modifier = airnomad_settlers }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = airnomad_settlers }
-				}
-				if = {
-					limit = {
-						AND = {
-							check_variable = { nonbender_pop > 50 }
-							THIS.CONTROLLER = {
-								NOT = {
-									has_government = pluralist_culture
-								}
-							}
-							NOT = {
-								has_dynamic_modifier = { modifier = pluralist_settlers }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = pluralist_settlers }
-				}
-			}
-
 			### add occupation culture buff
+
 			every_controlled_state = {
-				if = {
-					limit = {
-						AND = {
-							check_variable = { fire_pop > 50 }
-							THIS.CONTROLLER = {
-								has_government = fire_culture
-							}
-							NOT = {
-								is_core_of = THIS.CONTROLLER
-								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				if = {
-					limit = {
-						AND = {
-							THIS.CONTROLLER = {
-								has_government = fire_culture
-							}
-							OR = {
-								is_core_of = THIS.CONTROLLER
-								check_variable = { fire_pop < 50 }
-							}
-							has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-						}
-					}
-					remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				
-				if = {
-					limit = {
-						AND = {
-							check_variable = { earth_pop > 50 }
-							THIS.CONTROLLER = {
-								has_government = earth_culture
-							}
-							NOT = {
-								is_core_of = THIS.CONTROLLER
-								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				if = {
-					limit = {
-						AND = {
-							THIS.CONTROLLER = {
-								has_government = earth_culture
-							}
-							OR = {
-								is_core_of = THIS.CONTROLLER
-								check_variable = { earth_pop < 50 }
-							}
-							has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-						}
-					}
-					remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-
-				if = {
-					limit = {
-						AND = {
-							check_variable = { water_pop > 50 }
-							THIS.CONTROLLER = {
-								has_government = water_culture
-							}
-							NOT = {
-								is_core_of = THIS.CONTROLLER
-								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				if = {
-					limit = {
-						AND = {
-							THIS.CONTROLLER = {
-								has_government = water_culture
-							}
-							OR = {
-								is_core_of = THIS.CONTROLLER
-								check_variable = { water_pop < 50 }
-							}
-							has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-						}
-					}
-					remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-
-				if = {
-					limit = {
-						AND = {
-							check_variable = { air_pop > 50 }
-							THIS.CONTROLLER = {
-								has_government = air_culture
-							}
-							NOT = {
-								is_core_of = THIS.CONTROLLER
-								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				if = {
-					limit = {
-						AND = {
-							THIS.CONTROLLER = {
-								has_government = air_culture
-							}
-							OR = {
-								is_core_of = THIS.CONTROLLER
-								check_variable = { air_pop < 50 }
-							}
-							has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-						}
-					}
-					remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-
-				if = {
-					limit = {
-						AND = {
-							check_variable = { nonbender_pop > 50 }
-							THIS.CONTROLLER = {
-								has_government = pluralist_culture
-							}
-							NOT = {
-								is_core_of = THIS.CONTROLLER
-								has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-							}
-						}
-					}
-					add_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
-				if = {
-					limit = {
-						AND = {
-							THIS.CONTROLLER = {
-								has_government = pluralist_culture
-							}
-							OR = {
-								is_core_of = THIS.CONTROLLER
-								check_variable = { nonbender_pop < 50 }
-							}
-							has_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-						}
-					}
-					remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
-				}
+				add_settlers_effect = yes
+				add_occupation_culture_buff = yes
 			}
-
-
-
-			##### fire forced resettlement
-
-			## causing errors and is a whacky mechanic
-
-			#every_controlled_state = {
-			#	### month 2
-			#	if = {
-			#		limit = {
-			#			occupation_law = fire_forceful_resettlement
-			#			check_variable = { forceful_resettlement_activated < 1 }
-			#		}
-			#		set_variable = { forceful_resettlement_activated = 1 }
-			#	}
-			#	### activation month
-			#	if = {
-			#		limit = {
-			#			occupation_law = fire_forceful_resettlement
-			#			check_variable = { forceful_resettlement_activated = 1 }
-			#		}
-			#		set_variable = { forceful_resettlement_activated = 2 }
-			#		add_to_variable = { fire_pop_growth = 1 }
-			#		culture_growth_calculation = yes
-			#	}
-			#	### removing
-			#	if = {
-			#		limit = {
-			#			check_variable = { forceful_resettlement_activated > 0 }
-			#			NOT = { occupation_law = fire_forceful_resettlement }
-			#		}
-			#		clear_variable = forceful_resettlement_activated
-			#		subtract_from_variable = { fire_pop_growth = 1 }
-			#	}
-			#}
-
-
 
 			### expected growth
 
 			culture_growth_calculation = yes
 
 
+		}
+	}
+
+	on_state_control_changed = {
+		effect = {
+			FROM.FROM = {
+				add_settlers_effect = yes
+			}
 		}
 	}
 
