@@ -734,12 +734,12 @@ NMilitary = {
 	MAX_FIELD_EXPERIENCE_ON_DIVISION = 8000,	-- Max experience that can be gained on divisional commanders
 	FIELD_EXPERIENCE_ON_DIVISION_PER_MEDAL_MULT = 0.1,	--Multiply officer field experience gain by this * number of division medals on application
 	HISTORY_OPERATION_RANDOM_MAX = 24,			-- max random int to roll when determining whether to grant an awardable entry for operations. 1/N chances.
-	CASUALTY_COUNT_FOR_HISTORY_ENTRY = 40000,	-- number of received casualties to receive a history entry (one only)
+	CASUALTY_COUNT_FOR_HISTORY_ENTRY = 1000,	-- number of received casualties to receive a history entry (one only)
 	FIELD_OFFICER_PROMOTION_PENALTY = 0.25,		--Amount of division experience lost when promoting a commander (reduced by modifiers)
 	
 	HISTORICAL_ORDER_NAME_EXHAUSTION = false,	-- Do historically chosen order instances exhaust their case names? If false ie, Operation Barbarossa will appear for any orders fulfilling the conditions for Germany
 
-	WAR_SCORE_LOSSES_RATIO = 0.5,								-- war score gained for every 1000 casualties
+	WAR_SCORE_LOSSES_RATIO = 5,									-- war score gained for every 1000 casualties
 	WAR_SCORE_LOSSES_MULT_IF_CAPITULATED = 0.25, 				-- factor applied to war score gained from casualties if capitulated
 	WAR_SCORE_STRATEGIC_BOMBING_FACTOR = 0.02,  				-- war score gained for every damage made to enemy's building with strategic bombing
 	WAR_SCORE_STRAT_BOMBING_DECAY_PER_CIVILIAN_FACTORY = 0.10,	-- monthly war score deducted from strategic bombing for every civilian factory in service on the bombed enemy side
