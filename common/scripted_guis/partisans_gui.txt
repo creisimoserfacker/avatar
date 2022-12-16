@@ -96,6 +96,7 @@ scripted_gui = {
 					modifier = recent_rebel_activity
 					days = 280
 				}
+				add_resistance = -30
 
 				create_partisan_units = yes
 				var:original_controller = {
@@ -106,7 +107,7 @@ scripted_gui = {
 		
 		triggers = {
 			state_riseup_partisan_click_enabled = {
-				resistance > 49
+				resistance > 49.999
 				controller = {
 					core_resistance = {
 					    occupied_country_tag = ROOT

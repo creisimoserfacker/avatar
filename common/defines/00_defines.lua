@@ -483,7 +483,7 @@ NResistance = {
 		50,  20.0, -- 50 - ...
 	},
 
-	RESISTANCE_TARGET_MODIFIER_OCCUPIED_CAPITULATED = 20.0, -- resistance target modifier when the enemy is capitulated
+	RESISTANCE_TARGET_MODIFIER_OCCUPIED_CAPITULATED = 10.0, -- resistance target modifier when the enemy is capitulated
 	
 	RESISTANCE_TARGET_MODIFIER_OCCUPIED_IS_EXILE_MIN = 2.0,   -- min & max resistance target modifier resistance target modifier for exile countries. interpolated using legitimacy
 	RESISTANCE_TARGET_MODIFIER_OCCUPIED_IS_EXILE_MAX = 20.0,
@@ -508,7 +508,7 @@ NResistance = {
 
 	MIN_DAMAGE_TO_GARRISONS_MODIFIER = 0.1, -- modifier that applies to losses from resistance attack to garrisons at most can be reduced to this amount
 	
-	RESISTANCE_GROWTH_BASE = 0.2, -- base resistance grow
+	RESISTANCE_GROWTH_BASE = 0.1, -- base resistance grow
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
@@ -539,7 +539,7 @@ NResistance = {
 	GARRISON_STR_POW_MANPOWER = 2,	--Scales impact of manpower deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - manpower_deficiency^GARRISON_STR_POW_MANPOWER
 	GARRISON_STR_POW_EQUIPMENT = 2,	--Scales impact of euqipment deficiency by raising that deficiency to the number here. Formula: efficiency = 1.0 - equipment_deficiency^GARRISON_STR_POW_EQUIPMENT
 
-	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.75, -- Number of suppression point we need for each 1% of resistance
+	SUPPRESSION_NEEDED_BY_RESISTANCE_POINT = 0.25, -- Number of suppression point we need for each 1% of resistance
 	SUPPRESSION_NEEDED_LOWER_CAP = 10.0,	-- if resistance is lower than this value then we always act as though it is at the define for the purpose of suppresion requirements
 	SUPPRESSION_NEEDED_UPPER_CAP = 50.0, 	-- if resistance is greater than this value then we always act as though it is at the define for the purpose of suppresion requirements
 	
