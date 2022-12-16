@@ -1,445 +1,445 @@
-technologies = {
-
-	sunbender_equipment_1 = {
-
-		enable_equipments = {
-			firebender_equipment_1
-		}
-
-		enable_subunits = {
-			firebender
-		}
-
-		enable_equipment_modules = { 
-			ship_firebender_crew_1
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_1
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		#start_year = 1
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 2 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_fire_training_1 = {
-
-		firebender = {
-			breakthrough = 0.1
-			hard_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_2
-			research_cost_coeff = 1
-		}
-
-
-		research_cost = 2
-		#start_year = 10
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 4 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_fire_training_2 = {
-
-		firebender = {
-			breakthrough = 0.1
-			hard_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = sunbender_equipment_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		#start_year = 20
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 6 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	sunbender_equipment_2 = {
-
-		enable_equipments = {
-			firebender_equipment_2
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		#start_year = 30
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 8 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_fire_training_3 = {
-
-		firebender = {
-			breakthrough = 0.1
-			hard_attack = 0.1
-		}
-
-		path = { 
-			leads_to_tech = snw_attack_training_fire
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = snw_defense_training_fire
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		#start_year = 40
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 10 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_attack_training_fire = {
-
-		xor = { defense_training_fire }
-
-		firebender = {
-			soft_attack = 0.2
-			air_attack = 0.2
-		}
-
-		path = {
-			leads_to_tech = sunbender_equipment_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		#start_year = 50
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = -1 y = 12 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	snw_defense_training_fire = {
-
-		xor = { attack_training_fire }
-
-		firebender = {
-			defense = 0.2
-			max_organisation = 5
-		}
-
-		path = {
-			leads_to_tech = sunbender_equipment_3
-			research_cost_coeff = 1
-		}
-
-		research_cost = 2
-		#start_year = 50
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 1 y = 12 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	snw_fire_training_4 = {
-
-		firebender = {
-			breakthrough = 0.1
-			hard_attack = 0.1
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_5
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 3
-		#start_year = 70
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 16 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_fire_training_5 = {
-
-
-		firebender = {
-			breakthrough = 0.1
-			hard_attack = 0.1
-		}
-
-		path = { 
-			leads_to_tech = snw_attack_training_fire_2
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = snw_defense_training_fire_2
-			research_cost_coeff = 1
-		}
-		
-		research_cost = 2
-		#start_year = 80
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 18 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_attack_training_fire_2 = {
-
-		xor = { defense_training_fire_2 }
-
-		firebender = {
-			soft_attack = 0.2
-			air_attack = 0.2
-		}
-
-		path = {
-			leads_to_tech = sunbender_equipment_4
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		#start_year = 90
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = -1 y = 20 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	snw_defense_training_fire_2 = {
-
-		xor = { attack_training_fire_2 }
-
-		firebender = {
-			defense = 0.2
-			max_organisation = 5
-		}
-
-		path = {
-			leads_to_tech = sunbender_equipment_4
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		#start_year = 90
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 1 y = 20 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	
-	snw_fire_training_6 = {
-
-		xor = { fire_training_7 }
-	
-		firebender = {
-			soft_attack = 0.2
-			air_attack = 0.2
-		}
-		
-		research_cost = 4
-		#start_year = 110
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = -1 y = 24 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	snw_fire_training_7 = {
-
-		xor = { fire_training_6 }
-		
-		firebender = {
-			defense = 0.2
-			max_organisation = 5
-		}
-
-		
-		research_cost = 3
-		#start_year = 110
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 1 y = 24 }
-		}
-		
-		categories = {
-			infantry_weapons
-			bender
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-	sunbender_equipment_3 = {
-
-		enable_equipments = {
-			firebender_equipment_3
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_4
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		#start_year = 60
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 14 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-
-	sunbender_equipment_4 = {
-
-		enable_equipments = {
-			firebender_equipment_4
-		}
-
-		path = {
-			leads_to_tech = snw_fire_training_6
-			research_cost_coeff = 1
-		}
-		path = {
-			leads_to_tech = snw_fire_training_7
-			research_cost_coeff = 1
-		}
-
-		research_cost = 3
-		#start_year = 100
-		folder = {
-			name = snw_special_forces_folder
-			position = { x = 0 y = 22 }
-		}
-		
-		categories = {
-			infantry_weapons
-		}
-		
-		ai_will_do = {
-			factor = 0
-		}
-	}
-}
+#technologies = {
+#
+#	sunbender_equipment_1 = {
+#
+#		enable_equipments = {
+#			firebender_equipment_1
+#		}
+#
+#		enable_subunits = {
+#			firebender
+#		}
+#
+#		enable_equipment_modules = { 
+#			ship_firebender_crew_1
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_1
+#			research_cost_coeff = 1
+#		}
+#		
+#		research_cost = 2
+#		#start_year = 1
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 2 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_fire_training_1 = {
+#
+#		firebender = {
+#			breakthrough = 0.1
+#			hard_attack = 0.1
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_2
+#			research_cost_coeff = 1
+#		}
+#
+#
+#		research_cost = 2
+#		#start_year = 10
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 4 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_fire_training_2 = {
+#
+#		firebender = {
+#			breakthrough = 0.1
+#			hard_attack = 0.1
+#		}
+#
+#		path = {
+#			leads_to_tech = sunbender_equipment_2
+#			research_cost_coeff = 1
+#		}
+#		
+#		research_cost = 2
+#		#start_year = 20
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 6 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	sunbender_equipment_2 = {
+#
+#		enable_equipments = {
+#			firebender_equipment_2
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_3
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 2
+#		#start_year = 30
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 8 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_fire_training_3 = {
+#
+#		firebender = {
+#			breakthrough = 0.1
+#			hard_attack = 0.1
+#		}
+#
+#		path = { 
+#			leads_to_tech = snw_attack_training_fire
+#			research_cost_coeff = 1
+#		}
+#		path = {
+#			leads_to_tech = snw_defense_training_fire
+#			research_cost_coeff = 1
+#		}
+#		
+#		research_cost = 2
+#		#start_year = 40
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 10 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_attack_training_fire = {
+#
+#		xor = { defense_training_fire }
+#
+#		firebender = {
+#			soft_attack = 0.2
+#			air_attack = 0.2
+#		}
+#
+#		path = {
+#			leads_to_tech = sunbender_equipment_3
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 2
+#		#start_year = 50
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = -1 y = 12 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#
+#	snw_defense_training_fire = {
+#
+#		xor = { attack_training_fire }
+#
+#		firebender = {
+#			defense = 0.2
+#			max_organisation = 5
+#		}
+#
+#		path = {
+#			leads_to_tech = sunbender_equipment_3
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 2
+#		#start_year = 50
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 1 y = 12 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	
+#	snw_fire_training_4 = {
+#
+#		firebender = {
+#			breakthrough = 0.1
+#			hard_attack = 0.1
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_5
+#			research_cost_coeff = 1
+#		}
+#		
+#		research_cost = 3
+#		#start_year = 70
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 16 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_fire_training_5 = {
+#
+#
+#		firebender = {
+#			breakthrough = 0.1
+#			hard_attack = 0.1
+#		}
+#
+#		path = { 
+#			leads_to_tech = snw_attack_training_fire_2
+#			research_cost_coeff = 1
+#		}
+#		path = {
+#			leads_to_tech = snw_defense_training_fire_2
+#			research_cost_coeff = 1
+#		}
+#		
+#		research_cost = 2
+#		#start_year = 80
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 18 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_attack_training_fire_2 = {
+#
+#		xor = { defense_training_fire_2 }
+#
+#		firebender = {
+#			soft_attack = 0.2
+#			air_attack = 0.2
+#		}
+#
+#		path = {
+#			leads_to_tech = sunbender_equipment_4
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 3
+#		#start_year = 90
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = -1 y = 20 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#
+#	snw_defense_training_fire_2 = {
+#
+#		xor = { attack_training_fire_2 }
+#
+#		firebender = {
+#			defense = 0.2
+#			max_organisation = 5
+#		}
+#
+#		path = {
+#			leads_to_tech = sunbender_equipment_4
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 3
+#		#start_year = 90
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 1 y = 20 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	
+#	snw_fire_training_6 = {
+#
+#		xor = { fire_training_7 }
+#	
+#		firebender = {
+#			soft_attack = 0.2
+#			air_attack = 0.2
+#		}
+#		
+#		research_cost = 4
+#		#start_year = 110
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = -1 y = 24 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	snw_fire_training_7 = {
+#
+#		xor = { fire_training_6 }
+#		
+#		firebender = {
+#			defense = 0.2
+#			max_organisation = 5
+#		}
+#
+#		
+#		research_cost = 3
+#		#start_year = 110
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 1 y = 24 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#			bender
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#	sunbender_equipment_3 = {
+#
+#		enable_equipments = {
+#			firebender_equipment_3
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_4
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 3
+#		#start_year = 60
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 14 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#
+#	sunbender_equipment_4 = {
+#
+#		enable_equipments = {
+#			firebender_equipment_4
+#		}
+#
+#		path = {
+#			leads_to_tech = snw_fire_training_6
+#			research_cost_coeff = 1
+#		}
+#		path = {
+#			leads_to_tech = snw_fire_training_7
+#			research_cost_coeff = 1
+#		}
+#
+#		research_cost = 3
+#		#start_year = 100
+#		folder = {
+#			name = snw_special_forces_folder
+#			position = { x = 0 y = 22 }
+#		}
+#		
+#		categories = {
+#			infantry_weapons
+#		}
+#		
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
+#}
