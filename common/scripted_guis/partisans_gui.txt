@@ -182,7 +182,7 @@ scripted_gui = {
 				controller = {
 					country_event = { id = occupation_mechanic.4 days = 1 }
 
-					add_political_power = -mtth:THIS.core_state_cost
+					add_political_power = -THIS.mtth:core_state_cost
 				}
 				ROOT = {
 					set_state_owner = PREV
@@ -193,7 +193,7 @@ scripted_gui = {
 		triggers = {
 			occupy_state_click_enabled = {
 				ROOT = {
-					has_political_power > mtth:THIS.core_state_cost
+					has_political_power > THIS.mtth:core_state_cost
 				}
 				compliance > 59
 				#controller = {
@@ -294,7 +294,7 @@ scripted_gui = {
 		triggers = {
 			core_state_click_enabled = {
 				ROOT = {
-					has_political_power > mtth:THIS.core_state_cost
+					has_political_power > THIS.mtth:core_state_cost
 				}
 				if = { limit = { FROM.CONTROLLER = { has_government = fire_culture } }
 					check_variable = { fire_pop > 50 }

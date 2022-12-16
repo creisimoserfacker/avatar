@@ -266,11 +266,11 @@ war_measures_category = {
 		available = {
             has_war = yes
 			NOT = { 
-			has_country_flag = military_campaign
+				#has_country_flag = military_campaign
 			}
         }
 
-        days_remove = 100
+        days_remove = 10
 
         modifier = {
         	max_planning_factor = 0.1
@@ -296,6 +296,9 @@ war_measures_category = {
 			clr_country_flag = military_campaign
 
 			every_unit_leader = {
+				limit = {
+					is_leading_army = yes
+				}
 				supply_units = 720
 			}
 			#add_to_variable = {
