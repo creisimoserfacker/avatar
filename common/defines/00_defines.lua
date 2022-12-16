@@ -574,7 +574,7 @@ NProduction = {
 	EFFICIENCY_LOSS_PER_UNUSED_DAY = 1,		-- Daily loss of efficiency for unused factory slots ( efficiency is tracked per factory slot in the production line )
 	RESOURCE_PENALTY_WARNING_CRITICAL_RATIO =  0.8, -- Switch to red progress bar if penalty is over threshold 
 	BASE_FACTORY_SPEED = 1, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
-	BASE_FACTORY_SPEED_MIL = 5, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+	BASE_FACTORY_SPEED_MIL = 1, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 	BASE_FACTORY_SPEED_NAV = 10, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 	BASE_FACTORY_START_EFFICIENCY_FACTOR = 10,	-- Base start efficiency for factories expressed in %.
 	BASE_FACTORY_MAX_EFFICIENCY_FACTOR = 50,	-- Base max efficiency for factories expressed in %.
@@ -3925,7 +3925,7 @@ NSupply = {
 	ESTIMATED_DIVISION_WEIGHT_FOR_SUPPLY_ESTIMATIONS_GUI = 1.0,	--Division supply consumption used for estimating frontline weight for order tooltips
 	AVAILABLE_MANPOWER_STATE_SUPPLY = 200.0,						--Factor for state supply from max manpower (population)
 	NON_CORE_MANPOWER_STATE_SUPPLY = 1.5,						--Factor for population sttate supply when controlled by an occupier (NO TAKE FOOD)
-	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 0.1,				--Multiplies consumption rate of stored supply (more/less easement)
+	STORED_SUPPLY_CONSUMPTION_RATE_FACTOR = 1,				--Multiplies consumption rate of stored supply (more/less easement)
 },
 NAITheatre = {
 	AI_THEATRE_GENERATION_HOME_THEATRE_DEPTH_RESTRICTION = 2,			-- The home theatre is generated based off a initial depth restriction
