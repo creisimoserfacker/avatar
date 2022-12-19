@@ -175,57 +175,48 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = { 
-		
+		hidden_effect = {
+			var:global.volcano_state = {
+				THIS = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.2
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+					damage_units = {
+						state = THIS
+						org_damage = 0.5
+						str_damage = 0.25
+						ratio = yes
+						army = yes
+						navy = yes
+					}
+				}
+				random_neighbor_state = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.1
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+				}
+				random_neighbor_state = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.1
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+				}
+			}
+		}
 	}
 
 	option = {
 		name = nature.1.a
 
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 4
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 4
-			}
-			custom_effect_tooltip = add_stonefield_4
-			clr_state_flag = volcano_eruption
-		}
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption_2
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 3
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 6
-			}
-			custom_effect_tooltip = add_stonefield_6
-			clr_state_flag = volcano_eruption_2
-		}
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption_3
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 2
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 4
-			}
-			custom_effect_tooltip = add_stonefield_4
-			clr_state_flag = volcano_eruption_3
-		}
+		
 	}
 }
 

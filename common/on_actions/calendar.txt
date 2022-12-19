@@ -175,33 +175,18 @@ on_actions = {
 
 				### volcano
 
-				random_list = {
-					95 = { }
-					5 = {
-						random_state = {
-							limit = {
-								has_dynamic_modifier = {
-									modifier = volcano
-								}
-							}
-							random_neighbor_state = {
-								set_variable = { global.latest_volcano_2 = THIS.id }
-								set_state_flag = volcano_eruption_2
-							}
-							random_neighbor_state = {
-								limit = {
-									NOT = { has_state_flag = volcano_eruption_2 }
-								}
-								set_variable = { global.latest_volcano_3 = THIS.id }
-								set_state_flag = volcano_eruption_3
-							}
-							set_variable = { global.latest_volcano = THIS.id }
-							set_state_flag = volcano_eruption
-							THIS.OWNER = { country_event = nature.1 }
-						}
+				if = {
+					limit = {
+						check_variable = { global.year = global.volcano_year }
+						check_variable = { global.calendar_month = global.volcano_month }
 					}
-				}
+					var:global.volcano_state.OWNER = { 
+						country_event = nature.1 
+						days = global.volcano_day 
+					}
 
+				}
+				
 				### months and years
 
 

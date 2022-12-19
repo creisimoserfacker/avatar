@@ -164,6 +164,15 @@ ideas = {
 				stability_factor = 0.05
 			}
 		}
+
+		spirit_princess_rhya = {
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
 		
 		FIR_first_invasion = {
 
@@ -297,6 +306,20 @@ ideas = {
 			}
 		}
 
+		FIR_modern_agriculture = {
+			
+			removal_cost = -1
+
+			modifier = {
+				farmer_factor = -0.20
+				rancher_factor = -0.20
+				steel_demand = 0.05
+				fossile_fuels_demand = 0.05
+				harvesting_factor = 0.05
+			}
+
+		}
+
 		FIR_military_school = {	
 			picture = usa_war_department
 			allowed = {
@@ -350,8 +373,15 @@ ideas = {
 				political_power_cost = 0.2
 			}
 		}
-
 	}
+
+
+	####  ####  ### #  ###  #   # #### ###       
+	#   # #    #    # #     ##  # #    #  #    
+	#   # ###   ##  # #  ## # # # ###  ###   
+	#   # #       # # #   # #  ## #    #  #   
+	####  #### ###  #  ###  #   # #### #   #     
+
 	
 	melee_designer = {
 
@@ -402,10 +432,10 @@ ideas = {
 			}
 
 			research_bonus = {
-				artillery = 0.15
+				archer_tech = 0.15
 			}
 			
-			traits = { nwt_archer_designer }
+			traits = { fir_archer_designer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -434,7 +464,7 @@ ideas = {
 				cavalry = 0.15
 			}
 			
-			traits = { nwt_buffalo_yak_trainer }
+			traits = { fir_mongooze_lizard_trainer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -457,7 +487,7 @@ ideas = {
 				cavalry = 0.15
 			}
 			
-			traits = { nwt_polar_dog_trainer }
+			traits = { fir_komodo_rhino_trainer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -486,7 +516,7 @@ ideas = {
 				naval_equipment = 0.15
 			}
 			
-			traits = { nwt_raid_designer }
+			traits = { fir_capital_designer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -504,10 +534,7 @@ ideas = {
 				OR = { tag = FIR }
 			}
 			available = {
-				has_tech = reform_5
-				NOT = {
-					has_war_with = NWT
-				}
+				
 			}
 
 			modifier = {
@@ -518,7 +545,7 @@ ideas = {
 				motorisation = 0.20 
 			}
 			
-			traits = { nwt_light_engine_designer }
+			traits = { fir_light_engine_designer }
 
 			#### research and trait bonus broken for some reason
 
@@ -542,12 +569,12 @@ ideas = {
 			}
 
 			modifier = {
-				expenses_factor = 0.01
+				expenses_factor = 0.2
 			}
 
-			research_bonus = {
-				industry_tech = 0.10
-			}
+			#research_bonus = {
+			#	industry_tech = 0.10
+			#}
 			
 			traits = { fir_consumer_industries }
 
@@ -574,6 +601,33 @@ ideas = {
 			}
 			
 			traits = { fir_heavy_industries }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+
+		fir_wartime_industry_designer = {
+
+			allowed = {
+				OR = { tag = FIR }
+			}
+			visible = {
+				has_country_flag = FIR_funded_war_indstries
+			}
+			available = {
+				
+			}
+
+			modifier = {
+				expenses_factor = 0.5
+			}
+
+			research_bonus = {
+				#industry_tech = 0.10
+			}
+			
+			traits = { fir_wartime_industries }
 
 			ai_will_do = {
 				factor = 0.5

@@ -1,61 +1,162 @@
 
 FIR_industrialisation_category = {
 
-	cultural_change = {
+	agricultural_modernisation = {
 
-		icon = research_boost
+		icon = fire_agriculture
 
-		allowed = {
+		allowed = {		
 			tag = FIR
 		}
-		visible = {
-			hidden_trigger = {
-				has_start_date < 13.1.1
-			}
-			NOT = {
-				has_country_flag = fire_industrialisation
-			}
+		visible = {	
+			
 		}
 		available = {
-			hidden_trigger = {
-				has_start_date < 13.1.1
-			}
-			NOT = {
-				has_country_flag = fire_industrialisation
-			}
+			
+		}
+
+		fire_only_once = yes
+
+		days_remove = 120
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1.0 }
+		}
+		custom_cost_text = expenses_1000
+
+		modifier = {
+			expenses_factor = 1.0
 		}
 
 		complete_effect = {
-			add_tech_bonus = {
-				name = FIR_cultural_change
-				bonus = 1
-				uses = 10
-				category = society_reforms
-			}
-			add_stability = -0.7
-		}
-
-		modifier = {
-			earth_culture_drift = 0.02
-			air_culture_drift = 0.02
-			water_culture_drift = 0.02
-			pluralist_culture_drift = 0.02
+			
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = industry_unlock_tt
-			set_country_flag = fire_industrialisation
+			add_ideas = { FIR_modern_agriculture }
 		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	factory_longer_shift = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			
+		}
+
+		#fire_only_once = yes
+
+		days_remove = -1
+
+		cost = 75
+
+		modifier = {
+			industrial_capacity_factory = 0.2
+		}
+
+		complete_effect = {
+			peasant_mood_decrease = yes
+		}
+
+		remove_effect = {
+			
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	factory_longer_shift_remove = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			has_decision = factory_longer_shift
+		}
+		available = {
+			
+		}
+
+		#fire_only_once = yes
+
+		#days_remove = -1
+
+		cost = 75
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			peasant_mood_increase = yes
+			remove_decision = factory_longer_shift
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	wartime_industry = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			OR = {
+				has_war = yes
+				OR = {
+					has_idea = economy_4
+					has_idea = economy_5
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 200
 
 		custom_cost_trigger = {
-			has_stability > 0.7
+			check_variable = { tax_balance > 2.0 }
 		}
-		custom_cost_text = stability_70
-		fire_only_once = yes
-		days_remove = 730
+		custom_cost_text = expenses_2000
 
-    	ai_will_do = {
-			factor = 1000
+		modifier = {
+			expenses_factor = 2.0
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = FIR_funded_war_indstries
+			custom_effect_tooltip = desinger_enable_tt
+			show_ideas_tooltip = fir_wartime_industry_designer
+		}
+
+		ai_will_do = {
+			factor = 1
 		}
 	}
 
@@ -161,6 +262,72 @@ FIR_royal_family_category = {
 
 		ai_will_do = {
 			factor = 110
+		}
+	}
+
+	FIR_succession_crisis = {
+
+		allowed = { always = no }
+
+		icon = fire_succession_crisis
+
+		available = {
+			NOT = {
+				has_country_flag = the_prince_for_a_day
+			}
+		}
+
+		selectable_mission = no
+
+		days_mission_timeout = 365
+		is_good = no
+		fire_only_once = no
+
+		cancel_trigger = {
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			
+		}
+	}
+
+	name_rhya_heir = {
+
+		icon = fire_rhya_coronation
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			has_country_flag = the_prince_for_a_day
+		}
+		available = {
+			
+		}
+
+		complete_effect = {
+			add_ideas = spirit_princess_rhya
+			clr_country_flag = the_prince_for_a_day
+		}
+
+		cost = 300
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
 		}
 	}
 
@@ -668,7 +835,10 @@ FIR_conquest_category = {
 				set_country_flag = northern_attack_planned
 			}
 			else = {
-				add_ideas = { FIR_northern_plan }
+				add_timed_idea = { 
+					idea = FIR_northern_plan
+					days = 1500
+				}
 				set_country_flag = northern_attack_planned
 			}
 		}
@@ -758,7 +928,10 @@ FIR_conquest_category = {
 				set_country_flag = central_attack_planned
 			}
 			else = {
-				add_ideas = { FIR_central_plan }
+				add_timed_idea = { 
+					idea = FIR_central_plan
+					days = 1500
+				}
 				set_country_flag = central_attack_planned
 			}
 		}
@@ -848,7 +1021,10 @@ FIR_conquest_category = {
 				set_country_flag = southern_attack_planned
 			}
 			else = {
-				add_ideas = { FIR_southern_plan }
+				add_timed_idea = { 
+					idea = FIR_southern_plan
+					days = 1500
+				}
 				set_country_flag = southern_attack_planned
 			}
 		}
@@ -929,19 +1105,28 @@ FIR_conquest_category = {
 				limit = {
 					has_country_flag = northern_attack_planned
 				}
-				add_ideas = { FIR_northern_plan }
+				add_timed_idea = { 
+					idea = FIR_northern_plan
+					days = 1500
+				}
 			}
 			if = {
 				limit = {
 					has_country_flag = central_attack_planned
 				}
-				add_ideas = { FIR_central_plan }
+				add_timed_idea = { 
+					idea = FIR_central_plan
+					days = 1500
+				}
 			}
 			if = {
 				limit = {
 					has_country_flag = southern_attack_planned
 				}
-				add_ideas = { FIR_southern_plan }
+				add_timed_idea = { 
+					idea = FIR_southern_plan
+					days = 1500
+				}
 			}
 			add_named_threat = { 
 				threat = 20
@@ -1049,6 +1234,64 @@ FIR_conquest_category = {
 }
 
 FIR_civil_decision_category = {
+
+	cultural_change = {
+
+		icon = research_boost
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			hidden_trigger = {
+				has_start_date < 13.1.1
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+			}
+		}
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.1.1
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+			}
+		}
+
+		complete_effect = {
+			add_tech_bonus = {
+				name = FIR_cultural_change
+				bonus = 1
+				uses = 10
+				category = society_reforms
+			}
+			add_stability = -0.7
+		}
+
+		modifier = {
+			earth_culture_drift = 0.02
+			air_culture_drift = 0.02
+			water_culture_drift = 0.02
+			pluralist_culture_drift = 0.02
+		}
+
+		remove_effect = {
+			custom_effect_tooltip = industry_unlock_tt
+			set_country_flag = fire_industrialisation
+		}
+
+		custom_cost_trigger = {
+			has_stability > 0.7
+		}
+		custom_cost_text = stability_70
+		fire_only_once = yes
+		days_remove = 730
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
 	
 	increase_war_support_with_prosperity = {
 

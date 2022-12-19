@@ -529,8 +529,22 @@ country_event = {
 #Azulon is born
 country_event = {
 	id = firenation.10
-	title = firenation.10.t
-	desc = firenation.10.d
+	title = {
+		text = firenation.10.t
+		trigger = { NOT = { has_country_flag = azulon_birth_complication } }
+	}
+	title = {
+		text = firenation.10.t_alt
+		trigger = { has_country_flag = azulon_birth_complication }
+	}
+	desc = {
+		text = firenation.10.d
+		trigger = { NOT = { has_country_flag = azulon_birth_complication } }
+	}
+	desc = {
+		text = firenation.10.d_alt
+		trigger = { has_country_flag = azulon_birth_complication }
+	}
 	picture = GFX_report_event_fir_birth
 
 	trigger = {
@@ -539,16 +553,100 @@ country_event = {
 		has_start_date < 13.1.1
 	}
 
+	immediate = {
+		hidden_effect = {
+			if = {
+				limit = { 
+					AND = {
+						is_historical_focus_on = no
+						has_country_flag = fire_no_genocide
+					}
+				}
+				random = {
+					chance = 50
+					set_country_flag = azulon_birth_complication
+				}
+			}
+		}
+	}
+
 	fire_only_once = yes
 
 	option = {
 		name = firenation.10.a
+
+		trigger = { 
+			NOT = {
+				has_country_flag = azulon_birth_complication
+			}
+		}
 		add_ideas = spirit_prince_azulon
 		FIR_azulon = {
 			set_character_flag = FIR_character_born
 		}
 		set_variable = { FIR.azulon_birth_event = global.year }
 		set_variable = { azulon_position = 190 }
+	}
+
+	option = {
+		name = firenation.10.a_alt
+
+		trigger = { 
+			has_country_flag = azulon_birth_complication
+		}
+
+		custom_effect_tooltip = elua_dies_ttp
+		clr_country_flag = sozin_wife_elua
+
+		random_list = {
+			5 = {
+				add_ideas = spirit_prince_azulon
+				FIR_azulon = {
+					set_character_flag = FIR_character_born
+				}
+				set_variable = { FIR.azulon_birth_event = global.year }
+				set_variable = { azulon_position = 190 }
+			}
+			95 = {
+				custom_effect_tooltip = azulon_dies_ttp
+				FIR_azulon = {
+					set_character_flag = FIR_character_born
+					set_character_flag = FIR_character_death
+				}
+				set_country_flag = the_prince_for_a_day
+				activate_mission = FIR_succession_crisis
+			}
+		}
+	}
+
+	option = {
+		name = firenation.10.b_alt
+
+		trigger = { 
+			has_country_flag = azulon_birth_complication
+		}
+
+		random_list = {
+			1 = {
+				add_ideas = spirit_prince_azulon
+				FIR_azulon = {
+					set_character_flag = FIR_character_born
+				}
+				set_variable = { FIR.azulon_birth_event = global.year }
+				set_variable = { azulon_position = 190 }
+			}
+			99 = {
+				custom_effect_tooltip = elua_dies_ttp
+				clr_country_flag = sozin_wife_elua
+				custom_effect_tooltip = azulon_dies_ttp
+				FIR_azulon = {
+					set_character_flag = FIR_character_born
+					set_character_flag = FIR_character_death
+				}
+				set_country_flag = the_prince_for_a_day
+				activate_mission = FIR_succession_crisis
+			}
+		}
 	}
 }
 
