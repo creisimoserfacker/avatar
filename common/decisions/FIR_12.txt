@@ -193,11 +193,10 @@ FIR_royal_family_category = {
 
 		days_remove = 30
 
-		modifier = {
-			stability_weekly = 0.005
-			war_support_weekly = -0.005
+		custom_cost_trigger = {
+			command_power > 50
 		}
-
+		custom_cost_text = honour_cost_50
 
 		complete_effect = {
 			hidden_effect = {
@@ -206,12 +205,11 @@ FIR_royal_family_category = {
 			custom_effect_tooltip = regret_letting_roku_die_ttp
 		}
 
-		custom_cost_trigger = {
-			command_power > 50
+		remove_effect = {
+			add_stability = 0.1
+			add_war_support = -0.1
 		}
-		custom_cost_text = honour_cost_50
 
-		#cost = 100
 		fire_only_once = yes
 
 		ai_will_do = {
@@ -376,6 +374,42 @@ FIR_royal_family_category = {
 		}
 	}
 
+	azulon_firebending_training = {
+
+		icon = fire_violence
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			check_variable = { mtth:azulon_age > 3 }
+			check_variable = { mtth:azulon_age < 16 }
+			has_variable = mtth:azulon_age
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = azulon_age_4_tt
+				check_variable = { mtth:azulon_age > 3 }
+			}
+			custom_trigger_tooltip = {
+				tooltip = azulon_age_16_max_tt
+				check_variable = { mtth:azulon_age < 16 }
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { azulon_attack_skill = 1 }
+			custom_effect_tooltip = azulon_attack_skill_gain_1
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
 	azulon_general = {
 
 		icon = general
@@ -395,8 +429,8 @@ FIR_royal_family_category = {
 		}
 		available = {
 			custom_trigger_tooltip = {
-				tooltip = azulon_age_18_tt
-				check_variable = { mtth:azulon_age > 17 }
+				tooltip = azulon_age_16_tt
+				check_variable = { mtth:azulon_age > 15 }
 			}
 			FIR_azulon = {
 				has_character_flag = FIR_character_born
