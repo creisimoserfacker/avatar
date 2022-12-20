@@ -444,9 +444,110 @@ country_event = {
 		}
 		custom_effect_tooltip = EAR_western_alliance
 
-		hidden_effect = {
-			set_country_flag = western_alliance
+		set_country_flag = western_alliance
+
+		if = {
+			limit = {
+				any_country = {
+					NOT = {
+						has_country_flag = western_alliance_leader
+					}
+				}
+				OR = {
+					has_autonomy_state = autonomy_kingdom
+					has_autonomy_state = autonomy_county
+					is_subject = no
+				}
+			}
+			set_country_flag = western_alliance_leader
 		}
+
+		if = {
+			limit = {
+				NOT = {
+					has_active_mission = western_alliance_creation
+				}
+			}
+
+			hidden_effect = {
+				every_country = {
+					limit = {
+						capital_scope = {
+							is_on_continent = north_america
+						}
+						is_in_array = {
+							array = global.earth_kingdom
+							value = THIS.id
+						}
+					}
+					activate_mission = western_alliance_creation
+				}
+
+				every_state = {
+					limit = {
+						is_capital = yes
+						is_on_continent = north_america
+						THIS.OWNER = {
+							is_in_array = {
+								array = global.earth_kingdom
+								value = THIS.id
+							}
+						}
+					}
+
+					every_country = {
+						limit = {
+							capital_scope = {
+								is_on_continent = north_america
+							}
+							is_in_array = {
+								array = global.earth_kingdom
+								value = THIS.id
+							}
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = western_alliance_invite_member
+						}
+					}
+				}
+
+				every_state = {
+					limit = {
+						is_capital = yes
+						is_on_continent = north_america
+						THIS.OWNER = {
+							is_in_array = {
+								array = global.earth_kingdom
+								value = THIS.id
+							}
+						}
+					}
+
+					every_country = {
+						limit = {
+							OR = {
+								has_autonomy_state = autonomy_kingdom
+								has_autonomy_state = autonomy_county
+								is_subject = no
+							}
+							capital_scope = {
+								is_on_continent = north_america
+							}
+							is_in_array = {
+								array = global.earth_kingdom
+								value = THIS.id
+							}
+						}
+						activate_targeted_decision = {
+							target = PREV
+							decision = western_alliance_choose_leader
+						}
+					}
+				}
+			}
+		}
+		
 	}
 }
 
@@ -517,6 +618,9 @@ country_event = {
 			factor = 0
 		}
 
+		hidden_effect = {
+			clr_country_flag = invited_to_western_alliance
+		}
 	}
 }
 
