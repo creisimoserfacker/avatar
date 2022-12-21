@@ -850,16 +850,10 @@ THE_EARTHKINGDOM = {
 
 		priority = 600
 
+		allowed = { always = no }
+
 		activation = {
-			custom_trigger_tooltip = {
-				tooltip = NWT_invest_in_state_factory_tt
-				any_country = {
-					has_country_flag = western_alliance
-				}
-			}
-			not = {
-				has_global_flag = western_alliance_creation_done
-			}
+			
 		}
 
 		visible = {
@@ -878,7 +872,7 @@ THE_EARTHKINGDOM = {
 			HAN = { has_country_flag = western_alliance }
 			MER = { has_country_flag = western_alliance }
 		}
-		days_mission_timeout = 120
+		days_mission_timeout = 240
 		is_good = no
 		fire_only_once = yes
 
@@ -895,10 +889,6 @@ THE_EARTHKINGDOM = {
 					array = global.earth_kingdom
 					value = THIS.id
 				}
-				#add_to_array = {
-				#	array = global.western_alliance
-				#	value = THIS.id
-				#}
 			}
 
 		}
@@ -915,10 +905,6 @@ THE_EARTHKINGDOM = {
 					array = global.earth_kingdom
 					value = THIS.id
 				}
-				#add_to_array = {
-				#	array = global.western_alliance
-				#	value = THIS.id
-				#}
 			}
 		}
 	}
@@ -929,13 +915,30 @@ THE_EARTHKINGDOM = {
 
 		priority = 500
 
-		available = {
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+		allowed = {
+			always = no
+		}
+		visible = {
+			any_country = {
+				NOT = {
+					has_country_flag = western_alliance_leader
 				}
 			}
+			FROM.owner = {
+				NOT = {
+					OR = {
+						has_country_flag = invited_to_western_alliance
+						has_country_flag = western_alliance
+					}
+				}
+				OR = {
+					has_autonomy_state = autonomy_kingdom
+					has_autonomy_state = autonomy_county
+					is_subject = no
+				}
+			}
+		}
+		available = {
 			FROM.owner = {
 				NOT = {
 					has_country_flag = invited_to_western_alliance
@@ -945,33 +948,7 @@ THE_EARTHKINGDOM = {
 
 		state_target = yes
 		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					NOT = {
-						has_country_flag = western_alliance
-					}
-					has_autonomy_state = autonomy_kingdom
-				}
-				is_on_continent = north_america
-			}
-		}
-		visible = {
-			ROOT = {
-				has_country_flag = western_alliance
-			}
-			FROM.owner = {
-				NOT = {
-					OR = {
-						has_country_flag = invited_to_western_alliance
-						has_country_flag = western_alliance
-					}
-				}
-			}
+			
 		}
 
 		fire_only_once = no
@@ -997,7 +974,7 @@ THE_EARTHKINGDOM = {
 		}
 
 		ai_will_do = {
-			base = 0
+			base = 250
 		}
 	}
 
@@ -1007,49 +984,10 @@ THE_EARTHKINGDOM = {
 
 		priority = 400
 
-		available = {
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-			}
-			FROM.owner = {
-				NOT = {
-					has_country_flag = invited_to_western_alliance
-				}
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-			}
-			any_country = {
-				has_autonomy_state = autonomy_kingdom
-				has_country_flag = western_alliance
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					NOT = {
-						has_country_flag = western_alliance
-						has_autonomy_state = autonomy_kingdom
-					}
-				}
-				is_on_continent = north_america
-			}
+		allowed = {
+			always = no
 		}
 		visible = {
-			ROOT = {
-				has_country_flag = western_alliance
-			}
 			FROM.owner = {
 				NOT = {
 					OR = {
@@ -1057,16 +995,33 @@ THE_EARTHKINGDOM = {
 						has_country_flag = western_alliance
 					}
 				}
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+			}
+		}
+		available = {
+			FROM.owner = {
+				NOT = {
+					has_country_flag = invited_to_western_alliance
 				}
 			}
+			any_country = {
+				OR = {
+					has_autonomy_state = autonomy_kingdom
+					has_autonomy_state = autonomy_county
+					is_subject = no
+				}
+				has_country_flag = western_alliance
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			
 		}
 
 		fire_only_once = no
 		cost = 50
 		days_remove = 20
+		days_re_enable = 30
 
 		modifier = {
 			political_power_factor = -0.5
@@ -1087,7 +1042,7 @@ THE_EARTHKINGDOM = {
 		}
 
 		ai_will_do = {
-			base = 0
+			base = 500
 		}
 	}
 
