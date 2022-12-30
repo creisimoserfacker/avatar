@@ -1,4 +1,497 @@
+buildup1=
+{
+	allowed = {has_country_flag = earth_nation}
+	enable = 
+	{
+		original_tag = EAR #Is Ba Sing Se
+		#[GetYear] < 25 Date before year 25 (12 years in game)#
+	}
+	ai_strategy #Build manufactories, not smithies, you want more civillian capacity
+		{
+			type=added_military_to_civilian_factory_ratio
+			value = -200
+		}
+	ai_strategy # Build masonries to overcome your construction materials defficit
+	{
+	type=building_target
+	id=masonry
+	value= 20 # Tried 15, some got built, but due to the quarries everywhere and no building upgrades, it didn't solve the construction materials shortage.
+	}
+	ai_strategy # Build quarries to ensure your masonries don't run out of raw materials
+	{
+	type=building_target
+	id=quarry
+	value=6 # Tried 12, they plastered them everywhere leaving no room for masonries.
+	}
+	ai_strategy # Mines to get fuel
+		{
+		type=building_target
+		id=mine
+		value=3
+		}
+	ai_strategy #Don't cram every last bit of equipment into recruitment immediately, build up a stockpile.
+	{
+	type = equipment_stockpile_surplus_ratio
+    value = 3 # Appears to work fine.
+	}
+	research = 
+	{
+		industry=10
+		melee=5
+		basic_construction = 100
+		construction_r1=100
+		construction_l1=100
+		naval_1=-20 	#Don't bother with ships, you're land-locked!
+	}
+}
+buildup2={
+#Now that you have a positive amount of construction materials, build up your civilian capacity
+	allowed = {}
+	ai_strategy
+		{
+		type=building_target
+		id=civilian_factory
+		value=50
+		}
 
+}	
+
+defender_defense_dafending = {
+	enable = {
+		original_tag = EAR
+		controls_state = 193
+		controls_state = 213
+		controls_state = 178
+		controls_state = 145
+		controls_state = 126
+		controls_state = 129
+		controls_state = 149
+		FIR = { OR = { controls_state = 138 controls_state = 231 controls_state = 116 controls_state = 80  controls_state = 99 } }
+		
+	}
+	
+	ai_strategy = {
+		type = conquer
+		id = "FIR"
+		value = -10000
+	}
+	
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 0
+		states = { 
+			145
+			126
+			193
+			129
+			149
+			213
+			178
+		}
+		ratio = 0.5
+		subtract_invasions_from_need = no
+ 		subtract_fronts_from_need = no
+	}
+	
+	ai_strategy = {
+		type = front_control
+		tag = FIR
+		ratio = 1
+		ordertype = front 
+		execution_type = careful
+		execute_order = no
+		manual_attack = no
+	}
+}
+
+defender_defense_dafending2 = {
+
+	enable = {
+		original_tag = EAR
+		has_war_with = FIR
+		AND = { has_full_control_of_state = 161 has_full_control_of_state = 162 has_full_control_of_state = 187 has_full_control_of_state = 189 }
+		NOT = { AND = { controls_state = 193 controls_state = 213 controls_state = 178 controls_state = 145 controls_state = 126 controls_state = 129 controls_state = 149 } }
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 0
+		states = { 
+			161
+			162
+			187
+			189
+		}
+		ratio = 1
+		subtract_invasions_from_need = yes
+ 		subtract_fronts_from_need = yes
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = FIR
+		value = -10000
+	}
+
+}
+
+defender_defense_dafending3 = {
+
+	enable = {
+		original_tag = EAR
+		has_war_with = FIR
+		NOT = { AND = { has_full_control_of_state = 161 has_full_control_of_state = 162 has_full_control_of_state = 187 has_full_control_of_state = 189 } }
+	}
+	ai_strategy = {
+		type = front_unit_request
+		tag = FIR
+		value = -10000
+	}
+	ai_strategy = {
+		type = put_unit_buffers
+		order_id = 0
+		states = { 
+			179
+		}
+		ratio = 1
+		subtract_invasions_from_need = yes
+ 		subtract_fronts_from_need = yes
+	}
+}
+
+EAR_temple_march = {
+	enable = {
+		original_tag = EAR
+		OR = {
+			has_war_with = EAT
+			has_war_with = SAT
+			has_war_with = WAT
+			has_war_with = NAT
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = conquer
+		id = "NAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = NAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "SAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = SAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "WAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = WAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	ai_strategy = {
+		type = conquer
+		id = "EAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = front_control
+		tag = EAT
+		ordertype = front
+		execution_type = rush
+		manual_attack = yes
+	}
+	
+}
+
+EAR_dont_get_involved = {
+	allowed = {
+		or = {
+			is_in_faction_with = EAR
+			tag = EAR
+		}
+	}
+	enable = {
+		or = {
+			is_in_faction_with = EAR
+			tag = EAR 
+		}
+		or = {
+			EAR = { has_war_with = EAT }
+			EAR = { has_war_with = SAT }
+			EAR = { has_war_with = WAT }
+			EAR = { has_war_with = NAT }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "EAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "SAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "WAT"
+		value = 1000
+	}
+	ai_strategy = {
+		type = dont_join_wars_with
+		id = "NAT"
+		value = 1000
+	}
+	
+}
+
+EAR_unit_production = {
+	enable = {
+		original_tag = EAR
+	}
+	abort = {
+		always = no
+	}
+	
+	ai_strategy = {
+		type = role_ratio
+		id = defender
+		value = 100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = offensive
+		value = 0
+	}
+	
+	
+	# Naval unit factors
+	ai_strategy = {
+		type = unit_ratio
+		id = capital_ship
+		value = 10
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = submarine
+		value = 0
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = screen_ship
+		value = 100
+	}
+
+	ai_strategy = {
+		type = unit_ratio
+		id = convoy
+		value = 15
+	}
+	
+}
+
+EAR_area_priority = {
+	enable = {
+		original_tag = EAR
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = firelands #homeland
+		value = 20
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = earth_plate
+		value = 120
+	}
+	ai_strategy = {
+		type = area_priority
+		id = north_plate
+		value = 60
+	}
+	ai_strategy = {
+		type = area_priority
+		id = south_plate
+		value = 60
+	}
+
+	ai_strategy = {
+		type = area_priority
+		id = northpole
+		value = 10
+	}
+	
+	ai_strategy = {
+		type = area_priority
+		id = southpole
+		value = 10
+	}
+}
+
+
+earth_decentralised_warfare = {
+
+	allowed = {
+		has_country_flag = earth_nation
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = spare_unit_factor
+		value = -999
+	}
+	ai_strategy = {
+		type = garrison
+		value = 90
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = 50
+	}
+
+	#ai_strategy = {
+	#	type = protect
+	#	id = HAN
+	#	value = -999
+	#}
+	#ai_strategy = {
+	#	type = protect
+	#	id = WUL
+	#	value = -999
+	#}
+	#ai_strategy = {
+	#	type = protect
+	#	id = GAR
+	#	value = -999
+	#}
+}
+
+earth_north_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = north_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = north_plate
+		value = -1000
+	}
+}
+earth_central_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = earth_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = earth_plate
+		value = -1000
+	}
+}
+
+earth_south_theatre = {
+
+	allowed = {
+		has_country_flag = earth_nation
+		any_core_state = {
+			is_capital = yes
+			is_on_continent = south_plate
+		}
+	}
+	enable = {
+		has_country_flag = earth_nation
+		has_war_with = FIR
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = front_unit_request
+		area = south_plate
+		value = -1000
+	}
+}
+
+# ba sing se, not na sing se
+
+ba_sing_se_defenders = {
+	enable = {
+		original_tag = EAR
+		has_army_manpower = {
+			size < 30000 
+        }
+
+	}
+
+	ai_strategy = {
+		type = force_build_armies
+		value = 100
+	}
+
+	ai_strategy = {
+		type = put_unit_buffers
+
+		# ratio of total armeis in country to be buffered
+		ratio = 1
+
+		# ai areas that the orders will use these buffers in
+		area = ba_sing_se
+
+		# by default if you have orders in target areas, the buffer will request less units.
+		# you can override this to disable the feature
+		subtract_invasions_from_need = no
+		subtract_fronts_from_need = no
+	}
+	
+}
 defender_defense_dafending = {
 	enable = {
 		original_tag = EAR
