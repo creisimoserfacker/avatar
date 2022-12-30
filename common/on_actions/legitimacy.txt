@@ -1,25 +1,23 @@
 on_actions = {
 	on_startup = {
 		effect = {
+
 			every_country = {
-				country_event = { id = legitimacy_event.1 }
-				
 				set_variable = { centralisation_variable = mtth:legitimacy_target_100 }
 				
 				add_dynamic_modifier = { modifier = legitimacy_effects }
+
+				set_variable = { current_liberty = centralisation_variable }
+
+				set_temp_variable = { authority_temp = 100 }
+				subtract_from_temp_variable = { authority_temp = centralisation_variable }
+				set_variable = { current_authority = authority_temp }
+
+				clamp_variable = { var = centralisation_variable min = 0 max = 100 }
+
+				set_variable = { centralisation_show = centralisation_variable }
+				multiply_variable = { centralisation_show = 2.4 }
 			}
-
-			set_variable = { current_liberty = centralisation_variable }
-
-			set_temp_variable = { authority_temp = 100 }
-			subtract_from_temp_variable = { authority_temp = centralisation_variable }
-			set_variable = { current_authority = authority_temp }
-
-			clamp_variable = { var = centralisation_variable min = 0 max = 100 }
-
-			set_variable = { centralisation_show = centralisation_variable }
-			multiply_variable = { centralisation_show = 2.4 }
-
 
 		}
 	}
@@ -71,7 +69,11 @@ on_actions = {
 			subtract_from_temp_variable = { authority_temp = centralisation_variable }
 			set_variable = { current_authority = authority_temp }
 
-			clamp_variable = { var = centralisation_variable min = 0 max = 100 }
+			clamp_variable = { 
+				var = centralisation_variable 
+				min = 0 
+				max = 100 
+			}
 
 			set_variable = { centralisation_show = centralisation_variable }
 			multiply_variable = { centralisation_show = 2.4 }

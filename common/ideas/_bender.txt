@@ -11,13 +11,17 @@ ideas = {
 			level = 5
 
 			visible = {
-				has_government = air_culture
+				has_country_flag = air_nation
 			}
 
 			modifier = {
 				nonbender_factor = -1
 				industrial_capacity_factory = 0.1
 				production_speed_buildings_factor = 0.1
+			}
+
+			ai_will_do = {
+				factor = 10
 			}
 			
 			cancel_if_invalid = no
@@ -42,6 +46,15 @@ ideas = {
 				industrial_capacity_factory = 0.1
 				production_speed_buildings_factor = 0.1
 			}
+
+			ai_will_do = {
+				factor = 10
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = swamp_siwong_exceptional }
+				}
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -65,6 +78,32 @@ ideas = {
 				pluralist_culture_drift = 0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = swamp_siwong_benders_only
+							has_idea = swamp_siwong_volunteers
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -84,6 +123,21 @@ ideas = {
 				nonbender_factor = -0.5
 				#conscription_factor = -0.2
 				pluralist_culture_drift = 0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = swamp_siwong_exceptional
+							has_idea = swamp_siwong_auxiliary
+						}
+					}
+				}
+
 			}
 
 			cancel_if_invalid = no
@@ -106,6 +160,21 @@ ideas = {
 				#conscription_factor = -0.1
 				pluralist_culture_drift = 0.03
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = swamp_siwong_volunteers
+							has_idea = swamp_siwong_indiscriminate
+						}
+					}
+				}
+
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -127,6 +196,16 @@ ideas = {
 				nonbender_factor = -0.0
 				pluralist_culture_drift = 0.04
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = swamp_siwong_auxiliary}
+				}
+
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -137,7 +216,7 @@ ideas = {
 			level = 5
 
 			visible = {
-				has_government = water_culture
+				has_country_flag = water_nation
 				NOT = {
 					tag = SWA
 				}
@@ -156,6 +235,15 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = water_exceptional }
+				}
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -165,7 +253,7 @@ ideas = {
 			level = 4
 
 			visible = {
-				has_government = water_culture
+				has_country_flag = water_nation
 				NOT = {
 					tag = SWA
 				}
@@ -182,6 +270,33 @@ ideas = {
 
 				weekly_centralisation = 0.02
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = water_benders_only
+							has_idea = water_volunteers
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -191,7 +306,7 @@ ideas = {
 			level = 3
 
 			visible = {
-				has_government = water_culture
+				has_country_flag = water_nation
 				NOT = {
 					tag = SWA
 				}
@@ -209,6 +324,21 @@ ideas = {
 				weekly_centralisation = 0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = water_exceptional
+							has_idea = water_auxiliary
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -219,7 +349,7 @@ ideas = {
 			level = 2
 
 			visible = {
-				has_government = water_culture
+				has_country_flag = water_nation
 				NOT = {
 					tag = SWA
 				}
@@ -237,6 +367,21 @@ ideas = {
 				weekly_centralisation = -0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = water_volunteers
+							has_idea = water_indiscriminate
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -247,7 +392,7 @@ ideas = {
 			level = 1
 			
 			visible = {
-				has_government = water_culture
+				has_country_flag = water_nation
 				NOT = {
 					tag =  MPO
 				}
@@ -264,6 +409,17 @@ ideas = {
 				weekly_centralisation = -0.02
 			}
 
+			ai_will_do = {
+				factor = 10
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = water_indiscriminate
+					}
+				}
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -273,7 +429,7 @@ ideas = {
 			removal_cost = -1
 			level = 5
 			visible = {
-				has_government = earth_culture
+				has_country_flag = earth_nation
 				NOT = {
 					OR = {
 						tag = MPO
@@ -295,6 +451,17 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = earth_exceptional
+					}
+				}
+			}
+
 			cancel_if_invalid = no
 		}
 		earth_exceptional = {
@@ -304,7 +471,7 @@ ideas = {
 			level = 4
 
 			visible = {
-				has_government = earth_culture
+				has_country_flag = earth_nation
 				NOT = {
 					OR = {
 						tag = MPO
@@ -325,6 +492,32 @@ ideas = {
 				weekly_centralisation = 0.02
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = earth_benders_only
+							has_idea = earth_volunteers
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -334,7 +527,7 @@ ideas = {
 			level = 3
 
 			visible = {
-				has_government = earth_culture
+				has_country_flag = earth_nation
 				NOT = {
 					OR = {
 						tag = MPO
@@ -355,6 +548,21 @@ ideas = {
 				weekly_centralisation = 0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = earth_exceptional
+							has_idea = earth_auxiliary
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -364,7 +572,7 @@ ideas = {
 			level = 2
 
 			visible = {
-				has_government = earth_culture
+				has_country_flag = earth_nation
 				NOT = {
 					OR = {
 						tag = MPO
@@ -385,6 +593,21 @@ ideas = {
 				weekly_centralisation = -0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = earth_volunteers
+							has_idea = earth_indiscriminate
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -394,7 +617,7 @@ ideas = {
 			level = 1
 
 			visible = {
-				has_government = earth_culture
+				has_country_flag = earth_nation
 				NOT = {
 					OR = {
 						tag = MPO
@@ -414,6 +637,18 @@ ideas = {
 				weekly_centralisation = -0.02
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = earth_auxiliary
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -423,7 +658,7 @@ ideas = {
 			removal_cost = -1
 			level = 5
 			visible = {
-				has_government = fire_culture
+				has_country_flag = fire_nation
 				NOT = {
 					tag =  SNW
 				}
@@ -441,6 +676,16 @@ ideas = {
 
 				weekly_centralisation = 0.03
 			}
+
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = fire_exceptional
+					}
+				}
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -452,7 +697,7 @@ ideas = {
 			level = 4
 
 			visible = {
-				has_government = fire_culture
+				has_country_flag = fire_nation
 				NOT = {
 					tag = SNW
 				}
@@ -469,6 +714,37 @@ ideas = {
 
 				weekly_centralisation = 0.02
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 100
+					manpower_per_military_factory <  10
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = fire_benders_only
+							has_idea = fire_volunteers
+						}
+					}
+				}
+
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -480,7 +756,7 @@ ideas = {
 			level = 3
 
 			visible = {
-				has_government = fire_culture
+				has_country_flag = fire_nation
 				NOT = {
 					tag = SNW
 				}
@@ -497,6 +773,21 @@ ideas = {
 
 				weekly_centralisation = 0.01
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = fire_exceptional
+							has_idea = fire_auxiliary
+						}
+					}
+				}
+
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -508,7 +799,7 @@ ideas = {
 			level = 2
 
 			visible = {
-				has_government = fire_culture
+				has_country_flag = fire_nation
 				NOT = {
 					tag = SNW
 				}
@@ -525,6 +816,21 @@ ideas = {
 
 				weekly_centralisation = -0.01
 			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = fire_exceptional
+							has_idea = fire_auxiliary
+						}
+					}
+				}
+
+			}
 			
 			cancel_if_invalid = no
 		}
@@ -536,7 +842,7 @@ ideas = {
 			level = 1
 
 			visible = {
-				has_government = fire_culture
+				has_country_flag = fire_nation
 				NOT = {
 					tag = SNW
 				}
@@ -551,6 +857,18 @@ ideas = {
 				pluralist_culture_drift = 0.04
 
 				weekly_centralisation = -0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = fire_auxiliary
+					}
+				}
+
 			}
 			
 			cancel_if_invalid = no
@@ -579,6 +897,16 @@ ideas = {
 				water_culture_drift = 0.01
 
 				weekly_centralisation = 0.03
+			}
+
+			ai_will_do = {
+				factor = 10
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = sun_auxiliary
+					}
+				}
 			}
 			
 			cancel_if_invalid = no
@@ -634,6 +962,10 @@ ideas = {
 				weekly_centralisation = 0.03
 			}
 
+			ai_will_do = {
+				factor = 10
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -657,6 +989,27 @@ ideas = {
 				pluralist_culture_drift = 0.03
 
 				weekly_centralisation = 0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					# Ignore if high on manpower
+					factor = 0.5
+					manpower_per_military_factory > 200
+				}
+				modifier = {
+					#Prio if low on manpower
+					factor = 20
+					manpower_per_military_factory <  40
+				}
+
+				modifier = {
+					factor = 0
+					NOT = { has_idea = kyoshi_benders_only }
+				}
+
 			}
 
 			cancel_if_invalid = no
@@ -684,6 +1037,21 @@ ideas = {
 				weekly_centralisation = 0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = kyoshi_exceptional
+							has_idea = kyoshi_auxiliary
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -708,6 +1076,21 @@ ideas = {
 				weekly_centralisation = -0.01
 			}
 
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						OR = {
+							has_idea = kyoshi_exceptional
+							has_idea = kyoshi_auxiliary
+						}
+					}
+				}
+
+			}
+
 			cancel_if_invalid = no
 		}
 
@@ -730,6 +1113,18 @@ ideas = {
 				pluralist_culture_drift = 0.05
 
 				weekly_centralisation = -0.02
+			}
+
+			ai_will_do = {
+				factor = 1
+
+				modifier = {
+					factor = 0
+					NOT = { 
+						has_idea = kyoshi_exceptional
+					}
+				}
+
 			}
 
 			cancel_if_invalid = no

@@ -2,10 +2,6 @@ ideas = {
 	
 	hidden_ideas = {
 		fire_supremacy_spirit = {
-
-			allowed = {
-				always = no
-			}
 			
 			removal_cost = -1
 			
@@ -22,25 +18,19 @@ ideas = {
 		
 		national_prosperity = {
 
-			available = {
-				#has_stability > 0.99
-				NOT = {
-					has_idea = war_weariness_1
-				}
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
+			cancel = {
+				has_war = yes
 			}
 
 			removal_cost = -1
 
 			on_remove = {
-				remove_ideas = promote_war_support
+				remove_ideas = FIR_popaganda_1
+				add_ideas = FIR_popaganda_2
+				add_timed_idea = {
+					idea = national_prosperity_decline_1
+					days = 90
+				}
 			}
 
 			research_bonus = {
@@ -63,19 +53,66 @@ ideas = {
 			}
 		}
 
-		legacy_of_roku_and_sozin = {
+		national_prosperity_decline_1 = {
 
-			available = {
-				always = yes
+			picture = national_prosperity
+			name = national_prosperity
+
+			removal_cost = -1
+
+			on_remove = {
+				add_timed_idea = {
+					idea = national_prosperity_decline_2
+					days = 90
+				}
+			}
+
+			research_bonus = {
+				society_reforms = 1.0
 			}
 			
-			allowed = {
-				always = no
+			modifier = {
+				#bad
+				consumer_goods_demand = 0.1
+
+				#good
+				currency_amount = -0.1
+				production_speed_infrastructure_factor = 0.1
+				production_speed_consumer_good_factory_factor = 0.1
+				production_speed_luxury_good_factory_factor = 0.1
+				industrial_capacity_factory = 0.1
+			}
+		}
+
+		national_prosperity_decline_2 = {
+
+			picture = national_prosperity
+			name = national_prosperity
+
+			removal_cost = -1
+
+			on_remove = {
+				
 			}
 
-			allowed_civil_war = {
-				always = yes
+			research_bonus = {
+				society_reforms = 0.5
 			}
+			
+			modifier = {
+				#bad
+				consumer_goods_demand = 0.05
+
+				#good
+				currency_amount = -0.05
+				production_speed_infrastructure_factor = 0.05
+				production_speed_consumer_good_factory_factor = 0.05
+				production_speed_luxury_good_factory_factor = 0.05
+				industrial_capacity_factory = 0.05
+			}
+		}
+
+		legacy_of_roku_and_sozin = {
 
 			removal_cost = -1
 
@@ -87,18 +124,6 @@ ideas = {
 		}
 		ruthless_expansionism = {
 
-			available = {
-				always = yes
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
-
 			removal_cost = -1
 
 			modifier = {
@@ -107,22 +132,10 @@ ideas = {
 			}
 		}
 
-		promote_war_support = {
+		FIR_popaganda_1 = {
 
-			available = {
-				OR = {
-					has_war_support < 0.25
-					has_idea = national_prosperity
-				}
-			}
-			
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = yes
-			}
+			name = promote_war_support
+			picture = promote_war_support
 
 			removal_cost = -1
 
@@ -131,15 +144,28 @@ ideas = {
 			}
 		}
 
-		spirit_prince_azulon = {
-			
-			allowed = {
-				always = no
-			}
+		FIR_popaganda_2 = {
 
-			allowed_civil_war = {
-				always = yes
+			name = promote_war_support
+			picture = promote_war_support
+
+			removal_cost = -1
+
+			modifier = {
+				war_support_factor = 0.15
 			}
+		}
+
+		spirit_prince_azulon = {
+
+			removal_cost = -1
+			
+			modifier = {
+				stability_factor = 0.05
+			}
+		}
+
+		spirit_princess_rhya = {
 
 			removal_cost = -1
 			
@@ -149,13 +175,6 @@ ideas = {
 		}
 		
 		FIR_first_invasion = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
-			}
 
 			removal_cost = -1
 
@@ -168,12 +187,15 @@ ideas = {
 		}
 
 		FIR_northern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					WUL = { has_capitulated = yes }
+					NOW = { has_capitulated = yes }
+					XIN = { has_capitulated = yes }
+					NIX = { has_capitulated = yes }
+					YUE = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
@@ -205,12 +227,15 @@ ideas = {
 		}
 
 		FIR_central_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					POH = { has_capitulated = yes }
+					TAK = { has_capitulated = yes }
+					HAN = { has_capitulated = yes }
+					MAK = { has_capitulated = yes }
+					MER = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
@@ -242,12 +267,15 @@ ideas = {
 		}
 
 		FIR_southern_plan = {
-			allowed = {
-				always = no
-			}
-
-			allowed_civil_war = {
-				always = no
+			
+			cancel = {
+				AND = {
+					HEB = { has_capitulated = yes }
+					OMS = { has_capitulated = yes }
+					CHN = { has_capitulated = yes }
+					ZAO = { has_capitulated = yes }
+					GAO = { has_capitulated = yes }
+				}
 			}
 
 			removal_cost = -1
@@ -276,6 +304,20 @@ ideas = {
 				tag = GAO
 				attack_bonus_against = 0.10
 			}
+		}
+
+		FIR_modern_agriculture = {
+			
+			removal_cost = -1
+
+			modifier = {
+				farmer_factor = -0.20
+				rancher_factor = -0.20
+				steel_demand = 0.05
+				fossile_fuels_demand = 0.05
+				harvesting_factor = 0.05
+			}
+
 		}
 
 		FIR_military_school = {	
@@ -331,8 +373,15 @@ ideas = {
 				political_power_cost = 0.2
 			}
 		}
-
 	}
+
+
+	####  ####  ### #  ###  #   # #### ###       
+	#   # #    #    # #     ##  # #    #  #    
+	#   # ###   ##  # #  ## # # # ###  ###   
+	#   # #       # # #   # #  ## #    #  #   
+	####  #### ###  #  ###  #   # #### #   #     
+
 	
 	melee_designer = {
 
@@ -383,10 +432,10 @@ ideas = {
 			}
 
 			research_bonus = {
-				artillery = 0.15
+				archer_tech = 0.15
 			}
 			
-			traits = { nwt_archer_designer }
+			traits = { fir_archer_designer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -415,7 +464,7 @@ ideas = {
 				cavalry = 0.15
 			}
 			
-			traits = { nwt_buffalo_yak_trainer }
+			traits = { fir_mongooze_lizard_trainer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -438,7 +487,7 @@ ideas = {
 				cavalry = 0.15
 			}
 			
-			traits = { nwt_polar_dog_trainer }
+			traits = { fir_komodo_rhino_trainer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -467,7 +516,7 @@ ideas = {
 				naval_equipment = 0.15
 			}
 			
-			traits = { nwt_raid_designer }
+			traits = { fir_capital_designer }
 
 			ai_will_do = {
 				factor = 0.5
@@ -485,10 +534,7 @@ ideas = {
 				OR = { tag = FIR }
 			}
 			available = {
-				has_tech = reform_5
-				NOT = {
-					has_war_with = NWT
-				}
+				
 			}
 
 			modifier = {
@@ -499,7 +545,7 @@ ideas = {
 				motorisation = 0.20 
 			}
 			
-			traits = { nwt_light_engine_designer }
+			traits = { fir_light_engine_designer }
 
 			#### research and trait bonus broken for some reason
 
@@ -523,12 +569,12 @@ ideas = {
 			}
 
 			modifier = {
-				expenses_factor = 0.01
+				expenses_factor = 0.2
 			}
 
-			research_bonus = {
-				industry_tech = 0.10
-			}
+			#research_bonus = {
+			#	industry_tech = 0.10
+			#}
 			
 			traits = { fir_consumer_industries }
 
@@ -555,6 +601,33 @@ ideas = {
 			}
 			
 			traits = { fir_heavy_industries }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+
+		fir_wartime_industry_designer = {
+
+			allowed = {
+				OR = { tag = FIR }
+			}
+			visible = {
+				has_country_flag = FIR_funded_war_indstries
+			}
+			available = {
+				
+			}
+
+			modifier = {
+				expenses_factor = 0.5
+			}
+
+			research_bonus = {
+				#industry_tech = 0.10
+			}
+			
+			traits = { fir_wartime_industries }
 
 			ai_will_do = {
 				factor = 0.5

@@ -15,7 +15,7 @@ country_event = {
 		TAG = FIR
 		if = {
 			limit = {
-				has_game_rule = { rule = RULE_OPTION_EARTHKINGDOM_UNITED option = yes }
+				has_game_rule = { rule = earthkingdom_fragmentation_status option = EARTHKINGDOM_UNITED }
 			}
 			NOT = {
 				EAR = { has_full_control_of_state = 154 }
@@ -42,13 +42,11 @@ country_event = {
 	option = {
 		name = fir_battle.1.a
 		### came to stay
-		hidden_effect = {
-			FIR = { 
-				set_country_flag = taku_conquest_expectations
-				country_event = { months = 3 id = fir_battle.2 } 
-			}
+		FIR = { 
+			activate_mission = taku_conquest_expectations
+			country_event = { days = 60 id = fir_battle.2 } 
 		}
-		custom_effect_tooltip = conquest_expectations
+		#custom_effect_tooltip = conquest_expectations
 	}
 	option = {
 		name = fir_battle.1.b
@@ -69,13 +67,13 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = taku_conquest_expectations
+		has_active_mission = taku_conquest_expectations
 		NOT = { has_global_flag = fall_of_taku }
 	}
 
 	immediate = {
  		hidden_effect = {
-			set_country_flag = taku_conquest_failed
+			
 		}
  	}
 	
@@ -92,6 +90,86 @@ country_event = {
 		add_war_support = -0.05
 	}
 	
+}
+
+### taku failure
+country_event = {
+	id = fir_battle.10
+	title = fir_battle.10.t
+	desc = fir_battle.10.d
+	picture = GFX_report_event_people_concerned
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+ 		hidden_effect = {
+			set_country_flag = taku_conquest_failed
+		}
+ 	}
+	
+	option = {
+		name = fir_battle.10.a
+		### too bad
+
+	}
+	
+}
+
+# fall of taku
+country_event = {
+	id = fir_battle.3
+	title = fir_battle.3.t
+	desc = fir_battle.3.d
+	picture = GFX_report_event_fir_soldiers
+
+	fire_only_once = yes
+
+	is_triggered_only = yes
+
+	option = { #a great idea!
+		name = fir_battle.3.a
+		ai_chance = {
+			base = 100
+		}
+		154 = {
+			add_compliance = 20
+		}
+		add_named_threat = { 
+		    threat = 2 
+		    name = FIR_atrocity
+		}
+		hidden_effect = {
+			every_state = {
+				limit = {
+					OR = {
+					state = 154
+					}
+				}
+				add_dynamic_modifier = { modifier = destroyed_city }
+			}
+			set_victory_points = {
+				province = 563
+				value = 10
+			}
+		}
+	}
+
+	option = { #rather not
+		name = fir_battle.3.b
+		ai_chance = {
+			base = 0
+		}
+		FIR = {
+			add_stability = -0.05
+			add_timed_idea = {
+				idea = unit_morale_dropped
+				days = 30
+			}
+		}
+	}
+
 }
 
 news_event = {
@@ -180,59 +258,135 @@ news_event = {
 	}
 }
 
-# fall of taku
-country_event = {
-	id = fir_battle.3
-	title = fir_battle.3.t
-	desc = fir_battle.3.d
-	picture = GFX_report_event_fir_soldiers
 
+### yu dao battle
+country_event = {
+	id = fir_battle.4
+	title = fir_battle.4.t
+	desc = fir_battle.4.d
+	picture = GFX_report_event_fir_approach_field
+	
+	fire_only_once = yes
+	
+	trigger = {
+		TAG = FIR
+		if = {
+			limit = {
+				has_game_rule = { rule = earthkingdom_fragmentation_status option = EARTHKINGDOM_UNITED }
+			}
+			OR = {
+				NOT = {
+					EAR = { has_full_control_of_state = 230 }
+				}
+				NOT = {
+					EAR = { has_full_control_of_state = 212 }
+				}
+			}
+		}
+		else = {
+			OR = {
+				NOT = {
+					WUL = { has_full_control_of_state = 230 }
+				}
+				NOT = {
+					WUL = { has_full_control_of_state = 212 }
+				}
+			}
+		}
+		OR = {
+			FIR = { has_war_with = WUL }
+			FIR = { has_war_with = EAR }
+		}
+		NOT = { has_global_flag = fall_of_yudao }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+	
+	option = {
+		name = fir_battle.4.a
+		### our bread basket
+		FIR = { 
+			activate_mission = yudao_conquest_expectations
+			country_event = { days = 60 id = fir_battle.5 } 
+		}
+		#custom_effect_tooltip = conquest_expectations
+	}
+	option = {
+		name = fir_battle.4.b
+		### see how it goes
+	}
+	
+}
+
+### yu dao concerns
+country_event = {
+	id = fir_battle.5
+	title = fir_battle.5.t
+	desc = fir_battle.5.d
+	picture = GFX_report_event_people_concerned
+	
 	fire_only_once = yes
 
 	is_triggered_only = yes
-
-	option = { #a great idea!
-		name = fir_battle.3.a
-		ai_chance = {
-			base = 100
-		}
-		154 = {
-			add_compliance = 20
-		}
-		add_named_threat = { 
-		    threat = 2 
-		    name = FIR_atrocity
-		}
-		hidden_effect = {
-			every_state = {
-				limit = {
-					OR = {
-					state = 154
-					}
-				}
-				add_dynamic_modifier = { modifier = destroyed_city }
-			}
-			set_victory_points = {
-				province = 563
-				value = 10
-			}
-		}
+	
+	trigger = {
+		has_active_mission = yudao_conquest_expectations
+		NOT = { has_global_flag = fall_of_yudao }
 	}
 
-	option = { #rather not
-		name = fir_battle.3.b
-		ai_chance = {
-			base = 0
+	immediate = {
+ 		hidden_effect = {
+			
 		}
-		FIR = {
-			add_stability = -0.05
-			add_timed_idea = {
-				idea = unit_morale_dropped
-				days = 30
-			}
+ 	}
+	
+	option = {
+		name = fir_battle.5.a
+		### make propaganda
+		
+		add_political_power = -100
+		add_days_mission_timeout = {
+			mission = yudao_conquest_expectations
+			days = 30
 		}
 	}
+	option = {
+		name = fir_battle.5.b
+		### hide the truth
 
+		add_war_support = -0.05
+	}
+	
+}
+
+### yu dao failure
+country_event = {
+	id = fir_battle.6
+	title = fir_battle.6.t
+	desc = fir_battle.6.d
+	picture = GFX_report_event_people_concerned
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
+	immediate = {
+ 		hidden_effect = {
+			set_country_flag = yudao_conquest_failed
+		}
+ 	}
+	
+	option = {
+		name = fir_battle.6.a
+		### the war is not going well
+		
+		
+	}
+	
 }
 
 news_event = {
@@ -277,7 +431,41 @@ news_event = {
 	}
 	option = {
 		name = far_news.2.b
-		trigger = { TAG = FIR }
+		trigger = { 
+			TAG = FIR
+			NOT = {
+				has_active_mission = yudao_conquest_expectations
+			}
+		}
+	}
+	option = {
+		name = far_news.2.b_success
+		trigger = { 
+			TAG = FIR
+			has_active_mission = yudao_conquest_expectations
+			NOT = {
+				has_country_flag = yudao_conquest_failed
+			}
+		}
+
+		add_to_variable = {
+			var = weekly_accumulated_exhaustion
+			value = -10
+			tooltip = war_weariness_remove_tooltip
+		}
+		add_war_support = 0.05
+	}
+	option = {
+		name = far_news.2.b_failure
+		trigger = { 
+			TAG = FIR
+			has_country_flag = yudao_conquest_failed
+		}
+		add_to_variable = {
+			var = weekly_accumulated_exhaustion
+			value = 5
+			tooltip = war_weariness_add_tooltip
+		}
 	}
 	option = {
 		name = far_news.2.c
@@ -287,9 +475,9 @@ news_event = {
 
 ### garsai battle
 country_event = {
-	id = fir_battle.4
-	title = fir_battle.4.t
-	desc = fir_battle.4.d
+	id = fir_battle.7
+	title = fir_battle.7.t
+	desc = fir_battle.7.d
 	picture = GFX_report_event_fir_approach_field
 	
 	fire_only_once = yes
@@ -298,20 +486,24 @@ country_event = {
 		TAG = FIR
 		if = {
 			limit = {
-				has_game_rule = { rule = RULE_OPTION_EARTHKINGDOM_UNITED option = yes }
+				has_game_rule = { rule = earthkingdom_fragmentation_status option = EARTHKINGDOM_UNITED }
 			}
-			NOT = {
-				OR = {
+			OR = {
+				NOT = {
 					EAR = { has_full_control_of_state = 164 }
+				}
+				NOT = {
 					EAR = { has_full_control_of_state = 124 }
 				}
 			}
-			else = {
+		}
+		else = {
+			OR = {
 				NOT = {
-					OR = {
-						XIN = { has_full_control_of_state = 164 }
-						XIN = { has_full_control_of_state = 124 }
-					}
+					XIN = { has_full_control_of_state = 164 }
+				}
+				NOT = {
+					XIN = { has_full_control_of_state = 124 }
 				}
 			}
 		}
@@ -329,18 +521,18 @@ country_event = {
  	}
 	
 	option = {
-		name = fir_battle.4.a
+		name = fir_battle.7.a
 		### our bread basket
 		hidden_effect = {
 			FIR = { 
-				set_country_flag = garsai_conquest_expectations
-				country_event = { months = 4 id = fir_battle.5 } 
+				activate_mission = garsai_conquest_expectations
+				country_event = { days = 60 id = fir_battle.8 } 
 			}
 		}
 		custom_effect_tooltip = conquest_expectations
 	}
 	option = {
-		name = fir_battle.4.b
+		name = fir_battle.7.b
 		### see how it goes
 	}
 	
@@ -348,9 +540,9 @@ country_event = {
 
 ### garsai concerns
 country_event = {
-	id = fir_battle.5
-	title = fir_battle.5.t
-	desc = fir_battle.5.d
+	id = fir_battle.8
+	title = fir_battle.8.t
+	desc = fir_battle.8.d
 	picture = GFX_report_event_people_concerned
 	
 	fire_only_once = yes
@@ -358,10 +550,46 @@ country_event = {
 	is_triggered_only = yes
 	
 	trigger = {
-		has_country_flag = garsai_conquest_expectations
+		has_active_mission = garsai_conquest_expectations
 		NOT = { has_global_flag = fall_of_garsai }
 	}
 
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+	
+	option = {
+		name = fir_battle.8.a
+		### make propaganda
+		
+		add_political_power = -100
+		add_days_mission_timeout = {
+			mission = garsai_conquest_expectations
+			days = 30
+		}
+	}
+	option = {
+		name = fir_battle.8.b
+		### hide the truth
+
+		add_war_support = -0.05
+	}
+	
+}
+
+### garsai failure
+country_event = {
+	id = fir_battle.9
+	title = fir_battle.9.t
+	desc = fir_battle.9.d
+	picture = GFX_report_event_people_concerned
+	
+	fire_only_once = yes
+
+	is_triggered_only = yes
+	
 	immediate = {
  		hidden_effect = {
 			set_country_flag = garsai_conquest_failed
@@ -369,16 +597,10 @@ country_event = {
  	}
 	
 	option = {
-		name = fir_battle.5.a
-		### make propaganda
+		name = fir_battle.9.a
+		### the war is not going well
 		
-		add_political_power = -100
-	}
-	option = {
-		name = fir_battle.5.b
-		### hide the truth
-
-		add_war_support = -0.05
+		
 	}
 	
 }
@@ -428,7 +650,7 @@ news_event = {
 		trigger = { 
 			TAG = FIR
 			NOT = {
-				has_country_flag = garsai_conquest_expectations
+				has_active_mission = garsai_conquest_expectations
 			}
 		}
 	}
@@ -436,7 +658,7 @@ news_event = {
 		name = far_news.3.b_success
 		trigger = { 
 			TAG = FIR
-			has_country_flag = garsai_conquest_expectations
+			has_active_mission = garsai_conquest_expectations
 			NOT = {
 				has_country_flag = garsai_conquest_failed
 			}
@@ -453,7 +675,6 @@ news_event = {
 		name = far_news.3.b_failure
 		trigger = { 
 			TAG = FIR
-			has_country_flag = garsai_conquest_expectations
 			has_country_flag = garsai_conquest_failed
 		}
 		add_to_variable = {

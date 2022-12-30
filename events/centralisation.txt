@@ -11,6 +11,8 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
+	
 	trigger = {
 		NOT = {
 			has_idea = no_ruler
@@ -44,6 +46,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -69,20 +72,7 @@ country_event = {
 	option = {
 		name = centralisation.2.a
 
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = carpentry
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = carpentry
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_carpentry_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -106,6 +96,7 @@ country_event = {
 	}
 
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	immediate = {
 		hidden_effect = {
@@ -125,20 +116,7 @@ country_event = {
 	option = {
 		name = centralisation.3.a
 
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = masonry
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = masonry
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_masonry_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -156,6 +134,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -181,21 +160,7 @@ country_event = {
 	option = {
 		name = centralisation.4.a
 
-		random_owned_controlled_state = {
-			limit = {
-				check_variable = { field_available < 0 }
-				free_building_slots = {
-					building = farm
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = farm
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_farm_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -213,6 +178,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -238,21 +204,7 @@ country_event = {
 	option = {
 		name = centralisation.5.a
 
-		random_owned_controlled_state = {
-			limit = {
-				check_variable = { animal_available < 0 }
-				free_building_slots = {
-					building = ranch
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = ranch
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_ranch_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -276,6 +228,7 @@ country_event = {
 	}
 
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	immediate = {
 		hidden_effect = {
@@ -295,20 +248,7 @@ country_event = {
 	option = {
 		name = centralisation.6.a
 
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = mill
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = mill
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_mill_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -326,6 +266,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -351,21 +292,7 @@ country_event = {
 	option = {
 		name = centralisation.7.a
 
-		random_owned_controlled_state = {
-			limit = {
-				check_variable = { forest_available < 0 }
-				free_building_slots = {
-					building = lumber_mill
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = lumber_mill
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_lumber_mill_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -383,6 +310,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -408,21 +336,7 @@ country_event = {
 	option = {
 		name = centralisation.8.a
 
-		random_owned_controlled_state = {
-			limit = {
-				check_variable = { stonefield_available < 0 }
-				free_building_slots = {
-					building = quarry
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = quarry
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_quarry_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -440,6 +354,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -477,36 +392,10 @@ country_event = {
 
 		random_list = {
 			50 = { 
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = crop_weaving
-							size > 0
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = crop_weaving
-						level = 1
-						instant_build = yes
-					}
-				}
+				add_crop_weaving_random_instant = yes
 			}
 			50 = {
-				random_owned_controlled_state = {
-					limit = {
-						free_building_slots = {
-							building = animal_weaving
-							size > 0
-							include_locked = no
-						}
-					}
-					add_building_construction = {
-						type = animal_weaving
-						level = 1
-						instant_build = yes
-					}
-				}
+				add_animal_weaving_random_instant = yes
 			}
 		}
 		
@@ -532,6 +421,7 @@ country_event = {
 	}
 
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	immediate = {
 		hidden_effect = {
@@ -551,20 +441,7 @@ country_event = {
 	option = {
 		name = centralisation.10.a
 
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = consumer_good_factory
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-			    type = consumer_good_factory
-			    level = 1
-			    instant_build = yes
-			}
-		}
+		add_consumer_good_factory_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -575,7 +452,7 @@ country_event = {
 
 
 
-#### manpower
+#### luxury store
 country_event = {
 	id = centralisation.11
 	title = centralisation.11.title
@@ -584,6 +461,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -594,7 +472,7 @@ country_event = {
 	option = {
 		name = centralisation.11.a
 
-		add_manpower = 2000
+		add_luxury_good_factory_random_instant = yes
 		
 		ai_chance = {
 			base = 0
@@ -612,6 +490,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {
@@ -659,6 +538,7 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	is_triggered_only = yes
+	minor_flavor = yes
 
 	trigger = {
 		NOT = {

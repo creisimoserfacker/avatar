@@ -9,16 +9,44 @@ ideas = {
 			}
 			removal_cost = -1
 			modifier = {
-				stability_factor = -0.25
-				drift_defence_factor = -0.5
-				industrial_capacity_factory = -0.5
-				industrial_capacity_dockyard = -0.5
-				production_speed_buildings_factor = -0.2
-				refit_ic_cost = -0.5
-				navy_refit_ic_cost = -0.5
-				currency_amount = 1
+				peoples_initiative = -0.5
+				farmer_factor = -0.75
+				miller_factor = -0.75
+				fisher_factor = -0.75
+				rancher_factor = -0.75
+				lumberjack_factor = -0.75
+				miner_factor = -0.75
+				weaver_factor = -0.75
+				smith_factor = -0.75
+				harbour_worker_factor = -0.75
+				shopkeeper_factor = -0.75
+				craftsman_factor = -0.75
+				industrial_worker_factor = -0.75
+			}
+
+			on_remove = {
+				set_variable = {
+					var = var_money_printing
+					value = 0.0
+					tooltip = var_money_printing_set_tooltip
+				}
 			}
 		}
+
+		population_counted = {
+			allowed = {
+				always = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+			modifier = {
+				weekly_centralisation = 1
+				expenses_factor = -1
+			}
+		}
+
 		merchant_tradition = {
 			allowed = {
 				always = no
@@ -30,7 +58,7 @@ ideas = {
 			modifier = {
 				industrial_capacity_dockyard = 0.2
 				naval_equipment_upgrade_xp_cost = -0.5
-				navy_refit_speed = 0.5
+				refit_speed = 0.5
 				navy_max_range_factor = 1
 				naval_speed_factor = 0.1
 			}

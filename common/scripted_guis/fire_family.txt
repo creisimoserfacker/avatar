@@ -15,6 +15,18 @@ scripted_gui = {
 				has_country_flag = sozin_wife_elua
 			}
 
+			rhya_young_visible = {
+				check_variable = { mtth:rhya_age > 15 }
+				check_variable = { mtth:rhya_age < 55 }
+				OR = {
+					has_idea = spirit_princess_rhya
+					has_country_leader = {
+						name = "Rhya"
+						ruling_only = yes
+					}
+				}
+			}
+
 			azulon_baby_visible = {
 				check_variable = { mtth:azulon_age < 4 }
 				has_idea = spirit_prince_azulon

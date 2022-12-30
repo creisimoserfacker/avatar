@@ -67,11 +67,12 @@ firenation_settlers = {
 
 	icon = GFX_modifiers_firenation_settlers
 	
-	state_resources_factor = -0.25
+	state_resources_factor = -0.5
 	state_production_speed_buildings_factor = -0.25
 	attrition_for_controller = 0.02
 	local_supplies_for_controller = -0.1
 	army_speed_factor_for_controller = -0.5
+	local_manpower = -0.45
 }
 earthkingdom_settlers = {
 	enable = { always = yes }
@@ -86,11 +87,12 @@ earthkingdom_settlers = {
 
 	icon = GFX_modifiers_earthkingdom_settlers
 	
-	state_resources_factor = -0.25
+	state_resources_factor = -0.5
 	state_production_speed_buildings_factor = -0.25
 	attrition_for_controller = 0.02
 	local_supplies_for_controller = -0.1
 	army_speed_factor_for_controller = -0.5
+	local_manpower = -0.45
 }
 watertribe_settlers = {
 	enable = { always = yes }
@@ -105,11 +107,12 @@ watertribe_settlers = {
 
 	icon = GFX_modifiers_watertribe_settlers
 	
-	state_resources_factor = -0.25
+	state_resources_factor = -0.5
 	state_production_speed_buildings_factor = -0.25
 	attrition_for_controller = 0.02
 	local_supplies_for_controller = -0.1
 	army_speed_factor_for_controller = -0.5
+	local_manpower = -0.45
 }
 airnomad_settlers = {
 	enable = { always = yes }
@@ -124,11 +127,12 @@ airnomad_settlers = {
 
 	icon = GFX_modifiers_airnomad_settlers
 	
-	state_resources_factor = -0.25
+	state_resources_factor = -0.5
 	state_production_speed_buildings_factor = -0.25
 	attrition_for_controller = 0.02
 	local_supplies_for_controller = -0.1
 	army_speed_factor_for_controller = -0.5
+	local_manpower = -0.45
 }
 pluralist_settlers = {
 	enable = { always = yes }
@@ -143,11 +147,12 @@ pluralist_settlers = {
 
 	icon = GFX_modifiers_pluralist_settlers
 	
-	state_resources_factor = -0.25
+	state_resources_factor = -0.5
 	state_production_speed_buildings_factor = -0.25
 	attrition_for_controller = 0.02
 	local_supplies_for_controller = -0.1
 	army_speed_factor_for_controller = -0.5
+	local_manpower = -0.45
 }
 
 occupied_has_dominant_culture = {
@@ -158,6 +163,19 @@ occupied_has_dominant_culture = {
 	compliance_gain = 0.08
 	resistance_target = -0.15
 	resistance_decay = 0.5
+}
+
+relocate_fire_population  = {
+	enable = { always = yes }
+	remove_trigger = {
+		THIS.CONTROLLER = {
+			has_government = fire_culture
+		}
+	}
+
+	icon = GFX_modifiers_relocate_fire_population
+	
+	monthly_fire_culture_in_state = -2.5
 }
 
 recent_rebel_activity = {

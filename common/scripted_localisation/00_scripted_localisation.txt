@@ -9,6 +9,32 @@
 # that'll be used if trigger passes
 
 
+defined_text = {
+	name = GetQualityGrowth
+	text = {
+		trigger = {
+			check_variable = { unit_quality_variable > modifier@unit_quality_target }
+		}
+		localization_key = qualitydecrease
+	}
+	text = {
+		trigger = {
+			check_variable = { unit_quality_variable < modifier@unit_quality_target }
+		}
+		localization_key = qualityincrease
+	}
+	text = {
+		localization_key = qualitystale
+	}
+}
+
+defined_text = {
+	name = GetQualityModifiers
+	text = {
+		localization_key = qualitymodifiers
+	}
+}
+
 ### peace
 
 defined_text = {
@@ -57,6 +83,41 @@ defined_text = {
 			THIS.CONTROLLER = {has_government = pluralist_culture}
 		}
 		localization_key = nonbender_population_trigger
+	}
+}
+
+defined_text = {
+	name = HasAttackerCheck
+	text = {
+		trigger = {
+			FROM = {
+				check_variable = { 
+					var = attacker
+					compare = not_equals
+				}
+			}
+		}
+		localization_key = has_attacker
+	}
+	text = {
+		localization_key = no_attacker
+	}
+}
+defined_text = {
+	name = HasDefenderCheck
+	text = {
+		trigger = {
+			FROM = {
+				check_variable = { 
+					var = defender
+					compare = not_equals
+				}
+			}
+		}
+		localization_key = has_defender
+	}
+	text = {
+		localization_key = no_defender
 	}
 }
 
@@ -267,41 +328,6 @@ defined_text = {
 
 #### legitimacy
 
-
-defined_text = {
-    name = get_state_type_modifiers
-    
-    text = {
-        trigger = {
-            has_idea = state_1
-        }
-        localization_key = "state_1_modifiers"
-    }
-    text = {
-        trigger = {
-            has_idea = state_2
-        }
-        localization_key = "state_2_modifiers"
-    }
-    text = {
-        trigger = {
-            has_idea = state_3
-        }
-        localization_key = "state_3_modifiers"
-    }
-    text = {
-        trigger = {
-            has_idea = state_4
-        }
-        localization_key = "state_4_modifiers"
-    }
-    text = {
-        trigger = {
-            has_idea = state_5
-        }
-        localization_key = "state_5_modifiers"
-    }
-}
 
 #### Air Council
 ### Air Council

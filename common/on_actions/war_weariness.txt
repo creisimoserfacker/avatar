@@ -29,7 +29,7 @@ on_actions = {
 				#max = 0
 			}
 			
-
+			set_variable = { war_exhaustion_variable = war_exhaustion_variable }
 			clamp_variable = { var = war_exhaustion_variable min = 0 max = 100 }
 
 			set_variable = { war_exhaustion_percentage = war_exhaustion_variable }
@@ -145,6 +145,28 @@ on_actions = {
 			add_to_variable = { war_exhaustion_variable = weekly_accumulated_exhaustion }
 			add_to_variable = { war_exhaustion_variable = casualty_accumulated_exhaustion }
 			add_to_variable = { war_exhaustion_variable = occupation_accumulated_exhaustion }
+
+			set_variable = { war_exhaustion_check = war_exhaustion_weekly }
+			add_to_variable = { war_exhaustion_check = weariness_casualties }
+			add_to_variable = { war_exhaustion_check = occupation_war_exhaustion }
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_variable = 0 }
+				}
+				clamp_variable = {
+					var = war_exhaustion_check
+					min = 0
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { war_exhaustion_variable = 100 }
+				}
+				clamp_variable = {
+					var = war_exhaustion_check
+					max = 0
+				}
+			}
 
 		}
 	}

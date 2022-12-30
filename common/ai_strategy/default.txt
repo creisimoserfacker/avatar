@@ -12,78 +12,6 @@
 # contain
 # area_priority
 
-GEN_unit_production = {
-	enable = {
-		NOT = {
-			tag = FIR
-		}
-		OR = {
-			date < 106.2.4 
-			date > 107.6.19 
-		}
-	}
-	abort = {
-		always = no
-	}
-	
-	ai_strategy = {
-		type = role_ratio
-		id = defender
-		value = 80
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = landing_troops
-		value = 20
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = offensive
-		value = 60
-	}
-	
-	
-	# Naval unit factors
-	ai_strategy = {
-		type = unit_ratio
-		id = capital_ship
-		value = 10
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = submarine
-		value = 0
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = screen_ship
-		value = 100
-	}
-
-	ai_strategy = {
-		type = unit_ratio
-		id = convoy
-		value = 15
-	}
-
-}
-
-default_role_ratios = {
-	enable = {
-		has_dlc = "Man the Guns"
-		original_tag = FIR
-	}
-
-	ai_strategy = {
-		type = role_ratio
-		id = cruiser
-		value = 100
-	}
-}
 
 
 default_pp_spend_amount = {
@@ -104,32 +32,32 @@ default_pp_spend_amount = {
 	}
 }
 
-deploy_some_units = {
-	enable = {
-		date > 20.1.1
-		NOT = { original_tag = FIR }
-		manpower_per_military_factory > 650
-	}
+#deploy_some_units = {
+#	enable = {
+#		date > 20.1.1
+#		NOT = { original_tag = FIR }
+#		manpower_per_military_factory > 650
+#	}
+#
+#	ai_strategy = {
+#		type = force_build_armies
+#		value = 100
+#	}
+#	
+#}
 
-	ai_strategy = {
-		type = force_build_armies
-		value = 100
-	}
-	
-}
 
-
-default_area_priority = {
-	enable = {
-		NOT = { original_tag = FIR } 
-	}
-
-	ai_strategy = {
-		type = area_priority
-		id = earth_plate
-		value = 100
-	}
-}
+#default_area_priority = {
+#	enable = {
+#		NOT = { original_tag = FIR } 
+#	}
+#
+#	ai_strategy = {
+#		type = area_priority
+#		id = earth_plate
+#		value = 100
+#	}
+#}
 
 
 save_admiral_pp_for_later = {
@@ -156,12 +84,12 @@ save_admiral_pp_for_later = {
 do_not_waste_pp_if_saving_for_manpower_laws = {
 
 	enable = {
-		manpower_per_military_factory < 500
+		manpower_per_military_factory < 50
 		has_war = yes
 	}
 	abort = {
 		OR = {
-			manpower_per_military_factory > 500
+			manpower_per_military_factory > 50
 			has_war = no
 		}
 	}

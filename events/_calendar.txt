@@ -35,14 +35,20 @@ news_event = {
 			limit = {
 				has_state_flag = northern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = winter_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = winter_modifier } }
+				remove_dynamic_modifier = { modifier = winter_modifier }
+			}
 			add_dynamic_modifier = { modifier = spring_modifier }
 		}
 		every_state = {
 			limit = {
 				has_state_flag = southern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = summer_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = summer_modifier } }
+				remove_dynamic_modifier = { modifier = summer_modifier }
+			}
 			add_dynamic_modifier = { modifier = fall_modifier }
 		}
 	}
@@ -66,14 +72,20 @@ news_event = {
 			limit = {
 				has_state_flag = northern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = spring_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = spring_modifier } }
+				remove_dynamic_modifier = { modifier = spring_modifier }
+			}
 			add_dynamic_modifier = { modifier = summer_modifier }
 		}
 		every_state = {
 			limit = {
 				has_state_flag = southern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = fall_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = fall_modifier } }
+				remove_dynamic_modifier = { modifier = fall_modifier }
+			}
 			add_dynamic_modifier = { modifier = winter_modifier }
 		}
 	}
@@ -96,14 +108,20 @@ news_event = {
 			limit = {
 				has_state_flag = northern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = summer_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = summer_modifier } }
+				remove_dynamic_modifier = { modifier = summer_modifier }
+			}
 			add_dynamic_modifier = { modifier = fall_modifier }
 		}
 		every_state = {
 			limit = {
 				has_state_flag = southern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = winter_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = winter_modifier } }
+				remove_dynamic_modifier = { modifier = winter_modifier }
+			}
 			add_dynamic_modifier = { modifier = spring_modifier }
 		}
 	}
@@ -126,14 +144,20 @@ news_event = {
 			limit = {
 				has_state_flag = northern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = fall_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = fall_modifier } }
+				remove_dynamic_modifier = { modifier = fall_modifier }
+			}
 			add_dynamic_modifier = { modifier = winter_modifier }
 		}
 		every_state = {
 			limit = {
 				has_state_flag = southern_hemisphere
 			}
-			remove_dynamic_modifier = { modifier = spring_modifier }
+			if = {
+				limit = { has_dynamic_modifier = { modifier = spring_modifier } }
+				remove_dynamic_modifier = { modifier = spring_modifier }
+			}
 			add_dynamic_modifier = { modifier = summer_modifier }
 		}
 	}
@@ -151,57 +175,48 @@ country_event = {
 	is_triggered_only = yes
 
 	immediate = { 
-		
+		hidden_effect = {
+			var:global.volcano_state = {
+				THIS = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.2
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+					damage_units = {
+						state = THIS
+						org_damage = 0.5
+						str_damage = 0.25
+						ratio = yes
+						army = yes
+						navy = yes
+					}
+				}
+				random_neighbor_state = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.1
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+				}
+				random_neighbor_state = {
+					add_to_variable = {
+						var = stonefield
+						value = 0.1
+						tooltip = add_stonefield_tooltip
+					}
+					damage_all_building = yes
+				}
+			}
+		}
 	}
 
 	option = {
 		name = nature.1.a
 
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 4
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 4
-			}
-			custom_effect_tooltip = add_stonefield_4
-			clr_state_flag = volcano_eruption
-		}
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption_2
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 3
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 6
-			}
-			custom_effect_tooltip = add_stonefield_6
-			clr_state_flag = volcano_eruption_2
-		}
-		every_state = {
-			limit = {
-				has_state_flag = volcano_eruption_3
-			}
-			damage_building = {
-				type = infrastructure
-				damage = 2
-			}
-			add_to_variable = {
-				var = stonefield
-				value = 4
-			}
-			custom_effect_tooltip = add_stonefield_4
-			clr_state_flag = volcano_eruption_3
-		}
+		
 	}
 }
 

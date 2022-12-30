@@ -60,7 +60,10 @@ reoccupy_category = {
 		}
 
 		fire_only_once = no
-		#cost = THIS.distance_to@capital?10
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1 }
+		}
+		custom_cost_text = expenses_1000
 
 		days_remove = 365
 		#days_re_enable = 180
@@ -77,7 +80,7 @@ reoccupy_category = {
 		modifier = {
 			monthly_population = -0.1
 			stability_weekly_factor = -0.001
-			expenses_factor = 0.1
+			expenses_factor = 1
 		}
 
 		remove_effect = {
@@ -207,84 +210,49 @@ recruitment_decision_category = {
 
 
 war_measures_category = {
-	
-	rotate_frontlines = {
-
-		available = {
-            casualties > 200
-        }
-
-        days_remove = 30
-		days_re_enable = 150
-
-        modifier = {
-        	stability_weekly_factor = 0.005
-			army_org_factor = 0.05
-			army_org_regain = 0.1
-			army_attack_factor = -0.25
-			army_defence_factor = -0.25
-			experience_gain_army_unit_factor = -0.5
-			land_reinforce_rate =  -0.015
-        }
-
-		remove_effect = {
-			add_to_variable = {
-				var = weekly_accumulated_exhaustion
-				value = -10
-				tooltip = war_weariness_remove_tooltip
-			}
-		}
-
-		cost = 100
-
-        ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
-		}
-	}
 
 	campaign_season = {
 
 		icon = attack_plan
 
 		available = {
-            has_war = yes
+			has_war = yes
 			NOT = { 
-			has_country_flag = military_campaign
+				has_country_flag = military_campaign
 			}
-        }
+		}
 
-        days_remove = 100
+		days_remove = 100
 
-        modifier = {
+		modifier = {
 			weekly_war_weariness = 0.01
-        	army_attack_factor = 0.05
+			army_attack_factor = 0.05
 			army_speed_factor = 0.05
 			land_reinforce_rate = 0.01
-        }
+		}
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
 		}
 		
-        ai_will_do = {
-			factor = 00
+		ai_will_do = {
+			factor = 1
 			modifier = {
 				AND = {
 					has_war = yes
 					original_tag = FIR
-					check_variable = { war_exhaustion_variable < 300 }
+					check_variable = { war_exhaustion_weekly < 5 }
 				}
 				add = 50
 			}
@@ -298,7 +266,7 @@ war_measures_category = {
 		available = {
             has_war = yes
 			NOT = { 
-			has_country_flag = military_campaign
+				has_country_flag = military_campaign
 			}
         }
 
@@ -310,31 +278,45 @@ war_measures_category = {
 			army_attack_factor = -0.15
 			army_speed_factor = -0.15
 			breakthrough_factor = -0.15
+			out_of_supply_factor = -0.25
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
-			add_to_variable = {
-				var = weekly_accumulated_exhaustion
-				value = -5
-				tooltip = war_weariness_remove_tooltip
+
+			every_unit_leader = {
+				limit = {
+					is_leading_army = yes
+				}
+				supply_units = 720
 			}
+			#add_to_variable = {
+			#	var = weekly_accumulated_exhaustion
+			#	value = -5
+			#	tooltip = war_weariness_remove_tooltip
+			#}
 		}
 
         ai_will_do = {
-			factor = 00
-			modifier = {
-				AND = {
-					has_war = yes
-					check_variable = { war_exhaustion_variable > 199 }
-				}
-				add = 100
-			}
+			factor = 1
+			#modifier = {
+			#	AND = {
+			#		has_war = yes
+			#		check_variable = { war_exhaustion_variable > 199 }
+			#	}
+			#	add = 100
+			#}
 		}
 	}
 
@@ -355,22 +337,27 @@ war_measures_category = {
         modifier = {
 			army_attack_factor = -0.1
         	resistance_damage_to_garrison_on_our_occupied_states = 0.05
-			war_support_weekly = 0.01
 			army_core_defence_factor = 0.05
 			org_loss_when_moving = 0.05
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
 		}
 		
         ai_will_do = {
-			factor = 02
+			factor = 1
 		}
 	}
 
@@ -395,10 +382,16 @@ war_measures_category = {
 			dont_lose_dig_in_on_attack = 1
         }
 
-		cost = 100
+		#cost = 100
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
 		
 		complete_effect = {
 			set_country_flag = military_campaign
+
+			hidden_effect = { add_command_power = -20 }
 		}
 		remove_effect = {
 			clr_country_flag = military_campaign
@@ -503,14 +496,18 @@ taxation_category = {
 			expenses_factor = 0.05
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
 		
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 2
@@ -533,13 +530,6 @@ taxation_category = {
 			has_idea = family_support_5
 		}
         days_remove = -1
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         modifier = {
         	MONTHLY_POPULATION = 0.2
@@ -549,7 +539,18 @@ taxation_category = {
 			expenses_factor = 0.05
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
+			set_country_flag = public_funding
+		}
 
         ai_will_do = {
 			factor = 1
@@ -584,17 +585,21 @@ taxation_category = {
 			expenses_factor = 0.05
         }
 
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
+
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
 			set_country_flag = public_funding
 			hidden_effect = {
 				add_ideas = tax_culture_spending_very_low
 			}
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
-		
-		cost = 0
 
         ai_will_do = {
 			factor = 0
@@ -631,14 +636,18 @@ taxation_category = {
 			expenses_factor = 0.05
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -674,14 +683,18 @@ taxation_category = {
         	expenses_factor = 0.05
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -704,13 +717,6 @@ taxation_category = {
 			has_idea = family_support_5
 		}
         days_remove = -1
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         modifier = {
         	industrial_capacity_factory = 0.025
@@ -719,7 +725,18 @@ taxation_category = {
 			expenses_factor = 0.05
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.05 }
+		}
+		custom_cost_text = expenses_50
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.05 }
+				add_to_variable = { state_expenses = 0.05 }
+			}
+			set_country_flag = public_funding
+		}
 
         ai_will_do = {
 			factor = 0
@@ -757,14 +774,18 @@ taxation_category = {
 			expenses_factor = 0.1
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 2
@@ -796,14 +817,18 @@ taxation_category = {
 			expenses_factor = 0.1
         }
 		
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -826,10 +851,6 @@ taxation_category = {
 			has_idea = family_support_4
 		}
         days_remove = -1
-
-		#research_bonus = {
-		#	society_reforms = 0.10
-		#}
 		
         modifier = {
         	weekly_war_weariness = -0.01
@@ -838,17 +859,21 @@ taxation_category = {
 			expenses_factor = 0.1
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 			hidden_effect = {
 				add_ideas = tax_culture_spending_low
 			}
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -885,14 +910,18 @@ taxation_category = {
 			expenses_factor = 0.1
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -928,14 +957,18 @@ taxation_category = {
         	expenses_factor = 0.1
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -966,14 +999,18 @@ taxation_category = {
 			expenses_factor = 0.1
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.1 }
+		}
+		custom_cost_text = expenses_100
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.1 }
+				add_to_variable = { state_expenses = 0.1 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1011,14 +1048,18 @@ taxation_category = {
 			expenses_factor = 0.15
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 2
@@ -1050,14 +1091,18 @@ taxation_category = {
 			expenses_factor = 0.15
         }
 		
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -1081,10 +1126,6 @@ taxation_category = {
 		}
         days_remove = -1
 		
-		#research_bonus = {
-		#	society_reforms = 0.15
-		#}
-		
         modifier = {
         	weekly_war_weariness = -0.02
 			stability_factor = 0.1
@@ -1093,17 +1134,21 @@ taxation_category = {
 			
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 			hidden_effect = {
 				add_ideas = tax_culture_spending_average
 			}
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1140,14 +1185,18 @@ taxation_category = {
 			expenses_factor = 0.15
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1183,14 +1232,18 @@ taxation_category = {
         	expenses_factor = 0.15
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -1221,14 +1274,18 @@ taxation_category = {
 			expenses_factor = 0.15
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.15 }
+		}
+		custom_cost_text = expenses_150
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.15 }
+				add_to_variable = { state_expenses = 0.15 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1266,14 +1323,18 @@ taxation_category = {
 			expenses_factor = 0.2
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 2
@@ -1305,14 +1366,18 @@ taxation_category = {
 			expenses_factor = 0.2
         }
 		
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -1335,10 +1400,6 @@ taxation_category = {
 			has_idea = family_support_2
 		}
         days_remove = -1
-
-		#research_bonus = {
-		#	society_reforms = 0.2
-		#}
 		
         modifier = {
         	weekly_war_weariness = -0.03
@@ -1347,17 +1408,21 @@ taxation_category = {
 			expenses_factor = 0.2
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
 			set_country_flag = public_funding
 			hidden_effect = {
 				add_ideas = tax_culture_spending_high
 			}
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1394,14 +1459,18 @@ taxation_category = {
 			expenses_factor = 0.2
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1430,13 +1499,6 @@ taxation_category = {
 			has_idea = family_support_2
 		}
         days_remove = -1
-
-		complete_effect = {
-			set_country_flag = public_funding
-		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         modifier = {
         	local_resources_factor = 0.2
@@ -1444,7 +1506,18 @@ taxation_category = {
         	expenses_factor = 0.2
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
+
+		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
+			set_country_flag = public_funding
+		}
 
         ai_will_do = {
 			factor = 1
@@ -1475,14 +1548,18 @@ taxation_category = {
 			expenses_factor = 0.2
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.2 }
+		}
+		custom_cost_text = expenses_200
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.2 }
+				add_to_variable = { state_expenses = 0.2 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1520,14 +1597,18 @@ taxation_category = {
 			expenses_factor = 0.25
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 2
@@ -1559,14 +1640,18 @@ taxation_category = {
 			expenses_factor = 0.25
         }
 		
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -1590,10 +1675,6 @@ taxation_category = {
 		}
         days_remove = -1
 
-		#research_bonus = {
-		#		society_reforms = 0.25
-		#}
-
         modifier = {
         	weekly_war_weariness = -0.05
 			stability_factor = 0.18
@@ -1601,17 +1682,21 @@ taxation_category = {
 			expenses_factor = 0.25
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 			hidden_effect = {
 				add_ideas = tax_culture_spending_very_high
 			}
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1640,7 +1725,7 @@ taxation_category = {
 			}
 			has_idea = family_support_1
 		}
-        days_remove = -1
+		days_remove = -1
 
         modifier = {
         	production_speed_buildings_factor = 0.4
@@ -1648,14 +1733,18 @@ taxation_category = {
 			expenses_factor = 0.25
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1683,7 +1772,7 @@ taxation_category = {
 			}
 			has_idea = family_support_1
 		}
-        days_remove = -1
+		days_remove = -1
 
         modifier = {
         	local_resources_factor = 0.3
@@ -1691,14 +1780,18 @@ taxation_category = {
         	expenses_factor = 0.25
         }
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 1
@@ -1722,21 +1815,26 @@ taxation_category = {
 		}
         days_remove = -1
 
-        modifier = {
+
+		modifier = {
         	industrial_capacity_factory = 0.2
 			industrial_capacity_dockyard = 0.2
 			war_support_factor = 0.15
 			expenses_factor = 0.25
-        }
+		}
 
-		cost = 0
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.25 }
+		}
+		custom_cost_text = expenses_250
 
 		complete_effect = {
+			ROOT = {
+				subtract_from_variable = { tax_balance = 0.25 }
+				add_to_variable = { state_expenses = 0.25 }
+			}
 			set_country_flag = public_funding
 		}
-		#remove_effect = {
-		#	clr_country_flag = public_funding
-		#}
 		
         ai_will_do = {
 			factor = 0
@@ -1747,6 +1845,48 @@ taxation_category = {
 				}
 				add = 100
 			}
+		}
+	}
+
+
+
+	###   ###  #   # #   #  ###    #####  ###  #   # ####  ###  
+	#  # #   # ##  # #   # #         #   #   #  # #  #    #     
+	###  #   # # # # #   #  ##       #   #####   #   ###   ##   
+	#  # #   # #  ## #   #    #      #   #   #  # #  #       #  
+	###   ###  #   #  ###  ###       #   #   # #   # #### ###   
+
+
+	enact_land_tax = {
+
+		icon = land_tax
+
+		visible = {
+			
+		}
+		available = {
+			has_tech = reform_1	
+		}
+
+        days_remove = 365
+
+
+		modifier = {
+        	taxation = 0.05
+		}
+
+		
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			nobility_mood_decrease = yes
+		}
+		
+        ai_will_do = {
+			factor = 1
 		}
 	}
 

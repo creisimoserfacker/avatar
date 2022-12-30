@@ -10,25 +10,22 @@ core_state_cost = {
 	}
 	modifier = {
 		set_temp_variable = { resistance_factor = resistance }
-		divide_temp_variable = { resistance_factor = 100 }
+		divide_temp_variable = { resistance_factor = 20 }
 		round_variable = resistance_factor
 		add_to_temp_variable = { resistance_factor = 1 }
 		round_variable = resistance_factor
 		
 		factor = resistance_factor
 	}
-	modifier = {
-		set_temp_variable = { compliance_reduction = 1 }
-		set_temp_variable = { compliance_factor = compliance }
-		round_variable = compliance_factor
-		divide_temp_variable = { compliance_factor = 100 }
-		subtract_from_temp_variable = { compliance_reduction = compliance_factor }
-		
-		factor = compliance_reduction
-	}
-	modifier = {
-		add = 50
-	}
+	#modifier = {
+	#	set_temp_variable = { compliance_reduction = 1.001 }
+	#	set_temp_variable = { compliance_factor = compliance }
+	#	round_variable = compliance_factor
+	#	divide_temp_variable = { compliance_factor = 100 }
+	#	subtract_from_temp_variable = { compliance_reduction = compliance_factor }
+	#	
+	#	factor = compliance_reduction
+	#}
 
 }
 
@@ -186,6 +183,7 @@ war_weariness_peanalty_2 = {
 	modifier = {
 		set_temp_variable = { war_weariness = war_exhaustion_percentage }
 		multiply_temp_variable = { war_weariness = war_weariness }
+		multiply_temp_variable = { war_weariness = -2 }
 		
 		add = war_weariness
 	}

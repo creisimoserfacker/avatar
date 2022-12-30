@@ -1,0 +1,314 @@
+
+no_manufactory = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		always = yes
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = -1000
+	}
+}
+
+build_infra_if_nothing_else = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		num_of_civilian_factories > 350
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = infrastructure
+		value = 750
+	}
+}
+
+smithy_good = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		manpower_per_military_factory > 500
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 500
+	}
+	ai_strategy = {
+		type = building_target
+		id = factory
+		value = 500
+	}
+}
+
+build_farms = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = oil
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = farm
+		value = 1000
+	}
+}
+
+build_ranches = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = chromium
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = ranch
+		value = 1000
+	}
+}
+
+build_quarries = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = stone
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = quarry
+		value = 1000
+	}
+}
+
+build_lumber_mills = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = aluminium
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = lumber_mill
+		value = 1000
+	}
+}
+
+build_weavings = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = tungsten
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = crop_weaving_mill
+		value = 1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = animal_weaving_mill
+		value = 1000
+	}
+}
+
+build_mines = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		OR = {
+			has_resources_in_country = {
+				resource = iron
+				amount < 0
+			}
+			has_resources_in_country = {
+				resource = rubber
+				amount < 0
+			}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = mine
+		value = 1000
+	}
+}
+
+build_steelworks = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = steel
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = building_target
+		id = steelworks
+		value = 1000
+	}
+}
+
+build_food = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		OR = {
+			has_dynamic_modifier = { modifier = famine }
+			has_dynamic_modifier = { modifier = food_shortages }
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = farm
+		value = 1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = fishing_stand
+		value = 1000
+	}
+	ai_strategy = {
+		type = building_target
+		id = mill
+		value = 1000
+	}
+}
+
+build_consumer = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = consumer_goods_resource
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = consumer_good_factory
+		value = 1000
+	}
+}
+
+build_luxury = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_resources_in_country = {
+			resource = luxury_goods_resource
+			amount < 0
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = luxury_good_factory
+		value = 1000
+	}
+}
+
+build_construction = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = aluminium
+			amount > 50
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = carpentry
+		value = 1000
+	}
+}
+
+build_masonry = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = stone
+			amount > 50
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = masonry
+		value = 1000
+	}
+}
+
+build_steel_beam_factory = {
+	allowed = {
+		always = yes
+	}
+	enable = {
+		#check_variable = { construction_material < 0 }
+		has_resources_in_country = {
+			resource = steel
+			amount > 50
+		}
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = building_target
+		id = steel_beam_factory
+		value = 1000
+	}
+}

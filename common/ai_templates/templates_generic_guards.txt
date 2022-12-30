@@ -1,0 +1,178 @@
+
+template_garrisons = {
+
+	
+
+	roles = {
+		garrison
+	}
+	
+	upgrade_prio = {
+		factor = 2
+
+		modifier = {
+			factor = 5
+		}
+	}
+
+	match_to_count = 0.10
+	
+	garrison_1 = {
+	
+		upgrade_prio = {
+			factor = 2
+
+			modifier = {
+				factor = 1
+			}
+		}
+		
+		target_width = 12.0
+		width_weight = 0.4
+		column_swap_factor = 0.7
+		
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			0.00 #-- breakthrough
+			0.00 #-- hardness
+			0.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			0.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			10.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+		
+		target_template = {
+			weight = 0.6
+			match_value = 3000.0
+			
+			regiments = {
+				spearmen = 4
+			}
+		}
+		
+		allowed_types = {
+			spearmen
+		}
+
+		replace_at_match = 0.4
+		replace_with = garrison_2
+		target_min_match = 0.5
+	}
+
+	garrison_2 = {
+	
+		upgrade_prio = {
+			factor = 1
+
+			modifier = {
+				factor = 0
+				num_of_military_factories < 100
+			}
+			modifier = {
+				factor = 0.5
+				num_of_military_factories < 150
+			}
+			modifier = {
+				factor = 2.0
+				num_of_military_factories > 250
+			}
+			modifier = {
+				factor = 2.0
+				num_occupied_states > 10
+			}
+			modifier = {
+				factor = 0.0
+				num_occupied_states < 1
+			}
+		}
+		
+		target_width = 12.0
+		width_weight = 0.4
+		column_swap_factor = 0.7
+		
+		stat_weights = {
+			0.00 #-- default_morale
+			0.00 #-- defense
+			0.00 #-- breakthrough
+			0.00 #-- hardness
+			0.00 #-- soft_attack
+			0.00 #-- hard_attack
+			0.00 #-- recon
+			0.00 #-- entrenchment
+			0.00 #-- initiative
+			0.00 #-- casualty_trickleback
+			0.00 #-- supply_consumption_factor
+			0.00 #-- supply_consumption
+			10.00 #-- suppression
+			0.00 #-- suppression_factor
+			0.00 #-- experience_loss_factor
+			0.00 #-- equipment_capture_factor
+			0.00 #-- fuel_capacity
+			#-- Air Values
+			0.00 #-- air_attack
+			#-- Common Values
+			0.60 #-- max_organisation
+			0.40 #-- max_strength
+			0.00 #-- maximum_speed
+			0.00 #-- armor_value
+			0.20 #-- ap_attack
+			0.00 #-- reliability
+			0.00 #-- reliability_factor
+			0.00 #-- weight
+			0.00 #-- fuel_consumption
+			0.00 #-- fuel_consumption_factor
+			0.00 #-- strat_attack
+			0.00 #-- carrier_size
+			0.00 #-- acc_hot_gain
+			0.00 #-- acc_cold_gain
+			0.00 #-- build_cost_ic
+		}
+		
+		target_template = {
+			weight = 0.6
+			match_value = 3000.0
+			
+			regiments = {
+				spearmen = 8
+			}
+
+			support = {
+				infantry_guards = 1
+			}
+		}
+		
+		allowed_types = {
+			spearmen
+			infantry_guards
+		}
+	}
+	
+}

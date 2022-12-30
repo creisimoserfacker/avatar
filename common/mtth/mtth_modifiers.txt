@@ -5,7 +5,7 @@ inflation_factor = {
 	modifier = {
 		set_temp_variable = { factor = 1 }
 		add_to_temp_variable = { factor = modifier@currency_amount }
-		clamp_variable = { var = factor min = 0.1 }
+		clamp_temp_variable = { var = factor min = 0.1 }
 		add = factor
 	}
 }
@@ -15,7 +15,7 @@ peasant_food_factor = {
 	modifier = {
 		set_temp_variable = { factor = 1 }
 		add_to_temp_variable = { factor = modifier@peasant_food_factor }
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -25,7 +25,7 @@ peasant_output_factor = {
 	modifier = {
 		set_temp_variable = { factor = 1 }
 		add_to_temp_variable = { factor = modifier@peasant_output_factor }
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -35,7 +35,7 @@ grain_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@grain_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -44,7 +44,7 @@ animal_products_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@animal_products_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -53,7 +53,7 @@ textile_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@textile_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -62,7 +62,7 @@ wood_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@wood_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -71,7 +71,7 @@ minerals_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@minerals_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -80,7 +80,7 @@ fossile_fuels_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@fossile_fuels_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -89,7 +89,7 @@ iron_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@iron_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -98,7 +98,7 @@ steel_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@steel_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -107,7 +107,7 @@ consumer_goods_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@consumer_goods_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -116,7 +116,7 @@ luxury_goods_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@luxury_goods_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -125,7 +125,7 @@ planks_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@planks_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -134,7 +134,7 @@ bricks_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@bricks_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -143,7 +143,7 @@ steel_beams_demand = {
 	modifier = { 
 		set_temp_variable = { factor = 1 } 
 		add_to_temp_variable = { factor = modifier@steel_beams_demand } 
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -165,7 +165,7 @@ average_consumer_demand = {
 		add_to_temp_variable = { factor = modifier@bricks_demand } 
 		add_to_temp_variable = { factor = modifier@steel_beams_demand } 
 		divide_temp_variable = { factor = 13 }
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }
@@ -175,7 +175,7 @@ upkeep_factor = {
 	modifier = {
 		set_temp_variable = { factor = 1 }
 		add_to_temp_variable = { factor = modifier@building_upkeep_factor }
-		clamp_variable = { var = factor min = 0 }
+		clamp_temp_variable = { var = factor min = 0 }
 		add = factor
 	}
 }

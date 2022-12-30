@@ -1,0 +1,642 @@
+
+
+FIR_outpost_category = {
+
+	start_naval_outposts = {
+
+		icon = hunt_dragons
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+
+		available = {
+			
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = naval_bases_tt
+			
+			hidden_effect = {
+				every_state = {
+					limit = {
+						is_controlled_by = FIR
+						any_province_building_level = {
+							province = {
+								all_provinces = yes
+								limit_to_coastal = yes
+							}
+							building = naval_base
+							level > 0
+						}
+						is_island_state = yes
+					}
+					FIR = {
+						activate_targeted_decision = {
+							target = PREV
+							decision = FIR_naval_outpost
+						}
+					}
+				}
+			}
+		}
+
+		cost = 0
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+
+	
+	FIR_naval_outpost = {
+
+		icon = buildup
+
+		allowed = {
+			always = no
+		}
+
+		available = {
+			
+		}
+
+		state_target = yes
+		on_map_mode = map_and_decisions_view
+
+		days_remove = 12
+
+		modifier = {
+			expenses_factor = 0.5
+			country_resource_cost_aluminium = 10
+			country_resource_cost_steel = 2
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
+		remove_effect = {
+			FROM = {
+				add_building_construction = {
+					type = naval_base
+					level = 10
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+						level > 0
+					}
+				}
+				add_building_construction = {
+					type = coastal_fortress
+					level = 5
+					instant_build = yes
+					province = {
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+		}
+	}
+
+}
+
+
+
+
+FIR_colonies_category = {
+
+	pohuai_buildup_1 = {
+
+		icon = buildup
+
+		state_target = yes
+
+		targets = {
+			155
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			controls_state = 155
+		}
+		available = {
+			155 = {
+				infrastructure > 9
+			}
+		}
+
+		complete_effect = {
+			155 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
+	pohuai_buildup_2 = {
+
+		icon = fortify
+
+		highlight_states = {
+			highlight_state_targets = { state = 155 }
+			#highlight_provinces = {
+			#	6682
+			#}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			controls_state = 155
+		}
+		available = {
+			155 = {
+				any_province_building_level = {
+				    province = {
+						id = 6682
+					}
+				    building = wall
+				    level > 9
+				}
+			}
+		}
+
+		complete_effect = {
+			set_victory_points = {
+				province = 6682
+				value = 30
+			}
+			155 = {
+				#add_compliance = 10
+				#add_resistance_target = -5
+			}
+		}
+		cost = 20
+		fire_only_once = yes
+	}
+	
+	pohuai_colony = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 155
+				#state = 154
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = PFC
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 155
+			controls_state = 154
+			155 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			PFC = {
+				transfer_state = 155
+				transfer_state = 154
+				add_state_core = 155
+				add_state_core = 154
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = PFC
+					else = {
+						set_autonomy = { target = PFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	yu_dao_buildup_1 = {
+
+		icon = buildup
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			controls_state = 230
+		}
+		available = {
+			230 = {
+				infrastructure > 9
+			}
+		}
+
+		complete_effect = {
+			230 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
+	yu_dao_buildup_2 = {
+
+		icon = buildup
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			controls_state = 230
+		}
+		available = {
+			230 = {
+				naval_base > 5
+			}
+		}
+
+		complete_effect = {
+			230 = {
+				add_compliance = 10
+			}
+		}
+
+		cost = 20
+        fire_only_once = yes
+	}
+
+	yu_dao_colony = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 230
+				#state = 184
+				#state = 191
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = YFC
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 230
+			controls_state = 184
+			controls_state = 191
+			230 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			YFC = {
+				transfer_state = 230
+				transfer_state = 184
+				transfer_state = 191
+				add_state_core = 230
+				add_state_core = 184
+				add_state_core = 191
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = YFC
+					else = {
+						set_autonomy = { target = YFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	makapu_colony = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 227
+				#state = 204
+				#state = 214
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = MFC
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 227
+			controls_state = 204
+			controls_state = 214
+			227 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			MFC = {
+				transfer_state = 227
+				transfer_state = 204
+				transfer_state = 214
+				add_state_core = 227
+				add_state_core = 204
+				add_state_core = 214
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = MFC
+					else = {
+						set_autonomy = { target = MFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	tienhai_colony = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 171
+				#state = 165
+				#state = 220
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = HFC
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 171
+			controls_state = 165
+			controls_state = 220
+			171 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			HFC = {
+				transfer_state = 171
+				transfer_state = 165
+				transfer_state = 220
+				add_state_core = 171
+				add_state_core = 165
+				add_state_core = 220
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = HFC
+					else = {
+						set_autonomy = { target = HFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+	han_tui_colony = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 280
+				#state = 244
+				#state = 270
+			}
+		}
+	
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = KFC
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 280
+			controls_state = 244
+			controls_state = 270
+			280 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			KFC = {
+				transfer_state = 280
+				transfer_state = 244
+				transfer_state = 270
+				add_state_core = 280
+				add_state_core = 244
+				add_state_core = 270
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = KFC
+					else = {
+						set_autonomy = { target = KFC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+	
+	new_ozai = {
+
+		icon = fir_colony
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205
+
+			}
+		}
+	
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = OMC
+			}
+			has_government = fire_culture
+
+			controls_state = 205
+			has_war_with = EAR
+			#has_country_leader = { name = "Ozai" ruling_only = yes }
+		}
+		available = {
+			has_government = fire_culture
+			controls_state = 205
+			205 = {
+				compliance > 80
+			}
+		}
+
+		complete_effect = {
+
+			OMC = {
+				set_province_name = { id = 8584 name = "New Ozai" }
+				transfer_state = 205
+				add_state_core = 205
+				transfer_state = 335
+				add_state_core = 335
+				transfer_state = 119
+				add_state_core = 119
+				transfer_state = 245
+				add_state_core = 245
+				transfer_state = 427
+				add_state_core = 427
+				transfer_state = 198
+				add_state_core = 198
+				transfer_state = 444
+				add_state_core = 444
+				transfer_state = 377
+				add_state_core = 377
+			}
+
+			FIR = {
+				if = {
+					limit = {
+						NOT = {
+							has_dlc = "Together for Victory"
+						}
+					}
+					puppet = OMC
+					else = {
+						set_autonomy = { target = OMC autonomy_state = autonomy_imperial_colony }
+					}
+				}
+			}
+
+		}
+
+		cost = 100
+        fire_only_once = yes
+	}
+
+
+}
+
+
+

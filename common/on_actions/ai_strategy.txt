@@ -1,0 +1,79 @@
+on_actions = {
+
+	on_startup = {
+		effect = {
+
+		}
+	}
+
+	#on_naval_invasion = { 
+	#	effect = {
+	#		if = {
+	#			limit = {
+	#				tag = FIR
+	#				NOT = {
+	#					is_on_continent = europe
+	#					is_on_continent = north_america
+	#					is_on_continent = south_america
+	#				}
+	#			}
+	#			set_country_flag = {
+	#				flag = careful_invasions
+	#				days = 50
+	#			}
+	#		}
+	#	}
+	#}
+
+
+	on_monthly = {
+		effect = {
+
+			set_variable = { ai_priority_food = 0 }
+			set_variable = { ai_priority_steel = steel_price }
+			set_variable = { ai_priority_animal_products = animal_products_price }
+			set_variable = { ai_priority_wood = wood_price }
+			set_variable = { ai_priority_iron = iron_price }
+			set_variable = { ai_priority_textile = textile_price }
+			set_variable = { ai_priority_minerals = minerals_price }
+			set_variable = { ai_priority_grain = grain_price }
+			set_variable = { ai_priority_fossile_fuels = fossile_fuels_price }
+			set_variable = { ai_priority_consumer_goods = consumer_goods_price }
+			set_variable = { ai_priority_luxury_goods = luxury_goods_price }
+			set_variable = { ai_priority_planks = planks_price }
+			set_variable = { ai_priority_bricks = bricks_price }
+			set_variable = { ai_priority_steel_beams = steel_beams_price }
+
+			add_to_variable = { ai_priority_iron = ai_priority_steel }
+			add_to_variable = { ai_priority_minerals = ai_priority_steel }
+			add_to_variable = { ai_priority_grain = ai_priority_textile }
+			add_to_variable = { ai_priority_animal_products = ai_priority_textile }
+			add_to_variable = { ai_priority_grain = ai_priority_consumer_goods }
+			add_to_variable = { ai_priority_animal_products = ai_priority_consumer_goods }
+			add_to_variable = { ai_priority_textile = ai_priority_consumer_goods }
+			add_to_variable = { ai_priority_wood = ai_priority_consumer_goods }
+			add_to_variable = { ai_priority_iron = ai_priority_luxury_goods }
+			add_to_variable = { ai_priority_minerals = ai_priority_luxury_goods }
+			add_to_variable = { ai_priority_wood = ai_priority_planks }
+			add_to_variable = { ai_priority_minerals = ai_priority_bricks }
+			add_to_variable = { ai_priority_steel = ai_priority_steel_beams }
+
+			clamp_variable = { var = ai_priority_steel  min = 0 }
+			clamp_variable = { var = ai_priority_animal_products  min = 0 }
+			clamp_variable = { var = ai_priority_wood  min = 0 }
+			clamp_variable = { var = ai_priority_iron  min = 0 }
+			clamp_variable = { var = ai_priority_textile  min = 0 }
+			clamp_variable = { var = ai_priority_minerals  min = 0 }
+			clamp_variable = { var = ai_priority_grain  min = 0 }
+			clamp_variable = { var = ai_priority_fossile_fuels  min = 0 }
+			clamp_variable = { var = ai_priority_consumer_goods  min = 0 }
+			clamp_variable = { var = ai_priority_luxury_goods  min = 0 }
+			clamp_variable = { var = ai_priority_planks  min = 0 }
+			clamp_variable = { var = ai_priority_bricks  min = 0 }
+			clamp_variable = { var = ai_priority_steel_beams  min = 0 }
+
+		}
+	}
+
+
+}

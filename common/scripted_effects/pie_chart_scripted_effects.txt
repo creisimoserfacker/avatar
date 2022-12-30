@@ -9,11 +9,11 @@ create_pie_chart = {
 		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
 		size = 100 # 100 pieces, each percent is one piece
 	}
-	set_temp_variable = { fire_culture_pop = THIS.OWNER.party_popularity@fire_culture }
+	set_temp_variable = { fire_culture_pop = THIS.OWNER:party_popularity@fire_culture }
 	multiply_temp_variable = { fire_culture_pop = 100 }
 	round_temp_variable = fire_culture_pop
 
-	set_temp_variable = { earth_culture_pop = THIS.OWNER.party_popularity@earth_culture }
+	set_temp_variable = { earth_culture_pop = THIS.OWNER:party_popularity@earth_culture }
 	multiply_temp_variable = { earth_culture_pop = 100 }
 	round_temp_variable = earth_culture_pop 
 	set_variable = { last_idx = fire_culture_pop }
@@ -25,7 +25,7 @@ create_pie_chart = {
 		add_to_variable = { last_idx = 1 }
 	}
 
-	set_temp_variable = { water_culture_pop = THIS.OWNER.party_popularity@water_culture }
+	set_temp_variable = { water_culture_pop = THIS.OWNER:party_popularity@water_culture }
 	multiply_temp_variable = { water_culture_pop = 100 }
 	round_temp_variable = water_culture_pop
 	add_to_temp_variable = { water_culture_pop = last_idx }
@@ -36,7 +36,7 @@ create_pie_chart = {
 		add_to_variable = { last_idx = 1 }
 	}
 
-	set_temp_variable = { air_culture_pop = THIS.OWNER.party_popularity@air_culture }
+	set_temp_variable = { air_culture_pop = THIS.OWNER:party_popularity@air_culture }
 	multiply_temp_variable = { air_culture_pop = 100 }
 	round_temp_variable = air_culture_pop 
 	add_to_temp_variable = { air_culture_pop = last_idx }
@@ -46,7 +46,7 @@ create_pie_chart = {
 		set_variable = { pie_chart^v = 4 }
 	}
 
-	set_temp_variable = { pluralist_culture_pop = THIS.OWNER.party_popularity@pluralist_culture }
+	set_temp_variable = { pluralist_culture_pop = THIS.OWNER:party_popularity@pluralist_culture }
 	multiply_temp_variable = { pluralist_culture_pop = 100 }
 	round_temp_variable = pluralist_culture_pop 
 	add_to_temp_variable = { pluralist_culture_pop = last_idx }

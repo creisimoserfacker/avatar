@@ -1,0 +1,209 @@
+
+
+	###  ####  ###   ###  ###  #   # #####  ###               
+	#  # #    #   # #    #   # ##  #   #   #      
+	###  ###  #####  ##  ##### # # #   #    ##        
+	#    #    #   #    # #   # #  ##   #      #  
+	#    #### #   # ###  #   # #   #   #   ###   
+
+
+peasant_mood_increase = {
+	if = {
+		limit = {
+			has_idea = happy_peasants
+		}
+		swap_ideas = {
+			remove_idea = happy_peasants
+			add_idea = integrated_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = pleased_peasants
+		}
+		swap_ideas = {
+			remove_idea = pleased_peasants
+			add_idea = happy_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = distrusting_peasants
+		}
+		remove_ideas = distrusting_peasants
+	}
+	else_if = {
+		limit = {
+			has_idea = angered_peasants
+		}
+		swap_ideas = {
+			remove_idea = angered_peasants
+			add_idea = distrusting_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = enraged_peasants
+		}
+		swap_ideas = {
+			remove_idea = enraged_peasants
+			add_idea = angered_peasants
+		}
+	}
+	else = {
+		add_ideas = pleased_peasants
+	}
+}
+
+peasant_mood_decrease = {
+	if = {
+		limit = {
+			has_idea = integrated_peasants
+		}
+		swap_ideas = {
+			remove_idea = integrated_peasants
+			add_idea = happy_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = happy_peasants
+		}
+		swap_ideas = {
+			remove_idea = happy_peasants
+			add_idea = pleased_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = pleased_peasants
+		}
+		remove_ideas = pleased_peasants
+	}
+	else_if = {
+		limit = {
+			has_idea = distrusting_peasants
+		}
+		swap_ideas = {
+			remove_idea = distrusting_peasants
+			add_idea = angered_peasants
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = angered_peasants
+		}
+		swap_ideas = {
+			remove_idea = angered_peasants
+			add_idea = enraged_peasants
+		}
+	}
+	else = {
+		add_ideas = distrusting_peasants
+	}
+}
+
+
+
+	#   #  ###  ###  # #   # ##### #   #        
+	##  # #   # #  # # #   #   #    # #     
+	# # # #   # ###  # #   #   #     #       
+	#  ## #   # #  # # #   #   #     #      
+	#   #  ###  ###  # ### #   #     #   
+
+
+nobility_mood_increase = {
+	if = {
+		limit = {
+			has_idea = happy_nobility
+		}
+		swap_ideas = {
+			remove_idea = happy_nobility
+			add_idea = integrated_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = pleased_nobility
+		}
+		swap_ideas = {
+			remove_idea = pleased_nobility
+			add_idea = happy_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = distrusting_nobility
+		}
+		remove_ideas = distrusting_nobility
+	}
+	else_if = {
+		limit = {
+			has_idea = angered_nobility
+		}
+		swap_ideas = {
+			remove_idea = angered_nobility
+			add_idea = distrusting_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = enraged_nobility
+		}
+		swap_ideas = {
+			remove_idea = enraged_nobility
+			add_idea = angered_nobility
+		}
+	}
+	else = {
+		add_ideas = pleased_nobility
+	}
+}
+
+nobility_mood_decrease = {
+	if = {
+		limit = {
+			has_idea = integrated_nobility
+		}
+		swap_ideas = {
+			remove_idea = integrated_nobility
+			add_idea = happy_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = happy_nobility
+		}
+		swap_ideas = {
+			remove_idea = happy_nobility
+			add_idea = pleased_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = pleased_nobility
+		}
+		remove_ideas = pleased_nobility
+	}
+	else_if = {
+		limit = {
+			has_idea = distrusting_nobility
+		}
+		swap_ideas = {
+			remove_idea = distrusting_nobility
+			add_idea = angered_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = angered_nobility
+		}
+		swap_ideas = {
+			remove_idea = angered_nobility
+			add_idea = enraged_nobility
+		}
+	}
+	else = {
+		add_ideas = distrusting_nobility
+	}
+}
