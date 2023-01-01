@@ -1,0 +1,165 @@
+
+recalculate_age = {
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_tech = domestication_0
+				has_tech = the_wheel
+				has_tech = basic_tool_making
+				has_tech = plow
+			}
+		}
+		set_variable = { tech_age = 2 }
+		add_ideas = age_2_bonus
+	}
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 4
+				has_tech = domestication_0
+				has_tech = the_wheel
+				has_tech = basic_tool_making
+				has_tech = plow
+			}
+		}
+		set_variable = { tech_age_complete_1 = 1 }
+	}
+
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_tech = domestication_1
+				has_tech = botanics
+				has_tech = candles
+				has_tech = metal_processing
+			}
+		}
+		set_variable = { tech_age = 3 }
+		remove_ideas = age_2_bonus
+		add_ideas = age_3_bonus
+	}
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 4
+				has_tech = domestication_1
+				has_tech = botanics
+				has_tech = candles
+				has_tech = metal_processing
+			}
+		}
+		set_variable = { tech_age_complete_2 = 1 }
+	}
+
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_tech = domestication_2
+				has_tech = basic_gear
+				has_tech = heal_practices
+				has_tech = ink
+			}
+		}
+		set_variable = { tech_age = 4 }
+		remove_ideas = age_2_bonus
+		remove_ideas = age_3_bonus
+		add_ideas = age_4_bonus
+	}
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 4
+				has_tech = domestication_2
+				has_tech = basic_gear
+				has_tech = heal_practices
+				has_tech = ink
+			}
+		}
+		set_variable = { tech_age_complete_3 = 1 }
+	}
+
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 2
+				has_tech = libraries
+				has_tech = steelmaking
+				has_tech = steam_engine
+			}
+		}
+		set_variable = { tech_age = 5 }
+		remove_ideas = age_2_bonus
+		remove_ideas = age_3_bonus
+		remove_ideas = age_4_bonus
+		add_ideas = age_5_bonus
+	}
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_tech = libraries
+				has_tech = steelmaking
+				has_tech = steam_engine
+			}
+		}
+		set_variable = { tech_age_complete_4 = 1 }
+	}
+
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 1
+				has_tech = improved_coal_engine
+				has_tech = aerodynamics
+			}
+		}
+		set_variable = { tech_age = 6 }
+		remove_ideas = age_2_bonus
+		remove_ideas = age_3_bonus
+		remove_ideas = age_4_bonus
+		remove_ideas = age_5_bonus
+		add_ideas = age_6_bonus
+	}
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 2
+				has_tech = improved_coal_engine
+				has_tech = aerodynamics
+			}
+		}
+		set_variable = { tech_age_complete_5 = 1 }
+	}
+
+	if = {
+		limit = {
+			count_triggers = {
+				amount = 3
+				has_tech = advanced_gear
+				has_tech = thermodynamics
+				has_tech = modern_engine
+			}
+		}
+		set_variable = { tech_age_complete_6 = 1 }
+	}
+
+
+	if = {
+		limit = {
+			NOT = {
+				OR = {
+					has_idea = age_1_bonus
+					has_idea = age_2_bonus
+					has_idea = age_3_bonus
+					has_idea = age_4_bonus
+					has_idea = age_5_bonus
+					has_idea = age_6_bonus
+				}
+			}
+		}
+		add_ideas = age_1_bonus
+	}
+}
