@@ -13,6 +13,26 @@ battle_trigger = {
 	}
 }
 
+has_initiative = {
+	OR = {
+		AND = {
+			recon_advantage > 0
+			skill_advantage > -4
+		}
+		AND = {
+			recon_advantage < 0
+			skill_advantage > 5
+		}
+		AND = {
+			NOT = {
+				recon_advantage > 0
+				recon_advantage < 0
+			}
+			skill_advantage > 0
+		}
+	}
+}
+
 no_special_terrain = {
 	is_amphibious_invasion = no
 	NOT = {
