@@ -1,0 +1,593 @@
+
+core_turns_unloyal = {
+	every_core_state = {
+		limit = {
+			is_controlled_by = ROOT
+		}
+		random = {
+			chance = mtth:state_revolt_mtth
+
+			THIS.CONTROLLER = {
+				add_to_array = {
+					array = revolt_states
+					value = PREV.id
+				}
+			}
+			set_variable = { THIS.state_loyalty_variable = 0 }
+
+			if = {
+				limit = { cotroller = { has_country_flag = fire_nation }}
+				add_core_of = PEF
+			}
+			else_if = {
+				limit = { cotroller = { has_country_flag = earth_nation }}
+				add_core_of = PEE
+			}
+			else_if = {
+				limit = { cotroller = { has_country_flag = water_nation }}
+				add_core_of = PEW
+			}
+			else_if = {
+				limit = { cotroller = { has_country_flag = air_nation }}
+				add_core_of = PEA
+			}
+			else = {
+				add_core_of = PEG
+			}
+			
+			remove_core_of = CONTROLLER
+			start_resistance = yes
+		}
+	}
+}
+
+clear_revolt = {
+	every_state = {
+		limit = {
+			is_in_array = { revolt_states = THIS }
+		}
+		remove_core_of = PEF
+		remove_core_of = PEE
+		remove_core_of = PEW
+		remove_core_of = PEA
+		remove_core_of = PEG
+		add_core_of = PREV
+
+		remove_dynamic_modifier = { modifier = revolt_origin }
+		remove_dynamic_modifier = { modifier = peasant_discontent }
+		set_variable = { state_loyalty_variable = 100 }
+	}
+	every_core_state = {
+		limit = {
+			is_controlled_by = ROOT
+		}
+		remove_dynamic_modifier = { modifier = revolt_origin }
+		remove_dynamic_modifier = { modifier = peasant_discontent }
+		set_variable = { state_loyalty_variable = 100 }
+	}
+	clear_variable = peasant_anger_variable
+	clear_variable = peasant_appeasement_variable
+	clear_array = revolt_states
+	clr_country_flag = active_peasant_revolt
+}
+
+peasant_uprising_effect = {
+
+	random_list = {
+		peasant_anger_variable = {
+			country_event = generic_peasant.5
+		}
+		peasant_appeasement_variable = {
+			country_event = generic_peasant.6
+		}
+		100 = {
+			
+		}
+	}
+	
+	if = {
+		limit = {
+			NOT = {
+				any_owned_state = {
+					has_dynamic_modifier = { modifier = revolt_origin }
+				}
+			}
+		}
+		random_core_state = {
+			limit = {
+				is_owned_by = ROOT
+			}
+			set_variable = { ROOT.give_state_name = THIS.id }
+			add_dynamic_modifier = { modifier = revolt_origin }
+		}
+
+		activate_mission = peasants_in_revolt
+
+	}
+	else_if = {
+		limit = {
+			set_temp_variable = { half_core_temp = num_core_states }
+			divide_temp_variable = { half_core_temp = 10 }
+			check_variable = { half_core_temp > ROOT.revolt_states^num }
+		}
+		if = {
+			limit = {
+				check_variable = { peasant_revolt_risk_variable > 75 }
+			}
+			random_core_state = {
+				limit = {
+					OR = {
+						random_neighbor_state = {
+							OR = {
+								has_dynamic_modifier = { modifier = revolt_origin }
+								has_dynamic_modifier = { modifier = peasant_discontent }
+								has_dynamic_modifier = { modifier = peasant_insurgency }
+								has_dynamic_modifier = { modifier = peasant_rampage }
+							}
+						}
+						is_in_home_area = no
+					}
+					NOT = {
+						has_dynamic_modifier = { modifier = peasant_insurgency }
+					}
+				}
+				add_dynamic_modifier = { modifier = peasant_insurgency }
+			}
+			if = {
+				limit = {
+					NOT = { has_idea = peasant_strikes }
+				}
+				country_event = generic_peasant.7
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { peasant_revolt_risk_variable > 50 }
+			}
+			random_core_state = {
+				limit = {
+					OR = {
+						random_neighbor_state = {
+							OR = {
+								has_dynamic_modifier = { modifier = revolt_origin }
+								has_dynamic_modifier = { modifier = peasant_discontent }
+								has_dynamic_modifier = { modifier = peasant_insurgency }
+								has_dynamic_modifier = { modifier = peasant_rampage }
+							}
+						}
+						is_in_home_area = no
+					}
+					NOT = {
+						has_dynamic_modifier = { modifier = peasant_rampage }
+					}
+				}
+				add_dynamic_modifier = { modifier = peasant_rampage }
+			}
+			if = {
+				limit = {
+					NOT = { has_idea = peasant_unrest }
+				}
+				country_event = generic_peasant.8
+			}
+		}
+		else_if = {
+			limit = {
+				check_variable = { peasant_revolt_risk_variable > 25 }
+			}
+			random_core_state = {
+				limit = {
+					OR = {
+						random_neighbor_state = {
+							has_dynamic_modifier = { modifier = revolt_origin }
+						}
+						random_neighbor_state = {
+							has_dynamic_modifier = { modifier = peasant_discontent }
+						}
+						is_in_home_area = no
+					}
+					NOT = {
+						has_dynamic_modifier = { modifier = peasant_discontent }
+					}
+				}
+				add_dynamic_modifier = { modifier = peasant_discontent }
+			}
+		}
+		else = {
+			random_core_state = {
+				limit = {
+					OR = {
+						random_neighbor_state = {
+							has_dynamic_modifier = { modifier = revolt_origin }
+						}
+						random_neighbor_state = {
+							has_dynamic_modifier = { modifier = peasant_discontent }
+						}
+						is_in_home_area = no
+					}
+					NOT = {
+						has_dynamic_modifier = { modifier = peasant_discontent }
+					}
+				}
+				add_dynamic_modifier = { modifier = peasant_discontent }
+			}
+		}
+		
+
+		activate_mission = peasants_in_revolt
+		
+	}
+	else = {
+		country_event = generic_peasant.3
+
+		activate_mission = peasants_at_war
+	}
+
+}
+
+peasant_war_effect = {
+	if = {
+		limit = {
+			has_country_flag = fire_nation
+		}
+		PEF = {
+			every_core_state = {
+				set_state_owner_to = PREV
+				set_state_controller_to = PREV
+			}
+			declare_war_on = {
+				target = PREV.PREV
+				type = annex_everything
+			}
+			tech_and_template = yes
+
+			every_state = {
+				limit = {
+					is_in_array = { PREV.PREV.revolt_states = THIS }
+				}
+				three_peasant_units = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = earth_nation
+		}
+		PEE = {
+			every_core_state = {
+				set_state_owner_to = PREV
+				set_state_controller_to = PREV
+			}
+			declare_war_on = {
+				target = PREV.PREV
+				type = annex_everything
+			}
+			tech_and_template = yes
+
+			every_state = {
+				limit = {
+					is_in_array = { PREV.PREV.revolt_states = THIS }
+				}
+				three_peasant_units = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = water_nation
+		}
+		PEW = {
+			every_core_state = {
+				set_state_owner_to = PREV
+				set_state_controller_to = PREV
+			}
+			declare_war_on = {
+				target = PREV.PREV
+				type = annex_everything
+			}
+			tech_and_template = yes
+
+			every_state = {
+				limit = {
+					is_in_array = { PREV.PREV.revolt_states = THIS }
+				}
+				three_peasant_units = yes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = air_nation
+		}
+		PEA = {
+			every_core_state = {
+				set_state_owner_to = PREV
+				set_state_controller_to = PREV
+			}
+			declare_war_on = {
+				target = PREV.PREV
+				type = annex_everything
+			}
+			tech_and_template = yes
+
+			every_state = {
+				limit = {
+					is_in_array = { PREV.PREV.revolt_states = THIS }
+				}
+				three_peasant_units = yes
+			}
+		}
+	}
+	else = {
+		PEG = {
+			every_core_state = {
+				set_state_owner_to = PREV
+				set_state_controller_to = PREV
+			}
+			declare_war_on = {
+				target = PREV.PREV
+				type = annex_everything
+			}
+			tech_and_template = yes
+
+			every_state = {
+				limit = {
+					is_in_array = { PREV.PREV.revolt_states = THIS }
+				}
+				three_peasant_units = yes
+			}
+		}
+	}
+
+}
+
+tech_and_template = {
+	set_technology = {
+		basic_spear_1 = 1
+		light_armor_0 = 1
+	}
+	if = {
+		limit = {
+			NOT = { has_template = "Angry Peasants" }
+		}
+		division_template = {
+			name = "Angry Peasants"
+			#is_locked = yes
+			priority = 0
+			regiments = {
+				peasant_unit = { x = 0 y = 0 }
+				peasant_unit = { x = 0 y = 1 }
+				peasant_unit = { x = 1 y = 0 }
+				peasant_unit = { x = 1 y = 1 }
+			}
+		}
+	}
+}
+
+three_peasant_units = {
+	create_unit = {
+		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
+		owner = PREV
+	}
+	create_unit = {
+		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
+		owner = PREV
+	}
+	create_unit = {
+		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
+		owner = PREV
+	}
+	create_unit = {
+		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
+		owner = PREV
+	}
+	create_unit = {
+		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
+		owner = PREV
+	}
+}
+
+
+peasant_victory = {
+	if = {
+		limit = {
+			has_country_flag = fire_nation
+		}
+		PEF = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+			change_tag_from = PREV
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = earth_nation
+		}
+		PEE = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+			change_tag_from = PREV
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = water_nation
+		}
+		PEW = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+			change_tag_from = PREV
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = air_nation
+		}
+		PEA = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+			change_tag_from = PREV
+		}
+	}
+	else = {
+		PEG = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+			change_tag_from = PREV
+		}
+	}
+}
+
+peasant_victory_without_tag_switch = {
+	if = {
+		limit = {
+			has_country_flag = fire_nation
+		}
+		PEF = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = earth_nation
+		}
+		PEE = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = water_nation
+		}
+		PEW = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			has_country_flag = air_nation
+		}
+		PEA = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+		}
+	}
+	else = {
+		PEG = {
+			PREV = {
+				every_core_state = {
+					limit = {
+						is_owned_by = PREV
+					}
+					add_core_of = PREV.PREV
+					transfer_state_to = PREV.PREV
+					set_variable = { state_loyalty_variable = 100 }
+				}
+				every_owned_state = {
+					set_state_owner_to = PREV.PREV
+				}
+			}
+		}
+	}
+}

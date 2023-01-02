@@ -2,52 +2,222 @@ peasant_uprising_category = {
 
 	
 	peasant_initiate_uprising = {
+
 		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
 
 		activation = {
 			always = no
 		}
 
-		days_mission_timeout = 90
-		is_good = yes
+		days_mission_timeout = 45
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
 
 		available = {
-			custom_trigger_tooltip = {
-				tooltip = check_revolt_risk_0
-				check_variable = {
-					var = peasant_revolt_risk_variable
-					value = 0
-					compare = equals
-				}
+			NOT = {
+				has_idea = distrusting_peasants
+				has_idea = angered_peasants
+				has_idea = enraged_peasants
+			}
+		}
+
+		remove_effect = {
+			clr_country_flag = active_peasant_revolt
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = appeased_peasants
+				days = 365
 			}
 		}
 
 		timeout_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_carpentry
-				}
-				clr_state_flag = NWT_build_carpentry
-				clear_variable = factory_goal
-			}
-			
-			NWT_unity_medium_opposition = yes 
-			clr_country_flag = unity_buildup_in_progress
+			activate_mission = peasants_in_revolt
 		}
+	}
+
+	peasants_in_revolt = {
+
+		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 21
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			always = no
+		}
+
 		complete_effect = {
-			random_owned_state = {
-				limit = {
-					has_state_flag = NWT_build_carpentry
-				}
-				clr_state_flag = NWT_build_carpentry
-				clear_variable = factory_goal
-			}
-			ROOT = {
-				NWT_unity_large_support = yes
-				clr_country_flag = unity_buildup_in_progress
-			}
 			
 		}
+
+		timeout_effect = {
+			peasant_uprising_effect = yes
+		}
+	}
+
+	peasants_at_war = {
+
+		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 30
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			always = no
+		}
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.4
+			activate_mission = peasants_war_progress
+		}
+	}
+
+	peasants_war_progress = {
+
+		icon = peasant_war
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 365
+		is_good = yes
+		selectable_mission = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			all_core_state = {
+				limit = {
+					is_in_array = { ROOT.revolt_states = THIS }
+				}
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_effect = {
+			country_event = generic_peasant.9
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.10
+		}
+	}
+
+	peasants_war_progress_2 = {
+
+		icon = peasant_war
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 365
+		is_good = yes
+		selectable_mission = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			all_core_state = {
+				limit = {
+					is_in_array = { ROOT.revolt_states = THIS }
+				}
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_effect = {
+			country_event = generic_peasant.11
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.12
+		}
+	}
+
+	peasant_uprising_tax_relief = {
+
+		icon = peasant_tax_relief
+
+		visible = {
+			has_active_mission = peasant_initiate_uprising
+		}
+		available = {
+			NOT = {
+				has_idea = tax_relief
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			peasant_mood_increase = yes
+			add_timed_idea = {
+				idea = tax_relief
+				days = 365
+			}
+		}
+
 	}
 
 
