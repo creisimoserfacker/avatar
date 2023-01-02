@@ -14,35 +14,35 @@ on_actions = {
 						has_government = fire_culture
 					}
 					set_variable = { bender_percentage = 0.30 }
-					set_country_flag = fire_nation
+					add_ideas = fire_nation
 				}
 				if = { 
 					limit = {
 						has_government = earth_culture
 					}
 					set_variable = { bender_percentage = 0.20 }
-					set_country_flag = earth_nation
+					add_ideas = earth_nation
 				}
 				if = { 
 					limit = {
 						has_government = water_culture
 					}
 					set_variable = { bender_percentage = 0.40 }
-					set_country_flag = water_nation
+					add_ideas = water_nation
 				}
 				if = { 
 					limit = {
 						has_government = air_culture
 					}
 					set_variable = { bender_percentage = 1.0 }
-					set_country_flag = air_nation
+					add_ideas = air_nation
 				}
 				if = { 
 					limit = {
 						has_government = pluralist_culture
 					}
 					set_variable = { bender_percentage = 0.25 }
-					set_country_flag = pluralist_nation
+					add_ideas = pluralist_nation
 				}
 			}
 
@@ -98,7 +98,6 @@ on_actions = {
 			culture_pie_chart_recalc = yes
 
 
-
 			### add settlers
 			### add occupation culture buff
 
@@ -110,6 +109,33 @@ on_actions = {
 			### expected growth
 
 			culture_growth_calculation = yes
+
+
+
+			### national culture and bender percentage
+			national_culture_recalc = yes
+
+			set_variable = { bender_target = modifier@bender_target}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = { modifier@bender_disabled > 0 }
+					}
+				}
+
+				if = {
+					limit = {
+						check_variable = { bender_percentage < bender_target }
+					}
+					add_to_variable = { bender_percentage = modifier@bender_growth }
+				}
+			}
+
+			clamp_variable = {
+				var = bender_percentage
+				min = 0
+				max = bender_target
+			}
 
 
 		}

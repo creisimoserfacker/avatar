@@ -2,7 +2,7 @@
 core_turns_unloyal = {
 	every_core_state = {
 		limit = {
-			is_controlled_by = ROOT
+			is_controlled_by = PREV
 		}
 		random = {
 			chance = mtth:state_revolt_mtth
@@ -16,19 +16,19 @@ core_turns_unloyal = {
 			set_variable = { THIS.state_loyalty_variable = 0 }
 
 			if = {
-				limit = { cotroller = { has_country_flag = fire_nation }}
+				limit = { controller = { has_idea = fire_nation }}
 				add_core_of = PEF
 			}
 			else_if = {
-				limit = { cotroller = { has_country_flag = earth_nation }}
+				limit = { controller = { has_idea = earth_nation }}
 				add_core_of = PEE
 			}
 			else_if = {
-				limit = { cotroller = { has_country_flag = water_nation }}
+				limit = { controller = { has_idea = water_nation }}
 				add_core_of = PEW
 			}
 			else_if = {
-				limit = { cotroller = { has_country_flag = air_nation }}
+				limit = { controller = { has_idea = air_nation }}
 				add_core_of = PEA
 			}
 			else = {
@@ -44,7 +44,7 @@ core_turns_unloyal = {
 clear_revolt = {
 	every_state = {
 		limit = {
-			is_in_array = { revolt_states = THIS }
+			is_in_array = { PREV.revolt_states = THIS }
 		}
 		remove_core_of = PEF
 		remove_core_of = PEE
@@ -227,10 +227,13 @@ peasant_uprising_effect = {
 peasant_war_effect = {
 	if = {
 		limit = {
-			has_country_flag = fire_nation
+			has_idea = fire_nation
 		}
 		PEF = {
 			every_core_state = {
+				limit = {
+					is_controlled_by = PREV.PREV
+				}
 				set_state_owner_to = PREV
 				set_state_controller_to = PREV
 			}
@@ -244,16 +247,19 @@ peasant_war_effect = {
 				limit = {
 					is_in_array = { PREV.PREV.revolt_states = THIS }
 				}
-				three_peasant_units = yes
+				five_peasant_units = yes
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			has_country_flag = earth_nation
+			has_idea = earth_nation
 		}
 		PEE = {
 			every_core_state = {
+				limit = {
+					is_controlled_by = PREV.PREV
+				}
 				set_state_owner_to = PREV
 				set_state_controller_to = PREV
 			}
@@ -267,16 +273,19 @@ peasant_war_effect = {
 				limit = {
 					is_in_array = { PREV.PREV.revolt_states = THIS }
 				}
-				three_peasant_units = yes
+				five_peasant_units = yes
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			has_country_flag = water_nation
+			has_idea = water_nation
 		}
 		PEW = {
 			every_core_state = {
+				limit = {
+					is_controlled_by = PREV.PREV
+				}
 				set_state_owner_to = PREV
 				set_state_controller_to = PREV
 			}
@@ -290,16 +299,19 @@ peasant_war_effect = {
 				limit = {
 					is_in_array = { PREV.PREV.revolt_states = THIS }
 				}
-				three_peasant_units = yes
+				five_peasant_units = yes
 			}
 		}
 	}
 	else_if = {
 		limit = {
-			has_country_flag = air_nation
+			has_idea = air_nation
 		}
 		PEA = {
 			every_core_state = {
+				limit = {
+					is_controlled_by = PREV.PREV
+				}
 				set_state_owner_to = PREV
 				set_state_controller_to = PREV
 			}
@@ -313,13 +325,16 @@ peasant_war_effect = {
 				limit = {
 					is_in_array = { PREV.PREV.revolt_states = THIS }
 				}
-				three_peasant_units = yes
+				five_peasant_units = yes
 			}
 		}
 	}
 	else = {
 		PEG = {
 			every_core_state = {
+				limit = {
+					is_controlled_by = PREV.PREV
+				}
 				set_state_owner_to = PREV
 				set_state_controller_to = PREV
 			}
@@ -333,7 +348,7 @@ peasant_war_effect = {
 				limit = {
 					is_in_array = { PREV.PREV.revolt_states = THIS }
 				}
-				three_peasant_units = yes
+				five_peasant_units = yes
 			}
 		}
 	}
@@ -363,7 +378,7 @@ tech_and_template = {
 	}
 }
 
-three_peasant_units = {
+five_peasant_units = {
 	create_unit = {
 		division = "name = \"Peasants\" division_template = \"Angry Peasants\" 	start_experience_factor = 0.0" 
 		owner = PREV
@@ -390,7 +405,7 @@ three_peasant_units = {
 peasant_victory = {
 	if = {
 		limit = {
-			has_country_flag = fire_nation
+			has_idea = fire_nation
 		}
 		PEF = {
 			PREV = {
@@ -411,7 +426,7 @@ peasant_victory = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = earth_nation
+			has_idea = earth_nation
 		}
 		PEE = {
 			PREV = {
@@ -432,7 +447,7 @@ peasant_victory = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = water_nation
+			has_idea = water_nation
 		}
 		PEW = {
 			PREV = {
@@ -453,7 +468,7 @@ peasant_victory = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = air_nation
+			has_idea = air_nation
 		}
 		PEA = {
 			PREV = {
@@ -495,7 +510,7 @@ peasant_victory = {
 peasant_victory_without_tag_switch = {
 	if = {
 		limit = {
-			has_country_flag = fire_nation
+			has_idea = fire_nation
 		}
 		PEF = {
 			PREV = {
@@ -515,7 +530,7 @@ peasant_victory_without_tag_switch = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = earth_nation
+			has_idea = earth_nation
 		}
 		PEE = {
 			PREV = {
@@ -535,7 +550,7 @@ peasant_victory_without_tag_switch = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = water_nation
+			has_idea = water_nation
 		}
 		PEW = {
 			PREV = {
@@ -555,7 +570,7 @@ peasant_victory_without_tag_switch = {
 	}
 	else_if = {
 		limit = {
-			has_country_flag = air_nation
+			has_idea = air_nation
 		}
 		PEA = {
 			PREV = {
