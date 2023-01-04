@@ -73,6 +73,18 @@ clear_revolt = {
 
 peasant_uprising_effect = {
 
+	set_temp_variable = { no_anger_anymore = 100 }
+	subtract_from_temp_variable = { no_anger_anymore = peasant_revolt_risk_variable }
+	random = {
+		chance = no_anger_anymore
+
+		add_to_variable = {
+			var =  peasant_appeasement_variable
+			value = 5
+			tooltip = peasant_appeasement_add_tooltip
+		}
+	}
+
 	random_list = {
 		peasant_anger_variable = {
 			country_event = generic_peasant.5

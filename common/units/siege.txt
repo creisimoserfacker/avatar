@@ -132,6 +132,59 @@ sub_units = {
 	}
 
 
+	gate_ram = {
+		sprite = infantry
+		map_icon_category = infantry
+		priority = 0
+		ai_priority = 0
+		active = no
+
+		type = {
+			infantry
+			support
+		}
+		
+		group = support
+		
+		categories = {
+			category_all_foot
+			category_support
+			category_siege
+		}
+
+	
+		combat_width = 0
+	
+		#Size Definitions
+		max_strength = 2
+		max_organisation = 30
+		default_morale = 0.3
+		manpower = 30
+		training_time = 100
+
+		#Misc Abilities
+		weight = 0.1
+		supply_consumption = 0.2
+		recon = 1.0
+		can_be_parachuted = no
+		
+		essential = {
+			support_equipment
+		}
+
+		need = {
+			support_equipment = 30
+			gate_ram_equipment = 3
+		}
+
+		fort = {
+			attack = 0.4
+		}
+
+		same_support_type = grappling_hook
+	}
+
+
 	siege_towers = {
 		sprite = infantry
 		map_icon_category = infantry

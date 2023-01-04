@@ -517,9 +517,8 @@ tactic_approach_bridge = {
 	trigger = {
 		is_attacker = yes
 		phase = no
-		is_amphibious_invasion = no
 		NOT = {
-			has_combat_modifier = fort_attack
+			is_amphibious_invasion = yes
 		}
 		OR = {
 			has_combat_modifier = river_crossing
@@ -531,16 +530,6 @@ tactic_approach_bridge = {
 
 	base = {
 		factor = 10
-		modifier = {
-			factor = 100
-			NOT = {
-				has_combat_modifier = fort_attack
-			}
-			OR = {
-				has_combat_modifier = river_crossing
-				has_combat_modifier = amphibious_attack
-			}
-		}
 	}
 	picture = approach_bridge
 
@@ -557,9 +546,8 @@ tactic_prepare_bridge_defense = {
 	trigger = {
 		is_attacker = no
 		phase = no
-		is_amphibious_invasion = no
 		NOT = {
-			has_combat_modifier = fort_attack
+			is_amphibious_invasion = yes
 		}
 		OR = {
 			has_combat_modifier = river_crossing
@@ -571,16 +559,6 @@ tactic_prepare_bridge_defense = {
 
 	base = {
 		factor = 10
-		modifier = {
-			factor = 100
-			NOT = {
-				has_combat_modifier = fort_attack
-			}
-			OR = {
-				has_combat_modifier = river_crossing
-				has_combat_modifier = amphibious_attack
-			}
-		}
 	}
 	picture = prepare_bridge_defense
 
@@ -597,6 +575,7 @@ tactic_take_bridge = {
 	trigger = {
 		is_attacker = yes
 		phase = take_bridge
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -678,7 +657,8 @@ tactic_destroy_the_bridge = {
 	is_attacker = no
 	trigger = {
 		is_attacker = no
-		phase = destroyed_bridge
+		phase = take_bridge
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -689,6 +669,8 @@ tactic_destroy_the_bridge = {
 	picture = destroy_the_bridge
 	
 	countered_by = tactic_take_bridge
+
+	phase = destroyed_bridge
 
 	defender = 0.05
 }
@@ -719,6 +701,7 @@ tactic_retake_bridge = {
 	trigger = {
 		is_attacker = no
 		phase = hold_bridge
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -821,6 +804,7 @@ tactic_improvised_bridge = {
 	trigger = {
 		is_attacker = yes
 		phase = destroyed_bridge
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2600,9 +2584,6 @@ tactic_approach_coastline = {
 		is_attacker = yes
 		phase = no
 		is_amphibious_invasion = yes
-		NOT = {
-			has_combat_modifier = fort_attack
-		}
 	}
 	
 	active = yes
@@ -2661,6 +2642,7 @@ tactic_sail_up_the_river = {
 	trigger = {
 		is_attacker = yes
 		phase = naval_invasion
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2704,6 +2686,7 @@ tactic_beach_landing = {
 		is_attacker = yes
 		phase = naval_invasion
 		is_fighting_in_terrain = beach
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2748,6 +2731,7 @@ tactic_concealed_landing = {
 		is_attacker = yes
 		phase = naval_invasion
 		forest_terrain = yes
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2792,6 +2776,7 @@ tactic_climb_the_cliffs = {
 		is_attacker = yes
 		phase = naval_invasion
 		mountain_terrain = yes
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2836,6 +2821,7 @@ tactic_take_the_harbour = {
 		is_attacker = yes
 		phase = naval_invasion
 		urban_terrain = yes
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -2880,6 +2866,7 @@ tactic_land_next_to_the_city = {
 		is_attacker = yes
 		phase = naval_invasion
 		urban_terrain = yes
+		has_initiative = yes
 	}
 	
 	active = yes
@@ -3010,6 +2997,7 @@ tactic_destroy_enemy_transports = {
 	trigger = {
 		is_attacker = no
 		phase = hold_bridgehead
+		has_initiative = yes
 	}
 	
 	active = yes
