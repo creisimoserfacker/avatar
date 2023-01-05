@@ -31,55 +31,59 @@ on_actions = {
 			}
 		}
 
-		# died
-
-		effect = {
-			if = {
-				limit = {
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					has_trait = generic
-				}
-				unit_leader_event = { id = unit_leader.19 }
-				remove_unit_leader = yes
-			}
-		}
 
 		# retired
 	
 		effect = {
 			if = {
 				limit = {
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
-					check_variable = { random < 0.5 }
+
+					###	some nice math
+					#
+					#	p1 = 1%, p2 = 0.01%, p3 = 0.0001%
+					#
+					#	Probability of A occuring = 1 - (1 - 0.0001)25000 = 0.91792526204365
+					#
+					#	25000 days = 68,5 years
+					#
+					#	after 68,5 years the leader retired with a 92% certainty
+
+
+					check_variable = { random < 0.01 }
+					check_variable = { random < 0.01 }
+					check_variable = { random < 0.01 }
 					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.21 }
+				remove_unit_leader = yes
+			}
+		}
+
+		# died
+
+		effect = {
+			if = {
+				limit = {
+
+					###	some nice math
+					#
+					#	p1 = 5%, p2 = 0.25%, p3 = 0.0125%, p4 = 0.0006%, p4 = 0.00003%
+					#
+					#	Probability of B occuring = 1 - (1 - 0.00003)25000 = 0.52763876145879
+					#
+					#	25000 days = 68,5 years
+					#
+					#	after 68,5 years the leader died with a 52% certainty
+
+
+					check_variable = { random < 0.05 }
+					check_variable = { random < 0.05 }
+					check_variable = { random < 0.05 }
+					check_variable = { random < 0.05 }
+					check_variable = { random < 0.05 }
+					has_trait = generic
+				}
+				unit_leader_event = { id = unit_leader.19 }
 				remove_unit_leader = yes
 			}
 		}
@@ -92,11 +96,17 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					set_temp_variable = { chance = 0.00001 }
+					set_temp_variable = { chance = 0.001 }
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@killed_chance_factor } 
 					multiply_temp_variable = { chance = factor }
-					check_variable = { random < chance }
+					
+					set_temp_variable = { trigger_var = random }
+					multiply_temp_variable = { trigger_var = 2 }
+					multiply_temp_variable = { trigger_var = skill_level }
+
+					check_variable = { trigger_var < chance }
+					
 					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.20 }
@@ -113,7 +123,12 @@ on_actions = {
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor } 
 					multiply_temp_variable = { chance = factor }
-					check_variable = { random < chance }
+					
+					set_temp_variable = { trigger_var = random }
+					multiply_temp_variable = { trigger_var = skill_level }
+
+					check_variable = { trigger_var < chance }
+
 					NOT = { has_trait = wounded }
 				}
 				add_timed_unit_leader_trait = {
@@ -132,11 +147,17 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
-					set_temp_variable = { chance = 0.0001 }
+					set_temp_variable = { chance = 0.005 }
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@killed_chance_factor } 
 					multiply_temp_variable = { chance = factor }
-					check_variable = { random < chance }
+					
+					set_temp_variable = { trigger_var = random }
+					multiply_temp_variable = { trigger_var = 2 }
+					multiply_temp_variable = { trigger_var = skill_level }
+
+					check_variable = { trigger_var < chance }
+
 					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.20 }
@@ -153,7 +174,12 @@ on_actions = {
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@wounded_chance_factor } 
 					multiply_temp_variable = { chance = factor }
-					check_variable = { random < chance }
+
+					set_temp_variable = { trigger_var = random }
+					multiply_temp_variable = { trigger_var = skill_level }
+
+					check_variable = { trigger_var < chance }
+
 					NOT = { has_trait = wounded }
 				}
 				add_timed_unit_leader_trait = {
