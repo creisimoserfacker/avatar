@@ -34,8 +34,8 @@ guiTypes = {
 				position = { x= 4 y = 0 }
 				Orientation = "UPPER_LEFT"
 		
-				pdx_tooltip = "invention_made_extended"
-				pdx_tooltip_delayed = "invention_made_delayed"
+				pdx_tooltip = "current_age"
+				pdx_tooltip_delayed = "current_age_delayed"
 			}
 
 			iconType = {
@@ -59,8 +59,8 @@ guiTypes = {
 				position = { x= 0 y = 0 }
 				Orientation = "UPPER_LEFT"
 			
-				pdx_tooltip = "invention_made_extended"
-				pdx_tooltip_delayed = "invention_made_delayed"
+				pdx_tooltip = "make_invention"
+				pdx_tooltip_delayed = "make_invention_delayed"
 			}
 			instantTextBoxType = {
 				name = "inventions_title"
@@ -84,10 +84,13 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "inventions_window"
-		position = { x=-3 y=110 }
-		size = { width = 100%% height = 100%% }
-		fade_time = 400
+		position = { x=-520 y=-340 }	
+		size = { width =1040 height=660 }
+		orientation= center
+		moveable = yes
+		fade_time = 200
 		fade_type = linear
+		click_to_front = yes
 
 		background = {
 			name = "Background"
@@ -789,42 +792,8 @@ guiTypes = {
 
 
 				containerWindowType = {
-					name = "domestication_3"
-					position = { x= @SLOT_1 y= @TECH_HEIGHT }
-					
-					iconType = {
-						name ="domestication_3_1"
-						spriteType = "GFX_tech_unavailable"
-						position = { x= 0 y= 0 }
-						alwaystransparent = yes
-					}
-					buttonType = {
-						name ="domestication_3_2"
-						spriteType = "GFX_tech_available"
-						position = { x= 0 y = 0 }
-						Orientation = "UPPER_LEFT"
-						
-						pdx_tooltip = "domestication_2_ttp"
-						pdx_tooltip_delayed = "unlock_tooltip"
-					}
-					iconType = {
-						name ="domestication_3_3"
-						spriteType = "GFX_tech_unlocked"
-						position = { x= 0 y= 0 }
-						alwaystransparent = yes
-					}
-					iconType = {
-						name ="domestication_3_icon"
-						spriteType = "GFX_domestication_3_medium"
-						position = { x= 4 y= 4 }
-						alwaystransparent = yes
-					}
-
-				}
-
-				containerWindowType = {
 					name = "libraries"
-					position = { x= @SLOT_2 y= @TECH_HEIGHT }
+					position = { x= @SLOT_1 y= @TECH_HEIGHT }
 					
 					iconType = {
 						name ="libraries_1"
@@ -858,7 +827,7 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "steelmaking"
-					position = { x= @SLOT_3 y= @TECH_HEIGHT }
+					position = { x= @SLOT_2 y= @TECH_HEIGHT }
 					
 					iconType = {
 						name ="steelmaking_1"
@@ -892,7 +861,7 @@ guiTypes = {
 
 				containerWindowType = {
 					name = "steam_engine"
-					position = { x= @SLOT_4 y= @TECH_HEIGHT }
+					position = { x= @SLOT_3 y= @TECH_HEIGHT }
 					
 					iconType = {
 						name ="steam_engine_1"

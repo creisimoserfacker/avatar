@@ -4,6 +4,12 @@ on_actions = {
 			every_state = {
 				set_variable = { state_loyalty_variable = 100 }
 			}
+			every_country = {
+				set_country_flag = {
+					flag = revolt_blocker
+					days = 60
+				}
+			}
 		}
 	}
 
@@ -23,11 +29,15 @@ on_actions = {
 
 			### stability factor
 
-			set_variable = { stability_revolt_facor = 1 }
-			subtract_from_variable = { stability_revolt_facor = stability }
-			multiply_variable = { stability_revolt_facor = stability_revolt_facor }
+			set_variable = { stability_revolt_factor = 1 }
+			subtract_from_variable = { stability_revolt_factor = var:stability@ROOT }
+			clamp_variable = {
+				var = stability_revolt_factor
+				min = 0
+			}
+			multiply_variable = { stability_revolt_factor = stability_revolt_factor }
 
-			multiply_variable = { peasant_revolt_risk_variable = stability_revolt_facor }
+			multiply_variable = { peasant_revolt_risk_variable = stability_revolt_factor }
 
 			### modifier factor
 
@@ -51,20 +61,18 @@ on_actions = {
 				limit = {
 					NOT = {
 						has_country_flag = active_peasant_revolt
+						has_country_flag = revolt_blocker
 					}
 				}
 				random = {
 					chance = peasant_revolt_risk_variable
 
-					country_event = { id = generic_peasant.1  random_days = 31 }
-					set_country_flag = active_peasant_revolt
-
-					random_core_state = {
-						limit = {
-							is_owned_by = ROOT
-						}
-						
+					country_event = { 
+						id = generic_peasant.1
+						days = 0  
+						random_days = 31 
 					}
+					set_country_flag = active_peasant_revolt
 				}
 			}
 

@@ -205,6 +205,55 @@ scripted_map_modes = {
 		update_daily = yes
 	}
 
+	revolt_risk_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 0.0 }
+				set_temp_variable = { blue = 0.0 }
+				set_temp_variable = { green = 0.0 }
+				set_temp_variable = { alpha = 0.5 }
+
+				FROM = {
+					add_to_temp_variable = { red = 100 }
+					subtract_from_temp_variable = { red = state_loyalty_variable }
+					add_to_temp_variable = { blue = 25 }
+					add_to_temp_variable = { green = state_loyalty_variable }
+					subtract_from_temp_variable = { green = THIS.modifier@revolt_target }
+
+					divide_temp_variable = { red = 100 }
+					divide_temp_variable = { blue = 100 }
+					divide_temp_variable = { green = 100 }
+
+					if = {
+						limit = {
+							NOT = {
+								is_core_of = OWNER
+							}
+						}
+
+						set_temp_variable = { red = 1.0 }
+						set_temp_variable = { blue = 0.0 }
+						set_temp_variable = { green = 0.5 }
+					}
+				}
+				
+			}
+
+			targets = {
+				target_array = core_states
+				target_array = revolt_states
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = country
+		near_text = state
+		update_daily = yes
+	}
+
 	flora_map_mode = {
 		top = {
 			type = state

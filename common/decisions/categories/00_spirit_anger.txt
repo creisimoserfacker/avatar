@@ -1,0 +1,21 @@
+spirit_anger_category = {
+
+	icon = spirit_anger
+
+	scripted_gui = spirit_anger_ui
+	
+	priority = 1000
+
+	allowed = {
+		always = yes 
+	}
+	visible = {
+		NOT = {
+			has_added_tension_amount > 50
+		}
+		threat > 0
+		check_variable = { modifier@avatar_opinion_modifier > 0 }
+	}
+
+	visible_when_empty = yes
+}

@@ -10,6 +10,11 @@
 peasant_mood_increase = {
 	if = {
 		limit = {
+			has_idea = integrated_peasants
+		}
+	}
+	else_if = {
+		limit = {
 			has_idea = happy_peasants
 		}
 		swap_ideas = {
@@ -98,6 +103,11 @@ peasant_mood_decrease = {
 			add_idea = enraged_peasants
 		}
 	}
+	else_if = {
+		limit = {
+			has_idea = enraged_peasants
+		}
+	}
 	else = {
 		add_ideas = distrusting_peasants
 	}
@@ -114,6 +124,11 @@ peasant_mood_decrease = {
 
 nobility_mood_increase = {
 	if = {
+		limit = {
+			has_idea = integrated_nobility
+		}
+	}
+	else_if = {
 		limit = {
 			has_idea = happy_nobility
 		}
@@ -201,6 +216,11 @@ nobility_mood_decrease = {
 		swap_ideas = {
 			remove_idea = angered_nobility
 			add_idea = enraged_nobility
+		}
+	}
+	else_if = {
+		limit = {
+			has_idea = enraged_nobility
 		}
 	}
 	else = {

@@ -1,4 +1,78 @@
 
+national_culture_recalc = {
+	every_core_state = {
+		add_to_temp_variable = { national_fire_pop = fire_pop }
+		add_to_temp_variable = { national_earth_pop = earth_pop }
+		add_to_temp_variable = { national_water_pop = water_pop }
+		add_to_temp_variable = { national_air_pop = air_pop }
+		add_to_temp_variable = { national_nonbender_pop = nonbender_pop }
+	}
+
+	add_to_array = { national_bender_pop = national_fire_pop }
+	add_to_array = { national_bender_pop = national_earth_pop }
+	add_to_array = { national_bender_pop = national_water_pop }
+	add_to_array = { national_bender_pop = national_air_pop }
+	add_to_array = { national_bender_pop = national_nonbender_pop }
+
+	find_highest_in_array = {
+		array = national_bender_pop
+	    value = highest_national_bender_pop
+	}
+
+	clear_array = national_bender_pop
+
+	if = { 
+		limit = { 
+			check_variable = { national_fire_pop = highest_national_bender_pop }
+		}
+		add_ideas = fire_nation
+		remove_ideas = earth_nation
+		remove_ideas = water_nation
+		remove_ideas = air_nation
+		remove_ideas = pluralist_nation
+	}
+	if = { 
+		limit = { 
+			check_variable = { national_earth_pop = highest_national_bender_pop }
+		}
+		remove_ideas = fire_nation
+		add_ideas = earth_nation
+		remove_ideas = water_nation
+		remove_ideas = air_nation
+		remove_ideas = pluralist_nation
+	}
+	if = { 
+		limit = { 
+			check_variable = { national_water_pop = highest_national_bender_pop }
+		}
+		remove_ideas = fire_nation
+		remove_ideas = earth_nation
+		add_ideas = water_nation
+		remove_ideas = air_nation
+		remove_ideas = pluralist_nation
+	}
+	if = { 
+		limit = { 
+			check_variable = { national_air_pop = highest_national_bender_pop }
+		}
+		remove_ideas = fire_nation
+		remove_ideas = earth_nation
+		remove_ideas = water_nation
+		add_ideas = air_nation
+		remove_ideas = pluralist_nation
+	}
+	if = { 
+		limit = { 
+			check_variable = { national_nonbender_pop = highest_national_bender_pop }
+		}
+		remove_ideas = fire_nation
+		remove_ideas = earth_nation
+		remove_ideas = water_nation
+		remove_ideas = air_nation
+		add_ideas = pluralist_nation
+	}
+}
+
 culture_pie_chart_recalc = {
 	every_controlled_state = {
 		clear_array = pie_chart

@@ -13,13 +13,7 @@ country_event = {
 	desc = invention.1.d
 	picture = GFX_invention_event_001
 
-	trigger = {
-		any_owned_state = {
-			check_variable = { animal > 0 }
-			check_variable = { stonefield > 0 }
-		}
-		NOT = { has_tech = basic_tool_making }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -55,21 +49,6 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
 	}
 	option = {
 		name = invention.1.b
@@ -79,21 +58,6 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
 	}
 
 }
@@ -143,13 +107,7 @@ country_event = {
 	desc = invention.2.d
 	picture = GFX_invention_event_002
 
-	trigger = {
-		FROM = {
-			quarry > 7
-		}
-		has_tech = basic_tool_making
-		NOT = { has_tech = metal_processing }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -185,21 +143,6 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
 	}
 	option = {
 		name = invention.2.b
@@ -209,21 +152,6 @@ country_event = {
 			}
 		}
 
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
 	}
 
 }
@@ -273,16 +201,7 @@ country_event = {
 	desc = invention.3.d
 	picture = GFX_invention_event_003
 
-	trigger = {
-		FROM = {
-			arms_factory > 5
-			mine > 7
-
-		}
-		has_tech = burning_1
-		has_tech = metal_processing
-		NOT = { has_tech = steelmaking }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -317,22 +236,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.3.b
@@ -341,22 +245,7 @@ country_event = {
 				has_tech = steelmaking
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -406,17 +295,7 @@ country_event = {
 	desc = invention.4.d
 	picture = GFX_invention_event_004
 
-	trigger = {
-		any_owned_state = {
-			has_railway_level = { 
-				level = 2 
-				state = THIS
-			}
-		}
-		check_variable = { modifier@research_speed_factor > 0.1 }
-		has_tech = basic_tool_making
-		NOT = { has_tech = the_wheel }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -451,22 +330,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.4.b
@@ -475,22 +339,7 @@ country_event = {
 				has_tech = the_wheel
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -541,13 +390,7 @@ country_event = {
 	desc = invention.5.d
 	picture = GFX_invention_event_005
 
-	trigger = {
-		any_owned_state = {
-			check_variable = { animal > 0 }
-		}
-		has_tech = reform_0
-		NOT = { has_tech = domestication_0 }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -582,22 +425,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.5.b
@@ -606,22 +434,7 @@ country_event = {
 				has_tech = domestication_0
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -671,16 +484,7 @@ country_event = {
 	desc = invention.6.d
 	picture = GFX_invention_event_006
 
-	trigger = {
-		OR = {
-			has_equipment = { ostrich_horse > 199 }
-			has_equipment = { polar_dog > 199 }
-			has_equipment = { desert_bug > 199 }
-			has_equipment = { dragon_moose > 199 }
-		}
-		has_tech = domestication_0
-		NOT = { has_tech = domestication_1 }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -715,22 +519,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.6.b
@@ -739,22 +528,7 @@ country_event = {
 				has_tech = domestication_1
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -805,15 +579,7 @@ country_event = {
 	desc = invention.7.d
 	picture = GFX_invention_event_007
 
-	trigger = {
-		OR = {
-			has_equipment = { komodo_rhino > 199 }
-			has_equipment = { walrus_yak > 199 }
-			has_equipment = { elephant_camel > 199 }
-		}
-		has_tech = domestication_0
-		NOT = { has_tech = domestication_2 }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -848,22 +614,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.7.b
@@ -872,22 +623,7 @@ country_event = {
 				has_tech = domestication_2
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -937,12 +673,7 @@ country_event = {
 	desc = invention.8.d
 	picture = GFX_invention_event_008
 
-	trigger = {
-		has_equipment = { birb_equipment > 99 }
-		check_variable = { modifier@research_speed_factor > 0.2 }
-
-		NOT = { has_tech = aerodynamics }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -977,22 +708,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.8.b
@@ -1001,22 +717,7 @@ country_event = {
 				has_tech = aerodynamics
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1067,11 +768,7 @@ country_event = {
 	desc = invention.9.d
 	picture = GFX_invention_event_009
 
-	trigger = {
-		farm > 7
-
-		NOT = { has_tech = candles }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1106,22 +803,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.9.b
@@ -1130,22 +812,7 @@ country_event = {
 				has_tech = candles
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1195,13 +862,7 @@ country_event = {
 	desc = invention.10.d
 	picture = GFX_invention_event_010
 
-	trigger = {
-		has_tech = aerodynamics
-		has_tech = candles
-		check_variable = { modifier@research_speed_factor > 0.4 }
-
-		NOT = { has_tech = thermodynamics }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1236,22 +897,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.10.b
@@ -1260,22 +906,7 @@ country_event = {
 				has_tech = thermodynamics
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1326,11 +957,7 @@ country_event = {
 	desc = invention.11.d
 	picture = GFX_invention_event_011
 
-	trigger = {
-		amount_research_slots > 1
-
-		NOT = { has_tech = ink }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1365,22 +992,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.11.b
@@ -1389,22 +1001,7 @@ country_event = {
 				has_tech = ink
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1454,13 +1051,7 @@ country_event = {
 	desc = invention.12.d
 	picture = GFX_invention_event_012
 
-	trigger = {
-		amount_research_slots > 2
-		has_tech = ink
-		has_tech = candles
-
-		NOT = { has_tech = libraries }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1495,22 +1086,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.12.b
@@ -1519,22 +1095,7 @@ country_event = {
 				has_tech = libraries
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1584,18 +1145,7 @@ country_event = {
 	desc = invention.13.d
 	picture = GFX_invention_event_013
 
-	trigger = {
-		any_owned_state = {
-			check_variable = { field > 0 }
-			check_variable = { forest > 0 }
-		}
-		OR = {
-			has_idea_with_trait = agrarian_reformer
-			has_idea_with_trait = naturalist
-		}
-
-		NOT = { has_tech = botanics }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1630,22 +1180,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.13.b
@@ -1654,22 +1189,7 @@ country_event = {
 				has_tech = botanics
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1719,17 +1239,7 @@ country_event = {
 	desc = invention.14.d
 	picture = GFX_invention_event_014
 
-	trigger = {
-		OR = {
-			casualties > 499
-			has_army_experience > 99
-		}
-		has_army_manpower = {
-			size > 999
-		}
-
-		NOT = { has_tech = heal_practices }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1764,22 +1274,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.14.b
@@ -1788,22 +1283,7 @@ country_event = {
 				has_tech = heal_practices
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1854,14 +1334,7 @@ country_event = {
 	desc = invention.15.d
 	picture = GFX_invention_event_015
 
-	trigger = {
-		has_tech = metal_processing
-		has_tech = domestication_0
-		has_tech = the_wheel
-		farm > 9
-
-		NOT = { has_tech = plow }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -1896,22 +1369,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.15.b
@@ -1920,22 +1378,7 @@ country_event = {
 				has_tech = plow
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -1986,13 +1429,7 @@ country_event = {
 	desc = invention.16.d
 	picture = GFX_invention_event_016
 
-	trigger = {
-		has_tech = the_wheel
-		carpentry > 5
-		check_variable = { modifier@research_speed_factor > 0.2 }
-
-		NOT = { has_tech = basic_gear }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -2027,22 +1464,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.16.b
@@ -2051,22 +1473,7 @@ country_event = {
 				has_tech = basic_gear
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -2117,13 +1524,7 @@ country_event = {
 	desc = invention.17.d
 	picture = GFX_invention_event_017
 
-	trigger = {
-		has_tech = basic_gear
-		arms_factory > 5
-		check_variable = { modifier@research_speed_factor > 0.3 }
-
-		NOT = { has_tech = advanced_gear }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -2158,22 +1559,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.17.b
@@ -2182,22 +1568,7 @@ country_event = {
 				has_tech = advanced_gear
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -2248,13 +1619,7 @@ country_event = {
 	desc = invention.18.d
 	picture = GFX_invention_event_018
 
-	trigger = {
-		has_tech = advanced_gear
-		steelworks > 7
-		check_variable = { modifier@research_speed_factor > 0.4 }
-
-		NOT = { has_tech = steam_engine }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -2289,22 +1654,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.18.b
@@ -2313,22 +1663,7 @@ country_event = {
 				has_tech = steam_engine
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -2379,13 +1714,7 @@ country_event = {
 	desc = invention.19.d
 	picture = GFX_invention_event_019
 
-	trigger = {
-		has_tech = steam_engine
-		steelworks > 7
-		check_variable = { modifier@research_speed_factor > 0.4 }
-
-		NOT = { has_tech = improved_coal_engine }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -2398,7 +1727,8 @@ country_event = {
 			if = {
 				limit = {
 					NOT = {
-						has_global_flag = improved_coal_engine_event
+						has_global_flag = modern_engine_event
+						check_variable = { modifier@tech_share_modifier < 1 }
 					}
 				}
 				set_global_flag = improved_coal_engine_event
@@ -2420,22 +1750,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.19.b
@@ -2444,22 +1759,7 @@ country_event = {
 				has_tech = improved_coal_engine
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
@@ -2510,13 +1810,7 @@ country_event = {
 	desc = invention.20.d
 	picture = GFX_invention_event_020
 
-	trigger = {
-		has_tech = improved_coal_engine
-		steelworks > 7
-		check_variable = { modifier@research_speed_factor > 0.4 }
-
-		NOT = { has_tech = modern_engine }
-	}
+	is_triggered_only = yes
 
 	fire_only_once = yes
 	minor_flavor = yes
@@ -2530,6 +1824,7 @@ country_event = {
 				limit = {
 					NOT = {
 						has_global_flag = modern_engine_event
+						check_variable = { modifier@tech_share_modifier < 1 }
 					}
 				}
 				set_global_flag = modern_engine_event
@@ -2551,22 +1846,7 @@ country_event = {
 				}
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 240
-			}
-		}
+		
 	}
 	option = {
 		name = invention.20.b
@@ -2575,22 +1855,7 @@ country_event = {
 				has_tech = modern_engine
 			}
 		}
-
-		if = {
-			limit = {
-				has_idea = invention_made
-			}
-			modify_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
-		else = {
-			add_timed_idea = {
-				idea = invention_made
-				days = 120
-			}
-		}
+		
 	}
 
 }
