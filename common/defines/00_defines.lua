@@ -1060,11 +1060,15 @@ NMilitary = {
 	},
 	
 	NEW_COMMANDER_RANDOM_BASIC_TRAIT_CHANCES = {  -- chances to gain a basic trait for new generals
+		0.01, -- 1% for first trait
+		0.05, -- 5% for second trait after that
+		0.05 -- 5% for second trait after that
 	},
 	
 	NEW_COMMANDER_RANDOM_STATUS_TRAIT_CHANCES = {  -- chances to gain a status trait for new generals
-		0.5, -- 50% for first trait
-		0.25  -- 25% for second trait after that
+		1, -- 100% for first trait
+		0.2, -- 20% for second trait
+		0.1  -- 10% for second trait after that
 	},
 
 	NEW_OPERATIVE_RANDOM_PERSONALITY_TRAIT_CHANCES = {  -- chances to gain a personality trait for new operatives
@@ -1073,7 +1077,7 @@ NMilitary = {
 	},
 
 	NEW_OPERATIVE_RANDOM_BASIC_TRAIT_CHANCES = {  -- chances to gain a basic trait for new operatives
-		0.5, -- 5% for first trait
+		0.5, -- 50% for first trait
 		0.25,  -- 25% for second trait after that
 		0.05  -- 5% for second trait after that
 	},
