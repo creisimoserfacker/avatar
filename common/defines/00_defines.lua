@@ -641,8 +641,8 @@ NPolitics = {
 	BASE_POLITICAL_POWER_INCREASE = 1,	-- Weekly increase of PP.
 	ARMY_LEADER_COST = 5,					-- cost for recruiting new leaders, 'this value' * number_of_existing_leaders_of_type
 	NAVY_LEADER_COST = 5,					-- cost for recruiting new leaders, 'this value' * number_of_existing_leaders_of_type
-	ARMY_LEADER_MAX_COST = 50,				-- max cost BEFORE modifiers
-	NAVY_LEADER_MAX_COST = 50,				-- max cost BEFORE modifiers
+	ARMY_LEADER_MAX_COST = 100,				-- max cost BEFORE modifiers
+	NAVY_LEADER_MAX_COST = 100,				-- max cost BEFORE modifiers
 	LEADER_TRAITS_XP_SHOW = 0.05,			-- Amount of XP a trait needs to be shown in tooltips of a leader.
 	REVOLTER_PARTY_POPULARITY = 0.4,		-- Revolter party loses 80% popularity when the civil war breaks out
 	MIN_OVERTHROWN_GOVERNMENT_SUPPORT_RATIO = 0.4, -- Min possible support for new government after puppeting the government
@@ -1056,19 +1056,16 @@ NMilitary = {
 	HOURS_REQ_REJOIN_BORDER_WAR_FOR_INJURED_UNITS = 336, -- minimum hours required for units to rejoin border wars
 	
 	NEW_COMMANDER_RANDOM_PERSONALITY_TRAIT_CHANCES = {  -- chances to gain a personality trait for new generals
-		1.0 -- 100% for first trait
-	},
-	
-	NEW_COMMANDER_RANDOM_BASIC_TRAIT_CHANCES = {  -- chances to gain a basic trait for new generals
-		0.01, -- 1% for first trait
-		0.05, -- 5% for second trait after that
-		0.05 -- 5% for second trait after that
-	},
-	
-	NEW_COMMANDER_RANDOM_STATUS_TRAIT_CHANCES = {  -- chances to gain a status trait for new generals
+		1, -- 100% will be generic in on_action
 		1, -- 100% for first trait
 		0.2, -- 20% for second trait
 		0.1  -- 10% for second trait after that
+	},
+	
+	NEW_COMMANDER_RANDOM_BASIC_TRAIT_CHANCES = {  -- chances to gain a basic trait for new generals
+	},
+
+	NEW_COMMANDER_RANDOM_STATUS_TRAIT_CHANCES = {  -- chances to gain a status trait for new generals
 	},
 
 	NEW_OPERATIVE_RANDOM_PERSONALITY_TRAIT_CHANCES = {  -- chances to gain a personality trait for new operatives

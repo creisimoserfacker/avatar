@@ -37,6 +37,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					has_trait = generic
 
 					###	some nice math
 					#
@@ -52,7 +53,6 @@ on_actions = {
 					check_variable = { random < 0.01 }
 					check_variable = { random < 0.01 }
 					check_variable = { random < 0.01 }
-					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.21 }
 				remove_unit_leader = yes
@@ -64,6 +64,7 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					has_trait = generic
 
 					###	some nice math
 					#
@@ -81,7 +82,6 @@ on_actions = {
 					check_variable = { random < 0.05 }
 					check_variable = { random < 0.05 }
 					check_variable = { random < 0.05 }
-					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.19 }
 				remove_unit_leader = yes
@@ -96,6 +96,8 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					has_trait = generic
+
 					set_temp_variable = { chance = 0.001 }
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@killed_chance_factor } 
@@ -106,8 +108,6 @@ on_actions = {
 					multiply_temp_variable = { trigger_var = skill_level }
 
 					check_variable = { trigger_var < chance }
-					
-					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.20 }
 				remove_unit_leader = yes
@@ -147,6 +147,8 @@ on_actions = {
 		effect = {
 			if = {
 				limit = {
+					has_trait = generic
+
 					set_temp_variable = { chance = 0.005 }
 					set_temp_variable = { factor = 1.0 }
 					add_to_temp_variable = { factor = leader_modifier@killed_chance_factor } 
@@ -157,8 +159,6 @@ on_actions = {
 					multiply_temp_variable = { trigger_var = skill_level }
 
 					check_variable = { trigger_var < chance }
-
-					has_trait = generic
 				}
 				unit_leader_event = { id = unit_leader.20 }
 				remove_unit_leader = yes
@@ -196,6 +196,288 @@ on_actions = {
 			add_timed_unit_leader_trait = {
 				trait = recently_promoted
 				days = 100
+			}
+		}
+	}
+
+	#FROM - Country (owner)
+	#ROOT - leader
+	#FROMFROM - original owner for exiled leaders
+
+	on_unit_leader_level_up = {
+		effect = {
+			if = { 
+				limit = { 
+					FROM = { 
+						has_idea = bold_attack_spirit 
+					} 
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = { 
+							50 = { add_attack = 1 } 
+							50 = {} 
+						} 
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = tenacious_defense_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = {
+							50 = { add_defense = 1 }
+							50 = {}
+						}
+					}
+				}
+			}
+			else_if = {
+				limit = {
+					FROM = { has_idea = meticulous_preparation_spirit }
+				}
+				character = { 
+					IF = { 
+						limit = { is_army_leader = yes }
+					
+						random_list = {
+							50 = { 
+								add_planning = 1 
+								add_logistics = 1
+							}
+							50 = {}
+						}
+					}
+				}
+			}
+		}
+	}
+
+	on_unit_leader_created = { 
+
+	# This uses the UNIT LEADER sub scope of a character, FROM == country
+
+		effect = {
+			character = {
+
+				#### make character generic
+				root = {
+					add_unit_leader_trait = generic
+				}
+
+
+				if = { 
+					limit = {
+						is_army_leader = yes
+					}
+
+					if = {
+						limit = {	
+							FROM = { has_idea = bold_attack_spirit }
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_random_trait = { 
+										reckless
+										brave
+									}
+								}
+								50 = {  }
+							}
+						}
+					}
+					if = {
+						limit = {	
+							FROM = { has_idea = academy_scholarships_spirit }
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_random_trait = { 
+										rational intelligent
+									}
+								}
+								50 = {  }
+							}
+						}
+					}
+
+					if = {
+						limit = {	
+							FROM = { 
+								capital_scope = { 
+									OR = {
+										region = 106
+										region = 128
+										region = 94
+										region = 129
+										region = 130
+									}
+								}
+							}
+						}
+						root = {
+							random_list = {
+								50 = { 
+									add_unit_leader_trait = cactus_juice_abuser
+								}
+								100 = {  }
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+
+
+
+
+
+	######################################
+	################### trait developments
+	######################################
+
+
+	on_unit_leader_level_up = {
+		effect = {
+			
+			if = { 
+				limit = { 
+					has_trait = stupid
+					NOT = {
+						has_trait = dark_horse
+						has_trait = ignorant
+					}
+				}
+				if = { 
+					limit = { 
+						OR = {
+							skill > 3
+							has_trait = brave
+							has_trait = determined
+						}
+					}
+					random = {
+						chance = 50
+						character = { unit_leader_event = { id = character_development.1 } }
+					}
+				}
+				else = {
+					random = {
+						chance = 50
+						character = { unit_leader_event = { id = character_development.2 } }
+					}
+				}
+			}
+
+			if = { 
+				limit = { 
+					has_trait = arrogant
+					NOT = {
+						has_trait = politically_connected
+						has_trait = overbearing
+					}
+				}
+				if = { 
+					limit = { 
+						OR = {
+							skill > 3
+							has_trait = energetic
+							has_trait = determined
+						}
+					}
+					random_list = {
+						90 = { unit_leader_event = { id = character_development.3 } }
+						10 = { unit_leader_event = { id = character_development.4 } }
+					}
+				}
+				else = {
+					random = {
+						chance = 25
+						character = { unit_leader_event = { id = character_development.4 } }
+					}
+				}
+			}
+		}
+	}
+
+	on_army_leader_won_combat = {
+		effect = {
+			if = {
+				limit = {
+					has_trait = intelligent
+					NOT = {
+						has_trait = brilliant_tactician
+					}
+
+					set_temp_variable = { chance = 0.05 }
+					set_temp_variable = { trigger_var = random }
+					check_variable = { trigger_var < chance }
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_trait = arrogant
+							has_trait = stoic
+						}
+					}
+					random_list = {
+						50 = { unit_leader_event = { id = character_development.5 } }
+						50 = { unit_leader_event = { id = character_development.6 } }
+						100 = {  }
+					}
+				}
+				else = {
+					random = {
+						chance = 10
+						character = { unit_leader_event = { id = character_development.5 } }
+					}
+				}
+			}
+		}
+	}
+
+	on_army_leader_lost_combat = {
+		effect = {
+			if = {
+				limit = {
+					has_trait = fickle
+					NOT = {
+						has_trait = resolute
+						has_trait = insecure
+						has_trait = consumed_by_grief
+					}
+
+					set_temp_variable = { chance = 0.05 }
+					set_temp_variable = { trigger_var = random }
+					check_variable = { trigger_var < chance }
+				}
+				if = {
+					limit = {
+						NOT = {
+							has_trait = rational
+						}
+					}
+					random_list = {
+						50 = { unit_leader_event = { id = character_development.7 } }
+						50 = { unit_leader_event = { id = character_development.8 } }
+						100 = {  }
+					}
+				}
+				else = {
+					random = {
+						chance = 100
+						character = { unit_leader_event = { id = character_development.7 } }
+					}
+				}
 			}
 		}
 	}

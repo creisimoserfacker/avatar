@@ -13,7 +13,8 @@ leader_traits = {
 
 	firelord = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		field_marshal_modifier = {
 			max_army_group_size = 3
@@ -29,7 +30,8 @@ leader_traits = {
 
 	prince = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		field_marshal_modifier = {
 			max_army_group_size = 1
@@ -45,11 +47,36 @@ leader_traits = {
 
 	country_leader = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			army_morale_factor = 0.20
 		}
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	dragon_of_the_west = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
+
+		modifier = {
+			#fort = {
+			#	attack = 0.25
+			#}
+			#wounded_chance_factor = 0.25
+			out_of_supply_factor = -0.25
+			army_attack_factor = 0.1
+		}
+
+		attack_skill = 1
+		defense_skill_factor = 1
+		logistics_skill_factor = 1
+		logistics_skill = 1
+
 		new_commander_weight = {
 			factor = 0
 		}
@@ -64,11 +91,13 @@ leader_traits = {
 
 	stupid = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		non_shared_modifier = {
 			experience_gain_factor = -0.5
 		}
+		custom_effect_tooltip = stupid_development_tt
 
 		new_commander_weight = {
 			factor = 1
@@ -77,20 +106,22 @@ leader_traits = {
 				has_trait = intelligent
 				factor = 0 
 			}
-			#modifier = {
-			#	FROM = { has_idea = best_of_the_best_spirit }
-			#	factor = 0
-			#}
+			modifier = {
+				FROM = { has_idea = best_of_the_best_spirit }
+				factor = 0
+			}
 		}
 	}
 
 	intelligent = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		non_shared_modifier = {
 			experience_gain_factor = 0.5
 		}
+		custom_effect_tooltip = intelligent_development_tt
 
 		new_commander_weight = {
 			factor = 1
@@ -104,7 +135,8 @@ leader_traits = {
 
 	calm = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			max_planning = 0.1
@@ -126,7 +158,8 @@ leader_traits = {
 
 	energetic = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			reassignment_duration_factor = -0.9
@@ -144,7 +177,8 @@ leader_traits = {
 
 	brave = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			army_attack_speed_factor = 0.5
@@ -165,7 +199,8 @@ leader_traits = {
 
 	craven = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			combat_width_factor = -0.25
@@ -184,7 +219,8 @@ leader_traits = {
 
 	reckless = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			army_attack_factor = 0.05
@@ -207,7 +243,8 @@ leader_traits = {
 
 	cautious = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			army_attack_factor = -0.05
@@ -230,7 +267,8 @@ leader_traits = {
 
 	stubborn = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		non_shared_modifier = {
 			reassignment_duration_factor = 1   
@@ -250,7 +288,8 @@ leader_traits = {
 
 	open_minded = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		non_shared_modifier = {
 			experience_gain_factor = 0.05
@@ -270,7 +309,8 @@ leader_traits = {
 
 	ruthless = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			land_reinforce_rate = 0.05
@@ -290,7 +330,8 @@ leader_traits = {
 
 	gentle = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			army_morale_factor = 0.15
@@ -309,7 +350,8 @@ leader_traits = {
 
 	stoic = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			army_morale_factor = 0.10
@@ -330,11 +372,13 @@ leader_traits = {
 
 	arrogant = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			combat_width_factor = 0.2
 		}
+		custom_effect_tooltip = arrogant_development_tt
 
 		new_commander_weight = {
 			factor = 1
@@ -348,12 +392,14 @@ leader_traits = {
 
 	fickle = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			coordination_bonus = -0.5
 			org_loss_when_moving = -0.5
 		}
+		custom_effect_tooltip = fickle_development_tt
 
 		new_commander_weight = {
 			factor = 1
@@ -367,7 +413,8 @@ leader_traits = {
 
 	determined = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			coordination_bonus = 0.5
@@ -386,7 +433,8 @@ leader_traits = {
 
 	arbitrary = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			max_planning_factor = -0.1
@@ -406,7 +454,8 @@ leader_traits = {
 
 	rational = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			max_planning_factor = 0.05
@@ -427,33 +476,11 @@ leader_traits = {
 	##################################
 	# character developed traits
 	##################################
-	
-	dragon_of_the_west = { 
-		type = land
-		trait_type = status_trait
-
-		modifier = {
-			#fort = {
-			#	attack = 0.25
-			#}
-			#wounded_chance_factor = 0.25
-			out_of_supply_factor = -0.25
-			army_attack_factor = 0.1
-		}
-
-		attack_skill = 1
-		defense_skill_factor = 1
-		logistics_skill_factor = 1
-		logistics_skill = 1
-
-		new_commander_weight = {
-			factor = 0
-		}
-	}
 
 	aggressive_strategist = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
 			planning_speed = 0.1
@@ -469,10 +496,11 @@ leader_traits = {
 
 	defensive_strategist = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		modifier = {
-			max_dig_in = 1
+			max_dig_in = 10
 		}
 
 		defense_skill_factor = 1
@@ -484,7 +512,8 @@ leader_traits = {
 
 	politically_connected = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 
 		non_shared_modifier = {
 			promote_cost_factor = -0.5
@@ -495,9 +524,54 @@ leader_traits = {
 		}
 	}
 
+	overbearing = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
+
+		non_shared_modifier = {
+			combat_width_factor = 0.3
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	ignorant = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
+
+		modifier = {
+			recon_factor = -0.5
+			terrain_penalty_reduction = -0.25
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	dark_horse = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
+
+		modifier = {
+			land_night_attack = 0.25
+			recon_factor = 0.25
+		}
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
 	loyal = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		non_shared_modifier = {
 			promote_cost_factor = -0.15
@@ -511,7 +585,8 @@ leader_traits = {
 
 	defeatist = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			land_reinforce_rate = -0.01
@@ -524,13 +599,49 @@ leader_traits = {
 		}
 	}
 
-	consumed_by_grief = { 
+	resolute = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
+		
+		modifier = {
+			land_reinforce_rate = 0.02
+			army_morale_factor = 0.25
+		}
+		
+		attack_skill = 1
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	insecure = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		modifier = {
 			land_reinforce_rate = -0.02
 			army_morale_factor = -0.25
+		}
+		
+		attack_skill = -1
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	consumed_by_grief = { 
+		type = land
+		trait_type = personality_trait
+		show_in_combat = yes
+		
+		modifier = {
+			land_reinforce_rate = -0.05
+			army_morale_factor = -0.1
+			planning_speed = -0.5
 		}
 		
 		attack_skill = -3
@@ -542,7 +653,8 @@ leader_traits = {
 
 	brilliant_tactician = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		attack_skill = 1
 		defense_skill = 1
@@ -554,7 +666,8 @@ leader_traits = {
 
 	brilliant_strategist = { 
 		type = land
-		trait_type = status_trait
+		trait_type = personality_trait
+		show_in_combat = yes
 		
 		planning_skill = 1
 		logistics_skill = 1
