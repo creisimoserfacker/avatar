@@ -359,24 +359,23 @@ earth_puppets_12 = {
 				target = NCB
 				autonomous_state = autonomy_vassalage
 			}
-	
-			else = {
-				puppet = WBA
-				puppet = EBA
-				puppet = FMB
-				puppet = LAM
-				puppet = ECB
-				puppet = GDD
-				puppet = MER
-				puppet = NIX
-				puppet = XIN
-				puppet = WUL
-				puppet = HEB
-				puppet = MAK
-				puppet = YUE
-				puppet = NOW
-				puppet = NCB
-			}
+		}
+		else = {
+			puppet = WBA
+			puppet = EBA
+			puppet = FMB
+			puppet = LAM
+			puppet = ECB
+			puppet = GDD
+			puppet = MER
+			puppet = NIX
+			puppet = XIN
+			puppet = WUL
+			puppet = HEB
+			puppet = MAK
+			puppet = YUE
+			puppet = NOW
+			puppet = NCB
 		}
 	}
 }
@@ -509,39 +508,88 @@ earth_puppets_52 = {
 				target = HAN
 				autonomous_state = autonomy_county
 			}
-
-			else = {
-				puppet = OMS
-				puppet = GAO
-				puppet = YII
-				puppet = YUE
-				puppet = MPO
-				puppet = SWA
-				puppet = TAK
-				puppet = ZAO
-				puppet = CHN
-				puppet = ISL
-				puppet = NAN
-				puppet = ZIN
-				puppet = GAR
-				puppet = POH
-				puppet = WBA
-				puppet = EBA
-				puppet = FMB
-				puppet = LAM
-				puppet = ECB
-				puppet = GDD
-				puppet = MER
-				puppet = NIX
-				puppet = XIN
-				puppet = WUL
-				puppet = HEB
-				puppet = MAK
-				puppet = NOW
-				puppet = NCB
-				puppet = HAN
-			}
+		}
+		else = {
+			puppet = OMS
+			puppet = GAO
+			puppet = YII
+			puppet = YUE
+			puppet = MPO
+			puppet = SWA
+			puppet = TAK
+			puppet = ZAO
+			puppet = CHN
+			puppet = ISL
+			puppet = NAN
+			puppet = ZIN
+			puppet = GAR
+			puppet = POH
+			puppet = WBA
+			puppet = EBA
+			puppet = FMB
+			puppet = LAM
+			puppet = ECB
+			puppet = GDD
+			puppet = MER
+			puppet = NIX
+			puppet = XIN
+			puppet = WUL
+			puppet = HEB
+			puppet = MAK
+			puppet = NOW
+			puppet = NCB
+			puppet = HAN
 		}
 		
+	}
+}
+
+
+ear_exiles_52 = {
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		WUL = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		TAK = {
+			become_exiled_in = { target = EAR legitimacy = 40 }
+		}
+		YUE = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		MAK = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		POH = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
+		HAN = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
+	}
+}
+
+ear_exiles_106 = {
+	if = {
+		limit = {
+			has_dlc = "Man the Guns"
+		}
+		MER = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		GDD = {
+			become_exiled_in = { target = EAR legitimacy = 20 }
+		}
+		XIN = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		NIX = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		NOW = {
+			become_exiled_in = { target = EAR legitimacy = 35 }
+		}
 	}
 }

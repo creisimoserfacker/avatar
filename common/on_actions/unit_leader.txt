@@ -6,6 +6,82 @@ on_actions = {
 		}
 	}
 
+	on_host_changed_from_capitulation = {
+		effect = {
+			#Transfer exile leaders to new host
+			From.From = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					set_nationality = Root.From
+				}
+			}
+		}
+	}
+
+	#Root is exile
+	#From is old host 
+	on_exile_government_reinstated = {
+		effect = {
+			From = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					set_nationality = Root
+				}
+			}
+			Root = {
+				every_army_leader = {
+					limit = { is_exiled_leader_from = Root }
+					remove_unit_leader_trait = exiled_leader
+					remove_exile_tag = yes
+				}
+			}
+		}
+	}
+
+	on_unit_leader_created = {
+		effect = {
+			if = {
+				limit = { is_exiled_leader = yes }
+				From.From = { save_event_target_as = exile_nation }
+				add_unit_leader_trait = exiled_leader
+				
+				add_random_trait = {
+					stupid
+					intelligent
+					calm
+					energetic
+					brave
+					craven
+					reckless
+					cautious
+					stubborn
+					open_minded
+					ruthless
+					gentle
+					stoic
+					arrogant
+					fickle
+					determined
+					arbitrary
+					rational
+				}
+
+				add_random_trait = {
+					offensive_infantry
+					defensive_infantry
+					tactical_mind
+					trait_engineer
+					supply_organisation
+					naval_invader
+					besieger
+					skilled_staffer
+				}
+
+				unit_leader_event = { id =  unit_leader.1 }
+			}
+		}
+	}
+
 
 	# From is owner country
 
