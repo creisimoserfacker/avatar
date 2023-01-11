@@ -2,392 +2,596 @@
 
 EAR_defense_category = {
 
-	HAN_defenses = {
 
-		icon = earth_defense
+	HEB_fongs_base = {
 
-		allowed = {
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
-				}
+		icon = fongs_base
+
+		visible = {
+			375 = {
+				is_owned_and_controlled_by = PREV
+			}
+			NOT = {
+				has_active_mission = castle_construction_mission
 			}
 		}
-
-		visible = { 
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
-				}
-			}
-		}
-
 		available = {
 			
 		}
 
-		fire_only_once = yes
-
-		cost = 200
+		cost = EARTH_castle_cost?5
 
 		complete_effect = {
-			set_country_flag = han_tui_defense_decisions
-			custom_effect_tooltip = han_tui_defense_ttp
+			add_to_variable = { EARTH_castle_cost = 10 }
+			set_variable = { castle_construction = token:HEB_fongs_base }
+			set_variable = { castle_location = 375 }
+			activate_mission = castle_construction_mission
+
+			country_event = { id = earcas.1 }
 		}
 
+		ai_will_do = {
+			base = 1
+		}
 	}
 
-	HAN_flood_lowlands = {
+	castle_construction_mission = {
 
-		icon = flooded
+		icon = castle_construction
 
-		allowed = {
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
+		priority = 100
+
+		allowed = { always = no }
+
+		available = {
+			NOT = {
+				var:castle_location = {
+					is_owned_and_controlled_by = PREV
 				}
 			}
 		}
 
-		visible = { 
-			has_country_flag = han_tui_defense_decisions
+		selectable_mission = no
+
+		days_mission_timeout = 1000
+		is_good = yes
+
+		timeout_effect = {
+			meta_effect = {
+				text = {
+					[CASTLE] = yes
+				}
+			    CASTLE = "[?castle_construction.GetTokenKey]"
+			}
 		}
 
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	castle_construction_material = {
+
+		icon = bricks_and_stones
+
+		visible = {
+			has_active_mission = castle_construction_mission
+		}
 		available = {
-			
+			NOT = {
+				has_country_flag = castle_construction_measure
+			}
+			check_variable = { days_mission_timeout@castle_construction_mission > 150 }
 		}
 
 		custom_cost_trigger = {
-			has_stability > 0.05
+			check_variable = { resource@stone > 25 }
+			check_variable = { resource@bricks_resource > 100 }
 		}
-		custom_cost_text = stability_5
+		custom_cost_text = stone_and_bricks
 
-		days_remove = 90
-
-		highlight_states = {
-			highlight_state_targets = { state = 243 }
+		modifier = {
+			country_resource_cost_stone = 25
+			country_resource_cost_bricks_resource = 100
 		}
+
+		days_remove = 30
 
 		complete_effect = {
-			add_stability = -0.05
-			243 = {
-				add_province_modifier = {
-					static_modifiers = { flooded }
-					province = {
-						id = 3466
-						id = 3213
-						id = 7292
-						id = 4909
-						id = 5066
-						id = 7358
-						id = 7321
-						id = 7390
-						id = 1170
-						id = 7293
-						id = 1922
-						id = 7353
-					}
-				}
-				damage_building = {
-					type = infrastructure
-					damage = 3
-				}
-				damage_building = {
-					type = farm
-					damage = 1
-				}
-				set_temp_variable = { this_population_temp = THIS.state_population }
-				divide_temp_variable = { this_population_temp = -20 }
-				add_manpower = var:this_population_temp
-			}
+			set_country_flag = castle_construction_measure
+		}
+		cancel_effect = {
+			clr_country_flag = castle_construction_measure
 		}
 
 		remove_effect = {
-			243 = {
-				remove_province_modifier = {
-					static_modifiers = { flooded }
-					province = {
-						id = 3466
-						id = 3213
-						id = 7292
-						id = 4909
-						id = 5066
-						id = 7358
-						id = 7321
-						id = 7390
-						id = 1170
-						id = 7293
-						id = 1922
-						id = 7353
-					}
-				}
+			clr_country_flag = castle_construction_measure
+			add_days_mission_timeout = {
+				mission = castle_construction_mission
+				days = -120
 			}
 		}
 
-	}
-
-	HAN_prepare_wood_logistics = {
-
-		icon = wood
-
-		allowed = {
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
-				}
-			}
-		}
-
-		visible = { 
-			has_country_flag = han_tui_defense_decisions
-		}
-
-		available = {
-			
-		}
-
-		custom_cost_trigger = {
-			check_variable = { tax_balance > 0.1 }
-		}
-		custom_cost_text = expenses_100
-
-		fire_only_once = yes
-		days_remove = 90
-
-		modifier = {
-			expenses_factor = 0.1
-		}
-
-		remove_effect = { 
-			259 = {
-				add_building_construction = {
-					type = lumber_mill
-					level = 2
-					instant_build = yes
-				}
-				add_building_construction = {
-					type = supply_node
-					level = 1
-					instant_build = yes
-					province = 2781
-				}	
-			}
-			build_railway = {
-				level = 1
-				build_only_on_allied = yes
-				path = { 2781 7311 7301 852 7255 5470 1794 2719 }
-			}
-		}
 		ai_will_do = {
-			factor = 0.05
+			base = 1
 		}
 	}
 
-	HAN_prepare_stone_logistics = {
 
-		icon = stone
+	#earth_capital_castle_defenses = {
+#
+	#	icon = earth_defense
+#
+	#	visible = {
+	#		FROM = {
+	#			wall < 40
+	#		}
+	#		is_in_array = {
+	#			array = global.earth_kingdom
+	#			value = THIS.id
+	#		}
+	#	}
+	#	available = {
+	#		FROM = {
+	#			wall < 40
+	#		}
+	#	}
+#
+	#	state_target = yes
+	#	target_array = controlled_states
+	#	target_trigger = {
+	#		FROM = {
+	#			#owner = {
+	#			#	is_in_array = {
+	#			#		array = global.earth_kingdom
+	#			#		value = THIS.id
+	#			#	}
+	#			#	capital_scope = {
+	#			#		state = PREV.PREV
+	#			#	}
+	#			#}
+	#			is_capital = yes
+	#		}
+	#	}
+#
+	#	fire_only_once = no
+#
+	#	custom_cost_trigger = {
+	#		check_variable = { tax_balance > EARTH_castle_cost }
+	#	}
+	#	custom_cost_text = EARTH_castle_cost_effect
+#
+	#	days_remove = 9
+	#	days_re_enable = 3
+	#	#on_map_mode = map_only
+#
+	#	complete_effect = {
+	#		add_to_variable = { EARTH_castle_cost = 0.1 }
+#
+	#		add_dynamic_modifier = {
+	#			modifier = castle_cost_modifier
+	#			days = 9
+	#		}
+	#	}
+#
+	#	remove_effect = {
+	#		FROM = {
+	#			custom_effect_tooltip = ear_castle_build_effect
+	#			hidden_effect = {
+	#				add_building_construction = {
+	#					type = wall
+	#					level = 1
+	#					instant_build = yes
+	#					province = {
+	#						all_provinces = yes
+	#						limit_to_victory_point > 0
+	#					}
+	#				}
+	#				add_building_construction = {
+	#					type = wall
+	#					level = 1
+	#					instant_build = yes
+	#					province = {
+	#						all_provinces = yes
+	#						limit_to_victory_point > 19
+	#					}
+	#				}
+	#				
+	#			}
+	#		}
+	#	}
+#
+	#	ai_will_do = {
+	#		base = 0
+	#	}
+	#}
 
-		allowed = {
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
-				}
-			}
-		}
-
-		visible = { 
-			has_country_flag = han_tui_defense_decisions
-		}
-
-		available = {
-			
-		}
-
-		custom_cost_trigger = {
-			check_variable = { tax_balance > 0.05 }
-		}
-		custom_cost_text = expenses_50
-
-		fire_only_once = yes
-		days_remove = 90
-
-		modifier = {
-			expenses_factor = 0.05
-		}
-
-		remove_effect = { 
-			229 = {
-				add_building_construction = {
-					type = quarry
-					level = 2
-					instant_build = yes
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	HAN_build_city_wall = {
-
-		icon = earth_city_walls
-
-		allowed = {
-			OR = {
-				tag = HAN
-				AND = {
-					has_government = earth_culture
-					243 = {
-					    is_controlled_by = ROOT
-					}
-				}
-			}
-		}
-
-		visible = { 
-			has_country_flag = han_tui_defense_decisions
-		}
-
-		available = {
-			229 = {
-				has_resources_amount = {
-					resource = stone
-					amount > 39
-					delivered = yes
-				}
-			}
-			259 = {
-				has_resources_amount = {
-					resource = aluminium
-					amount > 49
-					delivered = yes
-				}
-			}
-		}
-
-		fire_only_once = yes
-		days_remove = 90
-
-		modifier = {
-			civilian_factory_use = 10
-		}
-
-		custom_cost_trigger = {
-			num_of_civilian_factories > 9
-		}
-		custom_cost_text = manufactory_10
-
-		remove_effect = { 
-			HAN = {
-				add_stability = 0.1
-				add_war_support = 0.05
-			}
-			243 = {
-				add_building_construction = {
-					type = wall
-					level = 10
-					instant_build = yes
-					province = 809
-				}
-				add_building_construction = {
-					type = wall
-					level = 10
-					instant_build = yes
-					province = 7266
-				}
-				add_building_construction = {
-					type = wall
-					level = 10
-					instant_build = yes
-					province = 1794
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	HAN_build_coastal_forts = {
-
-		icon = coastline
-
-		allowed = {
-			tag = HAN
-		}
-
-		visible = { 
-			has_country_flag = han_tui_defense_decisions
-		}
-
-		available = {
-			#ROOT = {
-			#	industrial_complex > 4
-			#}
-		}
-
-		fire_only_once = yes
-		days_remove = 90
-
-		modifier = {
-			civilian_factory_use = 5
-		}
-
-		custom_cost_trigger = {
-			num_of_civilian_factories > 4
-		}
-		custom_cost_text = manufactory_10
-
-		remove_effect = { 
-			244 = {
-				add_building_construction = {
-					type = coastal_fortress
-					level = 3
-					instant_build = yes
-					province = 7273
-				}
-			}
-			280 = {
-				add_building_construction = {
-					type = coastal_fortress
-					level = 3
-					instant_build = yes
-					province = 3387
-				}
-			}
-			270 = {
-				add_building_construction = {
-					type = coastal_fortress
-					level = 3
-					instant_build = yes
-					province = 7545
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
+#	HAN_defenses = {
+#
+#		icon = earth_defense
+#
+#		allowed = {
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		fire_only_once = yes
+#
+#		cost = 200
+#
+#		complete_effect = {
+#			set_country_flag = han_tui_defense_decisions
+#			custom_effect_tooltip = han_tui_defense_ttp
+#		}
+#
+#	}
+#
+#	HAN_flood_lowlands = {
+#
+#		icon = flooded
+#
+#		allowed = {
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			has_country_flag = han_tui_defense_decisions
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		custom_cost_trigger = {
+#			has_stability > 0.05
+#		}
+#		custom_cost_text = stability_5
+#
+#		days_remove = 90
+#
+#		highlight_states = {
+#			highlight_state_targets = { state = 243 }
+#		}
+#
+#		complete_effect = {
+#			add_stability = -0.05
+#			243 = {
+#				add_province_modifier = {
+#					static_modifiers = { flooded }
+#					province = {
+#						id = 3466
+#						id = 3213
+#						id = 7292
+#						id = 4909
+#						id = 5066
+#						id = 7358
+#						id = 7321
+#						id = 7390
+#						id = 1170
+#						id = 7293
+#						id = 1922
+#						id = 7353
+#					}
+#				}
+#				damage_building = {
+#					type = infrastructure
+#					damage = 3
+#				}
+#				damage_building = {
+#					type = farm
+#					damage = 1
+#				}
+#				set_temp_variable = { this_population_temp = THIS.state_population }
+#				divide_temp_variable = { this_population_temp = -20 }
+#				add_manpower = var:this_population_temp
+#			}
+#		}
+#
+#		remove_effect = {
+#			243 = {
+#				remove_province_modifier = {
+#					static_modifiers = { flooded }
+#					province = {
+#						id = 3466
+#						id = 3213
+#						id = 7292
+#						id = 4909
+#						id = 5066
+#						id = 7358
+#						id = 7321
+#						id = 7390
+#						id = 1170
+#						id = 7293
+#						id = 1922
+#						id = 7353
+#					}
+#				}
+#			}
+#		}
+#
+#	}
+#
+#	HAN_prepare_wood_logistics = {
+#
+#		icon = wood
+#
+#		allowed = {
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			has_country_flag = han_tui_defense_decisions
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		custom_cost_trigger = {
+#			check_variable = { tax_balance > 0.1 }
+#		}
+#		custom_cost_text = expenses_100
+#
+#		fire_only_once = yes
+#		days_remove = 90
+#
+#		modifier = {
+#			expenses_factor = 0.1
+#		}
+#
+#		remove_effect = { 
+#			259 = {
+#				add_building_construction = {
+#					type = lumber_mill
+#					level = 2
+#					instant_build = yes
+#				}
+#				add_building_construction = {
+#					type = supply_node
+#					level = 1
+#					instant_build = yes
+#					province = 2781
+#				}	
+#			}
+#			build_railway = {
+#				level = 1
+#				build_only_on_allied = yes
+#				path = { 2781 7311 7301 852 7255 5470 1794 2719 }
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	HAN_prepare_stone_logistics = {
+#
+#		icon = stone
+#
+#		allowed = {
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			has_country_flag = han_tui_defense_decisions
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		custom_cost_trigger = {
+#			check_variable = { tax_balance > 0.05 }
+#		}
+#		custom_cost_text = expenses_50
+#
+#		fire_only_once = yes
+#		days_remove = 90
+#
+#		modifier = {
+#			expenses_factor = 0.05
+#		}
+#
+#		remove_effect = { 
+#			229 = {
+#				add_building_construction = {
+#					type = quarry
+#					level = 2
+#					instant_build = yes
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	HAN_build_city_wall = {
+#
+#		icon = earth_city_walls
+#
+#		allowed = {
+#			OR = {
+#				tag = HAN
+#				AND = {
+#					has_government = earth_culture
+#					243 = {
+#					    is_controlled_by = ROOT
+#					}
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			has_country_flag = han_tui_defense_decisions
+#		}
+#
+#		available = {
+#			229 = {
+#				has_resources_amount = {
+#					resource = stone
+#					amount > 39
+#					delivered = yes
+#				}
+#			}
+#			259 = {
+#				has_resources_amount = {
+#					resource = aluminium
+#					amount > 49
+#					delivered = yes
+#				}
+#			}
+#		}
+#
+#		fire_only_once = yes
+#		days_remove = 90
+#
+#		modifier = {
+#			civilian_factory_use = 10
+#		}
+#
+#		custom_cost_trigger = {
+#			num_of_civilian_factories > 9
+#		}
+#		custom_cost_text = manufactory_10
+#
+#		remove_effect = { 
+#			HAN = {
+#				add_stability = 0.1
+#				add_war_support = 0.05
+#			}
+#			243 = {
+#				add_building_construction = {
+#					type = wall
+#					level = 10
+#					instant_build = yes
+#					province = 809
+#				}
+#				add_building_construction = {
+#					type = wall
+#					level = 10
+#					instant_build = yes
+#					province = 7266
+#				}
+#				add_building_construction = {
+#					type = wall
+#					level = 10
+#					instant_build = yes
+#					province = 1794
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	HAN_build_coastal_forts = {
+#
+#		icon = coastline
+#
+#		allowed = {
+#			tag = HAN
+#		}
+#
+#		visible = { 
+#			has_country_flag = han_tui_defense_decisions
+#		}
+#
+#		available = {
+#			#ROOT = {
+#			#	industrial_complex > 4
+#			#}
+#		}
+#
+#		fire_only_once = yes
+#		days_remove = 90
+#
+#		modifier = {
+#			civilian_factory_use = 5
+#		}
+#
+#		custom_cost_trigger = {
+#			num_of_civilian_factories > 4
+#		}
+#		custom_cost_text = manufactory_10
+#
+#		remove_effect = { 
+#			244 = {
+#				add_building_construction = {
+#					type = coastal_fortress
+#					level = 3
+#					instant_build = yes
+#					province = 7273
+#				}
+#			}
+#			280 = {
+#				add_building_construction = {
+#					type = coastal_fortress
+#					level = 3
+#					instant_build = yes
+#					province = 3387
+#				}
+#			}
+#			270 = {
+#				add_building_construction = {
+#					type = coastal_fortress
+#					level = 3
+#					instant_build = yes
+#					province = 7545
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
 }

@@ -1,0 +1,71 @@
+###########################
+# Aang and Gyatso
+###########################
+
+add_namespace = earcas
+
+### fong start
+country_event = {
+	id = earcas.1
+	title = earcas.1.t
+	desc = earcas.1.d
+	picture = GFX_report_event_castle_start
+
+	is_triggered_only = yes
+
+	option = {
+		name = earcas.1.a
+
+		set_country_flag = castle_construction_supply_extension
+
+		ai_chance = { 
+			base = 50
+		}
+	}
+	option = {
+		name = earcas.1.b
+
+		set_country_flag = castle_construction_dockyard_extension
+
+		ai_chance = { 
+			base = 50
+		}
+	}
+	option = {
+		name = earcas.1.c
+
+		set_country_flag = castle_construction_supply_extension
+		set_country_flag = castle_construction_dockyard_extension
+
+		ai_chance = { 
+			base = 100
+		}
+	}
+}
+
+### fong done
+country_event = {
+	id = earcas.2
+	title = earcas.2.t
+	desc = earcas.2.d
+	picture = GFX_report_event_fongs_base
+
+	is_triggered_only = yes
+
+	option = {
+		name = earcas.1.a
+		ai_chance = { 
+			base = 0
+		}
+	}
+	option = {
+		name = earcas.1.b
+
+		fong_base_capital = yes
+
+		ai_chance = { 
+			base = 100
+		}
+	}
+
+}

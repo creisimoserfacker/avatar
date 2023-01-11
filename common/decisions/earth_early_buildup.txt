@@ -325,22 +325,24 @@ earth_economic_buildup_category = {
 
 		icon = earth_patrol
 
-        cost = 50
+        cost = EARTH_trade_patrol_cost?5
 		days_remove = 50
         available = {
             has_idea = earth_nation
 			NOT = { 
 				has_country_flag = economic_investments
 			}
+			has_tech = shops_1
         }
         visible = { 
-          always = yes
-
+			check_variable = { EARTH_trade_patrol_cost < 200 }
         }
 		complete_effect = {
+			add_to_variable = { EARTH_trade_patrol_cost = 20 }
+
 			add_equipment_to_stockpile = {
 			    type = spear_equipment
-			    amount = -200
+			    amount = -100
 			}
 			add_equipment_to_stockpile = {
 			    type = heavy_armor_equipment
@@ -364,6 +366,19 @@ earth_economic_buildup_category = {
 					type = consumer_good_factory
 					level = 1
 					instant_build = yes
+				}
+			}
+
+			random_controlled_state = {
+				limit = {
+					is_in_home_area = yes
+				}
+				build_railway = {
+					level = 1
+					build_only_on_allied = yes
+					fallback = yes
+					start_state = var:THIS
+					target_state = var:capital
 				}
 			}
         }
