@@ -8,6 +8,7 @@ EAR_defense_category = {
 		icon = fongs_base
 
 		visible = {
+			has_idea = earth_nation
 			375 = {
 				is_owned_and_controlled_by = PREV
 			}
@@ -25,7 +26,9 @@ EAR_defense_category = {
 			add_to_variable = { EARTH_castle_cost = 10 }
 			set_variable = { castle_construction = token:HEB_fongs_base }
 			set_variable = { castle_location = 375 }
+			set_variable = { castle_size = 10 }
 			activate_mission = castle_construction_mission
+			set_variable = { castle_reduction_factor = 0.5 }
 
 			country_event = { id = earcas.1 }
 		}
@@ -53,7 +56,7 @@ EAR_defense_category = {
 
 		selectable_mission = no
 
-		days_mission_timeout = 1000
+		days_mission_timeout = 500
 		is_good = yes
 
 		timeout_effect = {
@@ -63,10 +66,100 @@ EAR_defense_category = {
 				}
 			    CASTLE = "[?castle_construction.GetTokenKey]"
 			}
+
+			clr_country_flag = castle_construction_measure_1
+			clear_variable = castle_construction
+			clear_variable = castle_location
 		}
 
 		ai_will_do = {
 			base = 1
+		}
+	}
+
+	castle_wall_extension = {
+
+		icon = ear_castle_wall
+
+		visible = {
+			has_active_mission = castle_construction_mission
+		}
+		available = {
+			check_variable = { castle_size < 40 }
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				var = castle_size
+				value = 2
+				tooltip = increase_castle_size
+			}
+			add_days_mission_timeout = {
+				mission = castle_construction_mission
+				days = 100
+			}
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+
+	castle_supply_extension = {
+
+		icon = ear_castle_supply
+
+		visible = {
+			has_active_mission = castle_construction_mission
+			NOT = {
+				has_country_flag = castle_construction_supply_extension
+			}
+		}
+		available = {
+			
+		}
+
+		complete_effect = {
+			set_country_flag = castle_construction_supply_extension
+
+			add_days_mission_timeout = {
+				mission = castle_construction_mission
+				days = 150
+			}
+			custom_effect_tooltip = ear_castle_supply_extension
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+
+	castle_harbour_extension = {
+
+		icon = ear_castle_harbour
+
+		visible = {
+			has_active_mission = castle_construction_mission
+			NOT = {
+				has_country_flag = castle_construction_dockyard_extension
+			}
+		}
+		available = {
+			
+		}
+
+		complete_effect = {
+			set_country_flag = castle_construction_dockyard_extension
+
+			add_days_mission_timeout = {
+				mission = castle_construction_mission
+				days = 150
+			}
+			custom_effect_tooltip = ear_castle_harbor_extension
+		}
+
+		ai_will_do = {
+			base = 0.1
 		}
 	}
 
@@ -81,7 +174,7 @@ EAR_defense_category = {
 			NOT = {
 				has_country_flag = castle_construction_measure
 			}
-			check_variable = { days_mission_timeout@castle_construction_mission > 150 }
+			check_variable = { days_mission_timeout@castle_construction_mission > 365 }
 		}
 
 		custom_cost_trigger = {
@@ -95,6 +188,61 @@ EAR_defense_category = {
 			country_resource_cost_bricks_resource = 100
 		}
 
+		days_remove = 90
+
+		complete_effect = {
+			set_country_flag = castle_construction_measure
+			set_country_flag = castle_construction_measure_1
+		}
+		cancel_effect = {
+			clr_country_flag = castle_construction_measure
+		}
+
+		remove_effect = {
+			clr_country_flag = castle_construction_measure
+
+			set_temp_variable = { castle_reduction = days_mission_timeout@castle_construction_mission }
+			multiply_temp_variable = { castle_reduction = castle_reduction_factor }
+			multiply_temp_variable = { castle_reduction = -1 }
+			divide_variable = { castle_reduction_factor = 2 }
+
+			add_days_mission_timeout = {
+				mission = castle_construction_mission
+				days = castle_reduction
+			}
+		}
+
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	castle_construction_material_2 = {
+
+		icon = bricks_and_stones
+
+		visible = {
+			has_active_mission = castle_construction_mission
+		}
+		available = {
+			NOT = {
+				has_country_flag = castle_construction_measure
+			}
+			has_country_flag = castle_construction_measure_1
+			check_variable = { days_mission_timeout@castle_construction_mission > 180 }
+		}
+
+		custom_cost_trigger = {
+			check_variable = { resource@aluminium > 25 }
+			check_variable = { resource@planks_resource > 100 }
+		}
+		custom_cost_text = wood_and_planks
+
+		modifier = {
+			country_resource_cost_aluminium = 25
+			country_resource_cost_planks_resource = 100
+		}
+
 		days_remove = 30
 
 		complete_effect = {
@@ -106,9 +254,15 @@ EAR_defense_category = {
 
 		remove_effect = {
 			clr_country_flag = castle_construction_measure
+
+			set_temp_variable = { castle_reduction = days_mission_timeout@castle_construction_mission }
+			multiply_temp_variable = { castle_reduction = castle_reduction_factor }
+			multiply_temp_variable = { castle_reduction = -0.5 }
+			divide_variable = { castle_reduction_factor = 2 }
+
 			add_days_mission_timeout = {
 				mission = castle_construction_mission
-				days = -120
+				days = castle_reduction
 			}
 		}
 
