@@ -1,0 +1,31 @@
+
+on_actions = {
+
+	on_startup = {
+		effect = {
+			every_country = {
+				add_to_array = {
+					array = global.leaderboard
+					value = THIS.id
+				}
+			}
+		}
+	}
+
+	on_monthly = {
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						is_in_array = { global.leaderboard = THIS.id }
+					}
+				}
+				add_to_array = {
+					array = global.leaderboard
+					value = THIS.id
+				}
+			}
+		}
+	}
+
+}
