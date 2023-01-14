@@ -2,18 +2,32 @@ ideas = {
 
 	hidden_ideas = {
 		pearl_of_the_south_spirit = {
-
-			allowed = {
-				always = no
-			}
 			
 			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:pearl_of_the_south_spirit }
+				set_variable = { victory_condition_description = token:pearl_of_the_south_spirit_description }
+				set_variable = { victory_condition_delayed = token:pearl_of_the_south_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:pearl_of_the_south_spirit }
+				}
+			}
 			
 			modifier = {
 				stability_factor = 0.1
 				autonomy_gain = 0.5
 				expenses_factor = -0.05
 			}
+		}
+		pearl_of_the_south_spirit_description = {
+			removal_cost = -1
+		}
+		pearl_of_the_south_spirit_delayed = {
+			removal_cost = -1
 		}
 	}
 

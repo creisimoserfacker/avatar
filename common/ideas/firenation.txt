@@ -4,6 +4,18 @@ ideas = {
 		fire_supremacy_spirit = {
 			
 			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:fire_supremacy_spirit }
+				set_variable = { victory_condition_description = token:fire_supremacy_spirit_description }
+				set_variable = { victory_condition_delayed = token:fire_supremacy_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:fire_supremacy_spirit }
+				}
+			}
 			
 			modifier = {
 				fire_culture_drift = 0.02
@@ -11,6 +23,12 @@ ideas = {
 				offensive_war_stability_factor = 0.35
 				tech_share_modifier = 1
 			}
+		}
+		fire_supremacy_spirit_description = {
+			removal_cost = -1
+		}
+		fire_supremacy_spirit_delayed = {
+			removal_cost = -1
 		}
 	}
 

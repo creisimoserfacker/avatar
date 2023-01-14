@@ -130,6 +130,28 @@ culture_pie_chart_recalc = {
 	}
 }
 
+global_culture = {
+	set_variable = { global.fire_pop = 0 }
+	set_variable = { global.earth_pop = 0 }
+	set_variable = { global.water_pop = 0 }
+	set_variable = { global.air_pop = 0 }
+	set_variable = { global.nonbender_pop = 0 }
+
+	every_state = {
+		add_to_variable = { global.fire_pop = fire_pop }
+		add_to_variable = { global.earth_pop = earth_pop }
+		add_to_variable = { global.water_pop = water_pop }
+		add_to_variable = { global.air_pop = air_pop }
+		add_to_variable = { global.nonbender_pop = nonbender_pop }
+	}
+
+	divide_variable = { global.fire_pop = global.states^num }
+	divide_variable = { global.earth_pop = global.states^num }
+	divide_variable = { global.water_pop = global.states^num }
+	divide_variable = { global.air_pop = global.states^num }
+	divide_variable = { global.nonbender_pop = global.states^num }
+}
+
 culture_growth_calculation = {
 	every_controlled_state = {
 

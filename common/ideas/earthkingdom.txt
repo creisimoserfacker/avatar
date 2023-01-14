@@ -3,17 +3,31 @@ ideas = {
 	hidden_ideas = {
 		heart_of_the_kingdom_spirit = {
 
-			allowed = {
-				always = no
-			}
-			
 			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:heart_of_the_kingdom_spirit }
+				set_variable = { victory_condition_description = token:heart_of_the_kingdom_spirit_description }
+				set_variable = { victory_condition_delayed = token:heart_of_the_kingdom_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:heart_of_the_kingdom_spirit }
+				}
+			}
 			
 			modifier = {
 				monthly_population = 0.25
 				political_power_factor = 0.25
 				surrender_limit = 1
 			}
+		}
+		heart_of_the_kingdom_spirit_description = {
+			removal_cost = -1
+		}
+		heart_of_the_kingdom_spirit_delayed = {
+			removal_cost = -1
 		}
 	}
 

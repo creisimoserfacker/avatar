@@ -2,12 +2,20 @@ ideas = {
 
 	hidden_ideas = {
 		northern_spirit_spirit = {
-
-			allowed = {
-				always = no
-			}
 			
 			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:northern_spirit_spirit }
+				set_variable = { victory_condition_description = token:northern_spirit_spirit_description }
+				set_variable = { victory_condition_delayed = token:northern_spirit_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:northern_spirit_spirit }
+				}
+			}
 			
 			modifier = {
 				water_culture_drift = 0.02
@@ -15,6 +23,12 @@ ideas = {
 				acclimatization_cold_climate_gain_factor = 0.5
 				winter_attrition_factor = -0.5
 			}
+		}
+		northern_spirit_spirit_description = {
+			removal_cost = -1
+		}
+		northern_spirit_spirit_delayed = {
+			removal_cost = -1
 		}
 	}
 

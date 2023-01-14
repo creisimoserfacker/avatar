@@ -4,28 +4,64 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
-				add_to_array = {
-					array = global.leaderboard
-					value = THIS.id
+				#add_to_array = {
+				#	array = global.leaderboard
+				#	value = THIS.id
+				#}
+
+				if = {
+					limit = {
+						has_variable = victory_condition
+					}
+					meta_effect = {
+						text = {
+							add_ideas = {
+								[MAJOR_SPIRIT]
+							}
+						}
+						MAJOR_SPIRIT = "[?victory_condition.GetTokenKey]"
+					}
+					meta_effect = {
+						text = {
+							set_variable = { victory_condition_description = token:[MAJOR_SPIRIT]_description }
+						}
+						MAJOR_SPIRIT = "[?victory_condition.GetTokenKey]"
+					}
+					meta_effect = {
+						text = {
+							set_variable = { victory_condition_delayed = token:[MAJOR_SPIRIT]_delayed }
+						}
+						MAJOR_SPIRIT = "[?victory_condition.GetTokenKey]"
+					}
+				}
+				else = {
+					set_variable = { victory_condition = token:spiritless_nation_spirit }
+					set_variable = { victory_condition_description = token:spiritless_nation_spirit_description }
+					set_variable = { victory_condition_delayed = token:spiritless_nation_spirit_delayed }
+					add_ideas = {
+						spiritless_nation_spirit
+					}
 				}
 			}
 		}
 	}
 
-	on_monthly = {
-		effect = {
-			if = {
-				limit = {
-					NOT = {
-						is_in_array = { global.leaderboard = THIS.id }
-					}
-				}
-				add_to_array = {
-					array = global.leaderboard
-					value = THIS.id
-				}
-			}
-		}
-	}
+#	on_monthly = {
+#		effect = {
+#			if = {
+#				limit = {
+#					NOT = {
+#						is_in_array = { leaderboard = THIS.id }
+#					}
+#				}
+#				add_to_array = {
+#					array = global.leaderboard
+#					value = THIS.id
+#				}
+#			}
+#		}
+#	}
+
+
 
 }
