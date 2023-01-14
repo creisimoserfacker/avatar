@@ -1,0 +1,63 @@
+scripted_gui = {
+
+	leaderboard = {
+		context_type = player_context
+		parent_window_token = top_bar
+		window_name = "achievement_topbar"
+
+		effects = {
+			achievement_button_click = {
+				if = {
+					limit = {
+						check_variable = { show_achievement = 0 }
+					}
+					set_variable = { show_achievement = 1 }
+				}
+				else = {
+					set_variable = { show_achievement = 0 }
+				}
+			}
+		}
+	}
+
+	leaderboard_window = {
+		context_type = player_context
+
+		window_name = "achievement_window"
+
+		visible = {
+			check_variable = { show_achievement > 0 }
+		}
+
+		effects = {
+			achievement_close_click = {
+				set_variable = { show_achievement = 0 }
+			}
+		}
+
+		triggers = {
+			
+		}
+
+		properties = {
+			leaderboard_country_flag = {
+				image = [THIS.GetFlag]
+			}
+
+			country_victory_condition = {
+				image = "[GetVictoryCondition]"
+			}
+		}
+
+		dynamic_lists = {
+			leaderboard_gridbox = {
+				array = global.leaderboard
+				entry_container = leaderboard_list_entry
+				change_scope = yes
+			}
+		}
+
+	}
+
+
+}

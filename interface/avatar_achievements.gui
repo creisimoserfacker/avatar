@@ -1,0 +1,185 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "achievement_topbar"
+		position = { x=-4 y=-1 }	
+		size = { width=100%% height=100%% }
+
+		buttonType = {
+			name = "achievement_button"
+			position = { x = -180 y = 46 }
+			quadTextureSprite ="GFX_topbar_achievments"
+			buttonText = ""
+			buttonFont = "Main_14_black"
+			clicksound = click_ok
+			oversound = ui_menu_over
+			Orientation = "UPPER_RIGHT"
+		}
+
+	}
+
+
+	containerWindowType = {
+		name = "achievement_window"
+		position = { x=50 y=50 }	
+		size = { width=795 height=605 }
+		Orientation = center
+		Origo = center
+		moveable = yes
+
+		background = {
+			name = "Background"
+			spriteType ="GFX_tiled_bg"
+		} 
+
+		iconType ={
+			name ="achievements_top_bar"
+			spriteType = "GFX_achievements_top_bar"
+			position = { x=15 y=13}
+			Orientation = "UPPER_LEFT"
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "title_label"
+			position = { x = 147 y =28 }	
+			font = "hoi_30header"
+			borderSize = {x = 0 y = 0}
+			text = "ACHIEVEMENTS"
+			maxWidth = 500
+			maxHeight = 32
+			format = centre
+			alwaystransparent = yes
+		}
+		
+		iconType ={
+			name ="achievements_bottom_bar"
+			spriteType = "GFX_achievements_bottom_bar"
+			position = { x=15 y=-61 }
+			Orientation = "LOWER_LEFT"
+			alwaystransparent = yes
+		}
+			
+		buttonType = {
+			name ="achievement_close"
+			quadTextureSprite ="GFX_button_261x34"
+			position = { x=267 y=553 }
+			buttonText = "CLOSE"
+			buttonFont = "hoi_16mbs"
+			shortcut = "ESCAPE"
+		}
+
+		containerWindowType = {
+			name = "content"
+			position = {x=0 y=120}
+			size = {width=788 height=420}
+			verticalScrollbar = "right_vertical_slider"
+			
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_window_transparent"
+			} 
+
+			gridboxtype = {
+				name = "leaderboard_gridbox"
+				position = { x = 50 y = 20 }
+				size = { width = 0 height = 0 }
+				slotsize = { width = 44 height = 60 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+		}
+
+	}
+
+	containerWindowType = {
+		name = "leaderboard_list_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height= 0 }
+
+		iconType = {
+			name = "leaderboard_country_flag"
+			quadTextureSprite = "GFX_flag_small2"
+			position = { x = 0 y = 0 }
+			pdx_tooltip = "earth_country_name"
+		}
+		iconType = {
+			name = "leaderboard_country_flag_frame"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = -4 y = -2 }
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "country_name"
+			position = { x = 60 y = 10 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[THIS.GetName]"
+			maxWidth = 100
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "country_gdp"
+			position = { x = 180 y = 10 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[?THIS.real_gdp]"
+			maxWidth = 100
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "country_size"
+			position = { x = 300 y = 10 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[?THIS.num_controlled_states]"
+			maxWidth = 100
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "country_population"
+			position = { x = 420 y = 10 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[?THIS.max_manpower_k]"
+			maxWidth = 100
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name = "country_tech"
+			position = { x = 540 y = 10 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[?THIS.num_researched_technologies]"
+			maxWidth = 100
+			maxHeight = 32
+			format = left
+			alwaystransparent = yes
+		}
+
+		iconType = {
+			name = "country_victory_condition"
+			quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+			position = { x = 640 y = 0 }
+			scale = 0.75
+			pdx_tooltip = "victory_condition_desc"
+			pdx_tooltip_delayed = "victory_condition_delayed"
+			#alwaystransparent = yes
+		}
+
+	}
+
+}
