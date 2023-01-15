@@ -1,32 +1,71 @@
-characters={
-	CHN_mayor_wang={
-		name="Wang"
-		portraits={
-			civilian={
-				large="gfx/leaders/CHN/wang.dds"
+characters = {
+
+	CHN_mayor_wang = {
+		name = "Wang"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CHN/wang.dds"
 			}
 		}
-		country_leader={
-			desc="Mayor of the Chin Village"
-			ideology=constitutional_monarchy
-			expire="130.1.1.1"
-			id=-1
+		country_leader = {
+			desc = "Mayor of the Chin Village"
+			ideology = constitutional_monarchy
+			expire = "81.1.1.1"
+			id = -1
 		}
 	}
-	CHN_mayor_tong={
-		name="Tong"
-		portraits={
-			civilian={
-				large="gfx/leaders/CHN/tong.dds"
+
+	CHN_xiang = {
+		name = "Xiang"
+		portraits = {
+			civilian = {
+				large = "GFX_Portrait_Xiang_young"
+			}
+			army = {
+				large = "GFX_Portrait_Xiang_young"
+				small = "GFX_Portrait_Xiang_young_small"
 			}
 		}
-		country_leader={
-			desc="Mayor of the Chin Village"
-			ideology=constitutional_monarchy
-			expire="130.1.1.1"
-			id=-1
+		country_leader = {
+			desc = "Mayor of the Chin Village"
+			ideology = constitutional_monarchy
+			expire = "78.1.1.1"
+			id = -1
+		}
+		field_marshal = {
+			traits = { 
+				skilled_staffer 
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id = -1
+
+			visible = { 
+				has_character_flag = CHN_character_born
+				has_character_flag = CHN_character_general
+				NOT = { has_character_flag = CHN_character_death } 
+			}
 		}
 	}
+
+	CHN_mayor_tong = {
+		name = "Tong"
+		portraits = {
+			civilian = {
+				large = "gfx/leaders/CHN/tong.dds"
+			}
+		}
+		country_leader = {
+			desc = "Mayor of the Chin Village"
+			ideology = constitutional_monarchy
+			expire = "130.1.1.1"
+			id = -1
+		}
+	}
+
 	CHN_generic={
 		name="Generic"
 		portraits={
