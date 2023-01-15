@@ -1,4 +1,127 @@
 
+###   ###     ### # #   #  ###     ### ####                             
+#  # #   #   #    # ##  # #       #    #                     
+###  #####    ##  # # # # #  ##    ##  ###                            
+#  # #   #      # # #  ## #   #      # #                      
+###  #   #   ###  # #   #  ###    ###  ####                            
+
+ba_sing_se_walls = {
+	145 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 6507
+				id = 10362
+				id = 6590
+				id = 10361
+				id = 10360
+				id = 9348
+				id = 9293
+				id = 10366
+				id = 10368
+				id = 10369
+				id = 6876
+				id = 10372
+			}
+		}
+	}
+	193 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 10374
+				id = 10375
+				id = 10379
+				id = 10381
+				id = 6975
+				id = 10382
+				id = 10383
+				id = 10385
+				id = 10386
+				id = 744
+			}
+		}
+	}
+	213 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 7149
+				id = 10388
+				id = 7143
+				id = 10389
+				id = 7140
+			}
+		}
+	}
+	178 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 10392
+				id = 10394
+				id = 7141
+				id = 10395
+				id = 10399
+				id = 10400
+				id = 540
+				id = 10403
+				id = 4271
+				id = 10405
+				id = 6999
+				id = 10406
+				id = 10410
+				id = 10414
+				id = 10415
+			}
+		}
+	}
+	149 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 10418
+				id = 6514
+				id = 6536
+				id = 6561
+				id = 10417
+				id = 10416
+				id = 197
+			}
+		}
+	}
+	129 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 10426
+				id = 10424
+				id = 6498
+				id = 10423
+				id = 10422
+				id = 10419
+			}
+		}
+	}
+	126 = {
+		add_province_modifier = {
+			static_modifiers = { great_walls_of_ba_sing_se }
+			province = {
+				id = 10363
+				id = 1189
+				id = 6388
+				id = 10433
+				id = 10432
+				id = 10431
+				id = 889
+				id = 10430
+				id = 10427
+			}
+		}
+	}
+}
+
+
 ####  ###  #   #  ###   ###     ###  ###   ### ##### #    ####                                 
 #    #   # ##  # #     #       #    #   # #      #   #    #                 
 ###  #   # # # # #  ##  ##     #    #####  ##    #   #    ###                          
@@ -10,6 +133,8 @@ HEB_fongs_base = {
 	fong_base_walls = yes
 	fong_base_supply = yes
 	fong_base_harbour = yes
+
+	set_global_flag = fongs_base_build
 
 	country_event = { id = earcas.2 }
 }
@@ -89,6 +214,119 @@ fong_base_harbour = {
 				level = 2
 				instant_build = yes
 			}
+		}
+	}
+}
+
+
+ ### #   # # #   #  ###     ###  ###   ### ##### #    ####                        
+#    #   # # ##  # #       #    #   # #      #   #    #          
+#    ##### # # # #  ##     #    #####  ##    #   #    ###                   
+#    #   # # #  ##    #    #    #   #    #   #   #    #           
+ ### #   # # #   # ###      ### #   # ###    #   #### ####                       
+
+CHN_chins_fortress = {
+	chins_fortress = yes
+	chins_fortress_walls = yes
+	chins_fortress_supply = yes
+	chins_fortress_harbour = yes
+	
+	set_global_flag = chins_fortress_build
+
+	country_event = { id = earcas.3 }
+}
+
+chins_fortress_walls = {
+	325 = {
+		add_building_construction = {
+			type = wall
+			level = PREV.castle_size
+			instant_build = yes
+			province = 980
+		}
+	}
+}
+
+chins_fortress = {
+	325 = {
+		add_province_modifier = {
+			static_modifiers = { chins_fortress }
+			province = 980
+		}
+	}
+}
+
+chins_fortress_capital = {
+	set_capital = { state = 325 }
+	325 = {
+		add_victory_points = {
+			province = 980
+			value = 30
+		}
+	}
+}
+
+chins_fortress_supply = {
+	if = {
+		limit = {
+			has_country_flag = castle_construction_supply_extension
+		}
+		325 = {
+			add_victory_points = {
+				province = 980
+				value = 20
+			}
+		
+			add_province_modifier = {
+				static_modifiers = { chins_fortress_supply }
+				province = 980
+			}
+		
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = arms_factory
+				level = 2
+				instant_build = yes
+			}
+		}
+		build_railway = {
+			level = 3
+			build_only_on_allied = yes
+			fallback = yes
+			path = { 3524 3095 1982 3112 980 }
+			start_province = 3524
+			target_province = 980
+		}
+	}
+}
+
+chins_fortress_harbour = {
+	if = {
+		limit = {
+			has_country_flag = castle_construction_dockyard_extension
+		}
+		346 = {
+			add_building_construction = {
+				type = naval_base
+				level = 10
+				instant_build = yes
+				province = 9179
+			}
+		
+			add_extra_state_shared_building_slots = 2
+			add_building_construction = {
+				type = harbour
+				level = 2
+				instant_build = yes
+			}
+		}
+		build_railway = {
+			level = 3
+			build_only_on_allied = yes
+			fallback = yes
+			path = { 980 4604 1778 9179 }
+			start_province = 980
+			target_province = 9179
 		}
 	}
 }

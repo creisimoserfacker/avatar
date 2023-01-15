@@ -1,4 +1,35 @@
 ideas = {
+	hidden_ideas = {
+
+		chin_legacy_spirit = {
+			
+			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:chin_legacy_spirit }
+				set_variable = { victory_condition_description = token:chin_legacy_spirit_description }
+				set_variable = { victory_condition_delayed = token:chin_legacy_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:chin_legacy_spirit }
+				}
+			}
+			
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+		chin_legacy_spirit_description = {
+			removal_cost = -1
+		}
+		chin_legacy_spirit_delayed = {
+			removal_cost = -1
+		}
+
+	}
+	
 	country = {
 		PoliticalDivide = {
 			

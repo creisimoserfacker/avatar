@@ -194,9 +194,12 @@ THE_EARTHKINGDOM = {
 
 		available = {
 			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+				custom_trigger_tooltip = {
+					tooltip = earth_kingdom_array_tt
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
 				}
 				is_subject = yes
 				has_autonomy_state = autonomy_vassalage
@@ -594,9 +597,12 @@ THE_EARTHKINGDOM = {
 
 		available = {
 			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+				custom_trigger_tooltip = {
+					tooltip = earth_kingdom_array_tt
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
 				}
 				is_subject = no
 			}
@@ -666,9 +672,12 @@ THE_EARTHKINGDOM = {
 
 		available = {
 			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+				custom_trigger_tooltip = {
+					tooltip = earth_kingdom_array_tt
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
 				}
 				is_subject = no
 			}
@@ -748,9 +757,12 @@ THE_EARTHKINGDOM = {
 
 		available = {
 			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
+				custom_trigger_tooltip = {
+					tooltip = earth_kingdom_array_tt	
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
 				}
 				is_subject = no
 			}
@@ -1241,6 +1253,9 @@ earth_factions_category = {
 				is_faction_leader = no
 			}
 			has_government = earth_culture
+			NOT = {
+				has_war_with = var:global.earth_kingdom_leader
+			}
 		}
 
 		visible = { 

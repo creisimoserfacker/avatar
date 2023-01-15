@@ -1,0 +1,39 @@
+ideas = {
+
+	hidden_ideas = {
+
+		fractured_desert_spirit = {
+			
+			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:fractured_desert_spirit }
+				set_variable = { victory_condition_description = token:fractured_desert_spirit_description }
+				set_variable = { victory_condition_delayed = token:fractured_desert_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:fractured_desert_spirit }
+				}
+			}
+			
+			modifier = {
+				stability_factor = 0.1
+			}
+		}
+		fractured_desert_spirit_description = {
+			removal_cost = -1
+		}
+		fractured_desert_spirit_delayed = {
+			removal_cost = -1
+		}
+
+	}
+
+	country = {
+
+		
+
+	}
+}

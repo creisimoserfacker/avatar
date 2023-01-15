@@ -14,6 +14,7 @@ EAR_defense_category = {
 			}
 			NOT = {
 				has_active_mission = castle_construction_mission
+				has_global_flag = fongs_base_build
 			}
 		}
 		available = {
@@ -26,6 +27,42 @@ EAR_defense_category = {
 			add_to_variable = { EARTH_castle_cost = 10 }
 			set_variable = { castle_construction = token:HEB_fongs_base }
 			set_variable = { castle_location = 375 }
+			set_variable = { castle_size = 10 }
+			activate_mission = castle_construction_mission
+			set_variable = { castle_reduction_factor = 0.5 }
+
+			country_event = { id = earcas.1 }
+		}
+
+		ai_will_do = {
+			base = 1
+		}
+	}
+
+	CHN_chins_fortress = {
+
+		icon = chins_fortress
+
+		visible = {
+			has_idea = earth_nation
+			325 = {
+				is_owned_and_controlled_by = PREV
+			}
+			NOT = {
+				has_active_mission = castle_construction_mission
+				has_global_flag = chins_fortress_build
+			}
+		}
+		available = {
+			
+		}
+
+		cost = EARTH_castle_cost?5
+
+		complete_effect = {
+			add_to_variable = { EARTH_castle_cost = 10 }
+			set_variable = { castle_construction = token:CHN_chins_fortress }
+			set_variable = { castle_location = 325 }
 			set_variable = { castle_size = 10 }
 			activate_mission = castle_construction_mission
 			set_variable = { castle_reduction_factor = 0.5 }
@@ -204,7 +241,7 @@ EAR_defense_category = {
 			set_temp_variable = { castle_reduction = days_mission_timeout@castle_construction_mission }
 			multiply_temp_variable = { castle_reduction = castle_reduction_factor }
 			multiply_temp_variable = { castle_reduction = -1 }
-			divide_variable = { castle_reduction_factor = 2 }
+			multiply_variable = { castle_reduction_factor = 0.9 }
 
 			add_days_mission_timeout = {
 				mission = castle_construction_mission
@@ -258,7 +295,7 @@ EAR_defense_category = {
 			set_temp_variable = { castle_reduction = days_mission_timeout@castle_construction_mission }
 			multiply_temp_variable = { castle_reduction = castle_reduction_factor }
 			multiply_temp_variable = { castle_reduction = -0.5 }
-			divide_variable = { castle_reduction_factor = 2 }
+			multiply_variable = { castle_reduction_factor = 0.9 }
 
 			add_days_mission_timeout = {
 				mission = castle_construction_mission

@@ -4,11 +4,11 @@
 
 add_namespace = earcas
 
-### fong start
+### castle start
 country_event = {
 	id = earcas.1
 	title = earcas.1.t
-	desc = earcas.1.d
+	desc = earcas.1.desc
 	picture = GFX_report_event_castle_start
 
 	is_triggered_only = yes
@@ -60,6 +60,13 @@ country_event = {
 			base = 100
 		}
 	}
+	option = {
+		name = earcas.1.d
+
+		ai_chance = { 
+			base = 0
+		}
+	}
 }
 
 ### fong done
@@ -72,15 +79,43 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = earcas.1.a
+		name = earcas.2.a
 		ai_chance = { 
 			base = 0
 		}
 	}
 	option = {
-		name = earcas.1.b
+		name = earcas.2.b
 
 		fong_base_capital = yes
+
+		ai_chance = { 
+			base = 100
+		}
+	}
+
+}
+
+
+### chin done
+country_event = {
+	id = earcas.3
+	title = earcas.3.t
+	desc = earcas.3.d
+	picture = GFX_report_event_chin_fortress
+
+	is_triggered_only = yes
+
+	option = {
+		name = earcas.3.a
+		ai_chance = { 
+			base = 0
+		}
+	}
+	option = {
+		name = earcas.3.b
+
+		chins_fortress_capital = yes
 
 		ai_chance = { 
 			base = 100

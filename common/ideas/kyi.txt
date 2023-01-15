@@ -1,18 +1,34 @@
 ideas = {
 
 	hidden_ideas = {
-		kyoshi_isolation = {
 
-			allowed = {
-				always = no
-			}
+		kyoshi_isolation_spirit = {
 			
 			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:kyoshi_isolation_spirit }
+				set_variable = { victory_condition_description = token:kyoshi_isolation_spirit_description }
+				set_variable = { victory_condition_delayed = token:kyoshi_isolation_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:kyoshi_isolation_spirit }
+				}
+			}
 			
 			modifier = {
 				stability_factor = 0.1
 			}
 		}
+		kyoshi_isolation_spirit_description = {
+			removal_cost = -1
+		}
+		kyoshi_isolation_spirit_delayed = {
+			removal_cost = -1
+		}
+
 	}
 
 	country = {
