@@ -1,0 +1,36 @@
+
+### recalc
+
+CHN_recalc_support_icon_frames = {
+
+	set_temp_variable = { support_temp = CHN_chin_support }
+	divide_temp_variable = { support_temp = 10 }
+	round_temp_variable = support_temp
+	clamp_temp_variable = {
+		var = support_temp
+		min = 0
+		max = 10
+	}
+
+	set_variable = { chin_support_icon_frame = support_temp }
+	
+}
+
+
+######## effects
+
+CHN_add_support = {
+	add_to_variable = { 
+		var = CHN_chin_support
+		value = temp_chin_support
+		tooltip = chin_support_tt
+	}
+	#round_variable = CHN_chin_support
+	clamp_variable = { 
+		var = CHN_chin_support
+		max = 100
+		min = 0
+	}
+	
+	CHN_recalc_support_icon_frames = yes
+}

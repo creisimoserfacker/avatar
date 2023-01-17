@@ -3,6 +3,10 @@ CHN_tradition_category = {
 	avatar_day = {
 
 		icon = avatar_day
+
+		allowed = {
+			tag = CHN
+		}
 		
 		visible = {
 			
@@ -39,6 +43,10 @@ CHN_tradition_category = {
 
 		icon = chins_dynasty
 		
+		allowed = {
+			tag = CHN
+		}
+
 		visible = {
 			
 		}
@@ -68,8 +76,36 @@ CHN_tradition_category = {
 		remove_effect = {
 			
 		}
-
 	}
+
+}
+
+CHN_take_power_category = {
+
+	propaganda_chin = {
+
+		icon = chin_revenge
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			
+		}
+
+		available = {
+			
+		}
+
+		cost = 1
+
+		complete_effect = {
+			set_temp_variable = { temp_chin_support = 10 }
+			CHN_add_support = yes
+		}
+	}
+
 }
 
 
@@ -79,6 +115,10 @@ CHN_empire_category = {
 
 		icon = chin_revenge
 		
+		allowed = {
+			tag = CHN
+		}
+
 		visible = {
 			
 		}
