@@ -2147,6 +2147,7 @@ NAI = {
 
 	UNLOCK_SPIRIT_AI_WILL_DO_FACTOR = 10,       -- Factor for scripted ai_will_do value
 	UNLOCK_SPIRIT_MODIFIER_FACTOR = 0.1,        -- Factor for AI's evaluated value of the modifiers connected to the spirit
+	UNLOCK_SPIRIT_USE_TRUNCATION_SELECT = false,       -- Whether to use truncation select or roulette-wheel select. Set threshold for truncation select below.
 	UNLOCK_SPIRIT_TRUNCATION_SELECT_THRESHOLD = 0.80,  -- Valid between [0.0, 1.0]. When unlocking spirits, select randomly from all spirits with AI score >= VALUE * HighestSpiritScore. To always select the best, set this value to 1.0. To select fully randomly, set this value to 0.0.
 
 	FOCUS_TREE_CONTINUE_FACTOR = 1.5,			-- Factor for score of how likely the AI is to keep going down a focus tree rather than starting a new path.
