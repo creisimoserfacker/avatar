@@ -17,12 +17,6 @@ ideas = {
 				}
 			}
 			
-			modifier = {
-				fire_culture_drift = 0.02
-				army_morale_factor = 0.5
-				offensive_war_stability_factor = 0.35
-				tech_share_modifier = 1
-			}
 		}
 		fire_supremacy_spirit_description = {
 			removal_cost = -1
@@ -30,9 +24,65 @@ ideas = {
 		fire_supremacy_spirit_delayed = {
 			removal_cost = -1
 		}
+
+
+		fire_imperialism_spirit = {
+			
+			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:fire_imperialism_spirit }
+				set_variable = { victory_condition_description = token:fire_imperialism_spirit_description }
+				set_variable = { victory_condition_delayed = token:fire_imperialism_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:fire_imperialism_spirit }
+				}
+			}
+			
+		}
+		fire_imperialism_spirit_description = {
+			removal_cost = -1
+		}
+		fire_imperialism_spirit_delayed = {
+			removal_cost = -1
+		}
 	}
 
 	country = {
+
+		fire_supremacy_idea = {
+			
+			removal_cost = -1
+
+			cancel = {
+				check_variable = { num_subjects < 2 }
+			}
+			
+			modifier = {
+				fire_culture_drift = 0.02
+				army_morale_factor = 0.5
+				offensive_war_stability_factor = 0.35
+				tech_share_modifier = 1
+			}
+		}
+
+		fire_imperialism_idea = {
+			
+			removal_cost = -1
+
+			cancel = {
+				check_variable = { num_controlled_states < 200 }
+			}
+			
+			modifier = {
+				fire_culture_drift = 0.05
+			}
+		}
+
+
 		
 		national_prosperity = {
 
@@ -43,11 +93,21 @@ ideas = {
 			removal_cost = -1
 
 			on_remove = {
-				remove_ideas = FIR_popaganda_1
-				add_ideas = FIR_popaganda_2
-				add_timed_idea = {
-					idea = national_prosperity_decline_1
-					days = 90
+				if = {
+					limit = {
+						has_idea = FIR_popaganda_1
+					}
+					remove_ideas = FIR_popaganda_1
+					add_ideas = FIR_popaganda_2
+				}
+				if = {
+					limit = {
+						has_start_date < 13.01.01
+					}
+					add_timed_idea = {
+						idea = national_prosperity_decline_1
+						days = 90
+					}
 				}
 			}
 

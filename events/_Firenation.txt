@@ -3,6 +3,51 @@
 ###########################
 
 add_namespace = firenation
+add_namespace = fir_focus
+
+
+country_event = {
+	id = fir_focus.1
+	title = fir_focus.1.t
+	desc = fir_focus.1.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = no
+
+	trigger = {
+		tag = FIR
+		NOT = { has_country_flag = fir_focus_1 }
+		has_idea = fire_supremacy_spirit
+
+		NOT = { check_variable = { num_subjects < 2 } }
+	}
+
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			set_country_flag = fir_focus_1
+
+			add_ideas = fire_supremacy_idea
+		}
+ 	}
+
+	option = {
+		name = fir_focus.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		add_ideas = fire_imperialism_spirit
+		
+	}
+	option = {
+		name = fir_focus.1.b
+		
+	}
+}
+
+
 
 #West temple situation
 country_event = {
