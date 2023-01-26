@@ -375,8 +375,76 @@ entity = {
 }
 
 entity = {
+	clone = "template_spearmen_entity"
+	name = "GAO_gfx_spearmen_entity"
+	pdxmesh = "GAO_spearmen"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+
+entity = {
+	clone = "template_spearmen_entity"
+	name = "OMS_gfx_spearmen_entity"
+	pdxmesh = "OMS_spearmen"
+
+	attach = { 
+		Right_hand_node = "spear_1_entity"
+		Left_hand_node = "shield_1_entity"
+	}
+
+	scale = 0.4
+}
+
+entity = {
 	name = "earthbender_entity"
 	pdxmesh = "earthbender_mesh"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 
+		#event = { time = 1.1 node="Right_hand_node" particle = "firebender_01_particle"  keep_particle = no } 
+	}
+	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "attack_01" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no
+	}
+	
+	
+	scale = 0.4
+}
+
+entity = {
+	name = "OMS_earthbender_entity"
+	pdxmesh = "OMS_earthbender_mesh"
+
+	default_state = "idle"
+	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 
+		#event = { time = 1.1 node="Right_hand_node" particle = "firebender_01_particle"  keep_particle = no } 
+	}
+	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
+	state = { name = "support_attack"	animation = "attack_01" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
+	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no
+	}
+	
+	
+	scale = 0.4
+}
+
+entity = {
+	name = "GAO_earthbender_entity"
+	pdxmesh = "GAO_earthbender_mesh"
 
 	default_state = "idle"
 	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 
