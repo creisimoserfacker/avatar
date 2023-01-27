@@ -136,6 +136,7 @@ formable_nations_mod_category = {
 			}
 		}
 	}
+
 	Formable_nations_SEK_KYOSHI = {
 		
 		ai_will_do = {
@@ -263,6 +264,39 @@ formable_nations_mod_category = {
 						432 = { add_compliance = 50 }
 						419 = { add_compliance = 50 }
 						set_country_flag = shimsom
+			}
+		}
+		
+		
+		
+	}
+	
+	Formable_nations_PHO_FIR = {
+		
+		ai_will_do = {
+		factor = 1
+		}
+			
+		cost = 0  days_re_enable = 0
+			
+		visible = {
+			original_tag = FIR
+		}
+			
+		available = {
+			AND = {
+				custom_trigger_tooltip = {
+					tooltip = formable_nations_PHO_tt
+						179 = { is_controlled_by = ROOT }
+				}
+			}
+		}
+			
+		complete_effect = {
+			custom_effect_tooltip = compliance_tt
+			hidden_effect = {
+			179 = { add_compliance = 50 }
+			set_country_flag = PHO
 			}
 		}
 		
