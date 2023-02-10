@@ -7,7 +7,7 @@ country_event = {
 	picture = GFX_report_event_dai_li_proposal
 	is_triggered_only = yes
 	fire_only_once = yes
-	option = {
+	option = { #Yes
 		name = air_gen.1.a
 		custom_effect_tooltip = dai_li_10
 		custom_effect_tooltip = air_genocide_decisions
@@ -19,7 +19,7 @@ country_event = {
 			genocide_preparation = 4
 		}
 		ai_chance = {
-			base = 100
+			base = 0
 			modifier = {
 				add = 100
 				has_game_rule = {
@@ -29,18 +29,18 @@ country_event = {
 			}
 		}
 	}
-	option = {
+	option = { # No
 		name = air_gen.1.b
 		custom_effect_tooltip = dai_li_regulation_decisions
 		set_country_flag = regulate_the_dai_li
 		ai_chance = {
-			base = 0
+			base = 100
 			modifier = {
 				add = 100
-				is_historical_focus_on = no
+				is_historical_focus_on = yes
 			}
 			modifier = {
-				factor = 0
+				factor = 100
 				has_game_rule = {
 					rule = GENOCIDE_AI_BEHAVIOR
 					option = NO_AIR_GENOCIDE
@@ -987,7 +987,7 @@ country_event = {
 }
 
 ### fire genocide decision
-country_event = {
+country_event = { # Yes
 	id = air_gen.7
 	title = air_gen.7.t
 	desc = air_gen.7.d
@@ -1023,7 +1023,7 @@ country_event = {
 			}
 		}
 	}
-	option = {
+	option = { # No
 		name = air_gen.7.b
 		custom_effect_tooltip = fir_no_genocide_decisions
 		set_country_flag = fire_no_genocide

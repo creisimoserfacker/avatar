@@ -1,44 +1,44 @@
-create_partisan_units = {
-	if = {
-		limit = {
-			check_variable = { available_partisans > 0 }
-		}
-		random_list = {
-			50 = {
-				create_unit = {
-					division = "name = \"Partisan\" division_template = \"Skirmisher Partisans\" start_experience_factor = 0.0" 
-					owner = ROOT
-				}
-			}
-			50 = {
-				create_unit = {
-					division = "name = \"Partisan\" division_template = \"Partisans\" start_experience_factor = 0.0" 
-					owner = ROOT
-				}
-			}
-		}
-		THIS = {
-			subtract_from_variable = { available_partisans = 1 }
-		}
-		create_partisan_units = yes
-	}
-}
-
-clear_sabotaged_resources_if_necesary = {
-	if = {
-		limit = {
-			not = {
-				has_dynamic_modifier = {
-					modifier = sabotaged_resources
-				}
-			}
-		}
-	
-		clear_variable = sabotaged_oil
-		clear_variable = sabotaged_aluminium
-		clear_variable = sabotaged_rubber
-		clear_variable = sabotaged_tungsten
-		clear_variable = sabotaged_steel
-		clear_variable = sabotaged_chromium
-	}
-}
+#create_partisan_units = {
+#	if = {
+#		limit = {
+#			check_variable = { available_partisans > 0 }
+#		}
+#		random_list = {
+#			50 = {
+#				create_unit = {
+#					division = "name = \"Partisan\" division_template = \"Skirmisher Partisans\" start_experience_factor = 0.0" 
+#					owner = ROOT
+#				}
+#			}
+#			50 = {
+#				create_unit = {
+#					division = "name = \"Partisan\" division_template = \"Partisans\" start_experience_factor = 0.0" 
+#					owner = ROOT
+#				}
+#			}
+#		}
+#		THIS = {
+#			subtract_from_variable = { available_partisans = 1 }
+#		}
+#		create_partisan_units = yes
+#	}
+#}
+#
+#clear_sabotaged_resources_if_necesary = {
+#	if = {
+#		limit = {
+#			not = {
+#				has_dynamic_modifier = {
+#					modifier = sabotaged_resources
+#				}
+#			}
+#		}
+#	
+#		clear_variable = sabotaged_oil
+#		clear_variable = sabotaged_aluminium
+#		clear_variable = sabotaged_rubber
+#		clear_variable = sabotaged_tungsten
+#		clear_variable = sabotaged_steel
+#		clear_variable = sabotaged_chromium
+#	}
+#}
