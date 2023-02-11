@@ -39,41 +39,41 @@ EAR_defense_category = {
 		}
 	}
 
-	CHN_chins_fortress = {
-
-		icon = chins_fortress
-
-		visible = {
-			has_idea = earth_nation
-			325 = {
-				is_owned_and_controlled_by = PREV
-			}
-			NOT = {
-				has_active_mission = castle_construction_mission
-				has_global_flag = chins_fortress_build
-			}
-		}
-		available = {
-			
-		}
-
-		cost = EARTH_castle_cost?5
-
-		complete_effect = {
-			add_to_variable = { EARTH_castle_cost = 10 }
-			set_variable = { castle_construction = token:CHN_chins_fortress }
-			set_variable = { castle_location = 325 }
-			set_variable = { castle_size = 10 }
-			activate_mission = castle_construction_mission
-			set_variable = { castle_reduction_factor = 0.5 }
-
-			country_event = { id = earcas.1 }
-		}
-
-		ai_will_do = {
-			base = 1
-		}
-	}
+#	CHN_chins_fortress = {
+#
+#		icon = chins_fortress
+#
+#		visible = {
+#			has_idea = earth_nation
+#			325 = {
+#				is_owned_and_controlled_by = PREV
+#			}
+#			NOT = {
+#				has_active_mission = castle_construction_mission
+#				has_global_flag = chins_fortress_build
+#			}
+#		}
+#		available = {
+#			
+#		}
+#
+#		cost = EARTH_castle_cost?5
+#
+#		complete_effect = {
+#			add_to_variable = { EARTH_castle_cost = 10 }
+#			set_variable = { castle_construction = token:CHN_chins_fortress }
+#			set_variable = { castle_location = 325 }
+#			set_variable = { castle_size = 10 }
+#			activate_mission = castle_construction_mission
+#			set_variable = { castle_reduction_factor = 0.5 }
+#
+#			country_event = { id = earcas.1 }
+#		}
+#
+#		ai_will_do = {
+#			base = 1
+#		}
+#	}
 
 	castle_construction_mission = {
 
