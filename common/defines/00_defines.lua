@@ -4,7 +4,7 @@ NGame = {
 	START_DATE = "12.1.1.12",
 	END_DATE = "174.1.1.1",
 	MAP_SCALE_PIXEL_TO_KM = 0.5,					-- Yes, we did the math / 2800:5600
-	SAVE_VERSION = 10,
+	SAVE_VERSION = 15,
 	CHECKSUM_SALT = "zwOdv5d9wm9uDSOT",				-- Data to modify generated checksum when game binaries have changed but not any content files.
 	LAG_DAYS_FOR_LOWER_SPEED = 10,					-- Days of client lag for decrease of gamespeed
 	LAG_DAYS_FOR_PAUSE = 25,						-- Days of client lag for pause of gamespeed.
@@ -156,12 +156,16 @@ NDiplomacy = {
 	TENSION_CAPITULATE = 0,							-- Scale of the amount of tension created by a countries capitulation.
 	GUARANTEE_COST = 25,							-- Scale with the number of already guaranteed countries.
 	REVOKE_GUARANTEE_COST = 25,
-	MP_NUM_WINNERS_FOR_PEACE_PAUSE = 0,				-- Number of human players as winners needed for peace conference to pause and open for everyone in multiplayer, needs to fullfill MP_NUM_LOSERS_FOR_PEACE_PAUSE as well.
-	MP_NUM_LOSERS_FOR_PEACE_PAUSE = 0,				-- Number of human players as losers needed for peace conference to pause and open for everyone in multiplayer, needs to fullfill MP_NUM_WINNERS_FOR_PEACE_PAUSE as well.
 	BASE_CONDITIONAL_PEACE_WARESCORE_RATIO = 0.5, 	-- Warscore ratio needed for the losing side to able to surrender.
 	BASE_CONDITIONAL_PEACE_MONTHS = 6,				-- War length must be before a surrender i possible.
 	JOINING_NAP_WAR_PENALTY = 0.2,					-- War support penalty for breaking non-breakable NAP
 	BREAKING_GUARANTEE_PENALTY = 0.2,				-- War support penalty for breaking guarantee
+	
+	-- WARNING ! if you modify the following values, you should update corresponding loc keys in games_rules_l_english.yml
+	PEACE_SCORE_TRANSFERRED_TO_FACTION_LEADER = 0.1, 		-- Part of the peace score transferred from the faction members to the faction leader (if game rule enabled)
+	PEACE_SCORE_RESET_LOW_SCORE_THRESHOLD = 0.05,			-- Winners with less than this ratio of war participation will give all their score to other players
+	PEACE_SCORE_RESET_LOW_SCORE_MINIMUM_FOR_RECEIVER = 0.1, -- Disable the previous, if no winner has at least this ratio of war participation
+
 	PEACE_SCORE_SCALE_FACTOR = 1.25,                -- Losers' total value times this factor becomes the default total peace conference score that is distributed to the winners.
 
 	PEACE_SCORE_MINOR_BOOST_FRACTION = 0.05,        -- Low-scoring winners are boosted by receiving more of their score earlier. This value, multiplied by the total score distributed this turn, is the minimum score they will receive (up until their total allocated score).
@@ -189,12 +193,6 @@ NDiplomacy = {
 	
 	PEACE_ACTION_MAX_COST = 9999,					-- Max value for a peace action cost (after all modifiers)
 
-	PEACE_MIN_SCORE = 0.3,							-- Value how much of your score you are always allowed to take
-	TAKE_STATES_PUPPET_COST_MULT = 0.5,				-- Cost multiplier for feeding states to a puppet that you have created, assuming the puppet currently owns the states
-	TAKE_STATES_LIBERATE_COST_MULT = 0.5,			-- Cost multiplier for feeding states to a country that has been liberated, assuming the country has cores on the states
-	TAKE_STATES_CHANGE_GOV_COST_MULT = 0.5,			-- Cost multiplier for feeding states to a country you are changing government on, assuming they currently own the states
-	TAKE_STATES_GIVE_CORE_TO_SUBJECT_MULT = 0.1,	-- Cost multiplier for feeding core states to a subject 
-	
 	RESOURCE_SENT_AUTONOMY_DAILY_BASE = 0.0,		-- If puppet provides resources to its master they increasy their autonomy by at least this amount
 	RESOURCE_SENT_AUTONOMY_DAILY_FACTOR = -0.005,	-- If puppet provides resources to its master they increasy their autonomy by the resources factored by this
 	WAR_SCORE_AUTONOMY_BASE = 0.0,					-- Value added if any war score is contributed by puppet
@@ -414,7 +412,6 @@ NCountry = {
 	GIE_CAPITULATE_MIN_LEGIT_FOR_TRANSFER = 5, -- 0-100 Minimum starting legitimacy to transfer any equipment at all.
 	GIE_CAPITULATION_LEGITIMACY_WARSCORE_FACTOR = 0.5,      -- Multiplies war contribution percent with this factor for part of starting legitimacy. (0.5 would mean a 50 % war contribution gives 25 more legitimacy)
 	GIE_CAPITULATION_LEGITIMACY_WARLENGTH_FACTOR = 1.0,     -- Multiplies war length (nr of weeks) with this factor for part of starting legitimacy. (1.0 would mean a war length of 30 weeks gives 30 more legitimacy)
-	GIE_CAPITULATION_WARSCORE_LEGITIMACY_FACTOR = 1.0, 	--Multiplies accumulated warscore with this factor for part of starting legitimacy.
 	GIE_WARSCORE_GAIN_LEGITIMACY_FACTOR = 1,		 		--Factor on how much legitimacy is gained from warscore earned by GiE units.
 	GIE_HOST_CIC_FROM_LEGITIMACY_MAX = 5, 					--Host will receive from 0 to this value in CIC.
 	GIE_HOST_MIC_FROM_LEGITIMACY_MAX = 5,					--Host will receive from 0 to this value in MIC.
@@ -1204,9 +1201,9 @@ NAir = {
 	ACE_DEATH_CHANCE_BASE = 0.003,						-- Base chance % for ace pilot die when an airplane is shot down in the Ace wing.
 	ACE_DEATH_BY_OTHER_ACE_CHANCE = 1.0,				-- chance to an ace dying by another ace if it was hit by ace in combat
 	ACE_DEATH_CHANCE_PLANES_MULT = 0.001,				-- The more airplanes was lost in a single airplanes (more bloody it was) the higher chance of Ace to die.
+	AIR_AGILITY_TO_NAVAL_STRIKE_AGILITY = 0.01,         		-- conversion factor to bring agility in line with ship AA
 	ACE_EARN_CHANCE_BASE = 0.003,						-- Base chance % for ace pilot to be created. Happens only when successfully kill airplane/ship or damage the buildings.
 	ACE_EARN_CHANCE_PLANES_MULT = 0.001,				-- The more airplanes the wing shots the higher chance of earning Ace.
-	AIR_AGILITY_TO_NAVAL_STRIKE_AGILITY = 0.01,         		-- conversion factor to bring agility in line with ship AA
 	AIR_DAMAGE_TO_DIVISION_LOSSES = 1.0,				-- factor for conversion air damage to division losses for details statistics of air wings
 	AIR_NAVAL_KAMIKAZE_DAMAGE_MULT = 20.0,				-- Balancing value to increase usual damage to Strength for Kamikaze
 	AIR_NAVAL_KAMIKAZE_LOSSES_MULT = 4.0,          			-- Balancing value to increase usual losses if Kamikaze participating in the battle
@@ -1237,7 +1234,6 @@ NAir = {
 	ANTI_AIR_ATTACK_TO_DAMAGE_REDUCTION_FACTOR = 1.0,	-- Balancing value to convert equipment stat anti_air_attack to the damage reduction modifier apply to incoming air attacks against units with AA.
 	ANTI_AIR_MAXIMUM_DAMAGE_REDUCTION_FACTOR = 0.75,	-- Maximum damage reduction factor applied to incoming air attacks against units with AA.
 	AIR_DEPLOYMENT_DAYS = 2,							-- Days to deploy one air wing
-	PORT_STRIKE_ENEMY_SUPERIORITY_LIMIT = 1.1,			-- Min air superiority for performing of naval strike
 	NAVAL_STRIKE_BASE_STR_TO_PLANES_RATIO = 0.03,		-- Max airbombers to do port strike comparing to strength
 	NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO = 0.05,		-- Max planes that can join a combat comparing to the total strength of the ships
 	NAVAL_COMBAT_EXTERNAL_PLANES_JOIN_RATIO_PER_DAY = 0.2, -- max extra plane % that can join every day
@@ -1329,7 +1325,8 @@ NAir = {
 		0.0, -- TRAINING
 		0.0, -- NAVAL_MINES_PLANTING
 		0.0, -- NAVAL_MINES_SWEEPING
-		0.0, -- MISSION_RECON
+		0.0, -- RECON
+		0.0, -- NAVAL_PATROL
 	},
 	
 	MISSION_FUEL_COSTS = {  -- fuel cost per plane for each mission
@@ -1347,7 +1344,8 @@ NAir = {
 		0.8, -- TRAINING
 		1.0, -- NAVAL_MINES_PLANTING
 		1.0, -- NAVAL_MINES_SWEEPING
-		1.0, -- MISSION_RECON
+		1.0, -- RECON
+		1.0, -- NAVAL_PATROL
 	},
 	MAX_FUEL_FLOW_MULT = 1.0, -- max fuel flow ratio for planes, which will be multiplied by supply
 	
@@ -1483,7 +1481,6 @@ NNavy = {
 	ANTI_AIR_TARGETING = 0.9,                                       -- how good ships are at hitting aircraft
 	MIN_TRACTED_ASSIST_DAMAGE_RATIO = 0.05,							-- How much damage counts as assist damage
 	SUPPLY_NEED_FACTOR = 1,										    -- multiplies supply usage
-	ENEMY_AIR_SUPERIORITY_IMPACT = -1,           					-- effect on ship efficiency due to enemy air superiorty
 	DECRYPTION_SPOTTING_BONUS = 0.2,
 	DISBAND_MANPOWER_LOSS = 0.0,
 	MANPOWER_LOSS_RATIO_ON_SUNK = 0.5,								-- sunk ships will lose this ratio of their current manpower
@@ -1905,9 +1902,6 @@ NNavy = {
 	NAVAL_CONVOY_DANGER_TRIGGER_MIN = 0.0,
 	NAVAL_CONVOY_DANGER_TRIGGER_MAX = 100.0,
 	
-	WARSCORE_GAIN_FOR_SUNK_SHIP_MANPOWER_FACTOR = 0.0002,						-- sunk ships will give enemy war score relative to max manpower of a ship that has been sunk
-	WARSCORE_GAIN_FOR_SUNK_SHIP_PRODUCTION_COST_FACTOR = 0.0004,				-- sunk ships will give enemy war score relative to cost of a ship that has been sunk
-
 	-- those two work together in the formula f(x) = Y(x/(x+X)) where Y is MAX and X is SLOPE
 	NAVAL_COMBAT_AIR_SUB_DETECTION_MAX = 10.0,
 	NAVAL_COMBAT_AIR_SUB_DETECTION_SLOPE = 10.0,						-- lower means sharper curve (ramps up very fast, then flatten out very fast). Must be >0
@@ -2079,6 +2073,8 @@ NAI = {
 	DIPLOMACY_ACCEPT_CONDITIONAL_SURRENDER_OWN_SURRENDER_LIMIT = 20, -- Multiplied by recipient nation's surrender level
 	DIPLOMACY_ACCEPT_CONDITIONAL_SURRENDER_MINOR_WAR = 10,			-- Applied if recipient is a minor nation (and therefore there are no majors in this war)
 
+	MIN_POLITICAL_POWER_MONTHLY_GAIN_FOR_IMPROVE_RELATIONS = 0.50,	-- If country makes less than this PP per month, they won't improve relations
+	
 	NUM_RESOURCES_TO_ALLOW_MINOR_EMBARGO = 69,	--If we or any of our puppets have more total resources of a single category that this, we will consider embargoing countries
 	EMBARGO_WORLD_TENSION_THREAT_DIVISOR = 2.5,		--A divisor to generated world tension when applying how much we care about it in AI desire
 
@@ -2360,9 +2356,6 @@ NAI = {
 	SHIPS_PRODUCTION_BASE_COST = 10000,					-- Used by the AI to normalize IC values when picking what ship to build.
 	NEEDED_NAVAL_FACTORIES_EXPENSIVE_SHIP_BONUS = 12,   -- Amount of naval yards you need to get a bonus to building really expensive ships
 
-	AIR_WING_REINFORCEMENT_LIMIT = 100,
-	AIR_WING_SCOUT_REINFORCEMENT_LIMIT = 50,
-
 	FORTIFIED_RATIO_TO_CONSIDER_A_FRONT_FORTIFIED = 0.5, -- ai will consider a front fortified if this ratio of provinces has fort
 	HEAVILY_FORTIFIED_RATIO_TO_CONSIDER_A_FRONT_FORTIFIED = 0.5, -- ai will consider a front super fortified if this ratio of provinces has lots of forts
 	FORTIFIED_MIN_ORG_FACTOR_TO_CONSIDER_A_FRONT_FORTIFIED = 0.2, -- ai will treat fortified provinces as unfortified if no unit in that province has an organization factor at least this high
@@ -2461,6 +2454,11 @@ NAI = {
 		0.0, -- range
 		0.0, -- mine plant
 		0.0, -- mine sweep
+		0.0, -- navy light gun hit chance
+		0.0, -- navy heavy gun hit chance
+		0.0, -- navy torpedo hit chance
+		0.0, -- navy incoming torpedo damage reduction
+		0.0, -- navy incoming torpedo crit chance
 		0.0, -- raiding coordination
 		0.0, -- patrol coordination
 		0.0, -- search and destroy coordination
@@ -2487,6 +2485,7 @@ NAI = {
 		0.0, -- reliability
 		0.0, -- reliability_factor
 		-0.25, -- weight
+		0.0, -- thrust
 		0.0, -- fuel_consumption
 		0.0, -- fuel_consumption_factor
 		-- Special Values
@@ -2494,6 +2493,7 @@ NAI = {
 		0.0, -- carrier_size
 		0.0, -- acclimatization hot gain
 		0.0, -- acclimatization cold gain
+		0.0, -- night_penalty
 		-0.5, -- build_cost_ic
 	},
 	DIVISION_DESIGN_MANPOWER_WEIGHT = 0.005,
@@ -2581,9 +2581,6 @@ NAI = {
 
 	MIN_FIELD_STRENGTH_TO_BUILD_UNITS = 0.7,			-- Cancel unit production if below this to get resources out to units in the field
 	MIN_MANPOWER_TO_BUILD_UNITS = 0.7,					-- Cancel unit production if below this to get resources out to units in the field
-
-	SUBJECT_SUPPLY_RATIO_FOR_UNIT_PRODUCTION = 0.2,		-- supply ratio of subject supply chunks will be added to our own supply chunks (since we will fight around subjects as well) modified by produce_unit_for_subject_supply_chunks strat
-	ALLY_SUPPLY_RATIO_FOR_UNIT_PRODUCTION = 0.00,		-- supply ratio of ally supply chunks will be added to our own supply chunks (since we will fight around allies as well) modified by produce_unit_for_ally_supply_chunks strat
 
 	AVERAGE_SUPPLY_USE_PESSIMISM = 1.5,					-- Multiplier for when AI calculates average supply use of entire army.
 
@@ -2708,7 +2705,6 @@ NAI = {
 	STR_BOMB_PLANES_PER_NAV_FACTORY = 15,				-- Amount of planes requested per enemy naval factory
 	STR_BOMB_PLANES_PER_SUPPLY_HUB = 20,                -- Amount of planes requested per enemy supply node
 	STR_BOMB_MIN_EXCORT_PLANES = 200,					-- Min amount of planes requested to excort operations
-	STR_BOMB_MIN_EXCORT_WINGS = 2,						-- Min amount of airwings requested to excort operations
 	RECON_PLANES_NAVAL = 50,                           -- scale on recon for naval areas
 	RECON_PLANES_LAND_COMBAT = 25,                     -- scale on recon for land combat areas
 	RECON_PLANES_STRATEGIC = 50,                       -- scale on recon for strategic areas
@@ -3687,51 +3683,57 @@ NIntel = {
 	
 	AIR_MAPICON_MISSION_COUNT_INTEL_MIN = {
 		0.3, -- AIR_SUPERIORITY
-		0.3, -- CAS		
-		0.3, -- INTERCEPTION	
+		0.3, -- CAS
+		0.3, -- INTERCEPTION
 		0.3, -- STRATEGIC_BOMBER
-		0.3, -- NAVAL_BOMBER	
-		0.3, -- DROP_NUKE		
-		0.3, -- PARADROP		
-		0.3, -- NAVAL_KAMIKAZE	
-        0.3, -- PORT_STRIKE		
-		0.3, -- AIR_SUPPLY		
+		0.3, -- NAVAL_BOMBER
+		0.3, -- DROP_NUKE
+		0.3, -- PARADROP
+		0.3, -- NAVAL_KAMIKAZE
+        0.3, -- PORT_STRIKE
+		0.3, -- ATTACK_LOGISTICS
+		0.3, -- AIR_SUPPLY
 		0.3, -- TRAINING
 		0.3, -- NAVAL_MINES_PLANTING
 		0.3, -- NAVAL_MINES_SWEEPING
-		0.3, -- MISSION_RECON
+		0.3, -- RECON
+		0.3, -- NAVAL_PATROL
 	},
 	AIR_MAPICON_MISSION_COUNT_INTEL_MAX = {
 		0.6, -- AIR_SUPERIORITY
-		0.6, -- CAS		
-		0.6, -- INTERCEPTION	
+		0.6, -- CAS
+		0.6, -- INTERCEPTION
 		0.6, -- STRATEGIC_BOMBER
-		0.6, -- NAVAL_BOMBER	
-		0.6, -- DROP_NUKE		
-		0.6, -- PARADROP		
-		0.6, -- NAVAL_KAMIKAZE	
-        0.6, -- PORT_STRIKE		
-		0.6, -- AIR_SUPPLY		
+		0.6, -- NAVAL_BOMBER
+		0.6, -- DROP_NUKE
+		0.6, -- PARADROP
+		0.6, -- NAVAL_KAMIKAZE
+        0.6, -- PORT_STRIKE
+		0.6, -- ATTACK_LOGISTICS
+		0.6, -- AIR_SUPPLY
 		0.6, -- TRAINING
 		0.6, -- NAVAL_MINES_PLANTING
 		0.6, -- NAVAL_MINES_SWEEPING
-		0.6, -- MISSION_RECON
+		0.6, -- RECON
+		0.6, -- NAVAL_PATROL
 	},
 	AIR_MAPICON_MISSION_COUNT_INTEL_RANGE_AT_LOWEST_INTEL = {
 		0.5, -- AIR_SUPERIORITY
-		0.5, -- CAS		
-		0.5, -- INTERCEPTION	
+		0.5, -- CAS
+		0.5, -- INTERCEPTION
 		0.5, -- STRATEGIC_BOMBER
-		0.5, -- NAVAL_BOMBER	
-		0.5, -- DROP_NUKE		
-		0.5, -- PARADROP		
-		0.5, -- NAVAL_KAMIKAZE	
-        0.5, -- PORT_STRIKE		
-		0.5, -- AIR_SUPPLY		
+		0.5, -- NAVAL_BOMBER
+		0.5, -- DROP_NUKE
+		0.5, -- PARADROP
+		0.5, -- NAVAL_KAMIKAZE
+        0.5, -- PORT_STRIKE
+		0.5, -- ATTACK_LOGISTICS
+		0.5, -- AIR_SUPPLY
 		0.5, -- TRAINING
 		0.5, -- NAVAL_MINES_PLANTING
 		0.5, -- NAVAL_MINES_SWEEPING
-		0.5, -- MISSION_RECON
+		0.5, -- RECON
+		0.5, -- NAVAL_PATROL
 	},
 	
 	AIR_MAPICON_SHOW_ALL_AIR_PORTS = 0.3,  -- min intel to show all air ports (otherwise you will only see nearby ones)
