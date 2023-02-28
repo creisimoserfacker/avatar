@@ -1,106 +1,107 @@
 
-CHN_tradition_category = {
+#CHN_tradition_category = {
+#
+#
+#	CHN_realize_ambitions = {
+#
+#		icon = chins_dynasty
+#		
+#		allowed = {
+#			tag = CHN
+#		}
+#
+#		visible = {
+#			
+#		}
+#
+#		available = {
+#			is_in_faction = no
+#			has_army_manpower = 1000
+#			custom_trigger_tooltip = {
+#				tooltip = not_earth_kingdom_array_tt	
+#				NOT = {	
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = FROM.id
+#					}
+#				}
+#			}
+#			has_idea = chin_legacy_spirit
+#		}
+#
+#		cost = 100
+#
+#		days_remove = 70
+#
+#		complete_effect = {
+#			
+#		}
+#
+#		remove_effect = {
+#			
+#		}
+#	}
+#
+#}
+#
+#CHN_take_power_category = {
+
+#	propaganda_chin = {
+#
+#		icon = chin_revenge
+#		
+#		allowed = {
+#			tag = CHN
+#		}
+#
+#		visible = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		cost = 1
+#
+#		complete_effect = {
+#			set_temp_variable = { temp_chin_support = 10 }
+#			CHN_add_support = yes
+#		}
+#	}
+#
+#}
 
 
-	trace_back_chins_dynasty = {
+#CHN_empire_category = {
 
-		icon = chins_dynasty
-		
-		allowed = {
-			tag = CHN
-		}
+#	avenge_chin = {
+#
+#		icon = chin_revenge
+#		
+#		allowed = {
+#			tag = CHN
+#		}
+#
+#		visible = {
+#			
+#		}
+#
+#		available = {
+#			controls_state = 347
+#			controls_state = 105
+#		}
+#		
+#		fire_only_once = yes
+#
+#		
+#
+#		complete_effect = {
+#			swap_ideas = {
+#				remove_idea = CHN_kyoshi_rivalry
+#				add_idea = CHN_triumph_over_kyoshi
+#			}
+#		}
+#	}
 
-		visible = {
-			
-		}
-
-		available = {
-			is_in_faction = no
-			custom_trigger_tooltip = {
-				tooltip = not_earth_kingdom_array_tt	
-				NOT = {	
-					is_in_array = {
-						array = global.earth_kingdom
-						value = FROM.id
-					}
-				}
-			}
-			has_idea = chin_legacy_spirit
-		}
-
-		cost = 100
-
-		days_remove = 70
-
-		complete_effect = {
-			
-		}
-
-		remove_effect = {
-			
-		}
-	}
-
-}
-
-CHN_take_power_category = {
-
-	propaganda_chin = {
-
-		icon = chin_revenge
-		
-		allowed = {
-			tag = CHN
-		}
-
-		visible = {
-			
-		}
-
-		available = {
-			
-		}
-
-		cost = 1
-
-		complete_effect = {
-			set_temp_variable = { temp_chin_support = 10 }
-			CHN_add_support = yes
-		}
-	}
-
-}
-
-
-CHN_empire_category = {
-
-	avenge_chin = {
-
-		icon = chin_revenge
-		
-		allowed = {
-			tag = CHN
-		}
-
-		visible = {
-			
-		}
-
-		available = {
-			controls_state = 347
-			controls_state = 105
-		}
-		
-		fire_only_once = yes
-
-		
-
-		complete_effect = {
-			swap_ideas = {
-				remove_idea = CHN_kyoshi_rivalry
-				add_idea = CHN_triumph_over_kyoshi
-			}
-		}
-	}
-
-}
+#}

@@ -498,3 +498,45 @@ news_event = {
 	}
 
 }
+
+news_event = {
+	id = news.11
+	title = news.11.t
+	desc = news.11.d
+	picture = GFX_avatar_news_event_015
+	is_triggered_only = yes
+
+	major = yes
+
+	immediate = {
+		
+	}
+
+	option = {
+		name = news.11.a
+		ai_chance = { 
+			factor = 100
+		}
+		set_country_flag = FIR_phoenix
+		remove_trait = {
+   		 ideology = fire_culture
+   		 trait = firelord
+		}
+		add_trait = {
+  		   ideology = fire_culture
+  		   trait = phoenixking
+		}
+		trigger = { 
+			TAG = FIR
+		}
+
+	}
+	option = {
+		name = news.11.b
+		trigger = { 
+			NOT = {
+				TAG = FIR
+			}
+		}
+	}
+}
