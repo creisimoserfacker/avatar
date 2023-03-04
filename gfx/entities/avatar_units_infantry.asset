@@ -774,21 +774,44 @@ entity = {
 }
 
 entity = {
+	name = "earthbending_1_entity"
+	pdxmesh = "earthbending_1_mesh"
+
+	default_state = "idle"
+	state = { name = "idle"				animation = "idle" }
+	state = { name = "attack"			animation = "shoot"}
+	state = { name = "defend"			animation = "shoot"}
+	state = { name = "support_attack"	animation = "shoot"}
+}
+
+entity = {
 	name = "earthbender_entity"
 	pdxmesh = "earthbender_mesh"
 
 	default_state = "idle"
-	state = { name = "attack"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 
-		#event = { time = 1.1 node="Right_hand_node" particle = "firebender_01_particle"  keep_particle = no } 
+	state = { 
+		name = "attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0
+		looping = no next_state = "attack" chance = 1
+		propagate_state = { rock_1 = "attack" } 
 	}
-	state = { name = "defend"			animation = "attack_01" 			animation_blend_time = 0.3  animation_speed = 1.0 }
-	state = { name = "support_attack"	animation = "attack_01" 	animation_blend_time = 0.3 animation_speed = 1.0 }
+	state = { 
+		name = "defend"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0  
+		looping = no next_state = "defend" chance = 1
+		propagate_state = { rock_1 = "defend" } 
+	}
+	state = { 
+		name = "support_attack"			animation = "attack_01" 			animation_blend_time = 0.0  animation_speed = 1.0 
+		looping = no next_state = "support_attack" chance = 1
+		propagate_state = { rock_1 = "support_attack" } 
+	}
 	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
 	state = { name = "move"				animation = "move" 		 		animation_blend_time = 1.0 animation_speed = 1.0 chance = 1 }
 	state = { name = "retreat"			animation = "retreat" 	 		animation_blend_time = 0.3 animation_speed = 1.0 }
 	state = { name = "death"			animation = "death" 			animation_blend_time = 0.3 animation_speed = 1.0 }
 	state = { name = "idle"				animation = "idle"       		animation_blend_time = 0.3 animation_speed = 1.0 chance = 15 looping = no
 	}
+
+	attach = { 	name = "rock_1"	root = "earthbending_1_entity" }
 	
 	
 	scale = 0.4
