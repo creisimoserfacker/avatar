@@ -1,4 +1,4 @@
-#scripted_gui = {
+scripted_gui = {
 #	
 #	riseup_partisan = {
 #		context_type = selected_state_context
@@ -245,110 +245,110 @@
 #		
 #	}
 #
-#	state_core_state = {
-#		context_type = selected_state_context
-#		
-#		window_name = "core_state_container"
-#		parent_window_token = selected_state_view
-#		
-#		visible = {
-#			is_controlled_by = ROOT
-#			NOT = {
-#				has_resistance = no
-#			}
-#		}
-#		
-#		effects = {
-#			core_state_click = {
-#				set_temp_variable = { core_state_cost = mtth:core_state_cost }
-#				multiply_temp_variable = { core_state_cost = -1 }
-#				controller = {
-#					country_event = { id = occupation_mechanic.5 days = 1 }
-#
-#					add_political_power = var:core_state_cost
-#				}
-#				THIS = {
-#					add_core_of = controller
-#				}
-#				if = { 
-#					limit = {
-#						THIS = {
-#							OR = {
-#								is_core_of = PEG
-#								is_core_of = PEE
-#								is_core_of = PEF
-#								is_core_of = PEA
-#								is_core_of = PEW
-#							}
-#						}
-#					}
-#					cancel_resistance = yes
-#					remove_core_of = PEG
-#					remove_core_of = PEE
-#					remove_core_of = PEF
-#					remove_core_of = PEA
-#					remove_core_of = PEW
-#				}
-#			}
-#		}
-#		
-#		triggers = {
-#			core_state_click_enabled = {
-#				ROOT = {
-#					has_political_power > THIS.mtth:core_state_cost
-#				}
-#				if = { limit = { FROM.CONTROLLER = { has_government = fire_culture } }
-#					check_variable = { fire_pop > 50 }
-#				}
-#				if = { limit = { FROM.CONTROLLER = { has_government = earth_culture } }
-#					check_variable = { earth_pop > 50 }
-#				}
-#				if = { limit = { FROM.CONTROLLER = { has_government = water_culture } }
-#					check_variable = { water_pop > 50 }
-#				}
-#				if = { limit = { FROM.CONTROLLER = { has_government = air_culture } }
-#					check_variable = { air_pop > 50 }
-#				}
-#				if = { limit = { FROM.CONTROLLER = { has_government = pluralist_culture } }
-#					check_variable = { nonbender_pop > 50 }
-#				}
-#				is_controlled_by = ROOT
-#				compliance > 99.99
-#			}
-#		}
-#		
-#		ai_test_scopes = test_self_owned_states
-#		ai_test_scopes = test_enemy_owned_states
-#		ai_test_interval = 1200    #50 days
-#		ai_test_variance = 0.5
-#		
-#		ai_enabled = {
-#			always = yes
-#		}
-#        
-#		ai_check = {
-#			any_core_state = {
-#				controller = {
-#					has_war_with = ROOT
-#				}
-#			}
-#		}
-#		
-#		ai_max_weight_taken_per_test = 10
-#		ai_weights = {
-#			core_state_click = {
-#				ai_will_do = {
-#					base = 10
-#					
-#					modifier = {
-#						add = 50
-#						
-#						compliance > 60
-#					}
-#				}
-#			}
-#		}
-#		
-#	}
-#	
-#}
+	state_core_state = {
+		context_type = selected_state_context
+		
+		window_name = "core_state_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			is_controlled_by = ROOT
+			NOT = {
+				has_resistance = no
+			}
+		}
+		
+		effects = {
+			core_state_click = {
+				set_temp_variable = { core_state_cost = mtth:core_state_cost }
+				multiply_temp_variable = { core_state_cost = -1 }
+				controller = {
+					country_event = { id = occupation_mechanic.5 days = 1 }
+
+					add_political_power = var:core_state_cost
+				}
+				THIS = {
+					add_core_of = controller
+				}
+				if = { 
+					limit = {
+						THIS = {
+							OR = {
+								is_core_of = PEG
+								is_core_of = PEE
+								is_core_of = PEF
+								is_core_of = PEA
+								is_core_of = PEW
+							}
+						}
+					}
+					cancel_resistance = yes
+					remove_core_of = PEG
+					remove_core_of = PEE
+					remove_core_of = PEF
+					remove_core_of = PEA
+					remove_core_of = PEW
+				}
+			}
+		}
+		
+		triggers = {
+			core_state_click_enabled = {
+				ROOT = {
+					has_political_power > THIS.mtth:core_state_cost
+				}
+				if = { limit = { FROM.CONTROLLER = { has_government = fire_culture } }
+					check_variable = { fire_pop > 50 }
+				}
+				if = { limit = { FROM.CONTROLLER = { has_government = earth_culture } }
+					check_variable = { earth_pop > 50 }
+				}
+				if = { limit = { FROM.CONTROLLER = { has_government = water_culture } }
+					check_variable = { water_pop > 50 }
+				}
+				if = { limit = { FROM.CONTROLLER = { has_government = air_culture } }
+					check_variable = { air_pop > 50 }
+				}
+				if = { limit = { FROM.CONTROLLER = { has_government = pluralist_culture } }
+					check_variable = { nonbender_pop > 50 }
+				}
+				is_controlled_by = ROOT
+				compliance > 99.99
+			}
+		}
+		
+		ai_test_scopes = test_self_owned_states
+		ai_test_scopes = test_enemy_owned_states
+		ai_test_interval = 1200    #50 days
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+        
+		ai_check = {
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			core_state_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						add = 50
+						
+						compliance > 60
+					}
+				}
+			}
+		}
+		
+	}
+	
+}

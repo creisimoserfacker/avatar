@@ -6,7 +6,18 @@ equipments = {
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_air_balloon
-		type = { fighter tactical_bomber scout_plane }
+		
+		type = { fighter cas scout_plane }
+		allow_mission_type = {
+			air_superiority
+			interception
+			cas
+			attack_logistics
+			recon
+			naval_patrol
+			training
+		}
+		
 		group_by = archetype
 		sprite = balloon_sprite
 		air_map_icon_frame = 5

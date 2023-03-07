@@ -6,7 +6,15 @@ equipments = {
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_birb
-		type = { scout_plane }
+
+		type = scout_plane
+		allow_mission_type = {
+			interception
+			training
+			recon
+			naval_patrol
+		}
+
 		group_by = archetype
 		sprite = birb_sprite
 		air_map_icon_frame = 1
@@ -66,7 +74,21 @@ equipments = {
 		is_archetype = yes
 		is_convertable = yes
 		picture = archetype_dragon
+		
 		type = { fighter tactical_bomber scout_plane }
+		allow_mission_type = {
+			training
+			air_superiority
+			interception
+			cas
+			strategic_bomber
+			naval_bomber
+			port_strike
+			attack_logistics
+			recon
+			naval_patrol
+		}
+
 		group_by = archetype
 		sprite = dragon_sprite
 		air_map_icon_frame = 2

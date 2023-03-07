@@ -251,53 +251,77 @@ guiTypes = {
 					pdx_tooltip_delayed = "ration_consumtion_tooltip_delayed"
 				}
 			}
-			
+
 			containerWindowType = {
-				name = "general_info"
+				name = "occupied_info"
 				position = { x = 401 y = 33 }
 				size = { width = 120 height = 68 }
 
 				background = {
 					name = "bg"
 					quadTextureSprite ="GFX_mini_tooltip"
-					position = { x = 0 y = 3 }				
+					position = { x = 0 y = 3 }
+					alwaystransparent = yes					
 				}
-				
-				buttonType = {
-					name = "expand_button"
-					position = { x = 7 y = 13 }
-					buttonFont = "hoi_16mbs"
-					buttonText = ""			
-					quadTextureSprite = "GFX_military_deployment_add_line_btn"
-					clicksound = click_default
-				}
-		
 				instantTextboxType = {
 					name = "type_text"
-					position = { x=3 y=15 }
+					position = { x=10 y=8 }
 					font = "hoi_16mbs"
-					text = "PRODUCTION_OUTPUT"
+					text = "RATION_OCCUPIED"
 					maxWidth = 80
 					maxHeight = 20
-					format = center
+					format = left
 					alwaystransparent = yes
 				}
 				
+				buttonType = {
+					name = "low_prio_4"
+					position = { x = 7 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_LOW_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "medium_prio_4"
+					position = { x = 27 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_MEDIUM_PRIORITY_DESC"
+					frame = 3
+					clicksound = click_default
+				}
+				
+				buttonType = {
+					name = "high_prio_4"
+					position = { x = 47 y = 25 }
+					buttonFont = "hoi_16mbs"
+					quadTextureSprite = "GFX_deploy_priority"
+					pdx_tooltip = "RATION_HIGH_PRIORITY_DESC"
+					frame = 1
+					clicksound = click_default
+				}
 				
 				iconType = {
 					name = "details_button"
 					position = { x=78 y=10 }	
-					spriteType ="GFX_fuel_types_icon"
+					spriteType ="GFX_ration_types_icon"
 					frame=4
 				}
 				
 				iconType = {
-					name ="fulfilled"
+					name ="working_fulfilled"
 					spriteType = "GFX_logistics_fuelbar"
 					position = { x=10 y = 46 }
 					frame = 100
+					pdx_tooltip = "ration_occupied_tooltip"
+					pdx_tooltip_delayed = "ration_consumtion_tooltip_delayed"
 				}
 			}
+			
+			
 		}
 
 	}
