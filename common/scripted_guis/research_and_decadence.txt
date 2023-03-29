@@ -1,5 +1,4 @@
 scripted_gui = {
-
 	research_and_decadence_container = {
 		context_type = player_context
 		
@@ -9,7 +8,6 @@ scripted_gui = {
 		visible = {
 			always = yes
 		}
-		
 		triggers = {
 			
 		}
@@ -22,7 +20,7 @@ scripted_gui = {
 				frame = tech_age
 			}
 		}
-
+		
 		effects = {
 
 			invention_button_click = {
@@ -223,6 +221,7 @@ scripted_gui = {
 				}
 				country_event = invention.5
 				recalculate_age = yes
+				ai_chance = 25
 			}
 			domestication_1_2_click = {
 				subtract_from_variable = { knowledge_variable = 100 }
@@ -231,6 +230,7 @@ scripted_gui = {
 				}
 				country_event = invention.6
 				recalculate_age = yes
+				ai_chance = 25
 			}
 			domestication_2_2_click = {
 				subtract_from_variable = { knowledge_variable = 100 }
@@ -239,6 +239,7 @@ scripted_gui = {
 				}
 				country_event = invention.7
 				recalculate_age = yes
+				ai_chance = 25
 			}
 			the_wheel_2_click = {
 				subtract_from_variable = { knowledge_variable = 100 }
@@ -247,6 +248,7 @@ scripted_gui = {
 				}
 				country_event = invention.4
 				recalculate_age = yes
+				ai_chance = 25
 			}
 			basic_gear_2_click = {
 				subtract_from_variable = { knowledge_variable = 100 }
@@ -376,7 +378,261 @@ scripted_gui = {
 				country_event = invention.14
 				recalculate_age = yes
 			}
-
+			
+		}
+		ai_enabled = {
+			always = yes 
+		}
+		ai_test_interval = 100
+		ai_test_variance = 25
+		ai_weights = {
+			domestication_0_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = domestication_0
+						}
+					}
+					add = 100
+				}
+			}
+			domestication_1_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = domestication_1
+						}
+					}
+					add = 100
+				}
+			}
+			the_wheel_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = the_wheel
+						}
+					}
+					add = 100
+				}
+			}
+			basic_gear_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = basic_gear
+						}
+					}
+					add = 100
+				}
+			}
+			advanced_gear_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = advanced_gear
+						}
+					}
+					add = 100
+				}
+			}
+			steam_engine_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = steam_engine
+						}
+					}
+					add = 100
+				}
+			}
+			improved_coal_engine_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = improved_coal_engine
+						}
+					}
+					add = 100
+				}
+			}
+			modern_engine_2_click = {
+				ai_will_do = {
+				base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = modern_engine
+						}
+				}
+				add = 100
+				}
+			}	
+			aerodynamics_2_click = {
+				ai_will_do = {
+					base = 0
+					}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = aerodynamics
+						}
+					}
+					add = 100
+				}
+			}
+			thermodynamics_2_click = {
+				ai_will_do = {
+					base = 0
+					}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = thermodynamics
+						}
+					}
+					add = 100
+				}
+			}
+			candles_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = candles
+						}
+					}
+					add = 100
+				}
+			}
+			ink_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = candles
+						}
+					}
+					add = 100
+				}
+			}
+			libraries_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = libraries
+						}
+					}
+					add = 100
+				}
+			}
+			basic_tool_making_2_click ={
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = basic_tool_making
+						}
+					}
+					add = 100
+				}
+			}
+			metal_processing_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = metal_processing
+						}
+					}
+					add = 100
+				}
+			}
+			steelmaking_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = steelmaking
+						}
+					}
+					add = 100
+				}
+			}
+			plow_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = plow
+						}
+					}
+					add = 100
+				}
+			}
+			botanics_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = botanics
+						}
+					}
+					add = 100
+				}
+			}
+			heal_practices_2_click = {
+				ai_will_do = {
+					base = 0
+				}
+				modifier = {
+					NOT = {
+						FROM = {
+							has_tech = heal_practices
+						}
+					}
+					add = 100
+				}
+			}
 		}
 		
 	}
