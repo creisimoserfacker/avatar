@@ -1,4 +1,5 @@
-Ba_Sing_Se_buildup_stage_1 = {
+"Ba_Sing_Se_buildup_stage_1" = {
+	name = "EAR_Farms"
 	desc = "Build farms to secure food, do not choose city markets so that you can export your resources to others in the Earth Kingdom"
 	allowed = {tag = EAR}
 	enable = {
@@ -136,6 +137,7 @@ Ba_Sing_Se_buildup_stage_1 = {
 	}
 }
 Ba_Sing_Se_buildup_stage_2 = {
+	name = "EAR_mines"
 	desc = "Build mines to get fuel."
 	allowed = {
 		tag = EAR
@@ -249,5 +251,117 @@ Ba_Sing_Se_buildup_stage_2 = {
 		EAR = {
 			set_country_flag = EAR_buildup_stage_3
 		}
+	}
+}
+Ba_Sing_Se_buildup_stage_3 ={
+	name = "EAR_Manufactories"
+	desc = "Civillian capacity expansion"
+	allowed = {
+		tag = EAR
+			}
+	enable = {
+		EAR = {
+			has_country_flag = EAR_buildup_stage_2	
+		}
+	}
+	research = {	
+		age_1 = 5
+		age_2 = 5
+		age_3 = 5
+		age_4 = 5
+		age_5 = 5
+		age_6 = 5	
+		military_doctrine = 5
+		cat_power = 0
+		cat_substance = 6
+		cat_change = 0
+		cat_freedom = 0
+		bender = 5
+		infantry_weapons = 6
+		basic_weapons = 6
+		ranged_weapons = 6
+		sword_tech = 4
+		spear_tech = 8
+		pike_tech = 8
+		light_armor = 7
+		heavy_armor = 7
+		cavalry = 2
+		archer_tech = 5
+		nav_patrol = 0
+		nav_raid = 0
+		nav_screen = 0
+		nav_capital = 0
+		nav_wooden = 0
+		nav_ironclad = 0
+		nav_wooden_armor = 0
+		nav_ironclad_armor = 0
+		nav_tactics = 0
+		nav_heavy_weapons = 0
+		nav_light_weapons = 0
+		nav_support = 0
+		nav_navigation = 0
+		nav_crew = 0
+		nav_mines = 0
+		nav_invasion = 0	
+		cat_light_cavalry = 0
+		motorisation = 0
+		birb_tech = 0
+		air_tech = 0
+		aircraft = 0
+		air_balloon = 0
+		light_airship = 0
+		heavy_airship = 0
+		train_tech = 3
+		inventions = 8	
+		construction = 6
+		infra_construction = 2
+		civil_construction = 6
+		fort_construction = 0
+		resource_construction = 7
+		farm_construction = 0
+		ranch_construction = 4
+		mill_construction = 4
+		wood_construction = 2
+		stone_construction = 2
+		iron_construction = 2
+		factory_construction = 7
+		air_construction = 0
+		society_reforms = 9
+		society_conservative = 9
+		society_progressive = 0
+		society_domestication = 0
+		industry_tech = 9
+		industry_construction = 8
+		industry_production = 9
+		industry_resources = 8
+		ranch_tech = 6
+	}
+	ideas = {
+		economy_6 = 100
+		conscription_1 = 100
+		family_support_4 = 100
+		city_markets = 100
+		earth_benders_only = 100
+		EAR_minister_of_personnel_1 = 100
+		EAR_minister_of_finance_3 = 90
+		EAR_minister_of_justice_1 = 80
+
+	}
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 50
+	}
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		value = 1
+		target = 173
+	}
+	ai_strategy = {
+		type = build_building
+		id = industrial_complex
+		value = 1
+		target = 174
 	}
 }
