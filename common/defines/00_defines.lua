@@ -93,8 +93,8 @@ NDiplomacy = {
 	INFLUENCE_MAJOR_FACTOR = 1.0,					--How much influence discount an AI major will get (inverse)
 	INFLUENCE_MINOR_FACTOR = 1.0,					--How much influence discount an AI minor will get (inverse)
 	
-	PEACE_TRIGGER_AI_MAX_INFLUENCE_VALUE = 0.99,	-- Max influence value for pc_is_state_outside_influence_for trigger
-	
+	PEACE_TRIGGER_AI_MAX_INFLUENCE_VALUE = 0.99,	-- Max influence value for pc_is_state_outside_influence_for_winner trigger
+
 	BASE_IMPROVE_RELATION_COST = 10,                -- Political power cost to initiate relation improvement
 	BASE_IMPROVE_RELATION_SAME_IDEOLOGY_GROUP_MAINTAIN_COST = 0.2, -- Political power cost each update when boosting relations with nation of same ideology
 	BASE_IMPROVE_RELATION_DIFFERENT_IDEOLOGY_GROUP_MAINTAIN_COST = 0.4,    -- Political power cost each update when boosting relations with nation of different ideology
@@ -878,7 +878,7 @@ NMilitary = {
 	SUPPLY_USE_FACTOR_INACTIVE = 0.95,			   -- Deprecated/Unused
 	SUPPLY_GRACE = 24 * 7,							   -- troops always carry 1 week of food and supply
 	SUPPLY_GRACE_MAX_REDUCE_PER_HOUR = 2,          -- supply grace is not decreased instantly when it is buffed temporarily and buff is removed
-	SUPPLY_ORG_MAX_CAP = 0.30,                     -- Max organization is factored by this if completely out of supply
+	SUPPLY_ORG_MAX_CAP = 0.50,                     -- Max organization is factored by this if completely out of supply
 	MAX_OUT_OF_SUPPLY_DAYS = 30, 				   -- how many days of shitty supply until max penalty achieved
 	OUT_OF_SUPPLY_ATTRITION = 0.1,                 -- max attrition when out of supply
 	OUT_OF_SUPPLY_SPEED = -0.1,                    -- max speed reduction from supply
@@ -910,9 +910,9 @@ NMilitary = {
 	PLAN_CONSIDERED_GOOD = 0.25,					-- Plan evaluations above this value are considered more or less safe
 	PLAN_CONSIDERED_BAD = -0.25,					-- Plan evaluations below this value are considered unsafe
 	PLAN_MIN_AUTOMATED_EMPTY_POCKET_SIZE = 2,		-- The battle plan system will only automatically attack provinces in pockets that has no resistance and are no bigger than these many provinces
-	PLAN_SPREAD_ATTACK_WEIGHT = 13.0,				-- The higher the value, the less it should crowd provinces with multiple attacks.
+	PLAN_SPREAD_ATTACK_WEIGHT = 12.0,				-- The higher the value, the less it should crowd provinces with multiple attacks.
 	PLAN_NEIGHBORING_ENEMY_PROVINCE_FACTOR = 0.7,	-- When calculating the importance of provinces, it takes number of enemy provinces into account, factored by this
-	PLAN_PROVINCE_BASE_IMPORTANCE = 2.0,			-- Used when calculating the value of front and defense area provinces for the battle plan system
+	PLAN_PROVINCE_BASE_IMPORTANCE = 2.0,			-- Used when calculating the calue of front and defense area provinces for the battle plan system
 	
 	PLAN_PROVINCE_LOW_VP_IMPORTANCE_AREA = 2.0,     -- Used when calculating the value of defense area in the battle plan system
 	PLAN_PROVINCE_MEDIUM_VP_IMPORTANCE_AREA = 5.0,  -- Used when calculating the value of defense area in the battle plan system
@@ -935,33 +935,33 @@ NMilitary = {
 	PLAN_PROVINCE_VP_PORT_FACTOR = 0.25,
 	
 	-- These need to result in province value > 1.0 for it to matter.
-	PLAN_AREA_DEFENSE_ENEMY_CONTROLLER_SCORE = 15.0,-- Score applied to provinces in the defense area order controlled by enemies
+	PLAN_AREA_DEFENSE_ENEMY_CONTROLLER_SCORE = 25.0,-- Score applied to provinces in the defense area order controlled by enemies
 	PLAN_AREA_DEFENSE_ENEMY_UNIT_FACTOR = -2.0,		-- Factor applied to province score in area defense order per enemy unit in that province
-	PLAN_AREA_DEFENSE_FORT_IMPORTANCE = 0.25,		-- Used when calculating the calue of defense area provinces for the battle plan system, works as multipliers on the rest
-	PLAN_AREA_DEFENSE_COASTAL_FORT_IMPORTANCE = 3.0,-- Used when calculating the calue of defense area provinces for the battle plan system
-	PLAN_AREA_DEFENSE_COAST_NO_FORT_IMPORTANCE = 1.1,-- Used when calculating the calue of defense area provinces for the battle plan system
+	PLAN_AREA_DEFENSE_FORT_IMPORTANCE = 0.25,		-- Used when calculating the value of defense area provinces for the battle plan system, works as multipliers on the rest
+	PLAN_AREA_DEFENSE_COASTAL_FORT_IMPORTANCE = 3.0,-- Used when calculating the value of defense area provinces for the battle plan system
+	PLAN_AREA_DEFENSE_COAST_NO_FORT_IMPORTANCE = 1.1,-- Used when calculating the value of defense area provinces for the battle plan system
 	PLAN_AREA_DEFENSE_HAS_RAIL_IMPORTANCE = 1.5,	-- Used when calculating the value of defense area provinces for the battle plan system
 	PLAN_AREA_DEFENSE_HAS_SUPPLY_NODE = 20.0,		-- Used when calculating the value of defense area provinces for the battle plan system
 
-	PLAN_STICKINESS_FACTOR = 250.0,					-- Factor used in unitcontroller when prioritizing units for locations
-	
-	PLAN_PROVINCE_PRIO_DISTRIBUTION_MIN = 0.8,		-- Lowest fraction of divisions that will be distributed based on province priority
+	PLAN_STICKINESS_FACTOR = 100.0,					-- Factor used in unitcontroller when prioritizing units for locations
+
+	PLAN_PROVINCE_PRIO_DISTRIBUTION_MIN = 0.7,		-- Lowest fraction of divisions that will be distributed based on province priority
 	PLAN_PROVINCE_PRIO_DISTRIBUTION_MAX = 1.0,		-- Highest fraction of divisions that will be distributed based on province priority
-	PLAN_PROVINCE_PRIO_DISTRIBUTION_DPP_HIGH = 4.0, -- At what divisions per province should we use PLAN_PROVINCE_PRIO_DISTRIBUTION_MIN
+	PLAN_PROVINCE_PRIO_DISTRIBUTION_DPP_HIGH = 3.0, -- At what divisions per province should we use PLAN_PROVINCE_PRIO_DISTRIBUTION_MIN
 	PLAN_PROVINCE_PRIO_DISTRIBUTION_DPP_LOW = 2.0,	-- At what divisions per province should we use PLAN_PROVINCE_PRIO_DISTRIBUTION_MAX
-	
+
 	PLAN_EXECUTE_CAREFUL_LIMIT = 25,				-- When looking for an attach target, this score limit is required in the battle plan to consider province for attack
 	PLAN_EXECUTE_BALANCED_LIMIT = 0,				-- When looking for an attach target, this score limit is required in the battle plan to consider province for attack
-	PLAN_EXECUTE_RUSH = -1000,						-- When looking for an attach target, this score limit is required in the battle plan to consider province for attack
+	PLAN_EXECUTE_RUSH = -200,						-- When looking for an attach target, this score limit is required in the battle plan to consider province for attack
 	PLAN_EXECUTE_CAREFUL_MAX_FORT = 5,				-- If execution mode is set to careful, units will not attack provinces with fort levels greater than or equal to this
-	
-	-- order by EExecutionType: careful, balanced, rush, <skip>, weak rush
-	PLAN_EXECUTE_SUPPLY_CHECK = { 0.8, 0.5, 0.0, 1.0, 0.0 }, -- for each execution mode how careful should we be with supply (1.0 means full required supply available, zero is no limit).
+
+	-- order by EExecutionType: careful, balanced, rush, <skip>, rush_weak
+	PLAN_EXECUTE_SUPPLY_CHECK = { 1.0, 0.0, 0.0, 1.0, 0.0 }, -- for each execution mode how careful should we be with supply (1.0 means full required supply available, zero is no limit).
 
 	PLAN_MAX_PROGRESS_TO_JOIN = 0.50,				-- If Lower progress than this, probably needs support
 	
 	PLAN_COHESION_WEIGHTS = { 1.0, 40.0, 80.0 }, 	-- for each cohesion setting, how keen on relocating from distance should we be? (default 1.0), higher weight = shorter max distance
-	PLAN_COHESION_DISTANCE_MAX_WHEN_LEFT_BEHIND = 38,	--If not on the frontline and not moving, we can still be relocated if we exceed cohesion distance, but only to locations less than THIS distance. (Note: this is -actual- distance, not weighted distance)
+	PLAN_COHESION_DISTANCE_MAX_WHEN_LEFT_BEHIND = 38,	--Unused and deprecated - will be removed in next major version.
 
 	PLAN_BLITZ_OPTIMISM = 0.2,						-- Additional combat balance value in favor of blitzing side when considering targets (not a combat bonus, just offsets planning)
 	MIN_BALANCE_SCORE_TO_PROCEED_ATTACK = 0.2,		--A combat balance score of less than this will prevent auto attacking
@@ -1994,7 +1994,7 @@ NTrade = {
 },
 
 NAI = {
-	GARRISON_FRACTION = 0.4, 					-- How large part of a front should always be holding the line rather than advancing at the enemy
+	GARRISON_FRACTION = 0.25, 					-- How large part of a front should always be holding the line rather than advancing at the enemy
 	THEORIST_SCALING_WEIGHT_FACTOR_PER_NON_POLITICAL_ADVISORS = 0.15, --Scale theorist weight by this * num non political advisors
 	DIPLOMATIC_ACTION_GOOD_BAD_RATIO_THRESHOLD = 1,
 	BASE_RELUCTANCE = 20, 						-- Base reluctance applied to all diplomatic offers
@@ -2219,11 +2219,11 @@ NAI = {
 	PLAN_ATTACK_MIN_STRENGTH_FACTOR_LOW = 0.4,	-- Minimum strength for a unit to actively attack an enemy unit when executing a plan
 	PLAN_ATTACK_MIN_ORG_FACTOR_MED = 0.7,		-- (LOW,MED,HIGH) corresponds to the plan execution agressiveness level.
 	PLAN_ATTACK_MIN_STRENGTH_FACTOR_MED = 0.3,
-	PLAN_ATTACK_MIN_ORG_FACTOR_HIGH = 0.2,
-	PLAN_ATTACK_MIN_STRENGTH_FACTOR_HIGH = 0.15,
+	PLAN_ATTACK_MIN_ORG_FACTOR_HIGH = 0.4,
+	PLAN_ATTACK_MIN_STRENGTH_FACTOR_HIGH = 0.2,
 	PLAN_FRONTUNIT_DISTANCE_FACTOR = 10.0,		-- Factor for candidate units distance to front positions.
 	PLAN_ATTACK_DEPTH_FACTOR = 0.5,				-- Factor applied to size or enemy being attacked.
-	PLAN_STEP_COST_LIMIT = 11,					-- When stepping to draw a plan this cost makes it break if it hits hard terrain (multiplied by number of desired steps)
+	PLAN_STEP_COST_LIMIT = 9,					-- When stepping to draw a plan this cost makes it break if it hits hard terrain (multiplied by number of desired steps)
 	PLAN_STEP_COST_LIMIT_REDUCTION = 3,			-- Cost limit is reduced per iteration, making hard terrain less likely to be crossed the further into enemy territory it is
 	PLAN_FRONT_SECTION_MAX_LENGTH = 18,			-- When a front is longer than this it will be split in two sections for the AI
 	PLAN_FRONT_SECTION_MIN_LENGTH = 10,			-- When two front sections together are this short they will be merged for the AI
@@ -2246,7 +2246,7 @@ NAI = {
 												-- Value of 200 should give 0.3% chance of Stalin going for instance crazy and conquering all of America
 	GENERATE_WARGOAL_THREAT_BASELINE = 1.0,	    -- The baseline for what the AI considers the world is getting dangerous and we want to generate wargoals with no antagonize value
 	GENERATE_WARGOAL_ANTAGONIZE_SCALE = 0.35,    -- works to scale the AIs antagonize value vs the threat baseline for when it should act on existing claims: threat used for baseline is min_threat - antagonize * scale
-	RESERVE_TO_COMMITTED_BALANCE = 0.1,			-- How many reserves compared to number of committed divisions in a combat (1.0 = as many as reserves as committed)
+	RESERVE_TO_COMMITTED_BALANCE = 0.3,			-- How many reserves compared to number of committed divisions in a combat (1.0 = as many as reserves as committed)
 	DIPLOMACY_COMMUNIST_NOT_NEIGHBOUR = -10,	-- Communists want to stay consolidated with their influence
 	MAIN_ENEMY_FRONT_IMPORTANCE = 4.0,			-- How much extra focus the AI should put on who it considers to be its current main enemy.
 	EASY_TARGET_FRONT_IMPORTANCE = 7.5,			-- How much extra focus the AI should put on who it considers to be the easiest target.
@@ -2564,8 +2564,8 @@ NAI = {
 	HOUR_BAD_COMBAT_REEVALUATE = 100,                   -- if we are in combat for this amount and it goes shitty then try skipping it
 	MIN_PLAN_VALUE_TO_MICRO_INACTIVE = 0.2,				-- The AI will not consider members of groups which plan is not activated AND evaluates lower than this.
 
-	MAX_UNITS_FACTOR_AREA_ORDER = 0.85,					-- Factor for max number of units to assign to area defense orders
-	DESIRED_UNITS_FACTOR_AREA_ORDER = 0.8,				-- Factor for desired number of units to assign to area defense orders
+	MAX_UNITS_FACTOR_AREA_ORDER = 0.75,					-- Factor for max number of units to assign to area defense orders
+	DESIRED_UNITS_FACTOR_AREA_ORDER = 0.7,				-- Factor for desired number of units to assign to area defense orders
 	MIN_UNITS_FACTOR_AREA_ORDER = 1.0,					-- Factor for min number of units to assign to area defense orders
 
 	MAX_UNITS_FACTOR_FRONT_ORDER = 1.0,					-- Factor for max number of units to assign to area front orders

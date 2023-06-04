@@ -1,5 +1,4 @@
 scripted_gui = {
-
 	research_and_decadence_container = {
 		context_type = player_context
 		
@@ -9,7 +8,6 @@ scripted_gui = {
 		visible = {
 			always = yes
 		}
-		
 		triggers = {
 			
 		}
@@ -22,7 +20,7 @@ scripted_gui = {
 				frame = tech_age
 			}
 		}
-
+		
 		effects = {
 
 			invention_button_click = {
@@ -31,6 +29,31 @@ scripted_gui = {
 				}
 			}
 
+		}
+
+		ai_test_interval = 1200    #50 days
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			invention_button_click = {
+				ai_will_do = {
+					base = 0
+
+					modifier = {
+						check_variable = { knowledge_variable > 100}
+						NOT = {
+							has_country_flag = all_inventions_made
+						}
+						
+						add = 100
+					}
+				}
+			}
 		}
 		
 	}
@@ -376,7 +399,87 @@ scripted_gui = {
 				country_event = invention.14
 				recalculate_age = yes
 			}
+			
+		}
+		ai_enabled = { #Teaching the AI how to invent: Attempt 2
+			always = yes 
+		}
+		ai_test_interval = 12 #0.5 days, to close the window quickly
+		ai_test_variance = 0.5
 
+		ai_weights = {
+			domestication_0_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			domestication_1_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			domestication_2_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			the_wheel_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			basic_gear_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			advanced_gear_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			steam_engine_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			improved_coal_engine_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			modern_engine_2_click = {
+				ai_will_do = {factor = 80}
+			}	
+			aerodynamics_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			thermodynamics_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			candles_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			ink_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			libraries_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			basic_tool_making_2_click ={
+				ai_will_do = {factor = 80}
+			}
+			metal_processing_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			steelmaking_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			plow_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			botanics_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			heal_practices_2_click = {
+				ai_will_do = {factor = 80}
+			}
+
+			close_button_click = {
+				ai_will_do = {
+					factor = 1
+
+					modifier = {
+						check_variable = { knowledge_variable < 100}
+
+						add = 100
+					}
+				}
+			}
 		}
 		
 	}

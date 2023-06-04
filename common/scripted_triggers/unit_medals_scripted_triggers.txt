@@ -1,0 +1,41 @@
+#scripted triggers for Division Medals feature
+
+should_have_firenation_medals_trigger = {
+	OR = {
+		tag = FIR
+		has_idea = fire_nation
+	}
+}
+
+should_have_earthkingdom_medals_trigger = {
+	OR = {
+		tag = EAR
+		has_idea = earth_nation
+	}
+}
+
+should_have_watertribe_medals_trigger = {
+	OR = {
+		tag = NWT
+		tag = SWT
+		has_idea = water_nation
+	}
+}
+
+should_have_airnomad_medals_trigger = {
+	OR = {
+		tag = SAT
+		tag = WAT
+		tag = NAT
+		tag = EAT
+	}
+}
+
+should_have_any_unique_medals_trigger = {
+	OR = {
+		should_have_firenation_medals_trigger = yes
+		should_have_earthkingdom_medals_trigger = yes
+		should_have_watertribe_medals_trigger = yes
+		should_have_airnomad_medals_trigger = yes
+	}
+}
