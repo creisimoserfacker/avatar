@@ -46,7 +46,10 @@ scripted_gui = {
 
 					modifier = {
 						check_variable = { knowledge_variable > 100}
-
+						NOT = {
+							has_country_flag = all_inventions_made
+						}
+						
 						add = 100
 					}
 				}
@@ -62,10 +65,7 @@ scripted_gui = {
 		#parent_window_token = technology_tab
 		
 		visible = {
-			OR = {
-				has_country_flag = invention_tab_open
-				#is_ai = yes
-			}
+			has_country_flag = invention_tab_open
 		}
 		
 		triggers = {

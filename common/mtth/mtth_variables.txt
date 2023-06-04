@@ -4,16 +4,16 @@ core_state_cost = {
 	modifier = {
 		set_temp_variable = { population_cost = state_population }
 		divide_temp_variable = { population_cost = 50 }
-		round_variable = population_cost
+		round_temp_variable = population_cost
 		
 		add = population_cost
 	}
 	modifier = {
 		set_temp_variable = { resistance_factor = resistance }
 		divide_temp_variable = { resistance_factor = 20 }
-		round_variable = resistance_factor
+		round_temp_variable = resistance_factor
 		add_to_temp_variable = { resistance_factor = 1 }
-		round_variable = resistance_factor
+		round_temp_variable = resistance_factor
 		
 		factor = resistance_factor
 	}
@@ -117,6 +117,17 @@ legitimacy_war_support = {
 	}
 }
 
+legitimacy_unit_quality = {
+	base = 0
+	modifier = {
+		set_temp_variable = { unit_quality = 50 }
+		subtract_from_temp_variable = { unit_quality = centralisation_variable }
+		divide_temp_variable = { unit_quality = 250 }
+		
+		add = unit_quality
+	}
+}
+
 legitimacy_stability = {
 	base = 0
 	modifier = {
@@ -125,6 +136,17 @@ legitimacy_stability = {
 		divide_temp_variable = { stability = 100 }
 		
 		add = stability
+	}
+}
+
+legitimacy_resources = {
+	base = 0
+	modifier = {
+		set_temp_variable = { resources = -50 }
+		add_to_temp_variable = { resources = centralisation_variable }
+		divide_temp_variable = { resources = 100 }
+		
+		add = resources
 	}
 }
 
