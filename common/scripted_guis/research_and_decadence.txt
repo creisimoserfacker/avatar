@@ -30,6 +30,28 @@ scripted_gui = {
 			}
 
 		}
+
+		ai_test_interval = 1200    #50 days
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			invention_button_click = {
+				ai_will_do = {
+					base = 0
+
+					modifier = {
+						check_variable = { knowledge_variable > 100}
+
+						add = 100
+					}
+				}
+			}
+		}
 		
 	}
 
@@ -40,7 +62,10 @@ scripted_gui = {
 		#parent_window_token = technology_tab
 		
 		visible = {
-			has_country_flag = invention_tab_open
+			OR = {
+				has_country_flag = invention_tab_open
+				#is_ai = yes
+			}
 		}
 		
 		triggers = {
@@ -379,13 +404,17 @@ scripted_gui = {
 		ai_enabled = { #Teaching the AI how to invent: Attempt 2
 			always = yes 
 		}
-		ai_test_interval = 1200 #50 days, because I do not think you can gain more than 2 knowledge per day.
-		ai_test_variance = 54  #Variance 2d 6h, so as to lessen the chance that two countries click the same button at the same time 
+		ai_test_interval = 12 #0.5 days, to close the window quickly
+		ai_test_variance = 0.5
+
 		ai_weights = {
 			domestication_0_2_click = {
-				ai_will_do = {factor = 80} #Each ai_will_do generates a random number between 1 and factor, so there should be some variety.
+				ai_will_do = {factor = 80}
 			}
 			domestication_1_2_click = {
+				ai_will_do = {factor = 80}
+			}
+			domestication_2_2_click = {
 				ai_will_do = {factor = 80}
 			}
 			the_wheel_2_click = {
@@ -438,6 +467,18 @@ scripted_gui = {
 			}
 			heal_practices_2_click = {
 				ai_will_do = {factor = 80}
+			}
+
+			close_button_click = {
+				ai_will_do = {
+					factor = 1
+
+					modifier = {
+						check_variable = { knowledge_variable < 100}
+
+						add = 100
+					}
+				}
 			}
 		}
 		
