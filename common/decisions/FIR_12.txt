@@ -1035,7 +1035,7 @@ FIR_conquest_category = {
 			}
 		}
 
-        modifier = {
+		modifier = {
 			command_power_gain = -0.5
 			civilian_factory_use = 5
 		}
@@ -1103,7 +1103,7 @@ FIR_conquest_category = {
 				has_country_flag = earth_war_path
 				has_country_flag = emergency_intervention_atrocity
 			}
-      }
+		}
 
 		available = {
 			OR = {
@@ -1185,6 +1185,145 @@ FIR_conquest_category = {
 			modifier = {
 				has_country_flag = emergency_intervention_atrocity
 				factor = 100
+			}
+		}
+	}
+
+
+	earthkingdom_operation_bases = {
+
+		icon = supply_bases
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_war_with = EAR
+		}
+
+		available = {
+			
+		}
+
+		modifier = {
+			expenses_factor = 1
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			add_ideas = FIR_earthkingdom_operation_bases
+		}
+
+		days_remove = 100
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1 }
+		}
+		custom_cost_text = expenses_1000
+
+		fire_only_once = yes
+		ai_will_do = {
+			base = 10
+			modifier = {
+				has_war_with = EAR
+				add = 50
+			}
+		}
+	}
+
+	earthkingdom_operation_bases_range_upgrade = {
+
+		icon = supply_bases
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_idea = FIR_earthkingdom_operation_bases
+		}
+
+		available = {
+			
+		}
+
+		modifier = {
+			expenses_factor = 1
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = FIR_earthkingdom_operation_bases
+				add_idea = FIR_earthkingdom_operation_bases_2
+			}
+		}
+
+		days_remove = 100
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1 }
+		}
+		custom_cost_text = expenses_1000
+
+		fire_only_once = yes
+		ai_will_do = {
+			base = 10
+			modifier = {
+				has_war_with = EAR
+				add = 50
+			}
+		}
+	}
+
+	earthkingdom_operation_bases_cost_upgrade = {
+
+		icon = supply_bases
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_idea = FIR_earthkingdom_operation_bases_2
+		}
+
+		available = {
+			
+		}
+
+		modifier = {
+			expenses_factor = 1
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			swap_ideas = {
+				remove_idea = FIR_earthkingdom_operation_bases_2
+				add_idea = FIR_earthkingdom_operation_bases_3
+			}
+		}
+
+		days_remove = 100
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1 }
+		}
+		custom_cost_text = expenses_1000
+
+		fire_only_once = yes
+		ai_will_do = {
+			base = 10
+			modifier = {
+				has_war_with = EAR
+				add = 50
 			}
 		}
 	}
