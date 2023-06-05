@@ -11,7 +11,7 @@ division_manpower_fix = {
 	ai_strategy = {
 		type = role_ratio
 		id = combined_arms
-		value = 500
+		value = 5
 	}
 }
 
@@ -346,7 +346,18 @@ pohuai_conquest_movement = {
 	}
 	
 }
-
+build_up_harbour_near_yu_dao = {
+	allowed = {tag = FIR}
+	enable = {
+	230 = {is_controlled_by = FIR}
+	}
+		ai_strategy = {
+		type = build_building
+		id = naval_base
+		value = 10
+		target = 230
+		}
+}
 pohuai_secured = {
 	allowed = {
 		tag = FIR	
@@ -824,11 +835,578 @@ FIR_deploy_some_units = {
 
 	ai_strategy = {
 		type = force_build_armies
-		value = 10
+		value = 30
 	}
 	
 }
-
+FIR_firebender_requirement_1 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			num_divisions < 50
+			num_of_military_factories < 30
+		}
+	}
+	ai_strategy = {
+		type = build_army
+		id = firebender
+		value = 5
+	}
+}
+FIR_firebender_requirement_2 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			num_divisions > 50
+			num_divisions < 60
+			num_of_military_factories > 30
+			num_of_military_factories < 40
+		}
+	}
+	ai_strategy = {
+		type = build_army
+		id = firebender
+		value = 10
+	}
+}
+FIR_firebender_requirement_3 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			num_divisions < 60
+			num_divisions > 70
+			num_of_military_factories < 30
+			num_of_military_factories > 40
+		}
+	}
+	ai_strategy = {
+		type = build_army
+		id = firebender
+		value = 15
+	}
+}
+FIR_firebender_requirement_4 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			num_divisions < 70
+			num_divisions > 80
+			num_of_military_factories < 40
+			num_of_military_factories > 50
+		}
+	}
+	ai_strategy = {
+		type = build_army
+		id = firebender
+		value = 20
+	}
+}
+FIR_recruitment_1 = {
+allow = {tag = FIR}
+	enable = {
+		num_divisions > 2
+		num_divisions < 4
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 4
+	}
+}
+FIR_recruitment_2 = {
+allow = {tag = FIR}
+	enable = {
+		num_divisions > 4
+		num_divisions < 6
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 6
+	}
+}
+FIR_recruitment_3 = {
+allow = {tag = FIR}
+	enable = {
+		num_divisions > 6
+		num_divisions < 8
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 8
+	}
+}
+FIR_recruitment_4 = {
+allow = {tag = FIR}
+	enable = {
+		num_divisions > 8
+		num_divisions < 10
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 10
+	}
+}
+FIR_recruitment_5 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 10
+		num_divisions < 12
+	}
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 12
+	}
+}
+FIR_recruitment_5 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 12
+		num_divisions < 14
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 14
+	}
+}
+FIR_recruitment_6 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 14
+		num_divisions < 16
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 16
+	}
+}
+FIR_recruitment_7 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 16
+		num_divisions < 18
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 18
+	}
+}
+FIR_recruitment_8 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 18
+		num_divisions < 20
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 20
+	}
+}
+FIR_recruitment_9 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 20
+		num_divisions < 22
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 22
+	}
+}
+FIR_recruitment_10 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 22
+		num_divisions < 24
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 24
+	}
+}
+FIR_recruitment_11 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 24
+		num_divisions < 26
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 26
+	}
+}
+FIR_recruitment_12 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 26
+		num_divisions < 28
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 28
+	}
+}
+FIR_recruitment_13 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 28
+		num_divisions < 30
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 30
+	}
+}
+FIR_recruitment_14 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 30
+		num_divisions < 32
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 32
+	}
+}
+FIR_recruitment_15 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 32
+		num_divisions < 34
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 34
+	}
+}
+FIR_recruitment_16 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 36
+		num_divisions < 38
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 38
+	}
+}
+FIR_recruitment_17 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 38
+		num_divisions < 40
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 40
+	}
+}
+FIR_recruitment_18 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 40
+		num_divisions < 42
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 42
+	}
+}
+FIR_recruitment_19 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 42
+		num_divisions < 44
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 44
+	}
+}
+FIR_recruitment_20 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 44
+		num_divisions < 46
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 46
+	}
+}
+FIR_recruitment_21 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 46
+		num_divisions < 48
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 48
+	}
+}
+FIR_recruitment_22 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 48
+		num_divisions < 50
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 50
+	}
+}
+FIR_recruitment_23 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 50
+		num_divisions < 52
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 52
+	}
+}
+FIR_recruitment_24 = {
+	allow = {tag = FIR}
+	enable = {
+		num_divisions > 52
+		num_divisions < 54
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_army
+		id = combined_arms
+		value = 54
+	}
+}
+FIR_prepare_for_war_with_watertribes = {
+	allow = {tag = FIR}
+	enable = {
+		date > 26.6.1
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = NWT
+		value = 8
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = SWT
+		value = 8
+	}
+}
+FIR_naval_war_with_NWT = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			has_war_with = NWT
+		}
+	}
+	abort = {
+		OR = {
+			FIR = enemies_naval_strength_ratio > 5
+			AND = {
+				NWT = has_navy_size < 5
+				SWT = has_navy_size < 5
+				FIR = has_navy_size > 10	
+				}
+			FIR = has_navy_size < 10	
+		}
+		
+	}
+	ai_strategy = {
+		type = area_priority
+		id = NWT_coastal_waters
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = NWT
+		value = 0
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 48
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 47
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 46
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 56
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_PATROL
+		value = -100
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_STRIKE_FORCE
+		value = 0
+	}
+}
+FIR_naval_war_with_SWT = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			has_war_with = SWT
+		}
+	}
+	abort = {
+		OR = {
+			{ FIR = enemies_naval_strength_ratio > 5}
+			AND = {
+				NWT = has_navy_size < 5
+				SWT = has_navy_size < 5
+				FIR = has_navy_size > 10	
+				}
+			FIR = has_navy_size < 10	
+		}
+		
+	}
+	ai_strategy = {
+		type = area_priority
+		id = SWT_coastal_waters
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = SWT
+		value = 0
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 168
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 157
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 179 
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 145
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 143
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 34
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_PATROL
+		value = -100
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_STRIKE_FORCE
+		value = 0
+	}
+}
+FIR_invade_NWT_stage_1 = {
+	allow = {tag = FIR}
+	enable = {
+		NWT = has_navy_size < 5
+		SWT = has_navy_size < 5
+		FIR = has_navy_size > 10
+	}
+	abort = {
+		count_triggers = {
+			amount = 2
+			FIR = {has_full_control_of_state = 30}
+			FIR = {has_full_control_of_state = 21}
+			FIR = {has_full_control_of_state = 18}
+		}
+	}
+	ai_strategy = {
+		type = invade
+		id = NWT
+		value = 100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 30
+		value = 5
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 21
+		value = 5
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 18
+		value = 5
+	}
+}
 Siege_Invasions = {
 	enable = {
 		date > 106.2.4
@@ -975,5 +1553,59 @@ Siege_Invasions = {
 		tag = EBA
 		value = 170
 	}
+}	
+FIR_STOP_BUILDING_CIVS ={
+	allow = { tag = FIR}
+	enable = {
+		always = yes
+		}
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 0
+	}
+}	
+FIR_maintain_factory_ratio_1 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			AND = {			
+			num_of_civillian_factories > 100
+			num_of_military_factories < 50
+			}
+		}
+	}
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 0
+	}
 	
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 50
+	}
+}
+FIR_maintain_factory_ratio_2 = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			AND = {			
+			num_of_civillian_factories > 200
+			num_of_military_factories < 100
+			}
+		}
+	}
+	ai_strategy = {
+		type = building_target
+		id = industrial_complex
+		value = 0
+	}
+	
+	ai_strategy = {
+		type = building_target
+		id = arms_factory
+		value = 100
+	}
 }
