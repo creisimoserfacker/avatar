@@ -642,6 +642,28 @@ leader_traits = {
 			}
 		}
 	}
+	genericerialist = {
+		random = no
+		sprite = 20
+		war_support_factor = -0.05
+		war_weariness_factor = 0.03
+		stability =  0.04
+		research_speed_factor = 0.04
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				OR ={ 
+					check_variable = {
+						ROOT.war_weariness > 50
+					}
+					ROOT = {
+						has_stability < 0.5
+					}
+				}
+				factor = 0
+			}
+		}
+	}
 	xenophobe = {
 		random = no
 		sprite = 20
