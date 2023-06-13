@@ -4,6 +4,8 @@
 
 add_namespace = firenation
 add_namespace = fir_focus
+add_namespace = fir_treaty
+add_namespace = fir_character
 
 
 country_event = {
@@ -630,7 +632,7 @@ country_event = {
 			set_character_flag = FIR_character_born
 		}
 		set_variable = { FIR.azulon_birth_event = global.year }
-		set_variable = { azulon_position = 190 }
+		set_variable = { azulon_x = 190 }
 	}
 
 	option = {
@@ -650,7 +652,7 @@ country_event = {
 					set_character_flag = FIR_character_born
 				}
 				set_variable = { FIR.azulon_birth_event = global.year }
-				set_variable = { azulon_position = 190 }
+				set_variable = { azulon_x = 190 }
 			}
 			95 = {
 				custom_effect_tooltip = azulon_dies_ttp
@@ -678,7 +680,7 @@ country_event = {
 					set_character_flag = FIR_character_born
 				}
 				set_variable = { FIR.azulon_birth_event = global.year }
-				set_variable = { azulon_position = 190 }
+				set_variable = { azulon_x = 190 }
 			}
 			99 = {
 				custom_effect_tooltip = elua_dies_ttp
@@ -714,19 +716,17 @@ country_event = {
  			FIR = {
 				set_country_flag = sozin_dead
 				retire_character = FIR_sozin
-				remove_ideas = spirit_prince_azulon
-				#kill_country_leader = yes
-				#remove_unit_leader = 1
-				#create_country_leader = {
-				#	name = "Empty Throne"
-				#	desc = "POLITICS_ADOLF_HITLER_DESC"
-				#	picture = "Portrait_Firenation_No_Leader.dds"
-				#	expire = "200.1.1"
-				#	ideology = colonialism
-				#	traits = {
-				#		no_leader
-				#	}
-				#}
+				set_variable = { azulon_x = 100 }
+
+				add_country_leader_role = {
+					character = FIR_empty_throne
+					promote_leader = yes
+					country_leader = {
+						ideology = nationalism
+						expire = "111.1.1.1"
+						traits = { no_leader }
+					}
+				}
 			}
  		} 		
  		random_list = {
@@ -946,8 +946,6 @@ country_event = {
 	}
 }
 
-
-add_namespace = fir_treaty
 
 #Approach the earth kingdom
 country_event = {
@@ -1258,6 +1256,174 @@ country_event = {
 			add_days_remove = {
 				decision = southern_attack_plan
 				days = -30
+			}
+		}
+	}
+
+}
+
+
+
+
+
+country_event = {
+	id = fir_character.1
+	title = fir_character.1.t
+	desc = fir_character.1.desc
+	picture = GFX_report_event_read_a_book
+
+	is_triggered_only = yes
+
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+
+	option = {
+		name = fir_character.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		random_list = {
+			50 = {
+				FIR_sozin = {
+					add_attack = 1
+				}
+			}
+			50 = {
+				FIR_sozin = {
+					add_defense = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = fir_character.1.b
+		ai_chance = { 
+			factor = 100
+		}
+
+		random_list = {
+			50 = {
+				FIR_sozin = {
+					add_planning = 1
+				}
+			}
+			50 = {
+				FIR_sozin = {
+					add_logistics = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = fir_character.1.c
+		ai_chance = { 
+			factor = 100
+		}
+		
+		random_list = {
+			90 = {
+				FIR_sozin = {
+					add_skill_level = 1
+				}
+			}
+			10 = {
+				FIR_sozin = {
+					add_random_trait = { 
+						desert_fox swamp_fox
+						trait_mountaineer
+						hill_fighter
+						jungle_rat
+						ranger
+						urban_assault_specialist
+						winter_specialist
+					}
+				}
+			}
+		}
+	}
+
+}
+
+country_event = {
+	id = fir_character.2
+	title = fir_character.2.t
+	desc = fir_character.2.desc
+	picture = GFX_report_event_read_a_book
+
+	is_triggered_only = yes
+
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+
+	option = {
+		name = fir_character.2.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		random_list = {
+			50 = {
+				FIR_azulon = {
+					add_attack = 1
+				}
+			}
+			50 = {
+				FIR_azulon = {
+					add_defense = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = fir_character.2.b
+		ai_chance = { 
+			factor = 100
+		}
+
+		random_list = {
+			50 = {
+				FIR_azulon = {
+					add_planning = 1
+				}
+			}
+			50 = {
+				FIR_azulon = {
+					add_logistics = 1
+				}
+			}
+		}
+	}
+	option = {
+		name = fir_character.2.c
+		ai_chance = { 
+			factor = 100
+		}
+		
+		random_list = {
+			90 = {
+				FIR_azulon = {
+					add_skill_level = 1
+				}
+			}
+			10 = {
+				FIR_azulon = {
+					add_random_trait = { 
+						desert_fox swamp_fox
+						trait_mountaineer
+						hill_fighter
+						jungle_rat
+						ranger
+						urban_assault_specialist
+						winter_specialist
+					}
+				}
 			}
 		}
 	}

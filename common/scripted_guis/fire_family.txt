@@ -7,12 +7,12 @@ scripted_gui = {
 		triggers = {
 			sozin_visible = {
 				has_country_leader = {
-					name = "Sozin"
+					character = FIR_sozin
 					ruling_only = yes
 				}
 			}
 			sozin_wife_visible = {
-				has_country_flag = sozin_wife_elua
+				has_character = FIR_elua
 			}
 
 			rhya_young_visible = {
@@ -21,53 +21,24 @@ scripted_gui = {
 				OR = {
 					has_idea = spirit_princess_rhya
 					has_country_leader = {
-						name = "Rhya"
+						character = FIR_rhya
 						ruling_only = yes
 					}
 				}
 			}
 
-			azulon_baby_visible = {
-				check_variable = { mtth:azulon_age < 4 }
-				has_idea = spirit_prince_azulon
-			}
-			azulon_child_visible = {
-				check_variable = { mtth:azulon_age > 3 }
-				check_variable = { mtth:azulon_age < 16 }
-				OR = {
-					has_idea = spirit_prince_azulon
-					has_country_leader = {
-						name = "Azulon"
-						ruling_only = yes
-					}
-				}
-			}
-			azulon_adult_visible = {
-				check_variable = { mtth:azulon_age > 15 }
-				check_variable = { mtth:azulon_age < 55 }
-				OR = {
-					has_idea = spirit_prince_azulon
-					has_country_leader = {
-						name = "Azulon"
-						ruling_only = yes
-					}
-				}
-			}
-			azulon_old_visible = {
-				check_variable = { mtth:azulon_age > 54 }
-				OR = {
-					has_idea = spirit_prince_azulon
-					has_country_leader = {
-						name = "Azulon"
-						ruling_only = yes
-					}
+			azulon_visible = {
+				has_character = FIR_azulon
+				FIR_azulon = {
+					has_character_flag = FIR_character_born
+					NOT = { has_character_flag = FIR_character_death }
 				}
 			}
 		}
 
 		properties = {
-			azulon_adult = {
-				x = azulon_position
+			azulon = {
+				x = azulon_x
 				image = "[GetAzulonIcon]"
 			}
 		}

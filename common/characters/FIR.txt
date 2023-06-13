@@ -1,4 +1,15 @@
 characters={
+	FIR_empty_throne = {
+		name = FIR_empty_throne
+		portraits = {
+			civilian = {
+				large="GFX_portrait_FIR_empty_throne" 
+			}
+		}
+		
+	}
+
+
 	FIR_sozin = {
 		name = FIR_sozin
 		portraits={
@@ -105,11 +116,7 @@ characters={
 		}
 		field_marshal = {
 			traits = { 
-				skilled_staffer 
-				offensive_infantry 
-				fast_planner 
-				aggressive_assaulter 
-				firelord 
+				
 			}
 			skill = 1
 			attack_skill = 1
@@ -117,6 +124,114 @@ characters={
 			planning_skill = 1
 			logistics_skill = 1
 			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
+
+
+	FIR_zeisan = {
+		name = FIR_zeisan
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Zeisan"
+			}
+			army = {
+				large = "GFX_Portrait_Zeisan"
+				small = "GFX_Portrait_Zeisan_small"
+			}
+		}
+
+		country_leader = {
+			ideology = pacifism
+			traits = {
+				firelord
+			}
+			expire = "110.1.1"
+			id = -1
+		}
+		
+		advisor = {
+			slot = minister_of_culture
+			idea_token = FIR_zeisan
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { guiding_wind_member }
+		}
+	}
+
+	FIR_elua = {
+		name = FIR_elua
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Elua"
+			}
+			army = {
+				large = "GFX_Portrait_Elua"
+				small = "GFX_Portrait_Elua_small"
+			}
+		}
+		
+		advisor = {
+			slot = minister_of_culture
+			idea_token = FIR_elua
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { icon_of_the_firenation }
+		}
+	}
+
+	FIR_rhya = {
+		name = FIR_rhya
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Rhya"
+			}
+			army = {
+				large = "GFX_Portrait_Rhya"
+				small = "GFX_Portrait_Rhya_small"
+			}
+		}
+		country_leader = {
+			ideology = colonialism
+			traits = {
+
+			}
+			expire = "32.4.7"
+			id = -1
+		}
+		field_marshal = {
+			traits = { 
+				
+			}
+			skill = 2
+			attack_skill = 2
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 2
+			legacy_id = -1
 
 			visible = { 
 				has_character_flag = FIR_character_born

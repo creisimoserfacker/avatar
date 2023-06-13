@@ -1,0 +1,31 @@
+
+on_actions = {
+
+	on_monthly_FIR = {
+
+		effect = {
+
+			if = {
+				limit = {
+					check_variable = { mtth:azulon_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_azulon
+					army = { large = "GFX_Portrait_Azulon_young" }
+					civilian = { large = "GFX_Portrait_Azulon_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:azulon_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_azulon
+					army = { large = "GFX_Portrait_Azulon_old" }
+					civilian = { large = "GFX_Portrait_Azulon_old" }
+				}
+			}
+		}
+	}
+
+}

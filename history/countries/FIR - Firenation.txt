@@ -301,8 +301,16 @@ if = {
 	create_intelligence_agency = yes
 }
 
+recruit_character = FIR_empty_throne
+
 recruit_character = FIR_sozin
-set_country_flag = sozin_wife_elua
+FIR_sozin = {
+	set_character_flag = FIR_character_born
+	set_character_flag = FIR_character_general
+	set_character_flag = literate
+}
+recruit_character = FIR_elua
+recruit_character = FIR_zeisan
 
 recruit_character = FIR_shaozu
 recruit_character = FIR_yotto
@@ -317,6 +325,7 @@ recruit_character = FIR_generic
 
 recruit_character = FIR_azulon
 recruit_character = FIR_ozai
+recruit_character = FIR_rhya
 
 
 if = {
@@ -885,11 +894,37 @@ if = {
 	}
 
 
-	set_variable = { azulon_position = 100 }
-
-	clr_country_flag = sozin_wife_elua
+	set_variable = { azulon_x = 100 }
 
 	retire_character = FIR_sozin
+
+	FIR_azulon = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_field_marshal_role = {
+			traits = { 
+				skilled_staffer 
+				offensive_infantry 
+				fast_planner 
+				aggressive_assaulter 
+				firelord 
+			}
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
 
 	create_faction = Alliance_of_Fire
 	add_to_faction = FIR
