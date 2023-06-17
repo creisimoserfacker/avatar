@@ -19,12 +19,19 @@ country_event = {
 			genocide_preparation = 4
 		}
 		ai_chance = {
-			base = 0
+			base = 100
 			modifier = {
 				add = 100
 				has_game_rule = {
 					rule = GENOCIDE_AI_BEHAVIOR
 					option = EARTHKINGDOM_AIR_GENOCIDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = NO_AIR_GENOCIDE
 				}
 			}
 		}
@@ -36,15 +43,8 @@ country_event = {
 		ai_chance = {
 			base = 100
 			modifier = {
-				add = 100
+				factor = 0
 				is_historical_focus_on = yes
-			}
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = GENOCIDE_AI_BEHAVIOR
-					option = NO_AIR_GENOCIDE
-				}
 			}
 		}
 	}
