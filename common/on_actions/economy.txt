@@ -79,6 +79,25 @@ on_actions = {
 				add_to_variable = { ROOT.anti_air_building_count = building_level@anti_air_building }
 				add_to_variable = { ROOT.air_base_count = building_level@air_base }
 			}
+
+#			if = {
+#				limit = {
+#					has_capitulated = yes
+#				}
+#				every_core_state = {
+#					add_to_variable = { ROOT.smithy_count = building_level@arms_factory }
+#					add_to_variable = { ROOT.factory_count = building_level@factory }
+#					add_to_variable = { ROOT.harbour_count = building_level@harbour }
+#					add_to_variable = { ROOT.dockyard_count = building_level@dockyard }
+#				}
+#
+#				multiply_variable = { smithy_count = THIS.core_resistance}
+#				multiply_variable = { factory_count = THIS.core_resistance}
+#				multiply_variable = { harbour_count = THIS.core_resistance}
+#				multiply_variable = { dockyard_count = THIS.core_resistance}
+#			}
+
+
 			set_variable = { building_count = 0 }
 			add_to_variable = { building_count = farm_count }
 			add_to_variable = { building_count = mill_count }
