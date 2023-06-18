@@ -394,6 +394,58 @@ FIR_royal_family_category = {
 		complete_effect = {
 			promote_character = FIR_azulon
 			remove_ideas = spirit_prince_azulon
+
+			hidden_effect = {
+				country_event = {
+					id = fir_character.6
+					days = 78
+					random_days = 50
+				}
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	azulon_marry_ilah = {
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_azulon
+				ruling_only = yes
+			}
+			OR = {
+				FIR_ilah = { has_character_flag = in_love_with_azulon }
+				FIR_azulon = { has_character_flag = ilahs_bully }
+			}
+			check_variable = { mtth:ilah_age > 16 }
+			check_variable = { mtth:azulon_age > 16 }
+		}
+		available = {
+			
+		}
+
+		days_remove = 10
+
+		modifier = {
+			expenses_factor = 0.5
+		}
+
+		remove_effect = {
+			
+			country_event = {
+				id = fir_character.8
+				days = 1
+				random_hours = 12
+			}
+
 		}
 
 		cost = 100
