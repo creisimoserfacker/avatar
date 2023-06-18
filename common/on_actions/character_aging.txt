@@ -7,6 +7,21 @@ on_actions = {
 
 			if = {
 				limit = {
+					check_variable = { mtth:azulon_age > 3 }
+					check_variable = { azulon_x = 300 }
+				}
+				set_variable = { azulon_x = 190 }
+				set_variable = { azulon_y = 6 }
+				if = {
+					limit = {
+						check_variable = { azulon_y = 116 }
+					}
+					set_variable = { azulon_y = 6 }
+				}
+			}
+
+			if = {
+				limit = {
 					check_variable = { mtth:azulon_age < 55 }
 				}
 				set_portraits = {

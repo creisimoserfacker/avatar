@@ -13,6 +13,10 @@ scripted_gui = {
 			}
 			sozin_wife_visible = {
 				has_character = FIR_elua
+				has_country_leader = {
+					character = FIR_sozin
+					ruling_only = yes
+				}
 			}
 
 			rhya_young_visible = {
@@ -34,11 +38,22 @@ scripted_gui = {
 					NOT = { has_character_flag = FIR_character_death }
 				}
 			}
+			azulon_wife_visible = {
+				has_character = FIR_ilah
+				has_country_leader = {
+					character = FIR_azulon
+					ruling_only = yes
+				}
+				FIR_ilah = {
+					has_character_flag = married_to_azulon
+				}
+			}
 		}
 
 		properties = {
 			azulon = {
 				x = azulon_x
+				y = azulon_y
 				image = "[GetAzulonIcon]"
 			}
 		}
