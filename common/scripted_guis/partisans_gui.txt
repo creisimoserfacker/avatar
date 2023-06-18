@@ -1,250 +1,250 @@
 scripted_gui = {
-#	
-#	riseup_partisan = {
-#		context_type = selected_state_context
-#		
-#		window_name = "riseup_partisan_container"
-#		parent_window_token = selected_state_view
-#		
-#		visible = {
-#			is_owned_by = ROOT
-#			controller = { has_war_with = ROOT }
-#		}
-#		
-#		effects = {
-#			state_riseup_partisan_click = {
-#				controller = {
-#					set_temp_variable = { original_controller = THIS }
-#					country_event = { id = occupation_mechanic.3 days = 1 }
-#				}
-#				ROOT = {
-#					set_state_controller = PREV
-#					if = {
-#						limit = {
-#							NOT = { has_template = "Skirmisher Partisans" }
-#						}
-#						division_template = {
-#							name = "Skirmisher Partisans"
-#							regiments = {
-#								skirmishers = { x = 0 y = 0 }
-#								skirmishers = { x = 0 y = 1 }
-#							}
-#						}
-#						set_division_template_lock = { division_template = "Skirmisher Partisans" is_locked = yes }
-#					}
-#					if = {
-#						limit = {
-#							NOT = { has_template = "Partisans" }
-#						}
-#						division_template = {
-#							name = "Partisans"
-#							regiments = {
-#								swordsmen = { x = 0 y = 0 }
-#								spearmen = { x = 0 y = 1 }
-#							}
-#						}
-#						set_division_template_lock = { division_template = Partisans is_locked = yes }
-#					}
-#				}
-#
-#				set_variable = { available_partisans = state_population_k }
-#				divide_variable = { available_partisans = 5 }
-#				clamp_variable = { 
-#					var = available_partisans 
-#					min = 1
-#				}
-#
-#				### resistance factor
-#				set_temp_variable = { resistance_factor = resistance }
-#				divide_temp_variable = { resistance_factor = 100 }
-#				add_to_temp_variable = { resistance_factor = 1 }
-#				multiply_variable = { available_partisans = resistance_factor }
-#
-#				### compliance factor
-#				set_temp_variable = { compliance_factor = compliance }
-#				divide_temp_variable = { compliance_factor = 100 }
-#				add_to_temp_variable = { compliance_factor = 1 }
-#				divide_variable = { available_partisans = compliance_factor }
-#
-#				### culture factor
-#				if = {
-#					limit = { FROM.OWNER = { has_government = fire_culture } }
-#					set_temp_variable = { culture_factor = fire_pop }
-#				}
-#				if = {
-#					limit = { FROM.OWNER = { has_government = earth_culture } }
-#					set_temp_variable = { culture_factor = earth_pop }
-#				}
-#				if = {
-#					limit = { FROM.OWNER = { has_government = water_culture } }
-#					set_temp_variable = { culture_factor = water_pop }
-#				}
-#				if = {
-#					limit = { FROM.OWNER = { has_government = air_culture } }
-#					set_temp_variable = { culture_factor = air_pop }
-#				}
-#				if = {
-#					limit = { FROM.OWNER = { has_government = pluralist_culture } }
-#					set_temp_variable = { culture_factor = nonbender_pop }
-#				}
-#				divide_temp_variable = { culture_factor = 100 }
-#				#add_to_temp_variable = { culture_factor = 1 }
-#				multiply_variable = { available_partisans = culture_factor }
-#				round_variable = available_partisans
-#
-#				add_dynamic_modifier = {
-#					modifier = recent_rebel_activity
-#					days = 280
-#				}
-#				add_resistance = -30
-#
-#				create_partisan_units = yes
-#				var:original_controller = {
-#					set_state_controller = PREV
-#				}
-#			}
-#		}
-#		
-#		triggers = {
-#			state_riseup_partisan_click_enabled = {
-#				resistance > 49.999
-#				controller = {
-#					core_resistance = {
-#					    occupied_country_tag = ROOT
-#					    value > 50
-#					}
-#				}
-#				NOT = {
-#					has_dynamic_modifier = {
-#						modifier = recent_rebel_activity
-#					}
-#				}
-#			}
-#		}
-#		
-#		ai_test_scopes = test_enemy_controlled_states
-#		ai_test_scopes = test_self_owned_states
-#		ai_test_interval = 170
-#		ai_test_variance = 0.5
-#		
-#		ai_enabled = {
-#			always = yes
-#		}
-#		
-#		ai_check = {
-#			any_core_state = {
-#				controller = {
-#					has_war_with = ROOT
-#				}
-#			}
-#		}
-#		
-#		ai_max_weight_taken_per_test = 10
-#		ai_weights = {
-#			state_riseup_partisan_click = {
-#				ai_will_do = {
-#					base = 10
-#					
-#					modifier = {
-#						factor = 2
-#						ROOT = {
-#							has_capitulated = yes
-#						}
-#					}
-#					modifier = {
-#						add = 50
-#						
-#						resistance > 60
-#					}
-#				}
-#			}
-#		}
-#		
-#	}
-#
-#
-#	state_occupy_state = {
-#		context_type = selected_state_context
-#		
-#		window_name = "occupy_state_container"
-#		parent_window_token = selected_state_view
-#		
-#		visible = {
-#			#is_controlled_by  = ROOT
-#			#NOT = {
-#			#	is_owned_by = ROOT
-#			#}
-#
-#			always = no
-#		}
-#		
-#		effects = {
-#			occupy_state_click = {
-#				controller = {
-#					country_event = { id = occupation_mechanic.4 days = 1 }
-#
-#					add_political_power = -THIS.mtth:core_state_cost
-#				}
-#				ROOT = {
-#					set_state_owner = PREV
-#				}
-#			}
-#		}
-#		
-#		triggers = {
-#			occupy_state_click_enabled = {
-#				ROOT = {
-#					has_political_power > THIS.mtth:core_state_cost
-#				}
-#				compliance > 59
-#				#controller = {
-#				#	core_compliance = {
-#				#		occupied_country_tag = FROM.FROM
-#				#		value > 59
-#				#	}
-#				#}
-#				is_fully_controlled_by = ROOT
-#				NOT = {
-#					is_owned_by = ROOT
-#					is_core_of = ROOT
-#				}
-#			}
-#		}
-#		
-#		ai_test_scopes = test_self_owned_states
-#		ai_test_scopes = test_enemy_owned_states
-#		ai_test_interval = 170
-#		ai_test_variance = 0.5
-#		
-#		ai_enabled = {
-#			always = yes
-#		}
-#        
-#		ai_check = {
-#			any_core_state = {
-#				controller = {
-#					has_war_with = ROOT
-#				}
-#			}
-#		}
-#		
-#		ai_max_weight_taken_per_test = 10
-#		ai_weights = {
-#			occupy_state_click = {
-#				ai_will_do = {
-#					base = 10
-#					
-#					modifier = {
-#						add = 50
-#						
-#						compliance > 60
-#					}
-#				}
-#			}
-#		}
-#		
-#	}
-#
+	
+	riseup_partisan = {
+		context_type = selected_state_context
+		
+		window_name = "riseup_partisan_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			is_owned_by = ROOT
+			controller = { has_war_with = ROOT }
+		}
+		
+		effects = {
+			state_riseup_partisan_click = {
+				controller = {
+					set_temp_variable = { original_controller = THIS }
+					country_event = { id = occupation_mechanic.3 days = 1 }
+				}
+				ROOT = {
+					set_state_controller = PREV
+					if = {
+						limit = {
+							NOT = { has_template = "Skirmisher Partisans" }
+						}
+						division_template = {
+							name = "Skirmisher Partisans"
+							regiments = {
+								skirmishers = { x = 0 y = 0 }
+								skirmishers = { x = 0 y = 1 }
+							}
+						}
+						set_division_template_lock = { division_template = "Skirmisher Partisans" is_locked = yes }
+					}
+					if = {
+						limit = {
+							NOT = { has_template = "Partisans" }
+						}
+						division_template = {
+							name = "Partisans"
+							regiments = {
+								swordsmen = { x = 0 y = 0 }
+								spearmen = { x = 0 y = 1 }
+							}
+						}
+						set_division_template_lock = { division_template = Partisans is_locked = yes }
+					}
+				}
+
+				set_variable = { available_partisans = state_population_k }
+				divide_variable = { available_partisans = 5 }
+				clamp_variable = { 
+					var = available_partisans 
+					min = 1
+				}
+
+				### resistance factor
+				set_temp_variable = { resistance_factor = resistance }
+				divide_temp_variable = { resistance_factor = 100 }
+				add_to_temp_variable = { resistance_factor = 1 }
+				multiply_variable = { available_partisans = resistance_factor }
+
+				### compliance factor
+				set_temp_variable = { compliance_factor = compliance }
+				divide_temp_variable = { compliance_factor = 100 }
+				add_to_temp_variable = { compliance_factor = 1 }
+				divide_variable = { available_partisans = compliance_factor }
+
+				### culture factor
+				if = {
+					limit = { FROM.OWNER = { has_government = fire_culture } }
+					set_temp_variable = { culture_factor = fire_pop }
+				}
+				if = {
+					limit = { FROM.OWNER = { has_government = earth_culture } }
+					set_temp_variable = { culture_factor = earth_pop }
+				}
+				if = {
+					limit = { FROM.OWNER = { has_government = water_culture } }
+					set_temp_variable = { culture_factor = water_pop }
+				}
+				if = {
+					limit = { FROM.OWNER = { has_government = air_culture } }
+					set_temp_variable = { culture_factor = air_pop }
+				}
+				if = {
+					limit = { FROM.OWNER = { has_government = pluralist_culture } }
+					set_temp_variable = { culture_factor = nonbender_pop }
+				}
+				divide_temp_variable = { culture_factor = 100 }
+				#add_to_temp_variable = { culture_factor = 1 }
+				multiply_variable = { available_partisans = culture_factor }
+				round_variable = available_partisans
+
+				add_dynamic_modifier = {
+					modifier = recent_rebel_activity
+					days = 280
+				}
+				add_resistance = -30
+
+				create_partisan_units = yes
+				var:original_controller = {
+					set_state_controller = PREV
+				}
+			}
+		}
+		
+		triggers = {
+			state_riseup_partisan_click_enabled = {
+				resistance > 49.999
+				controller = {
+					core_resistance = {
+					    occupied_country_tag = ROOT
+					    value > 50
+					}
+				}
+				NOT = {
+					has_dynamic_modifier = {
+						modifier = recent_rebel_activity
+					}
+				}
+			}
+		}
+		
+		ai_test_scopes = test_enemy_controlled_states
+		ai_test_scopes = test_self_owned_states
+		ai_test_interval = 170
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+		
+		ai_check = {
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			state_riseup_partisan_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						factor = 2
+						ROOT = {
+							has_capitulated = yes
+						}
+					}
+					modifier = {
+						add = 50
+						
+						resistance > 60
+					}
+				}
+			}
+		}
+		
+	}
+
+
+	state_occupy_state = {
+		context_type = selected_state_context
+		
+		window_name = "occupy_state_container"
+		parent_window_token = selected_state_view
+		
+		visible = {
+			#is_controlled_by  = ROOT
+			#NOT = {
+			#	is_owned_by = ROOT
+			#}
+
+			always = no
+		}
+		
+		effects = {
+			occupy_state_click = {
+				controller = {
+					country_event = { id = occupation_mechanic.4 days = 1 }
+
+					add_political_power = -THIS.mtth:core_state_cost
+				}
+				ROOT = {
+					set_state_owner = PREV
+				}
+			}
+		}
+		
+		triggers = {
+			occupy_state_click_enabled = {
+				ROOT = {
+					has_political_power > THIS.mtth:core_state_cost
+				}
+				compliance > 59
+				#controller = {
+				#	core_compliance = {
+				#		occupied_country_tag = FROM.FROM
+				#		value > 59
+				#	}
+				#}
+				is_fully_controlled_by = ROOT
+				NOT = {
+					is_owned_by = ROOT
+					is_core_of = ROOT
+				}
+			}
+		}
+		
+		ai_test_scopes = test_self_owned_states
+		ai_test_scopes = test_enemy_owned_states
+		ai_test_interval = 170
+		ai_test_variance = 0.5
+		
+		ai_enabled = {
+			always = yes
+		}
+        
+		ai_check = {
+			any_core_state = {
+				controller = {
+					has_war_with = ROOT
+				}
+			}
+		}
+		
+		ai_max_weight_taken_per_test = 10
+		ai_weights = {
+			occupy_state_click = {
+				ai_will_do = {
+					base = 10
+					
+					modifier = {
+						add = 50
+						
+						compliance > 60
+					}
+				}
+			}
+		}
+		
+	}
+
 	state_core_state = {
 		context_type = selected_state_context
 		
