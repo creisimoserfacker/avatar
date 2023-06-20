@@ -326,7 +326,10 @@ recruit_character = FIR_generic
 recruit_character = FIR_azulon
 recruit_character = FIR_ilah
 
+recruit_character = FIR_iroh
 recruit_character = FIR_ozai
+recruit_character = FIR_ursa
+
 recruit_character = FIR_rhya
 
 
@@ -927,6 +930,17 @@ if = {
 			}
 		}
 	}
+
+	FIR_ilah = {
+		set_character_flag = married_to_azulon
+	}
+
+	FIR_iroh = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.iroh_birth_event = 51 }
+	set_variable = { iroh_x = 300 }
+	set_variable = { iroh_y = 116 }
 
 	create_faction = Alliance_of_Fire
 	add_to_faction = FIR

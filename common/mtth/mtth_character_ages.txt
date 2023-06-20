@@ -67,3 +67,14 @@ ilah_age = {
 	}
 
 }
+
+iroh_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { iroh_birth = FIR.iroh_birth_event }
+		set_temp_variable = { iroh_age = global.year }
+		subtract_from_temp_variable = { iroh_age = iroh_birth }
+		
+		add = iroh_age
+	}
+}

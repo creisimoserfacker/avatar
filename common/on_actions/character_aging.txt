@@ -5,6 +5,9 @@ on_actions = {
 
 		effect = {
 
+
+
+			################## azulon
 			if = {
 				limit = {
 					check_variable = { mtth:azulon_age > 3 }
@@ -38,6 +41,46 @@ on_actions = {
 					character = FIR_azulon
 					army = { large = "GFX_Portrait_Azulon_old" }
 					civilian = { large = "GFX_Portrait_Azulon_old" }
+				}
+			}
+
+
+
+
+			################### iroh
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { iroh_x = 300 }
+				}
+				set_variable = { iroh_x = 190 }
+				set_variable = { iroh_y = 6 }
+				if = {
+					limit = {
+						check_variable = { iroh_y = 116 }
+					}
+					set_variable = { iroh_y = 6 }
+				}
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_iroh
+					army = { large = "GFX_Portrait_Iroh_young" }
+					civilian = { large = "GFX_Portrait_Iroh_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_iroh
+					army = { large = "GFX_Portrait_Iroh_old" }
+					civilian = { large = "GFX_Portrait_Iroh_old" }
 				}
 			}
 		}
