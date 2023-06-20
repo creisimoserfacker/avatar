@@ -48,6 +48,15 @@ scripted_gui = {
 					has_character_flag = married_to_azulon
 				}
 			}
+
+
+			iroh_visible = {
+				has_character = FIR_iroh
+				FIR_iroh = {
+					has_character_flag = FIR_character_born
+					NOT = { has_character_flag = FIR_character_death }
+				}
+			}
 		}
 
 		properties = {
@@ -55,6 +64,12 @@ scripted_gui = {
 				x = azulon_x
 				y = azulon_y
 				image = "[GetAzulonIcon]"
+			}
+
+			iroh = {
+				x = iroh_x
+				y = iroh_y
+				image = "[GetIrohIcon]"
 			}
 		}
 	}
