@@ -1,0 +1,126 @@
+NWT_keep_equipment_in_reserve_before_you_are_unified = {
+	allowed = {tag = NWT}
+	enable = {
+		NWT = {
+			NOT = {has_idea = one_tribe}
+		}
+	}	
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_stockpile_surplus_ratio
+		value = 143
+	}
+}
+NWT_production_before_unification = {
+	allowed = {tag = NWT}
+	enable = {
+		NWT = {
+			NOT = {has_idea = one_tribe}
+		}
+	}	
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = equipment_production_factor
+		id = spear_equipment
+		value = 10
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = spear_equipment
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = heavy_armor_equipment
+		value = 9
+	}
+	ai_strategy = {
+		type = equipment_production_min_factories
+		id = heavy_armor_equipment
+		value = 1
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = sword_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = bow_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = arrow_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = javelin_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = light_armor_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = waterbender_equipment
+		value = 0
+	}
+	ai_strategy = {
+		type = equipment_production_factor
+		id = convoy
+		value = 0
+	}
+	
+}
+NWT_construction_before_unification = {
+	allowed = {tag = NWT}
+	enable = {
+		NWT = {
+			NOT = {has_idea = one_tribe}
+		}
+	}	
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = build_building
+		id = lumber_mill
+		target = 6 #North Spirit Wilds
+		value = 4
+	}
+	ai_strategy = {
+		type = building_target
+		id = masonry
+		value = 5
+	}
+}
+NWT_unification_minister_first = {
+	allowed = {tag = NWT}
+	enable = {
+		NWT = {
+			NOT = {has_country_flag = NWT_unification_minister}
+		}
+	}	
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = pp_spend_amount
+		id = decision
+		value = 150
+	}
+}
+NWT_recruitment_before_unification = {
+	allowed = {tag = NWT}
+	enable = {
+		NWT = {
+			NOT = {has_country_flag = NWT_unification_minister}
+		}
+	}
+	abort_when_not_enabled = yes
+	ai_strategy = {
+		type = role_ratio
+		id = role_swordsmen
+		value = 1
+	}	
+}

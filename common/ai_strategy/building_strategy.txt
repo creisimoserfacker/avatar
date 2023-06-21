@@ -50,6 +50,7 @@ build_supply_lines = {
 	}
 	enable = {
 		num_of_supply_nodes < 150
+		num_of_civilian_factories > 60
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -81,7 +82,12 @@ smithy_good = {
 
 build_farms = {
 	allowed = {
-		always = yes
+		NOT = {
+			OR = {
+				tag = NWT
+				tag = SWT
+			}
+		}
 	}
 	enable = {
 		has_resources_in_country = {
@@ -207,6 +213,7 @@ build_steelworks = {
 			resource = steel
 			amount < 0
 		}
+		has_tech = steelworks_1
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
