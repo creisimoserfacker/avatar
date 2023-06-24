@@ -15,12 +15,6 @@ on_actions = {
 				}
 				set_variable = { azulon_x = 190 }
 				set_variable = { azulon_y = 6 }
-				if = {
-					limit = {
-						check_variable = { azulon_y = 116 }
-					}
-					set_variable = { azulon_y = 6 }
-				}
 			}
 
 			if = {
@@ -53,14 +47,8 @@ on_actions = {
 					check_variable = { mtth:iroh_age > 3 }
 					check_variable = { iroh_x = 300 }
 				}
-				set_variable = { iroh_x = 190 }
+				set_variable = { iroh_x = 220 }
 				set_variable = { iroh_y = 6 }
-				if = {
-					limit = {
-						check_variable = { iroh_y = 116 }
-					}
-					set_variable = { iroh_y = 6 }
-				}
 			}
 
 			if = {
@@ -82,6 +70,58 @@ on_actions = {
 					army = { large = "GFX_Portrait_Iroh_old" }
 					civilian = { large = "GFX_Portrait_Iroh_old" }
 				}
+			}
+
+
+			################### ozai
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age > 3 }
+					check_variable = { ozai_x = 300 }
+				}
+				set_variable = { ozai_x = 160 }
+				set_variable = { ozai_y = 6 }
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_ozai
+					army = { large = "GFX_Portrait_Ozai_young" }
+					civilian = { large = "GFX_Portrait_Ozai_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_ozai
+					army = { large = "GFX_Portrait_Ozai_old" }
+					civilian = { large = "GFX_Portrait_Ozai_old" }
+				}
+			}
+
+
+			###### crowded family 1
+
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { mtth:ozai_age > 3 }
+					has_character = FIR_azulon
+					has_character = FIR_ilah
+				}
+				set_variable = { azulon_x = 60 }
+				set_variable = { azulon_y = 6 }
+
+				set_variable = { ozai_x = 140 }
+				set_variable = { ozai_y = 6 }
+
+				set_variable = { iroh_x = 240 }
+				set_variable = { iroh_y = 6 }
 			}
 		}
 	}

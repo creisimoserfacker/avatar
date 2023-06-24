@@ -899,7 +899,7 @@ if = {
 	}
 
 
-	set_variable = { azulon_x = 100 }
+	set_variable = { azulon_x = 90 }
 
 	retire_character = FIR_sozin
 
@@ -1002,6 +1002,55 @@ if = {
 	remove_ideas = {
 		
 	}
+
+
+	set_variable = { azulon_x = 60 }
+	set_variable = { azulon_y = 6 }
+
+	set_variable = { ozai_x = 140 }
+	set_variable = { ozai_y = 6 }
+
+	set_variable = { iroh_x = 240 }
+	set_variable = { iroh_y = 6 }
+
+	FIR_iroh = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_field_marshal_role = {
+			traits = { 
+				skilled_staffer 
+				offensive_infantry 
+				tactical_mind
+				thorough_planner
+				besieger
+			}
+			skill = 6
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 6
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
+
+	FIR_ilah = {
+		set_character_flag = married_to_azulon
+	}
+	retire_character = FIR_ilah
+
+	FIR_ozai = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.ozai_birth_event = 71 }
+
 
 
 	if = {
