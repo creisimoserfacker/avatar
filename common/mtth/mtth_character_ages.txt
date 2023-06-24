@@ -78,3 +78,14 @@ iroh_age = {
 		add = iroh_age
 	}
 }
+
+ozai_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { ozai_birth = FIR.ozai_birth_event }
+		set_temp_variable = { ozai_age = global.year }
+		subtract_from_temp_variable = { ozai_age = ozai_birth }
+		
+		add = ozai_age
+	}
+}

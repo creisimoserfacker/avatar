@@ -1403,8 +1403,7 @@ country_event = {
  			FIR = {
 				set_country_flag = sozin_dead
 				retire_character = FIR_sozin
-				set_variable = { azulon_x = 100 }
-
+				
 				add_country_leader_role = {
 					character = FIR_empty_throne
 					promote_leader = yes
@@ -1604,18 +1603,7 @@ country_event = {
 
 	immediate = {
 		hidden_effect = {
-			if = {
-				limit = { 
-					AND = {
-						is_historical_focus_on = no
-						has_country_flag = fire_no_genocide
-					}
-				}
-				random = {
-					chance = 50
-					set_country_flag = azulon_birth_complication
-				}
-			}
+
 		}
 	}
 
@@ -1634,6 +1622,53 @@ country_event = {
 		set_variable = { FIR.iroh_birth_event = global.year }
 		set_variable = { iroh_x = 300 }
 		set_variable = { iroh_y = 116 }
+	}
+
+}
+
+
+#Ozais birth
+country_event = {
+	id = fir_character.10
+	title = fir_character.10.t
+	desc = fir_character.10.d
+	picture = GFX_report_event_fir_birth
+
+	trigger = {
+		tag = FIR
+		date > 70.1.1
+		has_start_date < 53.1.1
+
+		has_character = FIR_azulon
+		has_character = FIR_ilah
+		FIR_ilah = {
+			has_character_flag = married_to_azulon
+		}
+	}
+
+	mean_time_to_happen = { months = 6 }
+
+	immediate = {
+		hidden_effect = {
+
+		}
+	}
+
+	fire_only_once = yes
+
+	option = {
+		name = fir_character.10.a
+
+		trigger = { 
+			
+		}
+		add_ideas = spirit_prince_ozai
+		FIR_ozai = {
+			set_character_flag = FIR_character_born
+		}
+		set_variable = { FIR.ozai_birth_event = global.year }
+		set_variable = { ozai_x = 300 }
+		set_variable = { ozai_y = 116 }
 	}
 
 }

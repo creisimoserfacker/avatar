@@ -128,3 +128,67 @@ defined_text = {
 		localization_key = "GFX_iroh_old_firelord_portrait"
 	}
 }
+
+
+defined_text = {
+	name = GetOzaiIcon
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age < 4 }
+		}
+		localization_key = "GFX_fire_baby_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age > 3 }
+			check_variable = { mtth:ozai_age < 16 }
+		}
+		localization_key = "GFX_ozai_child_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age > 15 }
+			check_variable = { mtth:ozai_age < 55 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_ozai
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_ozai_adult_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age > 15 }
+			check_variable = { mtth:ozai_age < 55 }
+			has_country_leader = {
+				character = FIR_ozai
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_ozai_adult_firelord_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age > 54 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_ozai
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_ozai_old_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:ozai_age > 54 }
+			has_country_leader = {
+				character = FIR_ozai
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_ozai_old_firelord_portrait"
+	}
+}
