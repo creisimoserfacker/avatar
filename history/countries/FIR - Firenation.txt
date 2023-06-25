@@ -1060,6 +1060,78 @@ if = {
 			set_naval_oob = "FIR_106_naval_legacy"
 		}
 	}
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+
+		create_equipment_variant = {
+			name = "Patrol Class"
+			type = galley_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_crew_slot = ship_archers_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Raider Class"
+			type = firenation_frigate_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				fixed_ship_bridge_slot = lookout_1
+				fixed_ship_artillery_slot = ship_catapult_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Explorer Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_storage_slot = storage_room_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_bridge_slot = lookout_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Destroyer Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_crew_slot = boarding_crew_1
+				deck_1_custom_slot = ship_catapult_1
+				fixed_ship_artillery_slot = ship_catapult_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Capital Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = medium_armor_plates_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				deck_1_custom_slot = ship_trebuchet_1
+				fixed_ship_artillery_slot = ship_trebuchet_1
+				fixed_ship_bridge_slot = lookout_1
+				fixed_ship_storage_slot = storage_room_1
+			}
+		}
+
+	}
 
 	if = {
 		limit = {
