@@ -312,6 +312,8 @@ FIR_sozin = {
 recruit_character = FIR_elua
 recruit_character = FIR_zeisan
 
+recruit_character = FIR_rhya
+
 recruit_character = FIR_shaozu
 recruit_character = FIR_yotto
 recruit_character = FIR_arashi
@@ -330,7 +332,10 @@ recruit_character = FIR_iroh
 recruit_character = FIR_ozai
 recruit_character = FIR_ursa
 
-recruit_character = FIR_rhya
+recruit_character = FIR_lu_ten
+
+recruit_character = FIR_zuko
+recruit_character = FIR_azula
 
 
 if = {
@@ -902,6 +907,12 @@ if = {
 	set_variable = { azulon_x = 90 }
 
 	retire_character = FIR_sozin
+	retire_character = FIR_elua
+
+	promote_character = {
+		character = FIR_azulon
+		ideology = colonialism
+	}
 
 	FIR_azulon = {
 		set_character_flag = FIR_character_born
@@ -1013,6 +1024,11 @@ if = {
 	set_variable = { iroh_x = 240 }
 	set_variable = { iroh_y = 6 }
 
+	FIR_ilah = {
+		set_character_flag = married_to_azulon
+	}
+	retire_character = FIR_ilah
+
 	FIR_iroh = {
 		set_character_flag = FIR_character_born
 		set_character_flag = FIR_character_general
@@ -1020,6 +1036,8 @@ if = {
 
 		add_field_marshal_role = {
 			traits = { 
+				prince
+				calm
 				skilled_staffer 
 				offensive_infantry 
 				tactical_mind
@@ -1040,16 +1058,54 @@ if = {
 			}
 		}
 	}
+	set_variable = { FIR.iroh_birth_event = 51 }
 
-	FIR_ilah = {
-		set_character_flag = married_to_azulon
+	FIR_lu_ten = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_corps_commander_role = {
+			traits = { 
+				prince
+				brave
+				offensive_infantry 
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
 	}
-	retire_character = FIR_ilah
+	set_variable = { FIR.lu_ten_birth_event = 88 }
 
 	FIR_ozai = {
 		set_character_flag = FIR_character_born
 	}
 	set_variable = { FIR.ozai_birth_event = 71 }
+
+	FIR_ursa = {
+		set_character_flag = married_to_ozai
+	}
+	set_variable = { FIR.ursa_birth_event = 76 }
+
+	FIR_zuko = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.zuko_birth_event = 95 }
+
+	FIR_azula = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.azula_birth_event = 97 }
 
 
 
@@ -1139,6 +1195,28 @@ if = {
 	add_political_power = 1198
 
 	retire_character = FIR_azulon
+	retire_character = FIR_lu_ten
+
+	promote_character = {
+		character = FIR_ozai
+		ideology = colonialism
+	}
+	set_variable = { ozai_x = 160 }
+	set_variable = { ozai_y = 6 }
+
+	FIR_ursa = {
+		set_character_flag = in_exile
+	}
+
+	set_variable = { zuko_x = 300 }
+	set_variable = { zuko_y = 6 }
+
+	set_variable = { azula_x = 80 }
+	set_variable = { azula_y = 6 }
+
+	set_variable = { iroh_x = 350 }
+	set_variable = { iroh_y = 6 }
+
 
 
 	if = {

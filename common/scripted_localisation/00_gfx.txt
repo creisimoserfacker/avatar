@@ -46,13 +46,13 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { mtth:azulon_age > 3 }
-			check_variable = { mtth:azulon_age < 16 }
+			check_variable = { mtth:azulon_age < 14 }
 		}
 		localization_key = "GFX_azulon_child_portrait"
 	}
 	text = {
 		trigger = {
-			check_variable = { mtth:azulon_age > 15 }
+			check_variable = { mtth:azulon_age > 13 }
 			check_variable = { mtth:azulon_age < 55 }
 		}
 		localization_key = "GFX_azulon_adult_portrait"
@@ -77,13 +77,13 @@ defined_text = {
 	text = {
 		trigger = {
 			check_variable = { mtth:iroh_age > 3 }
-			check_variable = { mtth:iroh_age < 16 }
+			check_variable = { mtth:iroh_age < 14 }
 		}
 		localization_key = "GFX_iroh_child_portrait"
 	}
 	text = {
 		trigger = {
-			check_variable = { mtth:iroh_age > 15 }
+			check_variable = { mtth:iroh_age > 13 }
 			check_variable = { mtth:iroh_age < 55 }
 			NOT = {
 				has_country_leader = {
@@ -96,7 +96,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { mtth:iroh_age > 15 }
+			check_variable = { mtth:iroh_age > 13 }
 			check_variable = { mtth:iroh_age < 55 }
 			has_country_leader = {
 				character = FIR_iroh
@@ -136,18 +136,18 @@ defined_text = {
 		trigger = {
 			check_variable = { mtth:ozai_age < 4 }
 		}
-		localization_key = "GFX_fire_baby_portrait"
+		localization_key = "GFX_ozai_baby_portrait"
 	}
 	text = {
 		trigger = {
 			check_variable = { mtth:ozai_age > 3 }
-			check_variable = { mtth:ozai_age < 16 }
+			check_variable = { mtth:ozai_age < 14 }
 		}
 		localization_key = "GFX_ozai_child_portrait"
 	}
 	text = {
 		trigger = {
-			check_variable = { mtth:ozai_age > 15 }
+			check_variable = { mtth:ozai_age > 13 }
 			check_variable = { mtth:ozai_age < 55 }
 			NOT = {
 				has_country_leader = {
@@ -160,7 +160,7 @@ defined_text = {
 	}
 	text = {
 		trigger = {
-			check_variable = { mtth:ozai_age > 15 }
+			check_variable = { mtth:ozai_age > 13 }
 			check_variable = { mtth:ozai_age < 55 }
 			has_country_leader = {
 				character = FIR_ozai
@@ -190,5 +190,200 @@ defined_text = {
 			}
 		}
 		localization_key = "GFX_ozai_old_firelord_portrait"
+	}
+}
+
+defined_text = {
+	name = GetLuTenIcon
+	text = {
+		trigger = {
+			check_variable = { mtth:lu_ten_age < 4 }
+		}
+		localization_key = "GFX_fire_baby_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:lu_ten_age > 3 }
+			check_variable = { mtth:lu_ten_age < 14 }
+		}
+		localization_key = "GFX_lu_ten_child_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:lu_ten_age > 13 }
+			check_variable = { mtth:lu_ten_age < 55 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_lu_ten
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_lu_ten_adult_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:lu_ten_age > 54 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_lu_ten
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_lu_ten_old_portrait"
+	}
+}
+
+
+defined_text = {
+	name = GetZukoIcon
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age < 4 }
+		}
+		localization_key = "GFX_fire_baby_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 3 }
+			check_variable = { mtth:zuko_age < 14 }
+		}
+		localization_key = "GFX_zuko_child_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 13 }
+			check_variable = { mtth:zuko_age < 29 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_zuko
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_zuko_young_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 28 }
+			check_variable = { mtth:zuko_age < 55 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_zuko
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_zuko_adult_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 28 }
+			check_variable = { mtth:zuko_age < 55 }
+			has_country_leader = {
+				character = FIR_zuko
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_zuko_adult_firelord_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 54 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_zuko
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_zuko_old_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:zuko_age > 54 }
+			has_country_leader = {
+				character = FIR_zuko
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_zuko_old_firelord_portrait"
+	}
+}
+
+defined_text = {
+	name = GetAzulaIcon
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age < 4 }
+		}
+		localization_key = "GFX_fire_baby_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 3 }
+			check_variable = { mtth:azula_age < 14 }
+		}
+		localization_key = "GFX_azula_child_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 13 }
+			check_variable = { mtth:azula_age < 29 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_azula
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_azula_young_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 28 }
+			check_variable = { mtth:azula_age < 55 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_azula
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_azula_adult_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 28 }
+			check_variable = { mtth:azula_age < 55 }
+			has_country_leader = {
+				character = FIR_azula
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_azula_adult_firelord_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 54 }
+			NOT = {
+				has_country_leader = {
+					character = FIR_azula
+					ruling_only = yes
+				}
+			}
+		}
+		localization_key = "GFX_azula_old_portrait"
+	}
+	text = {
+		trigger = {
+			check_variable = { mtth:azula_age > 54 }
+			has_country_leader = {
+				character = FIR_azula
+				ruling_only = yes
+			}
+		}
+		localization_key = "GFX_azula_old_firelord_portrait"
 	}
 }
