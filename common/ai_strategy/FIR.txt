@@ -829,6 +829,210 @@ FIR_deploy_some_units = {
 	
 }
 
+FIR_prepare_for_war_with_watertribes = {
+	allowed = {tag = FIR}
+	enable = {
+		date > 26.6.1
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = NWT
+		value = 8
+	}
+	ai_strategy = {
+		type = prepare_for_war
+		id = SWT
+		value = 8
+	}
+}
+FIR_naval_war_with_NWT = {
+	allowed = {tag = FIR}
+	enable = {
+		FIR = {
+			has_war_with = NWT
+		}
+	}
+	abort = {
+		OR = {
+			FIR = {enemies_naval_strength_ratio > 5}
+			AND = {
+					NWT = {
+						has_navy_size = {
+							size  < 5
+						}
+					}
+					SWT = {
+						has_navy_size = {
+							size  < 5
+						}
+					}
+					FIR = {
+						has_navy_size = {
+							size  > 10
+						}
+					}
+				}	
+		}
+	}
+	ai_strategy = {
+		type = area_priority
+		id = NWT_coastal_waters
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = NWT
+		value = 0
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 48
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 47
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 46
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 56
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_PATROL
+		value = -100
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_STRIKE_FORCE
+		value = 0
+	}
+}
+FIR_naval_war_with_SWT = {
+	allow = {tag = FIR}
+	enable = {
+		FIR = {
+			has_war_with = SWT
+		}
+	}
+	abort = {
+		OR = {
+			FIR = {enemies_naval_strength_ratio > 5}
+			AND = {
+					NWT = {
+						has_navy_size = {
+							size  < 5
+						}
+					}
+					SWT = {
+						has_navy_size = {
+							size  < 5
+						}
+					}
+					FIR = {
+						has_navy_size = {
+							size  > 10
+						}
+					}
+				}	
+		}
+	}
+	ai_strategy = {
+		type = area_priority
+		id = SWT_coastal_waters
+		value = 50
+	}
+	ai_strategy = {
+		type = invade
+		id = SWT
+		value = 0
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 168
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 157
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 179 
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 145
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 143
+		value = 70
+	}
+	ai_strategy = {
+		type = strike_force_home_base
+		id = 34
+		value = 70
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_PATROL
+		value = -100
+	}
+	ai_strategy = {
+		type = naval_mission_threshold
+		id = MISSION_STRIKE_FORCE
+		value = 0
+	}
+}
+FIR_invade_NWT_stage_1 = {
+	allow = {tag = FIR}
+	enable = {
+		NWT = has_navy_size < 5
+		SWT = has_navy_size < 5
+		FIR = has_navy_size > 10
+	}
+	abort = {
+		count_triggers = {
+			amount = 2
+			FIR = {has_full_control_of_state = 30}
+			FIR = {has_full_control_of_state = 21}
+			FIR = {has_full_control_of_state = 18}
+		}
+	}
+	ai_strategy = {
+		type = invade
+		id = NWT
+		value = 100
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 30
+		value = 5
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 21
+		value = 5
+	}
+	ai_strategy = {
+		type = invasion_unit_request
+		state = 18
+		value = 5
+	}
+}
+
+
 Siege_Invasions = {
 	enable = {
 		date > 106.2.4

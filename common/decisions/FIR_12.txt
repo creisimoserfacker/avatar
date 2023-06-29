@@ -1020,6 +1020,9 @@ FIR_conquest_category = {
 		}
 
         fire_only_once = yes
+		ai_will_do = {
+			base = 100
+			}
 	}
 
 	war_with_southern_watertribe = {
@@ -1057,10 +1060,136 @@ FIR_conquest_category = {
 		}
 
         fire_only_once = yes
+		ai_will_do = {
+			base = 100
+			}
 	}
 
 
+	war_with_northern_air_nomads = {
+		icon = war
 
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_global_flag = north_temple_survived	
+			}
+		available = {
+            date > 40.1.1
+            has_global_flag = air_nomad_genocide
+		}
+
+		cost = 100
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = NAT
+				type = annex_everything
+			}
+		}
+
+        fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+	}
+	war_with_eastern_air_nomads = {
+		icon = war
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_global_flag = east_temple_survived	
+			}
+		available = {
+            date > 40.1.1
+            has_global_flag = air_nomad_genocide
+		}
+
+		cost = 100
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = EAT
+				type = annex_everything
+			}
+		}
+
+        fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+	}
+	war_with_western_air_nomads = {
+		icon = war
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_global_flag = west_temple_survived
+			}
+		available = {
+            date > 40.1.1
+            has_global_flag = air_nomad_genocide
+		}
+
+		cost = 100
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = WAT
+				type = annex_everything
+			}
+		}
+
+        fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+	}
+	war_with_southern_air_nomads = {
+		icon = war
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_global_flag = south_temple_survived	
+			}
+		available = {
+            date > 40.1.1
+            has_global_flag = air_nomad_genocide
+		}
+
+		cost = 100
+		days_remove = 30
+		complete_effect = {
+			
+		}
+		remove_effect = {
+			declare_war_on = {
+				target = SAT
+				type = annex_everything
+			}
+		}
+
+        fire_only_once = yes
+		ai_will_do = {
+			base = 100
+		}
+	}
 }
 
 FIR_civil_decision_category = {
@@ -2498,6 +2627,34 @@ air_genocide_category = {
 					}
 				}
 				set_global_flag = south_temple_survived
+			}
+		}
+		if = {
+			limit = {has_global_flag = south_temple_survived}
+			add_to_array = {
+				array = Airnomad_genocide_survivors
+				value = SAT
+			}
+		}
+		if = {
+			limit = {has_global_flag = east_temple_survived}
+			add_to_array = {
+				array = Airnomad_genocide_survivors
+				value = EAT
+			}
+		}
+		if = {
+			limit = {has_global_flag = west_temple_survived}
+			add_to_array = {
+				array = Airnomad_genocide_survivors
+				value = WAT
+			}
+		}
+		if = {
+			limit = {has_global_flag = north_temple_survived}
+			add_to_array = {
+				array = Airnomad_genocide_survivors
+				value = NAT
 			}
 		}
 
