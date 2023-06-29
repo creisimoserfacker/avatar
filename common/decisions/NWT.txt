@@ -47,6 +47,17 @@ NWT_tribe_union = {
 				}
 			}
 		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				NWT = {
+					has_equipment = { spear_equipment > 200 }
+					has_equipment = { heavy_armor_equipment > 200 }
+					
+				}
+			add = 100	
+			}
+		}
 	}
 
 	NWT_united_hunter_organisation = {
@@ -101,7 +112,18 @@ NWT_tribe_union = {
 				set_state_flag = NWT_hunter_group
 			}
 		}
-
+		ai_will_do = {
+			base = 0
+			modifier = {
+				NWT = {
+					has_equipment = { spear_equipment > 399 }
+					has_equipment = { heavy_armor_equipment > 399 }
+					
+				}
+				
+			}
+			add = 80
+		}
 	}
 
 	NWT_hunters_mission = {
@@ -193,6 +215,7 @@ NWT_tribe_union = {
 				set_state_flag = NWT_hunter_group
 			}
 		}
+		ai_will_do = {base = 80}
 	}
 
 	NWT_fight_riot_mission = {
@@ -274,6 +297,7 @@ NWT_tribe_union = {
 				remove_dynamic_modifier = { modifier = watertribe_riots }
 			}
 		}
+		ai_will_do = {base = 100}
 	}
 
 	NWT_artisan_investment = {
@@ -742,6 +766,7 @@ NWT_tribe_union = {
 			tag = NWT
 			NOT = {
 				has_country_flag = unity_buildup_in_progress
+				has_country_flag = NWT_unification_minister
 			}
 		}
 		
@@ -769,6 +794,16 @@ NWT_tribe_union = {
 			clr_country_flag = unity_buildup_in_progress
 			set_country_flag = NWT_unification_minister
 			custom_effect_tooltip = NWT_appoint_unification_minister_tt
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				NOT = {
+				NWT = {has_idea = one_tribe}
+				}
+				add = 100
+			}
+			
 		}
 	}
 
@@ -812,6 +847,17 @@ NWT_tribe_union = {
 					has_dynamic_modifier = { modifier = watertribe_barbarians }
 				}
 				remove_dynamic_modifier = { modifier = watertribe_barbarians }
+			}
+		}
+		ai_will_do = {
+			base = 0
+			modifier = {
+				NWT = {
+					has_equipment = { spear_equipment > 399 }
+					has_equipment = { heavy_armor_equipment > 399 }
+					
+				}
+				add = 80
 			}
 		}
 	}
