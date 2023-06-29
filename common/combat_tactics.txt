@@ -37,7 +37,7 @@ tactic_live_of_the_land = {
 	
 	countered_by = tactic_scorched_earth
 
-	attacker = 0.05
+	defender = -0.2
 }
 
 tactic_scorched_earth = {
@@ -58,7 +58,7 @@ tactic_scorched_earth = {
 	
 	countered_by = tactic_establish_supply_routes
 
-	defender = 0.05
+	attacker = -0.2
 }
 
 tactic_establish_supply_routes = {
@@ -121,7 +121,8 @@ tactic_offer_bait = {
 	
 	countered_by = tactic_avoid_confrontation
 
-	attacker = 0.05
+	attacker = 0.15
+	defender = 0.05
 }
 
 tactic_avoid_confrontation = {
@@ -142,7 +143,8 @@ tactic_avoid_confrontation = {
 	
 	countered_by = tactic_mounted_raid
 
-	defender = 0.05
+	attacker = -0.15
+	defender = -0.1
 }
 
 tactic_mounted_raid = {
@@ -164,7 +166,8 @@ tactic_mounted_raid = {
 	
 	countered_by = tactic_tight_formation
 
-	attacker = 0.05
+	attacker = 0.15
+	attacker_movement_speed = 0.5
 }
 
 tactic_tight_formation = {
@@ -186,7 +189,7 @@ tactic_tight_formation = {
 	
 	countered_by = tactic_skirmish_harassment
 
-	defender = 0.05
+	defender = 0.15
 }
 
 tactic_skirmish_harassment = {
@@ -209,6 +212,7 @@ tactic_skirmish_harassment = {
 	countered_by = tactic_spread_formation
 
 	attacker = 0.05
+	defender = -0.05
 }
 
 tactic_spread_formation = {
@@ -230,6 +234,7 @@ tactic_spread_formation = {
 	
 	countered_by = tactic_mounted_raid
 
+	attacker = -0.05
 	defender = 0.05
 }
 
@@ -252,7 +257,8 @@ tactic_concentrated_advance = {
 	
 	countered_by = tactic_encircle_and_destroy
 
-	attacker = 0.05
+	attacker = 0.15
+	defender = 0.05
 }
 
 tactic_encircle_and_destroy = {
@@ -275,6 +281,7 @@ tactic_encircle_and_destroy = {
 	countered_by = tactic_dispersed_advance
 
 	defender = 0.05
+	combat_width = -0.2
 }
 
 tactic_dispersed_advance = {
@@ -297,6 +304,7 @@ tactic_dispersed_advance = {
 	countered_by = tactic_lay_traps
 
 	attacker = 0.05
+	defender = -0.1
 }
 
 tactic_lay_traps = {
@@ -318,6 +326,7 @@ tactic_lay_traps = {
 	
 	countered_by = tactic_concentrated_advance
 
+	attacker = -0.1
 	defender = 0.05
 }
 
@@ -340,7 +349,7 @@ tactic_valley_advance = {
 	
 	countered_by = tactic_valley_ambush
 
-	attacker = 0.05
+	attacker = 0.1
 }
 
 tactic_valley_ambush = {
@@ -362,7 +371,7 @@ tactic_valley_ambush = {
 	
 	countered_by = tactic_highland_advance
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_highland_advance = {
@@ -406,7 +415,7 @@ tactic_hold_high_ground = {
 	
 	countered_by = tactic_valley_advance
 
-	defender = 0.05
+	defender = 0.25
 }
 
 tactic_infiltration = {
@@ -428,7 +437,7 @@ tactic_infiltration = {
 	
 	countered_by = tactic_civilian_support
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_civilian_support = {
@@ -450,7 +459,7 @@ tactic_civilian_support = {
 	
 	countered_by = tactic_sabotage
 
-	defender = 0.05
+	defender = 0.15
 }
 
 tactic_sabotage = {
@@ -473,6 +482,7 @@ tactic_sabotage = {
 	countered_by = tactic_sentry_guard
 
 	attacker = 0.05
+	defender = -0.1
 }
 
 tactic_sentry_guard = {
@@ -494,7 +504,7 @@ tactic_sentry_guard = {
 	
 	countered_by = tactic_infiltration
 
-	defender = 0.05
+	defender = 0.25
 }
 
 
@@ -538,6 +548,7 @@ tactic_approach_bridge = {
 	#countered_by = tactic_lay_traps
 
 	attacker = 0.05
+	attacker_movement_speed = 0.25
 }
 
 tactic_prepare_bridge_defense = {
@@ -566,7 +577,7 @@ tactic_prepare_bridge_defense = {
 	
 	#countered_by = tactic_lay_traps
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_take_bridge = {
@@ -589,7 +600,7 @@ tactic_take_bridge = {
 	
 	countered_by = tactic_hold_the_bridge
 
-	attacker = 0.05
+	attacker = 0.25
 }
 
 tactic_hold_the_bridge = {
@@ -609,7 +620,7 @@ tactic_hold_the_bridge = {
 	
 	countered_by = tactic_attack_bridge
 
-	defender = 0.05
+	defender = 0.15
 }
 
 tactic_attack_bridge = {
@@ -629,7 +640,7 @@ tactic_attack_bridge = {
 	
 	countered_by = tactic_hold_the_bridge
 
-	attacker = 0.05
+	attacker = 0.1
 }
 
 tactic_defend_bridge = {
@@ -649,7 +660,7 @@ tactic_defend_bridge = {
 	
 	countered_by = tactic_take_bridge
 
-	defender = 0.05
+	defender = 0.2
 }
 
 tactic_destroy_the_bridge = {
@@ -672,7 +683,9 @@ tactic_destroy_the_bridge = {
 
 	phase = destroyed_bridge
 
+	attacker = -0.75
 	defender = 0.05
+	attacker_movement_speed = -1
 }
 
 tactic_defend_bridge_attacker = {
@@ -692,7 +705,7 @@ tactic_defend_bridge_attacker = {
 	
 	countered_by = tactic_retake_bridge
 
-	attacker = 0.05
+	attacker = 0.2
 }
 
 tactic_retake_bridge = {
@@ -715,7 +728,7 @@ tactic_retake_bridge = {
 	
 	countered_by = tactic_hold_the_bridge_attacker
 
-	defender = 0.05
+	defender = 0.25
 }
 
 tactic_hold_the_bridge_attacker = {
@@ -735,7 +748,7 @@ tactic_hold_the_bridge_attacker = {
 	
 	countered_by = tactic_reckless_assault
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_reckless_assault = {
@@ -755,7 +768,8 @@ tactic_reckless_assault = {
 	
 	countered_by = tactic_defend_bridge_attacker
 
-	defender = 0.05
+	attacker = 0.05
+	defender = 0.25
 }
 
 tactic_ford_the_river = {
@@ -775,7 +789,8 @@ tactic_ford_the_river = {
 	
 	countered_by = tactic_fording_harassment
 
-	attacker = 0.05
+	attacker = 0.1
+	defender = 0.05
 }
 
 tactic_fording_harassment = {
@@ -795,7 +810,8 @@ tactic_fording_harassment = {
 	
 	countered_by = tactic_improvised_bridge
 
-	defender = 0.05
+	attacker = -0.05
+	defender = 0.15
 }
 
 tactic_improvised_bridge = {
@@ -819,6 +835,8 @@ tactic_improvised_bridge = {
 	countered_by = tactic_hold_the_riverbank
 
 	attacker = 0.05
+	defender = -0.2
+	attacker_movement_speed = 0.5
 }
 
 tactic_hold_the_riverbank = {
@@ -838,7 +856,9 @@ tactic_hold_the_riverbank = {
 	
 	countered_by = tactic_ford_the_river
 
-	defender = 0.05
+	attacker = -0.05
+	defender = 0.15
+	attacker_movement_speed = -0.5
 }
 
 
@@ -1367,9 +1387,9 @@ tactic_invade_the_woodland = {
 	
 	countered_by = tactic_woodland_ambush
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 1
+	defender = 0.25
+	combat_width = 2.5
 }
 
 tactic_woodland_ambush = {
@@ -1390,9 +1410,9 @@ tactic_woodland_ambush = {
 	
 	countered_by = tactic_destroy_the_forest
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = -0.25
+	defender = 1
+	combat_width = 3
 }
 
 tactic_destroy_the_forest = {
@@ -1413,9 +1433,9 @@ tactic_destroy_the_forest = {
 	
 	countered_by = tactic_delay_tactics
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 1.5
+	defender = -0.2
+	combat_width = 4
 }
 
 tactic_delay_tactics = {
@@ -1437,7 +1457,7 @@ tactic_delay_tactics = {
 	countered_by = tactic_invade_the_woodland
 
 	attacker = -0.5
-	defender = 2
+	defender = 0.5
 	combat_width = 4.5
 }
 
@@ -1459,9 +1479,9 @@ tactic_concentration_of_force = {
 	
 	countered_by = tactic_provoque_an_avalanche
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 1
+	defender = -0.1
+	combat_width = 2.5
 }
 
 tactic_provoque_an_avalanche = {
@@ -1482,9 +1502,9 @@ tactic_provoque_an_avalanche = {
 	
 	countered_by = tactic_spread_of_force
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = -0.75
+	defender = 10
+	combat_width = -0.5
 }
 
 tactic_spread_of_force = {
@@ -1505,9 +1525,9 @@ tactic_spread_of_force = {
 	
 	countered_by = tactic_defeat_in_detail
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 1
+	defender = -0.2
+	combat_width = 3
 }
 
 tactic_defeat_in_detail = {
@@ -1528,9 +1548,9 @@ tactic_defeat_in_detail = {
 	
 	countered_by = tactic_concentration_of_force
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = -0.2
+	defender = 1
+	combat_width = 1
 }
 
 tactic_take_the_streets = {
@@ -1551,9 +1571,9 @@ tactic_take_the_streets = {
 	
 	countered_by = tactic_hold_chokepoints
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 1.75
+	defender = -0.2
+	combat_width = 2
 }
 
 tactic_hold_chokepoints = {
@@ -1574,9 +1594,9 @@ tactic_hold_chokepoints = {
 	
 	countered_by = tactic_take_the_buildings
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = -0.25
+	defender = 2.5
+	combat_width = 1.25
 }
 
 tactic_take_the_buildings = {
@@ -1597,9 +1617,9 @@ tactic_take_the_buildings = {
 	
 	countered_by = tactic_contest_the_buildings
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 4
+	defender = 1
+	combat_width = 5
 }
 
 tactic_contest_the_buildings = {
@@ -1620,9 +1640,9 @@ tactic_contest_the_buildings = {
 	
 	countered_by = tactic_destroy_the_buildings
 
-	attacker = -0.5
+	attacker = 1
 	defender = 2
-	combat_width = 4.5
+	combat_width = 5
 }
 
 tactic_destroy_the_buildings = {
@@ -1643,9 +1663,9 @@ tactic_destroy_the_buildings = {
 	
 	countered_by = tactic_rubble_barricades
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = 3
+	defender = 2
+	combat_width = 6
 }
 
 tactic_rubble_barricades = {
@@ -1666,9 +1686,9 @@ tactic_rubble_barricades = {
 	
 	countered_by = tactic_starve_out_defenders
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = 2
+	defender = 3
+	combat_width = 6
 }
 
 tactic_starve_out_defenders = {
@@ -1689,9 +1709,9 @@ tactic_starve_out_defenders = {
 	
 	countered_by = tactic_open_supply_lines
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 4.5
+	attacker = -0.75
+	defender = -0.8
+	combat_width = 10
 }
 
 tactic_open_supply_lines = {
@@ -1712,9 +1732,9 @@ tactic_open_supply_lines = {
 	
 	countered_by = tactic_take_the_streets
 
-	attacker = -0.5
-	defender = 2
-	combat_width = 4.5
+	attacker = -0.75
+	defender = 1
+	combat_width = 1
 }
 
 
@@ -1785,9 +1805,9 @@ tactic_corner_routers = {
 	
 	countered_by = tactic_negotiate_surrender
 
-	attacker = 2
-	defender = -0.5
-	combat_width = 10
+	attacker = 2.5
+	defender = -0.75
+	combat_width = 15
 }
 
 tactic_negotiate_surrender = {
@@ -1829,8 +1849,8 @@ tactic_take_no_prisoners = {
 	}
 	picture = take_no_prisoners
 
-	attacker = 2
-	defender = -0.5
+	attacker = 1
+	defender = 2.5
 	combat_width = 10
 }
 
@@ -1854,7 +1874,7 @@ tactic_reorganise_the_army = {
 
 	attacker = -0.5
 	defender = 2
-	combat_width = 10
+	combat_width = 7.5
 }
 
 tactic_run_down_the_enemy = {
@@ -1918,8 +1938,8 @@ tactic_last_stand = {
 	}
 	picture = last_stand
 
-	attacker = 10
-	defender = 10
+	attacker = 6
+	defender = 9
 	combat_width = 10
 }
 
@@ -1943,6 +1963,7 @@ tactic_send_refugee_wave = {
 	attacker = -1
 	defender = -1
 	combat_width = 10
+	attacker_movement_speed = -1
 }
 
 
@@ -1973,7 +1994,9 @@ tactic_approach_siege = {
 
 	phase = siege
 
-	attacker = 0.05
+	attacker = -0.25
+	defender = -0.25
+	attacker_movement_speed = 0.1
 }
 
 
@@ -1995,7 +2018,9 @@ tactic_dig_trenches = {
 
 	countered_by = tactic_expell_civilians
 
-	attacker = 0.05
+	attacker = -0.5
+	defender = -0.5
+	attacker_movement_speed = -0.5
 }
 
 tactic_sally_out = {
@@ -2015,7 +2040,7 @@ tactic_sally_out = {
 
 	countered_by = tactic_dig_trenches
 
-	defender = 0.05
+	defender = 0.2
 }
 
 tactic_artillery_bombardment = {
@@ -2035,7 +2060,7 @@ tactic_artillery_bombardment = {
 
 	countered_by = tactic_reinforce_defenses
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_reinforce_defenses = {
@@ -2055,7 +2080,7 @@ tactic_reinforce_defenses = {
 
 	countered_by = tactic_siege_towers
 
-	defender = 0.05
+	attacker = -0.25
 }
 
 tactic_siege_towers = {
@@ -2075,7 +2100,7 @@ tactic_siege_towers = {
 
 	countered_by = tactic_elevated_towers
 
-	defender = 0.05
+	attacker = 0.2
 }
 
 tactic_elevated_towers = {
@@ -2095,7 +2120,7 @@ tactic_elevated_towers = {
 
 	countered_by = tactic_artillery_bombardment
 
-	defender = 0.05
+	defender = 0.15
 }
 
 tactic_send_forage_parties = {
@@ -2115,7 +2140,7 @@ tactic_send_forage_parties = {
 
 	countered_by = tactic_sally_out
 
-	attacker = 0.05
+	defender = -0.1
 }
 
 tactic_expell_civilians = {
@@ -2135,7 +2160,9 @@ tactic_expell_civilians = {
 
 	countered_by = tactic_send_forage_parties
 
+	attacker = -0.5
 	defender = 0.05
+	attacker_movement_speed = -1
 }
 
 tactic_assault_the_walls = {
@@ -2156,7 +2183,7 @@ tactic_assault_the_walls = {
 
 	phase = siege_combat
 
-	attacker = 0.05
+	attacker = 0.1
 }
 
 tactic_defend_the_walls = {
@@ -2177,7 +2204,7 @@ tactic_defend_the_walls = {
 
 	phase = siege_combat
 
-	defender = 0.05
+	defender = 0.1
 }
 
 
@@ -2200,7 +2227,7 @@ tactic_scale_the_walls = {
 
 	countered_by = tactic_missile_harassment
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_missile_harassment = {
@@ -2220,7 +2247,7 @@ tactic_missile_harassment = {
 
 	countered_by = tactic_breach_the_wall
 
-	defender = 0.05
+	defender = 0.15
 }
 
 tactic_breach_the_wall = {
@@ -2240,7 +2267,8 @@ tactic_breach_the_wall = {
 
 	countered_by = tactic_hold_the_breach
 
-	attacker = 0.05
+	attacker = 0.25
+	defender = -0.05
 }
 
 tactic_hold_the_breach = {
@@ -2260,6 +2288,7 @@ tactic_hold_the_breach = {
 
 	countered_by = tactic_ram_the_gates
 
+	attacker = -0.25
 	defender = 0.05
 }
 
@@ -2280,7 +2309,7 @@ tactic_ram_the_gates = {
 
 	countered_by = tactic_reinforce_the_gates
 
-	attacker = 0.05
+	attacker = 0.1
 }
 
 tactic_reinforce_the_gates = {
@@ -2300,6 +2329,7 @@ tactic_reinforce_the_gates = {
 
 	countered_by = tactic_scale_the_walls
 
+	attacker = -0.1
 	defender = 0.05
 }
 
@@ -2318,7 +2348,7 @@ tactic_break_into_the_fortress = {
 	}
 	picture = break_into_the_fortress
 
-	attacker = 0.05
+	attacker = 0.2
 }
 
 tactic_retreat_to_the_fortress = {
@@ -2341,7 +2371,8 @@ tactic_retreat_to_the_fortress = {
 
 	countered_by = tactic_break_into_the_fortress
 
-	defender = 0.05
+	attacker = -0.5
+	defender = 0.5
 }
 
 tactic_call_off_assault = {
@@ -2362,7 +2393,9 @@ tactic_call_off_assault = {
 
 	phase = siege
 
-	attacker = 0.05
+	attacker = -0.75
+	defender = -0.5
+	attacker_movement_speed = -0.5
 }
 
 tactic_repel_assault = {
@@ -2383,7 +2416,9 @@ tactic_repel_assault = {
 
 	phase = siege
 
-	defender = 0.05
+	attacker = -0.15
+	defender = 0.15
+	attacker_movement_speed = -0.5
 }
 
 
@@ -2410,6 +2445,8 @@ tactic_secure_the_breach = {
 	countered_by = tactic_retake_the_breach
 
 	attacker = 0.05
+	defender = -0.15
+	attacker_movement_speed = 0.05
 }
 
 tactic_retake_the_breach = {
@@ -2429,7 +2466,7 @@ tactic_retake_the_breach = {
 
 	countered_by = tactic_secure_the_gates
 
-	defender = 0.05
+	defender = 0.25
 }
 
 tactic_secure_the_gates = {
@@ -2449,7 +2486,9 @@ tactic_secure_the_gates = {
 
 	countered_by = tactic_retake_the_gates
 
-	attacker = 0.05
+	attacker = 0.1
+	defender = -0.2
+	attacker_movement_speed = 0.05
 }
 
 tactic_retake_the_gates = {
@@ -2469,7 +2508,8 @@ tactic_retake_the_gates = {
 
 	countered_by = tactic_secure_the_walls
 
-	defender = 0.05
+	attacker = -0.1
+	defender = 0.1
 }
 
 tactic_secure_the_walls = {
@@ -2490,6 +2530,8 @@ tactic_secure_the_walls = {
 	countered_by = tactic_retake_the_walls
 
 	attacker = 0.05
+	defender = -0.05
+	attacker_movement_speed = -0.05
 }
 
 tactic_retake_the_walls = {
@@ -2529,7 +2571,7 @@ tactic_assault_the_fortress = {
 
 	countered_by = tactic_fortress_last_stand
 
-	attacker = 0.05
+	attacker = 0.25
 }
 
 tactic_fortress_last_stand = {
@@ -2547,7 +2589,7 @@ tactic_fortress_last_stand = {
 	}
 	picture = fortress_last_stand
 
-	defender = 0.05
+	defender = 0.75
 }
 
 tactic_repell_the_assault = {
@@ -2568,7 +2610,7 @@ tactic_repell_the_assault = {
 
 	phase = siege_combat
 
-	defender = 0.05
+	defender = 0.15
 }
 
 
@@ -2615,7 +2657,7 @@ tactic_naval_bombardment = {
 
 	countered_by = tactic_coastal_dugouts
 
-	attacker = 0.05
+	attacker = 0.5
 }
 
 tactic_artillery_salution = {
@@ -2633,7 +2675,7 @@ tactic_artillery_salution = {
 	}
 	picture = artillery_salution
 
-	defender = 0.05
+	defender = 0.25
 }
 
 tactic_sail_up_the_river = {
@@ -2656,7 +2698,7 @@ tactic_sail_up_the_river = {
 
 	countered_by = tactic_riverside_harassment
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_riverside_harassment = {
@@ -2676,7 +2718,7 @@ tactic_riverside_harassment = {
 
 	countered_by = tactic_naval_bombardment
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_beach_landing = {
@@ -2700,7 +2742,7 @@ tactic_beach_landing = {
 
 	countered_by = tactic_beach_defense
 
-	attacker = 0.05
+	attacker = 0.15
 }
 
 tactic_beach_defense = {
@@ -2721,7 +2763,7 @@ tactic_beach_defense = {
 
 	countered_by = tactic_naval_bombardment
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_concealed_landing = {
@@ -2745,7 +2787,7 @@ tactic_concealed_landing = {
 
 	countered_by = tactic_scout_the_coastlines
 
-	attacker = 0.05
+	defender = -0.9
 }
 
 tactic_scout_the_coastlines = {
@@ -2766,7 +2808,7 @@ tactic_scout_the_coastlines = {
 
 	countered_by = tactic_naval_bombardment
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_climb_the_cliffs = {
@@ -2790,7 +2832,8 @@ tactic_climb_the_cliffs = {
 
 	countered_by = tactic_harass_cliff_climbers
 
-	attacker = 0.05
+	attacker = -0.25
+	defender = -0.75
 }
 
 tactic_harass_cliff_climbers = {
@@ -2811,7 +2854,8 @@ tactic_harass_cliff_climbers = {
 
 	countered_by = tactic_naval_bombardment
 
-	defender = 0.05
+	attacker = -0.5
+	defender = 0.25
 }
 
 tactic_take_the_harbour = {
@@ -2835,7 +2879,8 @@ tactic_take_the_harbour = {
 
 	countered_by = tactic_destroy_the_harbour
 
-	attacker = 0.05
+	attacker = 0.25
+	defender = -0.05
 }
 
 tactic_destroy_the_harbour = {
@@ -2856,7 +2901,8 @@ tactic_destroy_the_harbour = {
 
 	countered_by = tactic_land_next_to_the_city
 
-	defender = 0.05
+	attacker = -0.05
+	defender = 0.25
 }
 
 tactic_land_next_to_the_city = {
@@ -2880,7 +2926,7 @@ tactic_land_next_to_the_city = {
 
 	countered_by = tactic_protect_city_outskirts
 
-	attacker = 0.05
+	attacker = 0.1
 }
 
 tactic_protect_city_outskirts = {
@@ -2901,7 +2947,7 @@ tactic_protect_city_outskirts = {
 
 	countered_by = tactic_take_the_harbour
 
-	defender = 0.05
+	defender = 0.1
 }
 
 tactic_coastal_dugouts = {
@@ -2922,7 +2968,9 @@ tactic_coastal_dugouts = {
 	}
 	picture = beach_defense
 
+	attacker = -0.25
 	defender = 0.05
+	attacker_movement_speed = -0.15
 }
 
 
@@ -2948,7 +2996,8 @@ tactic_hold_the_landing_grounds = {
 
 	countered_by = tactic_encircle_landed_troops
 
-	attacker = 0.05
+	attacker = 0.1
+	combat_width = 0.25
 }
 
 tactic_encircle_landed_troops = {
@@ -2968,7 +3017,8 @@ tactic_encircle_landed_troops = {
 
 	countered_by = tactic_coastal_breakthrough
 
-	defender = 0.05
+	defender = 0.1
+	combat_width = 0.5
 }
 
 tactic_coastal_breakthrough = {
@@ -2988,7 +3038,8 @@ tactic_coastal_breakthrough = {
 
 	countered_by = tactic_destroy_enemy_transports
 
-	attacker = 0.05
+	attacker = 0.25
+	combat_width = -0.75
 }
 
 tactic_destroy_enemy_transports = {
@@ -3011,5 +3062,6 @@ tactic_destroy_enemy_transports = {
 
 	countered_by = tactic_hold_the_landing_grounds
 
-	defender = 0.05
+	defender = 0.1
+	combat_width = 0.5
 }

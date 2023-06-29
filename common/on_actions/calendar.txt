@@ -60,6 +60,11 @@ on_actions = {
 			### peoples initiative
 			set_variable = { initiative_chance = modifier@peoples_initiative }
 			multiply_variable = { initiative_chance = 100 }
+			clamp_variable = { 
+				var = initiative_chance
+				min = 0
+				max = 100
+			}
 
 			random = {
 				chance = initiative_chance
@@ -232,24 +237,7 @@ on_actions = {
 					}
 					news_event = { id = calendar.5 days = 21 }
 				}
-
 			}
-
-
-			#### water full moon
-
-			#if = {
-			#	limit = {
-			#		has_idea = water_nation
-			#	}
-			#	swap_ideas = {
-			#		remove_idea = half_moon
-			#		add_idea = full_moon
-			#	}
-			#	hidden_effect = {
-			#		news_event = { id = calendar.1 days = 4 }
-			#	}
-			#}
 		}
 	}
 

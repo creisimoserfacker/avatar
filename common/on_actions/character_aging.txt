@@ -1,0 +1,185 @@
+
+on_actions = {
+
+	on_daily_FIR = {
+
+		effect = {
+
+
+
+			################## azulon
+			if = {
+				limit = {
+					check_variable = { mtth:azulon_age > 3 }
+					check_variable = { azulon_x = 300 }
+				}
+				set_variable = { azulon_x = 190 }
+				set_variable = { azulon_y = 6 }
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:azulon_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_azulon
+					army = { large = "GFX_Portrait_Azulon_young" }
+					civilian = { large = "GFX_Portrait_Azulon_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:azulon_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_azulon
+					army = { large = "GFX_Portrait_Azulon_old" }
+					civilian = { large = "GFX_Portrait_Azulon_old" }
+				}
+			}
+
+
+
+
+			################### iroh
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { iroh_x = 300 }
+				}
+				set_variable = { iroh_x = 220 }
+				set_variable = { iroh_y = 6 }
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_iroh
+					army = { large = "GFX_Portrait_Iroh_young" }
+					civilian = { large = "GFX_Portrait_Iroh_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_iroh
+					army = { large = "GFX_Portrait_Iroh_old" }
+					civilian = { large = "GFX_Portrait_Iroh_old" }
+				}
+			}
+
+
+			################### ozai
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age > 3 }
+					check_variable = { ozai_x = 300 }
+				}
+				set_variable = { ozai_x = 160 }
+				set_variable = { ozai_y = 6 }
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age < 55 }
+				}
+				set_portraits = {
+					character = FIR_ozai
+					army = { large = "GFX_Portrait_Ozai_young" }
+					civilian = { large = "GFX_Portrait_Ozai_young" }
+				}
+			}
+			if = {
+				limit = {
+					check_variable = { mtth:ozai_age > 54 }
+				}
+				set_portraits = {
+					character = FIR_ozai
+					army = { large = "GFX_Portrait_Ozai_old" }
+					civilian = { large = "GFX_Portrait_Ozai_old" }
+				}
+			}
+
+
+			###### crowded family 1
+
+			if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { mtth:ozai_age > 3 }
+					has_character = FIR_azulon
+					has_character = FIR_ilah
+				}
+				set_variable = { azulon_x = 60 }
+				set_variable = { azulon_y = 6 }
+
+				set_variable = { ozai_x = 140 }
+				set_variable = { ozai_y = 6 }
+
+				set_variable = { iroh_x = 240 }
+				set_variable = { iroh_y = 6 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { mtth:ozai_age > 3 }
+					has_character = FIR_azulon
+					NOT = {
+						has_character = FIR_ilah
+					}
+				}
+				set_variable = { azulon_x = 180 }
+				set_variable = { azulon_y = 6 }
+
+				set_variable = { ozai_x = 40 }
+				set_variable = { ozai_y = 6 }
+
+				set_variable = { iroh_x = 320 }
+				set_variable = { iroh_y = 6 }
+			}
+			else_if = {
+				limit = {
+					check_variable = { mtth:iroh_age > 3 }
+					check_variable = { mtth:ozai_age > 3 }
+					NOT = {
+						has_character = FIR_azulon
+						has_character = FIR_ilah
+					}
+				}
+
+				set_variable = { ozai_x = 160 }
+				set_variable = { ozai_y = 6 }
+
+				set_variable = { iroh_x = 350 }
+				set_variable = { iroh_y = 6 }
+			}
+
+			if = {
+				limit = {
+					check_variable = { mtth:zuko_age > 3 }
+					check_variable = { mtth:azula_age > 3 }
+					check_variable = { mtth:lu_ten_age > 3 }
+					has_character = FIR_zuko
+					has_character = FIR_azula
+					has_character = FIR_lu_ten
+				}
+
+				set_variable = { zuko_x = 100 }
+				set_variable = { zuko_y = 6 }
+
+				set_variable = { azula_x = 10 }
+				set_variable = { azula_y = 6 }
+
+				set_variable = { lu_ten_x = 360 }
+				set_variable = { lu_ten_y = 6 }
+			}
+
+
+		}
+	}
+
+}

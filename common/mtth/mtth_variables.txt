@@ -29,6 +29,34 @@ core_state_cost = {
 
 }
 
+state_garrison_factor_mtth = {
+	base = 0
+	modifier = {
+		set_temp_variable = { garrison_factor_modifier = 1 }
+		add_to_temp_variable = { garrison_factor_modifier = controller:modifier@garrison_factor_modifier }
+		add_to_temp_variable = { garrison_factor_modifier = modifier@garrison_factor_modifier }
+		clamp_temp_variable = {
+			var = garrison_factor_modifier
+			min = 0.05
+		}
+
+
+		set_temp_variable = { garrison_factor = THIS.state_population_k }
+
+		set_temp_variable = { factor_modifier = 5 }
+		divide_temp_variable = { factor_modifier = garrison_factor_modifier }
+
+		divide_temp_variable = { garrison_factor = factor_modifier }
+		subtract_from_temp_variable = { garrison_factor = 1 }
+		clamp_temp_variable = {
+			var = garrison_factor
+			min = -1
+		}
+
+		add = garrison_factor
+	}
+
+}
 
 state_revolt_mtth = {
 	base = 0
@@ -155,7 +183,7 @@ legitimacy_peoples_initiative = {
 	modifier = {
 		set_temp_variable = { peoples_initiative = centralisation_variable }
 		subtract_from_temp_variable = { peoples_initiative = 50 }
-		divide_temp_variable = { peoples_initiative = 500 }
+		divide_temp_variable = { peoples_initiative = 250 }
 		
 		add = peoples_initiative
 	}

@@ -14,7 +14,7 @@ avatar_age = {
 sozin_age = {
 	base = 0
 	modifier = {
-		set_temp_variable = { sozin_birth = -72 }
+		set_temp_variable = { sozin_birth = -70 }
 		set_temp_variable = { sozin_age = global.year }
 		subtract_from_temp_variable = { sozin_age = sozin_birth }
 
@@ -23,14 +23,14 @@ sozin_age = {
 
 }
 
-sozin_wife_age = {
+elua_age = {
 	base = 0
 	modifier = {
 		set_temp_variable = { sozin_wife_birth = -37 }
-		set_temp_variable = { sozin_wife_age = global.year }
-		subtract_from_temp_variable = { sozin_wife_age = sozin_wife_birth }
+		set_temp_variable = { elua_age = global.year }
+		subtract_from_temp_variable = { elua_age = sozin_wife_birth }
 
-		add = sozin_wife_age
+		add = elua_age
 	}
 }
 
@@ -59,11 +59,77 @@ azulon_age = {
 ilah_age = {
 	base = 0
 	modifier = {
-		set_temp_variable = { ilah_birth = -7 }
+		set_temp_variable = { ilah_birth = 4 }
 		set_temp_variable = { ilah_age = global.year }
 		subtract_from_temp_variable = { ilah_age = ilah_birth }
 		
 		add = ilah_age
 	}
 
+}
+
+iroh_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { iroh_birth = FIR.iroh_birth_event }
+		set_temp_variable = { iroh_age = global.year }
+		subtract_from_temp_variable = { iroh_age = iroh_birth }
+		
+		add = iroh_age
+	}
+}
+
+ozai_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { ozai_birth = FIR.ozai_birth_event }
+		set_temp_variable = { ozai_age = global.year }
+		subtract_from_temp_variable = { ozai_age = ozai_birth }
+		
+		add = ozai_age
+	}
+}
+
+ursa_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { ursa_birth = FIR.ursa_birth_event }
+		set_temp_variable = { ursa_age = global.year }
+		subtract_from_temp_variable = { ursa_age = ursa_birth }
+		
+		add = ursa_age
+	}
+}
+
+lu_ten_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { lu_ten_birth = FIR.lu_ten_birth_event }
+		set_temp_variable = { lu_ten_age = global.year }
+		subtract_from_temp_variable = { lu_ten_age = lu_ten_birth }
+		
+		add = lu_ten_age
+	}
+}
+
+zuko_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { zuko_birth = FIR.zuko_birth_event }
+		set_temp_variable = { zuko_age = global.year }
+		subtract_from_temp_variable = { zuko_age = zuko_birth }
+		
+		add = zuko_age
+	}
+}
+
+azula_age = {
+	base = 0
+	modifier = {
+		set_temp_variable = { azula_birth = FIR.azula_birth_event }
+		set_temp_variable = { azula_age = global.year }
+		subtract_from_temp_variable = { azula_age = azula_birth }
+		
+		add = azula_age
+	}
 }

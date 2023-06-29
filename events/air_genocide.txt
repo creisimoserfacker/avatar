@@ -19,12 +19,19 @@ country_event = {
 			genocide_preparation = 4
 		}
 		ai_chance = {
-			base = 0
+			base = 100
 			modifier = {
 				add = 100
 				has_game_rule = {
 					rule = GENOCIDE_AI_BEHAVIOR
 					option = EARTHKINGDOM_AIR_GENOCIDE
+				}
+			}
+			modifier = {
+				factor = 0
+				has_game_rule = {
+					rule = GENOCIDE_AI_BEHAVIOR
+					option = NO_AIR_GENOCIDE
 				}
 			}
 		}
@@ -36,15 +43,8 @@ country_event = {
 		ai_chance = {
 			base = 100
 			modifier = {
-				add = 100
+				factor = 0
 				is_historical_focus_on = yes
-			}
-			modifier = {
-				factor = 100
-				has_game_rule = {
-					rule = GENOCIDE_AI_BEHAVIOR
-					option = NO_AIR_GENOCIDE
-				}
 			}
 		}
 	}
@@ -1087,7 +1087,7 @@ country_event = {
 		name = air_gen.8.a
 		custom_effect_tooltip = fir_genocide_description
 		hidden_effect = {
-			add_country_leader_trait = secret_genocide_plan
+			#add_country_leader_trait = secret_genocide_plan
 			GIF = {
 				transfer_state = 297
 				

@@ -41,7 +41,7 @@ leader_traits = {
 
 	great_conqueror = {
 		random = no
-		required_garrison_factor = -0.1
+		garrison_factor_modifier = -0.1
 	}
 
 	heir_of_chin = {
@@ -313,6 +313,38 @@ leader_traits = {
 			}
 		}
 	}
+	icon_of_the_firenation = {
+		random = no
+		sprite = 13
+		fire_culture_drift = 0.07
+		stability_factor = 0.02
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = fire_culture
+				}
+				factor = 0
+			}
+		}
+	}
+	guiding_wind_member = {
+		random = no
+		sprite = 13
+		air_culture_drift = 0.04
+		stability_factor = -0.05
+
+		ai_will_do = {
+			factor = 1
+			modifier = {
+				NOT = {
+					has_government = air_culture
+				}
+				factor = 0
+			}
+		}
+	}
 	royalist = {
 		random = no
 		sprite = 13
@@ -333,7 +365,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		earth_culture_drift = 0.2
-		required_garrison_factor = 0.5
+		garrison_factor_modifier = 0.5
 
 		ai_will_do = {
 			factor = 1
@@ -2118,7 +2150,7 @@ leader_traits = {
 		random = no
 		sprite = 15
 		
-		required_garrison_factor = -0.2
+		garrison_factor_modifier = -0.2
 		root_out_resistance_effectiveness_factor = 0.3
 		enemy_operative_detection_chance_factor = 0.25
 		intelligence_agency_defense = 0.15
@@ -2585,7 +2617,7 @@ leader_traits = {
 	spiritual_law = {
 		random = no
 		
-		required_garrison_factor = -0.25
+		garrison_factor_modifier = -0.25
 
 		ai_will_do = {
 			factor = 1

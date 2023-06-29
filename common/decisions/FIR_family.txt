@@ -1,0 +1,464 @@
+
+FIR_royal_family_category = {
+
+	regret_letting_roku_die = {
+
+		icon = fire_mourn
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			has_idea = legacy_of_roku_and_sozin
+			NOT = {
+				has_country_flag = genocide_active
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			has_idea = legacy_of_roku_and_sozin
+			has_country_flag = fire_no_genocide
+		}
+
+		days_remove = 30
+
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		custom_cost_text = honour_cost_50
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+			custom_effect_tooltip = regret_letting_roku_die_ttp
+		}
+
+		remove_effect = {
+			add_stability = 0.1
+			add_war_support = -0.1
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	continue_expansion_plans = {
+
+		icon = fire_expansion
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			NOT = {
+				has_country_flag = fire_no_genocide
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			has_country_flag = genocide_active
+		}
+
+		complete_effect = {
+			swap_ideas = {
+				remove_idea = legacy_of_roku_and_sozin
+				add_idea = ruthless_expansionism
+			}
+			add_trait = {
+				character = FIR_sozin
+				trait = out_of_controll
+				ideology = colonialism
+			}
+
+			custom_effect_tooltip = continue_expansion_plans_ttp
+		}
+
+		cost = 50
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	FIR_succession_crisis = {
+
+		allowed = { always = no }
+
+		icon = fire_succession_crisis
+
+		available = {
+			NOT = {
+				has_country_flag = the_prince_for_a_day
+			}
+		}
+
+		selectable_mission = no
+
+		days_mission_timeout = 365
+		is_good = no
+		fire_only_once = no
+
+		cancel_trigger = {
+			
+		}
+
+		remove_effect = {
+
+		}
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			
+		}
+	}
+
+	name_rhya_heir = {
+
+		icon = fire_rhya_coronation
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_sozin
+				ruling_only = yes
+			}
+			has_country_flag = the_prince_for_a_day
+		}
+		available = {
+			
+		}
+
+		complete_effect = {
+			add_ideas = spirit_princess_rhya
+			clr_country_flag = the_prince_for_a_day
+		}
+
+		cost = 300
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+
+	sozin_reading = {
+
+		icon = book
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_character = FIR_sozin
+			FIR_sozin = {
+				has_character_flag = FIR_character_born
+				NOT = { has_character_flag = FIR_character_death }
+				has_character_flag = literate
+			}
+		}
+		available = {
+			has_character = FIR_sozin
+			FIR_sozin = {
+				has_character_flag = literate
+			}
+		}
+
+
+		complete_effect = {
+			country_event = {
+				id = fir_character.1
+				days = 12
+			}
+		}
+
+		cost = 20
+
+		days_re_enable = 365
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	elua_teach_azulon_reading = {
+
+		icon = book
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_character = FIR_elua
+			check_variable = { mtth:azulon_age > 3 }
+			check_variable = { mtth:azulon_age < 16 }
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+			}
+		}
+		available = {
+			has_character = FIR_elua
+			FIR_azulon = {
+				custom_trigger_tooltip = {
+					tooltip = age_4_tt
+					check_variable = { mtth:azulon_age > 3 }
+				}
+				custom_trigger_tooltip = {
+					tooltip = age_16_max_tt
+					check_variable = { mtth:azulon_age < 16 }
+				}
+			}
+		}
+
+		days_remove = 15#0
+
+		remove_effect = {
+			FIR_azulon = {
+				add_skill_level = 1
+				set_character_flag = literate
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	azulon_firebending_training = {
+
+		icon = fire_violence
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+			}
+			check_variable = { mtth:azulon_age > 3 }
+			check_variable = { mtth:azulon_age < 16 }
+		}
+		available = {
+			FIR_azulon = {
+				custom_trigger_tooltip = {
+					tooltip = age_4_tt
+					check_variable = { mtth:azulon_age > 3 }
+				}
+				custom_trigger_tooltip = {
+					tooltip = age_16_max_tt
+					check_variable = { mtth:azulon_age < 16 }
+				}
+			}
+		}
+
+		complete_effect = {
+			FIR_azulon = {
+				add_attack = 1
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	azulon_reading = {
+
+		icon = book
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_character = FIR_azulon
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+				NOT = { has_character_flag = FIR_character_death }
+				has_character_flag = literate
+			}
+		}
+		available = {
+			has_character = FIR_azulon
+			FIR_azulon = {
+				has_character_flag = literate
+			}
+		}
+
+
+		complete_effect = {
+			country_event = {
+				id = fir_character.2
+				days = 12
+			}
+		}
+
+		cost = 20
+
+		days_re_enable = 365
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	azulon_general = {
+
+		icon = general
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_character = FIR_azulon
+			FIR_azulon = {
+				has_character_flag = FIR_character_born
+				NOT = {
+					has_character_flag = FIR_character_general
+				}
+			}
+		}
+		available = {
+			FIR_azulon = {
+				custom_trigger_tooltip = {
+					tooltip = age_16_tt
+					check_variable = { mtth:azulon_age > 15 }
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+
+			FIR_azulon = {
+				set_character_flag = FIR_character_general
+				custom_effect_tooltip = becomes_general
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		custom_cost_text = honour_cost_50
+		#fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+
+	}
+
+	crown_azulon = {
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_empty_throne
+				ruling_only = yes
+			}
+		}
+		available = {
+			has_country_leader = {
+				character = FIR_empty_throne
+				ruling_only = yes
+			}
+		}
+
+		complete_effect = {
+			promote_character = FIR_azulon
+			remove_ideas = spirit_prince_azulon
+
+			set_variable = { azulon_x = 90 }
+
+			hidden_effect = {
+				country_event = {
+					id = fir_character.6
+					days = 78
+					random_days = 50
+				}
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+	azulon_marry_ilah = {
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				character = FIR_azulon
+				ruling_only = yes
+			}
+			OR = {
+				FIR_ilah = { has_character_flag = in_love_with_azulon }
+				FIR_azulon = { has_character_flag = ilahs_bully }
+			}
+			check_variable = { mtth:ilah_age > 16 }
+			check_variable = { mtth:azulon_age > 16 }
+		}
+		available = {
+			
+		}
+
+		days_remove = 10
+
+		modifier = {
+			expenses_factor = 0.5
+		}
+
+		remove_effect = {
+			
+			country_event = {
+				id = fir_character.8
+				days = 1
+				random_hours = 12
+			}
+
+		}
+
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 110
+		}
+	}
+}

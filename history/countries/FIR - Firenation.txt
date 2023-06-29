@@ -301,8 +301,18 @@ if = {
 	create_intelligence_agency = yes
 }
 
+recruit_character = FIR_empty_throne
+
 recruit_character = FIR_sozin
-set_country_flag = sozin_wife_elua
+FIR_sozin = {
+	set_character_flag = FIR_character_born
+	set_character_flag = FIR_character_general
+	set_character_flag = literate
+}
+recruit_character = FIR_elua
+recruit_character = FIR_zeisan
+
+recruit_character = FIR_rhya
 
 recruit_character = FIR_shaozu
 recruit_character = FIR_yotto
@@ -316,7 +326,16 @@ recruit_character = FIR_ogodei
 recruit_character = FIR_generic
 
 recruit_character = FIR_azulon
+recruit_character = FIR_ilah
+
+recruit_character = FIR_iroh
 recruit_character = FIR_ozai
+recruit_character = FIR_ursa
+
+recruit_character = FIR_lu_ten
+
+recruit_character = FIR_zuko
+recruit_character = FIR_azula
 
 
 if = {
@@ -885,11 +904,54 @@ if = {
 	}
 
 
-	set_variable = { azulon_position = 100 }
-
-	clr_country_flag = sozin_wife_elua
+	set_variable = { azulon_x = 90 }
 
 	retire_character = FIR_sozin
+	retire_character = FIR_elua
+
+	promote_character = {
+		character = FIR_azulon
+		ideology = colonialism
+	}
+
+	FIR_azulon = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_field_marshal_role = {
+			traits = { 
+				skilled_staffer 
+				offensive_infantry 
+				fast_planner 
+				aggressive_assaulter 
+				firelord 
+			}
+			skill = 5
+			attack_skill = 5
+			defense_skill = 2
+			planning_skill = 4
+			logistics_skill = 3
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
+
+	FIR_ilah = {
+		set_character_flag = married_to_azulon
+	}
+
+	FIR_iroh = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.iroh_birth_event = 51 }
+	set_variable = { iroh_x = 300 }
+	set_variable = { iroh_y = 116 }
 
 	create_faction = Alliance_of_Fire
 	add_to_faction = FIR
@@ -953,12 +1015,178 @@ if = {
 	}
 
 
+	set_variable = { azulon_x = 60 }
+	set_variable = { azulon_y = 6 }
+
+	set_variable = { ozai_x = 140 }
+	set_variable = { ozai_y = 6 }
+
+	set_variable = { iroh_x = 240 }
+	set_variable = { iroh_y = 6 }
+
+	FIR_ilah = {
+		set_character_flag = married_to_azulon
+	}
+	retire_character = FIR_ilah
+
+	FIR_iroh = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_field_marshal_role = {
+			traits = { 
+				prince
+				calm
+				skilled_staffer 
+				offensive_infantry 
+				tactical_mind
+				thorough_planner
+				besieger
+			}
+			skill = 6
+			attack_skill = 5
+			defense_skill = 3
+			planning_skill = 4
+			logistics_skill = 6
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
+	set_variable = { FIR.iroh_birth_event = 51 }
+
+	FIR_lu_ten = {
+		set_character_flag = FIR_character_born
+		set_character_flag = FIR_character_general
+		set_character_flag = literate
+
+		add_corps_commander_role = {
+			traits = { 
+				prince
+				brave
+				offensive_infantry 
+			}
+			skill = 3
+			attack_skill = 3
+			defense_skill = 1
+			planning_skill = 2
+			logistics_skill = 2
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
+	}
+	set_variable = { FIR.lu_ten_birth_event = 88 }
+
+	FIR_ozai = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.ozai_birth_event = 71 }
+
+	FIR_ursa = {
+		set_character_flag = married_to_ozai
+	}
+	set_variable = { FIR.ursa_birth_event = 76 }
+
+	FIR_zuko = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.zuko_birth_event = 95 }
+
+	FIR_azula = {
+		set_character_flag = FIR_character_born
+	}
+	set_variable = { FIR.azula_birth_event = 97 }
+
+
+
 	if = {
 		limit = { has_dlc = "Man the Guns" }
 		set_naval_oob = "FIR_106_naval_mtg"
 		else = {
 			set_naval_oob = "FIR_106_naval_legacy"
 		}
+	}
+	if = {
+		limit = { has_dlc = "Man the Guns" }
+
+		create_equipment_variant = {
+			name = "Patrol Class"
+			type = galley_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_crew_slot = ship_archers_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Raider Class"
+			type = firenation_frigate_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				fixed_ship_bridge_slot = lookout_1
+				fixed_ship_artillery_slot = ship_catapult_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Explorer Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_storage_slot = storage_room_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_bridge_slot = lookout_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Destroyer Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = light_armor_plates_1
+				fixed_ship_crew_slot = boarding_crew_1
+				deck_1_custom_slot = ship_catapult_1
+				fixed_ship_artillery_slot = ship_catapult_1
+			}
+		}
+
+		create_equipment_variant = {
+			name = "Capital Class"
+			type = firenation_cruiser_hull_1
+			#name_group = GER_CA_HISTORICAL
+			parent_version = 0
+			modules = {
+				fixed_ship_engine_slot = steam_engine_1
+				fixed_ship_armor_slot = medium_armor_plates_1
+				fixed_ship_crew_slot = ship_firebender_crew_1
+				deck_1_custom_slot = ship_trebuchet_1
+				fixed_ship_artillery_slot = ship_trebuchet_1
+				fixed_ship_bridge_slot = lookout_1
+				fixed_ship_storage_slot = storage_room_1
+			}
+		}
+
 	}
 
 	if = {
@@ -1039,6 +1267,28 @@ if = {
 	add_political_power = 1198
 
 	retire_character = FIR_azulon
+	retire_character = FIR_lu_ten
+
+	promote_character = {
+		character = FIR_ozai
+		ideology = colonialism
+	}
+	set_variable = { ozai_x = 160 }
+	set_variable = { ozai_y = 6 }
+
+	FIR_ursa = {
+		set_character_flag = in_exile
+	}
+
+	set_variable = { zuko_x = 300 }
+	set_variable = { zuko_y = 6 }
+
+	set_variable = { azula_x = 80 }
+	set_variable = { azula_y = 6 }
+
+	set_variable = { iroh_x = 350 }
+	set_variable = { iroh_y = 6 }
+
 
 
 	if = {

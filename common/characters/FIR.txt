@@ -1,4 +1,15 @@
 characters={
+	FIR_empty_throne = {
+		name = FIR_empty_throne
+		portraits = {
+			civilian = {
+				large="GFX_portrait_FIR_empty_throne" 
+			}
+		}
+		
+	}
+
+
 	FIR_sozin = {
 		name = FIR_sozin
 		portraits={
@@ -55,31 +66,20 @@ characters={
 		}
 		country_leader = {
 			ideology = colonialism
-			traits = {
-				firelord
-			}
 			expire = "138.1.1"
 			id = -1
 		}
-		field_marshal = {
-			traits = { 
-				skilled_staffer 
-				offensive_infantry 
-				fast_planner 
-				aggressive_assaulter 
-				firelord 
-			}
-			skill = 5
-			attack_skill = 5
-			defense_skill = 2
-			planning_skill = 4
-			logistics_skill = 3
-			legacy_id=-1
+	}
 
-			visible = { 
-				has_character_flag = FIR_character_born
-				has_character_flag = FIR_character_general
-				NOT = { has_character_flag = FIR_character_death } 
+	FIR_iroh = {
+		name = FIR_iroh
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Iroh_young"
+			}
+			army = {
+				large = "GFX_Portrait_Iroh_young"
+				small = "GFX_Portrait_Iroh_young_small"
 			}
 		}
 	}
@@ -103,20 +103,177 @@ characters={
 			expire = "110.1.1"
 			id = -1
 		}
+	}
+
+
+	FIR_zeisan = {
+		name = FIR_zeisan
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Zeisan"
+			}
+			army = {
+				large = "GFX_Portrait_Zeisan"
+				small = "GFX_Portrait_Zeisan_small"
+			}
+		}
+
+		country_leader = {
+			ideology = pacifism
+			traits = {
+				firelord
+			}
+			expire = "110.1.1"
+			id = -1
+		}
+		
+		advisor = {
+			slot = minister_of_culture
+			idea_token = FIR_zeisan
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { guiding_wind_member }
+		}
+	}
+
+	FIR_elua = {
+		name = FIR_elua
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Elua"
+			}
+			army = {
+				large = "GFX_Portrait_Elua"
+				small = "GFX_Portrait_Elua_small"
+			}
+		}
+		
+		advisor = {
+			slot = minister_of_culture
+			idea_token = FIR_elua
+			cost = 100
+			allowed = {
+				original_tag = FIR
+			}
+			available = {
+				
+			}
+			modifier = {
+				political_power_cost = 0.1
+			}
+			
+			traits = { icon_of_the_firenation }
+		}
+	}
+
+	FIR_ilah = {
+		name = FIR_ilah
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Ilah"
+			}
+			army = {
+				large = "GFX_Portrait_Ilah"
+				small = "GFX_Portrait_Ilah_small"
+			}
+		}
+		
+	}
+
+	FIR_ursa = {
+		name = FIR_ursa
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Ursa"
+			}
+			army = {
+				large = "GFX_Portrait_Ursa"
+				small = "GFX_Portrait_Ursa_small"
+			}
+		}
+		
+	}
+
+	FIR_lu_ten = {
+		name = FIR_lu_ten
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Lu_Ten"
+			}
+			army = {
+				large = "GFX_Portrait_Lu_Ten"
+				small = "GFX_Portrait_Lu_Ten_small"
+			}
+		}
+	
+	}
+
+	FIR_zuko = {
+		name = FIR_zuko
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Zuko"
+			}
+			army = {
+				large = "GFX_Portrait_Zuko"
+				small = "GFX_Portrait_Zuko_small"
+			}
+		}
+	
+	}
+
+	FIR_azula = {
+		name = FIR_azula
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Azula"
+			}
+			army = {
+				large = "GFX_Portrait_Azula"
+				small = "GFX_Portrait_Azula_small"
+			}
+		}
+	
+	}
+
+	FIR_rhya = {
+		name = FIR_rhya
+		portraits={
+			civilian = {
+				large = "GFX_Portrait_Rhya"
+			}
+			army = {
+				large = "GFX_Portrait_Rhya"
+				small = "GFX_Portrait_Rhya_small"
+			}
+		}
+		country_leader = {
+			ideology = colonialism
+			traits = {
+
+			}
+			expire = "32.4.7"
+			id = -1
+		}
 		field_marshal = {
 			traits = { 
-				skilled_staffer 
-				offensive_infantry 
-				fast_planner 
-				aggressive_assaulter 
-				firelord 
+				
 			}
-			skill = 1
-			attack_skill = 1
+			skill = 2
+			attack_skill = 2
 			defense_skill = 1
 			planning_skill = 1
-			logistics_skill = 1
-			legacy_id=-1
+			logistics_skill = 2
+			legacy_id = -1
 
 			visible = { 
 				has_character_flag = FIR_character_born
@@ -130,8 +287,8 @@ characters={
 		name = "Shaozu"
 		portraits={
 			army = {
-				large="GFX_Portrait_Firenation_Generic_13"
-				small = "GFX_Portrait_Firenation_Generic_13_small"
+				large="GFX_Portrait_Firenation_Generic_11"
+				small = "GFX_Portrait_Firenation_Generic_11_small"
 			}
 		}
 		field_marshal = {
@@ -149,10 +306,10 @@ characters={
 		name="Yotto"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_14_small"
+				small="GFX_Portrait_Firenation_Generic_1_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_14"
+				large="GFX_Portrait_Firenation_Generic_1"
 			}
 		}
 		corps_commander={
@@ -186,10 +343,10 @@ characters={
 		name="Arashi"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_7_small"
+				small="GFX_Portrait_Firenation_Generic_8_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_7"
+				large="GFX_Portrait_Firenation_Generic_8"
 			}
 		}
 		advisor = {
@@ -222,10 +379,10 @@ characters={
 		name="Dosan"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_5_small"
+				small="GFX_Portrait_Firenation_Generic_2_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_5"
+				large="GFX_Portrait_Firenation_Generic_2"
 			}
 		}
 		corps_commander={
@@ -278,10 +435,10 @@ characters={
 		name="Waruidesu"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_2_small"
+				small="GFX_Portrait_Firenation_Generic_4_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_2"
+				large="GFX_Portrait_Firenation_Generic_4"
 			}
 		}
 		corps_commander={
@@ -298,10 +455,10 @@ characters={
 		name="Jeong"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_6_small"
+				small="GFX_Portrait_Firenation_Generic_5_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_6"
+				large="GFX_Portrait_Firenation_Generic_5"
 			}
 		}
 		corps_commander={
@@ -318,10 +475,10 @@ characters={
 		name="Lee"
 		portraits={
 			army={
-				small="GFX_Portrait_Firenation_Generic_8_small"
+				small="GFX_Portrait_Firenation_Generic_6_small"
 			}
 			army={
-				large="GFX_Portrait_Firenation_Generic_8"
+				large="GFX_Portrait_Firenation_Generic_6"
 			}
 		}
 		navy_leader={
