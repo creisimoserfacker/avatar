@@ -342,15 +342,15 @@ earth_economic_buildup_category = {
 
 			add_equipment_to_stockpile = {
 			    type = spear_equipment
-			    amount = -100
+			    amount = -75
 			}
 			add_equipment_to_stockpile = {
 			    type = heavy_armor_equipment
-			    amount = -100
+			    amount = -75
 			}
 		}
 		modifier = {
-			weekly_manpower = -100
+			weekly_manpower = -5
 		}
         remove_effect = { 
 			random_owned_state = {
@@ -846,13 +846,13 @@ earth_military_buildup_category = {
           always = yes
         }
 		modifier = {
-			weekly_manpower = -20
+			weekly_manpower = -5
 		}
 		complete_effect = {
 			set_country_flag = military_investments
 			add_equipment_to_stockpile = {
 			    type = earthbender_equipment
-			    amount = -200
+			    amount = -50
 			}
 		}
 		remove_effect = {
@@ -864,7 +864,7 @@ earth_military_buildup_category = {
 						state_population > 5000
 					}
 				}
-				add_manpower = -400
+				add_manpower = -35
 			}
 			clr_country_flag = military_investments
 			army_experience = 10
@@ -887,7 +887,7 @@ earth_military_buildup_category = {
 			NOT = { 
 			has_country_flag = military_investments
 			}
-			casualties > 4000
+			casualties > 500
         }
         visible = { 
           always = yes
