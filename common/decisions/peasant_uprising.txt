@@ -1,228 +1,228 @@
-#peasant_uprising_category = {
-#
-#	
-#	peasant_initiate_uprising = {
-#
-#		icon = peasant_uprising
-#
-#		allowed = {
-#			always = no
-#		}
-#
-#		activation = {
-#			always = no
-#		}
-#
-#		days_mission_timeout = 45
-#		is_good = no
-#
-#		cancel_trigger = {
-#			NOT = {
-#				has_country_flag = active_peasant_revolt
-#			}
-#		}
-#
-#		available = {
-#			NOT = {
-#				has_idea = distrusting_peasants
-#				has_idea = angered_peasants
-#				has_idea = enraged_peasants
-#			}
-#		}
-#
-#		remove_effect = {
-#			clr_country_flag = active_peasant_revolt
-#		}
-#
-#		complete_effect = {
-#			add_timed_idea = {
-#				idea = appeased_peasants
-#				days = 365
-#			}
-#			clear_revolt = yes
-#		}
-#
-#		timeout_effect = {
-#			activate_mission = peasants_in_revolt
-#		}
-#	}
-#
-#	peasants_in_revolt = {
-#
-#		icon = peasant_uprising
-#
-#		allowed = {
-#			always = no
-#		}
-#
-#		activation = {
-#			always = no
-#		}
-#
-#		days_mission_timeout = 21
-#		is_good = no
-#
-#		cancel_trigger = {
-#			NOT = {
-#				has_country_flag = active_peasant_revolt
-#			}
-#		}
-#
-#		available = {
-#			always = no
-#		}
-#
-#		complete_effect = {
-#			
-#		}
-#
-#		timeout_effect = {
-#			peasant_uprising_effect = yes
-#		}
-#	}
-#
-#	peasants_at_war = {
-#
-#		icon = peasant_uprising
-#
-#		allowed = {
-#			always = no
-#		}
-#
-#		activation = {
-#			always = no
-#		}
-#
-#		days_mission_timeout = 30
-#		is_good = no
-#
-#		cancel_trigger = {
-#			NOT = {
-#				has_country_flag = active_peasant_revolt
-#			}
-#		}
-#
-#		available = {
-#			always = no
-#		}
-#
-#		complete_effect = {
-#			
-#		}
-#
-#		timeout_effect = {
-#			country_event = generic_peasant.4
-#			activate_mission = peasants_war_progress
-#		}
-#	}
-#
-#	peasants_war_progress = {
-#
-#		icon = peasant_war
-#
-#		allowed = {
-#			always = no
-#		}
-#
-#		activation = {
-#			always = no
-#		}
-#
-#		days_mission_timeout = 365
-#		is_good = yes
-#		selectable_mission = yes
-#
-#		cancel_trigger = {
-#			NOT = {
-#				has_country_flag = active_peasant_revolt
-#			}
-#		}
-#
-#		available = {
-#			all_core_state = {
-#				limit = {
-#					is_in_array = { ROOT.revolt_states = THIS }
-#				}
-#				is_controlled_by = ROOT
-#			}
-#		}
-#
-#		complete_effect = {
-#			country_event = generic_peasant.9
-#		}
-#
-#		timeout_effect = {
-#			country_event = generic_peasant.10
-#		}
-#	}
-#
-#	peasants_war_progress_2 = {
-#
-#		icon = peasant_war
-#
-#		allowed = {
-#			always = no
-#		}
-#
-#		activation = {
-#			always = no
-#		}
-#
-#		days_mission_timeout = 365
-#		is_good = yes
-#		selectable_mission = yes
-#
-#		cancel_trigger = {
-#			NOT = {
-#				has_country_flag = active_peasant_revolt
-#			}
-#		}
-#
-#		available = {
-#			all_core_state = {
-#				limit = {
-#					is_in_array = { ROOT.revolt_states = THIS }
-#				}
-#				is_controlled_by = ROOT
-#			}
-#		}
-#
-#		complete_effect = {
-#			country_event = generic_peasant.11
-#		}
-#
-#		timeout_effect = {
-#			country_event = generic_peasant.12
-#		}
-#	}
-#
-#	peasant_uprising_tax_relief = {
-#
-#		icon = peasant_tax_relief
-#
-#		visible = {
-#			has_active_mission = peasant_initiate_uprising
-#		}
-#		available = {
-#			NOT = {
-#				has_idea = tax_relief
-#			}
-#		}
-#
-#		cost = 50
-#
-#		complete_effect = {
-#			peasant_mood_increase = yes
-#			add_timed_idea = {
-#				idea = tax_relief
-#				days = 365
-#			}
-#		}
-#
-#	}
-#
-#
-#
+peasant_uprising_category = {
+
+	
+	peasant_initiate_uprising = {
+
+		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 45
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			NOT = {
+				has_idea = distrusting_peasants
+				has_idea = angered_peasants
+				has_idea = enraged_peasants
+			}
+		}
+
+		remove_effect = {
+			clr_country_flag = active_peasant_revolt
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = appeased_peasants
+				days = 365
+			}
+			clear_revolt = yes
+		}
+
+		timeout_effect = {
+			activate_mission = peasants_in_revolt
+		}
+	}
+
+	peasants_in_revolt = {
+
+		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 21
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			always = no
+		}
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			peasant_uprising_effect = yes
+		}
+	}
+
+	peasants_at_war = {
+
+		icon = peasant_uprising
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 30
+		is_good = no
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			always = no
+		}
+
+		complete_effect = {
+			
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.4
+			activate_mission = peasants_war_progress
+		}
+	}
+
+	peasants_war_progress = {
+
+		icon = peasant_war
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 365
+		is_good = yes
+		selectable_mission = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			all_core_state = {
+				limit = {
+					is_in_array = { ROOT.revolt_states = THIS }
+				}
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_effect = {
+			country_event = generic_peasant.9
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.10
+		}
+	}
+
+	peasants_war_progress_2 = {
+
+		icon = peasant_war
+
+		allowed = {
+			always = no
+		}
+
+		activation = {
+			always = no
+		}
+
+		days_mission_timeout = 365
+		is_good = yes
+		selectable_mission = yes
+
+		cancel_trigger = {
+			NOT = {
+				has_country_flag = active_peasant_revolt
+			}
+		}
+
+		available = {
+			all_core_state = {
+				limit = {
+					is_in_array = { ROOT.revolt_states = THIS }
+				}
+				is_controlled_by = ROOT
+			}
+		}
+
+		complete_effect = {
+			country_event = generic_peasant.11
+		}
+
+		timeout_effect = {
+			country_event = generic_peasant.12
+		}
+	}
+
+	peasant_uprising_tax_relief = {
+
+		icon = peasant_tax_relief
+
+		visible = {
+			has_active_mission = peasant_initiate_uprising
+		}
+		available = {
+			NOT = {
+				has_idea = tax_relief
+			}
+		}
+
+		cost = 50
+
+		complete_effect = {
+			peasant_mood_increase = yes
+			add_timed_idea = {
+				idea = tax_relief
+				days = 365
+			}
+		}
+
+	}
+
+
+
 #	token_variable_test = {
 #		complete_effect = {
 #			random_core_state = {
@@ -233,96 +233,100 @@
 #			}
 #		}
 #	}
+
+	appease_peasants = {
+		complete_effect = {
+			add_to_variable = {
+				var = peasant_appeasement_variable
+				value = 5
+				tooltip = peasant_appeasement_add_tooltip
+			}
+		}
+	}
+
+	anger_peasants = {
+		complete_effect = {
+			add_to_variable = {
+				var = peasant_anger_variable
+				value = 5
+				tooltip = peasant_anger_add_tooltip
+			}
+		}
+	}
+
+	peasants_division = {
+		complete_effect = {
+			division_template = {
+				name = "Angry Peasants"
+				#is_locked = yes
+				priority = 0
+				regiments = {
+					peasant_unit = { x = 0 y = 0 }
+					peasant_unit = { x = 0 y = 1 }
+					peasant_unit = { x = 1 y = 0 }
+					peasant_unit = { x = 1 y = 1 }
+				}
+			}
+		}
+	}
+
+	discontent_test = {
+		complete_effect = {
+			random_core_state = {
+				add_dynamic_modifier = { modifier = peasant_discontent }
+			}
+		}
+	}
+
+	test_peasant_state_controll = {
+		complete_effect = {
+			core_turns_unloyal = yes
+		}
+	}
+
+	test_peasant_war = {
+		complete_effect = {
+
+			peasant_war_effect = yes
+
+		}
+	}
+
+	test_peasant_civil_war = {
+		complete_effect = {
+
+			add_civil_war_target = var:ROOT.peasant_tag
+
+		}
+	}
+
+	#my_state_targeted_decision = {
 #
-#	appease_peasants = {
-#		complete_effect = {
-#			add_to_variable = {
-#				var = peasant_appeasement_variable
-#				value = 5
-#				tooltip = peasant_appeasement_add_tooltip
-#			}
-#		}
-#	}
+	#	state_target = yes
+	#	target_trigger = {
+	#		FROM = {
+	#			check_variable = { THIS.removed_core_state = CONTROLLER }
+	#			is_controlled_by = ROOT
+	#		}
+	#	}
 #
-#	anger_peasants = {
-#		complete_effect = {
-#			add_to_variable = {
-#				var = peasant_anger_variable
-#				value = 5
-#				tooltip = peasant_appeasement_add_tooltip
-#			}
-#		}
-#	}
-#
-#	peasants_division = {
-#		complete_effect = {
-#			division_template = {
-#				name = "Angry Peasants"
-#				#is_locked = yes
-#				priority = 0
-#				regiments = {
-#					peasant_unit = { x = 0 y = 0 }
-#					peasant_unit = { x = 0 y = 1 }
-#					peasant_unit = { x = 1 y = 0 }
-#					peasant_unit = { x = 1 y = 1 }
-#				}
-#			}
-#		}
-#	}
-#
-#	discontent_test = {
-#		complete_effect = {
-#			random_core_state = {
-#				add_dynamic_modifier = { modifier = peasant_discontent }
-#			}
-#		}
-#	}
-#
-#	test_peasant_state_controll = {
-#		complete_effect = {
-#			random_core_state = {
-#				add_core_of = PEF
-#				set_variable = { THIS.removed_core_state = CONTROLLER }
-#				remove_core_of = CONTROLLER
-#
-#				
-#				start_resistance = yes
-#			}
-#		}
-#	}
-#
-#	test_peasant_war = {
-#		complete_effect = {
-#			PEF = {
-#				every_core_state = {
-#					set_state_owner_to = PREV
-#				}
-#				declare_war_on = {
-#					target = FIR
-#					type = annex_everything
-#				}
-#			}
-#		}
-#	}
-#
-#	my_state_targeted_decision = {
-#
-#		state_target = yes
-#		target_trigger = {
-#			FROM = {
-#				check_variable = { THIS.removed_core_state = CONTROLLER }
-#				is_controlled_by = ROOT
-#			}
-#		}
-#
-#		on_map_mode = map_and_decisions_view
-#		icon = my_icon
-#		cost = 20
-#		complete_effect = {
-#			FROM = {
-#				remove_core_of = GER
-#			}
-#		}
-#	}
-#	
-#}
+	#	on_map_mode = map_and_decisions_view
+	#	icon = my_icon
+	#	cost = 20
+	#	complete_effect = {
+	#		FROM = {
+	#			every_country_with_original_tag = {
+	#				original_tag_to_check = FROM.controller
+	#				limit = {
+	#					NOT = {
+	#						tag = FROM.controller
+	#					}
+	#				}
+	#				remove_state_core = PREV
+	#			}
+	#			add_core_of = controller
+	#		}
+	#	}
+	#}
+	
+}
