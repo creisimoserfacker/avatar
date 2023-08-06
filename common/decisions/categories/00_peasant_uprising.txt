@@ -1,14 +1,22 @@
-#peasant_uprising_category = {
-#	icon = peasant
-#
-#	scripted_gui = peasant_uprising_ui
-#	
-#	priority = 1000
-#
-#	allowed = {
-#		always = yes 
-#	}
-#	visible = {
-#		has_country_flag = active_peasant_revolt
-#	visible_when_empty = yes
-#}
+peasant_uprising_category = {
+	icon = peasant
+
+	scripted_gui = peasant_uprising_ui
+	
+	priority = 100000
+
+	allowed = {
+		always = yes 
+	}
+	visible = {
+		has_country_flag = active_peasant_revolt
+	}
+
+	on_map_area = {
+		target_array = ROOT.revolt_states
+		name = peasant_uprising_show_area
+		zoom = 400
+	}
+
+	visible_when_empty = yes
+}
