@@ -4,11 +4,11 @@ technologies = {
 
 		enable_building = {
 			building = farm
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { farm_level = 10 }
+			set_variable = { farm_level = 5 }
 		}
 		
 		path = {
@@ -24,7 +24,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 0 }
@@ -51,11 +51,11 @@ technologies = {
 
 		enable_building = {
 			building = ranch
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { ranch_level = 10 }
+			set_variable = { ranch_level = 5 }
 		}
 
 		path = {
@@ -71,7 +71,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 0 }
@@ -101,12 +101,12 @@ technologies = {
 		}
 
 		on_research_complete = {
-			add_to_variable = { mill_level = 10 }
+			set_variable = { mill_level = 5 }
 		}
 
 		enable_building = {
 			building = mill
-			level = 10
+			level = 5
 		}
 		
 		path = {
@@ -114,7 +114,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 2 }
@@ -134,11 +134,11 @@ technologies = {
 
 		enable_building = {
 			building = mill
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { mill_level = 40 }
+			set_variable = { mill_level = 10 }
 		}
 		
 		path = {
@@ -146,7 +146,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 4 }
@@ -163,6 +163,17 @@ technologies = {
 		}	
 	}
 	mill_3 = {
+
+		enable_building = {
+			building = mill
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { mill_level = 25 }
+
+			custom_effect_tooltip = mill_upgrade_tt
+		}
 
 		production_speed_mill_factor = 0.1
 
@@ -189,9 +200,18 @@ technologies = {
 	}
 	mill_4 = {
 
+		enable_building = {
+			building = mill
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { mill_level = 50 }
+		}
+
 		production_speed_mill_factor = 0.15
 		
-		research_cost = 2
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 8 }
@@ -217,17 +237,17 @@ technologies = {
 		}
 
 		on_research_complete = {
-			add_to_variable = { farm_level = 40 }
-			add_to_variable = { ranch_level = 40 }
+			set_variable = { farm_level = 10 }
+			set_variable = { ranch_level = 10 }
 		}
 
 		enable_building = {
 			building = farm
-			level = 50
+			level = 10
 		}
 		enable_building = {
 			building = ranch
-			level = 50
+			level = 10
 		}
 		
 		path = {
@@ -239,7 +259,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 1 y = 2 }
@@ -261,11 +281,11 @@ technologies = {
 
 		enable_building = {
 			building = crop_weaving
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { crop_weaving_level = 10 }
+			set_variable = { crop_weaving_level = 5 }
 		}
 		
 		path = {
@@ -273,7 +293,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 2 }
@@ -300,11 +320,11 @@ technologies = {
 
 		enable_building = {
 			building = crop_weaving
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { crop_weaving_level = 40 }
+			set_variable = { crop_weaving_level = 10 }
 		}
 
 		path = {
@@ -312,7 +332,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 4 }
@@ -336,6 +356,17 @@ technologies = {
 	}
 	crop_weaving_3 = {
 
+		enable_building = {
+			building = crop_weaving
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { crop_weaving_level = 25 }
+
+			custom_effect_tooltip = crop_weaving_upgrade_1_tt
+		}
+
 		production_speed_crop_weaving_factor = 0.1
 
 		path = {
@@ -343,7 +374,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 6 }
@@ -361,9 +392,20 @@ technologies = {
 	}
 	crop_weaving_4 = {
 
+		enable_building = {
+			building = crop_weaving
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { crop_weaving_level = 50 }
+
+			custom_effect_tooltip = crop_weaving_upgrade_2_tt
+		}
+
 		production_speed_crop_weaving_factor = 0.15
 
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 8 }
@@ -383,13 +425,24 @@ technologies = {
 	farm_2 = {
 
 		production_speed_farm_factor = 0.1
-		
+
+		on_research_complete = {
+			set_variable = { farm_level = 25 }
+
+			custom_effect_tooltip = farm_upgrade_1_tt
+		}
+
+		enable_building = {
+			building = farm
+			level = 25
+		}
+
 		path = {
 			leads_to_tech = farm_3
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 2
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 4 }
@@ -415,8 +468,18 @@ technologies = {
 	farm_3 = {
 
 		production_speed_farm_factor = 0.15
-		
-		research_cost = 1.8
+		on_research_complete = {
+			set_variable = { farm_level = 50 }
+
+			custom_effect_tooltip = farm_upgrade_2_tt
+		}
+
+		enable_building = {
+			building = farm
+			level = 50
+		}
+
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 6 }
@@ -440,6 +503,17 @@ technologies = {
 	}
 
 	ranch_2 = {
+
+		on_research_complete = {
+			set_variable = { ranch_level = 25 }
+
+			custom_effect_tooltip = ranch_upgrade_1_tt
+		}
+
+		enable_building = {
+			building = ranch
+			level = 25
+		}
 
 		production_speed_ranch_factor = 0.1
 
@@ -466,9 +540,20 @@ technologies = {
 	}
 	ranch_3 = {
 
+		on_research_complete = {
+			set_variable = { ranch_level = 50 }
+
+			custom_effect_tooltip = ranch_upgrade_2_tt
+		}
+
+		enable_building = {
+			building = ranch
+			level = 50
+		}
+
 		production_speed_ranch_factor = 0.15
 		
-		research_cost = 2
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 6 }
@@ -489,11 +574,11 @@ technologies = {
 
 		enable_building = {
 			building = animal_weaving
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { animal_weaving_level = 10 }
+			set_variable = { animal_weaving_level = 5 }
 		}
 		
 		path = {
@@ -501,7 +586,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 2 }
@@ -527,11 +612,11 @@ technologies = {
 
 		enable_building = {
 			building = animal_weaving
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { animal_weaving_level = 40 }
+			set_variable = { animal_weaving_level = 10 }
 		}
 
 		path = {
@@ -539,7 +624,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 4 }
@@ -563,6 +648,17 @@ technologies = {
 	}
 	animal_weaving_3 = {
 
+		enable_building = {
+			building = animal_weaving
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { animal_weaving_level = 25 }
+
+			custom_effect_tooltip = animal_weaving_upgrade_1_tt
+		}
+
 		production_speed_animal_weaving_factor = 0.1
 
 		path = {
@@ -570,7 +666,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 6 }
@@ -588,9 +684,20 @@ technologies = {
 	}
 	animal_weaving_4 = {
 
+		enable_building = {
+			building = animal_weaving
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { animal_weaving_level = 50 }
+
+			custom_effect_tooltip = animal_weaving_upgrade_2_tt
+		}
+
 		production_speed_animal_weaving_factor = 0.15
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 8 }
@@ -611,11 +718,11 @@ technologies = {
 
 		enable_building = {
 			building = fishing_stand
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { fishing_stand_level = 10 }
+			set_variable = { fishing_stand_level = 5 }
 		}
 
 		path = {
@@ -623,7 +730,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 2 }
@@ -636,7 +743,6 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			ranch_construction
 		}	
 	}
 
@@ -644,11 +750,11 @@ technologies = {
 
 		enable_building = {
 			building = fishing_stand
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { fishing_stand_level = 40 }
+			set_variable = { fishing_stand_level = 10 }
 		}
 
 		path = {
@@ -656,7 +762,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 4 }
@@ -669,19 +775,29 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			ranch_construction
 		}	
 	}
 	fishing_stand_3 = {
 
-		production_speed_fishing_stand_factor = 0.1
+		enable_building = {
+			building = fishing_stand
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { fishing_stand_level = 25 }
+
+			custom_effect_tooltip = fishing_upgrade_1_tt
+		}
+
+		production_speed_fishing_stand_factor = 0.05
 
 		path = {
 			leads_to_tech = fishing_stand_4
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 6 }
@@ -694,14 +810,24 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			ranch_construction
 		}	
 	}
 	fishing_stand_4 = {
 
-		production_speed_fishing_stand_factor = 0.15
+		enable_building = {
+			building = fishing_stand
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { fishing_stand_level = 50 }
+
+			custom_effect_tooltip = fishing_upgrade_2_tt
+		}
+
+		production_speed_fishing_stand_factor = 0.10
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 8 }
@@ -714,7 +840,6 @@ technologies = {
 		categories = {
 			construction
 			resource_construction
-			ranch_construction
 		}	
 	}
 
@@ -732,11 +857,11 @@ technologies = {
 
 		enable_building = {
 			building = lumber_mill
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { lumber_mill_level = 10 }
+			set_variable = { lumber_mill_level = 5 }
 		}
 		
 		path = {
@@ -752,7 +877,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 0 }
@@ -777,11 +902,11 @@ technologies = {
 
 		enable_building = {
 			building = lumber_mill
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { lumber_mill_level = 40 }
+			set_variable = { lumber_mill_level = 10 }
 		}
 		
 		path = {
@@ -789,7 +914,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 2 }
@@ -810,12 +935,23 @@ technologies = {
 
 		production_speed_lumber_mill_factor = 0.1
 
+		enable_building = {
+			building = lumber_mill
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { lumber_mill_level = 25 }
+
+			custom_effect_tooltip = lumber_mill_upgrade_tt
+		}
+
 		path = {
 			leads_to_tech = lumber_4
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 4 }
@@ -835,8 +971,17 @@ technologies = {
 	lumber_4 = {
 
 		production_speed_lumber_mill_factor = 0.15
+
+		enable_building = {
+			building = lumber_mill
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { lumber_mill_level = 50 }
+		}
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 6 }
@@ -858,11 +1003,11 @@ technologies = {
 
 		enable_building = {
 			building = carpentry
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { carpentry_level = 10 }
+			set_variable = { carpentry_level = 5 }
 		}
 		
 		path = {
@@ -870,7 +1015,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 0 }
@@ -895,11 +1040,11 @@ technologies = {
 
 		enable_building = {
 			building = carpentry
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { carpentry_level = 40 }
+			set_variable = { carpentry_level = 10 }
 		}
 		
 		path = {
@@ -907,7 +1052,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 2 }
@@ -925,6 +1070,17 @@ technologies = {
 	}
 	carpentry_3 = {
 
+		enable_building = {
+			building = carpentry
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { carpentry_level = 25 }
+
+			custom_effect_tooltip = carpentry_upgrade_1_tt
+		}
+
 		production_speed_carpentry_factor = 0.1
 
 		path = {
@@ -932,7 +1088,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 4 }
@@ -950,9 +1106,20 @@ technologies = {
 	}
 	carpentry_4 = {
 
+		enable_building = {
+			building = carpentry
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { carpentry_level = 50 }
+
+			custom_effect_tooltip = carpentry_upgrade_2_tt
+		}
+
 		production_speed_carpentry_factor = 0.15
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 6 }
@@ -986,7 +1153,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 2 }
@@ -1019,7 +1186,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 4 }
@@ -1044,7 +1211,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 6 }
@@ -1064,7 +1231,7 @@ technologies = {
 
 		production_speed_harbour_factor = 0.15
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 8 }
@@ -1095,11 +1262,11 @@ technologies = {
 
 		enable_building = {
 			building = quarry
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { quarry_level = 10 }
+			set_variable = { quarry_level = 5 }
 		}
 
 		path = {
@@ -1123,7 +1290,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 0 }
@@ -1153,11 +1320,11 @@ technologies = {
 
 		enable_building = {
 			building = quarry
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { quarry_level = 40 }
+			set_variable = { quarry_level = 10 }
 		}
 
 		path = {
@@ -1165,7 +1332,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 2 }
@@ -1183,6 +1350,17 @@ technologies = {
 	}
 	quarry_3 = {
 
+		enable_building = {
+			building = quarry
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { quarry_level = 25 }
+
+			custom_effect_tooltip = quarry_upgrade_1_tt
+		}
+
 		production_speed_quarry_factor = 0.1
 
 		path = {
@@ -1190,7 +1368,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 4 }
@@ -1208,9 +1386,20 @@ technologies = {
 	}
 	quarry_4 = {
 
+		enable_building = {
+			building = quarry
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { quarry_level = 50 }
+
+			custom_effect_tooltip = quarry_upgrade_2_tt
+		}
+
 		production_speed_quarry_factor = 0.15
 
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 2 y = 6 }
@@ -1231,11 +1420,11 @@ technologies = {
 
 		enable_building = {
 			building = masonry
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { masonry_level = 10 }
+			set_variable = { masonry_level = 5 }
 		}
 
 		path = {
@@ -1243,7 +1432,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 0 }
@@ -1263,11 +1452,11 @@ technologies = {
 
 		enable_building = {
 			building = masonry
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { masonry_level = 40 }
+			set_variable = { masonry_level = 10 }
 		}
 
 		path = {
@@ -1275,7 +1464,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 2 }
@@ -1293,6 +1482,17 @@ technologies = {
 	}
 	masonry_3 = {
 
+		enable_building = {
+			building = masonry
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { masonry_level = 25 }
+
+			custom_effect_tooltip = masonry_upgrade_1_tt
+		}
+
 		production_speed_masonry_factor = 0.1
 
 		path = {
@@ -1300,7 +1500,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 4 }
@@ -1318,9 +1518,20 @@ technologies = {
 	}
 	masonry_4 = {
 
+		enable_building = {
+			building = masonry
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { masonry_level = 50 }
+
+			custom_effect_tooltip = masonry_upgrade_2_tt
+		}
+
 		production_speed_masonry_factor = 0.15
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 6 }
@@ -1341,11 +1552,11 @@ technologies = {
 
 		enable_building = {
 			building = mine
-			level = 10
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { mine_level = 10 }
+			set_variable = { mine_level = 5 }
 		}
 
 		path = {
@@ -1361,7 +1572,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 2 }
@@ -1385,11 +1596,11 @@ technologies = {
 
 		enable_building = {
 			building = mine
-			level = 50
+			level = 10
 		}
 
 		on_research_complete = {
-			add_to_variable = { mine_level = 40 }
+			set_variable = { mine_level = 10 }
 		}
 
 		path = {
@@ -1397,7 +1608,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 4 }
@@ -1415,6 +1626,17 @@ technologies = {
 	}
 	mine_3 = {
 
+		enable_building = {
+			building = mine
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { mine_level = 25 }
+
+			custom_effect_tooltip = mine_upgrade_1_tt
+		}
+
 		production_speed_mine_factor = 0.1
 
 		path = {
@@ -1422,7 +1644,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 6 }
@@ -1440,9 +1662,20 @@ technologies = {
 	}
 	mine_4 = {
 
+		enable_building = {
+			building = mine
+			level = 50
+		}
+
+		on_research_complete = {
+			set_variable = { mine_level = 50 }
+
+			custom_effect_tooltip = mine_upgrade_2_tt
+		}
+
 		production_speed_mine_factor = 0.15
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -2 y = 8 }
@@ -1461,22 +1694,14 @@ technologies = {
 
 	smithy_1 = {
 
-		#enable_building = {
-		#	building = arms_factory
-		#	level = 10
-		#}
 		production_speed_arms_factory_factor = 0.1
-
-		on_research_complete = {
-			add_to_variable = { smithy_level = 10 }
-		}
 
 		path = {
 			leads_to_tech = smithy_2
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 2 }
@@ -1494,14 +1719,10 @@ technologies = {
 	}
 	smithy_2 = {
 
-		#enable_building = {
-		#	building = arms_factory
-		#	level = 50
-		#}
 		production_speed_arms_factory_factor = 0.1
 
 		on_research_complete = {
-			add_to_variable = { smithy_level = 40 }
+			custom_effect_tooltip = smithy_upgrade_tt
 		}
 
 		path = {
@@ -1509,7 +1730,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 4 }
@@ -1534,7 +1755,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 6 }
@@ -1554,7 +1775,7 @@ technologies = {
 
 		production_speed_arms_factory_factor = 0.15
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = 0 y = 8 }
@@ -1575,11 +1796,11 @@ technologies = {
 
 		enable_building = {
 			building = steelworks
-			level = 10
+			level = 1
 		}
 
 		on_research_complete = {
-			add_to_variable = { steelworks_level = 10 }
+			set_variable = { steelworks_level = 1 }
 		}
 
 		path = {
@@ -1587,7 +1808,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 2 }
@@ -1611,11 +1832,11 @@ technologies = {
 
 		enable_building = {
 			building = steelworks
-			level = 50
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { steelworks_level = 40 }
+			set_variable = { steelworks_level = 5 }
 		}
 
 		path = {
@@ -1623,7 +1844,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 4 }
@@ -1641,6 +1862,15 @@ technologies = {
 	}
 	steelworks_3 = {
 
+		enable_building = {
+			building = steelworks
+			level = 10
+		}
+
+		on_research_complete = {
+			set_variable = { steelworks_level = 10 }
+		}
+
 		production_speed_steelworks_factor = 0.1
 
 		path = {
@@ -1648,7 +1878,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 6 }
@@ -1666,6 +1896,15 @@ technologies = {
 	}
 	steelworks_4 = {
 
+		enable_building = {
+			building = steelworks
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { steelworks_level = 25 }
+		}
+
 		production_speed_steelworks_factor = 0.15
 
 		path = {
@@ -1673,7 +1912,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -4 y = 8 }
@@ -1698,11 +1937,11 @@ technologies = {
 
 		enable_building = {
 			building = steel_beam_factory
-			level = 10
+			level = 1
 		}
 
 		on_research_complete = {
-			add_to_variable = { steel_beam_factory_level = 10 }
+			set_variable = { steel_beam_factory_level = 1 }
 		}
 
 		path = {
@@ -1718,7 +1957,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 8 }
@@ -1738,11 +1977,11 @@ technologies = {
 
 		enable_building = {
 			building = steel_beam_factory
-			level = 50
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { steel_beam_factory_level = 40 }
+			set_variable = { steel_beam_factory_level = 5 }
 		}
 
 		path = {
@@ -1750,7 +1989,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 10 }
@@ -1768,6 +2007,15 @@ technologies = {
 	}
 	steel_beam_factory_3 = {
 
+		enable_building = {
+			building = steel_beam_factory
+			level = 10
+		}
+
+		on_research_complete = {
+			set_variable = { steel_beam_factory_level = 10 }
+		}
+
 		production_speed_steel_beam_factory_factor = 0.1
 
 		path = {
@@ -1775,7 +2023,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 12 }
@@ -1793,9 +2041,18 @@ technologies = {
 	}
 	steel_beam_factory_4 = {
 
+		enable_building = {
+			building = steel_beam_factory
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { steel_beam_factory_level = 25 }
+		}
+
 		production_speed_steel_beam_factory_factor = 0.15
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -6 y = 14 }
@@ -1820,11 +2077,11 @@ technologies = {
 
 		enable_building = {
 			building = factory
-			level = 10
+			level = 1
 		}
 
 		on_research_complete = {
-			add_to_variable = { factory_level = 10 }
+			set_variable = { factory_level = 1 }
 		}
 
 		path = {
@@ -1832,7 +2089,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -8 y = 8 }
@@ -1852,11 +2109,11 @@ technologies = {
 
 		enable_building = {
 			building = factory
-			level = 50
+			level = 5
 		}
 
 		on_research_complete = {
-			add_to_variable = { factory_level = 40 }
+			set_variable = { factory_level = 5 }
 		}
 
 		path = {
@@ -1864,7 +2121,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -8 y = 10 }
@@ -1882,6 +2139,15 @@ technologies = {
 	}
 	factory_3 = {
 
+		enable_building = {
+			building = factory
+			level = 10
+		}
+
+		on_research_complete = {
+			set_variable = { factory_level = 10 }
+		}
+
 		production_speed_factory_factor = 0.1
 
 		path = {
@@ -1889,7 +2155,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -8 y = 12 }
@@ -1907,9 +2173,18 @@ technologies = {
 	}
 	factory_4 = {
 
+		enable_building = {
+			building = factory
+			level = 25
+		}
+
+		on_research_complete = {
+			set_variable = { factory_level = 25 }
+		}
+
 		production_speed_factory_factor = 0.15
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -8 y = 14 }
@@ -1946,7 +2221,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = -10 y = 8 }
@@ -1978,7 +2253,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = -10 y = 10 }
@@ -2003,7 +2278,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 2.5
+		research_cost = 1.0
 		folder = {
 			name = construction_folder
 			position = { x = -10 y = 12 }
@@ -2023,7 +2298,7 @@ technologies = {
 
 		production_speed_dockyard_factor = 0.15
 		
-		research_cost = 2.5
+		research_cost = 1.25
 		folder = {
 			name = construction_folder
 			position = { x = -10 y = 14 }
@@ -2052,7 +2327,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 2 }
@@ -2085,7 +2360,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 4 }
@@ -2113,7 +2388,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 6 }
@@ -2136,7 +2411,7 @@ technologies = {
 			level = 40
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 4 y = 8 }
@@ -2169,7 +2444,7 @@ technologies = {
 		#	research_cost_coeff = 1
 		#}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 0 }
@@ -2226,7 +2501,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 14 y = 0 }
@@ -2267,7 +2542,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 14 y = 2 }
@@ -2304,7 +2579,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 14 y = 4 }
@@ -2327,12 +2602,16 @@ technologies = {
 			level = 8
 		}
 
+		on_research_complete = {
+			custom_effect_tooltip = road_upgrade_tt
+		}
+
 		path = {
 			leads_to_tech = road_5
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 14 y = 6 }
@@ -2355,7 +2634,7 @@ technologies = {
 			level = 10
 		}
 		
-		research_cost = 1.0
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 14 y = 8 }
@@ -2396,7 +2675,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 7 y = 2 }
@@ -2429,7 +2708,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 	
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 8 y = 4 }
@@ -2462,7 +2741,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 	
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 8 y = 6 }
@@ -2485,7 +2764,7 @@ technologies = {
 			level = 40
 		}
 	
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 8 y = 8 }
@@ -2530,11 +2809,11 @@ technologies = {
 
 		enable_building = {
 			building = consumer_good_factory
-			level = 10
+			level = 5
 		}
 		enable_building = {
 			building = luxury_good_factory
-			level = 10
+			level = 5
 		}
 
 		path = {
@@ -2542,7 +2821,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 	
-		research_cost = 1.8
+		research_cost = 0.5
 		folder = {
 			name = construction_folder
 			position = { x = 16 y = 2 }
@@ -2562,14 +2841,18 @@ technologies = {
 
 		enable_building = {
 			building = consumer_good_factory
-			level = 50
+			level = 10
 		}
 		enable_building = {
 			building = luxury_good_factory
-			level = 50
+			level = 10
+		}
+
+		on_research_complete = {
+			custom_effect_tooltip = shop_upgrade_tt
 		}
 	
-		research_cost = 1.8
+		research_cost = 0.75
 		folder = {
 			name = construction_folder
 			position = { x = 16 y = 4 }
@@ -2627,7 +2910,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 1
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 4 }
@@ -2656,7 +2939,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 6 }
@@ -2685,7 +2968,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 8 }
@@ -2713,7 +2996,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 10 }
@@ -2736,7 +3019,7 @@ technologies = {
 			level = 5
 		}
 	
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 6 y = 12 }
@@ -2770,7 +3053,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 1
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 2 }
@@ -2808,7 +3091,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 4 }
@@ -2842,7 +3125,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 6 }
@@ -2876,7 +3159,7 @@ technologies = {
 			research_cost_coeff = 1
 		}
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 8 }
@@ -2902,7 +3185,7 @@ technologies = {
 
 		production_speed_air_base_factor = 0.1
 		
-		research_cost = 1.8
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 12 y = 10 }
@@ -2942,7 +3225,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 1
 		folder = {
 			name = construction_folder
 			position = { x = 10 y = 2 }
@@ -2981,7 +3264,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 10 y = 4 }
@@ -3016,7 +3299,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 10 y = 6 }
@@ -3051,7 +3334,7 @@ technologies = {
 		}
 
 		
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 10 y = 8 }
@@ -3080,7 +3363,7 @@ technologies = {
 			level = 5
 		}
 	
-		research_cost = 3
+		research_cost = 0.6
 		folder = {
 			name = construction_folder
 			position = { x = 10 y = 10 }
