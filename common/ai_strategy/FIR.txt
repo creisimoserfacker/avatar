@@ -1312,7 +1312,7 @@ FIR_naval_war_with_NWT = {
 	}
 }
 FIR_naval_war_with_SWT = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
 		FIR = {
 			has_war_with = SWT
@@ -1392,11 +1392,9 @@ FIR_naval_war_with_SWT = {
 	}
 }
 FIR_invade_NWT_stage_1 = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
-		NWT = has_navy_size < 5
-		SWT = has_navy_size < 5
-		FIR = has_navy_size > 10
+		FIR = {enemies_naval_strength_ratio < 1}
 	}
 	abort = {
 		count_triggers = {
@@ -1575,7 +1573,7 @@ Siege_Invasions = {
 	}
 }	
 FIR_STOP_BUILDING_CIVS ={
-	allow = { tag = FIR}
+	allowed = { tag = FIR}
 	enable = {
 		always = yes
 		}
@@ -1586,7 +1584,7 @@ FIR_STOP_BUILDING_CIVS ={
 	}
 }	
 FIR_maintain_factory_ratio_1 = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
 		FIR = {
 			AND = {			
@@ -1608,7 +1606,7 @@ FIR_maintain_factory_ratio_1 = {
 	}
 }
 FIR_maintain_factory_ratio_2 = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
 		FIR = {
 			AND = {			

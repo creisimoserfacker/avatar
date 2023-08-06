@@ -984,7 +984,7 @@ FIR_conquest_category = {
 			}
 		}
 	}
-
+		
 	war_with_northern_watertribe = {
 
 		icon = war
@@ -1191,7 +1191,70 @@ FIR_conquest_category = {
 		}
 	}
 }
-
+FIR_blockade_category = {
+	FIR_blockade_watertribes = {
+		icon = war
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			FIR = {
+				NOT = {
+					has_war_with = NWT
+				}
+			}
+		}
+		highlight_states = {
+			highlight_state_targets = {
+				state = 168
+				state = 167
+				state = 157
+				state = 179
+				state = 143
+				state = 34
+				state = 40
+			}
+			highlight_color_while_active = 3
+			highlight_color_before_active = 2
+		}
+		available = {
+			ships_in_area = {
+				area = 168
+				size > 1
+			}
+			ships_in_area = {
+				area = 167
+				size > 1
+			}
+			ships_in_area = {
+				area = 157
+				size > 1
+			}
+			ships_in_area = {
+				area = 179
+				size > 1
+			}
+			ships_in_area = {
+				area = 143
+				size > 1
+			}
+			ships_in_area = {
+				area = 34
+				size > 1
+			}
+			ships_in_area = {
+				area = 40
+				size > 1
+			}
+		}
+		complete_effect = {
+			NWT = 
+			{set_country_flag = FIR_blockaded_watertribes
+			add_ideas = NWT_Fire_Nation_Blockade
+		}		
+		}
+	}
+}
 FIR_civil_decision_category = {
 
 	cultural_change = {

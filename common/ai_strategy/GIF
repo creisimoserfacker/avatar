@@ -1,0 +1,39 @@
+GIF_attack_southern_temple = {
+    allow = {
+        tag = GIF
+    }
+    enable = {
+        GIF = {
+            has_war_with = SAT
+        }
+        SAT = {
+            NOT = {has_idea = no_government}
+        }
+    }
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = front_control
+        id = SAT
+        value = rush_weak
+    }    
+    
+}
+GIF_garrisson_port_in_SAT = {
+    allow = {
+        tag = GIF
+    }
+    enable = {
+        GIF = {
+            has_war_with = SAT
+        }
+        SAT = {
+            NOT = {has_idea = no_government}
+        }
+    } 
+    abort_when_not_enabled = yes
+    ai_strategy = {
+        type = put_unit_buffers
+        id = 9566
+        value = 1
+    }
+}

@@ -125,6 +125,11 @@ leader_traits = {
 		random = no
 		production_speed_masonry_factor = 0.05
 	}
+	reclusive_manipulator = {
+		random = no
+		stability = -0.05
+		political_power_gain = 0.15 
+	}
 	### generic
 
 	military_organiser = {
@@ -218,6 +223,13 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
+	}
+	eloquent_charmer = {
+		random = no
+		sprite = 1
+		political_power_factor = 0.1
+		opinion_gain_monthly_same_ideology = 1
+		stability_factor = 0.05
 	}
 
 	fiscal_conservative = {
@@ -1785,7 +1797,7 @@ leader_traits = {
 		
 		naval_has_potf_in_combat_attack = 0.15
 		ships_at_battle_start = 0.15
-		naval_critical_score_chance_factor 0.15
+		naval_critical_score_chance_factor = 0.15
 		critical_receive_chance = 0.15
 
 		command_cap = @tier3
@@ -2214,7 +2226,20 @@ leader_traits = {
 		}
 	}
 
-
+	defensive_strategist = {
+		random = no
+		sprite = 9
+		max_dig_in = 0.1
+		ai_will_do = {
+			base = 1
+			modifier = {
+				ROOT = {
+					has_defensive_war = yes
+				}
+				add = 2
+			}
+		}
+	}
 
 	fir_dragon_armor = {
 		random = no
