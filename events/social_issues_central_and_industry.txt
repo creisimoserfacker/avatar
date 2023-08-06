@@ -1,5 +1,6 @@
 
 add_namespace = centralisation
+add_namespace = population
 
 
 #### invention
@@ -553,6 +554,50 @@ country_event = {
 		
 		ai_chance = {
 			base = 0
+		}
+	}
+
+}
+
+
+
+
+
+#### child labour
+country_event = {
+	id = population.1
+	title = population.1.title
+	desc = population.1.desc
+	
+	picture = GFX_report_event_child_labour
+	
+	is_triggered_only = yes
+	trigger = {
+		NOT = {
+			has_country_flag = child_labour_event
+		}
+	}
+
+	immediate = {
+		hidden_effect = {
+			set_country_flag = child_labour_event
+			add_ideas = cild_labour
+		}
+	}
+
+	option = {
+		name = population.1.a
+		
+		ai_chance = {
+			base = 100
+		}
+	}
+
+	option = {
+		name = population.1.b
+		
+		ai_chance = {
+			base = 100
 		}
 	}
 

@@ -74,7 +74,7 @@ extra_dockyard_output = {
 
 	if = {
 		limit = {
-			check_variable = { extra_docks < dockyard_count }
+			check_variable = { extra_docks < dockyard_duplicator }
 		}
 		ROOT = {
 			add_offsite_building = { type = harbour level = 1 }
@@ -84,7 +84,7 @@ extra_dockyard_output = {
 	}
 	if = {
 		limit = {
-			check_variable = { extra_docks > dockyard_count }
+			check_variable = { extra_docks > dockyard_duplicator }
 		}
 		ROOT = {
 			add_offsite_building = { type = harbour level = -1 }

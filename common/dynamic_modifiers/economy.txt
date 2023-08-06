@@ -83,11 +83,16 @@ extreme_poverty = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { average_gdp_netto < cost_of_living_half }
+			check_variable = { standard_of_living < 0.10 }
 		}
 	}
-	research_speed_factor = -0.3
-	stability_factor = -0.4
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 poverty = {
 
@@ -97,13 +102,18 @@ poverty = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { average_gdp_netto < cost_of_living_75 }
-				check_variable = { average_gdp_netto > cost_of_living_half }
+				check_variable = { standard_of_living < 0.300 }
+				check_variable = { standard_of_living > 0.099 }
 			}
 		}
 	}
-	research_speed_factor = -0.15
-	stability_factor = -0.2
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 struggeling = {
 	
@@ -113,13 +123,18 @@ struggeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { average_gdp_netto < cost_of_living }
-				check_variable = { average_gdp_netto > cost_of_living_75 }
+				check_variable = { standard_of_living < 0.50 }
+				check_variable = { standard_of_living > 0.299 }
 			}
 		}
 	}
-	research_speed_factor = -0.05
-	stability_factor = -0.05
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 middeling = {
 	
@@ -129,13 +144,18 @@ middeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { average_gdp_netto < cost_of_living_150 }
-				check_variable = { average_gdp_netto > cost_of_living }
+				check_variable = { standard_of_living < 0.7 }
+				check_variable = { standard_of_living > 0.499 }
 			}
 		}
 	}
-	research_speed_factor = 0.05
-	stability_factor = 0.2
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 wealth = {
 
@@ -145,13 +165,18 @@ wealth = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { average_gdp_netto < cost_of_living_double }
-				check_variable = { average_gdp_netto > cost_of_living_150 }
+				check_variable = { standard_of_living < 0.9 }
+				check_variable = { standard_of_living > 0.699 }
 			}
 		}
 	}
-	research_speed_factor = 0.1
-	stability_factor = 0.3
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 extreme_wealth = {
 
@@ -160,11 +185,16 @@ extreme_wealth = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { average_gdp_netto > cost_of_living_double }
+			check_variable = { standard_of_living > 0.9 }
 		}
 	}
-	research_speed_factor = 0.2
-	stability_factor = 0.4
+
+	weekly_workless_people = mtth:sol_workless_factor
+
+	consumer_goods_demand = mtth:sol_consumer_goods_factor
+	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	research_speed_factor = mtth:sol_base_impact_factor
+	stability_factor = mtth:sol_base_impact_factor
 }
 
 
