@@ -106,6 +106,190 @@ population_resource_bought_on_market = {
 }
 
 
+farm_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		farm < 5
+	}
+
+	icon = GFX_farm_bonus
+
+	monthly_population_state = mtth:farm_bonus
+}
+
+farm_ranch_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		check_variable = {
+			var = building_level@farm
+			value = building_level@ranch
+			compare = greater_than
+		}
+	}
+
+	icon = GFX_farm_ranch_bonus
+
+	fertilizer = 0.2
+}
+
+mill_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		check_variable = {
+			var = building_level@mill
+			value = building_level@farm
+			compare = greater_than
+		}
+	}
+
+	icon = GFX_mill_bonus
+
+	mill_factor = 0.5
+}
+
+lumber_mill_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		lumber_mill < 10
+	}
+
+	icon = GFX_lumber_mill_bonus
+
+	reforestation = 0.2
+}
+
+carpentry_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		carpentry < 5
+	}
+
+	icon = GFX_carpentry_bonus
+
+	state_resource_consumer_goods_resource = mtth:carpentry_bonus
+	state_resource_luxury_goods_resource = mtth:carpentry_bonus_2
+}
+
+smithy_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		arms_factory < 5
+	}
+
+	icon = GFX_smithy_bonus
+
+	state_resource_steel = mtth:smithy_bonus
+}
+
+quarry_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		quarry < 10
+	}
+
+	icon = GFX_quarry_bonus
+
+	state_resource_iron = mtth:quarry_bonus
+	state_resource_rubber = mtth:quarry_bonus_2
+}
+
+masonry_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		masonry < 5
+	}
+
+	icon = GFX_masonry_bonus
+
+	state_production_speed_buildings_factor = mtth:masonry_bonus
+}
+
+fishing_stand_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		fishing_stand < 5
+	}
+
+	icon = GFX_fishing_stand_bonus
+
+
+	naval_capacity_modifier = mtth:fishing_stand_bonus_2
+	state_resource_chromium = mtth:fishing_stand_bonus
+}
+
+mine_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		mine < 5
+	}
+
+	icon = GFX_mine_bonus
+
+
+	max_dig_in = mtth:mine_bonus_1
+	resistance_decay = mtth:mine_bonus_2
+}
+
+road_upgrade = {
+	enable = { always = yes }
+
+	#no icon because it will be in every state
+	#icon = GFX_road_bonus
+
+	local_building_slots = mtth:road_bonus
+}
+
+crop_weaving_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		crop_weaving < 5
+	}
+
+	icon = GFX_crop_weaving_bonus
+
+	state_resource_consumer_goods_resource = mtth:crop_weaving_bonus
+	state_resource_luxury_goods_resource = mtth:crop_weaving_bonus_2
+}
+
+animal_weaving_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		animal_weaving < 5
+	}
+
+	icon = GFX_animal_weaving_bonus
+
+	state_resource_consumer_goods_resource = mtth:animal_weaving_bonus
+	state_resource_luxury_goods_resource = mtth:animal_weaving_bonus_2
+}
+
+ranch_upgrade = {
+	enable = { always = yes }
+	remove_trigger = {
+		lumber_mill < 10
+	}
+
+	icon = GFX_ranch_bonus
+
+	state_resource_food_resource = mtth:ranch_bonus
+	breeding = mtth:ranch_bonus_2
+}
+
+
+industrial_zone = {
+	enable = { always = yes }
+	remove_trigger = {
+		check_variable = { mtth:industrial_zone < 10 }
+	}
+
+	icon = GFX_industrial_zone
+
+	monthly_migration_state = mtth:industrial_zone_modifier_1
+	monthly_population_state = mtth:industrial_zone_modifier_2
+	local_building_slots_factor  = mtth:industrial_zone_modifier_3
+}
+
+
 
 farm_scripted_resources = {
 	enable = { always = yes }
