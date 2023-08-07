@@ -103,6 +103,22 @@ characters={
 			expire = "110.1.1"
 			id = -1
 		}
+		field_marshal = {
+			traits = { 
+			}
+			skill = 1
+			attack_skill = 1
+			defense_skill = 1
+			planning_skill = 1
+			logistics_skill = 1
+			legacy_id=-1
+
+			visible = { 
+				has_character_flag = FIR_character_born
+				has_character_flag = FIR_character_general
+				NOT = { has_character_flag = FIR_character_death } 
+			}
+		}
 	}
 
 
@@ -119,7 +135,7 @@ characters={
 		}
 
 		country_leader = {
-			ideology = pacifism
+			ideology = active_pacifism
 			traits = {
 				firelord
 			}
@@ -531,7 +547,10 @@ characters={
 		name = "Yonrha"
 		portraits = {
 			army = {
-			 large = "GFX_Portrait_Firenation_Yonrha.dds"
+			 large = "GFX_Portrait_Firenation_Yonrha"
+			}
+			army={
+				small="GFX_Portrait_Firenation_Yonrha_small"
 			}
 		}
 		navy_leader={
