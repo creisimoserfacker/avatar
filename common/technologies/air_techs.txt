@@ -235,7 +235,17 @@ technologies = {
 		}
 		
 		ai_will_do = {
-			factor = 1
+			base = 0
+			modifier = {
+				has_resources_in_country = {
+					resource = steel
+					amount > 6
+					extracted = yes 
+					buildings = yes
+				}
+				num_of_military_factories > 20
+				add = 2
+			}
 		}
 	}
 
