@@ -51,3 +51,100 @@ defined_text = {
 		localization_key = neither_mil_or_civ_tooltip
 	}
 }
+
+defined_text = {
+	name = GetWorkerDeficit
+	text = {
+		trigger = {
+			check_variable = { worker_deficit_k > 0 }
+		}
+		localization_key = worker_deficit_color
+	}
+	text = {
+		trigger = {
+			check_variable = { worker_deficit_k = 0 }
+		}
+		localization_key = worker_deficit_no_color
+	}
+}
+
+
+defined_text = {
+	name = GetSol
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = extreme_poverty }
+		}
+		localization_key = extreme_poverty_extended
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = poverty }
+		}
+		localization_key = poverty_extended
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = struggeling }
+		}
+		localization_key = struggeling_extended
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = middeling }
+		}
+		localization_key = middeling_extended
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = wealth }
+		}
+		localization_key = wealth_extended
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = extreme_wealth }
+		}
+		localization_key = extreme_wealth_extended
+	}
+}
+
+defined_text = {
+	name = GetSolTooltip
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = extreme_poverty }
+		}
+		localization_key = extreme_poverty_delayed
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = poverty }
+		}
+		localization_key = poverty_delayed
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = struggeling }
+		}
+		localization_key = struggeling_delayed
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = middeling }
+		}
+		localization_key = middeling_delayed
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = wealth }
+		}
+		localization_key = wealth_delayed
+	}
+	text = {
+		trigger = {
+			has_dynamic_modifier = { modifier = extreme_wealth }
+		}
+		localization_key = extreme_wealth_delayed
+	}
+}

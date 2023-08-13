@@ -4,6 +4,7 @@ technologies = {
 		
 		industry_repair_factor = 0.02
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 		
 		path = {
 			leads_to_tech = construction_l1
@@ -69,6 +70,7 @@ technologies = {
 	construction_r1 = {
 
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 		
 		path = {
 			leads_to_tech = repair_2
@@ -153,6 +155,7 @@ technologies = {
 	construction_r2 = {
 	
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 		
 		path = {
 			leads_to_tech = repair_3
@@ -238,6 +241,7 @@ technologies = {
 	construction_r3 = {
 	
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 	
 		path = {
 			leads_to_tech = repair_4
@@ -323,6 +327,7 @@ technologies = {
 	construction_r4 = {
 	
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 	
 		path = {
 			leads_to_tech = repair_5
@@ -408,6 +413,7 @@ technologies = {
 	construction_r5 = {
 	
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 	
 		path = {
 			leads_to_tech = repair_6
@@ -502,6 +508,7 @@ technologies = {
 		}
 		
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 		
 		research_cost = 2
 		#start_year = 72
@@ -578,6 +585,7 @@ technologies = {
 		
 		
 		production_speed_buildings_factor = 0.05
+		craftsman_factor = 0.05
 		
 		research_cost = 2
 		#start_year = 84
@@ -654,6 +662,9 @@ technologies = {
 	
 		industrial_capacity_factory = 0.05
 		industrial_capacity_dockyard = 0.05
+		craftsman_factor = -0.05
+		smith_factor = -0.05
+		harbour_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = production_1
@@ -692,6 +703,8 @@ technologies = {
 	production_1 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.05
+
 		on_research_complete = {
 			custom_effect_tooltip = smithy_output
 			add_to_variable = { smithy_output = 1 }
@@ -729,6 +742,7 @@ technologies = {
 	naval_1 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = naval_2
@@ -757,6 +771,8 @@ technologies = {
 	production_2 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.05
+
 		on_research_complete = {
 			custom_effect_tooltip = smithy_output
 			add_to_variable = { smithy_output = 1 }
@@ -794,6 +810,7 @@ technologies = {
 	naval_2 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = naval_3
@@ -822,9 +839,14 @@ technologies = {
 	production_3 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.05
+
 		on_research_complete = {
 			custom_effect_tooltip = smithy_output
 			add_to_variable = { smithy_output = 1 }
+
+			custom_effect_tooltip = smithy_output_2
+			add_to_variable = { smithy_output_2 = 1 }
 		}
 		
 		path = {
@@ -861,6 +883,7 @@ technologies = {
 	naval_3 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = naval_4
@@ -889,6 +912,9 @@ technologies = {
 	production_4 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.075
+		industrial_worker_factor = -0.01
+
 		on_research_complete = {
 			custom_effect_tooltip = factory_output
 			add_to_variable = { factory_output = 1 }
@@ -928,6 +954,8 @@ technologies = {
 	naval_4 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.075
+		industrial_worker_factor = -0.01
 		
 		path = {
 			leads_to_tech = naval_5
@@ -956,6 +984,9 @@ technologies = {
 	production_5 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.075
+		industrial_worker_factor = -0.01
+
 		on_research_complete = {
 			custom_effect_tooltip = factory_output
 			add_to_variable = { factory_output = 1 }
@@ -995,6 +1026,8 @@ technologies = {
 	naval_5 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.075
+		industrial_worker_factor = -0.01
 		
 		path = {
 			leads_to_tech = naval_6
@@ -1023,6 +1056,9 @@ technologies = {
 	production_6 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.075
+		industrial_worker_factor = -0.01
+
 		on_research_complete = {
 			custom_effect_tooltip = factory_output
 			add_to_variable = { factory_output = 1 }
@@ -1057,6 +1093,8 @@ technologies = {
 	naval_6 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.075
+		industrial_worker_factor = -0.01
 		
 		path = {
 			leads_to_tech = naval_7
@@ -1085,6 +1123,9 @@ technologies = {
 	production_7 = {
 		
 		industrial_capacity_factory = 0.05
+		smith_factor = -0.075
+		industrial_worker_factor = -0.01
+
 		on_research_complete = {
 			custom_effect_tooltip = factory_output
 			add_to_variable = { factory_output = 1 }
@@ -1115,6 +1156,8 @@ technologies = {
 	naval_7 = {
 		
 		industrial_capacity_dockyard = 0.05
+		harbour_worker_factor = -0.075
+		industrial_worker_factor = -0.01
 		
 		research_cost = 2
 		#start_year = 84
@@ -1138,6 +1181,12 @@ technologies = {
 	gathering_tech_1 = {
 
 		local_resources_factor = 0.05
+
+		farmer_factor = 0.75
+		weaver_factor = 0.5
+		shopkeeper_factor = 0.25
+		fisher_factor = 0.25
+		miller_factor = 0.25
 	
 		path = {
 			leads_to_tech = gathering_tech_2
@@ -1186,6 +1235,12 @@ technologies = {
 	gathering_tech_2 = {
 
 		local_resources_factor = 0.05
+
+		fisher_factor = 0.75
+		rancher_factor = 0.5
+		miner_factor = 0.5
+		craftsman_factor = 0.25
+		smith_factor = 0.25
 	
 		path = {
 			leads_to_tech = gathering_tech_3
@@ -1214,6 +1269,12 @@ technologies = {
 	gathering_tech_3 = {
 
 		local_resources_factor = 0.05
+
+		shopkeeper_factor = 0.75
+		rancher_factor = 0.5
+		miner_factor = 0.5
+		farmer = 0.25
+		fisher_factor = 0.1
 	
 		path = {
 			leads_to_tech = gathering_tech_4
@@ -1242,6 +1303,12 @@ technologies = {
 	gathering_tech_4 = {
 
 		local_resources_factor = 0.05
+
+		miner_factor = 1
+		craftsman_factor = 0.5
+		lumberjack_factor = 0.5
+		smith_factor = 0.1
+		industrial_worker_factor = 0.2
 	
 		path = {
 			leads_to_tech = gathering_tech_5
@@ -1270,6 +1337,11 @@ technologies = {
 	gathering_tech_5 = {
 
 		local_resources_factor = 0.05
+
+		lumberjack_factor = 0.5
+		industrial_worker_factor = 0.1
+		rancher_factor = 0.2
+
 	
 		path = {
 			leads_to_tech = gathering_tech_6
@@ -1376,6 +1448,8 @@ technologies = {
 	}
 	
 	basic_gathering = {
+
+		lumberjack_factor = -0.05
 	
 		path = {
 			leads_to_tech = wood_1
@@ -1416,6 +1490,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	plank_1 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1424,6 +1500,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = consumer_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_2 = 1 }
 		}
 		
 		research_cost = 2
@@ -1448,6 +1531,8 @@ technologies = {
 	}
 	
 	wood_1 = {
+
+		lumberjack_factor = -0.05
 		
 		path = {
 			leads_to_tech = wood_2
@@ -1488,6 +1573,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	plank_2 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1496,6 +1583,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = consumer_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_2 = 1 }
 		}
 		
 		research_cost = 2
@@ -1519,6 +1613,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	wood_2 = {
+
+		lumberjack_factor = -0.05
 		
 		path = {
 			leads_to_tech = wood_3
@@ -1559,6 +1655,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	plank_3 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1567,6 +1665,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = consumer_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_2 = 1 }
 		}
 		
 		research_cost = 2
@@ -1590,6 +1695,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	wood_3 = {
+
+		lumberjack_factor = -0.05
 		
 		path = {
 			leads_to_tech = wood_4
@@ -1630,6 +1737,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	plank_4 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1638,6 +1747,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = luxury_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_3 = 1 }
 		}
 		
 		research_cost = 2
@@ -1661,6 +1777,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	wood_4 = {
+
+		lumberjack_factor = -0.05
 		
 		path = {
 			leads_to_tech = wood_5
@@ -1702,6 +1820,8 @@ technologies = {
 	}
 	plank_5 = {
 		
+		craftsman_factor = -0.025
+
 		on_research_complete = {
 			modify_building_resources = {
 				building = carpentry
@@ -1709,6 +1829,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = luxury_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_3 = 1 }
 		}
 		
 		research_cost = 2
@@ -1732,6 +1859,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	wood_5 = {
+
+		lumberjack_factor = -0.05
 
 		path = {
 			leads_to_tech = plank_6
@@ -1768,6 +1897,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	plank_6 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1776,6 +1907,13 @@ technologies = {
 				amount = 1
 			}
 			add_to_variable = { carpentry_output = 1 }
+
+			modify_building_resources = {
+				building = carpentry
+				resource = luxury_goods_resource
+				amount = 1
+			}
+			add_to_variable = { carpentry_output_3 = 1 }
 		}
 		
 		research_cost = 2
@@ -1800,6 +1938,8 @@ technologies = {
 	}
 	
 	stone_1 = {
+
+		miner_factor = -0.025
 	
 		path = {
 			leads_to_tech = stone_2
@@ -1844,6 +1984,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_1 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1875,6 +2017,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	stone_2 = {
+
+		miner_factor = -0.025
 
 		path = {
 			leads_to_tech = stone_3
@@ -1915,6 +2059,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_2 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -1946,6 +2092,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	stone_3 = {
+
+		miner_factor = -0.025
 
 		path = {
 			leads_to_tech = stone_4
@@ -1986,6 +2134,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_3 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2017,6 +2167,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	stone_4 = {
+
+		miner_factor = -0.025
 
 		path = {
 			leads_to_tech = stone_5
@@ -2057,6 +2209,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_4 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2088,6 +2242,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	stone_5 = {
+
+		miner_factor = -0.025
 
 		path = {
 			leads_to_tech = stone_6
@@ -2128,6 +2284,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_5 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2159,6 +2317,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	stone_6 = {
+
+		miner_factor = -0.025
 
 		path = {
 			leads_to_tech = brick_6
@@ -2195,6 +2355,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	brick_6 = {
+
+		craftsman_factor = -0.025
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2488,6 +2650,8 @@ technologies = {
 	}
 
 	fish_1 = {
+
+		fisher_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2519,6 +2683,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	bread_1 = {
+
+		miller_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2550,6 +2716,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	fish_2 = {
+
+		fisher_factor = -0.1
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2581,6 +2749,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	bread_2 = {
+
+		miller_factor = -0.1
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2612,6 +2782,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	fish_3 = {
+
+		fisher_factor = -0.15
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2643,6 +2815,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	bread_3 = {
+
+		miller_factor = -0.15
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2674,6 +2848,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	fish_4 = {
+
+		fisher_factor = -0.2
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2705,6 +2881,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	bread_4 = {
+
+		miller_factor = -0.2
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2737,6 +2915,8 @@ technologies = {
 	}
 	
 	farming_1 = {
+
+		farmer_factor = -0.05
 		
 		path = {
 			leads_to_tech = farming_2
@@ -2779,6 +2959,8 @@ technologies = {
 	}
 	
 	food_1 = {
+
+		farmer_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -2826,6 +3008,8 @@ technologies = {
 	
 	tanning_1 = {
 
+		rancher_factor = -0.05
+
 		path = {
 			leads_to_tech = tanning_2
 			research_cost_coeff = 1
@@ -2868,6 +3052,8 @@ technologies = {
 	}
 	tanning_2 = {
 
+		rancher_factor = -0.05
+
 		path = {
 			leads_to_tech = tanning_3
 			research_cost_coeff = 1
@@ -2905,6 +3091,8 @@ technologies = {
 	}
 	tanning_3 = {
 
+		rancher_factor = -0.05
+
 		path = {
 			leads_to_tech = tanning_4
 			research_cost_coeff = 1
@@ -2917,6 +3105,13 @@ technologies = {
 				amount = 2
 			}
 			add_to_variable = { ranch_output = 2 }
+
+			modify_building_resources = {
+				building = ranch
+				resource = food_resource
+				amount = 3
+			}
+			add_to_variable = { ranch_output_2 = 3 }
 		}
 		
 		research_cost = 2
@@ -2941,6 +3136,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	tanning_4 = {
+
+		rancher_factor = -0.05
 
 		path = {
 			leads_to_tech = tanning_5
@@ -2979,6 +3176,8 @@ technologies = {
 	}
 	tanning_5 = {
 
+		rancher_factor = -0.05
+
 		path = {
 			leads_to_tech = tanning_6
 			research_cost_coeff = 1
@@ -3015,6 +3214,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	tanning_6 = {
+
+		rancher_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -3023,6 +3224,13 @@ technologies = {
 				amount = 2
 			}
 			add_to_variable = { ranch_output = 2 }
+
+			modify_building_resources = {
+				building = ranch
+				resource = food_resource
+				amount = 3
+			}
+			add_to_variable = { ranch_output_2 = 3 }
 		}
 		
 		research_cost = 2
@@ -3048,6 +3256,8 @@ technologies = {
 	}
 	
 	mining_1 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_2
@@ -3085,6 +3295,8 @@ technologies = {
 	}
 	
 	mining_c1 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_c2
@@ -3292,6 +3504,8 @@ technologies = {
 	}
 	
 	textile_1 = {
+
+		weaver_factor = -0.1
 		
 		path = {
 			leads_to_tech = textile_2
@@ -3334,6 +3548,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	textile_2 = {
+
+		weaver_factor = -0.1
 		
 		path = {
 			leads_to_tech = textile_3
@@ -3376,6 +3592,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	textile_3 = {
+
+		weaver_factor = -0.1
 		
 		path = {
 			leads_to_tech = textile_4
@@ -3418,6 +3636,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	textile_4 = {
+
+		weaver_factor = -0.1
 		
 		path = {
 			leads_to_tech = textile_5
@@ -3460,6 +3680,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	textile_5 = {
+
+		weaver_factor = -0.1
 		
 		path = {
 			leads_to_tech = textile_6
@@ -3502,6 +3724,8 @@ technologies = {
 		show_effect_as_desc = yes
 	}
 	textile_6 = {
+
+		weaver_factor = -0.1
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -3540,6 +3764,8 @@ technologies = {
 	}
 	
 	farming_2 = {
+
+		farmer_factor = -0.05
 		
 		path = {
 			leads_to_tech = farming_3
@@ -3578,6 +3804,9 @@ technologies = {
 	}
 	
 	food_2 = {
+
+		farmer_factor = -0.05
+
 		path = {
 			leads_to_tech = food_2
 			research_cost_coeff = 1
@@ -3622,6 +3851,8 @@ technologies = {
 	}
 	
 	mining_2 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_3
@@ -3664,6 +3895,8 @@ technologies = {
 	}
 	
 	mining_c2 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_1
@@ -3732,6 +3965,9 @@ technologies = {
 	}
 	
 	farming_3 = {
+
+		farmer_factor = -0.05
+
 		path = {
 			leads_to_tech = food_3
 			research_cost_coeff = 1
@@ -3769,6 +4005,8 @@ technologies = {
 	}
 	
 	food_3 = {
+
+		farmer_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -3809,6 +4047,8 @@ technologies = {
 	}
 	
 	mining_3 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_4
@@ -3847,6 +4087,8 @@ technologies = {
 	}
 	
 	mining_c3 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_c4
@@ -3910,6 +4152,9 @@ technologies = {
 	}
 	
 	farming_4 = {
+
+		farmer_factor = -0.05
+
 		path = {
 			leads_to_tech = food_4
 			research_cost_coeff = 1
@@ -3947,6 +4192,8 @@ technologies = {
 	}
 	
 	food_4 = {
+
+		farmer_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -3987,6 +4234,8 @@ technologies = {
 	}
 	
 	mining_4 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_1
@@ -4028,6 +4277,8 @@ technologies = {
 	}
 	
 	mining_c4 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_c5
@@ -4091,6 +4342,8 @@ technologies = {
 	}
 	
 	farming_5 = {
+
+		farmer_factor = -0.05
 		
 		path = {
 			leads_to_tech = farming_6
@@ -4130,6 +4383,8 @@ technologies = {
 	}
 	
 	food_5 = {
+
+		farmer_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -4170,6 +4425,8 @@ technologies = {
 	}
 	
 	mining_5 = {
+
+		miner_factor = -0.05
 		
 		path = {
 			leads_to_tech = mining_6
@@ -4207,6 +4464,9 @@ technologies = {
 	}
 	
 	farming_6 = {
+
+		farmer_factor = -0.05
+
 		path = {
 			leads_to_tech = food_6
 			research_cost_coeff = 1
@@ -4241,6 +4501,8 @@ technologies = {
 	}
 	
 	food_6 = {
+
+		farmer_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -4281,6 +4543,8 @@ technologies = {
 	}
 	
 	mining_6 = {
+
+		miner_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -4313,6 +4577,8 @@ technologies = {
 	}
 	
 	smelting_1 = {
+
+		industrial_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_2
@@ -4350,6 +4616,8 @@ technologies = {
 	}
 	
 	smelting_2 = {
+
+		industrial_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_3
@@ -4387,6 +4655,8 @@ technologies = {
 	}
 	
 	smelting_3 = {
+
+		industrial_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_l1
@@ -4428,6 +4698,8 @@ technologies = {
 	}
 	
 	smelting_l1 = {
+
+		industrial_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_l2
@@ -4475,6 +4747,8 @@ technologies = {
 	}
 	
 	smelting_r1 = {
+
+		industrial_worker_factor = -0.05
 		
 		path = {
 			leads_to_tech = smelting_r2
@@ -4516,6 +4790,8 @@ technologies = {
 	}
 	
 	smelting_l2 = {
+
+		industrial_worker_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {
@@ -4554,6 +4830,8 @@ technologies = {
 	}
 	
 	smelting_r2 = {
+
+		industrial_worker_factor = -0.05
 		
 		on_research_complete = {
 			modify_building_resources = {

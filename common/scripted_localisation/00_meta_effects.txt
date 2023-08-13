@@ -1,0 +1,92 @@
+# Allows you to create your own dynamic keys
+# to be called in localization.
+# defined_text -> this is it, we're defining the text
+# text -> a discrete entry that can be picked to display in loc.
+# trigger -> determines if a text entry will be picked or not.
+# (The triggers need to be valid for the scope the key is called in
+# (eg Root or From.From).)
+# localization_key -> points to the localization key
+# that'll be used if trigger passes
+
+
+
+defined_text = {
+	name = GetCosmeticTag
+	text = {
+		trigger = {
+			has_idea = fire_nation
+		}
+		localization_key = PEF
+	}
+	text = {
+		trigger = {
+			has_idea = earth_nation
+		}
+		localization_key = PEE
+	}
+	text = {
+		trigger = {
+			has_idea = water_nation
+		}
+		localization_key = PEW
+	}
+	text = {
+		trigger = {
+			has_idea = air_nation
+		}
+		localization_key = PEA
+	}
+	text = {
+		localization_key = PEG
+	}
+	
+}
+
+defined_text = {
+	name = GetAirPop
+	text = {
+		trigger = {
+			has_government = air_culture
+		}
+		localization_key = "40"
+	}
+	text = {
+		localization_key = "0"
+	}
+}
+defined_text = {
+	name = GetWaterPop
+	text = {
+		trigger = {
+			has_government = water_culture
+		}
+		localization_key = "40"
+	}
+	text = {
+		localization_key = "0"
+	}
+}
+defined_text = {
+	name = GetFirePop
+	text = {
+		trigger = {
+			has_government = fire_culture
+		}
+		localization_key = "40"
+	}
+	text = {
+		localization_key = "0"
+	}
+}
+defined_text = {
+	name = GetEarthPop
+	text = {
+		trigger = {
+			has_government = earth_culture
+		}
+		localization_key = "40"
+	}
+	text = {
+		localization_key = "0"
+	}
+}

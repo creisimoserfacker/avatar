@@ -1,45 +1,103 @@
 division_template = {
 	name = "Town Guard"
-
 	regiments = {
-		spearmen = { x = 0 y = 0 }
-		spearmen = { x = 0 y = 1 }
-		spearmen = { x = 1 y = 0 }
-        spearmen = { x = 1 y = 1 }
+		spearmen = {
+			x = 0
+			y = 0
+		}
+		spearmen = {
+			x = 0
+			y = 1
+		}
+		spearmen = {
+			x = 1
+			y = 0
+		}
+		spearmen = {
+			x = 1
+			y = 1
+		}
 	}
-
 }
 
 division_template = {
-	name = "Militia Brigade"
-
+	name = "Beetle Militia"
 	regiments = {
-		spearmen = { x = 0 y = 0 }
-		swordsmen = { x = 1 y = 0 }
-		swordsmen = { x = 1 y = 1 }
+		swordsmen = {
+			x = 0
+			y = 0
+		}
+		archers = {
+			x = 1
+			y = 0
+		}
 	}
-
 }
 
 division_template = {
 	name = "Sandbender Brigade"
-
 	regiments = {
-		sandbender = { x = 0 y = 0 }
-		sandbender = { x = 0 y = 1 }
-		sandbender = { x = 0 y = 2 }
+		sandbender = {
+			x = 0
+			y = 0
+		}
+		sandbender = {
+			x = 0
+			y = 1
+		}
 	}
-
 }
+
+#############################################
 units = {
-	
-	division= {	
+	division = {
 		division_name = {
-				is_name_ordered = yes
-				name_order = 1
+			is_name_ordered = yes
+			name_order = 1
 		}
 		location = 7609
+		division_template = "Town Guard"
+		start_experience_factor = 0.08
+		start_equipment_factor = 0.75
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 8014
+		division_template = "Beetle Militia"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 649
 		division_template = "Sandbender Brigade"
-		start_experience_factor = 0.1
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 1839
+		division_template = "Sandbender Brigade"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
+	}
+	division = {
+		division_name = {
+			is_name_ordered = yes
+			name_order = 1
+		}
+		location = 4721
+		division_template = "Sandbender Brigade"
+		start_experience_factor = 0.05
+		start_equipment_factor = 0.3
 	}
 }

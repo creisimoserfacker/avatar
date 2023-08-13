@@ -254,7 +254,7 @@ NDiplomacy = {
 NCountry = {
 	EVENT_PROCESS_OFFSET = 20,						-- Events are checked every X day per country or state (1 is ideal, but CPU heavy)
 	BASE_RESEARCH_SLOTS = 2,						-- Base number of research slots per country.
-	POPULATION_YEARLY_GROWTH_BASE = 0.001,			-- basic population growth per year, used for monthly manpower gain
+	POPULATION_YEARLY_GROWTH_BASE = 0.005,			-- basic population growth per year, used for monthly manpower gain
 	RESISTANCE_STRENGTH_FROM_VP = 0.001,			-- How much strength ticking speed gives each VP score.
 	RESISTANCE_STRENGTH_FROM_NEIGHBORS = 0.25, 		-- Multiplies how much resistance can spread from one state to its neighbors, a state will spread whatever is highest of its victorypoints resistance increase or half of any of its neighbors spread, multiplied by this
 	RESISTANCE_DECAY_WHEN_NO_GROWTH = 0.005,		-- Resistance will fall by this much each day if there is nothing increasing it ( no VPs and no spread from neighbors )
@@ -509,7 +509,7 @@ NResistance = {
 	RESISTANCE_GROWTH_MIN = 0.01, -- min resistance grow
 	RESISTANCE_GROWTH_MAX = 100.0, -- max resistance grow
 	
-	COMPLIANCE_GROWTH_BASE = 0.005, -- base compliance grow
+	COMPLIANCE_GROWTH_BASE = 0.065, -- base compliance grow
 	COMPLIANCE_GROWTH_MIN = -100.0, -- min compliance grow
 	COMPLIANCE_GROWTH_MAX = 100.0, -- max compliance grow
 	

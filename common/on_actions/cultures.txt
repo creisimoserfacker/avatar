@@ -84,9 +84,6 @@ on_actions = {
 	}
 
 	on_daily = {
-		effect = {
-
-		}
 	}
 
 	on_monthly = {
@@ -101,10 +98,20 @@ on_actions = {
 			### add settlers
 			### add occupation culture buff
 
-			every_controlled_state = {
-				add_settlers_effect = yes
-				add_occupation_culture_buff = yes
-			}
+        every_controlled_state = {
+            add_settlers_effect = yes
+            add_occupation_culture_buff = yes
+
+            # Calculate monthly growth for each culture
+            set_variable = {
+                # Calculate the growth based on the percentage and add it to the culture value
+                fire_pop = fire_pop + (fire_pop * bender_percentage)
+                earth_pop = earth_pop + (earth_pop * bender_percentage)
+                water_pop = water_pop + (water_pop * bender_percentage)
+                air_pop = air_pop + (air_pop * bender_percentage)
+                nonbender_pop = nonbender_pop + (nonbender_pop * bender_percentage)
+            }
+        }
 
 			### expected growth
 

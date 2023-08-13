@@ -1,4 +1,46 @@
 
+sol_base_impact_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { solf = -0.5 }
+		add_to_temp_variable = { solf = standard_of_living }
+		
+		add = solf
+	}
+}
+
+sol_workless_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { solf = 0.1 }
+		multiply_temp_variable = { solf = standard_of_living }
+		add_to_temp_variable = { solf = -0.11 }
+		
+		add = solf
+	}
+}
+
+sol_consumer_goods_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { solf = -0.5 }
+		add_to_temp_variable = { solf = standard_of_living }
+		
+		add = solf
+	}
+}
+
+sol_luxury_goods_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { solf = -1 }
+		add_to_temp_variable = { solf = standard_of_living }
+		add_to_temp_variable = { solf = standard_of_living }
+		
+		add = solf
+	}
+}
+
 local_resource_factor = {
 	base = 0
 	modifier = {
@@ -160,7 +202,9 @@ farm_grain_gain = {
 		controller = {
 			multiply_temp_variable = { local_resource = farm_output }
 		}
-		multiply_temp_variable = { local_resource = field }
+		set_temp_variable = { field_available = field }
+		add_to_temp_variable = { field_available = modifier@fertilizer }
+		multiply_temp_variable = { local_resource = field_available }
 		set_temp_variable = { harvest = 1 }
 		add_to_temp_variable = { harvest = modifier@harvesting_factor }
 		add_to_temp_variable = { harvest = controller:modifier@harvesting_factor }
@@ -198,7 +242,9 @@ ranch_leather_gain = {
 		controller = {
 			multiply_temp_variable = { local_resource = ranch_output }
 		}
-		multiply_temp_variable = { local_resource = animal }
+		set_temp_variable = { animal_available = animal }
+		add_to_temp_variable = { animal_available = modifier@breeding }
+		multiply_temp_variable = { local_resource = animal_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
@@ -228,7 +274,9 @@ lumber_mill_wood_gain = {
 		controller = {
 			multiply_temp_variable = { local_resource = lumber_mill_output }
 		}
-		multiply_temp_variable = { local_resource = forest }
+		set_temp_variable = { wood_available = forest }
+		add_to_temp_variable = { wood_available = modifier@reforestation }
+		multiply_temp_variable = { local_resource = wood_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
@@ -327,6 +375,16 @@ mine_iron_gain = {
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
 		add_to_temp_variable = { local_resource = building_level@mine }
+		if = {
+			limit = {
+				controller = {
+					has_tech = mine_4
+				}
+				mine > 9
+			}
+			set_temp_variable = { mining_potential = 1.5 }
+			multiply_temp_variable = { local_resource = mining_potential }
+		}
 		controller = {
 			multiply_temp_variable = { local_resource = mine_output1 }
 		}
@@ -342,6 +400,16 @@ mine_coal_gain = {
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
 		add_to_temp_variable = { local_resource = building_level@mine }
+		if = {
+			limit = {
+				controller = {
+					has_tech = mine_4
+				}
+				mine > 9
+			}
+			set_temp_variable = { mining_potential = 1.5 }
+			multiply_temp_variable = { local_resource = mining_potential }
+		}
 		controller = {
 			multiply_temp_variable = { local_resource = mine_output2 }
 		}
@@ -357,6 +425,11 @@ mill_food_gain = {
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
 		add_to_temp_variable = { local_resource = building_level@mill }
+
+		set_temp_variable = { mill_output_factor = 1 }
+		add_to_temp_variable = { mill_output_factor = modifier@mill_factor }
+		multiply_temp_variable = { local_resource = mill_output_factor }
+
 		controller = {
 			multiply_temp_variable = { local_resource = mill_output }
 			if = {
@@ -438,6 +511,18 @@ steelworks_steel_gain = {
 
 				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
 			}
+
+			if = {
+				limit = {
+					check_variable = { 
+						var = fuel_ratio
+						value = 0
+						compare = less_than_or_equals
+					}
+				}	
+				set_temp_variable = { resource_lack_penalty_2 = 0.5 }
+				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
+			}
 		}
 		clamp_temp_variable = {
 			var = local_resource
@@ -454,6 +539,17 @@ shop_consumer_goods_gain = {
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
 		add_to_temp_variable = { local_resource = building_level@consumer_good_factory }
+		if = {
+			limit = {
+				controller = {
+					has_tech = shops_2
+				}
+			}
+			set_temp_variable = { pop_factor = state_population_k }
+			multiply_temp_variable = { pop_factor = 0.01 }
+			add_to_temp_variable = { pop_factor = 1 }
+			multiply_temp_variable = { local_resource = pop_factor }
+		}
 		controller = {
 			multiply_temp_variable = { local_resource = consumer_good_factory_output }
 			if = {
@@ -515,6 +611,17 @@ luxury_store_luxury_goods_gain = {
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
 		add_to_temp_variable = { local_resource = building_level@luxury_good_factory }
+		if = {
+			limit = {
+				controller = {
+					has_tech = shops_2
+				}
+			}
+			set_temp_variable = { pop_factor = state_population_k }
+			multiply_temp_variable = { pop_factor = 0.01 }
+			add_to_temp_variable = { pop_factor = 1 }
+			multiply_temp_variable = { local_resource = pop_factor }
+		}
 		controller = {
 			multiply_temp_variable = { local_resource = luxury_good_factory_output }
 			if = {
@@ -668,6 +775,17 @@ steel_beam_factory_steel_beam_gain = {
 				add_to_temp_variable = { resource_lack_penalty = 1 }
 				multiply_temp_variable = { local_resource = resource_lack_penalty }
 			}
+			if = {
+				limit = {
+					check_variable = { 
+						var = fuel_ratio
+						value = 0
+						compare = less_than_or_equals
+					}
+				}	
+				set_temp_variable = { resource_lack_penalty_2 = 0.5 }
+				multiply_temp_variable = { local_resource = resource_lack_penalty_2 }
+			}
 		}
 		clamp_temp_variable = {
 			var = local_resource
@@ -676,5 +794,518 @@ steel_beam_factory_steel_beam_gain = {
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+farm_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@farm }
+		multiply_temp_variable = { bonus = 0.01 }
+		
+		add = bonus
+	}
+}
+
+carpentry_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@carpentry }
+		controller = {
+			multiply_temp_variable = { bonus = carpentry_output_2 }
+			if = {
+				limit = {
+					check_variable = { resource@aluminium < 0 }
+				}	
+				set_temp_variable = { carpentry_consumed = carpentry_count }
+				multiply_temp_variable = { carpentry_consumed = carpentry_need }
+				set_temp_variable = { resource_lack_penalty = resource@aluminium }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { carpentry_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = carpentry_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+carpentry_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@carpentry }
+		if = {
+			limit = {
+				check_variable = { building_level@carpentry < 15 }
+			}
+			set_temp_variable = { bonus = 0 }
+		}
+		controller = {
+			multiply_temp_variable = { bonus = carpentry_output_3 }
+			if = {
+				limit = {
+					check_variable = { resource@aluminium < 0 }
+				}	
+				set_temp_variable = { carpentry_consumed = carpentry_count }
+				multiply_temp_variable = { carpentry_consumed = carpentry_need }
+				set_temp_variable = { resource_lack_penalty = resource@aluminium }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { carpentry_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = carpentry_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+
+smithy_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@arms_factory }
+		controller = {
+			multiply_temp_variable = { bonus = smithy_output_2 }
+			if = {
+				limit = {
+					check_variable = { 
+						var = fuel_ratio
+						value = 0
+						compare = less_than_or_equals
+					}
+				}	
+				set_temp_variable = { resource_lack_penalty = 0.5 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+
+quarry_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@quarry }
+		controller = {
+			multiply_temp_variable = { bonus = quarry_output_2 }
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+quarry_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@quarry }
+		if = {
+			limit = {
+				check_variable = { building_level@quarry < 15 }
+			}
+			NOT = {
+				controller = {
+					has_tech = quarry_4
+				}
+			}
+			set_temp_variable = { bonus = 0 }
+		}
+		controller = {
+			multiply_temp_variable = { bonus = quarry_output_3 }
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+masonry_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@masonry }
+		multiply_temp_variable = { bonus = 0.02 }
+
+		if = {
+			limit = {
+				masonry > 9
+				controller = {
+					has_tech = masonry_4
+				}
+			}
+			set_temp_variable = { bonus = building_level@masonry }
+			multiply_temp_variable = { bonus = 0.05 }
+		}
+		
+		add = bonus
+	}
+}
+
+fishing_stand_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@fishing_stand }
+		controller = {
+			multiply_temp_variable = { bonus = fishing_stand_output_2 }
+		}
+		multiply_temp_variable = { bonus = water }
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		add = bonus
+	}
+}
+
+fishing_stand_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@fishing_stand }
+		if = {
+			limit = {
+				OR = {
+					fishing_stand < 15
+					NOT = {
+						controller = {
+							has_tech = fishing_stand_4
+						}
+					}
+				}
+			}
+			set_temp_variable = { bonus = 0 }
+		}
+
+		add = bonus
+	}
+}
+
+mine_bonus_1 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@mine }
+		multiply_temp_variable = { bonus = 2 }
+
+		add = bonus
+	}
+}
+
+mine_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@mine }
+		multiply_temp_variable = { bonus = -0.0005 }
+
+		add = bonus
+	}
+}
+
+road_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@infrastructure }
+		set_temp_variable = { pop_factor = state_population_k }
+		multiply_temp_variable = { pop_factor = 0.01 }
+		multiply_temp_variable = { bonus = pop_factor }
+
+		add = bonus
+	}
+}
+
+
+crop_weaving_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@crop_weaving }
+		controller = {
+			multiply_temp_variable = { bonus = crop_weaving_output_2 }
+			if = {
+				limit = {
+					check_variable = { resource@oil < 0 }
+				}	
+				set_temp_variable = { crop_weaving_consumed = crop_weaving_count }
+				multiply_temp_variable = { ccrop_weaving_consumed = crop_weaving_need }
+				set_temp_variable = { resource_lack_penalty = resource@oil }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { crop_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = crop_weaving_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+crop_weaving_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@crop_weaving }
+		if = {
+			limit = {
+				crop_weaving < 15
+			}
+			set_temp_variable = { bonus = 0 }
+		}
+		controller = {
+			multiply_temp_variable = { bonus = crop_weaving_output_3 }
+			if = {
+				limit = {
+					check_variable = { resource@oil < 0 }
+				}	
+				set_temp_variable = { crop_weaving_consumed = crop_weaving_count }
+				multiply_temp_variable = { crop_weaving_consumed = crop_weaving_need }
+				set_temp_variable = { resource_lack_penalty = resource@oil }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { crop_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = crop_weaving_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+
+animal_weaving_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@animal_weaving }
+		controller = {
+			multiply_temp_variable = { bonus = animal_weaving_output_2 }
+			if = {
+				limit = {
+					check_variable = { resource@chromium < 0 }
+				}	
+				set_temp_variable = { animal_weaving_consumed = animal_weaving_count }
+				multiply_temp_variable = { canimal_weaving_consumed = animal_weaving_need }
+				set_temp_variable = { resource_lack_penalty = resource@chromium }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { animal_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = animal_weaving_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+animal_weaving_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@animal_weaving }
+		if = {
+			limit = {
+				animal_weaving < 15
+			}
+			set_temp_variable = { bonus = 0 }
+		}
+		controller = {
+			multiply_temp_variable = { bonus = animal_weaving_output_3 }
+			if = {
+				limit = {
+					check_variable = { resource@chromium < 0 }
+				}	
+				set_temp_variable = { animal_weaving_consumed = animal_weaving_count }
+				multiply_temp_variable = { animal_weaving_consumed = animal_weaving_need }
+				set_temp_variable = { resource_lack_penalty = resource@chromium }
+				if = {
+					limit = {
+						NOT = {
+							check_variable = { animal_weaving_consumed = 0 }
+						}
+					}
+					divide_temp_variable = { resource_lack_penalty = animal_weaving_consumed }
+				}
+				add_to_temp_variable = { resource_lack_penalty = 1 }
+				multiply_temp_variable = { bonus = resource_lack_penalty }
+			}
+		}
+		clamp_temp_variable = {
+			var = bonus
+			min = 0
+		}
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		
+		add = bonus
+	}
+}
+
+
+ranch_bonus = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = building_level@ranch }
+		controller = {
+			multiply_temp_variable = { bonus = ranch_output_2 }
+		}
+		set_temp_variable = { animal_available = animal }
+		add_to_temp_variable = { animal_available = modifier@breeding }
+		multiply_temp_variable = { bonus = animal_available }
+		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		add = bonus
+	}
+}
+
+ranch_bonus_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { bonus = 0 }
+		if = {
+			limit = {
+				ranch > 14
+				controller = {
+					has_tech = ranch_3
+				}
+			}
+			set_temp_variable = { bonus = 0.3 }
+		}
+
+		add = bonus
+	}
+}
+
+
+industrial_zone = {
+	base = 0
+	modifier = {
+		set_temp_variable = { zone_size = 0 }
+		add_to_temp_variable = { zone_size = building_level@factory }
+		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+		add_to_temp_variable = { zone_size = building_level@steelworks }
+
+		add = zone_size
+	}
+}
+
+industrial_zone_modifier_1 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { zone_size = 0 }
+		add_to_temp_variable = { zone_size = building_level@factory }
+		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+		add_to_temp_variable = { zone_size = building_level@steelworks }
+
+		multiply_temp_variable = { zone_size = -0.01 }
+		multiply_temp_variable = { zone_size = -0.02 }
+
+		add = zone_size
+	}
+}
+industrial_zone_modifier_2 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { zone_size = 0 }
+		add_to_temp_variable = { zone_size = building_level@factory }
+		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+		add_to_temp_variable = { zone_size = building_level@steelworks }
+
+		multiply_temp_variable = { zone_size = -0.01 }
+
+		add = zone_size
+	}
+}
+industrial_zone_modifier_3 = {
+	base = 0
+	modifier = {
+		set_temp_variable = { zone_size = 0 }
+		add_to_temp_variable = { zone_size = building_level@factory }
+		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+		add_to_temp_variable = { zone_size = building_level@steelworks }
+
+		multiply_temp_variable = { zone_size = 0.01 }
+
+		add = zone_size
 	}
 }

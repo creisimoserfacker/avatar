@@ -212,6 +212,13 @@ on_actions = {
 			###view workers
 			
 			set_variable = { working_percentage = 0.55 }
+			add_to_variable = { working_percentage = modifier@working_percentage }
+
+			clamp_variable = { 
+				var = working_percentage
+				min = 0.2
+				max = 0.9 
+			}
 
 			set_variable = { recruits_percentage = max_available_manpower_k }
 			divide_variable = { recruits_percentage = max_manpower_k }
@@ -221,12 +228,21 @@ on_actions = {
 			multiply_variable = { working_population_k = working_percentage }
 
 
+			set_variable = { dependant_population_k = max_manpower_k }
+			subtract_from_variable = { dependant_population_k = working_population_k }
+			subtract_from_variable = { dependant_population_k = max_available_manpower_k }
 
-			set_variable = { employed_population_k = employment_need_k }
+
+
+			##### first employed calc with old stats
+
+			set_variable = { employed_population_k = employment_need_old_k }
 			clamp_variable = { 
 				var = employed_population_k
 				max = working_population_k 
 			}
+
+			######
 
 			set_variable = { employed_and_military_k = employed_population_k }
 			add_to_variable = { employed_and_military_k = max_available_manpower_k }
@@ -237,21 +253,41 @@ on_actions = {
 				}
 				set_variable = { highest_employment_need_k = employed_and_military_k }
 			}
-			set_variable = { workless_to_self = workless_population_k }
-			multiply_variable = { workless_to_self = 0.02 }
-			subtract_from_variable = { highest_employment_need_k = workless_to_self }
+			set_variable = { retired_soldiers = highest_employment_need_k }
+			subtract_from_variable = { retired_soldiers = employed_and_military_k }
+
+			subtract_from_variable = { highest_employment_need_k = retired_soldiers }
+			add_to_variable = { workless_population_k = retired_soldiers }
+
+			set_variable = { workless_to_self = working_population_k }
+			multiply_variable = { workless_to_self = modifier@weekly_workless_people }
+			multiply_variable = { workless_to_self = -0.01 }
+			
+			subtract_from_variable = { workless_population_k = workless_to_self }
+
+			set_variable = { employment_need_old_k = employment_need_k }
+
+			set_temp_variable = { temp_old_epmployed = employed_population_k }
+			subtract_from_temp_variable = { temp_old_epmployed = employment_need_k }
+
+			add_to_variable = { workless_population_k = temp_old_epmployed }
+
 			clamp_variable = { 
-				var = highest_employment_need_k
+				var = workless_population_k
+				min = 0
 				max = working_population_k 
 			}
 
-			set_variable = { workless_population_k = highest_employment_need_k }
-			subtract_from_variable = { workless_population_k = employed_population_k }
-			subtract_from_variable = { workless_population_k = max_available_manpower_k }
+
+			##### second employed calc for true value
+
+			set_variable = { employed_population_k = employment_need_k }
 			clamp_variable = { 
-				var = workless_population_k
-				min = 0 
+				var = employed_population_k
+				max = working_population_k 
 			}
+
+			#####
 			
 			set_temp_variable = { temp_epmployed_percentage = employed_population_k }
 			divide_temp_variable = { temp_epmployed_percentage = working_population_k }
@@ -264,13 +300,19 @@ on_actions = {
 			set_variable = { workless_malus = workless_percentage }
 			multiply_variable = { workless_malus = -5 }
 
-			set_temp_variable = { temp_worker_deficit = employment_need_k }
-			subtract_from_temp_variable = { temp_worker_deficit = employed_population_k }
-			set_variable = { worker_deficit = temp_worker_deficit }
+			set_variable = { worker_deficit_k = employment_need_k }
+			subtract_from_variable = { worker_deficit_k = employed_population_k }
+			clamp_variable = { 
+				var = worker_deficit_k
+				min = 0 
+			}
 
-			divide_temp_variable = { temp_worker_deficit = employed_population_k }
+			set_temp_variable = { temp_worker_deficit = worker_deficit_k }
+			set_temp_variable = { temp_total_ratio = worker_deficit_k }
+			add_to_temp_variable = { temp_total_ratio = employed_population_k }
+			divide_temp_variable = { temp_worker_deficit = temp_total_ratio }
 			set_variable = { worker_deficit_malus = temp_worker_deficit }
-			multiply_variable = { worker_deficit_malus = -0.5 }
+			multiply_variable = { worker_deficit_malus = -1 }
 
 
 			###view selfsufficient
@@ -304,6 +346,12 @@ on_actions = {
 							check_variable = { worker_deficit_malus = 0 }
 						}
 					}
+				}
+				if = {
+					limit = {
+						check_variable = { standard_of_living < 0.4 }
+					}
+					country_event = { id = population.1 hours = 24 random_hours = 48 }
 				}
 				add_dynamic_modifier = { modifier = missing_workers }
 			}
@@ -483,6 +531,8 @@ on_actions = {
 			add_to_variable = { country_gdp = planks_market_value }
 			add_to_variable = { country_gdp = bricks_market_value }
 			add_to_variable = { country_gdp = steel_beams_market_value }
+
+			clamp_variable = { var = country_gdp min = 1 }
 
 			add_to_variable = { real_gdp = country_gdp }
 
@@ -690,6 +740,12 @@ on_actions = {
 
 			set_variable = { average_market_price = resource_surplus }
 
+			clamp_variable = {
+				var = resource_surplus
+				min = -0.9
+				max = 1
+			}
+
 			multiply_variable = { resource_surplus = -1 }
 
 
@@ -708,6 +764,9 @@ on_actions = {
 			set_variable = { cost_of_living_double = cost_of_living }
 			multiply_variable = { cost_of_living_double = 2 }
 
+			set_variable = { cost_of_living_tripple = cost_of_living }
+			multiply_variable = { cost_of_living_tripple = 3 }
+
 			set_variable = { cost_of_living_75 = cost_of_living }
 			multiply_variable = { cost_of_living_75 = 0.75 }
 
@@ -716,7 +775,73 @@ on_actions = {
 
 			if = {
 				limit = {
+					check_variable = { average_gdp_netto = 0 }
+				}
+				add_to_variable = { standard_of_living = -1 }
+			}
+
+			if = {
+				limit = {
 					check_variable = { average_gdp_netto < cost_of_living_half }
+				}
+				add_to_variable = { standard_of_living = -0.1 }
+			}
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto < cost_of_living_75 }
+					check_variable = { average_gdp_netto > cost_of_living_half }
+				}
+				add_to_variable = { standard_of_living = -0.05 }
+			}
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto < cost_of_living }
+					check_variable = { average_gdp_netto > cost_of_living_75 }
+				}
+				add_to_variable = { standard_of_living = -0.01 }
+			}
+
+
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto < cost_of_living_150 }
+					check_variable = { average_gdp_netto > cost_of_living }
+				}
+				add_to_variable = { standard_of_living = 0.001 }
+			}
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto < cost_of_living_double }
+					check_variable = { average_gdp_netto > cost_of_living_150 }
+				}
+				add_to_variable = { standard_of_living = 0.002 }
+			}
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto > cost_of_living_double }
+					check_variable = { average_gdp_netto < cost_of_living_tripple }
+				}
+				add_to_variable = { standard_of_living = 0.003 }
+			}
+			if = {
+				limit = {
+					check_variable = { average_gdp_netto > cost_of_living_tripple }
+				}
+				add_to_variable = { standard_of_living = 0.01 }
+			}
+
+			add_to_variable = { standard_of_living = modifier@weekly_standard_of_living }
+
+			clamp_variable = {
+				var = standard_of_living
+				min = 0
+				max = 1
+			}
+
+
+			if = {
+				limit = {
+					check_variable = { standard_of_living < 0.10 }
 					NOT = {
 						has_dynamic_modifier = { modifier = extreme_poverty }
 					}
@@ -725,8 +850,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_75 }
-					check_variable = { average_gdp_netto > cost_of_living_half }
+					check_variable = { standard_of_living < 0.300 }
+					check_variable = { standard_of_living > 0.099 }
 					NOT = {
 						has_dynamic_modifier = { modifier = poverty }
 					}
@@ -735,8 +860,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto < cost_of_living }
-					check_variable = { average_gdp_netto > cost_of_living_75 }
+					check_variable = { standard_of_living < 0.50 }
+					check_variable = { standard_of_living > 0.299 }
 					NOT = {
 						has_dynamic_modifier = { modifier = struggeling }
 					}
@@ -747,8 +872,8 @@ on_actions = {
 
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_150 }
-					check_variable = { average_gdp_netto > cost_of_living }
+					check_variable = { standard_of_living < 0.7 }
+					check_variable = { standard_of_living > 0.499 }
 					NOT = {
 						has_dynamic_modifier = { modifier = middeling }
 					}
@@ -757,8 +882,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_double }
-					check_variable = { average_gdp_netto > cost_of_living_150 }
+					check_variable = { standard_of_living < 0.9 }
+					check_variable = { standard_of_living > 0.699 }
 					NOT = {
 						has_dynamic_modifier = { modifier = wealth }
 					}
@@ -767,7 +892,7 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto > cost_of_living_double }
+					check_variable = { standard_of_living > 0.9 }
 					NOT = {
 						has_dynamic_modifier = { modifier = extreme_wealth }
 					}
@@ -923,6 +1048,8 @@ on_actions = {
 			set_temp_variable = { dockyards_temp = dockyard_count }
 			#multiply_temp_variable = { dockyards_temp = 2 }
 			set_variable = { dockyard_duplicator = dockyards_temp }
+
+			add_to_variable = { dockyard_duplicator = fishing_stand_dockyards }
 
 			set_variable = { navy_ic_factor = 1 }
 			add_to_variable = { navy_ic_factor = modifier@naval_capacity_factor }
@@ -1470,9 +1597,315 @@ on_actions = {
 		effect = {
 			set_variable = { core_population_k = 0 }
 			set_variable = { occupied_population_k = max_manpower_k }
+
+
+
+			set_variable = { fishing_stand_dockyards = 0 }
+
+			every_controlled_state = {
+
+				###### stacked building boni #####
+
+				if = {
+					limit = {
+						farm > 4
+						controller = {
+							has_tech = farm_2
+						}
+					}
+					add_dynamic_modifier = { modifier = farm_upgrade }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = farm_upgrade }
+					}
+					set_temp_variable = { population_growth_temp = state_population }
+					multiply_temp_variable = { 
+						population_growth_temp = modifier@monthly_population_state 
+					}
+					multiply_temp_variable = { population_growth_temp = 0.01 }
+					multiply_temp_variable = { population_growth_temp = 0.01 }
+					round_temp_variable = population_growth_temp
+					add_manpower = var:population_growth_temp
+				}
+
+				if = {
+					limit = {
+						farm > 0
+						check_variable = {
+							var = building_level@ranch
+							value = building_level@farm
+							compare = greater_than_or_equals
+						}
+					}
+					add_dynamic_modifier = { modifier = farm_ranch_upgrade }
+				}
+
+				if = {
+					limit = {
+						mill > 0
+						check_variable = {
+							var = building_level@farm
+							value = building_level@mill
+							compare = greater_than_or_equals
+						}
+					}
+					add_dynamic_modifier = { modifier = mill_upgrade }
+				}
+
+				if = {
+					limit = {
+						lumber_mill > 9
+						controller = {
+							has_tech = lumber_3
+						}
+					}
+					add_dynamic_modifier = { modifier = lumber_mill_upgrade }
+				}
+
+				if = {
+					limit = {
+						carpentry > 4
+						controller = {
+							has_tech = carpentry_3
+						}
+					}
+					add_dynamic_modifier = { modifier = carpentry_upgrade }
+				}
+
+				if = {
+					limit = {
+						arms_factory > 4
+						controller = {
+							has_tech = smithy_2
+						}
+					}
+					add_dynamic_modifier = { modifier = smithy_upgrade }
+				}
+
+				if = {
+					limit = {
+						quarry > 9
+						controller = {
+							has_tech = quarry_3
+						}
+					}
+					add_dynamic_modifier = { modifier = quarry_upgrade }
+				}
+
+				if = {
+					limit = {
+						masonry > 4
+						controller = {
+							has_tech = masonry_3
+						}
+					}
+					add_dynamic_modifier = { modifier = masonry_upgrade }
+				}
+
+				if = {
+					limit = {
+						fishing_stand > 4
+						controller = {
+							has_tech = fishing_stand_3
+						}
+					}
+					add_dynamic_modifier = { modifier = fishing_stand_upgrade }
+				}
+				if = {
+					limit = {
+						fishing_stand > 14
+						controller = {
+							has_tech = fishing_stand_4
+						}
+					}
+					add_to_variable = { ROOT.fishing_stand_dockyards = building_level@fishing_stand }
+				}
+
+				if = {
+					limit = {
+						mine > 4
+						controller = {
+							has_tech = mine_3
+						}
+					}
+					add_dynamic_modifier = { modifier = mine_upgrade }
+				}
+
+				if = {
+					limit = {
+						controller = {
+							has_tech = road_4
+						}
+					}
+					add_dynamic_modifier = { modifier = road_upgrade }
+				}
+
+				if = {
+					limit = {
+						crop_weaving > 4
+						controller = {
+							has_tech = crop_weaving_3
+						}
+					}
+					add_dynamic_modifier = { modifier = crop_weaving_upgrade }
+				}
+
+				if = {
+					limit = {
+						animal_weaving > 4
+						controller = {
+							has_tech = animal_weaving_3
+						}
+					}
+					add_dynamic_modifier = { modifier = animal_weaving_upgrade }
+				}
+
+				if = {
+					limit = {
+						ranch > 4
+						controller = {
+							has_tech = ranch_2
+						}
+					}
+					add_dynamic_modifier = { modifier = ranch_upgrade }
+				}
+
+				####### stacked boni end ######
+
+
+				if = {
+					limit = {
+						check_variable = {
+							var = mtth:industrial_zone
+							value = 10
+							compare = greater_than_or_equals
+						}
+					}
+					add_dynamic_modifier = { modifier = industrial_zone }
+				}
+
+
+
+				#### migration
+
+				if = {
+					limit = {
+						check_variable = {
+							var = modifier@monthly_migration_state
+							value = 0
+							compare = not_equals
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { modifier@monthly_migration_state < 0 }
+						}
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0
+									is_island_state = yes
+								}
+
+								set_temp_variable = { migrating_population = state_population }
+								multiply_temp_variable = { migrating_population = modifier@monthly_migration_state }
+
+								add_manpower = var:migrating_population
+								
+								random_neighbor_state = {
+									multiply_temp_variable = { migrating_population = -1 }
+
+									add_manpower = var:migrating_population
+								}
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									is_coastal = no
+								}
+
+								set_temp_variable = { migrating_population = state_population }
+								multiply_temp_variable = { migrating_population = modifier@monthly_migration_state }
+
+								add_manpower = var:migrating_population
+								
+								random_state = {
+									limit = {
+										distance_to = {
+											target = PREV
+											value < 200
+										}
+									}
+									multiply_temp_variable = { migrating_population = -1 }
+
+									add_manpower = var:migrating_population
+								}
+								
+							}
+						}
+					}
+
+					if = {
+						limit = {
+							check_variable = { modifier@monthly_migration_state > 0 }
+						}
+
+						random_list = {
+							10 = {
+								modifier = {
+									factor = 0
+									is_island_state = yes
+								}
+								
+								random_neighbor_state = {
+									set_temp_variable = { migrating_population = state_population }
+									multiply_temp_variable = { migrating_population = PREV.modifier@monthly_migration_state }
+
+									multiply_temp_variable = { migrating_population = -1 }
+									add_manpower = var:migrating_population
+								}
+
+								multiply_temp_variable = { migrating_population = -1 }
+
+								add_manpower = var:migrating_population
+							}
+							5 = {
+								modifier = {
+									factor = 0
+									is_coastal = no
+								}
+
+								random_state = {
+									limit = {
+										distance_to = {
+											target = PREV
+											value < 200
+										}
+									}
+									set_temp_variable = { migrating_population = state_population }
+									multiply_temp_variable = { migrating_population = PREV.modifier@monthly_migration_state }
+
+									multiply_temp_variable = { migrating_population = -1 }
+									add_manpower = var:migrating_population
+								}
+
+								multiply_temp_variable = { migrating_population = -1 }
+
+								add_manpower = var:migrating_population
+							}
+						}
+					}
+				}
+
+			}
+
 			every_core_state = {
+
 				add_to_variable = { ROOT.core_population_k = state_population_k }
 			}
+
 			subtract_from_variable = { occupied_population_k = core_population_k }
 		}
 	}

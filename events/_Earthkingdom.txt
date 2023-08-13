@@ -96,23 +96,28 @@ country_event = {
 	option = { #vassal
 		name = ear_treaty.2.a
 		ai_chance = { 
-			base = 50
+			base = 100
 			modifier = {
 				factor = 0
 				has_country_leader_with_trait = king
 			}
 			modifier = {
 				factor = 0
-				OR = {
-					tag = GAO
-					tag = XIN
-				}
+			#	OR = {
+			#		tag = GAO
+			#		tag = XIN
+			#	}
 			}
 			modifier = {
 				factor = 0
 				OR = {
-					tag = MPO
-					tag = SWA
+
+				tag = MPO
+				tag = SWA
+				tag = JIA
+				tag = ZHI
+				tag = WAI
+
 				}
 			}
 		}
@@ -125,7 +130,7 @@ country_event = {
 				}
 				set_autonomy = {
 					target = ROOT
-					autonomous_state = autonomy_vassalage
+					autonomous_state = autonomy_royal_domain
 				}
 			}
 			else = {
@@ -148,13 +153,14 @@ country_event = {
 				add = 100
 				is_historical_focus_on = no
 			}
+
 			modifier = {
 				add = 100
 				OR = {
-					tag = GAO
 					tag = XIN
 				}
 			}
+
 		}
 		EAR = {
 			if = {
@@ -242,6 +248,9 @@ country_event = {
 			OR = {
 				tag = MPO
 				tag = SWA
+				tag = JIA
+				tag = ZHI
+				tag = WAI
 			}
 		}
 
@@ -261,6 +270,7 @@ country_event = {
 		}
 		hidden_effect = {
 			apply_ideology = yes
+
 		}
 
 		add_political_power = 100
