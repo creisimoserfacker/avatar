@@ -21,21 +21,21 @@ create_uprising_tag = {
 					original_tag = [COUNTRY_FLAG]
 					set_cosmetic_tag = [COSMETIC_TAG]
 					set_politics = {
-						ruling_party = pluralist_culture
+						ruling_party = [IDEOLOGY]
 					}
 					set_popularities = {
 						air_culture = [AIR]
 						earth_culture = [EARTH]
 						fire_culture = [FIRE]
 						water_culture = [WATER]
-						pluralist_culture = 60
+						pluralist_culture = 40
 					}
 					create_country_leader = {
 						name = Peasant_Revolt
 						desc = "POLITICS_PEASANT_REVOLT_DESC"
 						picture = GFX_Portrait_peasant_revolt
 						expire = "112.1.1"
-						ideology = anarchism
+						ideology = [SUB_IDEOLOGY]
 						traits = {
 						}
 					}
@@ -51,6 +51,8 @@ create_uprising_tag = {
 			WATER = "[GetWaterPop]"
 			FIRE = "[GetFirePop]"
 			EARTH = "[GetEarthPop]"
+			IDEOLOGY = "[GetPeasantIdeology]"
+			SUB_IDEOLOGY = "[GetPeasantSubIdeology]"
 		}
 		every_country_with_original_tag = {
 			original_tag_to_check = PREV
@@ -293,12 +295,20 @@ peasant_uprising_effect = {
 }
 
 peasant_war_effect = {
+
+	every_state = {
+		limit = {
+			is_in_array = { PREV.revolt_states = THIS }
+		}
+		add_core_of = PREV
+	}
 	
 	var:ROOT.peasant_tag = {
 		
 		every_core_state = {
 			set_state_owner_to = var:ROOT.peasant_tag
 			set_state_controller_to = var:ROOT.peasant_tag
+
 		}
 		declare_war_on = {
 			target = PREV.PREV
