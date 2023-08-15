@@ -376,205 +376,37 @@ five_peasant_units = {
 
 
 peasant_victory = {
-	if = {
-		limit = {
-			has_idea = fire_nation
-		}
-		PEF = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
+	var:ROOT.peasant_tag = {
+		PREV = {
+			every_core_state = {
+				limit = {
+					is_owned_by = PREV
 				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
+				add_core_of = PREV.PREV
+				transfer_state_to = PREV.PREV
+				set_variable = { state_loyalty_variable = 100 }
 			}
-			change_tag_from = PREV
-		}
-	}
-	else_if = {
-		limit = {
-			has_idea = earth_nation
-		}
-		PEE = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
+			every_owned_state = {
+				set_state_owner_to = PREV.PREV
 			}
-			change_tag_from = PREV
 		}
-	}
-	else_if = {
-		limit = {
-			has_idea = water_nation
-		}
-		PEW = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-			change_tag_from = PREV
-		}
-	}
-	else_if = {
-		limit = {
-			has_idea = air_nation
-		}
-		PEA = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-			change_tag_from = PREV
-		}
-	}
-	else = {
-		PEG = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-			change_tag_from = PREV
-		}
+		change_tag_from = PREV
 	}
 }
 
 peasant_victory_without_tag_switch = {
-	if = {
-		limit = {
-			has_idea = fire_nation
-		}
-		PEF = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
+	var:ROOT.peasant_tag = {
+		PREV = {
+			every_core_state = {
+				limit = {
+					is_owned_by = PREV
 				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
+				add_core_of = PREV.PREV
+				transfer_state_to = PREV.PREV
+				set_variable = { state_loyalty_variable = 100 }
 			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_idea = earth_nation
-		}
-		PEE = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_idea = water_nation
-		}
-		PEW = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-		}
-	}
-	else_if = {
-		limit = {
-			has_idea = air_nation
-		}
-		PEA = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
-			}
-		}
-	}
-	else = {
-		PEG = {
-			PREV = {
-				every_core_state = {
-					limit = {
-						is_owned_by = PREV
-					}
-					add_core_of = PREV.PREV
-					transfer_state_to = PREV.PREV
-					set_variable = { state_loyalty_variable = 100 }
-				}
-				every_owned_state = {
-					set_state_owner_to = PREV.PREV
-				}
+			every_owned_state = {
+				set_state_owner_to = PREV.PREV
 			}
 		}
 	}

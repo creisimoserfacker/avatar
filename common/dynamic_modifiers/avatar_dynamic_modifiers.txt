@@ -27,18 +27,32 @@
 genocide_state = {
 	enable = { always = yes }
 
+	remove_trigger = {
+		state_population > 100
+	}
+
 	icon = GFX_modifiers_genocide_state
 
-	#local_factories = -1.0
-	monthly_population = -1
-	local_manpower = -1.0
-	local_resources = -0.5 
+	#local_manpower = -1.0
+	local_resources = -0.75 
 	state_production_speed_buildings_factor = -0.5
 	resistance_target = -1.0
 	resistance_activity = -1.0
-	garrison_factor_modifier = -1
+	#garrison_factor_modifier = -1
 	compliance_gain = 10
 	resistance_decay = 1
+}
+
+new_settlement = {
+	enable = { always = yes }
+
+	remove_trigger = {
+		state_population > 2000
+	}
+
+	icon = GFX_modifiers_new_settlement
+
+	monthly_migration_state = 0.005
 }
 
 destroyed_city = {
@@ -51,7 +65,9 @@ destroyed_city = {
 	local_resources = -0.2 
 	resistance_target = -0.6
 	resistance_activity = -0.6
-	garrison_factor_modifier = -0.5
+	resistance_decay = -0.75
+	#garrison_factor_modifier = -0.5  ### will be reduced by migration
+	monthly_migration_state = -0.005
 }
 
 firenation_settlers = {
@@ -67,12 +83,11 @@ firenation_settlers = {
 
 	icon = GFX_modifiers_firenation_settlers
 	
-	state_resources_factor = -0.5
-	state_production_speed_buildings_factor = -0.25
-	attrition_for_controller = 0.02
-	local_supplies_for_controller = -0.1
-	army_speed_factor_for_controller = -0.5
-	local_manpower = -0.45
+	state_resources_factor = mtth:fire_settler_modifier
+	state_production_speed_buildings_factor = mtth:fire_settler_modifier
+	local_supplies_for_controller = mtth:fire_settler_modifier
+	army_speed_factor_for_controller = mtth:fire_settler_modifier
+	local_manpower = mtth:fire_settler_modifier
 }
 earthkingdom_settlers = {
 	enable = { always = yes }
@@ -87,12 +102,11 @@ earthkingdom_settlers = {
 
 	icon = GFX_modifiers_earthkingdom_settlers
 	
-	state_resources_factor = -0.5
-	state_production_speed_buildings_factor = -0.25
-	attrition_for_controller = 0.02
-	local_supplies_for_controller = -0.1
-	army_speed_factor_for_controller = -0.5
-	local_manpower = -0.45
+	state_resources_factor = mtth:earth_settler_modifier
+	state_production_speed_buildings_factor = mtth:earth_settler_modifier
+	local_supplies_for_controller = mtth:earth_settler_modifier
+	army_speed_factor_for_controller = mtth:earth_settler_modifier
+	local_manpower = mtth:earth_settler_modifier
 }
 watertribe_settlers = {
 	enable = { always = yes }
@@ -107,12 +121,11 @@ watertribe_settlers = {
 
 	icon = GFX_modifiers_watertribe_settlers
 	
-	state_resources_factor = -0.5
-	state_production_speed_buildings_factor = -0.25
-	attrition_for_controller = 0.02
-	local_supplies_for_controller = -0.1
-	army_speed_factor_for_controller = -0.5
-	local_manpower = -0.45
+	state_resources_factor = mtth:water_settler_modifier
+	state_production_speed_buildings_factor = mtth:water_settler_modifier
+	local_supplies_for_controller = mtth:water_settler_modifier
+	army_speed_factor_for_controller = mtth:water_settler_modifier
+	local_manpower = mtth:water_settler_modifier
 }
 airnomad_settlers = {
 	enable = { always = yes }
@@ -127,12 +140,11 @@ airnomad_settlers = {
 
 	icon = GFX_modifiers_airnomad_settlers
 	
-	state_resources_factor = -0.5
-	state_production_speed_buildings_factor = -0.25
-	attrition_for_controller = 0.02
-	local_supplies_for_controller = -0.1
-	army_speed_factor_for_controller = -0.5
-	local_manpower = -0.45
+	state_resources_factor = mtth:air_settler_modifier
+	state_production_speed_buildings_factor = mtth:air_settler_modifier
+	local_supplies_for_controller = mtth:air_settler_modifier
+	army_speed_factor_for_controller = mtth:air_settler_modifier
+	local_manpower = mtth:air_settler_modifier
 }
 pluralist_settlers = {
 	enable = { always = yes }
@@ -147,12 +159,33 @@ pluralist_settlers = {
 
 	icon = GFX_modifiers_pluralist_settlers
 	
-	state_resources_factor = -0.5
-	state_production_speed_buildings_factor = -0.25
-	attrition_for_controller = 0.02
-	local_supplies_for_controller = -0.1
-	army_speed_factor_for_controller = -0.5
-	local_manpower = -0.45
+	state_resources_factor = mtth:pluralist_settler_modifier
+	state_production_speed_buildings_factor = mtth:pluralist_settler_modifier
+	local_supplies_for_controller = mtth:pluralist_settler_modifier
+	army_speed_factor_for_controller = mtth:pluralist_settler_modifier
+	local_manpower = mtth:pluralist_settler_modifier
+}
+
+wandering_refugees = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_refugees
+	
+	local_refugees = refugee_var
+}
+
+refugees = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_refugees
+	
+	local_refugees = refugee_var
 }
 
 occupied_has_dominant_culture = {
@@ -176,6 +209,7 @@ relocate_fire_population  = {
 	icon = GFX_modifiers_relocate_fire_population
 	
 	monthly_fire_culture_in_state = -2.5
+	monthly_migration_state = mtth:fire_relocate_migration
 }
 
 recent_rebel_activity = {

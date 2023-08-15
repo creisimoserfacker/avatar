@@ -1,0 +1,79 @@
+###########################
+# refugees
+###########################
+
+add_namespace = refugee_event
+
+### refugees arrive
+country_event = {
+	id = refugee_event.1
+	title = refugee_event.1.t
+	desc = refugee_event.1.desc
+	picture = GFX_report_event_refugees
+
+	is_triggered_only = yes
+
+	option = {
+		name = refugee_event.1.a
+
+		event_target:migration_state = {
+			set_temp_variable = { stability_debuff = refugee_var }
+
+			remove_dynamic_modifier = { modifier = refugees }
+			add_manpower = var:refugee_var
+			clear_variable = refugee_var
+
+			multiply_temp_variable = { stability_debuff = 0.001 }
+			multiply_temp_variable = { stability_debuff = -0.01 }
+		}
+
+		add_stability = var:stability_debuff
+
+		ai_chance = { 
+			base = 100
+
+			modifier = {
+				factor = 0
+
+				has_stability < 0.75
+			}
+		}
+	}
+	option = {
+		name = refugee_event.1.b
+
+		event_target:migration_state = {
+			
+		}
+
+		ai_chance = { 
+			base = 0
+
+			modifier = {
+				add = 100
+
+				has_stability < 0.75
+			}
+		}
+	}
+	option = {
+		name = refugee_event.1.c
+
+		trigger = {
+			check_variable = { FROM.refugee_var > 1000 }
+		}
+
+		set_country_flag = refugee_crisis
+
+		ai_chance = { 
+			base = 0
+
+			modifier = {
+				add = 100
+
+				has_stability < 0.5
+			}
+		}
+	}
+	
+}

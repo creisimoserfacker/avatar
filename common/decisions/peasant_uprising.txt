@@ -154,6 +154,10 @@ peasant_uprising_category = {
 		timeout_effect = {
 			country_event = generic_peasant.10
 		}
+
+		ai_will_do = {
+			factor = 1
+		}
 	}
 
 	peasants_war_progress_2 = {
@@ -221,6 +225,36 @@ peasant_uprising_category = {
 
 	}
 
+	peasant_uprising_appeasing_words = {
+
+		icon = peasant_speech
+
+		visible = {
+			has_active_mission = peasants_in_revolt
+		}
+		days_re_enable = 120
+
+		cost = 10
+
+		complete_effect = {
+			add_to_variable = {
+				var = peasant_appeasement_variable
+				value = 2
+				tooltip = peasant_appeasement_add_tooltip
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+
+	}
+
+
+
+
+
+###### testing area
 
 
 #	token_variable_test = {
@@ -234,71 +268,71 @@ peasant_uprising_category = {
 #		}
 #	}
 
-	appease_peasants = {
-		complete_effect = {
-			add_to_variable = {
-				var = peasant_appeasement_variable
-				value = 5
-				tooltip = peasant_appeasement_add_tooltip
-			}
-		}
-	}
-
-	anger_peasants = {
-		complete_effect = {
-			add_to_variable = {
-				var = peasant_anger_variable
-				value = 5
-				tooltip = peasant_anger_add_tooltip
-			}
-		}
-	}
-
-	peasants_division = {
-		complete_effect = {
-			division_template = {
-				name = "Angry Peasants"
-				#is_locked = yes
-				priority = 0
-				regiments = {
-					peasant_unit = { x = 0 y = 0 }
-					peasant_unit = { x = 0 y = 1 }
-					peasant_unit = { x = 1 y = 0 }
-					peasant_unit = { x = 1 y = 1 }
-				}
-			}
-		}
-	}
-
-	discontent_test = {
-		complete_effect = {
-			random_core_state = {
-				add_dynamic_modifier = { modifier = peasant_discontent }
-			}
-		}
-	}
-
-	test_peasant_state_controll = {
-		complete_effect = {
-			core_turns_unloyal = yes
-		}
-	}
-
-	test_peasant_war = {
-		complete_effect = {
-
-			peasant_war_effect = yes
-
-		}
-	}
-
-	test_peasant_civil_war = {
-		complete_effect = {
-
-			add_civil_war_target = var:ROOT.peasant_tag
-
-		}
-	}
+#	appease_peasants = {
+#		complete_effect = {
+#			add_to_variable = {
+#				var = peasant_appeasement_variable
+#				value = 5
+#				tooltip = peasant_appeasement_add_tooltip
+#			}
+#		}
+#	}
+#
+#	anger_peasants = {
+#		complete_effect = {
+#			add_to_variable = {
+#				var = peasant_anger_variable
+#				value = 5
+#				tooltip = peasant_anger_add_tooltip
+#			}
+#		}
+#	}
+#
+#	peasants_division = {
+#		complete_effect = {
+#			division_template = {
+#				name = "Angry Peasants"
+#				#is_locked = yes
+#				priority = 0
+#				regiments = {
+#					peasant_unit = { x = 0 y = 0 }
+#					peasant_unit = { x = 0 y = 1 }
+#					peasant_unit = { x = 1 y = 0 }
+#					peasant_unit = { x = 1 y = 1 }
+#				}
+#			}
+#		}
+#	}
+#
+#	discontent_test = {
+#		complete_effect = {
+#			random_core_state = {
+#				add_dynamic_modifier = { modifier = peasant_discontent }
+#			}
+#		}
+#	}
+#
+#	test_peasant_state_controll = {
+#		complete_effect = {
+#			core_turns_unloyal = yes
+#		}
+#	}
+#
+#	test_peasant_war = {
+#		complete_effect = {
+#
+#			peasant_war_effect = yes
+#
+#		}
+#	}
+#
+#	test_peasant_civil_war = {
+#		complete_effect = {
+#
+#			add_civil_war_target = var:ROOT.peasant_tag
+#
+#		}
+#	}
 
 	#my_state_targeted_decision = {
 #

@@ -183,7 +183,13 @@ legitimacy_peoples_initiative = {
 	modifier = {
 		set_temp_variable = { peoples_initiative = centralisation_variable }
 		subtract_from_temp_variable = { peoples_initiative = 50 }
-		divide_temp_variable = { peoples_initiative = 250 }
+
+		set_temp_variable = { peoples_initiative_divider = centralisation_variable }
+		subtract_from_temp_variable = { peoples_initiative_divider = 50 }
+		multiply_temp_variable = { peoples_initiative_divider = peoples_initiative_divider }
+		divide_temp_variable = { peoples_initiative_divider = 125000 }
+
+		multiply_temp_variable = { peoples_initiative = peoples_initiative_divider }
 		
 		add = peoples_initiative
 	}
@@ -307,5 +313,70 @@ bender_k = {
 		multiply_temp_variable = { bender_manpower_k = bender_percentage }
 		
 		add = bender_manpower_k
+	}
+}
+
+
+
+fire_settler_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = fire_pop }
+		multiply_temp_variable = { settler_factor = 0.5 }
+		multiply_temp_variable = { settler_factor = -0.01 }
+		
+		add = settler_factor
+	}
+}
+water_settler_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = water_pop }
+		multiply_temp_variable = { settler_factor = 0.5 }
+		multiply_temp_variable = { settler_factor = -0.01 }
+		
+		add = settler_factor
+	}
+}
+earth_settler_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = earth_pop }
+		multiply_temp_variable = { settler_factor = 0.5 }
+		multiply_temp_variable = { settler_factor = -0.01 }
+		
+		add = settler_factor
+	}
+}
+air_settler_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = air_pop }
+		multiply_temp_variable = { settler_factor = 0.5 }
+		multiply_temp_variable = { settler_factor = -0.01 }
+		
+		add = settler_factor
+	}
+}
+pluralist_settler_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = nonbender_pop }
+		multiply_temp_variable = { settler_factor = 0.5 }
+		multiply_temp_variable = { settler_factor = -0.01 }
+		
+		add = settler_factor
+	}
+}
+
+
+fire_relocate_migration = {
+	base = 0
+	modifier = {
+		set_temp_variable = { migrants = fire_pop }
+		multiply_temp_variable = { migrants = 0.05 }
+		multiply_temp_variable = { migrants = -0.01 }
+		
+		add = migrants
 	}
 }

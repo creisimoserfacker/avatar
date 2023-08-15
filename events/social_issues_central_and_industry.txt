@@ -15,9 +15,7 @@ country_event = {
 	minor_flavor = yes
 	
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -50,24 +48,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = carpentry_1
-					}
-				}
-				set_technology = {
-					carpentry_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -91,28 +72,11 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	is_triggered_only = yes
 	minor_flavor = yes
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = masonry_1
-					}
-				}
-				set_technology = {
-					masonry_1 = 1
-				}
-			}
-		}
-	}
 
 	option = {
 		name = centralisation.3.a
@@ -138,24 +102,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = farm_1
-					}
-				}
-				set_technology = {
-					farm_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -182,24 +129,8 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = ranch_1
-					}
-				}
-				set_technology = {
-					ranch_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
+		lumber_mill_investment_allowed = yes
 	}
 
 	option = {
@@ -223,28 +154,11 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	is_triggered_only = yes
 	minor_flavor = yes
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = mill_1
-					}
-				}
-				set_technology = {
-					mill_1 = 1
-				}
-			}
-		}
-	}
 
 	option = {
 		name = centralisation.6.a
@@ -270,24 +184,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = lumber_1
-					}
-				}
-				set_technology = {
-					lumber_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -314,24 +211,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = quarry_1
-					}
-				}
-				set_technology = {
-					quarry_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -358,46 +238,22 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = crop_weaving_1
-					}
-				}
-				set_technology = {
-					crop_weaving_1 = 1
-				}
-			}
-			if = {
-				limit = {
-					not = {
-						has_tech = animal_weaving_1
-					}
-				}
-				set_technology = {
-					animal_weaving_1 = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
 		name = centralisation.9.a
 
-		random_list = {
-			50 = { 
-				add_crop_weaving_random_instant = yes
+
+		if = {
+			limit = {
+				check_variable = { ai_priority_animal_products > ai_priority_grain }
+				crop_weaving_investment_allowed = yes
 			}
-			50 = {
-				add_animal_weaving_random_instant = yes
-			}
+			add_crop_weaving_random_instant = yes
+		}
+		else = {
+			add_animal_weaving_random_instant = yes
 		}
 		
 		ai_chance = {
@@ -416,28 +272,11 @@ country_event = {
 	picture = GFX_report_event_invention
 	
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	is_triggered_only = yes
 	minor_flavor = yes
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = shops_1
-					}
-				}
-				set_technology = {
-					shops_1 = 1
-				}
-			}
-		}
-	}
 
 	option = {
 		name = centralisation.10.a
@@ -465,9 +304,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -494,24 +331,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
-	}
-
-	immediate = {
-		hidden_effect = {
-			if = {
-				limit = {
-					not = {
-						has_tech = tech_transport
-					}
-				}
-				set_technology = {
-					tech_transport = 1
-				}
-			}
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -527,7 +347,6 @@ country_event = {
 			base = 0
 		}
 	}
-
 }
 
 #### political power
@@ -542,9 +361,7 @@ country_event = {
 	minor_flavor = yes
 
 	trigger = {
-		NOT = {
-			has_idea = no_ruler
-		}
+		peoples_initiative_available = yes
 	}
 
 	option = {
@@ -560,6 +377,141 @@ country_event = {
 }
 
 
+#### smelting
+country_event = {
+	id = centralisation.14
+	title = centralisation.14.title
+	desc = centralisation.14.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	trigger = {
+		peoples_initiative_available = yes
+	}
+
+	option = {
+		name = centralisation.14.a
+
+		add_steelworks_random_instant = yes
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### mine
+country_event = {
+	id = centralisation.15
+	title = centralisation.15.title
+	desc = centralisation.15.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	trigger = {
+		peoples_initiative_available = yes
+	}
+
+	option = {
+		name = centralisation.15.a
+
+		add_mine_random_instant = yes
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+
+#### steel beam factory
+country_event = {
+	id = centralisation.16
+	title = centralisation.16.title
+	desc = centralisation.16.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	trigger = {
+		peoples_initiative_available = yes
+	}
+
+	option = {
+		name = centralisation.16.a
+
+		add_steel_beam_factory_random_instant = yes
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### manufactory
+country_event = {
+	id = centralisation.17
+	title = centralisation.17.title
+	desc = centralisation.17.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	trigger = {
+		peoples_initiative_available = yes
+	}
+
+	option = {
+		name = centralisation.17.a
+
+		add_manufactory_random_instant = yes
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
+
+#### fishing stands
+country_event = {
+	id = centralisation.18
+	title = centralisation.18.title
+	desc = centralisation.18.desc
+	
+	picture = GFX_report_event_invention
+	
+	is_triggered_only = yes
+	minor_flavor = yes
+
+	trigger = {
+		peoples_initiative_available = yes
+	}
+
+	option = {
+		name = centralisation.18.a
+
+		add_fishing_stand_random_instant = yes
+		
+		ai_chance = {
+			base = 0
+		}
+	}
+
+}
 
 
 

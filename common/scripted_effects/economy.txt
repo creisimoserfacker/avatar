@@ -1061,930 +1061,1457 @@ add_steel_beam_factory_random = {
 
 
 add_farm_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = farm
-						size > 0
-						include_locked = no
-					}
-					check_variable = { field > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = farm
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = farm
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = farm
+							size > 0
+							include_locked = no
+						}
+						check_variable = { field > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { field > PREV.building_effect_counter }
+					add_building_construction = {
+						type = farm
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = farm
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
+				subtract_from_variable = { building_effect_counter = 0.1 }
 			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = farm
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { field > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = farm
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 
 add_mill_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = mill
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = mill
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = mill
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = mill
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = mill
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = mill
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = mill
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = mill
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = mill
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_fishing_stand_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = fishing_stand
-						size > 0
-						include_locked = no
-					}
-					check_variable = { water > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = fishing_stand
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = fishing_stand
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = fishing_stand
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = fishing_stand
+							size > 0
+							include_locked = no
+						}
+						check_variable = { water > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { water > PREV.building_effect_counter }
+					add_building_construction = {
+						type = fishing_stand
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = fishing_stand
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
 			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = fishing_stand
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { water > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = fishing_stand
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 add_ranch_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = ranch
-						size > 0
-						include_locked = no
-					}
-					check_variable = { animal > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = ranch
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = ranch
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = ranch
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = ranch
+							size > 0
+							include_locked = no
+						}
+						check_variable = { animal > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { animal > PREV.building_effect_counter }
+					add_building_construction = {
+						type = ranch
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = ranch
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
 
-			subtract_from_variable = { building_effect_counter = 0.1 }
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = ranch
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { animal > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = ranch
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 add_lumber_mill_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = lumber_mill
-						size > 0
-						include_locked = no
-					}
-					check_variable = { forest > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = lumber_mill
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = lumber_mill
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = lumber_mill
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = lumber_mill
+							size > 0
+							include_locked = no
+						}
+						check_variable = { forest > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { forest > PREV.building_effect_counter }
+					add_building_construction = {
+						type = lumber_mill
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = lumber_mill
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
 
-			subtract_from_variable = { building_effect_counter = 0.1 }
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = lumber_mill
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { forest > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = lumber_mill
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 add_quarry_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = quarry
-						size > 0
-						include_locked = no
-					}
-					check_variable = { stonefield > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = quarry
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = quarry
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = quarry
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = quarry
+							size > 0
+							include_locked = no
+						}
+						check_variable = { stonefield > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { stonefield > PREV.building_effect_counter }
+					add_building_construction = {
+						type = quarry
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = quarry
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
 			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = quarry
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { stonefield > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = quarry
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 add_mine_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
-			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
-			}
-		
-			random_owned_controlled_state = {
-				limit = {
-					free_building_slots = {
-						building = mine
-						size > 0
-						include_locked = no
-					}
-					check_variable = { mountain > PREV.building_effect_counter }
-				}
-				add_building_construction = {
-					type = mine
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
-			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+	effect_tooltip = {
+		add_building_construction = {
+			type = mine
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		set_variable = { building_effect_counter = 0.9 }
-		while_loop_effect = {
-			
+	hidden_effect = {
+		if = {
 			limit = {
-				check_variable = { building_effect_counter = 0 compare = greater_than }
+				has_country_flag = core_all_construction_flag
 			}
-		
-			random_owned_controlled_state = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
 				limit = {
-					free_building_slots = {
-						building = mine
-						size > 0
-						include_locked = no
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = mine
+							size > 0
+							include_locked = no
+						}
+						check_variable = { mountain > PREV.building_effect_counter }
 					}
-					is_core_of = ROOT
-					check_variable = { mountain > PREV.building_effect_counter }
+					add_building_construction = {
+						type = mine
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
 				}
-				add_building_construction = {
-					type = mine
-					level = 1
-					instant_build = yes
-				}
-				set_variable = { PREV.building_effect_counter = 0 }
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
 			}
-
-			subtract_from_variable = { building_effect_counter = 0.1 }
+		}
+		else = {
+			set_variable = { building_effect_counter = 0.9 }
+			while_loop_effect = {
+				
+				limit = {
+					check_variable = { building_effect_counter = 0 compare = greater_than }
+				}
+			
+				random_owned_controlled_state = {
+					limit = {
+						free_building_slots = {
+							building = mine
+							size > 0
+							include_locked = no
+						}
+						is_core_of = ROOT
+						check_variable = { mountain > PREV.building_effect_counter }
+					}
+					add_building_construction = {
+						type = mine
+						level = 1
+						instant_build = yes
+					}
+					set_variable = { PREV.building_effect_counter = 0 }
+				}
+	
+				subtract_from_variable = { building_effect_counter = 0.1 }
+			}
 		}
 	}
 }
 
 add_crop_weaving_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = crop_weaving
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = crop_weaving
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = crop_weaving
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = crop_weaving
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = crop_weaving
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = crop_weaving
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = crop_weaving
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = crop_weaving
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = crop_weaving
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_animal_weaving_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = animal_weaving
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = animal_weaving
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = animal_weaving
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = animal_weaving
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = animal_weaving
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = animal_weaving
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = animal_weaving
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = animal_weaving
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = animal_weaving
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_steelworks_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = steelworks
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = steelworks
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = steelworks
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = steelworks
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = steelworks
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = steelworks
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = steelworks
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = steelworks
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = steelworks
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_smithy_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = arms_factory
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = arms_factory
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = arms_factory
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = arms_factory
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = arms_factory
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = arms_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_factory_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = factory
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = factory
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = factory
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = factory
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = factory
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = factory
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_harbour_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = harbour
-					size > 0
-					include_locked = no
-				}
-				is_coastal = yes
-			}
-			add_building_construction = {
-				type = harbour
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = harbour
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = harbour
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
-				is_coastal = yes
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = harbour
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = harbour
+						size > 0
+						include_locked = no
+					}
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = harbour
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = harbour
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = harbour
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_dockyard_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = dockyard
-					size > 0
-					include_locked = no
-				}
-				is_coastal = yes
-			}
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = dockyard
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = dockyard
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
-				is_coastal = yes
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = dockyard
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = no
+					}
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = dockyard
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+					is_coastal = yes
+				}
+				add_building_construction = {
+					type = dockyard
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_consumer_good_factory_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = consumer_good_factory
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = consumer_good_factory
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = consumer_good_factory
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = consumer_good_factory
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = consumer_good_factory
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = consumer_good_factory
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = consumer_good_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = consumer_good_factory
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = consumer_good_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_luxury_good_factory_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = luxury_good_factory
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = luxury_good_factory
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = luxury_good_factory
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = luxury_good_factory
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = luxury_good_factory
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = luxury_good_factory
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = luxury_good_factory
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = luxury_good_factory
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = luxury_good_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_manufactory_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = industrial_complex
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = industrial_complex
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = industrial_complex
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = industrial_complex
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = industrial_complex
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_carpentry_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = carpentry
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = carpentry
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = carpentry
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = carpentry
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = carpentry
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = carpentry
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = carpentry
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = carpentry
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = carpentry
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_masonry_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
-		}
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = masonry
-					size > 0
-					include_locked = no
-				}
-			}
-			add_building_construction = {
-				type = masonry
-				level = 1
-				instant_build = yes
-			}
+	effect_tooltip = {
+		add_building_construction = {
+			type = masonry
+			level = 1
+			instant_build = yes
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = masonry
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+				has_country_flag = core_all_construction_flag
 			}
-			add_building_construction = {
-				type = masonry
-				level = 1
-				instant_build = yes
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = masonry
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = masonry
+					level = 1
+					instant_build = yes
+				}
+			}
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = masonry
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = masonry
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
 }
 
 add_steel_beam_factory_random_instant = {
-	if = {
-		limit = {
-			has_country_flag = core_all_construction_flag
+	effect_tooltip = {
+		add_building_construction = {
+			type = steel_beam_factory
+			level = 1
+			instant_build = yes
 		}
-		random_owned_controlled_state = {
+	}
+	hidden_effect = {
+		if = {
 			limit = {
-				free_building_slots = {
-					building = steel_beam_factory
-					size > 0
-					include_locked = no
+				has_country_flag = core_all_construction_flag
+			}
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = steel_beam_factory
+						size > 0
+						include_locked = no
+					}
+				}
+				add_building_construction = {
+					type = steel_beam_factory
+					level = 1
+					instant_build = yes
 				}
 			}
-			add_building_construction = {
-				type = steel_beam_factory
-				level = 1
-				instant_build = yes
+		}
+		else = {
+			random_owned_controlled_state = {
+				limit = {
+					free_building_slots = {
+						building = steel_beam_factory
+						size > 0
+						include_locked = no
+					}
+					is_core_of = ROOT
+				}
+				add_building_construction = {
+					type = steel_beam_factory
+					level = 1
+					instant_build = yes
+				}
 			}
 		}
 	}
-	else = {
-		random_owned_controlled_state = {
-			limit = {
-				free_building_slots = {
-					building = steel_beam_factory
-					size > 0
-					include_locked = no
-				}
-				is_core_of = ROOT
+}
+
+
+farm_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 370 }
+}
+ranch_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 400 }
+}
+fishing_stand_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 350 }
+}
+lumber_mill_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 520 }
+}
+quarry_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 580 }
+}
+mine_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 900 }
+}
+crop_weaving_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 410 }
+}
+animal_weaving_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 410 }
+}
+mill_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 460 }
+}
+smelting_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 1800 }
+}
+smithy_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 2200 }
+}
+factory_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 6000 }
+}
+harbour_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 1400 }
+}
+dockyard_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 2000 }
+}
+shop_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 800 }
+}
+luxury_store_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 1200 }
+}
+manufactory_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 800 }
+}
+carpentry_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 1400 }
+}
+masonry_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 1400 }
+}
+steel_beam_factory_investment_cost = {
+	subtract_from_variable = { peoples_investment_ic = 2400 }
+}
+
+
+peoples_initiative_construction_effect = {
+	random_list = {
+		ai_priority_steel = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = steelworks_1 }
 			}
-			add_building_construction = {
-				type = steel_beam_factory
-				level = 1
-				instant_build = yes
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 1800 }
+			}
+			smelting_investment_cost = yes
+			country_event = { id = centralisation.14  days = 1  random_days = 30 }
+		}
+		ai_priority_animal_products = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = ranch_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 400 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { animal > 0.1 }
+					}
+				}
+			}
+			ranch_investment_cost = yes
+			country_event = { id = centralisation.5  days = 1  random_days = 30 }
+		}
+		ai_priority_wood = {
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { forest > 0.1 }
+					}
+				}
+			}
+			modifier = {
+				factor = 0
+				NOT = { has_tech = lumber_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 520 }
+			}
+			lumber_mill_investment_cost = yes
+			country_event = { id = centralisation.7  days = 1  random_days = 30 }
+		}
+		ai_priority_iron = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = mine_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 900 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { mountain > 0.1 }
+					}
+				}
+			}
+			mine_investment_cost = yes
+			country_event = { id = centralisation.15  days = 1  random_days = 30 }
+		}
+		ai_priority_textile = {
+			modifier = {
+				factor = 0
+				OR = {
+					NOT = { has_tech = animal_weaving_1 }
+					NOT = { has_tech = crop_weaving_1 }
+				}
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 410 }
+			}
+			animal_weaving_investment_cost = yes
+			country_event = { id = centralisation.9  days = 1  random_days = 30 }
+		}
+		ai_priority_minerals = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = quarry_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 580 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { stonefield > 0.1 }
+					}
+				}
+			}
+			quarry_investment_cost = yes
+			country_event = { id = centralisation.8  days = 1  random_days = 30 }
+		}
+		ai_priority_grain = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = farm_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 370 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { field > 0.1 }
+					}
+				}
+			}
+			farm_investment_cost = yes
+			country_event = { id = centralisation.4  days = 1  random_days = 30 }
+		}
+		ai_priority_fossile_fuels = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = mine_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 900 }
+			}
+			modifier = {
+				factor = 0
+				NOT = {
+					any_owned_state = {
+						check_variable = { mountain > 0.1 }
+					}
+				}
+			}
+			mine_investment_cost = yes
+			country_event = { id = centralisation.15  days = 1  random_days = 30 }
+		}
+		ai_priority_food = {
+			random_list = {
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = { has_tech = mill_1 }
+					}
+					modifier = {
+						factor = 0
+						check_variable = { peoples_investment_ic < 460 }
+					}
+					modifier = {
+						factor = 0
+						check_variable = { ai_priority_grain > ai_priority_food }
+					}
+					mill_investment_cost = yes
+					country_event = { id = centralisation.6  days = 1  random_days = 30 }
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = { has_tech = farm_1 }
+					}
+					modifier = {
+						factor = 0
+						check_variable = { peoples_investment_ic < 370 }
+					}
+					modifier = {
+						factor = 0
+						NOT = {
+							any_owned_state = {
+								check_variable = { field > 0.1 }
+							}
+						}
+					}
+					farm_investment_cost = yes
+					country_event = { id = centralisation.4  days = 1  random_days = 30 }
+				}
+				1 = {
+					modifier = {
+						factor = 0
+						NOT = { has_tech = fishing_stand_1 }
+					}
+					modifier = {
+						factor = 0
+						check_variable = { peoples_investment_ic < 350 }
+					}
+					modifier = {
+						factor = 0
+						NOT = {
+							any_owned_state = {
+								check_variable = { water > 0.1 }
+							}
+						}
+					}
+					fishing_stand_investment_cost = yes
+					country_event = { id = centralisation.18  days = 1  random_days = 30 }
+				}
 			}
 		}
+		ai_priority_consumer_goods = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = stores_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 800 }
+			}
+			shop_investment_cost = yes
+			country_event = { id = centralisation.10  days = 1  random_days = 30 }
+		}
+		ai_priority_luxury_goods = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = stores_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 1200 }
+			}
+			luxury_store_investment_cost = yes
+			country_event = { id = centralisation.11  days = 1  random_days = 30 }
+		}
+		ai_priority_planks = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = carpentry_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 1400 }
+			}
+			carpentry_investment_cost = yes
+			country_event = { id = centralisation.2  days = 1  random_days = 30 }
+		}
+		ai_priority_bricks = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = masonry_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 1400 }
+			}
+			masonry_investment_cost = yes
+			country_event = { id = centralisation.3  days = 1  random_days = 30 }
+		}
+		ai_priority_steel_beams = {
+			modifier = {
+				factor = 0
+				NOT = { has_tech = steel_beam_factory_1 }
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 2400 }
+			}
+			steel_beam_factory_investment_cost = yes
+			country_event = { id = centralisation.16  days = 1  random_days = 30 }
+		}
+		0.1 = {
+			modifier = {
+				factor = 0
+				num_of_civilian_factories > 10
+			}
+			modifier = {
+				factor = 0
+				check_variable = { peoples_investment_ic < 800 }
+			}
+			manufactory_investment_cost = yes
+			country_event = { id = centralisation.17  days = 1  random_days = 30 }
+		}
+
 	}
 }
