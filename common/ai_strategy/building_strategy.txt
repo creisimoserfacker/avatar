@@ -50,13 +50,13 @@ smithy_good = {
 		always = yes
 	}
 	enable = {
-		manpower_per_military_factory > 1000
+		has_country_flag = construct_all
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
 		type = building_target
 		id = arms_factory
-		value = 500
+		value = 1000
 	}
 #	ai_strategy = {
 #		type = building_target
@@ -252,7 +252,7 @@ build_consumer = {
 	ai_strategy = {
 		type = building_target
 		id = consumer_good_factory
-		value = 10
+		value = 1000
 	}
 }
 
@@ -271,7 +271,7 @@ build_luxury = {
 	ai_strategy = {
 		type = building_target
 		id = luxury_good_factory
-		value = 10
+		value = 1000
 	}
 }
 
@@ -280,22 +280,22 @@ build_construction = {
 		always = yes
 	}
 	enable = {
-		#check_variable = { construction_material < 0 }
+		check_variable = { construction_material < 0 }
 		has_resources_in_country = {
 			resource = aluminium
 			amount > 50
 		}
-		has_resources_in_country = {
-			resource = planks_resource
-			amount < 0
-		}
+		#has_resources_in_country = {
+		#	resource = planks_resource
+		#	amount < 0
+		#}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = building_target
 		id = carpentry
-		value = 10
+		value = 1000
 	}
 }
 
@@ -304,22 +304,22 @@ build_masonry = {
 		always = yes
 	}
 	enable = {
-		#check_variable = { construction_material < 0 }
+		check_variable = { construction_material < 0 }
 		has_resources_in_country = {
 			resource = stone
 			amount > 50
 		}
-		has_resources_in_country = {
-			resource = bricks_resource
-			amount < 0
-		}
+		#has_resources_in_country = {
+		#	resource = bricks_resource
+		#	amount < 0
+		#}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = building_target
 		id = masonry
-		value = 1
+		value = 1000
 	}
 }
 
@@ -328,21 +328,21 @@ build_steel_beam_factory = {
 		always = yes
 	}
 	enable = {
-		#check_variable = { construction_material < 0 }
+		check_variable = { construction_material < 0 }
 		has_resources_in_country = {
 			resource = steel
 			amount > 50
 		}
-		has_resources_in_country = {
-			resource = steel_beams_resource
-			amount < 1
-		}
+		#has_resources_in_country = {
+		#	resource = steel_beams_resource
+		#	amount < 0
+		#}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = building_target
 		id = steel_beam_factory
-		value = 100
+		value = 1000
 	}
 }

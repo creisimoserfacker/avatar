@@ -58,6 +58,10 @@ on_actions = {
 			add_to_variable = { ai_priority_minerals = ai_priority_bricks }
 			add_to_variable = { ai_priority_steel = ai_priority_steel_beams }
 
+			subtract_from_variable = { ai_priority_planks = construction_material }
+			subtract_from_variable = { ai_priority_bricks = construction_material }
+			subtract_from_variable = { ai_priority_steel_beams = construction_material }
+
 			clamp_variable = { var = ai_priority_steel  min = 0.1 }
 			clamp_variable = { var = ai_priority_animal_products  min = 0.1 }
 			clamp_variable = { var = ai_priority_wood  min = 0.1 }
@@ -71,6 +75,32 @@ on_actions = {
 			clamp_variable = { var = ai_priority_planks  min = 0.1 }
 			clamp_variable = { var = ai_priority_bricks  min = 0.1 }
 			clamp_variable = { var = ai_priority_steel_beams  min = 0.1 }
+
+			if = {
+				limit = {
+					count_triggers = {
+						amount = 13
+
+						check_variable = { ai_priority_iron < 0.2 }
+						check_variable = { ai_priority_minerals < 0.2 }
+						check_variable = { ai_priority_grain < 0.2 }
+						check_variable = { ai_priority_animal_products < 0.2 }
+						check_variable = { ai_priority_grain < 0.2 }
+						check_variable = { ai_priority_animal_products < 0.2 }
+						check_variable = { ai_priority_textile < 0.2 }
+						check_variable = { ai_priority_wood < 0.2 }
+						check_variable = { ai_priority_iron < 0.2 }
+						check_variable = { ai_priority_minerals < 0.2 }
+						check_variable = { ai_priority_wood < 0.2 }
+						check_variable = { ai_priority_minerals < 0.2 }
+						check_variable = { ai_priority_steel < 0.2 }
+					}
+				}
+				set_country_flag = construct_all
+			}
+			else = {
+				clr_country_flag = construct_all
+			}
 
 		}
 	}

@@ -77,3 +77,55 @@ country_event = {
 	}
 	
 }
+
+
+
+### refugees leave
+country_event = {
+	id = refugee_event.2
+	title = refugee_event.2.t
+	desc = refugee_event.2.desc
+	picture = GFX_report_event_refugees
+
+	is_triggered_only = yes
+
+	option = {   # let them go
+		name = refugee_event.2.a
+
+
+		event_target:migration_state = {
+			add_manpower = event_target:migration_origin.var:migrating_population
+		}
+
+		event_target:migration_origin = {
+			multiply_variable = { migrating_population = -1 }
+			add_manpower = var:migrating_population
+
+			clear_variable = migrating_population
+		}
+
+		ai_chance = { 
+			base = 100
+
+		}
+	}
+	option = {
+		name = refugee_event.2.b
+
+		
+		ai_chance = { 
+			base = 0
+
+		}
+	}
+	option = {
+		name = refugee_event.2.c
+
+		
+		ai_chance = { 
+			base = 0
+
+		}
+	}
+	
+}
