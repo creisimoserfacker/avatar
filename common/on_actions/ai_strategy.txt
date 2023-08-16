@@ -2,7 +2,14 @@ on_actions = {
 
 	on_startup = {
 		effect = {
-
+			every_state = {
+				set_variable = { ai_water = building_level@fishing_stand }
+				set_variable = { ai_mountain = building_level@mine }
+				set_variable = { ai_stonefield = building_level@quarry }
+				set_variable = { ai_field = building_level@farm }
+				set_variable = { ai_animal = building_level@ranch }
+				set_variable = { ai_forest = building_level@lumber_mill }
+			}
 		}
 	}
 
@@ -28,6 +35,95 @@ on_actions = {
 
 	on_monthly = {
 		effect = {
+
+
+			###### ai building correction
+
+			if = {
+				limit = {
+					is_ai = yes
+				}
+
+				every_controlled_state = {
+					if = {
+						limit = {
+							check_variable = { building_level@fishing_stand > ai_water }
+						}
+						remove_building = {
+							type = fishing_stand
+							level = 1
+						}
+						controller = {
+							add_fishing_stand_random_instant = yes
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { building_level@mine > ai_mountain }
+						}
+						remove_building = {
+							type = mine
+							level = 1
+						}
+						controller = {
+							add_mine_random_instant = yes
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { building_level@quarry > ai_stonefield }
+						}
+						remove_building = {
+							type = quarry
+							level = 1
+						}
+						controller = {
+							add_quarry_random_instant = yes
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { building_level@farm > ai_field }
+						}
+						remove_building = {
+							type = farm
+							level = 1
+						}
+						controller = {
+							add_farm_random_instant = yes
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { building_level@ranch > ai_animal }
+						}
+						remove_building = {
+							type = ranch
+							level = 1
+						}
+						controller = {
+							add_ranch_random_instant = yes
+						}
+					}
+					if = {
+						limit = {
+							check_variable = { building_level@lumber_mill > ai_forest }
+						}
+						remove_building = {
+							type = lumber_mill
+							level = 1
+						}
+						controller = {
+							add_lumber_mill_random_instant = yes
+						}
+					}
+				}
+			}
+
+
+
+
+			##### ai priorities
 
 			set_variable = { ai_priority_food = 0 }
 			set_variable = { ai_priority_steel = steel_price }

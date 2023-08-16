@@ -51,7 +51,11 @@ on_actions = {
 			if = {
 				limit = {
 					check_variable = { literacy_variable < mtth:literacy_target_100 }
-					check_variable = { modifier@knowledge > 0.01 }
+					check_variable = {
+						var = modifier@knowledge
+						value = 0.1
+						compare = greater_than_or_equals
+					}
 				}
 				add_to_variable = { literacy_variable = modifier@knowledge }
 			}
@@ -66,7 +70,11 @@ on_actions = {
 			if = {
 				limit = {
 					check_variable = { literacy_variable > mtth:literacy_target_100 }
-					check_variable = { modifier@knowledge < -0.01 }
+					check_variable = {
+						var = modifier@knowledge
+						value = -0.1
+						compare = less_than_or_equals
+					}
 				}
 				add_to_variable = { literacy_variable = modifier@knowledge }
 			}

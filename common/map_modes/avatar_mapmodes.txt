@@ -341,17 +341,19 @@ scripted_map_modes = {
 				set_temp_variable = { red = 0.2 }
 				set_temp_variable = { blue = 0.1 }
 				set_temp_variable = { green = 0.85 }
-				set_temp_variable = { alpha = 0.5 }
+				set_temp_variable = { alpha = 1 }
 
 				FROM = {
 					multiply_temp_variable = { red = forest }
 					multiply_temp_variable = { blue = forest }
 					multiply_temp_variable = { green = forest }
+
+					set_temp_variable = { alpha_factor = building_level@lumber_mill }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
 				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
@@ -374,17 +376,18 @@ scripted_map_modes = {
 				set_temp_variable = { red = 0.5 }
 				set_temp_variable = { blue = 0.2 }
 				set_temp_variable = { green = 0.9 }
-				set_temp_variable = { alpha = 0.5 }
+				set_temp_variable = { alpha = 1 }
 
 				FROM = {
 					multiply_temp_variable = { red = field }
 					multiply_temp_variable = { blue = field }
 					multiply_temp_variable = { green = field }
+
+					set_temp_variable = { alpha_factor = building_level@farm }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
-				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
@@ -407,17 +410,18 @@ scripted_map_modes = {
 				set_temp_variable = { red = 1.4 }
 				set_temp_variable = { blue = 0.1 }
 				set_temp_variable = { green = 1 }
-				set_temp_variable = { alpha = 0.5 }
+				set_temp_variable = { alpha = 1 }
 
 				FROM = {
 					multiply_temp_variable = { red = animal }
 					multiply_temp_variable = { blue = animal }
 					multiply_temp_variable = { green = animal }
+
+					set_temp_variable = { alpha_factor = building_level@ranch }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
-				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
@@ -440,17 +444,18 @@ scripted_map_modes = {
 				set_temp_variable = { red = 0.8 }
 				set_temp_variable = { blue = 0.6 }
 				set_temp_variable = { green = 0.8 }
-				set_temp_variable = { alpha = 0.5 }
+				set_temp_variable = { alpha = 1 }
 
 				FROM = {
 					multiply_temp_variable = { red = mountain }
 					multiply_temp_variable = { blue = mountain }
 					multiply_temp_variable = { green = mountain }
+
+					set_temp_variable = { alpha_factor = building_level@mine }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
-				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
@@ -473,17 +478,18 @@ scripted_map_modes = {
 				set_temp_variable = { red = 0.6 }
 				set_temp_variable = { blue = 0.8 }
 				set_temp_variable = { green = 0.8 }
-				set_temp_variable = { alpha = 0.5 }
+				set_temp_variable = { alpha = 1 }
 
 				FROM = {
 					multiply_temp_variable = { red = stonefield }
 					multiply_temp_variable = { blue = stonefield }
 					multiply_temp_variable = { green = stonefield }
+
+					set_temp_variable = { alpha_factor = building_level@quarry }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
-				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
@@ -512,11 +518,12 @@ scripted_map_modes = {
 					multiply_temp_variable = { red = water }
 					multiply_temp_variable = { blue = water }
 					multiply_temp_variable = { green = water }
+
+					set_temp_variable = { alpha_factor = building_level@fishing_stand }
+					multiply_temp_variable = { alpha_factor = 0.1 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
 				}
-				
-				#set_temp_variable = { thickness = 10.0 }
-				
-				#set_temp_variable = { highlighted = 1.0 }
 				
 			}
 
