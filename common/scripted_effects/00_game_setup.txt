@@ -234,6 +234,42 @@ war_setup_106 = {
 			enemy = FIR
 		}
 	}
+	BAI = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	YON = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	FUJ = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	SHE = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	XIL = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
+	GOU = {
+		add_to_war = {
+			targeted_alliance = EAR
+			enemy = FIR
+		}
+	}
 
 
 	
@@ -289,6 +325,32 @@ taku_puppet_12 = {
 	}
 }
 
+omashu_puppet_12 = {
+	if = {
+		limit = {
+			has_start_date < 13.1.1
+		}
+		if = {
+			limit = {
+				has_dlc = "Together for Victory"
+			}
+			set_autonomy = {
+				target = MPO
+				autonomous_state = autonomy_tributary
+			}
+			set_autonomy = {
+				target = GOU
+				autonomous_state = autonomy_county
+			}
+			else = {
+				puppet = MPO
+				puppet = GOU
+			}
+		}
+	}
+}
+
+
 earth_puppets_12 = {
 
 	if = {
@@ -305,6 +367,10 @@ earth_puppets_12 = {
 			}
 			set_autonomy = {
 				target = EBA
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
+				target = BAI
 				autonomous_state = autonomy_royal_domain
 			}
 			set_autonomy = {
@@ -359,10 +425,27 @@ earth_puppets_12 = {
 				target = NCB
 				autonomous_state = autonomy_vassalage
 			}
+			set_autonomy = {
+				target = FUJ
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = SHE
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = XIL
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = YON
+				autonomous_state = autonomy_county
+			}
 		}
 		else = {
 			puppet = WBA
 			puppet = EBA
+			puppet = BAI
 			puppet = FMB
 			puppet = LAM
 			puppet = ECB
@@ -376,6 +459,10 @@ earth_puppets_12 = {
 			puppet = YUE
 			puppet = NOW
 			puppet = NCB
+			puppet = FUJ
+			puppet = SHE
+			puppet = XIL
+			puppet = YON
 		}
 	}
 }
@@ -457,6 +544,10 @@ earth_puppets_52 = {
 				autonomous_state = autonomy_royal_domain
 			}
 			set_autonomy = {
+				target = BAI
+				autonomous_state = autonomy_royal_domain
+			}
+			set_autonomy = {
 				target = FMB
 				autonomous_state = autonomy_vassalage
 			}
@@ -508,6 +599,26 @@ earth_puppets_52 = {
 				target = HAN
 				autonomous_state = autonomy_county
 			}
+			set_autonomy = {
+				target = FUJ
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = SHE
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = XIL
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = YON
+				autonomous_state = autonomy_county
+			}
+			set_autonomy = {
+				target = GOU
+				autonomous_state = autonomy_county
+			}
 		}
 		else = {
 			puppet = OMS
@@ -526,6 +637,7 @@ earth_puppets_52 = {
 			puppet = POH
 			puppet = WBA
 			puppet = EBA
+			puppet = BAI
 			puppet = FMB
 			puppet = LAM
 			puppet = ECB
@@ -539,6 +651,11 @@ earth_puppets_52 = {
 			puppet = NOW
 			puppet = NCB
 			puppet = HAN
+			puppet = FUJ
+			puppet = SHE
+			puppet = XIL
+			puppet = YON
+			puppet = GOU
 		}
 		
 	}
@@ -589,6 +706,18 @@ ear_exiles_106 = {
 			become_exiled_in = { target = EAR legitimacy = 30 }
 		}
 		NIX = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		BAI = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		FUJ = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		SHE = {
+			become_exiled_in = { target = EAR legitimacy = 30 }
+		}
+		XIL = {
 			become_exiled_in = { target = EAR legitimacy = 30 }
 		}
 		
