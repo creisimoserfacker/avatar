@@ -1,7 +1,7 @@
 state={
 	id=1
 	name="STATE_1"
-	manpower = 1200
+	manpower = 1207
 	state_category = pastoral
 
 	history={
@@ -12,7 +12,8 @@ state={
 		add_dynamic_modifier = { modifier = buffalo_herd }
 		add_to_variable = {
 			var = forest
-			value = 0.1		}
+			value = 0.1
+		}
 		add_to_variable = {
 			var = mountain
 			value = 0.3
@@ -31,18 +32,15 @@ state={
 		}
 		add_to_variable = {
 			var = animal
-			value = 0.2		}
-		add_to_variable = {
-			var = resource_deposites
-			value = 0.6
+			value = 0.2	
 		}
 	
 		victory_points = { 5733 5 }
+		victory_points = { 5715 5 }
 	
 		12.1.1 = {
 			owner = NWT
 			controller = NWT
-			add_core_of = NWT
 
 			buildings = {
 				infrastructure = 2
@@ -57,16 +55,68 @@ state={
 		52.5.16 = {
 			owner = NWT
 			controller = NWT
+
+			add_manpower = 266
+
+			buildings = {
+				infrastructure = 4
+				dockyard = 1
+				fishing_stand = 3
+				5733 = {
+					naval_base = 8
+					coastal_fortress = 5
+				}
+				5715 = {
+					wall = 3
+					supply_hub = 1
+				}
+			}
+			build_railway = {
+				level = 2
+				path = { 5733 2117 5715 }
+			}
 		}
 
 		106.2.4 = {
 			owner = NWT
 			controller = NWT
+
+			add_manpower = 463
+
+			buildings = {
+				infrastructure = 4
+				dockyard = 1
+				fishing_stand = 3
+				5733 = {
+					naval_base = 12
+					coastal_fortress = 10
+				}
+				5715 = {
+					wall = 10
+					supply_node = 1
+				}
+			}
 		}
 
 		111.10.30 = {
 			owner = NWT
 			controller = NWT
+
+			add_manpower = 48
+
+			buildings = {
+				infrastructure = 5
+				dockyard = 2
+				fishing_stand = 3
+				5733 = {
+					naval_base = 13
+					coastal_fortress = 11
+				}
+				5715 = {
+					wall = 10
+					supply_node = 1
+				}
+			}
 		}
 	}
 
