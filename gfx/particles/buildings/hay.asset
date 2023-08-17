@@ -87,6 +87,32 @@ particle={
 		force=drag
 	}
 	animation={
+		name="fade_smoke"
+		start=0
+		duration=1
+		repeat=no
+		minValue=0
+		maxValue=1
+		curve={
+			0 0 0.200 1 0.600 1 1 0 
+		}
+		op="MUL"
+		time="life"
+	}
+	animation={
+		name="increase_size"
+		start=0
+		duration=1
+		repeat=no
+		minValue=0
+		maxValue=1
+		curve={
+			0 0.100 0.182 0.375 1 1 
+		}
+		op="MUL"
+		time="life"
+	}
+	animation={
 		name="fade_alpha"
 		start=0.000
 		duration=1.000
@@ -137,6 +163,20 @@ particle={
 		}
 		op="MUL"
 		time="spawn"
+	}
+	force={
+		type="friction"
+		name="drag"
+		position={
+			0.000 0.000 0.000 
+		}
+		direction={
+			0.000 0.000 0.000 
+		}
+		local_force=yes
+		yaw=0.000
+		division=16
+		amount=1.500
 	}
 	force={
 		type="friction"

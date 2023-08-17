@@ -257,51 +257,6 @@ THE_EARTHKINGDOM = {
 		}
 	}
 
-	county_demand_coronation = {
-
-		icon = earth_coronation
-
-		allowed = {
-			
-		}
-
-		available = {
-			compare_autonomy_progress_ratio > 0.99
-			NOT = {
-				has_country_flag = demand_to_overlord
-			}
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_county
-			}
-		}
-
-		cost = 300
-
-		fire_only_once = no
-
-		complete_effect = { 
-			set_country_flag = demand_to_overlord
-			OVERLORD = {
-				country_event = {
-					id = struggles_ek.7
-					days = 1
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
 ##########################################################
 
 	 ###  ###  #   # #   # #####  #   #

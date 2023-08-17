@@ -858,11 +858,11 @@ FIR_naval_war_with_NWT = {
 				}	
 		}
 	}
-	ai_strategy = {
-		type = area_priority
-		id = NWT_coastal_waters
-		value = 50
-	}
+	#ai_strategy = {
+	#	type = area_priority
+	#	id = NWT_coastal_waters
+	#	value = 50
+	#}
 	ai_strategy = {
 		type = invade
 		id = NWT
@@ -900,7 +900,7 @@ FIR_naval_war_with_NWT = {
 	}
 }
 FIR_naval_war_with_SWT = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
 		FIR = {
 			has_war_with = SWT
@@ -928,11 +928,11 @@ FIR_naval_war_with_SWT = {
 				}	
 		}
 	}
-	ai_strategy = {
-		type = area_priority
-		id = SWT_coastal_waters
-		value = 50
-	}
+	#ai_strategy = {
+	#	type = area_priority
+	#	id = SWT_coastal_waters
+	#	value = 50
+	#}
 	ai_strategy = {
 		type = invade
 		id = SWT
@@ -980,11 +980,11 @@ FIR_naval_war_with_SWT = {
 	}
 }
 FIR_invade_NWT_stage_1 = {
-	allow = {tag = FIR}
+	allowed = {tag = FIR}
 	enable = {
-		NWT = has_navy_size < 5
-		SWT = has_navy_size < 5
-		FIR = has_navy_size > 10
+		NWT = { has_navy_size  = { size < 5 } }
+		SWT = { has_navy_size  = { size < 5 } }
+		FIR = { has_navy_size  = { size > 5 } }
 	}
 	abort = {
 		count_triggers = {

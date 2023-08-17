@@ -2716,6 +2716,59 @@ soundeffect = {
 	volume = 0.70
 }
 
+
+
+#### HORNS #####
+soundeffect = {
+	name =  train_horn_medium
+	falloff = "falloff_trains_medium"
+	loop = yes
+	prevent_random_repetition = no
+	sounds = {
+		weighted_sound = { sound = train_horn_medium-001  weight = 2 }
+		weighted_sound = { sound = train_horn_medium-002 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-003 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-004 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-005 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-006 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-007 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-008 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-009 weight = 2 }
+		weighted_sound = { sound = train_horn_medium-010 weight = 2 }
+		weighted_sound = { sound = silence_buffer_1s weight = 42 }
+	}
+	max_audible = 2
+	max_audible_behaviour = fail
+	playbackrate_random_offset = { -5.0 5.0 }
+	is3d = yes
+	volume = 0.5
+}
+
+soundeffect = {
+	name = train_horn_veryLarge
+	falloff = "falloff_trains_medium"
+	loop = yes
+	sounds = {
+		weighted_sound = { sound = train_horn_veryLarge-001  weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-002 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-003 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-004 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-005 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-006 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-007 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-008 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-009 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-010 weight = 2 }
+		weighted_sound = { sound = train_horn_veryLarge-011 weight = 2 }
+		weighted_sound = { sound = silence_buffer_1s weight = 45 }
+	}
+	max_audible = 2
+	max_audible_behaviour = fail
+	playbackrate_random_offset = { -5.0 5.0 }
+	is3d = yes
+	volume = 0.5
+}
+
 ####GEN_FLOATING_HARBOUR####
 soundeffect = {
 	name = GEN_floating_harbour
@@ -2735,4 +2788,50 @@ soundeffect = {
 	fade_in = 0.20
 	fade_out = 0.40
 	volume = 0.70
+}
+
+
+
+#################################################################
+######################### RAILWAY GUN ###########################
+#################################################################
+soundeffect = {
+	name = railway_gun_move
+	sounds = {
+		sound = train_horn_veryLarge-001
+		sound = train_horn_veryLarge-002
+		sound = train_horn_veryLarge-003
+		sound = train_horn_veryLarge-004
+	}
+	volume = 0.5
+}
+
+####GEN_RAILGUN###
+soundeffect = {
+	name = GEN_railway_gun
+	falloff = "falloff_trains_medium"
+	loop = no
+	random_sound_when_looping = no
+	sounds = {
+		sound = GEN_railway_gun_01
+		sound = GEN_railway_gun_02
+		sound = GEN_railway_gun_03
+		sound = GEN_railway_gun_04
+	}
+	max_audible = 3
+	max_audible_behaviour = fail
+	prevent_random_repetition = yes
+	is3d = yes
+	volume = 0.80
+}
+
+soundeffect = {
+	name = select_railway_gun
+	sounds = {
+		sound = train_horn_veryLarge-005
+		sound = train_horn_veryLarge-006
+		sound = train_horn_veryLarge-007
+		sound = train_horn_veryLarge-008
+	}
+	volume = 0.4
 }
