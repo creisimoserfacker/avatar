@@ -5,7 +5,7 @@ division_template = {
 		spearmen = { x = 0 y = 0 }
 		spearmen = { x = 0 y = 1 }
 
-        spearmen = { x = 1 y = 0 }
+		spearmen = { x = 1 y = 0 }
 		spearmen = { x = 1 y = 1 }
 	}
 
@@ -18,8 +18,11 @@ division_template = {
 	name = "Guard Battalion"
 
 	regiments = {
-		swordsmen = { x = 0 y = 0 }
-		swordsmen = { x = 0 y = 1 }
+		spearmen = { x = 0 y = 0 }
+		spearmen = { x = 0 y = 1 }
+
+		spearmen = { x = 1 y = 0 }
+		spearmen = { x = 1 y = 1 }
 	}
 
 	support = {
@@ -28,7 +31,27 @@ division_template = {
 
 	priority = 0
 
-	#template_counter = 4
+	template_counter = 3
+}
+
+division_template = {
+	name = "Light Infantry"
+
+	regiments = {
+		swordsmen = { x = 0 y = 0 }
+		swordsmen = { x = 0 y = 1 }
+
+		skirmishers = { x = 1 y = 0 }
+		skirmishers = { x = 1 y = 1 }
+	}
+
+	support = {
+		scavenger = { x = 0 y = 0 }
+	}
+
+	priority = 1
+
+	template_counter = 2
 }
 
 division_template = {
@@ -50,6 +73,7 @@ division_template = {
 
 	support = {
 		scout = { x = 0 y = 0 }
+		supply_wagon = { x = 0 y = 1 }
 	}
 
 	template_counter = 0
