@@ -63,10 +63,11 @@ FIR_industrialisation_category = {
 
 		modifier = {
 			industrial_capacity_factory = 0.2
+			peasant_opinion = -10
 		}
 
 		complete_effect = {
-			peasant_mood_decrease = yes
+			
 		}
 
 		remove_effect = {
@@ -92,10 +93,6 @@ FIR_industrialisation_category = {
 			
 		}
 
-		#fire_only_once = yes
-
-		#days_remove = -1
-
 		cost = 75
 
 		modifier = {
@@ -103,7 +100,6 @@ FIR_industrialisation_category = {
 		}
 
 		complete_effect = {
-			peasant_mood_increase = yes
 			remove_decision = factory_longer_shift
 		}
 
@@ -153,6 +149,38 @@ FIR_industrialisation_category = {
 			set_country_flag = FIR_funded_war_indstries
 			custom_effect_tooltip = desinger_enable_tt
 			show_ideas_tooltip = fir_wartime_industry_designer
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	attract_private_investors = {
+
+		icon = industry_investment
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			OR = {
+				has_tech = conservative_3
+				has_tech = reform_4
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		cost = 75
+
+		complete_effect = {
+			add_ideas = FIR_private_investors
 		}
 
 		ai_will_do = {
@@ -1225,7 +1253,6 @@ FIR_civil_decision_category = {
 				uses = 10
 				category = society_reforms
 			}
-			add_stability = -0.7
 		}
 
 		modifier = {
@@ -1237,6 +1264,7 @@ FIR_civil_decision_category = {
 
 		remove_effect = {
 			custom_effect_tooltip = industry_unlock_tt
+			add_stability = -0.7
 			set_country_flag = fire_industrialisation
 		}
 
@@ -1251,6 +1279,146 @@ FIR_civil_decision_category = {
 			factor = 1000
 		}
 	}
+
+	divine_firelord = {
+
+		icon = fire_ruler
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				has_country_leader_with_trait = divine_ruler
+				has_country_leader_with_trait = personality_cult
+			}
+			has_country_leader_with_trait = firelord
+		}
+		available = {
+			NOT = {
+				has_country_leader_with_trait = divine_ruler
+				has_country_leader_with_trait = personality_cult
+			}
+			has_country_leader_with_trait = firelord
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			add_country_leader_trait = divine_ruler
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	godlike_firelord = {
+
+		icon = fire_ruler
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+		}
+		available = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+			custom_trigger_tooltip = {
+				tooltip = check_authority_75_tooltip		
+				check_variable = {
+					var = current_authority
+					value = 75
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			every_character = {
+				limit = {
+					is_country_leader = yes
+				}
+				swap_country_leader_traits = { 
+					remove = divine_ruler
+					add = personality_cult
+				}
+			}
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	godlike_firelord = {
+
+		icon = fire_ruler
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+		}
+		available = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+			custom_trigger_tooltip = {
+				tooltip = check_authority_75_tooltip		
+				check_variable = {
+					var = current_authority
+					value = 75
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			every_character = {
+				limit = {
+					is_country_leader = yes
+				}
+				swap_country_leader_traits = { 
+					remove = divine_ruler
+					add = personality_cult
+				}
+			}
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
 	
 	increase_war_support_with_prosperity = {
 
@@ -1260,14 +1428,15 @@ FIR_civil_decision_category = {
 			tag = FIR
 		}
 		visible = {
-
+			has_idea = national_prosperity
+			has_start_date < 13.1.1
 		}
 		available = {
-			has_war = yes
-			has_idea = national_prosperity
-			hidden_trigger = {
-				has_start_date < 13.1.1
+			OR = {
+				has_war = yes
+				has_idea = ruthless_expansionism
 			}
+			has_idea = national_prosperity
 		}
 
 		days_remove = 30
@@ -1278,6 +1447,44 @@ FIR_civil_decision_category = {
 
 		remove_effect = {
 			add_ideas = FIR_popaganda_1
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	increase_war_support_without_prosperity = {
+
+		icon = fir_propaganda
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+			NOT = {
+				has_idea = national_prosperity
+				has_idea = FIR_popaganda_1
+				has_idea = FIR_popaganda_2
+			}
+		}
+		available = {
+			has_war = yes
+		}
+
+		days_remove = 30
+
+		modifier = {
+			war_support_weekly = 0.007
+		}
+
+		remove_effect = {
+			add_ideas = FIR_popaganda_2
 		}
 
 		cost = 100
@@ -1353,6 +1560,178 @@ FIR_civil_decision_category = {
 	
 	}
 
+
+
+	##### city development
+
+
+	chung_ling_tradehub = {
+
+		icon = city_development
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+		}
+		available = {
+			224 = {
+				dockyard > 0
+				any_province_building_level = {
+					building = naval_base
+					level > 9
+					province = { 
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_state_targets = { state = 224 } 
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			224 = {
+				add_dynamic_modifier = { modifier = trade_hub }
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	chung_ling_prosperous = {
+
+		icon = city_development_2
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+		}
+		available = {
+			224 = {
+				#has_manpower > 8000
+			}
+		}
+
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_state_targets = { state = 224 } 
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			224 = {
+				add_victory_points = {
+					province = 2387
+					value = 25
+				}
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	FIR_factory_investment = {
+
+		icon = factory_investment
+		
+		state_target = yes
+
+		allowed = {
+			tag = FIR
+		}
+		
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = FIR
+				arms_factory > 0
+			}
+		}
+
+		visible = {
+			has_country_flag = fire_industrialisation
+		}
+
+		available = {
+			has_tech = factory_1
+		}
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				state = FROM
+			}
+		}
+
+
+		on_map_mode = map_only
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 2 }
+		}
+		custom_cost_text = expenses_2000
+		
+		days_remove = 120
+		
+		modifier = {
+			expenses_factor = 2
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			FROM = {
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					instant_build = yes
+					type = factory
+					level = 1
+				}
+			}
+			add_to_variable = {
+				workless_population_k =  0.1
+				tooltip = workless_tooltip
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+
 }
 
 
@@ -1374,10 +1753,10 @@ FIR_colonies_category = {
 					controls_state = 230
 					controls_state = 280
 				}
-				custom_trigger_tooltip = {
-					tooltip = citizens_evacuated_tt
-					check_variable = { fire_people_in_ek < 0 }
-				}
+				#custom_trigger_tooltip = {
+				#	tooltip = citizens_evacuated_tt
+				#	check_variable = { fire_people_in_ek < 0 }
+				#}
 			}
 		}
 
@@ -1420,142 +1799,97 @@ FIR_colonies_category = {
 
 	}
 
-#	evacuate_fire_citizen_mission = {
+#	evacuation_convoy = {
 #
-#		icon = rescue_fire_citizen
+#		icon = convoy
 #
 #		allowed = {
-#			always = no
+#			tag = FIR
 #		}
 #		visible = {
-#
+#			has_active_mission = rescue_fire_citizen_mission
 #		}
 #		available = {
-#			custom_trigger_tooltip = {
-#				tooltip = citizens_evacuated_tt
-#				check_variable = { fire_people_in_ek < 0 }
+#			has_active_mission = rescue_fire_citizen_mission
+#		}
+#
+#		days_remove = 28
+#
+#		custom_cost_trigger = {
+#			has_equipment = { convoy > 19 }
+#		}
+#		custom_cost_text = convoy_20
+#
+#		complete_effect = {
+#			add_equipment_to_stockpile = {
+#				type = convoy
+#				amount = -20
+#				producer = ROOT
 #			}
 #		}
 #
-#
-#		days_mission_timeout = 230
-#		fire_only_once = yes
-#
-#		activation = {
-#
-#		}
-#
-#		is_good = no
-#
-#		complete_effect = {
-#			add_stability = 0.1
-#		}
-#
-#		timeout_effect = {
-#			add_stability = -0.5
+#		remove_effect = {
+#			add_equipment_to_stockpile = {
+#				type = convoy
+#				amount = 20
+#				producer = ROOT
+#			}
+#			add_to_variable = {
+#				fire_people_in_ek = -640
+#				tooltip = fire_people_in_ek_tooltip
+#			}
 #		}
 #
 #		ai_will_do = {
 #			factor = 100
+#			modifier = {
+#				add = 100
+#				is_historical_focus_on = yes
+#			}
 #		}
 #
-#		#priority = {
-#		#	base = 100
-#		#}
+#	}
+#
+#	royal_navy_evacuation_support = {
+#
+#		icon = fire_navy
+#
+#		allowed = {
+#			tag = FIR
+#		}
+#		visible = {
+#			has_active_mission = rescue_fire_citizen_mission
+#		}
+#		available = {
+#			has_active_mission = rescue_fire_citizen_mission
+#			OR = {
+#				ships_in_area = { area = 23 size > 9 }
+#				ships_in_area = { area = 26 size > 9 }
+#			}
+#		}
+#
+#		custom_cost_trigger = {
+#			command_power > 25
+#		}
+#		custom_cost_text = honour_cost_25
+#
+#		complete_effect = {
+#			add_command_power = -25
+#			add_to_variable = {
+#				fire_people_in_ek = -1200
+#				tooltip = fire_people_in_ek_tooltip
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 100
+#			modifier = {
+#				add = 100
+#				is_historical_focus_on = yes
+#			}
+#		}
 #
 #	}
-
-	evacuation_convoy = {
-
-		icon = convoy
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			has_active_mission = rescue_fire_citizen_mission
-		}
-		available = {
-			has_active_mission = rescue_fire_citizen_mission
-		}
-
-		days_remove = 28
-
-		custom_cost_trigger = {
-			has_equipment = { convoy > 19 }
-		}
-		custom_cost_text = convoy_20
-
-		complete_effect = {
-			add_equipment_to_stockpile = {
-				type = convoy
-				amount = -20
-				producer = ROOT
-			}
-		}
-
-		remove_effect = {
-			add_equipment_to_stockpile = {
-				type = convoy
-				amount = 20
-				producer = ROOT
-			}
-			add_to_variable = {
-				fire_people_in_ek = -640
-				tooltip = fire_people_in_ek_tooltip
-			}
-		}
-
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				add = 100
-				is_historical_focus_on = yes
-			}
-		}
-
-	}
-
-	royal_navy_evacuation_support = {
-
-		icon = fire_navy
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			has_active_mission = rescue_fire_citizen_mission
-		}
-		available = {
-			has_active_mission = rescue_fire_citizen_mission
-			OR = {
-				ships_in_area = { area = 23 size > 9 }
-				ships_in_area = { area = 26 size > 9 }
-			}
-		}
-
-		custom_cost_trigger = {
-			command_power > 25
-		}
-		custom_cost_text = honour_cost_25
-
-		complete_effect = {
-			add_command_power = -25
-			add_to_variable = {
-				fire_people_in_ek = -1200
-				tooltip = fire_people_in_ek_tooltip
-			}
-		}
-
-		ai_will_do = {
-			factor = 100
-			modifier = {
-				add = 100
-				is_historical_focus_on = yes
-			}
-		}
-
-	}
 
 	FIR_approach_earth_kingdom = {
 
@@ -1601,8 +1935,14 @@ FIR_colonies_category = {
 
 		remove_effect = {
 			EAR = { country_event = { id = fir_treaty.1 hours = 1 } }
-			230 = { add_claim_by = FIR }
-			280 = { add_claim_by = FIR }
+			230 = { 
+				add_claim_by = FIR
+				add_core_of = YFC
+			}
+			280 = { 
+				add_claim_by = FIR
+				add_core_of = KFC
+			}
 		}
 
 		ai_will_do = {

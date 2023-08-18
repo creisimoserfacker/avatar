@@ -114,6 +114,56 @@ peasant_mood_decrease = {
 }
 
 
+peasant_opinion_recalc = {
+	remove_ideas = integrated_peasants
+	remove_ideas = happy_peasants
+	remove_ideas = pleased_peasants
+	remove_ideas = distrusting_peasants
+	remove_ideas = angered_peasants
+	remove_ideas = enraged_peasants
+	if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion > 24 }
+		}
+		add_ideas = integrated_peasants
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion > 14 }
+		}
+		add_ideas = happy_peasants
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion > 9 }
+		}
+		add_ideas = pleased_peasants
+	}
+	
+	else_if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion < -9 }
+		}
+		add_ideas = enraged_peasants
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion < -14 }
+		}
+		add_ideas = angered_peasants
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@peasant_opinion < -24 }
+		}
+		add_ideas = distrusting_peasants
+	}
+	else = {
+		
+	}
+}
+
+
 
 	#   #  ###  ###  # #   # ##### #   #        
 	##  # #   # #  # # #   #   #    # #     
@@ -225,5 +275,55 @@ nobility_mood_decrease = {
 	}
 	else = {
 		add_ideas = distrusting_nobility
+	}
+}
+
+
+nobility_opinion_recalc = {
+	remove_ideas = integrated_nobility
+	remove_ideas = happy_nobility
+	remove_ideas = pleased_nobility
+	remove_ideas = distrusting_nobility
+	remove_ideas = angered_nobility
+	remove_ideas = enraged_nobility
+	if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion > 24 }
+		}
+		add_ideas = integrated_nobility
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion > 14 }
+		}
+		add_ideas = happy_nobility
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion > 9 }
+		}
+		add_ideas = pleased_nobility
+	}
+	
+	else_if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion < -9 }
+		}
+		add_ideas = enraged_nobility
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion < -14 }
+		}
+		add_ideas = angered_nobility
+	}
+	else_if = {
+		limit = {
+			check_variable = { modifier@nobility_opinion < -24 }
+		}
+		add_ideas = distrusting_nobility
+	}
+	else = {
+
 	}
 }

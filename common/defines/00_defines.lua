@@ -2393,12 +2393,12 @@ NAI = {
 	TOO_INSIGNIFICANT_MAX_PENALTY = 350,						-- max penalty that will be applied for thinking a country is too insignificant
 
 	-- Calculating wanted nr of divisions
-	WANTED_UNITS_INDUSTRY_FACTOR = 1.45,                        -- How many units a country wants is partially based on how much military industry that is available
+	WANTED_UNITS_INDUSTRY_FACTOR = 0.45,                        -- How many units a country wants is partially based on how much military industry that is available
 	WANTED_UNITS_THREAT_BASE = 0.7,                             -- If no threat, multiply min wanted units by this
 	WANTED_UNITS_THREAT_MAX = 25.0,                             -- Normalized threat is clamped to this
 	WANTED_UNITS_WAR_THREAT_FACTOR = 1.5,                       -- Factor threat with this if country is at war. this value is overriden by the value in ideology database if that value exceedes this.
 	WANTED_UNITS_DANGEROUS_NEIGHBOR_FACTOR = 1.25,              -- Factor if has dangerous neighbor
-	WANTED_UNITS_MANPOWER_DIVISOR = 22000,                      -- Normalizing divisor for AI manpower. (for each x max available manpower, they want one division)
+	WANTED_UNITS_MANPOWER_DIVISOR = 500,                      -- Normalizing divisor for AI manpower. (for each x max available manpower, they want one division)
 	WANTED_UNITS_WEIGHT_FRONTS_WANT = 0.35,                      -- Weight of front needs when computing final nr wanted units
 	WANTED_UNITS_WEIGHT_FACTORIES = 0.45,                        -- Weight of military factories when computing final nr wanted units
 	WANTED_UNITS_WEIGHT_MANPOWER = 0.3,                         -- Weight of manpower availability when computing final nr wanted units
@@ -2579,8 +2579,8 @@ NAI = {
 	FRONT_UNITS_CAP_FACTOR = 15.0,						-- A factor applied to total front size and supply use. Primarily effects small fronts
 	MAX_DIST_PORT_RUSH = 20.0,							-- If a unit is in enemy territory with no supply it will consider nearby ports within this distance.
 
-	MIN_FIELD_STRENGTH_TO_BUILD_UNITS = 0.7,			-- Cancel unit production if below this to get resources out to units in the field
-	MIN_MANPOWER_TO_BUILD_UNITS = 0.7,					-- Cancel unit production if below this to get resources out to units in the field
+	MIN_FIELD_STRENGTH_TO_BUILD_UNITS = 0.9,			-- Cancel unit production if below this to get resources out to units in the field
+	MIN_MANPOWER_TO_BUILD_UNITS = 0.9,					-- Cancel unit production if below this to get resources out to units in the field
 
 	AVERAGE_SUPPLY_USE_PESSIMISM = 1.5,					-- Multiplier for when AI calculates average supply use of entire army.
 

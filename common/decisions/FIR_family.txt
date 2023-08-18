@@ -237,9 +237,16 @@ FIR_royal_family_category = {
 
 		remove_effect = {
 			FIR_azulon = {
-				add_skill_level = 1
 				set_character_flag = literate
 			}
+			every_unit_leader = {
+				limit = {
+					is_character = FIR_azulon
+				}
+				add_skill_level = 1
+			}
+
+			#### todo: effect doesnt work and crashes on character
 		}
 
 		cost = 100

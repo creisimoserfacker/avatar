@@ -47,6 +47,7 @@ local_resource_factor = {
 	modifier = {
 		set_temp_variable = { local_resource_factor = 1 }
 		add_to_temp_variable = { local_resource_factor = THIS.modifier@local_resources }
+		clamp_temp_variable = { var = local_resource_factor  min = 0 }
 		
 		add = local_resource_factor
 	}
@@ -204,6 +205,7 @@ farm_grain_gain = {
 		}
 		set_temp_variable = { field_available = field }
 		add_to_temp_variable = { field_available = modifier@fertilizer }
+		clamp_temp_variable = { var = field_available  min = 0}
 		multiply_temp_variable = { local_resource = field_available }
 		set_temp_variable = { harvest = 1 }
 		add_to_temp_variable = { harvest = modifier@harvesting_factor }
@@ -223,7 +225,10 @@ farm_food_gain = {
 		controller = {
 			multiply_temp_variable = { local_resource = farm_output_2 }
 		}
-		multiply_temp_variable = { local_resource = field }
+		set_temp_variable = { field_available = field }
+		add_to_temp_variable = { field_available = modifier@fertilizer }
+		clamp_temp_variable = { var = field_available  min = 0}
+		multiply_temp_variable = { local_resource = field_available }
 		set_temp_variable = { harvest = 1 }
 		add_to_temp_variable = { harvest = modifier@harvesting_factor }
 		add_to_temp_variable = { harvest = controller:modifier@harvesting_factor }
@@ -259,7 +264,10 @@ fishing_stand_food_gain = {
 		controller = {
 			multiply_temp_variable = { local_resource = fishing_stand_output }
 		}
-		multiply_temp_variable = { local_resource = water }
+		set_temp_variable = { water_available = water }
+		add_to_temp_variable = { water_available = modifier@waters }
+		clamp_temp_variable = { var = water_available  min = 0 }
+		multiply_temp_variable = { local_resource = water_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
 		add = local_resource
@@ -276,6 +284,7 @@ lumber_mill_wood_gain = {
 		}
 		set_temp_variable = { wood_available = forest }
 		add_to_temp_variable = { wood_available = modifier@reforestation }
+		clamp_temp_variable = { var = wood_available  min = 0}
 		multiply_temp_variable = { local_resource = wood_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
@@ -978,7 +987,7 @@ masonry_bonus = {
 	base = 0
 	modifier = {
 		set_temp_variable = { bonus = building_level@masonry }
-		multiply_temp_variable = { bonus = 0.02 }
+		multiply_temp_variable = { bonus = 0.1 }
 
 		if = {
 			limit = {
@@ -988,7 +997,7 @@ masonry_bonus = {
 				}
 			}
 			set_temp_variable = { bonus = building_level@masonry }
-			multiply_temp_variable = { bonus = 0.05 }
+			multiply_temp_variable = { bonus = 0.2 }
 		}
 		
 		add = bonus
@@ -1002,7 +1011,10 @@ fishing_stand_bonus = {
 		controller = {
 			multiply_temp_variable = { bonus = fishing_stand_output_2 }
 		}
-		multiply_temp_variable = { bonus = water }
+		set_temp_variable = { water_available = water }
+		add_to_temp_variable = { water_available = modifier@waters }
+		clamp_temp_variable = { var = water_available  min = 0 }
+		multiply_temp_variable = { bonus = water_available }
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
 		add = bonus
