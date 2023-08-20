@@ -1,27 +1,21 @@
 ﻿###########################
 # News Events
 ###########################
-
 add_namespace = news
 add_namespace = hidden
-
 # Comet Trigger (HIDDEN)
 news_event = {
 	id = hidden.1
 	hidden = yes
-	
 	fire_only_once = yes
 	is_triggered_only = yes
-	
 	immediate = {
 		destroy_entity = great_comet
 	}
-	
 	option = {
 		name = hidden.1.a
 	}
 }
-
 
 #Bears! (by Jari 'Spider-Man')
 news_event = {
@@ -30,37 +24,38 @@ news_event = {
 	desc = news.2.d
 	picture = GFX_avatar_news_event_002
 	is_triggered_only = yes
-	
 	option = {
 		name = news.2.a
 		set_country_flag = bears_appear
 	}
-	
 }
 
 # Bears Trigger (HIDDEN)
 country_event = {
 	id = hidden.2
 	hidden = yes
-	
 	fire_only_once = yes
-	
 	trigger = {
 		date > 50.1.1
 		date < 68.1.1
-		NOT = { has_global_flag = bears_appear }
+		NOT = {
+			has_global_flag = bears_appear
+		}
 	}
-
 	mean_time_to_happen = {
 		days = 600
 	}
-	
 	immediate = {
 		random_list = {
-			100 = { EAR = { news_event = { id = news.2 } } }
+			100 = {
+				EAR = {
+					news_event = {
+						id = news.2
+					}
+				}
+			}
 		}
 	}
-	
 	option = {
 		name = hidden.2.a
 	}
@@ -69,9 +64,7 @@ country_event = {
 #
 #deleted hidden temple situations
 #
-
 #Airnomad Genocide News
-
 #Air Nomade Genocide
 news_event = {
 	id = news.3
@@ -79,13 +72,10 @@ news_event = {
 	desc = news.3.d
 	picture = GFX_avatar_news_event_003
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
 		hidden_effect = {
 			set_global_flag = air_nomad_genocide
-
 			SAT = {
 				dismantle_faction = yes
 			}
@@ -98,23 +88,20 @@ news_event = {
 			EAT = {
 				dismantle_faction = yes
 			}
-
 		}
 	}
-
 	option = {
 		name = news.3.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-		trigger = { 
+		trigger = {
 			has_country_flag = genocide_active
 		}
-
 	}
 	option = {
 		name = news.3.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 				has_country_flag = genocide_active
@@ -123,7 +110,7 @@ news_event = {
 	}
 	option = {
 		name = news.3.c
-		trigger = { 
+		trigger = {
 			TAG = FIR
 			NOT = {
 				has_country_flag = genocide_active
@@ -136,9 +123,7 @@ news_event = {
 news_event = {
 	id = hidden.3
 	hidden = yes
-	
 	fire_only_once = yes
-	
 	trigger = {
 		OR = {
 			has_global_flag = north_temple_fallen
@@ -157,17 +142,20 @@ news_event = {
 			has_global_flag = west_temple_survived
 		}
 	}
-
 	mean_time_to_happen = {
 		days = 30
 	}
-	
 	immediate = {
 		random_list = {
-			100 = { FIR = { news_event = { id = news.3 } } }
+			100 = {
+				FIR = {
+					news_event = {
+						id = news.3
+					}
+				}
+			}
 		}
 	}
-	
 	option = {
 		name = hidden.3.a
 	}
@@ -179,26 +167,21 @@ news_event = {
 	desc = news.4.d
 	picture = GFX_avatar_news_event_004
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
-		
 	}
-
 	option = {
 		name = news.4.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-
 	}
 	option = {
 		name = news.4.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
@@ -209,7 +192,6 @@ news_event = {
 news_event = {
 	id = hidden.4
 	hidden = yes
-
 	trigger = {
 		has_global_flag = send_aang_away
 		has_global_flag = air_nomad_genocide
@@ -217,22 +199,23 @@ news_event = {
 			has_global_flag = gyatso_and_aang_flee
 		}
 	}
-
 	mean_time_to_happen = {
 		days = 15
 	}
-
 	immediate = {
 		random_list = {
-			100 = { SAT = { news_event = { id = news.4 } } }
+			100 = {
+				SAT = {
+					news_event = {
+						id = news.4
+					}
+				}
+			}
 		}
 	}
-
 	fire_only_once = yes
-
 	option = {
 		name = hidden.4.a
-
 	}
 }
 
@@ -243,26 +226,22 @@ news_event = {
 	desc = news.5.d
 	picture = GFX_avatar_news_event_005
 	is_triggered_only = yes
-
 	major = yes
-	
 	immediate = {
 		set_global_flag = rebellion_event_fired
 	}
-	
 	option = {
 		name = news.5.a
-		trigger = { 
+		trigger = {
 			has_country_flag = western_alliance
 			NOT = {
 				TAG = EAR
 			}
 		}
 	}
-
 	option = {
 		name = news.5.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				has_country_flag = western_alliance
 				TAG = EAR
@@ -270,30 +249,32 @@ news_event = {
 		}
 	}
 }
+
 # Earth Rebellion Trigger (HIDDEN)
 news_event = {
 	id = hidden.5
 	hidden = yes
-	
 	fire_only_once = yes
-	
 	trigger = {
 		has_global_flag = western_alliance_creation_done
 		not = {
 			has_global_flag = rebellion_event_fired
 		}
 	}
-
 	mean_time_to_happen = {
 		days = 6
 	}
-	
 	immediate = {
 		random_list = {
-			100 = { FIR = { news_event = { id = news.5 } } }
+			100 = {
+				FIR = {
+					news_event = {
+						id = news.5
+					}
+				}
+			}
 		}
 	}
-	
 	option = {
 		name = hidden.5.a
 	}
@@ -306,9 +287,7 @@ news_event = {
 	desc = news.6.d
 	picture = GFX_avatar_news_event_006
 	is_triggered_only = yes
-	
 	major = yes
-
 	option = {
 		name = news.6.a
 		trigger = {
@@ -319,9 +298,10 @@ news_event = {
 	}
 	option = {
 		name = news.6.b
-		trigger = { TAG = FIR }
+		trigger = {
+			TAG = FIR
+		}
 	}
-	
 }
 
 news_event = {
@@ -330,26 +310,21 @@ news_event = {
 	desc = news.7.d
 	picture = GFX_avatar_news_event_007
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
-		
 	}
-
 	option = {
 		name = news.7.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-
 	}
 	option = {
 		name = news.7.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
@@ -364,13 +339,10 @@ news_event = {
 	desc = news.8.d
 	picture = GFX_avatar_news_event_008
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
 		hidden_effect = {
 			set_global_flag = avatar_cycle_broken
-	
 			clr_global_flag = avatar_aang
 			clr_global_flag = avatar_born_air
 			clr_global_flag = avatar_team_appa
@@ -390,20 +362,18 @@ news_event = {
 			}
 		}
 	}
-
 	option = {
 		name = news.8.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-
 	}
 	option = {
 		name = news.8.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
@@ -418,9 +388,7 @@ news_event = {
 	desc = news.9.d
 	picture = GFX_avatar_news_event_009
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
 		hidden_effect = {
 			clr_global_flag = avatar_aang
@@ -439,26 +407,30 @@ news_event = {
 				set_country_flag = avatar_friendly
 				clr_country_flag = avatar_hostile
 			}
-
 			random_list = {
-				100 = { SWT = { news_event = { id = news.10 days = 7 } } }
+				100 = {
+					SWT = {
+						news_event = {
+							id = news.10
+							days = 7
+						}
+					}
+				}
 			}
 		}
 	}
-
 	option = {
 		name = news.9.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-
 	}
 	option = {
 		name = news.9.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
@@ -473,30 +445,30 @@ news_event = {
 	desc = news.10.d
 	picture = GFX_avatar_news_event_010
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
 		hidden_effect = {
-		
 			set_global_flag = avatar_misu
 			set_global_flag = avatar_born_water
 			set_global_flag = avatar_swt
-
 			random_list = {
-				100 = { SWT = { country_event = { id = misu.1 days = 3 } } }
+				100 = {
+					SWT = {
+						country_event = {
+							id = misu.1
+							days = 3
+						}
+					}
+				}
 			}
 		}
 	}
-
 	option = {
 		name = news.10.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
-
 	}
-
 }
 
 news_event = {
@@ -505,35 +477,30 @@ news_event = {
 	desc = news.11.d
 	picture = GFX_avatar_news_event_015
 	is_triggered_only = yes
-
 	major = yes
-
 	immediate = {
-		
 	}
-
 	option = {
 		name = news.11.a
-		ai_chance = { 
+		ai_chance = {
 			factor = 100
 		}
 		set_country_flag = FIR_phoenix
 		remove_trait = {
-   		 ideology = fire_culture
-   		 trait = firelord
+			ideology = fire_culture
+			trait = firelord
 		}
 		add_trait = {
-  		   ideology = fire_culture
-  		   trait = phoenixking
+			ideology = fire_culture
+			trait = phoenixking
 		}
-		trigger = { 
+		trigger = {
 			TAG = FIR
 		}
-
 	}
 	option = {
 		name = news.11.b
-		trigger = { 
+		trigger = {
 			NOT = {
 				TAG = FIR
 			}
