@@ -213,6 +213,10 @@ farm_grain_gain = {
 		multiply_temp_variable = { local_resource = harvest }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:grain_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -235,6 +239,10 @@ farm_food_gain = {
 		multiply_temp_variable = { local_resource = harvest }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:food_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -251,6 +259,10 @@ ranch_leather_gain = {
 		add_to_temp_variable = { animal_available = modifier@breeding }
 		multiply_temp_variable = { local_resource = animal_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:animal_products_throughput }
+		}
 
 		add = local_resource
 	}
@@ -270,6 +282,10 @@ fishing_stand_food_gain = {
 		multiply_temp_variable = { local_resource = water_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:food_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -288,6 +304,10 @@ lumber_mill_wood_gain = {
 		multiply_temp_variable = { local_resource = wood_available }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:wood_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -302,6 +322,10 @@ quarry_stone_gain = {
 		}
 		multiply_temp_variable = { local_resource = stonefield }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:minerals_throughput }
+		}
 
 		add = local_resource
 	}
@@ -339,6 +363,10 @@ crop_weaving_textile_gain = {
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:textile_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -375,6 +403,10 @@ animal_weaving_textile_gain = {
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:textile_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -400,6 +432,10 @@ mine_iron_gain = {
 		multiply_temp_variable = { local_resource = mountain }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:iron_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -424,6 +460,10 @@ mine_coal_gain = {
 		}
 		multiply_temp_variable = { local_resource = mountain }
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:fossile_fuels_throughput }
+		}
 
 		add = local_resource
 	}
@@ -465,6 +505,10 @@ mill_food_gain = {
 			min = 0
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:food_throughput }
+		}
 
 		add = local_resource
 	}
@@ -539,6 +583,10 @@ steelworks_steel_gain = {
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:steel_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -610,6 +658,10 @@ shop_consumer_goods_gain = {
 			min = 0
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:consumer_goods_throughput }
+		}
 
 		add = local_resource
 	}
@@ -683,6 +735,10 @@ luxury_store_luxury_goods_gain = {
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:luxury_goods_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -719,6 +775,10 @@ carpentry_plank_gain = {
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:planks_throughput }
+		}
+
 		add = local_resource
 	}
 }
@@ -754,6 +814,10 @@ masonry_brick_gain = {
 			min = 0
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:bricks_throughput }
+		}
 
 		add = local_resource
 	}
@@ -801,6 +865,10 @@ steel_beam_factory_steel_beam_gain = {
 			min = 0
 		}
 		multiply_temp_variable = { local_resource = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:steel_beams_throughput }
+		}
 
 		add = local_resource
 	}
@@ -858,6 +926,9 @@ carpentry_bonus = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:consumer_goods_throughput }
+		}
 		
 		add = bonus
 	}
@@ -900,7 +971,10 @@ carpentry_bonus_2 = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
-		
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:luxury_goods_throughput }
+		}
+
 		add = bonus
 	}
 }
@@ -930,6 +1004,9 @@ smithy_bonus = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:steel_throughput }
+		}
 		
 		add = bonus
 	}
@@ -949,7 +1026,10 @@ quarry_bonus = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
-		
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:iron_throughput }
+		}
+
 		add = bonus
 	}
 }
@@ -978,6 +1058,9 @@ quarry_bonus_2 = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:fossile_fuels_throughput }
+		}
 		
 		add = bonus
 	}
@@ -1017,6 +1100,10 @@ fishing_stand_bonus = {
 		multiply_temp_variable = { bonus = water_available }
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:animal_products_throughput }
+		}
+		
 		add = bonus
 	}
 }
@@ -1107,6 +1194,9 @@ crop_weaving_bonus = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:consumer_goods_throughput }
+		}
 		
 		add = bonus
 	}
@@ -1149,6 +1239,9 @@ crop_weaving_bonus_2 = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:luxury_goods_throughput }
+		}
 		
 		add = bonus
 	}
@@ -1186,6 +1279,9 @@ animal_weaving_bonus = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:consumer_goods_throughput }
+		}
 		
 		add = bonus
 	}
@@ -1228,7 +1324,10 @@ animal_weaving_bonus_2 = {
 		}
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
 
-		
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:luxury_goods_throughput }
+		}
+
 		add = bonus
 	}
 }
@@ -1245,6 +1344,10 @@ ranch_bonus = {
 		add_to_temp_variable = { animal_available = modifier@breeding }
 		multiply_temp_variable = { bonus = animal_available }
 		multiply_temp_variable = { bonus = mtth:local_resource_factor }
+
+		controller = {
+			multiply_temp_variable = { local_resource = mtth:food_throughput }
+		}
 
 		add = bonus
 	}
@@ -1281,33 +1384,33 @@ industrial_zone = {
 	}
 }
 
-industrial_zone_modifier_1 = {
-	base = 0
-	modifier = {
-		set_temp_variable = { zone_size = 0 }
-		add_to_temp_variable = { zone_size = building_level@factory }
-		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
-		add_to_temp_variable = { zone_size = building_level@steelworks }
-
-		multiply_temp_variable = { zone_size = -0.01 }
-		multiply_temp_variable = { zone_size = -0.02 }
-
-		add = zone_size
-	}
-}
-industrial_zone_modifier_2 = {
-	base = 0
-	modifier = {
-		set_temp_variable = { zone_size = 0 }
-		add_to_temp_variable = { zone_size = building_level@factory }
-		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
-		add_to_temp_variable = { zone_size = building_level@steelworks }
-
-		multiply_temp_variable = { zone_size = -0.01 }
-
-		add = zone_size
-	}
-}
+#industrial_zone_modifier_1 = {
+#	base = 0
+#	modifier = {
+#		set_temp_variable = { zone_size = 0 }
+#		add_to_temp_variable = { zone_size = building_level@factory }
+#		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+#		add_to_temp_variable = { zone_size = building_level@steelworks }
+#
+#		multiply_temp_variable = { zone_size = -0.01 }
+#		multiply_temp_variable = { zone_size = -0.02 }
+#
+#		add = zone_size
+#	}
+#}
+#industrial_zone_modifier_2 = {
+#	base = 0
+#	modifier = {
+#		set_temp_variable = { zone_size = 0 }
+#		add_to_temp_variable = { zone_size = building_level@factory }
+#		add_to_temp_variable = { zone_size = building_level@steel_beam_factory }
+#		add_to_temp_variable = { zone_size = building_level@steelworks }
+#
+#		multiply_temp_variable = { zone_size = -0.01 }
+#
+#		add = zone_size
+#	}
+#}
 industrial_zone_modifier_3 = {
 	base = 0
 	modifier = {
