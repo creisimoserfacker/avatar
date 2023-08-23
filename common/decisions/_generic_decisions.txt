@@ -75,7 +75,7 @@ reoccupy_category = {
 		}
 		custom_cost_text = expenses_1000
 
-		days_remove = 365
+		days_remove = colony_growth@120
 		#days_re_enable = 180
 		on_map_mode = map_only
 		complete_effect = {
@@ -84,6 +84,14 @@ reoccupy_category = {
 			}
 			ROOT = {
 				set_country_flag = establishing_a_colony
+			}
+		}
+		cancel_effect = {
+			FROM = {
+				clr_state_flag = recolonisation_in_progress
+			}
+			ROOT = {
+				clr_country_flag = establishing_a_colony
 			}
 		}
 
@@ -100,8 +108,33 @@ reoccupy_category = {
 				add_stability = 0.1
 			}
 			FROM = {
+				set_variable = {
+					var = fire_pop
+					value = ROOT.party_popularity@fire_culture
+					tooltip = set_fire_pop_tt
+				}
+				set_variable = {
+					var = earth_pop
+					value = ROOT.party_popularity@earth_culture
+					tooltip = set_earth_pop_tt
+				}
+				set_variable = {
+					var = water_pop
+					value = ROOT.party_popularity@water_culture
+					tooltip = set_water_pop_tt
+				}
+				set_variable = {
+					var = air_pop
+					value = ROOT.party_popularity@air_culture
+					tooltip = set_air_pop_tt
+				}
+				set_variable = {
+					var = nonbender_pop
+					value = ROOT.party_popularity@pluralist_culture
+					tooltip = set_nonbender_pop_tt
+				}
+
 				clr_state_flag = recolonisation_in_progress
-				add_core_of = ROOT
 				add_dynamic_modifier = { modifier = new_settlement }
 				force_update_dynamic_modifier = yes
 			}
@@ -1878,11 +1911,11 @@ taxation_category = {
 			has_tech = reform_1	
 		}
 
-        days_remove = 365
+		days_remove = -1
 
 
 		modifier = {
-        	taxation = 0.05
+			taxation = 0.02
 			nobility_opinion = -10
 		}
 
@@ -1896,7 +1929,88 @@ taxation_category = {
 			
 		}
 		
-        ai_will_do = {
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	remove_land_tax = {
+
+		icon = land_tax
+
+		visible = {
+			has_decision = enact_land_tax
+		}
+		available = {
+			
+		}
+
+		cost = 50
+		
+		complete_effect = {
+			remove_decision = enact_land_tax
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+
+
+	enact_consumption_tax = {
+
+		icon = consumption_tax
+
+		visible = {
+			
+		}
+		available = {
+			has_dynamic_modifier = { modifier = extreme_wealth }
+		}
+
+		days_remove = -1
+
+
+		modifier = {
+			taxation = 0.01
+			nobility_opinion = -4
+			peasant_opinion = -6
+		}
+
+		
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+		
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+	remove_consumption_tax = {
+
+		icon = consumption_tax
+
+		visible = {
+			has_decision = enact_consumption_tax
+		}
+		available = {
+			
+		}
+
+		cost = 50
+		
+		complete_effect = {
+			remove_decision = enact_consumption_tax
+		}
+		
+		ai_will_do = {
 			base = 0
 		}
 	}
