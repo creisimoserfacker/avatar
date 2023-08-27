@@ -80,6 +80,18 @@ legitimacy_target = {
 		add = target
 	}
 }
+legitimacy_target_large = {
+	base = 0
+	modifier = {
+		set_temp_variable = { target = 1 }
+		subtract_from_temp_variable = { target = modifier@centralisation_target_modifier }
+		multiply_temp_variable = { target = 350 }
+		clamp_temp_variable = { var = target min = 0 max = 350 }
+		
+		add = target
+	}
+}
+
 legitimacy_target_100 = {
 	base = 0
 	modifier = {

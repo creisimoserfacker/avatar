@@ -1,0 +1,46 @@
+
+political_category = {
+	
+	close_to_the_people_upgrade = {
+
+		icon = close_to_the_people_1
+
+		visible = {
+			any_character = {
+				has_trait = close_to_the_people_1
+			}
+		}
+		available = {
+			
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			random_character = {
+				limit = {
+					has_trait = close_to_the_people_1
+				}
+				add_trait = {
+					slot = political_advisor
+					trait = close_to_the_people_2
+				}
+				remove_trait = {
+				    slot = political_advisor
+				    trait = close_to_the_people_1
+				}
+			}
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+}

@@ -1,0 +1,86 @@
+scripted_gui = {
+
+	politics_decisions_ui = {
+		context_type = decision_category
+		window_name = "politics_decisions_ui_window"
+
+		triggers = {
+			colonialism_visible = { has_government = fire_culture }
+			nationalism_visible = { has_government = fire_culture }
+			fire_tribes_visible = { has_government = fire_culture }
+
+			absolute_monarchie_visible = { has_government = earth_culture }
+			constitutional_monarchy_visible = { has_government = earth_culture }
+			elective_monarchy_visible = { has_government = earth_culture }
+			earth_tribe_visible = { has_government = earth_culture }
+			comunism_visible = { has_government = earth_culture }
+
+			martial_chiefdom_visible = { has_government = water_culture }
+			theocratic_chiefdom_visible = { has_government = water_culture }
+			elective_chiefdom_visible = { has_government = water_culture }
+			liberalism_visible = { has_government = water_culture }
+
+			spiritual_interventionism_visible = { has_government = air_culture }
+			active_pacifism_visible = { has_government = air_culture }
+			absolute_pacifism_visible = { has_government = air_culture }
+
+			republican_visible = { has_government = pluralist_culture }
+			democracy_visible = { has_government = pluralist_culture }
+			anarchism_visible = { has_government = pluralist_culture }
+			sovereign_monarchy_visible = { has_government = pluralist_culture }
+			theocracy_visible = { has_government = pluralist_culture }
+			despotism_visible = { has_government = pluralist_culture }
+		}
+
+		effects = {
+			colonialism_click = { set_country_leader_ideology = colonialism }
+			nationalism_click = { set_country_leader_ideology = nationalism }
+			fire_tribes_click = { set_country_leader_ideology = fire_tribes }
+
+			absolute_monarchie_click = { set_country_leader_ideology = absolute_monarchie }
+			constitutional_monarchy_click = { set_country_leader_ideology = constitutional_monarchy }
+			elective_monarchy_click = { set_country_leader_ideology = elective_monarchy }
+			earth_tribe_click = { set_country_leader_ideology = earth_tribe }
+			comunism_click = { set_country_leader_ideology = comunism }
+
+			martial_chiefdom_click = { set_country_leader_ideology = martial_chiefdom }
+			theocratic_chiefdom_click = { set_country_leader_ideology = theocratic_chiefdom }
+			elective_chiefdom_click = { set_country_leader_ideology = elective_chiefdom }
+			liberalism_click = { set_country_leader_ideology = liberalism }
+
+			spiritual_interventionism_click = { set_country_leader_ideology = spiritual_interventionism }
+			active_pacifism_click = { set_country_leader_ideology = active_pacifism }
+			absolute_pacifism_click = { set_country_leader_ideology = absolute_pacifism }
+
+			republican_click = { set_country_leader_ideology = republican }
+			democracy_click = { set_country_leader_ideology = democracy }
+			anarchism_click = { set_country_leader_ideology = anarchism }
+			sovereign_monarchy_click = { set_country_leader_ideology = sovereign_monarchy }
+			theocracy_click = { set_country_leader_ideology = theocracy }
+			despotism_click = { set_country_leader_ideology = despotism }
+		}
+
+		properties = {
+			ideology_icon = {
+				image = [GetIdeologyIcon]
+			}
+
+			state_indicator = {
+				x = centralisation_show_large
+			}
+			state_target = {
+				x = mtth:legitimacy_target_large
+			}
+		}
+
+		dynamic_lists = {
+			earth_kingdom_members_gridbox = {
+				array = global.earth_kingdom
+				entry_container = earth_kingdom_member_list_entry
+				change_scope = yes
+			}
+		}
+	}
+	
+}
+
