@@ -1,0 +1,194 @@
+guiTypes = {
+
+	containerWindowType = {
+		name = "claim_state_gui"
+		position = { x=0 y=0 }	
+		size = { width=100%% height=505 }
+		Orientation = upper_left
+		Origo = upper_left
+
+
+		#background = {
+		#	name = "Background"
+		#	spriteType ="GFX_diplo_action_justify_wargoals_bg"
+		#}
+
+		instantTextboxType = {
+			name = "description"
+			position = { x = 20 y = 10 }
+			font = "hoi_16mbs"
+			text = "CLAIM_STATE_WINDOW_DESC"
+			maxWidth = 490
+			maxHeight = 300
+			format = upper_left
+		}
+
+
+		containerWindowType = {
+			name = "available_states_header_box"
+			position = { x = 20 y = 140 }
+			#size = { width = 270 height = 340 }
+
+			instantTextboxType = {
+				name = "available_states_header"
+				position = { x = 0 y = 0 }
+				font = "hoi_24header"
+				text = "claimable_states"
+				maxWidth = 220
+				maxHeight = 20
+				format = center
+			}
+
+			iconType = {
+				name = "target_country_flag"
+				quadTextureSprite = "GFX_flag_small2"
+				position = { x = 220 y = -10 }
+				pdx_tooltip = "earth_country_name"
+			}
+			iconType = {
+				name = "target_country_flag_frame"
+				quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+				position = { x = 216 y = -12 }
+				alwaystransparent = yes
+			}
+
+		}
+
+		containerWindowType = {
+			name = "claimed_states_header_box"
+			position = { x = 320 y = 140 }
+			#size = { width = 270 height = 340 }
+
+			instantTextboxType = {
+				name = "claimed_states_header"
+				position = { x = 0 y = 0 }
+				font = "hoi_24header"
+				text = "claimed_states"
+				maxWidth = 220
+				maxHeight = 20
+				format = center
+			}
+
+			iconType = {
+				name = "claimer_country_flag"
+				quadTextureSprite = "GFX_flag_small2"
+				position = { x = 220 y = -10 }
+				pdx_tooltip = "earth_country_name"
+			}
+			iconType = {
+				name = "claimer_country_flag_frame"
+				quadTextureSprite = "GFX_diplo_countrylist_flag_frame"
+				position = { x = 216 y = -12 }
+				alwaystransparent = yes
+			}
+
+		}
+
+
+		containerWindowType = {
+			name = "available_states"
+			position = { x = 17 y = 180 }
+			size = { width = 270 height = 340 }
+			margin = { top = 13 left = 13 bottom = 15 right = 25}
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_paper_w_frame_one_border"
+			}
+
+			gridboxtype = {
+				name = "claimable_states_gridbox"
+				position = { x = 36 y = 20 }
+				size = { width = 0 height = 0 }
+				slotsize = { width = 44 height = 30 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+
+		}
+
+		containerWindowType = {
+			name = "claimed_states"
+			position = { x = 290 y = 180 }
+			size = { width = 270 height = 340 }
+			margin = { top = 13 left = 13 bottom = 15 right = 25}
+			verticalScrollbar = "right_vertical_slider"
+
+			background = {
+				name = "Background"
+				spriteType ="GFX_tiled_paper_w_frame_one_border"
+			}
+
+			gridboxtype = {
+				name = "claimed_states_gridbox"
+				position = { x = 36 y = 20 }
+				size = { width = 0 height = 0 }
+				slotsize = { width = 44 height = 30 }
+				max_slots_horizontal = 1
+				add_horizontal = yes
+			}
+
+		}
+
+	}
+
+	containerWindowType = {
+		name = "claimable_states_list_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height= 0 }
+
+		iconType = {
+			name = "claim_shine"
+			spriteType = "GFX_sort_button_202x29_button"
+			frame = 2
+			position = { x = 0 y = 0 }
+			#pdx_tooltip = "earth_country_name"
+		}
+
+		buttonType = {
+			name = "select_state_to_claim"
+			spriteType = "GFX_sort_button_202x29_button"
+			position = { x = 0 y = 0 }
+			#pdx_tooltip = "earth_country_name"
+		}
+
+		instantTextBoxType = {
+			name = "state_name"
+			position = { x = 2 y = 2 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[THIS.GetName]"
+			maxWidth = 200
+			maxHeight = 32
+			format = center
+			alwaystransparent = yes
+		}
+	}
+
+	containerWindowType = {
+		name = "claimed_states_list_entry"
+		position = { x = 0 y = 0 }
+		size = { width = 0 height= 0 }
+
+		buttonType = {
+			name = "state_claim"
+			spriteType = "GFX_sort_button_202x29_button"
+			position = { x = 0 y = 0 }
+			#pdx_tooltip = "earth_country_name"
+		}
+
+		instantTextBoxType = {
+			name = "state_name"
+			position = { x = 2 y = 2 }	
+			font = "hoi_18header"
+			borderSize = {x = 0 y = 0}
+			text = "[THIS.GetName]"
+			maxWidth = 200
+			maxHeight = 32
+			format = center
+			alwaystransparent = yes
+		}
+	}
+
+}

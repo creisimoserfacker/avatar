@@ -1,0 +1,103 @@
+scripted_gui = {
+
+	claim_state_gui = {
+		context_type = diplomatic_action
+		#parent_window_token = top_bar
+		window_name = "claim_state_gui"
+
+		effects = {
+			select_state_to_claim_click = {
+				add_to_array = {
+					array = ROOT.claimed_states
+					value = THIS.id
+				}
+			}
+
+			state_claim_click = {
+				remove_from_array  = {
+					array = ROOT.claimed_states
+					value = THIS.id
+				}
+			}
+		}
+		triggers = {
+			select_state_to_claim_click_enabled = {
+				THIS = {
+					NOT = {
+						is_in_array = {
+							array = ROOT.claimed_states
+							value = THIS.id
+						}
+						is_claimed_by = ROOT
+					}
+					if = {
+						limit = {
+							ROOT = { has_government = fire_culture }
+						}
+						has_dynamic_modifier = { modifier = firenation_settlers }
+					}
+					if = {
+						limit = {
+							ROOT = { has_government = earth_culture }
+						}
+						has_dynamic_modifier = { modifier = earthkingdom_settlers }
+					}
+					if = {
+						limit = {
+							ROOT = { has_government = water_culture }
+						}
+						has_dynamic_modifier = { modifier = watertribe_settlers }
+					}
+					if = {
+						limit = {
+							ROOT = { has_government = air_culture }
+						}
+						has_dynamic_modifier = { modifier = airnomad_settlers }
+					}
+					if = {
+						limit = {
+							ROOT = { has_government = pluralist_culture }
+						}
+						has_dynamic_modifier = { modifier = pluralist_settlers }
+					}
+				}
+			}
+			select_state_to_claim_visible = {
+				THIS = {
+					NOT = {
+						is_in_array = {
+							array = ROOT.claimed_states
+							value = THIS.id
+						}
+					}
+				}
+			}
+		}
+
+		properties = {
+			target_country_flag = {
+				image = [FROM.GetFlag]
+			}
+			claimer_country_flag = {
+				image = [ROOT.GetFlag]
+			}
+		}
+
+        dynamic_lists = {
+			claimable_states_gridbox = {
+				array = FROM.owned_states
+				entry_container = claimable_states_list_entry
+				change_scope = yes
+			}
+
+			claimed_states_gridbox = {
+				array = ROOT.claimed_states
+				entry_container = claimed_states_list_entry
+				change_scope = yes
+			}
+		}
+
+	}
+
+
+}

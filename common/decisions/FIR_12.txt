@@ -1905,8 +1905,13 @@ FIR_colonies_category = {
 
 		icon = rewriting
 
+		priority = 200
+
 		allowed = {
 			tag = FIR
+		}
+		activation = {
+			has_start_date < 13.01.01
 		}
 		visible = {
 			tag = FIR
@@ -1914,7 +1919,6 @@ FIR_colonies_category = {
 				FIR = {
 					has_war_with = EAR
 				}
-				has_active_mission = rescue_fire_citizen_mission
 			}
 			OR = {
 				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
@@ -1927,10 +1931,11 @@ FIR_colonies_category = {
 					has_war_with = EAR
 				}
 			}
-			OR = {
-				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
-				280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
-			}
+			230 = { is_claimed_by = FIR }
+			280 = { is_claimed_by = FIR }
+		}
+		cancel_trigger = {
+
 		}
 		
 		fire_only_once = yes		
@@ -1941,7 +1946,8 @@ FIR_colonies_category = {
 			set_country_flag = approach_earthkingdom
 		}
 
-		days_remove = 30
+		days_mission_timeout = 500
+		is_good = no
 
 		remove_effect = {
 			EAR = { country_event = { id = fir_treaty.1 hours = 1 } }
