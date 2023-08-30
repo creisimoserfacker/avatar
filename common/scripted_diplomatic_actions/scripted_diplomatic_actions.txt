@@ -12,49 +12,55 @@ scripted_diplomatic_actions = {
 		}
 		selectable = {
 			FROM = {
-				any_controlled_state = {
-					NOT = {
-						is_claimed_by = ROOT
-					}
-					OR = {
-						check_variable = { claim_sender = ROOT.id }
-						NOT = { has_variable = claim_sender }
-					}
-					if = {
-						limit = {
-							ROOT = { has_government = fire_culture }
+				OR = {
+					any_controlled_state = {
+						NOT = {
+							is_claimed_by = ROOT
 						}
-						has_dynamic_modifier = { modifier = firenation_settlers }
-					}
-					if = {
-						limit = {
-							ROOT = { has_government = earth_culture }
+						OR = {
+							check_variable = { claim_sender = ROOT.id }
+							NOT = { has_variable = claim_sender }
 						}
-						has_dynamic_modifier = { modifier = earthkingdom_settlers }
-					}
-					if = {
-						limit = {
-							ROOT = { has_government = water_culture }
+						if = {
+							limit = {
+								ROOT = { has_government = fire_culture }
+							}
+							has_dynamic_modifier = { modifier = firenation_settlers }
 						}
-						has_dynamic_modifier = { modifier = watertribe_settlers }
-					}
-					if = {
-						limit = {
-							ROOT = { has_government = air_culture }
+						if = {
+							limit = {
+								ROOT = { has_government = earth_culture }
+							}
+							has_dynamic_modifier = { modifier = earthkingdom_settlers }
 						}
-						has_dynamic_modifier = { modifier = airnomad_settlers }
-					}
-					if = {
-						limit = {
-							ROOT = { has_government = pluralist_culture }
+						if = {
+							limit = {
+								ROOT = { has_government = water_culture }
+							}
+							has_dynamic_modifier = { modifier = watertribe_settlers }
 						}
-						has_dynamic_modifier = { modifier = pluralist_settlers }
+						if = {
+							limit = {
+								ROOT = { has_government = air_culture }
+							}
+							has_dynamic_modifier = { modifier = airnomad_settlers }
+						}
+						if = {
+							limit = {
+								ROOT = { has_government = pluralist_culture }
+							}
+							has_dynamic_modifier = { modifier = pluralist_settlers }
+						}
+					}
+					has_opinion = {
+						target = ROOT
+						value < -49
 					}
 				}
 			}
 		}
 
-		requires_acceptance = yes
+		requires_acceptance = no
 		#cost = 10
 		#command_power = 10
 
@@ -65,7 +71,11 @@ scripted_diplomatic_actions = {
 
        #for effects/triggers/variables, root is the sender and this is receiver
 
-		on_sent_effect = {
+		#on_sent_effect = {
+		#	
+		#}
+
+		complete_effect = {
 
 			if = {
 				limit = { 
@@ -130,31 +140,84 @@ scripted_diplomatic_actions = {
 				days = 30
 				value = 1
 			}
-		}
 
-		complete_effect = {
+
 			FROM = {
 				every_controlled_state = {
 					limit = {
 						check_variable = { claim_sender = ROOT.id }
 					}
-					transfer_state_to = ROOT
-					clear_variable = claim_sender
-				}
-			}
-		}
-
-		reject_effect = {
-			FROM = {
-				every_controlled_state = {
-					limit = {
-						check_variable = { claim_sender = ROOT.id }
+					if = {
+						limit = {
+							if = {
+								limit = {
+									ROOT = { has_government = fire_culture }
+								}
+								has_dynamic_modifier = { modifier = firenation_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = earth_culture }
+								}
+								has_dynamic_modifier = { modifier = earthkingdom_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = water_culture }
+								}
+								has_dynamic_modifier = { modifier = watertribe_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = air_culture }
+								}
+								has_dynamic_modifier = { modifier = airnomad_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = pluralist_culture }
+								}
+								has_dynamic_modifier = { modifier = pluralist_settlers }
+							}
+						}
+						FROM = {
+							add_opinion_modifier = {
+								target = ROOT
+								modifier = just_claim
+							}
+						}
+					}
+					else = {
+						FROM = {
+							add_opinion_modifier  = {
+								target = ROOT
+								modifier = unjust_claim
+							}
+						}
+						every_country = {
+							add_opinion_modifier  = {
+								target = ROOT
+								modifier = aggressive_behaviours
+							}
+						}
 					}
 					add_claim_by = ROOT
 					clear_variable = claim_sender
 				}
 			}
 		}
+
+		#reject_effect = {
+		#	FROM = {
+		#		every_controlled_state = {
+		#			limit = {
+		#				check_variable = { claim_sender = ROOT.id }
+		#			}
+		#			add_claim_by = ROOT
+		#			clear_variable = claim_sender
+		#		}
+		#	}
+		#}
 
 		# SEND POPUP CUSTOMIZATION
 		# use diplomatic_action as context in scripted gui
@@ -182,79 +245,79 @@ scripted_diplomatic_actions = {
 		# RECEIVE POPUP CUSTOMIZATION
 		# use diplomatic_action as context in scripted gui
 		# receive_scripted_gui = receive_scripted_gui_name #if specified the receiver of the action will get this scripted gui instead of yes-no popup when they receive the propose
-		reset_receive_effect = {
-			# clear action
-			if = {
-				limit = { 
-					is_ai = yes
-				}
-				# change stuff for ai
-			}
-		}
-		can_be_accepted = { # accept button will be disabled if no
-			always = yes
-		}
-		receive_description = claim_state_receive # if there is no scripted gui, this desc will be used in send yes/no pop up
+		#reset_receive_effect = {
+		#	# clear action
+		#	if = {
+		#		limit = { 
+		#			is_ai = yes
+		#		}
+		#		# change stuff for ai
+		#	}
+		#}
+		#can_be_accepted = { # accept button will be disabled if no
+		#	always = yes
+		#}
+		#receive_description = claim_state_receive # if there is no scripted gui, this desc will be used in send yes/no pop up
 
 		
 		# PLAYER FEEDBACK ON ACCEPT/REJECT
 		accept_title = claim_state_accept
 		accept_description = claim_state_accept_desc
-		reject_title = claim_state_reject
-		reject_description = claim_state_reject_desc
+		#reject_title = claim_state_reject
+		#reject_description = claim_state_reject_desc
 	
 		
 		# AI
 		# a list of ai_will_do entries that will be used to decide if AI should accept or reject a request
-		ai_acceptance = {
-			base_reluctance = {
-				base = -20
-			}
-			neighbour = {
-				base = 0
-				modifier = {
-					FROM = {
-						is_neighbor_of = ROOT
-					}
-					add = 5
-				}
-				modifier = {
-					NOT = {
-						FROM = {
-							is_neighbor_of = ROOT
-						}
-					}
-					add = -50
-				}
-			}
-
-			feels_threatened = {
-				base = 0
-
-				modifier = {
-					check_variable = {
-						FROM.ai_attitude_is_threatened > 0
-					}
-					add = 10
-				}
-				modifier = {
-					check_variable = {
-						FROM.ai_attitude_is_threatened < 1
-					}
-					add = -20
-				}
-			}
-
-			opinion = {
-				base = 0
-
-				modifier = {
-					set_temp_variable = { temp_opinion = FROM.opinion@ROOT }
-					add = temp_opinion
-				}
-			}
-		}
-
+		#ai_acceptance = {
+		#	base_reluctance = {
+		#		base = -20
+		#	}
+		#	neighbour = {
+		#		base = 0
+		#		modifier = {
+		#			FROM = {
+		#				is_neighbor_of = ROOT
+		#			}
+		#			add = 5
+		#		}
+		#		modifier = {
+		#			NOT = {
+		#				FROM = {
+		#					is_neighbor_of = ROOT
+		#				}
+		#			}
+		#			add = -50
+		#		}
+		#	}
+#
+		#	feels_threatened = {
+		#		base = 0
+#
+		#		modifier = {
+		#			check_variable = {
+		#				FROM.ai_attitude_is_threatened > 0
+		#			}
+		#			add = 10
+		#		}
+		#		modifier = {
+		#			check_variable = {
+		#				FROM.ai_attitude_is_threatened < 1
+		#			}
+		#			add = -20
+		#		}
+		#	}
+#
+		#	opinion = {
+		#		base = 0
+#
+		#		modifier = {
+		#			set_temp_variable = { temp_opinion = FROM.opinion@ROOT }
+		#			add = temp_opinion
+		#		}
+		#	}
+		#}
+#
 		# ai_will_do to decide if AI should send this action or not
 		ai_desire = {
 			base = -1
