@@ -783,3 +783,69 @@ add_occupation_culture_buff = {
 		remove_dynamic_modifier = { modifier = occupied_has_dominant_culture }
 	}
 }
+
+add_boosting_effect = {
+	if = {
+		limit = {
+			controller = { has_government = fire_culture }
+		}
+		add_dynamic_modifier = { modifier = boost_fire }
+	}
+	if = {
+		limit = {
+			controller = { has_government = water_culture }
+		}
+		add_dynamic_modifier = { modifier = boost_water }
+	}
+	if = {
+		limit = {
+			controller = { has_government = earth_culture }
+		}
+		add_dynamic_modifier = { modifier = boost_earth }
+	}
+	if = {
+		limit = {
+			controller = { has_government = air_culture }
+		}
+		add_dynamic_modifier = { modifier = boost_air }
+	}
+	if = {
+		limit = {
+			controller = { has_government = pluralist_culture }
+		}
+		add_dynamic_modifier = { modifier = boost_pluralist }
+	}
+}
+
+remove_boosting_effect = {
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = boost_fire }
+		}
+		remove_dynamic_modifier = { modifier = boost_fire }
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = boost_water }
+		}
+		remove_dynamic_modifier = { modifier = boost_water }
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = boost_earth }
+		}
+		remove_dynamic_modifier = { modifier = boost_earth }
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = boost_air }
+		}
+		remove_dynamic_modifier = { modifier = boost_air }
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = boost_pluralist }
+		}
+		remove_dynamic_modifier = { modifier = boost_pluralist }
+	}
+}

@@ -13,155 +13,46 @@ scripted_gui = {
 			always = yes
 		}
 		effects = {
-			advisor_button_click = {
-				ROOT = {
-					every_controlled_state = {
-						set_variable = { state_ministers = 0 }
-						if = { 
-							limit = { check_variable = { fire_state_minister > 0 } }
-							clear_variable = fire_state_minister
-							subtract_from_variable = { fire_pop_growth = 1 }
-						}
-						if = { 
-							limit = { check_variable = { earth_state_minister > 0 } }
-							clear_variable = earth_state_minister
-							subtract_from_variable = { earth_pop_growth = 1 }
-						}
-						if = { 
-							limit = { check_variable = { water_state_minister > 0 } }
-							clear_variable = water_state_minister
-							subtract_from_variable = { water_pop_growth = 1 }
-						}
-						if = { 
-							limit = { check_variable = { air_state_minister > 0 } }
-							clear_variable = air_state_minister
-							subtract_from_variable = { air_pop_growth = 1 }
-						}
-						if = { 
-							limit = { check_variable = { nonbender_state_minister > 0 } }
-							clear_variable = nonbender_state_minister
-							subtract_from_variable = { nonbender_pop_growth = 1 }
-						}
-					}
-				}
-				set_variable = { state_ministers = 1 }
-				if = {
-					limit = {
-						ROOT = {
-						has_idea_with_trait = chauvinist
-						}
-					}
-					add_to_variable = { fire_pop_growth = 1 }
-					set_variable = { fire_state_minister = 1 }
-				}
-				if = {
-					limit = {
-						ROOT = {
-						OR = {
-							has_idea_with_trait = royalist
-							has_idea_with_trait = extreme_royalist
-						}
-						}
-					}
-					add_to_variable = { earth_pop_growth = 1 }
-					set_variable = { earth_state_minister = 1 }
-				}
-				if = {
-					limit = {
-						ROOT = {
-						has_idea_with_trait = naturalist
-						}
-					}
-					add_to_variable = { water_pop_growth = 1 }
-					set_variable = { water_state_minister = 1 }
-				}
-				if = {
-					limit = {
-						ROOT = {
-						has_idea_with_trait = pacifist
-						}
-					}
-					add_to_variable = { air_pop_growth = 1 }
-					set_variable = { air_state_minister = 1 }
-				}
-				if = {
-					limit = {
-						ROOT = {
-						has_idea_with_trait = multiculturalist
-						}
-					}
-					add_to_variable = { nonbender_pop_growth = 1 }
-					set_variable = { nonbender_state_minister = 1 }
-				}
-				ROOT = {
-					culture_growth_calculation = yes
-				}
+			boost_culture_click = {
+				add_boosting_effect = yes
 			}
-			assigned_advisor_button_click = {
-				set_variable = { state_ministers = 0 }
-				if = { 
-					limit = { check_variable = { fire_state_minister > 0 } }
-					clear_variable = fire_state_minister
-					subtract_from_variable = { fire_pop_growth = 1 }
-				}
-				if = { 
-					limit = { check_variable = { earth_state_minister > 0 } }
-					clear_variable = earth_state_minister
-					subtract_from_variable = { earth_pop_growth = 1 }
-				}
-				if = { 
-					limit = { check_variable = { water_state_minister > 0 } }
-					clear_variable = water_state_minister
-					subtract_from_variable = { water_pop_growth = 1 }
-				}
-				if = { 
-					limit = { check_variable = { air_state_minister > 0 } }
-					clear_variable = air_state_minister
-					subtract_from_variable = { air_pop_growth = 1 }
-				}
-				if = { 
-					limit = { check_variable = { nonbender_state_minister > 0 } }
-					clear_variable = nonbender_state_minister
-					subtract_from_variable = { nonbender_pop_growth = 1 }
-				}
-				ROOT = {
-					culture_growth_calculation = yes
-				}
+			stop_boost_culture_click = {
+				remove_boosting_effect = yes
 			}
 		}
 		triggers = {
-			advisor_button_click_enabled = {
-				ROOT = {
-					any_character = {
-						AND = {
-							is_character_slot = minister_of_culture
-							has_character_flag = selected_cultural
-						}
-					}
-				}
-			}
-			advisor_button_visible = {
-				check_variable = {
-					state_ministers < 1
-				}
-				is_controlled_by = ROOT
-			}
-
-			assigned_advisor_button_click_enabled = {
+			boost_culture_click_enabled = {
 				ROOT = {
 					any_character = {
 						is_character_slot = minister_of_culture
 					}
 				}
 			}
-			assigned_advisor_button_visible = {
-				check_variable = {
-					state_ministers > 0
+			boost_culture_visible = {
+				NOT = {
+					has_dynamic_modifier = { modifier = boost_fire }
+					has_dynamic_modifier = { modifier = boost_water }
+					has_dynamic_modifier = { modifier = boost_earth }
+					has_dynamic_modifier = { modifier = boost_air }
+					has_dynamic_modifier = { modifier = boost_pluralist }
+				}
+			}
+
+			stop_boost_culture_click_enabled = {
+				
+			}
+			stop_boost_culture_visible = {
+				OR = {
+					has_dynamic_modifier = { modifier = boost_fire }
+					has_dynamic_modifier = { modifier = boost_water }
+					has_dynamic_modifier = { modifier = boost_earth }
+					has_dynamic_modifier = { modifier = boost_air }
+					has_dynamic_modifier = { modifier = boost_pluralist }
 				}
 			}
 		}
 		properties = {
-			assigned_advisor_button = {
+			stop_boost_culture = {
 				image = "[ROOT.GetCulturalAdvisor]"
 			}
 		}

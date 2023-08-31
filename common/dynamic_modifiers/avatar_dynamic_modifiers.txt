@@ -296,3 +296,64 @@ trade_hub = {
 	monthly_migration_state = 0.01
 	state_resources_factor = 0.1
 }
+
+boost_fire = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			THIS.CONTROLLER = {
+				has_government = fire_culture
+			}
+		}
+	}
+
+	monthly_fire_culture_in_state = 0.1
+}
+boost_water = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			THIS.CONTROLLER = {
+				has_government = water_culture
+			}
+		}
+	}
+
+	monthly_water_culture_in_state = 0.1
+}
+boost_earth = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			THIS.CONTROLLER = {
+				has_government = earth_culture
+			}
+		}
+	}
+
+	monthly_earth_culture_in_state = 0.1
+}
+boost_air = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			THIS.CONTROLLER = {
+				has_government = air_culture
+			}
+		}
+	}
+
+	monthly_fire_culture_in_state = 0.1
+}
+boost_pluralist = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			THIS.CONTROLLER = {
+				has_government = pluralist_culture
+			}
+		}
+	}
+
+	monthly_pluralist_culture_in_state = 0.1
+}
