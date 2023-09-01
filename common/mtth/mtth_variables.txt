@@ -392,3 +392,21 @@ fire_relocate_migration = {
 		add = migrants
 	}
 }
+
+
+get_emergencies = {
+	base = 0
+	modifier = {
+		has_country_flag = active_peasant_revolt
+		add = 1
+	}
+}
+
+get_mission_cap = {
+	base = 1
+	modifier = {
+		set_temp_variable = { missions = modifier@available_missions }
+		
+		add = missions
+	}
+}

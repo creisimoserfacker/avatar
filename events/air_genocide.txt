@@ -1020,15 +1020,25 @@ country_event = { # Yes
 		tag = FIR
 		date > 12.1.20
 		has_start_date < 13.1.1
+		NOT = {
+			OR = {
+				has_country_flag = genocide_active
+				has_country_flag = fire_no_genocide
+			}
+		}
 	}
+	#is_triggered_only = yes
 	fire_only_once = yes
+	immediate = {
+		hidden_effect = {
+			set_country_flag = fire_event_to_decide_genocide
+		}
+	}
 	option = {
 		name = air_gen.7.a
-		custom_effect_tooltip = fir_air_genocide_decisions
-		set_country_flag = genocide_active
-		set_variable = {
-			genocide_preparation = 4
-		}
+
+		activate_decision = continue_expansion_plans
+
 		ai_chance = {
 			base = 100
 			modifier = {
@@ -1049,19 +1059,9 @@ country_event = { # Yes
 	}
 	option = { # No
 		name = air_gen.7.b
-		custom_effect_tooltip = fir_no_genocide_decisions
-		set_country_flag = fire_no_genocide
 
-		add_ideas = FIR_guiding_wind_opposition
-		
-		hidden_effect = {
-			EAR = {
-				country_event = {
-					id = air_gen.1
-					days = 31
-				}
-			}
-		}
+		activate_decision = regret_letting_roku_die
+
 		ai_chance = {
 			base = 0
 			modifier = {

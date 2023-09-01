@@ -2,25 +2,81 @@ guiTypes = {
 
 	containerWindowType = {
 		name = "country_decisions"
-		position = { x = 443 y = 4 }
+		position = { x = 5 y = 40 }
 		Orientation = UPPER_LEFT
 
 		ButtonType ={
-			name ="show_hide"
-			spriteType = "GFX_show_decisions"
-			position = { x=0 y=0 }
+			name ="country_main"
+			spriteType = "GFX_hide_decisions"
+			position = { x=130 y=5 }
 
-			pdx_tooltip = "SHOW_HIDE_TOOLTIP"
-			pdx_tooltip_delayed = "SHOW_HIDE_TOOLTIP_DELAYED"
+			pdx_tooltip = "COUNTRY_MAIN_TOOLTIP"
+			pdx_tooltip_delayed = "COUNTRY_MAIN_TOOLTIP_DELAYED"
 		}
 
 		ButtonType ={
-			name ="prioritise"
+			name ="missions"
 			spriteType = "GFX_hide_decisions"
-			position = { x=-50 y=4 }
+			position = { x=190 y=5 }
 
-			pdx_tooltip = "PRIORITISE_TOOLTIP"
-			pdx_tooltip_delayed = "PRIORITISE_TOOLTIP_DELAYED"
+			pdx_tooltip = "MISSION_TOOLTIP"
+			pdx_tooltip_delayed = "MISSION_TOOLTIP_DELAYED"
+		}
+
+		iconType = {
+			name = "mission_count_bg"
+			spriteType = "GFX_topbar_alert_bg"
+			position = { x = 220 y = 34 }
+			frame = 1
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name ="available_missions_count"
+			position = { x= 220 y = 34 }
+			font = "hoi_16mbs"
+			text = "available_missions_count"
+			format = center
+			maxWidth = 20
+			maxHeight = 24
+			fixedsize = yes
+		}
+
+		ButtonType ={
+			name ="emergencies"
+			spriteType = "GFX_hide_decisions"
+			position = { x=260 y=5 }
+
+			pdx_tooltip = "EMERGENY_TOOLTIP"
+			pdx_tooltip_delayed = "EMERGENY_TOOLTIP_DELAYED"
+		}
+
+		iconType = {
+			name = "emergency_count_bg"
+			spriteType = "GFX_topbar_alert_bg"
+			position = { x = 290 y = 34 }
+			frame = 1
+			alwaystransparent = yes
+		}
+
+		instantTextBoxType = {
+			name ="emergency_count"
+			position = { x= 290 y = 34 }
+			font = "hoi_16mbs"
+			text = "emergency_count"
+			format = center
+			maxWidth = 20
+			maxHeight = 24
+			fixedsize = yes
+		}
+
+		ButtonType ={
+			name ="show_hide"
+			spriteType = "GFX_hide_decisions"
+			position = { x=320 y=5 }
+
+			pdx_tooltip = "SHOW_HIDE_TOOLTIP"
+			pdx_tooltip_delayed = "SHOW_HIDE_TOOLTIP_DELAYED"
 		}
 
 	}

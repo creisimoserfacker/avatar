@@ -12,16 +12,73 @@ scripted_gui = {
 		
 		properties = {
 
+			country_main = {
+				image = "[GetCountryDecisionIcon]"
+			}
+			missions = {
+				image = "[GetMissionIcon]"
+			}
+			emergencies = {
+				image = "[GetEmergencyIcon]"
+			}
 			show_hide = {
 				image = "[GetShowHideIcon]"
-			}
-			prioritise = {
-				image = "[GetPrioritiseIcon]"
 			}
 		}
 		
 		effects = {
 
+			country_main_click = {
+				if = {
+					limit = {
+						ROOT = {
+							has_country_flag = hide_country_decisions
+						}
+					}
+					ROOT = {
+						clr_country_flag = hide_country_decisions
+					}
+					else = {
+						ROOT = {
+							set_country_flag = hide_country_decisions
+						}
+					}
+				}
+			}
+			missions_click = {
+				if = {
+					limit = {
+						ROOT = {
+							has_country_flag = hide_mission_decisions
+						}
+					}
+					ROOT = {
+						clr_country_flag = hide_mission_decisions
+					}
+					else = {
+						ROOT = {
+							set_country_flag = hide_mission_decisions
+						}
+					}
+				}
+			}
+			emergencies_click = {
+				if = {
+					limit = {
+						ROOT = {
+							has_country_flag = hide_emergency_decisions
+						}
+					}
+					ROOT = {
+						clr_country_flag = hide_emergency_decisions
+					}
+					else = {
+						ROOT = {
+							set_country_flag = hide_emergency_decisions
+						}
+					}
+				}
+			}
 			show_hide_click = {
 				if = {
 					limit = {
@@ -37,34 +94,6 @@ scripted_gui = {
 							set_country_flag = hide_generic_decisions
 						}
 					}
-				}
-			}
-			prioritise_right_click = {
-				ROOT = {
-					clr_country_flag = prioritise_civilian
-					set_country_flag = prioritise_military
-					clr_country_flag = prioritise_research
-				}
-			}
-			prioritise_shift_click = {
-				ROOT = {
-					set_country_flag = prioritise_civilian
-					clr_country_flag = prioritise_military
-					clr_country_flag = prioritise_research
-				}
-			}
-			prioritise_shift_right_click = {
-				ROOT = {
-					set_country_flag = prioritise_research
-					clr_country_flag = prioritise_military
-					clr_country_flag = prioritise_civilian
-				}
-			}
-			prioritise_click = {
-				ROOT = {
-					clr_country_flag = prioritise_civilian
-					clr_country_flag = prioritise_military
-					clr_country_flag = prioritise_research
 				}
 			}
 
