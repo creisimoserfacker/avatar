@@ -1,3 +1,11 @@
+
+@AGE_1_COST = 100
+@AGE_2_COST = 200
+@AGE_3_COST = 300
+@AGE_4_COST = 400
+@AGE_5_COST = 500
+@AGE_6_COST = 600
+
 scripted_gui = {
 	research_and_decadence_container = {
 		context_type = player_context
@@ -85,28 +93,28 @@ scripted_gui = {
 
 			domestication_0_1_visible = { AND = { not = { has_tech = domestication_0 } check_variable = { tech_age < 1 } } }
 			domestication_0_2_click_enabled = { not = { has_tech = domestication_0 } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_1_COST }
 			}
 			domestication_0_2_visible = { not = { has_tech = domestication_0 } }
 			domestication_0_3_visible = { has_tech = domestication_0 }
 
 			the_wheel_1_visible = { AND = { not = { has_tech = the_wheel } check_variable = { tech_age < 1 } } }
 			the_wheel_2_click_enabled = { not = { has_tech = the_wheel } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_1_COST }
 			}
 			the_wheel_2_visible = { not = { has_tech = the_wheel } }
 			the_wheel_3_visible = { has_tech = the_wheel }
 
 			basic_tool_making_1_visible = { AND = { not = { has_tech = basic_tool_making } check_variable = { tech_age < 1 } } }
 			basic_tool_making_2_click_enabled = { not = { has_tech = basic_tool_making } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_1_COST }
 			}
 			basic_tool_making_2_visible = { not = { has_tech = basic_tool_making } }
 			basic_tool_making_3_visible = { has_tech = basic_tool_making }
 
 			plow_1_visible = { AND = { not = { has_tech = plow } check_variable = { tech_age < 1 } } }
 			plow_2_click_enabled = { not = { has_tech = plow }
-				check_variable = { knowledge_variable > 100 } 
+				check_variable = { knowledge_variable > @AGE_1_COST } 
 			}
 			plow_2_visible = { not = { has_tech = plow } }
 			plow_3_visible = { has_tech = plow }
@@ -114,28 +122,28 @@ scripted_gui = {
 
 			domestication_1_1_visible = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age < 2 } } }
 			domestication_1_2_click_enabled = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age > 1 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_2_COST }
 			}
 			domestication_1_2_visible = { AND = { not = { has_tech = domestication_1 } check_variable = { tech_age > 1 } } }
 			domestication_1_3_visible = { has_tech = domestication_1 }
 
 			botanics_1_visible = { AND = { not = { has_tech = botanics } check_variable = { tech_age < 2 } } }
 			botanics_2_click_enabled = { AND = { not = { has_tech = botanics } check_variable = { tech_age > 1 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_2_COST }
 			}
 			botanics_2_visible = { AND = { not = { has_tech = botanics } check_variable = { tech_age > 1 } } }
 			botanics_3_visible = { has_tech = botanics }
 
 			candles_1_visible = { AND = { not = { has_tech = candles } check_variable = { tech_age < 2 } } }
 			candles_2_click_enabled = { AND = { not = { has_tech = candles } check_variable = { tech_age > 1 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_2_COST }
 			}
 			candles_2_visible = { AND = { not = { has_tech = candles } check_variable = { tech_age > 1 } } }
 			candles_3_visible = { has_tech = candles }
 
 			metal_processing_1_visible = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age < 2 } } }
 			metal_processing_2_click_enabled = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age > 1 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_2_COST }
 			}
 			metal_processing_2_visible = { AND = { not = { has_tech = metal_processing } check_variable = { tech_age > 1 } } }
 			metal_processing_3_visible = { has_tech = metal_processing }
@@ -144,28 +152,28 @@ scripted_gui = {
 			
 			domestication_2_1_visible = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age < 3 } } }
 			domestication_2_2_click_enabled = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age > 2 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_3_COST }
 			}
 			domestication_2_2_visible = { AND = { not = { has_tech = domestication_2 } check_variable = { tech_age > 2 } } }
 			domestication_2_3_visible = { has_tech = domestication_2 }
 
 			basic_gear_1_visible = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age < 3 } } }
 			basic_gear_2_click_enabled = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age > 2 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_3_COST }
 			}
 			basic_gear_2_visible = { AND = { not = { has_tech = basic_gear } check_variable = { tech_age > 2 } } }
 			basic_gear_3_visible = { has_tech = basic_gear }
 
 			heal_practices_1_visible = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age < 3 } } }
 			heal_practices_2_click_enabled = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age > 2 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_3_COST }
 			}
 			heal_practices_2_visible = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age > 2 } } }
 			heal_practices_3_visible = { has_tech = heal_practices }
 
 			ink_1_visible = { AND = { not = { has_tech = ink } check_variable = { tech_age < 3 } } }
 			ink_2_click_enabled = { AND = { not = { has_tech = ink } check_variable = { tech_age > 2 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_3_COST }
 			}
 			ink_2_visible = { AND = { not = { has_tech = ink } check_variable = { tech_age > 2 } } }
 			ink_3_visible = { has_tech = ink }
@@ -173,21 +181,21 @@ scripted_gui = {
 
 			libraries_1_visible = { AND = { not = { has_tech = libraries } check_variable = { tech_age < 4 } } }
 			libraries_2_click_enabled = { AND = { not = { has_tech = libraries } check_variable = { tech_age > 3 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_4_COST }
 			}
 			libraries_2_visible = { AND = { not = { has_tech = libraries } check_variable = { tech_age > 3 } } }
 			libraries_3_visible = { has_tech = libraries }
 
 			steelmaking_1_visible = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age < 4 } } }
 			steelmaking_2_click_enabled = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age > 3 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_4_COST }
 			}
 			steelmaking_2_visible = { AND = { not = { has_tech = steelmaking } check_variable = { tech_age > 3 } } }
 			steelmaking_3_visible = { has_tech = steelmaking }
 
 			steam_engine_1_visible = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age < 4 } } }
 			steam_engine_2_click_enabled = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age > 3 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_4_COST }
 			}
 			steam_engine_2_visible = { AND = { not = { has_tech = steam_engine } check_variable = { tech_age > 3 } } }
 			steam_engine_3_visible = { has_tech = steam_engine }
@@ -195,14 +203,14 @@ scripted_gui = {
 
 			improved_coal_engine_1_visible = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age < 5 } } }
 			improved_coal_engine_2_click_enabled = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age > 4 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_5_COST }
 			}
 			improved_coal_engine_2_visible = { AND = { not = { has_tech = improved_coal_engine } check_variable = { tech_age > 4 } } }
 			improved_coal_engine_3_visible = { has_tech = improved_coal_engine }
 
 			aerodynamics_1_visible = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age < 5 } } }
 			aerodynamics_2_click_enabled = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age > 4 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_5_COST }
 			}
 			aerodynamics_2_visible = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age > 4 } } }
 			aerodynamics_3_visible = { has_tech = aerodynamics }
@@ -210,21 +218,21 @@ scripted_gui = {
 
 			advanced_gear_1_visible = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age < 6 } } }
 			advanced_gear_2_click_enabled = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age > 5 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_6_COST }
 			}
 			advanced_gear_2_visible = { AND = { not = { has_tech = advanced_gear } check_variable = { tech_age > 5 } } }
 			advanced_gear_3_visible = { has_tech = advanced_gear }
 
 			thermodynamics_1_visible = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age < 6 } } }
 			thermodynamics_2_click_enabled = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age > 5 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_6_COST }
 			}
 			thermodynamics_2_visible = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age > 5 } } }
 			thermodynamics_3_visible = { has_tech = thermodynamics }
 
 			modern_engine_1_visible = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age < 6 } } }
 			modern_engine_2_click_enabled = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age > 5 } } 
-				check_variable = { knowledge_variable > 100 }
+				check_variable = { knowledge_variable > @AGE_6_COST }
 			}
 			modern_engine_2_visible = { AND = { not = { has_tech = modern_engine } check_variable = { tech_age > 5 } } }
 			modern_engine_3_visible = { has_tech = modern_engine }
@@ -240,7 +248,7 @@ scripted_gui = {
 			}
 
 			domestication_0_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_1_COST }
 				set_technology = {
 				    domestication_0 = 1
 				}
@@ -248,7 +256,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			domestication_1_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_2_COST }
 				set_technology = {
 				    domestication_1 = 1
 				}
@@ -256,7 +264,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			domestication_2_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_3_COST }
 				set_technology = {
 				    domestication_2 = 1
 				}
@@ -264,7 +272,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			the_wheel_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_1_COST }
 				set_technology = {
 				    the_wheel = 1
 				}
@@ -272,7 +280,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			basic_gear_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_3_COST }
 				set_technology = {
 				    basic_gear = 1
 				}
@@ -280,7 +288,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			advanced_gear_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_6_COST }
 				set_technology = {
 				    advanced_gear = 1
 				}
@@ -288,7 +296,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			steam_engine_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_4_COST }
 				set_technology = {
 				    steam_engine = 1
 				}
@@ -296,7 +304,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			improved_coal_engine_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_5_COST }
 				set_technology = {
 				    improved_coal_engine = 1
 				}
@@ -304,7 +312,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			modern_engine_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_6_COST }
 				set_technology = {
 				    modern_engine = 1
 				}
@@ -312,7 +320,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			aerodynamics_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_5_COST }
 				set_technology = {
 				    aerodynamics = 1
 				}
@@ -320,7 +328,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			thermodynamics_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_6_COST }
 				set_technology = {
 				    thermodynamics = 1
 				}
@@ -328,7 +336,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			candles_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_2_COST }
 				set_technology = {
 				    candles = 1
 				}
@@ -336,7 +344,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			ink_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_3_COST }
 				set_technology = {
 				    ink = 1
 				}
@@ -344,7 +352,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			libraries_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_4_COST }
 				set_technology = {
 				    libraries = 1
 				}
@@ -352,7 +360,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			basic_tool_making_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_1_COST }
 				set_technology = {
 				    basic_tool_making = 1
 				}
@@ -360,7 +368,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			metal_processing_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_2_COST }
 				set_technology = {
 				    metal_processing = 1
 				}
@@ -368,7 +376,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			steelmaking_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_4_COST }
 				set_technology = {
 				    steelmaking = 1
 				}
@@ -376,7 +384,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			plow_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_1_COST }
 				set_technology = {
 				    plow = 1
 				}
@@ -384,7 +392,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			botanics_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_2_COST }
 				set_technology = {
 				    botanics = 1
 				}
@@ -392,7 +400,7 @@ scripted_gui = {
 				recalculate_age = yes
 			}
 			heal_practices_2_click = {
-				subtract_from_variable = { knowledge_variable = 100 }
+				subtract_from_variable = { knowledge_variable = @AGE_3_COST }
 				set_technology = {
 				    heal_practices = 1
 				}
