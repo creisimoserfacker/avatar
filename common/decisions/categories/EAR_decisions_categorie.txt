@@ -66,6 +66,12 @@ EAR_dai_li_category = {
 
 	visible = {
 		TAG = EAR
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = dai_li_category_active
+		NOT = {
+			has_country_flag = dai_li_category_complete
+		}
 	}
 	#visible_when_empty = yes
 
@@ -81,6 +87,12 @@ EAR_firenation_hostility_category = {
 
 	visible = {
 		TAG = EAR
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = fire_threat_category_active
+		NOT = {
+			has_country_flag = fire_threat_category_complete
+		}
 	}
 	#visible_when_empty = yes
 
@@ -96,10 +108,16 @@ EAR_ba_sing_se_wall = {
 
 	visible = {
 		TAG = EAR
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = ba_sing_se_wall_active
+		NOT = {
+			has_country_flag = ba_sing_se_wall_complete
+		}
 	}
 
 	priority = {
-		base = 600
+		base = 100
 	}
 }
 
@@ -111,10 +129,16 @@ EAR_defense_category = {
 
 	visible = {
 		has_idea = earth_nation
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = defense_category_active
+		NOT = {
+			has_country_flag = defense_category_complete
+		}
 	}
 
 	priority = {
-		base = 10
+		base = 75
 	}
 }
 
@@ -125,6 +149,16 @@ earth_economic_buildup_category = {
 
 	visible = {
 		has_idea = earth_nation
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = economy_category_active
+		NOT = {
+			has_country_flag = economy_category_complete
+		}
+	}
+
+	priority = {
+		base = 50
 	}
 }
 
@@ -135,6 +169,16 @@ earth_military_buildup_category = {
 
 	visible = {
 		has_idea = earth_nation
+		NOT = { has_country_flag = hide_mission_decisions }
+
+		has_country_flag = military_category_active
+		NOT = {
+			has_country_flag = military_category_complete
+		}
+	}
+
+	priority = {
+		base = 50
 	}
 }
 earth_chenbao_nwt_conflict = {

@@ -130,6 +130,61 @@ culture_pie_chart_recalc = {
 	}
 }
 
+state_culture_pie_chart_recalc = {
+	clear_array = pie_chart
+	resize_array = {
+		array = pie_chart
+		value = 1 # 1 is value for neutrality frame, so we don't have to make a loop for it
+		size = 100 # 100 pieces, each percent is one piece
+	}
+
+	set_temp_variable = { fire_culture_pop = fire_pop }
+	round_temp_variable = fire_culture_pop
+	
+	set_temp_variable = { earth_culture_pop = earth_pop }
+	round_temp_variable = earth_culture_pop 
+	set_variable = { last_idx = fire_culture_pop }
+	add_to_temp_variable = { earth_culture_pop = last_idx }
+	for_loop_effect = {
+		start = last_idx
+		end = earth_culture_pop
+		set_variable = { pie_chart^v = 2 }
+		add_to_variable = { last_idx = 1 }
+	}
+	
+	set_temp_variable = { water_culture_pop = water_pop }
+	round_temp_variable = water_culture_pop
+	add_to_temp_variable = { water_culture_pop = last_idx }
+	for_loop_effect = {
+		start = last_idx
+		end = water_culture_pop
+		set_variable = { pie_chart^v = 3 }
+		add_to_variable = { last_idx = 1 }
+	}
+	
+	set_temp_variable = { air_culture_pop = air_pop }
+	round_temp_variable = air_culture_pop 
+	add_to_temp_variable = { air_culture_pop = last_idx }
+	for_loop_effect = {
+		start = last_idx
+		end = air_culture_pop
+		set_variable = { pie_chart^v = 4 }
+		add_to_variable = { last_idx = 1 }
+	}
+	
+	set_temp_variable = { pluralist_culture_pop = nonbender_pop }
+	round_temp_variable = pluralist_culture_pop 
+	add_to_temp_variable = { pluralist_culture_pop = last_idx }
+	for_loop_effect = {
+		start = last_idx
+		end = pluralist_culture_pop
+		set_variable = { pie_chart^v = 5 }
+	}
+
+	clear_variable = last_idx
+	add_to_variable = { FROM.pie_chart_dirty = 1 }
+}
+
 global_culture = {
 	set_variable = { global.fire_pop = 0 }
 	set_variable = { global.earth_pop = 0 }
@@ -431,6 +486,7 @@ culture_growth_calculation_state = {
 	subtract_from_variable = { nonbender_pop_new = nonbender_pop }
 	
 }
+
 culture_value_recalc = {
 	every_controlled_state = {
 

@@ -491,4 +491,102 @@ FIR_royal_family_category = {
 			factor = 110
 		}
 	}
+
+	divine_firelord = {
+
+		icon = fire_ruler
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				has_country_leader_with_trait = divine_ruler
+				has_country_leader_with_trait = personality_cult
+			}
+			has_country_leader_with_trait = firelord
+		}
+		available = {
+			NOT = {
+				has_country_leader_with_trait = divine_ruler
+				has_country_leader_with_trait = personality_cult
+			}
+			has_country_leader_with_trait = firelord
+			custom_trigger_tooltip = {
+				tooltip = check_authority_60_tooltip		
+				check_variable = {
+					var = current_authority
+					value = 60
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			add_country_leader_trait = divine_ruler
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	godlike_firelord = {
+
+		icon = fire_ruler
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+		}
+		available = {
+			has_country_leader_with_trait = divine_ruler
+			has_country_leader_with_trait = firelord
+			custom_trigger_tooltip = {
+				tooltip = check_authority_80_tooltip		
+				check_variable = {
+					var = current_authority
+					value = 80
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			every_character = {
+				limit = {
+					is_country_leader = yes
+				}
+				swap_country_leader_traits = { 
+					remove = divine_ruler
+					add = personality_cult
+				}
+			}
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
 }

@@ -1281,154 +1281,6 @@ FIR_civil_decision_category = {
 			factor = 1000
 		}
 	}
-
-	divine_firelord = {
-
-		icon = fire_ruler
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			NOT = {
-				has_country_leader_with_trait = divine_ruler
-				has_country_leader_with_trait = personality_cult
-			}
-			has_country_leader_with_trait = firelord
-		}
-		available = {
-			NOT = {
-				has_country_leader_with_trait = divine_ruler
-				has_country_leader_with_trait = personality_cult
-			}
-			has_country_leader_with_trait = firelord
-			custom_trigger_tooltip = {
-				tooltip = check_authority_60_tooltip		
-				check_variable = {
-					var = current_authority
-					value = 60
-					compare = greater_than_or_equals
-				}
-			}
-		}
-
-		days_remove = 30
-
-		modifier = {
-			
-		}
-
-		remove_effect = {
-			add_country_leader_trait = divine_ruler
-		}
-
-		cost = 50
-		
-		ai_will_do = {
-			factor = 100
-		}
-	
-	}
-
-	godlike_firelord = {
-
-		icon = fire_ruler
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			has_country_leader_with_trait = divine_ruler
-			has_country_leader_with_trait = firelord
-		}
-		available = {
-			has_country_leader_with_trait = divine_ruler
-			has_country_leader_with_trait = firelord
-			custom_trigger_tooltip = {
-				tooltip = check_authority_80_tooltip		
-				check_variable = {
-					var = current_authority
-					value = 80
-					compare = greater_than_or_equals
-				}
-			}
-		}
-
-		days_remove = 30
-
-		modifier = {
-			
-		}
-
-		remove_effect = {
-			every_character = {
-				limit = {
-					is_country_leader = yes
-				}
-				swap_country_leader_traits = { 
-					remove = divine_ruler
-					add = personality_cult
-				}
-			}
-		}
-
-		cost = 50
-		
-		ai_will_do = {
-			factor = 100
-		}
-	
-	}
-
-	godlike_firelord = {
-
-		icon = fire_ruler
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			has_country_leader_with_trait = divine_ruler
-			has_country_leader_with_trait = firelord
-		}
-		available = {
-			has_country_leader_with_trait = divine_ruler
-			has_country_leader_with_trait = firelord
-			custom_trigger_tooltip = {
-				tooltip = check_authority_75_tooltip		
-				check_variable = {
-					var = current_authority
-					value = 75
-					compare = greater_than_or_equals
-				}
-			}
-		}
-
-		days_remove = 30
-
-		modifier = {
-			
-		}
-
-		remove_effect = {
-			every_character = {
-				limit = {
-					is_country_leader = yes
-				}
-				swap_country_leader_traits = { 
-					remove = divine_ruler
-					add = personality_cult
-				}
-			}
-		}
-
-		cost = 50
-		
-		ai_will_do = {
-			factor = 100
-		}
-	
-	}
 	
 	increase_war_support_with_prosperity = {
 
@@ -1456,7 +1308,7 @@ FIR_civil_decision_category = {
 		}
 
 		remove_effect = {
-			add_ideas = FIR_popaganda_1
+			add_ideas = FIR_propaganda_1
 		}
 
 		cost = 100
@@ -1479,8 +1331,8 @@ FIR_civil_decision_category = {
 			has_start_date < 13.1.1
 			NOT = {
 				has_idea = national_prosperity
-				has_idea = FIR_popaganda_1
-				has_idea = FIR_popaganda_2
+				has_idea = FIR_propaganda_1
+				has_idea = FIR_propaganda_2
 			}
 		}
 		available = {
@@ -1494,7 +1346,7 @@ FIR_civil_decision_category = {
 		}
 
 		remove_effect = {
-			add_ideas = FIR_popaganda_2
+			add_ideas = FIR_propaganda_2
 		}
 
 		cost = 100

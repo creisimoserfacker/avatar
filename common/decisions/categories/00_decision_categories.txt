@@ -3,6 +3,9 @@ generic_debug_view = {
 
 	visible = {
 		is_debug = yes
+
+		NOT = { has_country_flag = hide_generic_decisions }
+
 	}
 	priority = 100000
 
@@ -24,6 +27,9 @@ reoccupy_category = {
 	picture = GFX_decision_cat_reoccupation
 
 	visible = {
+		always = no
+
+		
 		NOT = {
 			has_idea = no_ruler
 		}
@@ -95,11 +101,7 @@ taxation_category = {
 	}
 
 	priority = {
-		base = 10
-		modifier = {
-			add = 1000
-			has_country_flag = prioritise_civilian
-		}
+		base = 15
 	}
 
 }
@@ -109,10 +111,10 @@ political_category = {
 	scripted_gui = politics_decisions_ui
 
 	visible = {
-
+		NOT = { has_country_flag = hide_generic_decisions }
 	}
 	visible_when_empty = yes
-	priority = 50
+	priority = 25
 
 }
 
@@ -130,11 +132,7 @@ generic_research_slot_category = {
 	}
 
 	priority = {
-		base = 0
-		modifier = {
-			add = 1000
-			has_country_flag = prioritise_research
-		}
+		base = 10
 	}
 
 }

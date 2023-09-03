@@ -76,6 +76,12 @@ news_event = {
 	immediate = {
 		hidden_effect = {
 			set_global_flag = air_nomad_genocide
+			every_country = {
+				limit = {
+					has_country_flag = genocide_active
+				}
+				add_to_variable = { ROOT.acive_missions = -1 }
+			}
 			SAT = {
 				dismantle_faction = yes
 			}

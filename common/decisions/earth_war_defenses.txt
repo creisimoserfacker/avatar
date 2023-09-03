@@ -1,8 +1,5 @@
-
-
-EAR_defense_category = {
-
-
+THE_EARTHKINGDOM = {
+	
 	HEB_fongs_base = {
 
 		icon = fongs_base
@@ -18,10 +15,13 @@ EAR_defense_category = {
 			}
 		}
 		available = {
-			
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
 		}
 
-		cost = EARTH_castle_cost?5
+		cost = EARTH_castle_cost?0
 
 		complete_effect = {
 			add_to_variable = { EARTH_castle_cost = 10 }
@@ -32,48 +32,73 @@ EAR_defense_category = {
 			set_variable = { castle_reduction_factor = 0.5 }
 
 			country_event = { id = earcas.1 }
+
+
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			unlock_decision_category_tooltip = EAR_defense_category
+			set_country_flag = defense_category_active
 		}
 
 		ai_will_do = {
-			base = 1
+			base = 0
 		}
 	}
 
-#	CHN_chins_fortress = {
-#
-#		icon = chins_fortress
-#
-#		visible = {
-#			has_idea = earth_nation
-#			325 = {
-#				is_owned_and_controlled_by = PREV
-#			}
-#			NOT = {
-#				has_active_mission = castle_construction_mission
-#				has_global_flag = chins_fortress_build
-#			}
-#		}
-#		available = {
-#			
-#		}
-#
-#		cost = EARTH_castle_cost?5
-#
-#		complete_effect = {
-#			add_to_variable = { EARTH_castle_cost = 10 }
-#			set_variable = { castle_construction = token:CHN_chins_fortress }
-#			set_variable = { castle_location = 325 }
-#			set_variable = { castle_size = 10 }
-#			activate_mission = castle_construction_mission
-#			set_variable = { castle_reduction_factor = 0.5 }
-#
-#			country_event = { id = earcas.1 }
-#		}
-#
-#		ai_will_do = {
-#			base = 1
-#		}
-#	}
+	CHN_chins_fortress = {
+
+		icon = chins_fortress
+
+		visible = {
+			has_idea = earth_nation
+			325 = {
+				is_owned_and_controlled_by = PREV
+			}
+			NOT = {
+				has_active_mission = castle_construction_mission
+				has_global_flag = chins_fortress_build
+			}
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+
+		cost = EARTH_castle_cost?5
+
+		complete_effect = {
+			add_to_variable = { EARTH_castle_cost = 10 }
+			set_variable = { castle_construction = token:CHN_chins_fortress }
+			set_variable = { castle_location = 325 }
+			set_variable = { castle_size = 10 }
+			activate_mission = castle_construction_mission
+			set_variable = { castle_reduction_factor = 0.5 }
+
+			country_event = { id = earcas.1 }
+
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			unlock_decision_category_tooltip = EAR_defense_category
+			set_country_flag = defense_category_active
+		}
+
+		ai_will_do = {
+			base = 0
+		}
+	}
+
+}
+
+EAR_defense_category = {
+
 
 	castle_construction_mission = {
 
@@ -107,6 +132,8 @@ EAR_defense_category = {
 			clr_country_flag = castle_construction_measure_1
 			clear_variable = castle_construction
 			clear_variable = castle_location
+
+			clr_country_flag = defense_category_active
 		}
 
 		ai_will_do = {

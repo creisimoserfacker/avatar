@@ -39,52 +39,100 @@ scripted_gui = {
 					}
 				}
 			}
-			increase_infra_click = {
+			
+			send_settlers_click = {
+
+				ROOT = {
+					transfer_state = PREV
+
+					add_timed_idea = { idea = colonial_investments  days = 365 }
+
+				}
+
 				THIS = {
-					add_building_construction = {
-						type = infrastructure
-						level = 1
-						instant_build = no
+					add_dynamic_modifier = { modifier = new_settlement }
+
+					set_variable = {
+						var = fire_pop
+						value = ROOT.party_popularity_100@fire_culture
+						tooltip = set_fire_pop_tt
+					}
+					set_variable = {
+						var = earth_pop
+						value = ROOT.party_popularity_100@earth_culture
+						tooltip = set_earth_pop_tt
+					}
+					set_variable = {
+						var = water_pop
+						value = ROOT.party_popularity_100@water_culture
+						tooltip = set_water_pop_tt
+					}
+					set_variable = {
+						var = air_pop
+						value = ROOT.party_popularity_100@air_culture
+						tooltip = set_air_pop_tt
+					}
+					set_variable = {
+						var = nonbender_pop
+						value = ROOT.party_popularity_100@pluralist_culture
+						tooltip = set_nonbender_pop_tt
+					}
+
+					state_culture_pie_chart_recalc = yes
+
+					set_building_level = {
+					    type = naval_base
+					    level = 5
+					    province = {
+					        all_provinces = yes
+					        limit_to_coastal = yes
+					        level < 5
+					        level > 0
+					    }
 					}
 				}
 			}
-			#send_settlers_click = {
-			#	THIS = {
-			#		add_building_construction = {
-			#			type = settlement
-			#			level = 1
-			#			instant_build = no
-			#		}
-			#	}
-			#}
 		}
 
 		triggers = {
-			increase_infra_click_enabled = {
-				is_controlled_by = ROOT
-				free_building_slots = {
-					building = infrastructure
-					size > 0
-					include_locked = no
+
+			send_settlers_click_enabled = {
+
+				ROOT = {
+					NOT = {
+						has_idea = colonial_investments
+					}
+					has_political_power > THIS.mtth:colonise_state_cost
+				}
+
+				NOT = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
+					has_dynamic_modifier = { modifier = new_settlement }
+				}
+
+				OR = {
+					any_province_building_level = {
+						province = {
+							all_provinces = yes
+							limit_to_coastal = yes
+						}
+						building = naval_base
+						level > 0
+					}
+					any_neighbor_state = {
+						is_controlled_by = ROOT
+					}
+				}
+				has_dynamic_modifier = { modifier = genocide_state }
+			}
+
+			send_settlers_visible = {
+				NOT = {
+					is_core_of = ROOT
+					is_controlled_by = ROOT
 				}
 			}
-			#send_settlers_click_enabled = {
-			#	NOT = {
-			#		is_core_of = ROOT
-			#	}
-			#	is_controlled_by = ROOT
-			#	free_building_slots = {
-			#		building = settlement
-			#		size > 0
-			#		include_locked = no
-			#	}
-			#}
-			#send_settlers_visible = {
-			#	NOT = {
-			#		is_core_of = ROOT
-			#	}
-			#	is_controlled_by = ROOT
-			#}
 
 			open_construction_visible = {
 				OR = {
@@ -130,6 +178,27 @@ scripted_gui = {
 			}
 			animal_visible = {
 				has_variable = animal
+			}
+		}
+
+		ai_test_interval = 8000
+		ai_test_variance = 0.1
+		
+		ai_enabled = {
+			always = yes
+		}
+		
+		ai_check = {
+			check_variable = { ai_irrationality > 0 }
+		}
+		
+		ai_max_weight_taken_per_test = 1
+		ai_weights = {
+			send_settlers_click = {
+				ai_will_do = {
+					base = 10
+					
+				}
 			}
 		}
 

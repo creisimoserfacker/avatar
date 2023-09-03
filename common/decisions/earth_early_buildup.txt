@@ -1,4 +1,87 @@
+
+THE_EARTHKINGDOM = {
+	
+	EARTH_economic_investments = { 
+
+		icon = investments
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = { 
+			NOT = {
+				has_country_flag = economy_category_active
+				has_country_flag = economy_category_complete
+			}
+			check_variable = { average_gdp > 0 }
+		}
+		available = {
+			NOT = {
+				has_country_flag = economy_category_active
+			}
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			unlock_decision_category_tooltip = earth_economic_buildup_category
+			set_country_flag = economy_category_active
+
+			set_variable = { EARTH_gdp_start_value = average_gdp }
+			set_variable = { EARTH_gdp_target_value = average_gdp }
+			multiply_variable = { EARTH_gdp_target_value = 1.1 }
+		}
+
+		ai_will_do = {
+			factor = 0
+		}
+	}
+
+}
+
 earth_economic_buildup_category = {
+
+	strong_national_economy = { 
+
+		icon = earth_economy
+
+		priority = 10
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = { 
+
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = gdp_increased_by_10		
+				check_variable = { average_gdp > EARTH_gdp_target_value }
+			}
+		}
+
+		complete_effect = {
+			add_timed_idea = {
+				idea = a_strong_national_economy
+				days = 365
+			}
+			set_country_flag = economy_category_complete
+
+			clear_variable = EARTH_gdp_start_value
+			clear_variable = EARTH_gdp_target_value
+		}
+
+		ai_will_do = {
+			factor = 100
+		}
+	}
 
 	populational_census = { 
 
