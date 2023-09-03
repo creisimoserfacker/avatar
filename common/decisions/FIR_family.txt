@@ -55,7 +55,7 @@ FIR_royal_family_category = {
 		fire_only_once = yes
 
 		ai_will_do = {
-			factor = 10
+			factor = 0
 		}
 	}
 
@@ -83,7 +83,10 @@ FIR_royal_family_category = {
 			NOT = {
 				has_country_flag = fire_event_to_decide_genocide
 			}
-			check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
 		}
 
 		complete_effect = {
@@ -118,7 +121,7 @@ FIR_royal_family_category = {
 		fire_only_once = yes
 
 		ai_will_do = {
-			factor = 110
+			factor = 0
 		}
 	}
 
@@ -520,16 +523,24 @@ FIR_royal_family_category = {
 					compare = greater_than_or_equals
 				}
 			}
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
 		}
 
 		days_remove = 30
 
-		modifier = {
-			
-		}
-
 		remove_effect = {
 			add_country_leader_trait = divine_ruler
+
+			unlock_decision_category_tooltip = FIR_civil_decision_category
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			set_country_flag = civil_category_active
 		}
 
 		cost = 50
@@ -588,5 +599,67 @@ FIR_royal_family_category = {
 			factor = 100
 		}
 	
+	}
+
+
+	FIR_approach_earth_kingdom = {
+
+		icon = rewriting
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			tag = FIR
+			NOT = {
+				FIR = {
+					has_war_with = EAR
+				}
+			}
+			OR = {
+				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
+				280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
+			}
+		}
+		available = {
+			NOT = {
+				FIR = {
+					has_war_with = EAR
+				}
+			}
+			230 = { is_claimed_by = FIR }
+			280 = { is_claimed_by = FIR }
+		}
+		
+		fire_only_once = yes		
+
+		#cost = 25
+
+		complete_effect = {
+			set_country_flag = approach_earthkingdom
+		}
+
+		#days_remove = 30
+
+		remove_effect = {
+			EAR = { country_event = { id = fir_treaty.1 hours = 1 } }
+			230 = { 
+				add_claim_by = FIR
+				add_core_of = YFC
+			}
+			280 = { 
+				add_claim_by = FIR
+				add_core_of = KFC
+			}
+		}
+
+		ai_will_do = {
+			factor = 0
+			modifier = {
+				add = 100
+				is_historical_focus_on = yes
+			}
+		}
+
 	}
 }

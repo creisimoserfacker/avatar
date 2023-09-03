@@ -429,6 +429,95 @@ FIR_dragon_category = {
 
 FIR_conquest_category = {
 
+	FIR_declare_sphere_of_influence = {
+
+		icon = fire_sphere
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			tag = FIR
+			OR = {
+				has_country_flag = earth_war_path
+				has_country_flag = earth_diplomacy_path
+				has_war_with = EAR
+			}
+			NOT = {
+				has_active_mission = rescue_fire_citizen_mission
+			}
+			has_start_date < 15.1.1
+		}
+		available = {
+			hidden_trigger = {
+				OR = {
+					has_country_flag = earth_war_path
+					has_country_flag = earth_diplomacy_path
+					has_war_with = EAR
+				}
+			}
+		}
+		
+		fire_only_once = yes		
+
+		cost = 100
+
+		complete_effect = {
+			add_named_threat = { 
+				threat = 10
+				name = FIR_sphere_of_influence
+			}
+		}
+
+		modifier = {
+			training_time_factor = -0.05
+		}
+
+		days_remove = 200
+
+		remove_effect = {
+			create_faction = Alliance_of_Fire
+		}
+
+	}
+
+	FIR_establish_colonies = {
+
+		icon = fire_sphere
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			tag = FIR
+			has_start_date < 15.1.1
+			is_in_faction = yes
+
+		}
+		available = {
+			is_faction_leader = yes
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+		
+		fire_only_once = yes		
+
+		cost = 100
+
+		complete_effect = {
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			unlock_decision_category_tooltip = FIR_colonies_category
+			set_country_flag = colonies_category_active
+		}
+
+	}
+
 	military_preparations = {
 
 		icon = military_buildup
@@ -438,22 +527,9 @@ FIR_conquest_category = {
 		}
 		visible = {
 			has_start_date < 13.1.1
-			OR = {
-				NOT = {
-					has_idea = legacy_of_roku_and_sozin 
-				}
-				has_war_with = EAR
-				has_country_flag = emergency_intervention_atrocity
-			}
 		}
 		available = {
-			OR = {
-				NOT = {
-					has_idea = legacy_of_roku_and_sozin 
-				}
-				has_war_with = EAR
-				has_country_flag = emergency_intervention_atrocity
-			}
+			
 		}
 
 		modifier = {
@@ -498,17 +574,6 @@ FIR_conquest_category = {
 		}
 		visible = {
 			has_start_date < 13.1.1
-			OR = {
-				AND = {
-					NOT = { 
-						has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
-					}
-					has_country_flag = military_preparations_complete
-				}
-				has_war_with = EAR 
-			}
 			NOT = { 
 				has_country_flag = FIR_attack_plan_made
 			}
@@ -592,20 +657,6 @@ FIR_conquest_category = {
 		}
 		visible = {
 			has_start_date < 13.1.1
-			OR = {
-				AND = {
-					NOT = { 
-						has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
-					}
-					has_country_flag = military_preparations_complete
-				}
-				AND = {
-					has_war_with = EAR
-					NOT = { has_country_flag = FIR_attack_plan_made }
-				}
-			}
 			NOT = { 
 				has_country_flag = FIR_attack_plan_made
 			}
@@ -685,20 +736,6 @@ FIR_conquest_category = {
 		}
 		visible = {
 			has_start_date < 13.1.1
-			OR = {
-				AND = {
-					NOT = { 
-						has_war_with = EAR 
-						has_country_flag = FIR_attack_plan_made
-						has_country_flag = earth_diplomacy_path
-					}
-					has_country_flag = military_preparations_complete
-				}
-				AND = {
-					has_war_with = EAR
-					NOT = { has_country_flag = FIR_attack_plan_made }
-				}
-			}
 			NOT = { 
 				has_country_flag = FIR_attack_plan_made
 			}
@@ -776,17 +813,6 @@ FIR_conquest_category = {
 			country_exists = EAR
 			NOT = { 
 				has_war_with = EAR 
-			}
-			OR = {
-				AND = {
-					NOT = { 
-						has_war_with = EAR 
-						has_country_flag = earth_diplomacy_path
-					}
-					has_country_flag = FIR_attack_plan_made
-				}
-				has_country_flag = earth_war_path
-				has_country_flag = emergency_intervention_atrocity
 			}
 		}
 
@@ -1265,7 +1291,7 @@ FIR_civil_decision_category = {
 		}
 
 		remove_effect = {
-			custom_effect_tooltip = industry_unlock_tt
+			#custom_effect_tooltip = industry_unlock_tt
 			#add_stability = -0.7
 			set_country_flag = fire_industrialisation
 		}
@@ -1599,67 +1625,67 @@ FIR_civil_decision_category = {
 
 FIR_colonies_category = {
 
-	rescue_fire_citizen_mission = {
-
-		icon = rescue_fire_citizen
-
-		allowed = {
-			always = no
-		}
-		visible = {
-
-		}
-		available = {
-			OR = {
-				AND = {
-					controls_state = 230
-					controls_state = 280
-				}
-				#custom_trigger_tooltip = {
-				#	tooltip = citizens_evacuated_tt
-				#	check_variable = { fire_people_in_ek < 0 }
-				#}
-			}
-		}
-
-
-		days_mission_timeout = 400
-		fire_only_once = yes
-
-		activation = {
-
-		}
-
-		is_good = no
-
-		complete_effect = {
-			add_stability = 0.25
-		}
-
-		timeout_effect = {
-			if = {
-				limit = {
-					230 = {
-						has_dynamic_modifier = { modifier = relocate_fire_population }
-					}
-				}
-				add_stability = -0.25
-			}
-			if = {
-				limit = {
-					280 = {
-						has_dynamic_modifier = { modifier = relocate_fire_population }
-					}
-				}
-				add_stability = -0.25
-			}
-		}
-
-		ai_will_do = {
-			factor = 100
-		}
-
-	}
+#	rescue_fire_citizen_mission = {
+#
+#		icon = rescue_fire_citizen
+#
+#		allowed = {
+#			always = no
+#		}
+#		visible = {
+#
+#		}
+#		available = {
+#			OR = {
+#				AND = {
+#					controls_state = 230
+#					controls_state = 280
+#				}
+#				#custom_trigger_tooltip = {
+#				#	tooltip = citizens_evacuated_tt
+#				#	check_variable = { fire_people_in_ek < 0 }
+#				#}
+#			}
+#		}
+#
+#
+#		days_mission_timeout = 400
+#		fire_only_once = yes
+#
+#		activation = {
+#
+#		}
+#
+#		is_good = no
+#
+#		complete_effect = {
+#			add_stability = 0.25
+#		}
+#
+#		timeout_effect = {
+#			if = {
+#				limit = {
+#					230 = {
+#						has_dynamic_modifier = { modifier = relocate_fire_population }
+#					}
+#				}
+#				add_stability = -0.25
+#			}
+#			if = {
+#				limit = {
+#					280 = {
+#						has_dynamic_modifier = { modifier = relocate_fire_population }
+#					}
+#				}
+#				add_stability = -0.25
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 100
+#		}
+#
+#	}
 
 #	evacuation_convoy = {
 #
@@ -1752,120 +1778,6 @@ FIR_colonies_category = {
 #		}
 #
 #	}
-
-	FIR_approach_earth_kingdom = {
-
-		icon = rewriting
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			tag = FIR
-			NOT = {
-				FIR = {
-					has_war_with = EAR
-				}
-				has_active_mission = rescue_fire_citizen_mission
-			}
-			OR = {
-				230 = { has_dynamic_modifier = { modifier = firenation_settlers } }
-				280 = { has_dynamic_modifier = { modifier = firenation_settlers } }
-			}
-		}
-		available = {
-			NOT = {
-				FIR = {
-					has_war_with = EAR
-				}
-			}
-			230 = { is_claimed_by = FIR }
-			280 = { is_claimed_by = FIR }
-		}
-		
-		fire_only_once = yes		
-
-		#cost = 25
-
-		complete_effect = {
-			set_country_flag = approach_earthkingdom
-		}
-
-		#days_remove = 30
-
-		remove_effect = {
-			EAR = { country_event = { id = fir_treaty.1 hours = 1 } }
-			230 = { 
-				add_claim_by = FIR
-				add_core_of = YFC
-			}
-			280 = { 
-				add_claim_by = FIR
-				add_core_of = KFC
-			}
-		}
-
-		ai_will_do = {
-			factor = 0
-			modifier = {
-				add = 100
-				is_historical_focus_on = yes
-			}
-		}
-
-	}
-
-	FIR_declare_sphere_of_influence = {
-
-		icon = fire_sphere
-
-		allowed = {
-			tag = FIR
-		}
-		visible = {
-			tag = FIR
-			OR = {
-				has_country_flag = earth_war_path
-				has_country_flag = earth_diplomacy_path
-				has_war_with = EAR
-			}
-			NOT = {
-				has_active_mission = rescue_fire_citizen_mission
-			}
-			has_start_date < 15.1.1
-		}
-		available = {
-			hidden_trigger = {
-				OR = {
-					has_country_flag = earth_war_path
-					has_country_flag = earth_diplomacy_path
-					has_war_with = EAR
-				}
-			}
-		}
-		
-		fire_only_once = yes		
-
-		cost = 100
-
-		complete_effect = {
-			add_named_threat = { 
-				threat = 10
-				name = FIR_sphere_of_influence
-			}
-		}
-
-		modifier = {
-			training_time_factor = -0.05
-		}
-
-		days_remove = 200
-
-		remove_effect = {
-			create_faction = Alliance_of_Fire
-		}
-
-	}
 
 	support_yu_dao_uprising = {
 

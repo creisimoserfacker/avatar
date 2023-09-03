@@ -997,25 +997,24 @@ country_event = {
 			}
 		}
 
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_war_path
-			add_days_remove = {
-				decision = military_preparations
-				days = -10
+			
+			unlock_decision_category_tooltip = FIR_conquest_category
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
 			}
-			add_days_remove = {
-				decision = northern_attack_plan
-				days = -10
-			}
-			add_days_remove = {
-				decision = central_attack_plan
-				days = -10
-			}
-			add_days_remove = {
-				decision = southern_attack_plan
-				days = -10
-			}
+			set_country_flag = conquest_category_active
 		}
 		
 		add_named_threat = { 
@@ -1062,6 +1061,13 @@ country_event = {
 			base = 100
 		}
 
+		trigger = {
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+
 		add_named_threat = { 
 			threat = 15
 			name = FIR_failed_negotiation
@@ -1070,23 +1076,25 @@ country_event = {
 		FIR = {
 			add_war_support = 0.1
 			set_country_flag = earth_war_path
-			add_days_remove = {
-				decision = military_preparations
-				days = -20
+			
+			unlock_decision_category_tooltip = FIR_conquest_category
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
 			}
-			add_days_remove = {
-				decision = northern_attack_plan
-				days = -30
-			}
-			add_days_remove = {
-				decision = central_attack_plan
-				days = -30
-			}
-			add_days_remove = {
-				decision = southern_attack_plan
-				days = -30
-			}
+			set_country_flag = conquest_category_active
 		}
+	}
+
+	option = { #there is nothing we can do
+		name = fir_treaty.5.b
+		ai_chance = { 
+			base = 0
+		}
+
+		set_country_flag = earth_war_path
+
 	}
 
 }
