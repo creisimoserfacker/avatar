@@ -152,6 +152,22 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetWantRationHundreds
+	text = {
+		trigger = {
+			check_variable = { ratio_buff_expected_storage < 1.001 }
+		}
+		localization_key = ration_want_hundreds
+	}
+	text = {
+		trigger = {
+			check_variable = { ratio_buff_expected_storage > 1 }
+		}
+		localization_key = ration_want_thousands
+	}
+}
+
+defined_text = {
 	name = GetRationGainHundreds
 	text = {
 		trigger = {
