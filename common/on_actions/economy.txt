@@ -1577,8 +1577,18 @@ on_actions = {
 				add_dynamic_modifier = { modifier = food_shortages }
 			}
 
-			set_variable = { ration_buff = ration_ratio_percent }
-			divide_variable = { ration_buff = 2 }
+
+			set_variable = { ratio_buff_expected_storage = daily_ration_need }
+			multiply_variable = { ratio_buff_expected_storage = 365 }
+
+			set_variable = { ration_buff = ration_variable }
+			divide_variable = { ration_buff = ratio_buff_expected_storage }
+
+			clamp_variable = { 
+				var = ration_buff 
+				min = 0 
+				max = 1
+			}
 
 			if = {
 				limit = {
@@ -1614,6 +1624,9 @@ on_actions = {
 
 			set_variable = { ration_max_h = ration_max }
 			multiply_variable = { ration_max_h = 1000 }
+
+			set_variable = { ratio_buff_expected_storage_h = ratio_buff_expected_storage }
+			multiply_variable = { ratio_buff_expected_storage_h = 1000 }
 
 			set_variable = { ration_ratio_var = ration_ratio_percent }
 			multiply_variable = { ration_ratio_var = 100 }
