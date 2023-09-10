@@ -6,6 +6,100 @@ scripted_gui = {
 		window_name = "claim_state_gui"
 
 		effects = {
+			just_claim_type_click = {
+				clear_variable = just_claim_icon
+				clear_variable = unjust_claim_icon
+				set_variable = { just_claim_icon = 2 }
+				clear_array = ROOT.claimable_states
+				FROM = {
+					every_controlled_state = {
+						limit = {
+							if = {
+								limit = {
+									ROOT = { has_government = fire_culture }
+								}
+								has_dynamic_modifier = { modifier = firenation_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = earth_culture }
+								}
+								has_dynamic_modifier = { modifier = earthkingdom_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = water_culture }
+								}
+								has_dynamic_modifier = { modifier = watertribe_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = air_culture }
+								}
+								has_dynamic_modifier = { modifier = airnomad_settlers }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = pluralist_culture }
+								}
+								has_dynamic_modifier = { modifier = pluralist_settlers }
+							}
+						}
+						add_to_array = {
+							array = ROOT.claimable_states
+							value = THIS.id
+						}
+					}
+				}
+			}
+
+			unjust_claim_type_click = {
+				clear_variable = just_claim_icon
+				clear_variable = unjust_claim_icon
+				set_variable = { unjust_claim_icon = 2 }
+				clear_array = ROOT.claimable_states
+				FROM = {
+					every_controlled_state = {
+						limit = {
+							if = {
+								limit = {
+									ROOT = { has_government = fire_culture }
+								}
+								NOT = { has_dynamic_modifier = { modifier = firenation_settlers } }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = earth_culture }
+								}
+								NOT = { has_dynamic_modifier = { modifier = earthkingdom_settlers } }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = water_culture }
+								}
+								NOT = { has_dynamic_modifier = { modifier = watertribe_settlers } }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = air_culture }
+								}
+								NOT = { has_dynamic_modifier = { modifier = airnomad_settlers } }
+							}
+							if = {
+								limit = {
+									ROOT = { has_government = pluralist_culture }
+								}
+								NOT = { has_dynamic_modifier = { modifier = pluralist_settlers } }
+							}
+						}
+						add_to_array = {
+							array = ROOT.claimable_states
+							value = THIS.id
+						}
+					}
+				}
+			}
+
 			select_state_to_claim_click = {
 				add_to_array = {
 					array = ROOT.claimed_states
@@ -13,7 +107,7 @@ scripted_gui = {
 				}
 			}
 
-			state_claim_click = {
+			claim_shine_click = {
 				remove_from_array  = {
 					array = ROOT.claimed_states
 					value = THIS.id
@@ -42,6 +136,14 @@ scripted_gui = {
 					}
 				}
 			}
+			claim_shine_visible = {
+				THIS = {
+					is_in_array = {
+						array = ROOT.claimed_states
+						value = THIS.id
+					}
+				}
+			}
 		}
 
 		properties = {
@@ -51,18 +153,18 @@ scripted_gui = {
 			claimer_country_flag = {
 				image = [ROOT.GetFlag]
 			}
+			just_claim_type = {
+				frame = just_claim_icon
+			}
+			unjust_claim_type = {
+				frame = unjust_claim_icon
+			}
 		}
 
         dynamic_lists = {
 			claimable_states_gridbox = {
-				array = FROM.owned_states
+				array = ROOT.claimable_states
 				entry_container = claimable_states_list_entry
-				change_scope = yes
-			}
-
-			claimed_states_gridbox = {
-				array = ROOT.claimed_states
-				entry_container = claimed_states_list_entry
 				change_scope = yes
 			}
 		}

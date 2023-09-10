@@ -200,6 +200,9 @@ scripted_diplomatic_actions = {
 								modifier = aggressive_behaviours
 							}
 						}
+						ROOT = {
+							add_threat = 1
+						}
 					}
 					add_claim_by = ROOT
 					clear_variable = claim_sender
@@ -233,6 +236,9 @@ scripted_diplomatic_actions = {
 				}
 			}
 			clear_array = ROOT.claimed_states
+			clear_array = ROOT.claimable_states
+			clear_variable = just_claim_icon
+			clear_variable = unjust_claim_icon
 		}
 		can_be_sent = { # send button will be disabled if no
 			always = yes
