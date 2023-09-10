@@ -1,0 +1,235 @@
+
+
+FIR_civil_decision_category = {
+
+	FIR_industrial_aera = {
+
+		icon = FIR_industrial_aera
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			
+		}
+		available = {
+			has_tech = reform_5
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+			}
+		}
+
+		complete_effect = {
+			unlock_decision_category_tooltip = FIR_industrialisation_category
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			set_country_flag = industrialisation_active
+
+
+		}
+
+		cost = 50
+		
+		ai_will_do = {
+			factor = 50
+
+		}
+	
+	}
+
+}
+
+FIR_industrialisation_category = {
+
+	agricultural_modernisation = {
+
+		icon = fire_agriculture
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			
+		}
+
+		fire_only_once = yes
+
+		days_remove = 120
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 1.0 }
+		}
+		custom_cost_text = expenses_1000
+
+		modifier = {
+			expenses_factor = 1.0
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			add_ideas = { FIR_modern_agriculture }
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	factory_longer_shift = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			
+		}
+
+		#fire_only_once = yes
+
+		days_remove = -1
+
+		cost = 75
+
+		modifier = {
+			industrial_capacity_factory = 0.2
+			peasant_opinion = -10
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	factory_longer_shift_remove = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			has_decision = factory_longer_shift
+		}
+		available = {
+			
+		}
+
+		cost = 75
+
+		modifier = {
+			
+		}
+
+		complete_effect = {
+			remove_decision = factory_longer_shift
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	wartime_industry = {
+
+		icon = fire_industry
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			OR = {
+				has_war = yes
+				OR = {
+					has_idea = economy_4
+					has_idea = economy_5
+				}
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 200
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 2.0 }
+		}
+		custom_cost_text = expenses_2000
+
+		modifier = {
+			expenses_factor = 2.0
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			set_country_flag = FIR_funded_war_indstries
+			custom_effect_tooltip = desinger_enable_tt
+			show_ideas_tooltip = fir_wartime_industry_designer
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	attract_private_investors = {
+
+		icon = industry_investment
+
+		allowed = {		
+			tag = FIR
+		}
+		visible = {	
+			
+		}
+		available = {
+			OR = {
+				has_tech = conservative_3
+				has_tech = reform_4
+			}
+		}
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		cost = 75
+
+		complete_effect = {
+			add_ideas = FIR_private_investors
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+}

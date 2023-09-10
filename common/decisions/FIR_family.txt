@@ -533,9 +533,7 @@ FIR_royal_family_category = {
 			}
 		}
 
-		days_remove = 30
-
-		remove_effect = {
+		complete_effect = {
 			add_country_leader_trait = divine_ruler
 
 			unlock_decision_category_tooltip = FIR_civil_decision_category
@@ -550,7 +548,17 @@ FIR_royal_family_category = {
 		cost = 50
 		
 		ai_will_do = {
-			factor = 100
+			factor = 0
+
+			modifier = {
+				add = 100
+				has_global_flag = air_nomad_genocide
+			}
+			modifier = {
+				add = 50
+				
+				has_war = yes
+			}
 		}
 	
 	}

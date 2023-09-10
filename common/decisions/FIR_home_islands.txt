@@ -1,0 +1,375 @@
+
+
+FIR_civil_decision_category = {
+
+	cultural_change = {
+
+		icon = research_boost
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			hidden_trigger = {
+				has_start_date < 13.1.1
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+			}
+		}
+		available = {
+			hidden_trigger = {
+				has_start_date < 13.1.1
+			}
+			NOT = {
+				has_country_flag = fire_industrialisation
+			}
+		}
+
+		complete_effect = {
+			add_tech_bonus = {
+				name = FIR_cultural_change
+				bonus = 1
+				uses = 10
+				category = society_reforms
+			}
+		}
+
+		modifier = {
+			earth_culture_drift = 0.02
+			air_culture_drift = 0.02
+			water_culture_drift = 0.02
+			pluralist_culture_drift = 0.02
+
+			stability_weekly = -0.005
+		}
+
+		remove_effect = {
+			add_ideas = FIR_cultural_change
+		}
+
+		custom_cost_trigger = {
+			has_stability > 0.7
+		}
+		custom_cost_text = stability_70
+		fire_only_once = yes
+		days_remove = 700
+
+		ai_will_do = {
+			factor = 1000
+		}
+	}
+	
+	increase_war_support_with_prosperity = {
+
+		icon = fir_propaganda
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_idea = national_prosperity
+			has_start_date < 13.1.1
+		}
+		available = {
+			OR = {
+				has_war = yes
+				has_idea = ruthless_expansionism
+			}
+			has_idea = national_prosperity
+		}
+
+		days_remove = 30
+
+		modifier = {
+			war_support_weekly = 0.007
+		}
+
+		remove_effect = {
+			add_ideas = FIR_propaganda_1
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	increase_war_support_without_prosperity = {
+
+		icon = fir_propaganda
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+			NOT = {
+				has_idea = national_prosperity
+				has_idea = FIR_propaganda_1
+				has_idea = FIR_propaganda_2
+			}
+		}
+		available = {
+			has_war = yes
+		}
+
+		days_remove = 30
+
+		modifier = {
+			war_support_weekly = 0.007
+		}
+
+		remove_effect = {
+			add_ideas = FIR_propaganda_2
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	the_great_gates = {
+
+		icon = mission_gates
+
+		allowed = {
+			tag = FIR
+		}
+		available = {
+			fire_culture > 0.5
+			enemies_naval_strength_ratio > 0.25
+			has_country_leader_with_trait = personality_cult
+		}
+		visible = {
+			fire_culture > 0.4
+			#not = {
+			#	has_country_flag = great_gate_construction
+			#}
+		}
+
+		days_remove = 168
+
+		modifier = {
+			civilian_factory_use = 4
+		}
+
+		remove_effect = {
+			set_global_flag = great_gates_constructed
+			390 = {
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 8118
+				}
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 10519
+				}
+			}
+			428 = {
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 8229
+				}
+			}
+			418 = {
+				add_building_construction = {
+					type = coastal_fortress
+					level = 4
+					instant_build = yes
+					province = 10519
+				}
+			}
+		}
+
+		cost = 200
+		fire_only_once = yes
+	
+	}
+
+
+
+	##### city development
+
+
+	chung_ling_tradehub = {
+
+		icon = city_development
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+		}
+		available = {
+			224 = {
+				dockyard > 0
+				any_province_building_level = {
+					building = naval_base
+					level > 9
+					province = { 
+						all_provinces = yes
+						limit_to_coastal = yes
+					}
+				}
+			}
+		}
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_state_targets = { state = 224 } 
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			224 = {
+				add_dynamic_modifier = { modifier = trade_hub }
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	chung_ling_prosperous = {
+
+		icon = city_development_2
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_start_date < 13.1.1
+		}
+		available = {
+			224 = {
+				#has_manpower > 8000
+			}
+		}
+
+		on_map_mode = map_only
+		highlight_states = {
+			highlight_state_targets = { state = 224 } 
+		}
+
+		days_remove = 30
+
+		modifier = {
+			
+		}
+
+		remove_effect = {
+			224 = {
+				add_victory_points = {
+					province = 2387
+					value = 25
+				}
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 100
+		}
+	
+	}
+
+	FIR_factory_investment = {
+
+		icon = factory_investment
+		
+		state_target = yes
+
+		allowed = {
+			tag = FIR
+		}
+		
+		target_trigger = {
+			FROM = {
+				is_owned_and_controlled_by = FIR
+				arms_factory > 0
+			}
+		}
+
+		visible = {
+			has_country_flag = fire_industrialisation
+		}
+
+		available = {
+			has_tech = factory_1
+		}
+		
+		highlight_states = {
+			highlight_states_trigger = {
+				state = FROM
+			}
+		}
+
+
+		on_map_mode = map_only
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 2 }
+		}
+		custom_cost_text = expenses_2000
+		
+		days_remove = 120
+		
+		modifier = {
+			expenses_factor = 2
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			FROM = {
+				remove_building = {
+					type = arms_factory
+					level = 1
+				}
+				add_building_construction = {
+					instant_build = yes
+					type = factory
+					level = 1
+				}
+			}
+			add_to_variable = {
+				workless_population_k =  0.1
+				tooltip = workless_tooltip
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+
+	}
+
+}
