@@ -47,29 +47,49 @@ on_actions = {
 
 				set_variable = { farm_output = 2 }
 				set_variable = { farm_output_2 = 1 }
+				add_to_variable = { farm_output = modifier@farm_output }
+				add_to_variable = { farm_output_2 = modifier@farm_output_2 }
 				set_variable = { fishing_stand_output = 2 }
 				set_variable = { fishing_stand_output_2 = 2 }
+				add_to_variable = { fishing_stand_output = modifier@fishing_stand_output }
+				add_to_variable = { fishing_stand_output_2 = modifier@fishing_stand_output_2 }
 				set_variable = { ranch_output = 6 }
 				set_variable = { ranch_output_2 = 3 }
+				add_to_variable = { ranch_output = modifier@rach_output }
+				nadd_to_variable = { ranch_output_2 = modifier@ranch_output_2 }
 				set_variable = { lumber_mill_output = 10 }
+				add_to_variable = { lumber_mill_output = modifier@lumber_mill_output }
 				set_variable = { quarry_output = 6 }
 				set_variable = { quarry_output_2 = 2 }
 				set_variable = { quarry_output_3 = 2 }
+				add_to_variable = { quarry_output = modifier@quarry_output }
+				add_to_variable = { quarry_output_2 = modifier@quarry_output_2 }
+				add_to_variable = { quarry_output_3 = modifier@quarry_output_3 }
 				set_variable = { mine_output1 = 9 }
 				set_variable = { mine_output2 = 1 }
+				add_to_variable = { mine_output1 = modifier@mine_output1 }
+				add_to_variable = { mine_output2 = modifier@mine_output2 }
 				set_variable = { crop_weaving_need = 6 }
 				set_variable = { crop_weaving_output = 10 }
 				set_variable = { crop_weaving_output_2 = 4 }
 				set_variable = { crop_weaving_output_3 = 4 }
+				add_to_variable = { crop_weaving_output = modifier@crop_weaving_output }
+				add_to_variable = { crop_weaving_output_2 = modifier@crop_weaving_output_2 }
+				add_to_variable = { crop_weaving_output_3 = modifier@crop_weaving_output_3 }
 				set_variable = { animal_weaving_need = 6 }
 				set_variable = { animal_weaving_output = 10 }
 				set_variable = { animal_weaving_output_2 = 4 }
 				set_variable = { animal_weaving_output_3 = 4 }
+				add_to_variable = { animal_weaving_output = modifier@animal_weaving_output }
+				add_to_variable = { animal_weaving_output_2 = modifier@animal_weaving_output_2 }
+				add_to_variable = { animal_weaving_output_3 = modifier@animal_weaving_output_3 }
 				set_variable = { mill_need = 4 }
 				set_variable = { mill_output = 4 }
+				add_to_variable = { mill_output = modifier@mill_output }
 				set_variable = { steelworks_need1 = 20 }
 				set_variable = { steelworks_need2 = 1 }
 				set_variable = { steelworks_output = 10 }
+				add_to_variable = { steelworks_output = modifier@steelworks_output }
 
 				set_variable = { smithy_fuel = 50 }
 				set_variable = { steelworks_fuel = 100 }
@@ -79,24 +99,34 @@ on_actions = {
 
 				set_variable = { smithy_output = 1 } # max 3 + 1 base (calculation on_weekly)
 				set_variable = { smithy_output_2 = 2 }
+				add_to_variable = { smithy_output = modifier@smithy_output }
+				add_to_variable = { smithy_output_2 = modifier@smithy_output_2 }
 				set_variable = { factory_output = 8 } # max 12 (0 base)
+				add_to_variable = { factory_output = modifier@factory_output }
 				set_variable = { harbour_output = 1 }
 				set_variable = { dockyard_output = 2 }
 				set_variable = { manufactory_output = 1 } # max 1
 				set_variable = { consumer_good_factory_need1 = 2 }
 				set_variable = { consumer_good_factory_need2 = 2 }
 				set_variable = { consumer_good_factory_output = 4 }
+				add_to_variable = { consumer_good_factory_output = modifier@consumer_good_factory_output }
 				set_variable = { luxury_good_factory_need1 = 2 }
 				set_variable = { luxury_good_factory_need2 = 1 }
 				set_variable = { luxury_good_factory_output = 3 }
+				add_to_variable = { luxury_good_factory_output = modifier@luxury_good_factory_output }
 				set_variable = { carpentry_need = 2 }
 				set_variable = { carpentry_output = 6 }
 				set_variable = { carpentry_output_2 = 3 }
 				set_variable = { carpentry_output_3 = 3 }
+				add_to_variable = { carpentry_output = modifier@carpentry_output }
+				add_to_variable = { carpentry_output_2 = modifier@carpentry_output_2 }
+				add_to_variable = { carpentry_output_3 = modifier@carpentry_output_3 }
 				set_variable = { masonry_need = 2 }
 				set_variable = { masonry_output = 6 }
+				add_to_variable = { masonry_output = modifier@masonry_output }
 				set_variable = { steel_beam_factory_need = 6 }
 				set_variable = { steel_beam_factory_output = 6 }
+				add_to_variable = { steel_beam_factory_output = modifier@steel_beam_factory_output }
 
 				if = {
 					limit = {
@@ -462,817 +492,6 @@ on_actions = {
 					}
 				}
 
-
-				if = {
-					limit = { has_tech = production_1 }
-					add_to_variable = { smithy_output = 1 }
-					if = {
-						limit = { has_tech = production_2 }
-						add_to_variable = { smithy_output = 1 }
-						if = {
-							limit = { has_tech = production_3 }
-							add_to_variable = { smithy_output = 1 }
-							add_to_variable = { smithy_output_2 = 1 }
-							if = {
-								limit = { has_tech = production_4 }
-								add_to_variable = { factory_output = 1 }
-								if = {
-									limit = { has_tech = production_5 }
-									add_to_variable = { factory_output = 1 }
-									if = {
-										limit = { has_tech = production_6 }
-										add_to_variable = { factory_output = 1 }
-										if = {
-											limit = { has_tech = production_7 }
-											add_to_variable = { factory_output = 1 }
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = basic_gathering }
-					add_to_variable = { lumber_mill_output = 2 }
-
-					if = {
-						limit = { has_tech = wood_1 }
-						add_to_variable = { lumber_mill_output = 2 }
-						modify_building_resources = {
-							building = lumber_mill
-							resource = aluminium
-							amount = 2
-						}
-						if = {
-							limit = { has_tech = wood_2 }
-							add_to_variable = { lumber_mill_output = 2 }
-							modify_building_resources = {
-								building = lumber_mill
-								resource = aluminium
-								amount = 2
-							}
-							if = {
-								limit = { has_tech = wood_3 }
-								add_to_variable = { lumber_mill_output = 2 }
-								modify_building_resources = {
-									building = lumber_mill
-									resource = aluminium
-									amount = 2
-								}
-								if = {
-									limit = { has_tech = wood_4 }
-									add_to_variable = { lumber_mill_output = 2 }
-									modify_building_resources = {
-										building = lumber_mill
-										resource = aluminium
-										amount = 2
-									}
-									if = {
-										limit = { has_tech = wood_5 }
-										add_to_variable = { lumber_mill_output = 2 }
-										modify_building_resources = {
-											building = lumber_mill
-											resource = aluminium
-											amount = 2
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = plank_1 }
-					add_to_variable = { carpentry_output = 1 }
-					modify_building_resources = {
-						building = carpentry
-						resource = planks_resource
-						amount = 1
-					}
-					add_to_variable = { carpentry_output_2 = 1 }
-					modify_building_resources = {
-						building = carpentry
-						resource = consumer_goods_resource
-						amount = 1
-					}
-					if = {
-						limit = { has_tech = plank_2 }
-						add_to_variable = { carpentry_output = 1 }
-						modify_building_resources = {
-							building = carpentry
-							resource = planks_resource
-							amount = 1
-						}
-						add_to_variable = { carpentry_output_2 = 1 }
-						modify_building_resources = {
-							building = carpentry
-							resource = consumer_goods_resource
-							amount = 1
-						}
-						if = {
-							limit = { has_tech = plank_3 }
-							add_to_variable = { carpentry_output = 1 }
-							modify_building_resources = {
-								building = carpentry
-								resource = planks_resource
-								amount = 1
-							}
-							add_to_variable = { carpentry_output_2 = 1 }
-							modify_building_resources = {
-								building = carpentry
-								resource = consumer_goods_resource
-								amount = 1
-							}
-							if = {
-								limit = { has_tech = plank_4 }
-								add_to_variable = { carpentry_output = 1 }
-								modify_building_resources = {
-									building = carpentry
-									resource = planks_resource
-									amount = 1
-								}
-								add_to_variable = { carpentry_output_3 = 1 }
-								modify_building_resources = {
-									building = carpentry
-									resource = luxury_goods_resource
-									amount = 1
-								}
-								if = {
-									limit = { has_tech = plank_5 }
-									add_to_variable = { carpentry_output = 1 }
-									modify_building_resources = {
-										building = carpentry
-										resource = planks_resource
-										amount = 1
-									}
-									add_to_variable = { carpentry_output_3 = 1 }
-									modify_building_resources = {
-										building = carpentry
-										resource = luxury_goods_resource
-										amount = 1
-									}
-									if = {
-										limit = { has_tech = plank_6 }
-										add_to_variable = { carpentry_output = 1 }
-										modify_building_resources = {
-											building = carpentry
-											resource = planks_resource
-											amount = 1
-										}
-										add_to_variable = { carpentry_output_3 = 1 }
-										modify_building_resources = {
-											building = carpentry
-											resource = luxury_goods_resource
-											amount = 1
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = stone_1 }
-					add_to_variable = { quarry_output = 3 }
-					modify_building_resources = {
-						building = quarry
-						resource = stone
-						amount = 3
-					}
-					if = {
-						limit = { has_tech = stone_2 }
-						add_to_variable = { quarry_output = 3 }
-						modify_building_resources = {
-							building = quarry
-							resource = stone
-							amount = 3
-						}
-						if = {
-							limit = { has_tech = stone_3 }
-							add_to_variable = { quarry_output = 3 }
-							modify_building_resources = {
-								building = quarry
-								resource = stone
-								amount = 3
-							}
-							if = {
-								limit = { has_tech = stone_4 }
-								add_to_variable = { quarry_output = 3 }
-								modify_building_resources = {
-									building = quarry
-									resource = stone
-									amount = 3
-								}
-								if = {
-									limit = { has_tech = stone_5 }
-									add_to_variable = { quarry_output = 3 }
-									modify_building_resources = {
-										building = quarry
-										resource = stone
-										amount = 3
-									}
-									if = {
-										limit = { has_tech = stone_6 }
-										add_to_variable = { quarry_output = 3 }
-										modify_building_resources = {
-											building = quarry
-											resource = stone
-											amount = 3
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = brick_1 }
-					add_to_variable = { masonry_output = 1 }
-					modify_building_resources = {
-						building = masonry
-						resource = bricks_resource
-						amount = 1
-					}
-					if = {
-						limit = { has_tech = brick_2 }
-						add_to_variable = { masonry_output = 1 }
-						modify_building_resources = {
-							building = masonry
-							resource = bricks_resource
-							amount = 1
-						}
-						if = {
-							limit = { has_tech = brick_3 }
-							add_to_variable = { masonry_output = 1 }
-							modify_building_resources = {
-								building = masonry
-								resource = bricks_resource
-								amount = 1
-							}
-							if = {
-								limit = { has_tech = brick_4 }
-								add_to_variable = { masonry_output = 1 }
-								modify_building_resources = {
-									building = masonry
-									resource = bricks_resource
-									amount = 1
-								}
-								if = {
-									limit = { has_tech = brick_5 }
-									add_to_variable = { masonry_output = 1 }
-									modify_building_resources = {
-										building = masonry
-										resource = bricks_resource
-										amount = 1
-									}
-									if = {
-										limit = { has_tech = brick_6 }
-										add_to_variable = { masonry_output = 1 }
-										modify_building_resources = {
-											building = masonry
-											resource = bricks_resource
-											amount = 1
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = storage_1 }
-					if = {
-						limit = { has_tech = fish_1 }
-						add_to_variable = { fishing_stand_output = 1 }
-						modify_building_resources = {
-							building = fishing_stand
-							resource = food_resource
-							amount = 1
-						}
-					}
-					if = {
-						limit = { has_tech = storage_2 }
-						if = {
-							limit = { has_tech = bread_1 }
-							add_to_variable = { mill_output = 2 }
-							modify_building_resources = {
-								building = mill
-								resource = food_resource
-								amount = 2
-							}
-						}
-						if = {
-							limit = { has_tech = storage_3 }
-							if = {
-								limit = { has_tech = fish_2 }
-								add_to_variable = { fishing_stand_output = 1 }
-								modify_building_resources = {
-									building = fishing_stand
-									resource = food_resource
-									amount = 1
-								}
-							}
-							if = {
-								limit = { has_tech = storage_4 }
-								if = {
-									limit = { has_tech = bread_2 }
-									add_to_variable = { mill_output = 2 }
-									modify_building_resources = {
-										building = mill
-										resource = food_resource
-										amount = 2
-									}
-								}
-								if = {
-									limit = { has_tech = storage_5 }
-									if = {
-										limit = { has_tech = fish_3 }
-										add_to_variable = { fishing_stand_output = 1 }
-										modify_building_resources = {
-											building = fishing_stand
-											resource = food_resource
-											amount = 1
-										}
-									}
-									if = {
-										limit = { has_tech = storage_6 }
-										if = {
-											limit = { has_tech = bread_3 }
-											add_to_variable = { mill_output = 2 }
-											modify_building_resources = {
-												building = mill
-												resource = food_resource
-												amount = 2
-											}
-										}
-										if = {
-											limit = { has_tech = storage_7 }
-											if = {
-												limit = { has_tech = fish_4 }
-												add_to_variable = { fishing_stand_output = 1 }
-												modify_building_resources = {
-													building = fishing_stand
-													resource = food_resource
-													amount = 1
-												}
-											}
-											if = {
-												limit = { has_tech = storage_8 }
-												if = {
-													limit = { has_tech = bread_4 }
-													add_to_variable = { mill_output = 2 }
-													modify_building_resources = {
-														building = mill
-														resource = food_resource
-														amount = 2
-													}
-												}
-											}
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = progressive_resources_0 }
-					add_to_variable = { farm_output = 5 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 5
-					}
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}
-
-				if = {
-					limit = { has_tech = food_1 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}
-				if = {
-					limit = { has_tech = food_2 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}
-				if = {
-					limit = { has_tech = food_3 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}
-				if = {
-					limit = { has_tech = food_4 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}		
-				if = {
-					limit = { has_tech = food_5 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}				
-				if = {
-					limit = { has_tech = food_6 }
-					add_to_variable = { farm_output = 2 }
-					modify_building_resources = {
-						building = farm
-						resource = oil
-						amount = 2
-					}
-
-					add_to_variable = { farm_output_2 = 1 }
-					modify_building_resources = {
-						building = farm
-						resource = food_resource
-						amount = 1
-					}
-				}
-
-
-				if = {
-					limit = { has_tech = textile_1 }
-					add_to_variable = { crop_weaving_output = 3 }
-					add_to_variable = { animal_weaving_output = 3 }
-					modify_building_resources = {
-						building = crop_weaving
-						resource = tungsten
-						amount = 3
-					}
-					modify_building_resources = {
-						building = animal_weaving
-						resource = tungsten
-						amount = 3
-					}
-					if = {
-						limit = { has_tech = textile_2 }
-						add_to_variable = { crop_weaving_output = 3 }
-						add_to_variable = { animal_weaving_output = 3 }
-						modify_building_resources = {
-							building = crop_weaving
-							resource = tungsten
-							amount = 3
-						}
-						modify_building_resources = {
-							building = animal_weaving
-							resource = tungsten
-							amount = 3
-						}
-						if = {
-							limit = { has_tech = textile_3 }
-							add_to_variable = { crop_weaving_output = 3 }
-							add_to_variable = { animal_weaving_output = 3 }
-							modify_building_resources = {
-								building = crop_weaving
-								resource = tungsten
-								amount = 3
-							}
-							modify_building_resources = {
-								building = animal_weaving
-								resource = tungsten
-								amount = 3
-							}
-							if = {
-								limit = { has_tech = textile_4 }
-								add_to_variable = { crop_weaving_output = 3 }
-								add_to_variable = { animal_weaving_output = 3 }
-								modify_building_resources = {
-									building = crop_weaving
-									resource = tungsten
-									amount = 3
-								}
-								modify_building_resources = {
-									building = animal_weaving
-									resource = tungsten
-									amount = 3
-								}
-								if = {
-									limit = { has_tech = textile_5 }
-									add_to_variable = { crop_weaving_output = 3 }
-									add_to_variable = { animal_weaving_output = 3 }
-									modify_building_resources = {
-										building = crop_weaving
-										resource = tungsten
-										amount = 3
-									}
-									modify_building_resources = {
-										building = animal_weaving
-										resource = tungsten
-										amount = 3
-									}
-									if = {
-										limit = { has_tech = textile_6 }
-										add_to_variable = { crop_weaving_output = 3 }
-										add_to_variable = { animal_weaving_output = 3 }
-										modify_building_resources = {
-											building = crop_weaving
-											resource = tungsten
-											amount = 3
-										}
-										modify_building_resources = {
-											building = animal_weaving
-											resource = tungsten
-											amount = 3
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = tanning_1 }
-					add_to_variable = { ranch_output = 2 }
-					modify_building_resources = {
-						building = ranch
-						resource = chromium
-						amount = 2
-					}
-					if = {
-						limit = { has_tech = tanning_2 }
-						add_to_variable = { ranch_output = 2 }
-						modify_building_resources = {
-							building = ranch
-							resource = chromium
-							amount = 2
-						}
-						if = {
-							limit = { has_tech = tanning_3 }
-							add_to_variable = { ranch_output = 2 }
-							modify_building_resources = {
-								building = ranch
-								resource = chromium
-								amount = 2
-							}
-
-							add_to_variable = { ranch_output_2 = 3 }
-							modify_building_resources = {
-								building = ranch
-								resource = food_resource
-								amount = 3
-							}
-							if = {
-								limit = { has_tech = tanning_4 }
-								add_to_variable = { ranch_output = 2 }
-								modify_building_resources = {
-									building = ranch
-									resource = chromium
-									amount = 2
-								}
-								if = {
-									limit = { has_tech = tanning_5 }
-									add_to_variable = { ranch_output = 2 }
-									modify_building_resources = {
-										building = ranch
-										resource = chromium
-										amount = 2
-									}
-									if = {
-										limit = { has_tech = tanning_6 }
-										add_to_variable = { ranch_output = 2 }
-										modify_building_resources = {
-											building = ranch
-											resource = chromium
-											amount = 2
-										}
-
-										add_to_variable = { ranch_output_2 = 3 }
-										modify_building_resources = {
-											building = ranch
-											resource = food_resource
-											amount = 3
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = mining_1 }
-					add_to_variable = { mine_output1 = 1 }
-					modify_building_resources = {
-						building = mine
-						resource = iron
-						amount = 1
-					}
-					if = {
-						limit = { has_tech = mining_2 }
-						add_to_variable = { mine_output1 = 2 }
-						modify_building_resources = {
-							building = mine
-							resource = iron
-							amount = 2
-						}
-						if = {
-							limit = { has_tech = mining_3 }
-							add_to_variable = { mine_output1 = 3 }
-							modify_building_resources = {
-								building = mine
-								resource = iron
-								amount = 3
-							}
-							if = {
-								limit = { has_tech = mining_4 }
-								add_to_variable = { mine_output1 = 4 }
-								modify_building_resources = {
-									building = mine
-									resource = iron
-									amount = 4
-								}
-								if = {
-									limit = { has_tech = mining_5 }
-									add_to_variable = { mine_output1 = 5 }
-									modify_building_resources = {
-										building = mine
-										resource = iron
-										amount = 5
-									}
-									if = {
-										limit = { has_tech = mining_6 }
-										add_to_variable = { mine_output1 = 6 }
-										modify_building_resources = {
-											building = mine
-											resource = iron
-											amount = 6
-										}
-									}
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = mining_c1 }
-					add_to_variable = { mine_output2 = 1 }
-					modify_building_resources = {
-						building = mine
-						resource = rubber
-						amount = 1
-					}
-					if = {
-						limit = { has_tech = mining_c2 }
-						add_to_variable = { mine_output2 = 1 }
-						modify_building_resources = {
-							building = mine
-							resource = rubber
-							amount = 1
-						}
-						if = {
-							limit = { has_tech = mining_c3 }
-							add_to_variable = { mine_output2 = 1 }
-							modify_building_resources = {
-								building = mine
-								resource = rubber
-								amount = 1
-							}
-							if = {
-								limit = { has_tech = mining_c4 }
-								add_to_variable = { mine_output2 = 1 }
-								modify_building_resources = {
-									building = mine
-									resource = rubber
-									amount = 1
-								}
-							}
-						}
-					}
-				}
-				if = {
-					limit = { has_tech = smelting_1 }
-					add_to_variable = { steelworks_output = 2 }
-					modify_building_resources = {
-						building = steelworks
-						resource = steel
-						amount = 2
-					}
-					if = {
-						limit = { has_tech = smelting_2 }
-						add_to_variable = { steelworks_output = 3 }
-						modify_building_resources = {
-							building = steelworks
-							resource = steel
-							amount = 4
-						}
-						if = {
-							limit = { has_tech = smelting_3 }
-							add_to_variable = { steelworks_output = 5 }
-							modify_building_resources = {
-								building = steelworks
-								resource = steel
-								amount = 5
-							}
-							if = {
-								limit = { has_tech = smelting_l1 }
-								add_to_variable = { steelworks_output = 6 }
-								add_to_variable = { steel_beam_factory_output = 3 }
-								modify_building_resources = {
-									building = steelworks
-									resource = steel
-									amount = 6
-								}
-								modify_building_resources = {
-									building = steel_beam_factory
-									resource = steel_beams_resource
-									amount = 3
-								}
-								if = {
-									limit = { has_tech = smelting_l2 }
-									add_to_variable = { steelworks_output = 6 }
-									add_to_variable = { steel_beam_factory_output = 3 }
-									modify_building_resources = {
-										building = steelworks
-										resource = steel
-										amount = 6
-									}
-									modify_building_resources = {
-										building = steel_beam_factory
-										resource = steel_beams_resource
-										amount = 3
-									}
-								}
-							}
-							if = {
-								limit = { has_tech = smelting_r1 }
-								add_to_variable = { steelworks_output = 10 }
-								modify_building_resources = {
-									building = steelworks
-									resource = steel
-									amount = 10
-								}
-								if = {
-									limit = { has_tech = smelting_r2 }
-									add_to_variable = { steelworks_output = 10 }
-									modify_building_resources = {
-										building = steelworks
-										resource = steel
-										amount = 10
-									}
-								}
-							}
-						}
-					}
-				}
 
 			}
 		}
