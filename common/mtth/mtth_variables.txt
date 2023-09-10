@@ -335,7 +335,7 @@ nonbender_factor = {
 bender_pop_bonus = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bender_bonus = 1 }
+		set_temp_variable = { bender_bonus = 0.5 }
 
 		set_temp_variable = { bonus_recruitment_factor = 1 }
 		subtract_from_temp_variable = { bonus_recruitment_factor = modifier@conscription }
@@ -346,7 +346,6 @@ bender_pop_bonus = {
 		}
 
 		multiply_temp_variable = { bender_bonus = bonus_recruitment_factor }
-		multiply_temp_variable = { bender_bonus = 0.5 }
 		
 		add = bender_bonus
 	}
@@ -355,10 +354,10 @@ bender_pop_bonus = {
 bender_pop_bonus_negative = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bender_bonus = -1 }
+		set_temp_variable = { bender_bonus = -0.5 }
 
 		set_temp_variable = { bonus_recruitment_factor = 1 }
-		add_to_temp_variable = { bonus_recruitment_factor = modifier@conscription }
+		subtract_from_temp_variable = { bonus_recruitment_factor = modifier@conscription }
 		clamp_temp_variable = {
 			var = bonus_recruitment_factor
 			min = 0
@@ -366,7 +365,6 @@ bender_pop_bonus_negative = {
 		}
 
 		multiply_temp_variable = { bender_bonus = bonus_recruitment_factor }
-		multiply_temp_variable = { bender_bonus = 0.5 }
 		
 		add = bender_bonus
 	}
