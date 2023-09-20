@@ -1,0 +1,611 @@
+on_actions = {
+
+
+	on_daily = {
+		effect = {
+
+
+			### grain consumption ###
+
+			set_variable = { komodo_consumed = 0.7 }
+			set_variable = { mongooze_consumed = 0.2 }
+			set_variable = { polar_consumed = 0.3 }
+			set_variable = { buffalo_consumed = 0.3 }
+			set_variable = { cat_consumed = 0.2 }
+			set_variable = { walrus_consumed = 0.6 }
+			set_variable = { ostrich_consumed = 0.4 }
+			set_variable = { eel_consumed = 0.2 }
+			set_variable = { elephant_consumed = 1.2 }
+			set_variable = { desert_consumed = 0.1 }
+			set_variable = { dragon_moose_consumed = 0.2 }
+			set_variable = { bison_consumed = 0.8 }
+			set_variable = { bird_consumed = 0.001 }
+
+
+			set_variable = { komodo_grain = num_equipment@komodo_rhino_animal }
+			set_variable = { mongooze_grain = num_equipment@mongooze_lizard_animal }
+			set_variable = { polar_grain = num_equipment@ostrich_horse_animal }
+			set_variable = { buffalo_grain = num_equipment@eel_hound_animal }
+			set_variable = { cat_grain = num_equipment@polar_dog_animal }
+			set_variable = { walrus_grain = num_equipment@buffalo_yak_animal }
+			set_variable = { ostrich_grain = num_equipment@cat_deer_animal }
+			set_variable = { eel_grain = num_equipment@walrus_yak_animal }
+			set_variable = { elephant_grain = num_equipment@desert_bug_animal }
+			set_variable = { desert_grain = num_equipment@elephant_camel_animal }
+			set_variable = { dragon_moose_grain = num_equipment@dragon_moose_animal }
+			set_variable = { bison_grain = num_equipment@bison_equipment_1 }
+			set_variable = { bird_grain = num_equipment@birb_equipment_1 }
+
+
+			add_to_variable = { komodo_grain = num_equipment_in_armies@komodo_rhino_animal }
+			add_to_variable = { mongooze_grain = num_equipment_in_armies@mongooze_lizard_animal }
+			add_to_variable = { polar_grain = num_equipment_in_armies@ostrich_horse_animal }
+			add_to_variable = { buffalo_grain = num_equipment_in_armies@eel_hound_animal }
+			add_to_variable = { cat_grain = num_equipment_in_armies@polar_dog_animal }
+			add_to_variable = { walrus_grain = num_equipment_in_armies@buffalo_yak_animal }
+			add_to_variable = { ostrich_grain = num_equipment_in_armies@cat_deer_animal }
+			add_to_variable = { eel_grain = num_equipment_in_armies@walrus_yak_animal }
+			add_to_variable = { elephant_grain = num_equipment_in_armies@desert_bug_animal }
+			add_to_variable = { desert_grain = num_equipment_in_armies@elephant_camel_animal }
+			add_to_variable = { dragon_moose_grain = num_equipment_in_armies@dragon_moose_animal }
+			add_to_variable = { bison_grain = num_equipment_in_armies@bison_equipment_1 }
+			add_to_variable = { bird_grain = num_equipment_in_armies@birb_equipment_1 }
+
+
+			multiply_variable = { komodo_grain = komodo_consumed }
+			multiply_variable = { mongooze_grain = mongooze_consumed }
+			multiply_variable = { polar_grain = polar_consumed }
+			multiply_variable = { buffalo_grain = buffalo_consumed }
+			multiply_variable = { cat_grain = cat_consumed }
+			multiply_variable = { walrus_grain = walrus_consumed }
+			multiply_variable = { ostrich_grain = ostrich_consumed }
+			multiply_variable = { eel_grain = eel_consumed }
+			multiply_variable = { elephant_grain = elephant_consumed }
+			multiply_variable = { desert_grain = desert_consumed }
+			multiply_variable = { dragon_moose_grain = dragon_moose_consumed }
+			multiply_variable = { bison_grain = bison_consumed }
+			multiply_variable = { bird_grain = bird_consumed }
+
+
+			set_variable = { grain_supply = resource@oil }
+			multiply_variable = { grain_supply = 10 }
+			clamp_variable = {
+				var = grain_supply
+				min = 0.001
+			}
+
+			set_variable = { grain_use = 0 }
+			add_to_variable = { grain_use = komodo_grain }
+			add_to_variable = { grain_use = mongooze_grain }
+			add_to_variable = { grain_use = polar_grain }
+			add_to_variable = { grain_use = buffalo_grain }
+			add_to_variable = { grain_use = cat_grain }
+			add_to_variable = { grain_use = walrus_grain }
+			add_to_variable = { grain_use = ostrich_grain }
+			add_to_variable = { grain_use = eel_grain }
+			add_to_variable = { grain_use = elephant_grain }
+			add_to_variable = { grain_use = desert_grain }
+			add_to_variable = { grain_use = dragon_moose_grain }
+			add_to_variable = { grain_use = bison_grain }
+			add_to_variable = { grain_use = bird_grain }
+
+
+			set_variable = { grain_supply_half = grain_supply }
+			divide_variable = { grain_supply_half = 2 }
+
+			set_variable = { grain_supply_factor = grain_supply_half }
+			subtract_from_variable = { grain_supply_factor = grain_use }
+			divide_variable = { grain_supply_factor = grain_supply }
+			multiply_variable = { grain_supply_factor = 2 }
+
+
+			set_variable = { grain_breeding_effect = 1 }
+			add_to_variable = { grain_breeding_effect = grain_supply_factor }
+
+			if = {
+				limit = {
+					check_variable = {
+						var = grain_breeding_effect
+						value = 0
+						compare = greater_than_or_equals
+					}
+				}
+				set_variable = { breeding_icon = 3 }
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = grain_breeding_effect
+						value = 0
+						compare = less_than_or_equals
+					}
+				}
+				set_variable = { breeding_icon = 2 }
+			}
+
+
+			set_variable = { komodo_cap = grain_supply }
+			set_variable = { mongooze_cap = grain_supply }
+			set_variable = { polar_cap = grain_supply }
+			set_variable = { buffalo_cap = grain_supply }
+			set_variable = { cat_cap = grain_supply }
+			set_variable = { walrus_cap = grain_supply }
+			set_variable = { ostrich_cap = grain_supply }
+			set_variable = { eel_cap = grain_supply }
+			set_variable = { elephant_cap = grain_supply }
+			set_variable = { desert_cap = grain_supply }
+			set_variable = { dragon_moose_cap = grain_supply }
+			set_variable = { bison_cap = grain_supply }
+			set_variable = { bird_cap = grain_supply }
+
+
+			divide_variable = { komodo_cap = komodo_consumed }
+			divide_variable = { mongooze_cap = mongooze_consumed }
+			divide_variable = { polar_cap = polar_consumed }
+			divide_variable = { buffalo_cap = buffalo_consumed }
+			divide_variable = { cat_cap = cat_consumed }
+			divide_variable = { walrus_cap = walrus_consumed }
+			divide_variable = { ostrich_cap = ostrich_consumed }
+			divide_variable = { eel_cap = eel_consumed }
+			divide_variable = { elephant_cap = elephant_consumed }
+			divide_variable = { desert_cap = desert_consumed }
+			divide_variable = { dragon_moose_cap = dragon_moose_consumed }
+			divide_variable = { bison_cap = bison_consumed }
+			divide_variable = { bird_cap = bird_consumed }
+
+			divide_variable = { komodo_cap = 13 }
+			divide_variable = { mongooze_cap = 13 }
+			divide_variable = { polar_cap = 13 }
+			divide_variable = { buffalo_cap = 13 }
+			divide_variable = { cat_cap = 13 }
+			divide_variable = { walrus_cap = 13 }
+			divide_variable = { ostrich_cap = 13 }
+			divide_variable = { eel_cap = 13 }
+			divide_variable = { elephant_cap = 13 }
+			divide_variable = { desert_cap = 13 }
+			divide_variable = { dragon_moose_cap = 13 }
+			divide_variable = { bison_cap = 13 }
+			divide_variable = { bird_cap = 13 }
+
+			add_to_variable = { komodo_cap = num_equipment_in_armies@komodo_rhino_animal }
+			add_to_variable = { mongooze_cap = num_equipment_in_armies@mongooze_lizard_animal }
+			add_to_variable = { polar_cap = num_equipment_in_armies@ostrich_horse_animal }
+			add_to_variable = { buffalo_cap = num_equipment_in_armies@eel_hound_animal }
+			add_to_variable = { cat_cap = num_equipment_in_armies@polar_dog_animal }
+			add_to_variable = { walrus_cap = num_equipment_in_armies@buffalo_yak_animal }
+			add_to_variable = { ostrich_cap = num_equipment_in_armies@cat_deer_animal }
+			add_to_variable = { eel_cap = num_equipment_in_armies@walrus_yak_animal }
+			add_to_variable = { elephant_cap = num_equipment_in_armies@desert_bug_animal }
+			add_to_variable = { desert_cap = num_equipment_in_armies@elephant_camel_animal }
+			add_to_variable = { dragon_moose_cap = num_equipment_in_armies@dragon_moose_animal }
+			add_to_variable = { bison_cap = num_equipment_in_armies@bison_equipment_1 }
+			add_to_variable = { bird_cap = num_equipment_in_armies@birb_equipment_1 }
+
+
+			subtract_from_variable = { komodo_cap = num_equipment@komodo_rhino_animal }
+			subtract_from_variable = { mongooze_cap = num_equipment@mongooze_lizard_animal }
+			subtract_from_variable = { polar_cap = num_equipment@ostrich_horse_animal }
+			subtract_from_variable = { buffalo_cap = num_equipment@eel_hound_animal }
+			subtract_from_variable = { cat_cap = num_equipment@polar_dog_animal }
+			subtract_from_variable = { walrus_cap = num_equipment@buffalo_yak_animal }
+			subtract_from_variable = { ostrich_cap = num_equipment@cat_deer_animal }
+			subtract_from_variable = { eel_cap = num_equipment@walrus_yak_animal }
+			subtract_from_variable = { elephant_cap = num_equipment@desert_bug_animal }
+			subtract_from_variable = { desert_cap = num_equipment@elephant_camel_animal }
+			subtract_from_variable = { dragon_moose_cap = num_equipment@dragon_moose_animal }
+			subtract_from_variable = { bison_cap = num_equipment@bison_equipment_1 }
+			subtract_from_variable = { bird_cap = num_equipment@birb_equipment_1 }
+
+			clamp_variable = {
+				var = komodo_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = mongooze_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = polar_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = buffalo_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = cat_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = walrus_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = ostrich_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = eel_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = elephant_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = desert_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = dragon_moose_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = bison_cap
+				min = 0
+			}
+			clamp_variable = {
+				var = bird_cap
+				min = 0
+			}
+
+
+
+			#### breeding effect ####
+
+
+			set_variable = { komodo_breeding = 0 }
+			set_variable = { mongooze_breeding = 0 }
+			set_variable = { polar_breeding = 0 }
+			set_variable = { buffalo_breeding = 0 }
+			set_variable = { cat_breeding = 0 }
+			set_variable = { walrus_breeding = 0 }
+			set_variable = { ostrich_breeding = 0 }
+			set_variable = { eel_breeding = 0 }
+			set_variable = { elephant_breeding = 0 }
+			set_variable = { desert_breeding = 0 }
+			set_variable = { dragon_moose_breeding = 0 }
+			set_variable = { bison_breeding = 0 }
+			set_variable = { bird_breeding = 0 }
+
+			set_variable = { komodo_growth = 10 }
+			set_variable = { mongooze_growth = 10 }
+			set_variable = { polar_growth = 10 }
+			set_variable = { buffalo_growth = 10 }
+			set_variable = { cat_growth = 10 }
+			set_variable = { walrus_growth = 10 }
+			set_variable = { ostrich_growth = 10 }
+			set_variable = { eel_growth = 10 }
+			set_variable = { elephant_growth = 10 }
+			set_variable = { desert_growth = 10 }
+			set_variable = { dragon_moose_growth = 10 }
+			set_variable = { bison_growth = 10 }
+			set_variable = { bird_growth = 10 }
+
+
+			every_controlled_state = {
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = komodo_herd }
+					}
+					add_to_variable = { controller:komodo_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = mongooze_herd }
+					}
+					add_to_variable = { controller:mongooze_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = polar_herd }
+					}
+					add_to_variable = { controller:polar_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = buffalo_herd }
+					}
+					add_to_variable = { controller:buffalo_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = cat_herd }
+					}
+					add_to_variable = { controller:cat_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = walrus_herd }
+					}
+					add_to_variable = { controller:walrus_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = ostrich_herd }
+					}
+					add_to_variable = { controller:ostrich_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = eel_herd }
+					}
+					add_to_variable = { controller:eel_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = elephant_herd }
+					}
+					add_to_variable = { controller:elephant_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = desert_herd }
+					}
+					add_to_variable = { controller:desert_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = dragon_moose_herd }
+					}
+					add_to_variable = { controller:dragon_moose_breeding = building_level@ranch }
+				}
+				if = {
+					limit = {
+						has_dynamic_modifier = { modifier = bison_herd }
+					}
+					add_to_variable = { controller:bison_breeding = building_level@air_base }
+				}
+				add_to_variable = { controller:bird_breeding = building_level@air_base }
+			}
+
+
+			#multiply_variable = { komodo_breeding = 30 }
+			#multiply_variable = { mongooze_breeding = 30 }
+			#multiply_variable = { polar_breeding = 30 }
+			#multiply_variable = { buffalo_breeding = 30 }
+			#multiply_variable = { cat_breeding = 30 }
+			#multiply_variable = { walrus_breeding = 30 }
+			#multiply_variable = { ostrich_breeding = 30 }
+			#multiply_variable = { eel_breeding = 30 }
+			#multiply_variable = { elephant_breeding = 30 }
+			#multiply_variable = { desert_breeding = 30 }
+			#multiply_variable = { dragon_moose_breeding = 30 }
+			#multiply_variable = { bison_breeding = 30 }
+			#multiply_variable = { bird_breeding = 30 }
+
+			multiply_variable = { komodo_breeding = mtth:animal_breeding }
+			multiply_variable = { mongooze_breeding = mtth:animal_breeding }
+			multiply_variable = { polar_breeding = mtth:animal_breeding }
+			multiply_variable = { buffalo_breeding = mtth:animal_breeding }
+			multiply_variable = { cat_breeding = mtth:animal_breeding }
+			multiply_variable = { walrus_breeding = mtth:animal_breeding }
+			multiply_variable = { ostrich_breeding = mtth:animal_breeding }
+			multiply_variable = { eel_breeding = mtth:animal_breeding }
+			multiply_variable = { elephant_breeding = mtth:animal_breeding }
+			multiply_variable = { desert_breeding = mtth:animal_breeding }
+			multiply_variable = { dragon_moose_breeding = mtth:animal_breeding }
+			multiply_variable = { bison_breeding = mtth:animal_breeding }
+			multiply_variable = { bird_breeding = mtth:animal_breeding }
+
+			multiply_variable = { komodo_breeding = grain_breeding_effect }
+			multiply_variable = { mongooze_breeding = grain_breeding_effect }
+			multiply_variable = { polar_breeding = grain_breeding_effect }
+			multiply_variable = { buffalo_breeding = grain_breeding_effect }
+			multiply_variable = { cat_breeding = grain_breeding_effect }
+			multiply_variable = { walrus_breeding = grain_breeding_effect }
+			multiply_variable = { ostrich_breeding = grain_breeding_effect }
+			multiply_variable = { eel_breeding = grain_breeding_effect }
+			multiply_variable = { elephant_breeding = grain_breeding_effect }
+			multiply_variable = { desert_breeding = grain_breeding_effect }
+			multiply_variable = { dragon_moose_breeding = grain_breeding_effect }
+			multiply_variable = { bison_breeding = grain_breeding_effect }
+			multiply_variable = { bird_breeding = grain_breeding_effect }
+
+			multiply_variable = { komodo_growth = grain_breeding_effect }
+			multiply_variable = { mongooze_growth = grain_breeding_effect }
+			multiply_variable = { polar_growth = grain_breeding_effect }
+			multiply_variable = { buffalo_growth = grain_breeding_effect }
+			multiply_variable = { cat_growth = grain_breeding_effect }
+			multiply_variable = { walrus_growth = grain_breeding_effect }
+			multiply_variable = { ostrich_growth = grain_breeding_effect }
+			multiply_variable = { eel_growth = grain_breeding_effect }
+			multiply_variable = { elephant_growth = grain_breeding_effect }
+			multiply_variable = { desert_growth = grain_breeding_effect }
+			multiply_variable = { dragon_moose_growth = grain_breeding_effect }
+			multiply_variable = { bison_growth = grain_breeding_effect }
+			multiply_variable = { bird_growth = grain_breeding_effect }
+
+			clamp_variable = {
+				var = komodo_breeding
+				max = komodo_cap
+			}
+			clamp_variable = {
+				var = mongooze_breeding
+				max = mongooze_cap
+			}
+			clamp_variable = {
+				var = polar_breeding
+				max = polar_cap
+			}
+			clamp_variable = {
+				var = buffalo_breeding
+				max = buffalo_cap
+			}
+			clamp_variable = {
+				var = cat_breeding
+				max = cat_cap
+			}
+			clamp_variable = {
+				var = walrus_breeding
+				max = walrus_cap
+			}
+			clamp_variable = {
+				var = ostrich_breeding
+				max = ostrich_cap
+			}
+			clamp_variable = {
+				var = eel_breeding
+				max = eel_cap
+			}
+			clamp_variable = {
+				var = elephant_breeding
+				max = elephant_cap
+			}
+			clamp_variable = {
+				var = desert_breeding
+				max = desert_cap
+			}
+			clamp_variable = {
+				var = dragon_moose_breeding
+				max = dragon_moose_cap
+			}
+			clamp_variable = {
+				var = bison_breeding
+				max = bison_cap
+			}
+			clamp_variable = {
+				var = bird_breeding
+				max = bird_cap
+			}
+
+			clamp_variable = {
+				var = komodo_growth
+				max = komodo_breeding
+			}
+			clamp_variable = {
+				var = mongooze_growth
+				max = mongooze_breeding
+			}
+			clamp_variable = {
+				var = polar_growth
+				max = polar_breeding
+			}
+			clamp_variable = {
+				var = buffalo_growth
+				max = buffalo_breeding
+			}
+			clamp_variable = {
+				var = cat_growth
+				max = cat_breeding
+			}
+			clamp_variable = {
+				var = walrus_growth
+				max = walrus_breeding
+			}
+			clamp_variable = {
+				var = ostrich_growth
+				max = ostrich_breeding
+			}
+			clamp_variable = {
+				var = eel_growth
+				max = eel_breeding
+			}
+			clamp_variable = {
+				var = elephant_growth
+				max = elephant_breeding
+			}
+			clamp_variable = {
+				var = desert_growth
+				max = desert_breeding
+			}
+			clamp_variable = {
+				var = dragon_moose_growth
+				max = dragon_moose_breeding
+			}
+			clamp_variable = {
+				var = bison_growth
+				max = bison_breeding
+			}
+			clamp_variable = {
+				var = bird_growth
+				max = bird_breeding
+			}
+
+
+			round_variable = komodo_growth
+			round_variable = mongooze_growth
+			round_variable = polar_growth
+			round_variable = buffalo_growth
+			round_variable = cat_growth
+			round_variable = walrus_growth
+			round_variable = ostrich_growth
+			round_variable = eel_growth
+			round_variable = elephant_growth
+			round_variable = desert_growth
+			round_variable = dragon_moose_growth
+			round_variable = bison_growth
+			round_variable = bird_growth
+
+
+			add_equipment_to_stockpile = {
+				type = komodo_rhino_animal
+				amount = var:komodo_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = mongooze_lizard_animal
+				amount = var:mongooze_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = ostrich_horse_animal
+				amount = var:ostrich_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = eel_hound_animal
+				amount = var:eel_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = polar_dog_animal
+				amount = var:polar_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = buffalo_yak_animal
+				amount = var:buffalo_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = cat_deer_animal
+				amount = var:cat_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = walrus_yak_animal
+				amount = var:walrus_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = desert_bug_animal
+				amount = var:desert_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = elephant_camel_animal
+				amount = var:elephant_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = dragon_moose_animal
+				amount = var:dragon_moose_growth
+				producer = ROOT
+			}
+
+			add_equipment_to_stockpile = {
+				type = bison_equipment_1
+				amount = var:bison_growth
+				producer = ROOT
+			}
+			add_equipment_to_stockpile = {
+				type = birb_equipment_1
+				amount = var:bird_growth
+				producer = ROOT
+			}
+
+		}
+	}
+
+}

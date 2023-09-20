@@ -464,3 +464,20 @@ get_mission_cap = {
 		add = missions
 	}
 }
+
+
+
+
+animal_breeding = {
+	base = 0
+	modifier = {
+		set_temp_variable = { breeding = 1 }
+		add_to_temp_variable = { breeding = modifier@animal_breeding_factor }
+		clamp_temp_variable = {
+			var = breeding
+			min = 0
+		}
+		
+		add = breeding
+	}
+}

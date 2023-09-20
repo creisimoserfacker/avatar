@@ -1,4 +1,38 @@
 
+
+remove_old_modifier = {
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = fire_nation }
+		}
+		remove_dynamic_modifier = { modifier = fire_nation}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = earth_nation }
+		}
+		remove_dynamic_modifier = { modifier = earth_nation}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = water_nation }
+		}
+		remove_dynamic_modifier = { modifier = water_nation}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = air_nation }
+		}
+		remove_dynamic_modifier = { modifier = air_nation}
+	}
+	if = {
+		limit = {
+			has_dynamic_modifier = { modifier = pluralist_nation }
+		}
+		remove_dynamic_modifier = { modifier = pluralist_nation}
+	}
+}
+
 national_culture_recalc = {
 	every_core_state = {
 		add_to_temp_variable = { national_fire_pop = fire_pop }
@@ -25,51 +59,71 @@ national_culture_recalc = {
 		limit = { 
 			check_variable = { national_fire_pop = highest_national_bender_pop }
 		}
-		add_dynamic_modifier = { modifier = fire_nation }
-		remove_dynamic_modifier = { modifier = earth_nation}
-		remove_dynamic_modifier = { modifier = water_nation }
-		remove_dynamic_modifier = { modifier = air_nation }
-		remove_dynamic_modifier = { modifier = pluralist_nation }
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = fire_nation }
+				}
+			}
+			remove_old_modifier = yes
+			add_dynamic_modifier = { modifier = fire_nation }
+		}
 	}
 	if = { 
 		limit = { 
 			check_variable = { national_earth_pop = highest_national_bender_pop }
 		}
-		remove_dynamic_modifier = { modifier = fire_nation }
-		add_dynamic_modifier = { modifier = earth_nation }
-		remove_dynamic_modifier = { modifier = water_nation }
-		remove_dynamic_modifier = { modifier = air_nation }
-		remove_dynamic_modifier = { modifier = pluralist_nation }
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = earth_nation }
+				}
+			}
+			remove_old_modifier = yes
+			add_dynamic_modifier = { modifier = earth_nation }
+		}
 	}
 	if = { 
 		limit = { 
 			check_variable = { national_water_pop = highest_national_bender_pop }
 		}
-		remove_dynamic_modifier = { modifier = fire_nation }
-		remove_dynamic_modifier = { modifier = earth_nation}
-		add_dynamic_modifier = { modifier = water_nation }
-		remove_dynamic_modifier = { modifier = air_nation }
-		remove_dynamic_modifier = { modifier = pluralist_nation }
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = water_nation }
+				}
+			}
+			remove_old_modifier = yes
+			add_dynamic_modifier = { modifier = water_nation }
+		}
 	}
 	if = { 
 		limit = { 
 			check_variable = { national_air_pop = highest_national_bender_pop }
 		}
-		remove_dynamic_modifier = { modifier = fire_nation }
-		remove_dynamic_modifier = { modifier = earth_nation}
-		remove_dynamic_modifier = { modifier = water_nation }
-		add_dynamic_modifier = { modifier = air_nation }
-		remove_dynamic_modifier = { modifier = pluralist_nation }
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = air_nation }
+				}
+			}
+			remove_old_modifier = yes
+			add_dynamic_modifier = { modifier = air_nation }
+		}
 	}
 	if = { 
 		limit = { 
 			check_variable = { national_nonbender_pop = highest_national_bender_pop }
 		}
-		remove_dynamic_modifier = { modifier = fire_nation }
-		remove_dynamic_modifier = { modifier = earth_nation}
-		remove_dynamic_modifier = { modifier = water_nation }
-		remove_dynamic_modifier = { modifier = air_nation }
-		add_dynamic_modifier = { modifier = pluralist_nation }
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = pluralist_nation }
+				}
+			}
+			remove_old_modifier = yes
+			add_dynamic_modifier = { modifier = pluralist_nation }
+		}
 	}
 }
 
