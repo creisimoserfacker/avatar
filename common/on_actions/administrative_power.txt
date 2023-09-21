@@ -1,0 +1,36 @@
+
+on_actions = {
+
+	on_daily = {
+		effect = {
+
+			set_temp_variable = { current_pp = political_power }
+
+			set_variable = { next_pp = political_power }
+			add_to_variable = { next_pp = political_power_daily }
+
+			clamp_temp_variable = { 
+				var = current_pp
+				min = -500
+				max = mtth:pp_cap
+			}
+			if = {
+				limit = {
+					check_variable = { 
+						var = next_pp 
+						value = mtth:pp_cap
+						compare = greater_than_or_equals
+					}
+				}
+				add_dynamic_modifier = { modifier = political_power_cap }
+				set_political_power = mtth:pp_cap
+			}
+			else = {
+				set_political_power = current_pp
+			}
+			
+			
+		}
+	}
+
+}
