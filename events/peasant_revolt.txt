@@ -43,10 +43,9 @@ country_event = {
 			
 			if = {
 				limit = {
-					OR = {
-						has_idea = distrusting_peasants
-						has_idea = angered_peasants
-						has_idea = enraged_peasants
+					custom_trigger_tooltip = {
+						tooltip = angry_peasants_ttp
+						check_variable = { modifier@peasant_opinion < 0 }
 					}
 				}
 				activate_mission = peasant_initiate_uprising

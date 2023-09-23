@@ -1,10 +1,68 @@
 on_actions = {
 
-	on_weekly = {
+	on_startup = {
 
 		effect = {
-			peasant_opinion_recalc = yes
-			nobility_opinion_recalc = yes
+			every_country = {
+				if = {
+					limit = {
+						NOT = {
+							has_dynamic_modifier = { modifier = peasant_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = peasant_dynamic_modifier }
+				}
+
+				if = {
+					limit = {
+						NOT = {
+							has_dynamic_modifier = { modifier = nobility_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = nobility_dynamic_modifier }
+				}
+
+				if = {
+					limit = {
+						NOT = {
+							has_dynamic_modifier = { modifier = academics_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = academics_dynamic_modifier }
+				}
+			}
+		}
+	}
+
+	on_monthly = {
+
+		effect = {
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = peasant_dynamic_modifier }
+					}
+				}
+				add_dynamic_modifier = { modifier = peasant_dynamic_modifier }
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = nobility_dynamic_modifier }
+					}
+				}
+				add_dynamic_modifier = { modifier = nobility_dynamic_modifier }
+			}
+
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = academics_dynamic_modifier }
+					}
+				}
+				add_dynamic_modifier = { modifier = academics_dynamic_modifier }
+			}
 		}
 	}
 
