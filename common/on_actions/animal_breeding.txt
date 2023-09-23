@@ -24,14 +24,14 @@ on_actions = {
 
 			set_variable = { komodo_grain = num_equipment@komodo_rhino_animal }
 			set_variable = { mongooze_grain = num_equipment@mongooze_lizard_animal }
-			set_variable = { polar_grain = num_equipment@ostrich_horse_animal }
-			set_variable = { buffalo_grain = num_equipment@eel_hound_animal }
-			set_variable = { cat_grain = num_equipment@polar_dog_animal }
-			set_variable = { walrus_grain = num_equipment@buffalo_yak_animal }
-			set_variable = { ostrich_grain = num_equipment@cat_deer_animal }
-			set_variable = { eel_grain = num_equipment@walrus_yak_animal }
-			set_variable = { elephant_grain = num_equipment@desert_bug_animal }
-			set_variable = { desert_grain = num_equipment@elephant_camel_animal }
+			set_variable = { polar_grain = num_equipment@polar_dog_animal }
+			set_variable = { buffalo_grain = num_equipment@buffalo_yak_animal }
+			set_variable = { cat_grain = num_equipment@cat_deer_animal }
+			set_variable = { walrus_grain = num_equipment@walrus_yak_animal }
+			set_variable = { ostrich_grain = num_equipment@ostrich_horse_animal }
+			set_variable = { eel_grain = num_equipment@eel_hound_animal }
+			set_variable = { elephant_grain = num_equipment@elephant_camel_animal }
+			set_variable = { desert_grain = num_equipment@desert_bug_animal }
 			set_variable = { dragon_moose_grain = num_equipment@dragon_moose_animal }
 			set_variable = { bison_grain = num_equipment@bison_equipment_1 }
 			set_variable = { bird_grain = num_equipment@birb_equipment_1 }
@@ -39,14 +39,14 @@ on_actions = {
 
 			add_to_variable = { komodo_grain = num_equipment_in_armies@komodo_rhino_animal }
 			add_to_variable = { mongooze_grain = num_equipment_in_armies@mongooze_lizard_animal }
-			add_to_variable = { polar_grain = num_equipment_in_armies@ostrich_horse_animal }
-			add_to_variable = { buffalo_grain = num_equipment_in_armies@eel_hound_animal }
-			add_to_variable = { cat_grain = num_equipment_in_armies@polar_dog_animal }
-			add_to_variable = { walrus_grain = num_equipment_in_armies@buffalo_yak_animal }
-			add_to_variable = { ostrich_grain = num_equipment_in_armies@cat_deer_animal }
-			add_to_variable = { eel_grain = num_equipment_in_armies@walrus_yak_animal }
-			add_to_variable = { elephant_grain = num_equipment_in_armies@desert_bug_animal }
-			add_to_variable = { desert_grain = num_equipment_in_armies@elephant_camel_animal }
+			add_to_variable = { polar_grain = num_equipment_in_armies@polar_dog_animal }
+			add_to_variable = { buffalo_grain = num_equipment_in_armies@buffalo_yak_animal }
+			add_to_variable = { cat_grain = num_equipment_in_armies@cat_deer_animal }
+			add_to_variable = { walrus_grain = num_equipment_in_armies@walrus_yak_animal }
+			add_to_variable = { ostrich_grain = num_equipment_in_armies@ostrich_horse_animal }
+			add_to_variable = { eel_grain = num_equipment_in_armies@eel_hound_animal }
+			add_to_variable = { elephant_grain = num_equipment_in_armies@elephant_camel_animal }
+			add_to_variable = { desert_grain = num_equipment_in_armies@desert_bug_animal }
 			add_to_variable = { dragon_moose_grain = num_equipment_in_armies@dragon_moose_animal }
 			add_to_variable = { bison_grain = num_equipment_in_armies@bison_equipment_1 }
 			add_to_variable = { bird_grain = num_equipment_in_armies@birb_equipment_1 }
@@ -74,6 +74,7 @@ on_actions = {
 				min = 0.001
 			}
 
+
 			set_variable = { grain_use = 0 }
 			add_to_variable = { grain_use = komodo_grain }
 			add_to_variable = { grain_use = mongooze_grain }
@@ -90,17 +91,40 @@ on_actions = {
 			add_to_variable = { grain_use = bird_grain }
 
 
-			set_variable = { grain_supply_half = grain_supply }
-			divide_variable = { grain_supply_half = 2 }
+			set_variable = { grain_balance = grain_supply }
+			subtract_from_variable = { grain_balance = grain_use }
 
-			set_variable = { grain_supply_factor = grain_supply_half }
+			add_to_variable = { grain_variable = grain_balance }
+
+
+			### capacity
+
+			set_variable = { grain_max = 0 }
+			add_to_variable = { grain_max = owned_controlled_states }
+			multiply_variable = { grain_max = 100 }
+			set_temp_variable = { grain_storage = modifier@max_grain_building_k }
+			add_to_variable = { grain_max = grain_storage }
+			set_temp_variable = { grain_capacity_factor = 1 }
+			add_to_temp_variable = { grain_capacity_factor = modifier@grain_capacity_factor }
+			multiply_variable = { grain_max = grain_capacity_factor }
+
+			clamp_variable = { 
+				var = grain_variable 
+				min = 0 
+				max = grain_max
+			}
+
+			set_variable = { grain_ratio_percent = grain_variable }
+			divide_variable = { grain_ratio_percent = grain_max }
+
+
+			### breeding effects
+
+			set_variable = { grain_supply_factor = grain_variable }
 			subtract_from_variable = { grain_supply_factor = grain_use }
-			divide_variable = { grain_supply_factor = grain_supply }
-			multiply_variable = { grain_supply_factor = 2 }
+			divide_variable = { grain_supply_factor = grain_max }
 
-
-			set_variable = { grain_breeding_effect = 1 }
-			add_to_variable = { grain_breeding_effect = grain_supply_factor }
+			set_variable = { grain_breeding_effect = grain_supply_factor }
 
 			if = {
 				limit = {
