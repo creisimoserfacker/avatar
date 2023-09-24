@@ -9,6 +9,24 @@ on_actions = {
 			set_variable = { next_pp = political_power }
 			add_to_variable = { next_pp = political_power_daily }
 
+			if = {
+				limit = {
+					check_variable = { 
+						var = political_power_daily 
+						value = 0
+						compare = not_equals
+					}
+				}
+				set_variable = { pp_cap_remove = pp_cap_remove }
+				add_to_variable = { pp_cap_remove = political_power_daily }
+
+				set_variable = { pp_cap_clamp = political_power_daily }
+				clamp_variable = { 
+					var = pp_cap_remove
+					max = pp_cap_clamp
+				}
+			}
+
 			clamp_temp_variable = { 
 				var = current_pp
 				min = -500

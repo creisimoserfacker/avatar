@@ -53,7 +53,11 @@ scripted_gui = {
 					base = 0
 
 					modifier = {
-						check_variable = { knowledge_variable > 100}
+						check_variable = { 
+							var = knowledge_variable 
+							value = 100
+							compare = greater_than_or_equals
+						}
 						NOT = {
 							has_country_flag = all_inventions_made
 						}
@@ -93,35 +97,55 @@ scripted_gui = {
 
 			measurements_1_visible = { AND = { not = { has_tech = measurements } check_variable = { tech_age < 1 } } }
 			measurements_2_click_enabled = { not = { has_tech = measurements } 
-				check_variable = { knowledge_variable > @AGE_1_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_1_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			measurements_2_visible = { not = { has_tech = measurements } }
 			measurements_3_visible = { has_tech = measurements }
 
 			gravity_1_visible = { AND = { not = { has_tech = gravity } check_variable = { tech_age < 1 } } }
 			gravity_2_click_enabled = { not = { has_tech = gravity } 
-				check_variable = { knowledge_variable > @AGE_1_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_1_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			gravity_2_visible = { not = { has_tech = gravity } }
 			gravity_3_visible = { has_tech = gravity }
 
 			smelting_1_visible = { AND = { not = { has_tech = smelting } check_variable = { tech_age < 1 } } }
 			smelting_2_click_enabled = { not = { has_tech = smelting } 
-				check_variable = { knowledge_variable > @AGE_1_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_1_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			smelting_2_visible = { not = { has_tech = smelting } }
 			smelting_3_visible = { has_tech = smelting }
 
 			domestication_1_visible = { AND = { not = { has_tech = domestication } check_variable = { tech_age < 1 } } }
 			domestication_2_click_enabled = { not = { has_tech = domestication } 
-				check_variable = { knowledge_variable > @AGE_1_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_1_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			domestication_2_visible = { not = { has_tech = domestication } }
 			domestication_3_visible = { has_tech = domestication }
 
 			metaphysics_1_visible = { AND = { not = { has_tech = metaphysics } check_variable = { tech_age < 1 } } }
 			metaphysics_2_click_enabled = { not = { has_tech = metaphysics } 
-				check_variable = { knowledge_variable > @AGE_1_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_1_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			metaphysics_2_visible = { not = { has_tech = metaphysics } }
 			metaphysics_3_visible = { has_tech = metaphysics }
@@ -131,35 +155,55 @@ scripted_gui = {
 
 			geometry_1_visible = { AND = { not = { has_tech = geometry } check_variable = { tech_age < 2 } } }
 			geometry_2_click_enabled = { not = { has_tech = geometry } 
-				check_variable = { knowledge_variable > @AGE_2_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_2_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			geometry_2_visible = { not = { has_tech = geometry } }
 			geometry_3_visible = { has_tech = geometry }
 
 			astronomy_1_visible = { AND = { not = { has_tech = astronomy } check_variable = { tech_age < 2 } } }
 			astronomy_2_click_enabled = { not = { has_tech = astronomy } 
-				check_variable = { knowledge_variable > @AGE_2_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_2_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			astronomy_2_visible = { not = { has_tech = astronomy } }
 			astronomy_3_visible = { has_tech = astronomy }
 
 			alchemy_1_visible = { AND = { not = { has_tech = alchemy } check_variable = { tech_age < 2 } } }
 			alchemy_2_click_enabled = { not = { has_tech = alchemy } 
-				check_variable = { knowledge_variable > @AGE_2_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_2_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			alchemy_2_visible = { not = { has_tech = alchemy } }
 			alchemy_3_visible = { has_tech = alchemy }
 
 			agriculture_1_visible = { AND = { not = { has_tech = agriculture } check_variable = { tech_age < 2 } } }
 			agriculture_2_click_enabled = { not = { has_tech = agriculture } 
-				check_variable = { knowledge_variable > @AGE_2_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_2_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			agriculture_2_visible = { not = { has_tech = agriculture } }
 			agriculture_3_visible = { has_tech = agriculture }
 
 			writing_1_visible = { AND = { not = { has_tech = writing } check_variable = { tech_age < 2 } } }
 			writing_2_click_enabled = { not = { has_tech = writing } 
-				check_variable = { knowledge_variable > @AGE_2_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_2_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			writing_2_visible = { not = { has_tech = writing } }
 			writing_3_visible = { has_tech = writing }
@@ -168,35 +212,55 @@ scripted_gui = {
 
 			arithmetics_1_visible = { AND = { not = { has_tech = arithmetics } check_variable = { tech_age < 3 } } }
 			arithmetics_2_click_enabled = { not = { has_tech = arithmetics } 
-				check_variable = { knowledge_variable > @AGE_3_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_3_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			arithmetics_2_visible = { not = { has_tech = arithmetics } }
 			arithmetics_3_visible = { has_tech = arithmetics }
 
 			thermodynamics_1_visible = { AND = { not = { has_tech = thermodynamics } check_variable = { tech_age < 3 } } }
 			thermodynamics_2_click_enabled = { not = { has_tech = thermodynamics } 
-				check_variable = { knowledge_variable > @AGE_3_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_3_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			thermodynamics_2_visible = { not = { has_tech = thermodynamics } }
 			thermodynamics_3_visible = { has_tech = thermodynamics }
 
 			conservation_of_mass_1_visible = { AND = { not = { has_tech = conservation_of_mass } check_variable = { tech_age < 3 } } }
 			conservation_of_mass_2_click_enabled = { not = { has_tech = conservation_of_mass } 
-				check_variable = { knowledge_variable > @AGE_3_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_3_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			conservation_of_mass_2_visible = { not = { has_tech = conservation_of_mass } }
 			conservation_of_mass_3_visible = { has_tech = conservation_of_mass }
 
 			botanics_1_visible = { AND = { not = { has_tech = botanics } check_variable = { tech_age < 3 } } }
 			botanics_2_click_enabled = { not = { has_tech = botanics } 
-				check_variable = { knowledge_variable > @AGE_3_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_3_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			botanics_2_visible = { not = { has_tech = botanics } }
 			botanics_3_visible = { has_tech = botanics }
 
 			natural_philosophy_1_visible = { AND = { not = { has_tech = natural_philosophy } check_variable = { tech_age < 3 } } }
 			natural_philosophy_2_click_enabled = { not = { has_tech = natural_philosophy } 
-				check_variable = { knowledge_variable > @AGE_3_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_3_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			natural_philosophy_2_visible = { not = { has_tech = natural_philosophy } }
 			natural_philosophy_3_visible = { has_tech = natural_philosophy }
@@ -205,35 +269,55 @@ scripted_gui = {
 
 			statistics_1_visible = { AND = { not = { has_tech = statistics } check_variable = { tech_age < 4 } } }
 			statistics_2_click_enabled = { not = { has_tech = statistics } 
-				check_variable = { knowledge_variable > @AGE_4_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_4_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			statistics_2_visible = { not = { has_tech = statistics } }
 			statistics_3_visible = { has_tech = statistics }
 
 			aerodynamics_1_visible = { AND = { not = { has_tech = aerodynamics } check_variable = { tech_age < 4 } } }
 			aerodynamics_2_click_enabled = { not = { has_tech = aerodynamics } 
-				check_variable = { knowledge_variable > @AGE_4_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_4_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			aerodynamics_2_visible = { not = { has_tech = aerodynamics } }
 			aerodynamics_3_visible = { has_tech = aerodynamics }
 
 			thermochemistry_1_visible = { AND = { not = { has_tech = thermochemistry } check_variable = { tech_age < 4 } } }
 			thermochemistry_2_click_enabled = { not = { has_tech = thermochemistry } 
-				check_variable = { knowledge_variable > @AGE_4_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_4_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			thermochemistry_2_visible = { not = { has_tech = thermochemistry } }
 			thermochemistry_3_visible = { has_tech = thermochemistry }
 
 			heal_practices_1_visible = { AND = { not = { has_tech = heal_practices } check_variable = { tech_age < 4 } } }
 			heal_practices_2_click_enabled = { not = { has_tech = heal_practices } 
-				check_variable = { knowledge_variable > @AGE_4_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_4_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			heal_practices_2_visible = { not = { has_tech = heal_practices } }
 			heal_practices_3_visible = { has_tech = heal_practices }
 
 			printing_press_1_visible = { AND = { not = { has_tech = printing_press } check_variable = { tech_age < 4 } } }
 			printing_press_2_click_enabled = { not = { has_tech = printing_press } 
-				check_variable = { knowledge_variable > @AGE_4_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_4_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			printing_press_2_visible = { not = { has_tech = printing_press } }
 			printing_press_3_visible = { has_tech = printing_press }
@@ -242,35 +326,55 @@ scripted_gui = {
 
 			applied_mathematics_1_visible = { AND = { not = { has_tech = applied_mathematics } check_variable = { tech_age < 5 } } }
 			applied_mathematics_2_click_enabled = { not = { has_tech = applied_mathematics } 
-				check_variable = { knowledge_variable > @AGE_5_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_5_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			applied_mathematics_2_visible = { not = { has_tech = applied_mathematics } }
 			applied_mathematics_3_visible = { has_tech = applied_mathematics }
 
 			engines_1_visible = { AND = { not = { has_tech = engines } check_variable = { tech_age < 5 } } }
 			engines_2_click_enabled = { not = { has_tech = engines } 
-				check_variable = { knowledge_variable > @AGE_5_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_5_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			engines_2_visible = { not = { has_tech = engines } }
 			engines_3_visible = { has_tech = engines }
 
 			atomic_theory_1_visible = { AND = { not = { has_tech = atomic_theory } check_variable = { tech_age < 5 } } }
 			atomic_theory_2_click_enabled = { not = { has_tech = atomic_theory } 
-				check_variable = { knowledge_variable > @AGE_5_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_5_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			atomic_theory_2_visible = { not = { has_tech = atomic_theory } }
 			atomic_theory_3_visible = { has_tech = atomic_theory }
 
 			genetics_1_visible = { AND = { not = { has_tech = genetics } check_variable = { tech_age < 5 } } }
 			genetics_2_click_enabled = { not = { has_tech = genetics } 
-				check_variable = { knowledge_variable > @AGE_5_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_5_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			genetics_2_visible = { not = { has_tech = genetics } }
 			genetics_3_visible = { has_tech = genetics }
 
 			scientific_method_1_visible = { AND = { not = { has_tech = scientific_method } check_variable = { tech_age < 5 } } }
 			scientific_method_2_click_enabled = { not = { has_tech = scientific_method } 
-				check_variable = { knowledge_variable > @AGE_5_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_5_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			scientific_method_2_visible = { not = { has_tech = scientific_method } }
 			scientific_method_3_visible = { has_tech = scientific_method }
@@ -279,35 +383,55 @@ scripted_gui = {
 
 			abstract_mathematics_1_visible = { AND = { not = { has_tech = abstract_mathematics } check_variable = { tech_age < 6 } } }
 			abstract_mathematics_2_click_enabled = { not = { has_tech = abstract_mathematics } 
-				check_variable = { knowledge_variable > @AGE_6_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_6_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			abstract_mathematics_2_visible = { not = { has_tech = abstract_mathematics } }
 			abstract_mathematics_3_visible = { has_tech = abstract_mathematics }
 
 			electromagnetism_1_visible = { AND = { not = { has_tech = electromagnetism } check_variable = { tech_age < 6 } } }
 			electromagnetism_2_click_enabled = { not = { has_tech = electromagnetism } 
-				check_variable = { knowledge_variable > @AGE_6_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_6_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			electromagnetism_2_visible = { not = { has_tech = electromagnetism } }
 			electromagnetism_3_visible = { has_tech = electromagnetism }
 
 			periodic_table_1_visible = { AND = { not = { has_tech = periodic_table } check_variable = { tech_age < 6 } } }
 			periodic_table_2_click_enabled = { not = { has_tech = periodic_table } 
-				check_variable = { knowledge_variable > @AGE_6_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_6_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			periodic_table_2_visible = { not = { has_tech = periodic_table } }
 			periodic_table_3_visible = { has_tech = periodic_table }
 
 			biochemistry_1_visible = { AND = { not = { has_tech = biochemistry } check_variable = { tech_age < 6 } } }
 			biochemistry_2_click_enabled = { not = { has_tech = biochemistry } 
-				check_variable = { knowledge_variable > @AGE_6_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_6_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			biochemistry_2_visible = { not = { has_tech = biochemistry } }
 			biochemistry_3_visible = { has_tech = biochemistry }
 
 			social_sience_1_visible = { AND = { not = { has_tech = social_sience } check_variable = { tech_age < 6 } } }
 			social_sience_2_click_enabled = { not = { has_tech = social_sience } 
-				check_variable = { knowledge_variable > @AGE_6_COST }
+				check_variable = { 
+					var = knowledge_variable 
+					value = @AGE_6_COST 
+					compare = greater_than_or_equals
+				}
 			}
 			social_sience_2_visible = { not = { has_tech = social_sience } }
 			social_sience_3_visible = { has_tech = social_sience }
@@ -582,65 +706,95 @@ scripted_gui = {
 		ai_test_variance = 0.5
 
 		ai_weights = {
-			domestication_0_2_click = {
-				ai_will_do = {factor = 80}
+			measurements_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			domestication_1_2_click = {
-				ai_will_do = {factor = 80}
+			gravity_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			domestication_2_2_click = {
-				ai_will_do = {factor = 80}
+			smelting_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			the_wheel_2_click = {
-				ai_will_do = {factor = 80}
+			domestication_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			basic_gear_2_click = {
-				ai_will_do = {factor = 80}
+			metaphysics_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			advanced_gear_2_click = {
-				ai_will_do = {factor = 80}
+			geometry_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			steam_engine_2_click = {
-				ai_will_do = {factor = 80}
+			astronomy_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			improved_coal_engine_2_click = {
-				ai_will_do = {factor = 80}
+			alchemy_2_click = {
+				ai_will_do = { factor = 100 }
 			}
-			modern_engine_2_click = {
-				ai_will_do = {factor = 80}
-			}	
-			aerodynamics_2_click = {
-				ai_will_do = {factor = 80}
+			agriculture_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			writing_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			arithmetics_2_click = {
+				ai_will_do = { factor = 100 }
 			}
 			thermodynamics_2_click = {
-				ai_will_do = {factor = 80}
+				ai_will_do = { factor = 100 }
 			}
-			candles_2_click = {
-				ai_will_do = {factor = 80}
-			}
-			ink_2_click = {
-				ai_will_do = {factor = 80}
-			}
-			libraries_2_click = {
-				ai_will_do = {factor = 80}
-			}
-			basic_tool_making_2_click ={
-				ai_will_do = {factor = 80}
-			}
-			metal_processing_2_click = {
-				ai_will_do = {factor = 80}
-			}
-			steelmaking_2_click = {
-				ai_will_do = {factor = 80}
-			}
-			plow_2_click = {
-				ai_will_do = {factor = 80}
+			conservation_of_mass_2_click = {
+				ai_will_do = { factor = 100 }
 			}
 			botanics_2_click = {
-				ai_will_do = {factor = 80}
+				ai_will_do = { factor = 100 }
+			}
+			natural_philosophy_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			statistics_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			aerodynamics_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			thermochemistry_2_click = {
+				ai_will_do = { factor = 100 }
 			}
 			heal_practices_2_click = {
-				ai_will_do = {factor = 80}
+				ai_will_do = { factor = 100 }
+			}
+			printing_press_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			applied_mathematics_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			engines_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			atomic_theory_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			genetics_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			scientific_method_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			abstract_mathematics_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			electromagnetism_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			periodic_table_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			biochemistry_2_click = {
+				ai_will_do = { factor = 100 }
+			}
+			social_sience_2_click = {
+				ai_will_do = { factor = 100 }
 			}
 
 			close_button_click = {

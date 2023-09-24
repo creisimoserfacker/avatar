@@ -1,24 +1,71 @@
 
-RECRUITMENT_fire_bender_only = {
+RECRUITMENT_bender_only = {
 
 	allowed = {
 		always = yes
 	}
 	enable = {
-		has_idea = fire_benders_only
+		OR = {
+			has_idea = fire_benders_only
+			has_idea = earth_benders_only
+			has_idea = water_benders_only
+			has_idea = air_benders_only
+		}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = role_ratio
-		id = firebenders
+		id = benders_only
 		value = 1000
 	}
 
 	ai_strategy = {
 		type = role_ratio
 		id = combined_arms
-		value = 500
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = defender
+		value = -100
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = garrison
+		value = -100
+	}
+}
+
+RECRUITMENT_exceptional = {
+
+	allowed = {
+		always = yes
+	}
+	enable = {
+		has_idea = fire_exceptional
+		has_idea = earth_exceptional
+		has_idea = water_exceptional
+	}
+	abort_when_not_enabled = yes
+
+	ai_strategy = {
+		type = role_ratio
+		id = benders_only
+		value = 800
+	}
+	ai_strategy = {
+		type = role_ratio
+		id = non_bender
+		value = 50
+	}
+
+	ai_strategy = {
+		type = role_ratio
+		id = combined_arms
+		value = 200
 	}
 
 	ai_strategy = {

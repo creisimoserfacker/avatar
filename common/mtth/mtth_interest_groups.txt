@@ -220,3 +220,32 @@ academics_research = {
 		add = -0.1
 	}
 }
+
+academics_law_cost = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@academics_opinion > 9 }
+		add = -0.05
+	}
+	modifier = {
+		check_variable = { modifier@academics_opinion > 14 }
+		add = -0.1
+	}
+	modifier = {
+		check_variable = { modifier@academics_opinion > 24 }
+		add = -0.15
+	}
+
+	modifier = {
+		check_variable = { modifier@academics_opinion < -9 }
+		add = 0.05
+	}
+	modifier = {
+		check_variable = { modifier@academics_opinion < -14 }
+		add = 0.1
+	}
+	modifier = {
+		check_variable = { modifier@academics_opinion < -24 }
+		add = 0.15
+	}
+}
