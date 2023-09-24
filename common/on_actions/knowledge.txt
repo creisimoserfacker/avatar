@@ -37,7 +37,12 @@ on_actions = {
 
 			add_to_variable = { knowledge_variable = knowledge_daily }
 
-	
+			set_variable = { knowledge_cap = modifier@knowledge_cap }
+			clamp_variable = { 
+				var = knowledge_variable 
+				min = 0 
+				max = knowledge_cap
+			}
 
 
 
