@@ -65,6 +65,7 @@ technologies = {
 		
 		political_power_gain = 0.3
 		max_command_power = 10
+		academics_opinion = 5
 		
 		research_cost = 2.5
 		#start_year = 5
@@ -111,6 +112,7 @@ technologies = {
 		
 		political_power_gain = 0.2
 		expenses_factor = -0.1
+		clergy_opinion = 5
 		
 		research_cost = 2.5
 		#start_year = 5
@@ -719,6 +721,7 @@ technologies = {
 		
 		political_power_gain = 0.5
 		industry_air_damage_factor = -0.1
+		#academics_opinion = 5
 		
 		research_cost = 2.5
 		#start_year = 36
@@ -765,6 +768,7 @@ technologies = {
 		
 		political_power_gain = 0.4
 		war_stability_factor = 0.15
+		#clergy_opinion = 5
 		
 		research_cost = 2.5
 		#start_year = 36
@@ -795,6 +799,7 @@ technologies = {
 	
 		production_factory_start_efficiency_factor = 0.02
 		line_change_production_efficiency_factor = 0.04
+		labourers_opinion = 2
 		
 		research_cost = 2.5
 		#start_year = 40
@@ -824,6 +829,7 @@ technologies = {
 	progressive_resources_2 = {
 	
 		local_resources_factor = 0.12
+		peasant_opinion = 2
 
 		research_cost = 2.5
 		#start_year = 40
@@ -854,6 +860,10 @@ technologies = {
 			leads_to_tech = reform_3
 			research_cost_coeff = 1
 		}
+
+		on_research_complete = {
+			add_dynamic_modifier = { modifier = academics_dynamic_modifier }
+		}
 		
 		political_power_gain = 0.1
 		research_speed_factor = 0.06
@@ -879,12 +889,15 @@ technologies = {
 			society_reforms
 			society_progressive
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	conservative_economy_2 = {
 		
 		production_factory_efficiency_gain_factor = 0.04
 		production_factory_max_efficiency_factor = 0.025
+		peasant_opinion = 2
 		
 		research_cost = 2.5
 		#start_year = 40
@@ -915,6 +928,7 @@ technologies = {
 
 		local_resources_factor = 0.06
 		peasant_output_factor = 0.12
+		nobility_opinion = 2
 
 		research_cost = 2.5
 		#start_year = 40
@@ -949,6 +963,10 @@ technologies = {
 			leads_to_tech = reform_3
 			research_cost_coeff = 1
 		}
+
+		on_research_complete = {
+			add_dynamic_modifier = { modifier = clergy_dynamic_modifier }
+		}
 		
 		expenses_factor = -0.2
 		research_speed_factor = 0.04
@@ -976,6 +994,8 @@ technologies = {
 			society_reforms
 			society_conservative
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	reform_3 = {
@@ -1035,7 +1055,10 @@ technologies = {
 			conservative_3
 		}
 		
-		nobility_opinion = -10
+		on_research_complete = {
+			remove_dynamic_modifier = { modifier = nobility_dynamic_modifier }
+		}
+		
 		peasant_opinion = 5
 		political_power_gain = 0.7
 		party_popularity_stability_factor = 0.10
@@ -1063,6 +1086,8 @@ technologies = {
 			society_reforms
 			society_progressive
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	conservative_3 = {
@@ -1117,6 +1142,7 @@ technologies = {
 		production_factory_start_efficiency_factor = 0.02
 		line_change_production_efficiency_factor = 0.04
 		currency_amount = 0.05
+		industrialist_opinion = -5
 		
 		research_cost = 2.5
 		#start_year = 56
@@ -1211,6 +1237,7 @@ technologies = {
 		production_factory_efficiency_gain_factor = 0.04
 		production_factory_max_efficiency_factor = 0.025
 		currency_amount = -0.05
+		industrialist_opinion = 5
 		
 		research_cost = 2.5
 		#start_year = 56
@@ -1312,6 +1339,13 @@ technologies = {
 			leads_to_tech = conservative_4
 			research_cost_coeff = 1
 		}
+
+		on_research_complete_limit = {
+			has_tech = progressive_3
+		}
+		on_research_complete = {
+			add_dynamic_modifier = { modifier = industrialist_dynamic_modifier }
+		}
 		
 		production_factory_max_efficiency_factor = 0.05
 		global_building_slots_factor = 0.14
@@ -1344,6 +1378,8 @@ technologies = {
 
 			society_reforms
 		}	
+
+		show_effect_as_desc = yes
 	}
 	
 	progressive_4 = {
@@ -1367,6 +1403,9 @@ technologies = {
 		political_power_gain = 0.6
 		refit_ic_cost = -0.5
 		equipment_conversion_speed = 0.2
+		labourers_opinion = 3
+		industrialist_opinion = 3
+		academics_opinion = 3
 		
 		research_cost = 2.5
 		#start_year = 68
@@ -1414,6 +1453,9 @@ technologies = {
 		political_power_gain = 0.5
 		industry_free_repair_factor = 0.2
 		expenses_factor = -0.5
+		peasant_opinion = 3
+		nobility_opinion = 3
+		clergy_opinion = 3
 		
 		research_cost = 2.5
 		#start_year = 68

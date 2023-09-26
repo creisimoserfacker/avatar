@@ -7,6 +7,9 @@ on_actions = {
 				if = {
 					limit = {
 						NOT = {
+							check_variable = { epmployed_percentage > 0.5 }
+						}
+						NOT = {
 							has_dynamic_modifier = { modifier = peasant_dynamic_modifier }
 						}
 					}
@@ -16,6 +19,9 @@ on_actions = {
 				if = {
 					limit = {
 						NOT = {
+							has_tech = progressive_3 
+						}
+						NOT = {
 							has_dynamic_modifier = { modifier = nobility_dynamic_modifier }
 						}
 					}
@@ -24,11 +30,42 @@ on_actions = {
 
 				if = {
 					limit = {
+						check_variable = { epmployed_percentage > 0.5 }
+						NOT = {
+							has_dynamic_modifier = { modifier = labourers_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = labourers_dynamic_modifier }
+				}
+
+				if = {
+					limit = {
+						has_tech = progressive_3
+						has_tech = reform_4
+						NOT = {
+							has_dynamic_modifier = { modifier = industrialist_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = industrialist_dynamic_modifier }
+				}
+
+				if = {
+					limit = {
+						has_tech = progressive_education_2
 						NOT = {
 							has_dynamic_modifier = { modifier = academics_dynamic_modifier }
 						}
 					}
 					add_dynamic_modifier = { modifier = academics_dynamic_modifier }
+				}
+				if = {
+					limit = {
+						has_tech = conservative_education_2
+						NOT = {
+							has_dynamic_modifier = { modifier = clergy_dynamic_modifier }
+						}
+					}
+					add_dynamic_modifier = { modifier = clergy_dynamic_modifier }
 				}
 			}
 		}
@@ -40,6 +77,9 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = {
+						check_variable = { epmployed_percentage > 0.5 }
+					}
+					NOT = {
 						has_dynamic_modifier = { modifier = peasant_dynamic_modifier }
 					}
 				}
@@ -49,6 +89,9 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = {
+						has_tech = progressive_3 
+					}
+					NOT = {
 						has_dynamic_modifier = { modifier = nobility_dynamic_modifier }
 					}
 				}
@@ -57,11 +100,46 @@ on_actions = {
 
 			if = {
 				limit = {
+					check_variable = { epmployed_percentage > 0.5 }
 					NOT = {
-						has_dynamic_modifier = { modifier = academics_dynamic_modifier }
+						has_dynamic_modifier = { modifier = labourers_dynamic_modifier }
+					}
+				}
+				add_dynamic_modifier = { modifier = labourers_dynamic_modifier }
+			}
+
+			if = {
+				limit = {
+					has_tech = progressive_3
+					has_tech = reform_4
+					NOT = {
+						has_dynamic_modifier = { modifier = industrialist_dynamic_modifier }
+					}
+				}
+				add_dynamic_modifier = { modifier = industrialist_dynamic_modifier }
+			}
+
+			if = {
+				limit = {
+					AND = {
+						has_tech = progressive_education_2
+						NOT = {
+							has_dynamic_modifier = { modifier = academics_dynamic_modifier }
+						}
 					}
 				}
 				add_dynamic_modifier = { modifier = academics_dynamic_modifier }
+			}
+			if = {
+				limit = {
+					AND = {
+						has_tech = conservative_education_2
+						NOT = {
+							has_dynamic_modifier = { modifier = clergy_dynamic_modifier }
+						}
+					}
+				}
+				add_dynamic_modifier = { modifier = clergy_dynamic_modifier }
 			}
 		}
 	}

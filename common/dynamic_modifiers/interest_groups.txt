@@ -4,24 +4,83 @@ peasant_dynamic_modifier = {
 			
 	enable = { always = yes }
 
-	stability_factor = mtth:peasant_stability
+	remove_trigger = {
+		check_variable = { epmployed_percentage > 0.5 }
+	}
+
+	#stability_factor = mtth:peasant_stability
 	peasant_output_factor = mtth:peasant_output
 	revolt_risk = mtth:peasant_revolt_risk
+}
+
+labourers_dynamic_modifier = {
+			
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = {
+			check_variable = { epmployed_percentage > 0.5 }
+		}
+	}
+
+	stability_factor = mtth:labourers_stability
+	local_resources_factor = mtth:labourers_output
 }
 
 nobility_dynamic_modifier = {
 			
 	enable = { always = yes }
 
-	political_power_gain = mtth:nobility_political_power
-	peoples_initiative = mtth:nobility_investment
+	remove_trigger = {
+		has_tech = progressive_3
+	}
+
+	political_power_factor = mtth:nobility_political_power
+	unit_quality_target = mtth:nobility_unit_quality
 }
+
+industrialist_dynamic_modifier = {
+			
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = {
+			has_tech = progressive_3
+			has_tech = reform_4
+		}
+	}
+
+	peoples_initiative = mtth:industrialist_investment
+	production_factory_max_efficiency_factor = mtth:industrialist_production
+}
+
 
 academics_dynamic_modifier = {
 			
 	enable = { always = yes }
 
+	remove_trigger = {
+		NOT = {
+			has_tech = progressive_education_2
+		}
+		has_tech = conservative_education_2
+	}
+
 	knowledge = mtth:academics_knowledge
 	research_speed_factor = mtth:academics_research
-	education_laws_cost_factor = mtth:academics_law_cost
+}
+
+clergy_dynamic_modifier = {
+			
+	enable = { always = yes }
+
+	remove_trigger = {
+		NOT = {
+			has_tech = conservative_education_2
+		}
+		has_tech = progressive_education_2
+	}
+
+	bender_target = mtth:clergy_bender
+	education_laws_cost_factor = mtth:clergy_law_cost
 }

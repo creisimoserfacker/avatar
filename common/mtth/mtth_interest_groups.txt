@@ -68,28 +68,28 @@ peasant_revolt_risk = {
 	base = 0
 	modifier = {
 		check_variable = { modifier@peasant_opinion > 9 }
-		add = 0.05
+		add = -0.05
 	}
 	modifier = {
 		check_variable = { modifier@peasant_opinion > 14 }
-		add = 0.1
+		add = -0.1
 	}
 	modifier = {
 		check_variable = { modifier@peasant_opinion > 24 }
-		add = 0.1
+		add = -0.1
 	}
 
 	modifier = {
 		check_variable = { modifier@peasant_opinion < -9 }
-		add = -0.05
+		add = 0.05
 	}
 	modifier = {
 		check_variable = { modifier@peasant_opinion < -14 }
-		add = -0.1
+		add = 0.1
 	}
 	modifier = {
 		check_variable = { modifier@peasant_opinion < -24 }
-		add = -0.1
+		add = 0.1
 	}
 }
 
@@ -103,32 +103,32 @@ nobility_political_power = {
 	base = 0
 	modifier = {
 		check_variable = { modifier@nobility_opinion > 9 }
-		add = 0.2
+		add = 0.05
 	}
 	modifier = {
 		check_variable = { modifier@nobility_opinion > 14 }
-		add = 0.2
+		add = 0.1
 	}
 	modifier = {
 		check_variable = { modifier@nobility_opinion > 24 }
-		add = 0.2
+		add = 0.1
 	}
 
 	modifier = {
 		check_variable = { modifier@nobility_opinion < -9 }
-		add = -0.2
+		add = -0.05
 	}
 	modifier = {
 		check_variable = { modifier@nobility_opinion < -14 }
-		add = -0.2
+		add = -0.1
 	}
 	modifier = {
 		check_variable = { modifier@nobility_opinion < -24 }
-		add = -0.2
+		add = -0.1
 	}
 }
 
-nobility_investment = {
+nobility_unit_quality = {
 	base = 0
 	modifier = {
 		check_variable = { modifier@nobility_opinion > 9 }
@@ -154,6 +154,162 @@ nobility_investment = {
 	modifier = {
 		check_variable = { modifier@nobility_opinion < -24 }
 		add = -0.1
+	}
+}
+
+
+###############################
+#### labourers
+###############################
+
+
+labourers_stability = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 9 }
+		add = 0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 14 }
+		add = 0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 24 }
+		add = 0.1
+	}
+
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -9 }
+		add = -0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -14 }
+		add = -0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -24 }
+		add = -0.1
+	}
+}
+
+labourers_output = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 9 }
+		add = 0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 14 }
+		add = 0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 24 }
+		add = 0.1
+	}
+
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -9 }
+		add = -0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -14 }
+		add = -0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -24 }
+		add = -0.1
+	}
+}
+
+labourers_revolt_risk = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 9 }
+		add = 0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 14 }
+		add = 0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion > 24 }
+		add = 0.1
+	}
+
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -9 }
+		add = -0.05
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -14 }
+		add = -0.1
+	}
+	modifier = {
+		check_variable = { modifier@labourers_opinion < -24 }
+		add = -0.1
+	}
+}
+
+
+##############################
+####  industrialist
+#############################
+
+industrialist_investment = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 9 }
+		add = 0.2
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 14 }
+		add = 0.2
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 24 }
+		add = 0.2
+	}
+
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -9 }
+		add = -0.2
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -14 }
+		add = -0.2
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -24 }
+		add = -0.2
+	}
+}
+
+industrialist_production = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 9 }
+		add = 0.02
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 14 }
+		add = 0.03
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion > 24 }
+		add = 0.05
+	}
+
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -9 }
+		add = -0.02
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -14 }
+		add = -0.03
+	}
+	modifier = {
+		check_variable = { modifier@industrialist_opinion < -24 }
+		add = -0.05
 	}
 }
 
@@ -221,31 +377,65 @@ academics_research = {
 	}
 }
 
-academics_law_cost = {
+
+##############################
+####  clergy
+#############################
+
+clergy_bender = {
 	base = 0
 	modifier = {
-		check_variable = { modifier@academics_opinion > 9 }
+		check_variable = { modifier@clergy_opinion > 9 }
+		add = 0.025
+	}
+	modifier = {
+		check_variable = { modifier@clergy_opinion > 14 }
+		add = 0.025
+	}
+	modifier = {
+		check_variable = { modifier@clergy_opinion > 24 }
+		add = 0.025
+	}
+
+	modifier = {
+		check_variable = { modifier@clergy_opinion < -9 }
+		add = -0.02
+	}
+	modifier = {
+		check_variable = { modifier@clergy_opinion < -14 }
+		add = -0.02
+	}
+	modifier = {
+		check_variable = { modifier@clergy_opinion < -24 }
+		add = -0.02
+	}
+}
+
+clergy_law_cost = {
+	base = 0
+	modifier = {
+		check_variable = { modifier@clergy_opinion > 9 }
 		add = -0.05
 	}
 	modifier = {
-		check_variable = { modifier@academics_opinion > 14 }
+		check_variable = { modifier@clergy_opinion > 14 }
 		add = -0.1
 	}
 	modifier = {
-		check_variable = { modifier@academics_opinion > 24 }
+		check_variable = { modifier@clergy_opinion > 24 }
 		add = -0.15
 	}
 
 	modifier = {
-		check_variable = { modifier@academics_opinion < -9 }
+		check_variable = { modifier@clergy_opinion < -9 }
 		add = 0.05
 	}
 	modifier = {
-		check_variable = { modifier@academics_opinion < -14 }
+		check_variable = { modifier@clergy_opinion < -14 }
 		add = 0.1
 	}
 	modifier = {
-		check_variable = { modifier@academics_opinion < -24 }
+		check_variable = { modifier@clergy_opinion < -24 }
 		add = 0.15
 	}
 }
