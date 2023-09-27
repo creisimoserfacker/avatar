@@ -1,0 +1,76 @@
+FIR_army_up = {
+	if = {
+		limit = {
+			has_idea = FIR_army_navy_balanced
+		}
+		swap_ideas = {
+			remove_idea = FIR_army_navy_balanced
+			add_idea = FIR_army_strengthened
+		}
+	}
+	if = {
+		limit = {
+			has_idea = FIR_army_strengthened
+		}
+		swap_ideas = {
+			remove_idea = FIR_army_strengthened
+			add_idea = FIR_army_superior
+		}
+	}
+	if = {
+		limit = {
+			has_idea = FIR_navy_strengthened
+		}
+		swap_ideas = {
+			remove_idea = FIR_navy_strengthened
+			add_idea = FIR_army_navy_balanced
+		}
+	}
+	if = {
+		limit = { 
+			has_idea = FIR_navy_superior
+		}
+		swap_ideas = {
+			remove_idea = FIR_navy_superior
+			add_idea = FIR_navy_strengthened
+		}
+	}
+}
+FIR_navy_up = {
+	if = {
+		limit = {
+			has_idea = FIR_army_navy_balanced
+		}
+		swap_ideas = {
+			remove_idea = FIR_army_navy_balanced
+			add_idea = FIR_navy_strengthened
+		}
+	}
+	if = {
+		limit = {
+			has_idea = FIR_army_strengthened
+		}
+		swap_ideas = {
+			remove_idea = FIR_army_strengthened
+			add_idea = FIR_army_navy_balanced
+		}
+	}
+	if = {
+		limit = {
+			has_idea = FIR_navy_strengthened
+		}
+		swap_ideas = {
+			remove_idea = FIR_navy_strengthened
+			add_idea = FIR_navy_superior
+		}
+	}
+	if = {
+		limit = { 
+			has_idea = FIR_army_superior
+		}
+		swap_ideas = {
+			remove_idea = FIR_army_superior
+			add_idea = FIR_army_strengthened
+		}
+	}
+}
