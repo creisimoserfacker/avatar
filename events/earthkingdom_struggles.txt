@@ -679,18 +679,7 @@ country_event = {
 					}
 				}
 				ROOT = {
-					if = {
-						limit = {
-							has_dlc = "Together for Victory"
-						}
-						set_autonomy = {
-							target = PREV.THIS
-							autonomous_state = autonomy_kingdom
-						}
-						else = {
-							puppet = PREV.THIS
-						}
-					}
+					puppet = PREV.THIS
 				}
 			}
 			declare_war_on = {

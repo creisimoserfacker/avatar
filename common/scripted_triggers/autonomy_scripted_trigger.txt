@@ -1,0 +1,198 @@
+
+
+increase_puppet_tax_trigger = {
+	
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_vassal_taxes
+						has_idea = medium_vassal_taxes
+						has_idea = high_vassal_taxes
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_750
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 750
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_vassal_taxes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_500
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 500
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_vassal_taxes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_250
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 250
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else = {
+		always = no
+	}
+}
+
+
+increase_puppet_war_tributes_trigger = {
+	
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_war_tributes
+						has_idea = medium_war_tributes
+						has_idea = high_war_tributes
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_750
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 750
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_war_tributes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_500
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 500
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_war_tributes
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_250
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 250
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else = {
+		always = no
+	}
+}
+
+
+increase_puppet_territorial_integration_trigger = {
+	
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_territorial_integration
+						has_idea = medium_territorial_integration
+						has_idea = high_territorial_integration
+					}
+				}
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_750
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 750
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_territorial_integration
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_500
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 500
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_territorial_integration
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_250
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 250
+				compare = less_than_or_equals
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = high_territorial_integration
+			}
+		}
+		custom_trigger_tooltip = {
+			tooltip = autonomy_100
+			check_variable = {
+				var = THIS.autonomy_var
+				value = 100
+				compare = less_than_or_equals
+			}
+		}
+		THIS = {
+			NOT = {
+				all_controlled_state = {
+					has_resources_rights = {
+						receiver = ROOT
+					}
+				}
+			}
+		}
+	}
+}

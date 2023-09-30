@@ -1,0 +1,50 @@
+on_actions = {
+
+	on_puppet = {
+		effect = {
+			ROOT = {
+				set_variable = { autonomy_var = 500 }
+
+				autonomy_state_recalc = yes
+			}
+		}
+	}
+
+	on_startup = {
+
+		effect = {
+			every_country = {
+				autonomy_state_recalc = yes
+
+				set_variable = { autonomy_min = 0 }
+				set_variable = { autonomy_max = 1000 }
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			set_variable = { autonomy_min = 0 }
+			set_variable = { autonomy_max = 1000 }
+
+			#set_variable = { autonomy_var = 500 }
+
+			set_variable = { autonomy_change = modifier@autonomy_gain }
+			add_to_variable = { autonomy_change = OVERLORD:modifier@subjects_autonomy_gain_new }
+
+			add_to_variable = { autonomy_var = autonomy_change }
+
+
+			clamp_variable = {
+				var = autonomy_var
+				min = 0
+				max = autonomy_max
+			}
+
+			set_variable = { autonomy_ratio_val = autonomy_var }
+			divide_variable = { autonomy_ratio_val = autonomy_max }
+		}
+	}
+
+	
+}

@@ -1,0 +1,285 @@
+
+
+autonomy_state_recalc = {
+	if = {
+		limit = {
+			is_puppet = yes
+		}
+		if = {
+			limit = {
+				OVERLORD = {
+					has_government = earth_culture
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_idea = low_vassal_taxes
+						has_idea = medium_vassal_taxes
+						has_idea = high_vassal_taxes
+						has_idea = low_war_tributes
+						has_idea = medium_war_tributes
+						has_idea = high_war_tributes
+						has_idea = low_territorial_integration
+						has_idea = medium_territorial_integration
+						has_idea = high_territorial_integration
+					}
+				}
+				add_ideas = autonomy_kingdom
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 750
+						compare = less_than_or_equals
+					}
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 500
+							compare = less_than_or_equals
+						}
+					}
+				}
+				add_ideas = autonomy_county
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 500
+						compare = less_than_or_equals
+					}
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 250
+							compare = less_than_or_equals
+						}
+					}
+				}
+				add_ideas = autonomy_vassalage
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 250
+						compare = less_than_or_equals
+					}
+				}
+				add_ideas = autonomy_royal_domain
+			}
+		}
+	}
+}
+
+set_kingdom_effect = {
+	set_variable = { autonomy_var = 1000 }
+	autonomy_state_recalc = yes
+}
+
+set_county_effect = {
+	set_variable = { autonomy_var = 600 }
+	add_ideas = {
+		low_vassal_taxes
+		low_war_tributes
+		low_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+set_vassalage_effect = {
+	set_variable = { autonomy_var = 400 }
+	add_ideas = {
+		medium_vassal_taxes
+		medium_war_tributes
+		medium_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+set_royal_domain_effect = {
+	set_variable = { autonomy_var = 200 }
+	add_ideas = {
+		high_vassal_taxes
+		high_war_tributes
+		high_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+increase_puppet_tax_effect = {
+
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_vassal_taxes
+						has_idea = medium_vassal_taxes
+						has_idea = high_vassal_taxes
+					}
+				}
+			}
+		}
+		THIS = {
+			add_ideas = low_vassal_taxes
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_vassal_taxes
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = low_vassal_taxes
+				add_idea = medium_vassal_taxes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_vassal_taxes
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = medium_vassal_taxes
+				add_idea = high_vassal_taxes
+			}
+		}
+	}
+	
+}
+
+
+increase_puppet_war_tributes_effect = {
+
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_war_tributes
+						has_idea = medium_war_tributes
+						has_idea = high_war_tributes
+					}
+				}
+			}
+		}
+		THIS = {
+			add_ideas = low_war_tributes
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_war_tributes
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = low_war_tributes
+				add_idea = medium_war_tributes
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_war_tributes
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = medium_war_tributes
+				add_idea = high_war_tributes
+			}
+		}
+	}
+	
+}
+
+
+increase_puppet_territorial_integration_effect = {
+
+	if = {
+		limit = {
+			THIS = {
+				NOT = {
+					OR = {
+						has_idea = low_territorial_integration
+						has_idea = medium_territorial_integration
+						has_idea = high_territorial_integration
+					}
+				}
+			}
+		}
+		THIS = {
+			add_ideas = low_territorial_integration
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = low_territorial_integration
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = low_territorial_integration
+				add_idea = medium_territorial_integration
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = medium_territorial_integration
+			}
+		}
+		THIS = {
+			swap_ideas = {
+				remove_idea = medium_territorial_integration
+				add_idea = high_territorial_integration
+			}
+		}
+	}
+	else_if = {
+		limit = {
+			THIS = {
+				has_idea = high_territorial_integration
+				NOT = {
+					all_controlled_state = {
+						has_resources_rights = {
+							receiver = ROOT
+						}
+					}
+				}
+			}
+		}
+		THIS = {
+			every_controlled_state = {
+				set_temp_variable = { rr_state = THIS.id }
+				controller = {
+					meta_effect = {
+						text = {
+							give_resource_rights = {
+								receiver = [TAG]
+								state = [STATE]
+							}
+						}
+						TAG = "[ROOT.GetTag]" 
+						STATE = "[?rr_state]"
+					}
+				}
+			}
+		}
+	}
+	
+}

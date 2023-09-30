@@ -821,19 +821,8 @@ country_event = {
 				id = fir_treaty.2
 				days = 2
 			}
-			if = {
-				limit = {
-					NOT = {
-						has_dlc = "Together for Victory"
-					}
-				}
-				puppet = KFC
-				puppet = YFC
-			}
-			else = {
-				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
-				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
-			}
+			puppet = KFC
+			puppet = YFC
 		}
 		HAN = {
 			country_event = {
@@ -954,17 +943,8 @@ country_event = {
 		FIR = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_diplomacy_path
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-				}
-				set_autonomy = { target = KFC autonomy_state = autonomy_satelit_state }
-				set_autonomy = { target = YFC autonomy_state = autonomy_satelit_state }
-			}
-			else = {
-				puppet = KFC
-				puppet = YFC
-			}
+			puppet = KFC
+			puppet = YFC
 		}
 		EAR = {
 			country_event = {
