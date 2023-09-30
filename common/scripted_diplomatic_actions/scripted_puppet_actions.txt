@@ -1,0 +1,154 @@
+
+scripted_diplomatic_actions = {
+
+	increase_puppet_tax = {
+	
+		# root is the initiator of action and this is the target country
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				is_puppet_of = ROOT
+			}
+		}
+		selectable = {
+			increase_puppet_tax_trigger = yes
+		}
+
+		requires_acceptance = no
+		cost = 75
+		#command_power = 10
+
+		#cost_string = loc_key
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+
+		complete_effect = {
+			increase_puppet_tax_effect = yes
+		}
+
+		can_be_sent = { # send button will be disabled if no
+			always = yes
+		}
+
+		
+		
+		accept_title = increase_puppet_tax_accept
+		accept_description = increase_puppet_tax_accept_desc
+		
+
+		ai_desire = {
+			base = 0.01
+
+			modifier = {
+				add = 10
+				has_political_power > 250
+			}
+		}
+	}
+
+
+	increase_puppet_war_tributes = {
+	
+		# root is the initiator of action and this is the target country
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				is_puppet_of = ROOT
+			}
+		}
+		selectable = {
+			increase_puppet_war_tributes_trigger = yes
+		}
+
+		requires_acceptance = no
+		cost = 75
+		#command_power = 10
+
+		#cost_string = loc_key
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+
+		complete_effect = {
+			increase_puppet_war_tributes_effect = yes
+		}
+
+		can_be_sent = { # send button will be disabled if no
+			always = yes
+		}
+
+		
+		
+		accept_title = increase_puppet_war_tributes_accept
+		accept_description = increase_puppet_war_tributes_accept_desc
+		
+
+		ai_desire = {
+			base = 0.01
+
+			modifier = {
+				add = 10
+				has_political_power > 250
+			}
+
+			modifier = {
+				add = 10
+				has_war = yes
+			}
+		}
+	}
+
+
+	increase_territorial_integration = {
+	
+		# root is the initiator of action and this is the target country
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				is_puppet_of = ROOT
+			}
+		}
+		selectable = {
+			increase_puppet_territorial_integration_trigger = yes
+		}
+
+		requires_acceptance = no
+		cost = 75
+		#command_power = 10
+
+		#cost_string = loc_key
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+
+		complete_effect = {
+			increase_puppet_territorial_integration_effect = yes
+		}
+
+		can_be_sent = { # send button will be disabled if no
+			always = yes
+		}
+
+		
+		
+		accept_title = increase_puppet_war_tributes_accept
+		accept_description = increase_puppet_war_tributes_accept_desc
+		
+
+		ai_desire = {
+			base = 0.01
+
+			modifier = {
+				add = 10
+				has_political_power > 250
+			}
+		}
+	}
+}

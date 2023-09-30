@@ -1,0 +1,80 @@
+scripted_gui = {
+
+	autonomy_container = {
+		context_type = player_context
+		
+		window_name = "autonomy_container"
+		parent_window_token = politics_tab
+		
+		visible = {
+			is_subject = yes
+		}
+		
+		triggers = {
+			kingdom_icon_visible = {
+				has_idea = autonomy_kingdom
+			}
+			county_icon_visible = {
+				has_idea = autonomy_county
+			}
+			vassalage_icon_visible = {
+				has_idea = autonomy_vassalage
+			}
+			royal_domain_icon_visible = {
+				has_idea = autonomy_royal_domain
+			}
+		}
+
+		properties = {
+
+			autonomy_progress_bar = {
+				frame = mtth:autonomy_frame
+			}
+		}
+		
+	}
+
+	autonomy_diplo_view = {
+		context_type = selected_country_context
+
+		window_name = "autonomy_diplo_view"
+		parent_window_token = selected_country_view_diplomacy
+
+		visible = {
+			FROM = {
+				is_puppet_of = ROOT
+			}
+		}
+
+		triggers = {
+			kingdom_icon_visible = {
+				has_idea = autonomy_kingdom
+			}
+			county_icon_visible = {
+				has_idea = autonomy_county
+			}
+			vassalage_icon_visible = {
+				has_idea = autonomy_vassalage
+			}
+			royal_domain_icon_visible = {
+				has_idea = autonomy_royal_domain
+			}
+		}
+
+		properties = {
+			autonomy_progress_bar = {
+				frame = mtth:autonomy_frame
+			}
+			tax_icon = {
+				frame = mtth:vassal_tax_icon
+			}
+			war_tribute_icon = {
+				frame = mtth:vassal_war_tribute_icon
+			}
+			territorial_integration_icon = {
+				frame = mtth:vassal_territorial_integration_icon
+			}
+		}
+	}
+	
+}

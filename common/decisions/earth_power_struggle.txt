@@ -44,7 +44,7 @@ THE_EARTHKINGDOM = {
 		days_re_enable = 160
 
 		modifier = {
-			subjects_autonomy_gain = -0.5
+			subjects_autonomy_gain_new = -0.5
 		}
 
 		complete_effect = { 
@@ -59,124 +59,125 @@ THE_EARTHKINGDOM = {
 		}
 	}
 
-	free_major_suppress_kingdoms = {
+#	free_major_suppress_kingdoms = {
+#
+#		icon = earth_kingdom_suppression
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#			}
+#			any_country = { 
+#				is_subject_of = ROOT
+#				has_autonomy_state = autonomy_kingdom
+#			}
+#			is_faction_leader = yes
+#		}
+#
+#		cost = 100
+#
+#		fire_only_once = no
+#		days_remove = 100
+#		days_re_enable = 200
+#
+#		modifier = {
+#			command_power_gain_mult = -0.5
+#		}
+#
+#		remove_effect = { 
+#			add_command_power = 50
+#			every_country = {
+#				limit = {
+#					is_subject_of = ROOT
+#					has_autonomy_state = autonomy_kingdom
+#				}
+#				add_autonomy_score = {
+#					value = -200
+#					localization = KINGDOM
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
-		icon = earth_kingdom_suppression
 
-		allowed = {
-			
-		}
-
-		available = {
-			
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-			}
-			any_country = { 
-				is_subject_of = ROOT
-				has_autonomy_state = autonomy_kingdom
-			}
-			is_faction_leader = yes
-		}
-
-		cost = 100
-
-		fire_only_once = no
-		days_remove = 100
-		days_re_enable = 200
-
-		modifier = {
-			command_power_gain_mult = -0.5
-		}
-
-		remove_effect = { 
-			add_command_power = 50
-			every_country = {
-				limit = {
-					is_subject_of = ROOT
-					has_autonomy_state = autonomy_kingdom
-				}
-				add_autonomy_score = {
-					value = -200
-					localization = KINGDOM
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	free_major_downgrade_prefecture = {
-
-		icon = earth_territory
-
-		allowed = {
-			
-		}
-
-		available = {
-			compare_autonomy_progress_ratio > 0.99
-			NOT = {
-				has_country_flag = demand_to_subject
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					has_autonomy_state = autonomy_vassalage
-				}
-			}
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-			}
-			FROM.OWNER = {
-				compare_autonomy_progress_ratio < 0.2
-			}
-			#any_country = { 
-			#	is_subject_of = ROOT
-			#	has_autonomy_state = autonomy_vassalage
-			#}
-			is_faction_leader = yes
-		}
-
-		cost = 300
-
-		fire_only_once = no
-
-		complete_effect = { 
-			set_country_flag = demand_to_subject
-			FROM.ROOT = {
-				country_event = {
-					id = struggles_ek.10
-					days = 1
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
+#	free_major_downgrade_prefecture = {
+#
+#		icon = earth_territory
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			compare_autonomy_progress_ratio > 0.99
+#			NOT = {
+#				has_country_flag = demand_to_subject
+#			}
+#		}
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				is_capital = yes
+#				owner = {
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = THIS.id
+#					}
+#					has_autonomy_state = autonomy_vassalage
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#			}
+#			FROM.OWNER = {
+#				compare_autonomy_progress_ratio < 0.2
+#			}
+#			#any_country = { 
+#			#	is_subject_of = ROOT
+#			#	has_autonomy_state = autonomy_vassalage
+#			#}
+#			is_faction_leader = yes
+#		}
+#
+#		cost = 300
+#
+#		fire_only_once = no
+#
+#		complete_effect = { 
+#			set_country_flag = demand_to_subject
+#			FROM.ROOT = {
+#				country_event = {
+#					id = struggles_ek.10
+#					days = 1
+#				}
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
 ##############################################################
 
@@ -188,74 +189,74 @@ THE_EARTHKINGDOM = {
 
 ##############################################################
 
-	vassalage_contest_border = {
-
-		icon = border_war
-
-		available = {
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = earth_kingdom_array_tt
-					is_in_array = {
-						array = global.earth_kingdom
-						value = FROM.id
-					}
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_vassalage
-				has_war = no
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				num_owned_neighbour_states = {
-				    owner = ROOT
-				    count > 0
-				}
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					is_neighbor_of = ROOT
-					is_puppet_of = OVERLORD
-					is_subject = yes
-					has_autonomy_state = autonomy_vassalage
-				}
-			}
-		}
-		visible = {
-			ROOT = {
-				is_subject = yes
-				has_autonomy_state = autonomy_vassalage
-				has_war = no
-			}
-			NOT = {
-				has_country_flag = ongoing_border_conflict
-			}
-		}
-
-		cost = 100
-
-		fire_only_once = no
-
-		complete_effect = { 
-			
-			start_state_conflict = yes
-			aggressive_negotiations = yes
-			diplomatic_plays = yes
-
-			#OVERLORD = {
-			#	country_event = { id = struggles_ek.14 }
-			#}
-		}
-
-		ai_will_do = {
-			factor = 0
-		}
-	}
+#	vassalage_contest_border = {
+#
+#		icon = border_war
+#
+#		available = {
+#			ROOT = {
+#				custom_trigger_tooltip = {
+#					tooltip = earth_kingdom_array_tt
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = FROM.id
+#					}
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_vassalage
+#				has_war = no
+#			}
+#		}
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				num_owned_neighbour_states = {
+#				    owner = ROOT
+#				    count > 0
+#				}
+#				owner = {
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = THIS.id
+#					}
+#					is_neighbor_of = ROOT
+#					is_puppet_of = OVERLORD
+#					is_subject = yes
+#					has_autonomy_state = autonomy_vassalage
+#				}
+#			}
+#		}
+#		visible = {
+#			ROOT = {
+#				is_subject = yes
+#				has_autonomy_state = autonomy_vassalage
+#				has_war = no
+#			}
+#			NOT = {
+#				has_country_flag = ongoing_border_conflict
+#			}
+#		}
+#
+#		cost = 100
+#
+#		fire_only_once = no
+#
+#		complete_effect = { 
+#			
+#			start_state_conflict = yes
+#			aggressive_negotiations = yes
+#			diplomatic_plays = yes
+#
+#			#OVERLORD = {
+#			#	country_event = { id = struggles_ek.14 }
+#			#}
+#		}
+#
+#		ai_will_do = {
+#			factor = 0
+#		}
+#	}
 
 ##########################################################
 
@@ -267,97 +268,97 @@ THE_EARTHKINGDOM = {
 
 ##########################################################
 
-	county_diplomacy_to_overlord = {
-
-		icon = green_scroll
-
-		allowed = {
-			
-		}
-
-		available = {
-			
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_county
-			}
-		}
-
-		cost = 40
-
-		fire_only_once = no
-		days_remove = 100
-
-		modifier = {
-			political_power_factor = -0.05
-			autonomy_gain = 0.6
-		}
-
-		complete_effect = { 
-			
-		}
-
-		remove_effect = { 
-			OVERLORD = {
-				add_political_power = 40
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	county_demand_coronation = {
-
-		icon = earth_coronation
-
-		allowed = {
-			
-		}
-
-		available = {
-			compare_autonomy_progress_ratio > 0.99
-			NOT = {
-				has_country_flag = demand_to_overlord
-			}
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_county
-			}
-		}
-
-		cost = 300
-
-		fire_only_once = no
-
-		complete_effect = { 
-			set_country_flag = demand_to_overlord
-			OVERLORD = {
-				country_event = {
-					id = struggles_ek.7
-					days = 1
-				}
-			}
-		}
-
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
+#	county_diplomacy_to_overlord = {
+#
+#		icon = green_scroll
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_county
+#			}
+#		}
+#
+#		cost = 40
+#
+#		fire_only_once = no
+#		days_remove = 100
+#
+#		modifier = {
+#			political_power_factor = -0.05
+#			autonomy_gain = 0.6
+#		}
+#
+#		complete_effect = { 
+#			
+#		}
+#
+#		remove_effect = { 
+#			OVERLORD = {
+#				add_political_power = 40
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	county_demand_coronation = {
+#
+#		icon = earth_coronation
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			compare_autonomy_progress_ratio > 0.99
+#			NOT = {
+#				has_country_flag = demand_to_overlord
+#			}
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_county
+#			}
+#		}
+#
+#		cost = 300
+#
+#		fire_only_once = no
+#
+#		complete_effect = { 
+#			set_country_flag = demand_to_overlord
+#			OVERLORD = {
+#				country_event = {
+#					id = struggles_ek.7
+#					days = 1
+#				}
+#			}
+#		}
+#
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
 ##########################################################
 
@@ -370,171 +371,171 @@ THE_EARTHKINGDOM = {
 ##########################################################
 
 
-	kingdom_diplomacy_to_overlord = {
-
-		icon = green_scroll
-
-		allowed = {
-			
-		}
-
-		available = {
-			
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_kingdom
-			}
-		}
-
-		cost = 50
-
-		fire_only_once = no
-		days_remove = 100
-
-		modifier = {
-			political_power_factor = -0.1
-			autonomy_gain = 0.5
-		}
-
-		complete_effect = { 
-			
-		}
-
-		remove_effect = {
-			OVERLORD = {
-				add_political_power = 50
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	kingdom_hold_feast = {
-		
-		icon = earth_feast
-
-		allowed = {
-			
-		}
-
-		available = {
-			
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_kingdom
-			}
-		}
-
-		cost = 100
-
-		fire_only_once = no
-		days_remove = 45
-		days_re_enable = 365
-
-		modifier = {
-			expenses_factor = 0.05
-		}
-
-		complete_effect = { 
-			
-		}
-
-		remove_effect = { 
-			every_country = {
-				limit = {
-					is_neighbor_of = ROOT
-					compare_autonomy_state < autonomy_kingdom
-				}
-				country_event = {
-					id = struggles_ek.4
-					days = 2
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
-
-	kingdom_regional_power_demonstration = {
-
-		icon = power_demonstration
-
-		allowed = {
-			
-		}
-
-		available = {
-			all_neighbor_country = {
-				strength_ratio = {
-				    tag = FROM
-				    ratio < 0.8
-				}
-			}
-		}
-
-		visible = { 
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_kingdom
-			}
-		}
-
-		cost = 100
-
-		fire_only_once = no
-		days_remove = 90
-		days_re_enable = 120
-
-		modifier = {
-			
-		}
-
-		complete_effect = { 
-			
-		}
-
-		remove_effect = { 
-			every_country = {
-				limit = {
-					is_neighbor_of = ROOT
-					compare_autonomy_state < autonomy_kingdom
-				}
-				add_autonomy_score = {
-					value = -100
-					localization = KINGDOM
-				}
-			}
-			ROOT = {
-				add_autonomy_score = {
-					value = 400
-					localization = KINGDOM
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
+#	kingdom_diplomacy_to_overlord = {
+#
+#		icon = green_scroll
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_kingdom
+#			}
+#		}
+#
+#		cost = 50
+#
+#		fire_only_once = no
+#		days_remove = 100
+#
+#		modifier = {
+#			political_power_factor = -0.1
+#			autonomy_gain = 0.5
+#		}
+#
+#		complete_effect = { 
+#			
+#		}
+#
+#		remove_effect = {
+#			OVERLORD = {
+#				add_political_power = 50
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	kingdom_hold_feast = {
+#		
+#		icon = earth_feast
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_kingdom
+#			}
+#		}
+#
+#		cost = 100
+#
+#		fire_only_once = no
+#		days_remove = 45
+#		days_re_enable = 365
+#
+#		modifier = {
+#			expenses_factor = 0.05
+#		}
+#
+#		complete_effect = { 
+#			
+#		}
+#
+#		remove_effect = { 
+#			every_country = {
+#				limit = {
+#					is_neighbor_of = ROOT
+#					compare_autonomy_state < autonomy_kingdom
+#				}
+#				country_event = {
+#					id = struggles_ek.4
+#					days = 2
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
+#
+#	kingdom_regional_power_demonstration = {
+#
+#		icon = power_demonstration
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			all_neighbor_country = {
+#				strength_ratio = {
+#				    tag = FROM
+#				    ratio < 0.8
+#				}
+#			}
+#		}
+#
+#		visible = { 
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_kingdom
+#			}
+#		}
+#
+#		cost = 100
+#
+#		fire_only_once = no
+#		days_remove = 90
+#		days_re_enable = 120
+#
+#		modifier = {
+#			
+#		}
+#
+#		complete_effect = { 
+#			
+#		}
+#
+#		remove_effect = { 
+#			every_country = {
+#				limit = {
+#					is_neighbor_of = ROOT
+#					compare_autonomy_state < autonomy_kingdom
+#				}
+#				add_autonomy_score = {
+#					value = -100
+#					localization = KINGDOM
+#				}
+#			}
+#			ROOT = {
+#				add_autonomy_score = {
+#					value = 400
+#					localization = KINGDOM
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
 ################################################
 
@@ -546,260 +547,249 @@ THE_EARTHKINGDOM = {
 
 ################################################
 
-	independent_dominate_neighbours = {
-
-		icon = expand_influence
-
-		available = {
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = earth_kingdom_array_tt
-					is_in_array = {
-						array = global.earth_kingdom
-						value = FROM.id
-					}
-				}
-				is_subject = no
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					OR = {
-						is_neighbor_of = ROOT
-						any_neighbor_country = {
-							is_puppet_of = ROOT
-						}
-					}
-					compare_autonomy_state < autonomy_county
-				}
-			}
-		}
-		visible = {
-			ROOT = {
-				is_subject = no
-			}
-			FROM.owner = {
-				NOT = {
-					is_puppet_of = ROOT
-				}
-			}
-		}
-
-		fire_only_once = no
-		cost = 50
-
-		days_remove = 60
-		#days_re_enable = 180
-		#on_map_mode = map_only
-		complete_effect = {
-			
-		}
-
-		modifier = {
-			political_power_factor = -0.05
-		}
-
-		remove_effect = {
-			FROM.owner = {
-				add_autonomy_score = {
-					value = 400
-					localization = FREE
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 0
-		}
-	}
-
-	independent_break_free_neighbours = {
-
-		icon = break_free
-
-		available = {
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = earth_kingdom_array_tt
-					is_in_array = {
-						array = global.earth_kingdom
-						value = FROM.id
-					}
-				}
-				is_subject = no
-			}
-			FROM.owner = {
-				compare_autonomy_progress_ratio > 0.99
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					OR = {
-						is_neighbor_of = ROOT
-						any_neighbor_country = {
-							is_puppet_of = ROOT
-						}
-					}
-					compare_autonomy_state < autonomy_county
-				}
-			}
-		}
-		visible = {
-			ROOT = {
-				is_subject = no
-			}
-			FROM.owner = {
-				NOT = {
-					is_puppet_of = ROOT
-				}
-			}
-		}
-
-		fire_only_once = no
-		cost = 50
-
-		complete_effect = {
-			FROM.owner = {
-				if = {
-					limit = {
-						has_autonomy_state = autonomy_vassalage
-					}
-					OVERLORD = {
-						set_autonomy = {
-							target = FROM.owner
-							autonomy_state = autonomy_county
-						}
-					}
-				}
-				if = {
-					limit = {
-						has_autonomy_state = autonomy_royal_domain
-					}
-					OVERLORD = {
-						set_autonomy = {
-							target = FROM.owner
-							autonomy_state = autonomy_vassalage
-						}
-					}
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 0
-		}
-	}
-
-	independent_take_over_neighbour = {
-
-		icon = take_over_puppet
-
-		available = {
-			ROOT = {
-				custom_trigger_tooltip = {
-					tooltip = earth_kingdom_array_tt	
-					is_in_array = {
-						array = global.earth_kingdom
-						value = FROM.id
-					}
-				}
-				is_subject = no
-			}
-			FROM.owner = {
-				NOT = {
-					has_country_flag = owner_is_changing
-				}
-			}
-		}
-
-		state_target = yes
-		target_trigger = {
-			FROM = {
-				is_capital = yes
-				owner = {
-					is_in_array = {
-						array = global.earth_kingdom
-						value = THIS.id
-					}
-					OR = {
-						is_neighbor_of = ROOT
-						any_neighbor_country = {
-							is_puppet_of = ROOT
-						}
-					}
-					has_autonomy_state = autonomy_county
-					NOT = {
-						has_country_flag = owner_is_changing
-					}
-				}
-			}
-		}
-		visible = {
-			ROOT = {
-				is_subject = no
-			}
-			FROM.owner = {
-				NOT = {
-					is_puppet_of = ROOT
-				}
-			}
-		}
-
-		fire_only_once = no
-		cost = 50
-
-		days_remove = 60
-		#days_re_enable = 180
-		#on_map_mode = map_only
-		complete_effect = {
-			FROM.owner = {
-				set_country_flag = owner_is_changing
-			}
-		}
-
-		modifier = {
-			political_power_factor = -0.05
-		}
-
-		remove_effect = {
-			FROM.owner = {
-				clr_country_flag = owner_is_changing
-				end_puppet = OVERLORD
-			}
-			if = {
-				limit = {
-					has_dlc = "Together for Victory"
-				}
-				set_autonomy = {
-					target = FROM.owner
-					autonomous_state = autonomy_county
-				}
-				else = {
-					puppet = FROM.owner
-				}
-			}
-		}
-
-		ai_will_do = {
-			base = 0
-		}
-	}
+#	independent_dominate_neighbours = {
+#
+#		icon = expand_influence
+#
+#		available = {
+#			ROOT = {
+#				custom_trigger_tooltip = {
+#					tooltip = earth_kingdom_array_tt
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = FROM.id
+#					}
+#				}
+#				is_subject = no
+#			}
+#		}
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				is_capital = yes
+#				owner = {
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = THIS.id
+#					}
+#					OR = {
+#						is_neighbor_of = ROOT
+#						any_neighbor_country = {
+#							is_puppet_of = ROOT
+#						}
+#					}
+#					compare_autonomy_state < autonomy_county
+#				}
+#			}
+#		}
+#		visible = {
+#			ROOT = {
+#				is_subject = no
+#			}
+#			FROM.owner = {
+#				NOT = {
+#					is_puppet_of = ROOT
+#				}
+#			}
+#		}
+#
+#		fire_only_once = no
+#		cost = 50
+#
+#		days_remove = 60
+#		#days_re_enable = 180
+#		#on_map_mode = map_only
+#		complete_effect = {
+#			
+#		}
+#
+#		modifier = {
+#			political_power_factor = -0.05
+#		}
+#
+#		remove_effect = {
+#			FROM.owner = {
+#				add_autonomy_score = {
+#					value = 400
+#					localization = FREE
+#				}
+#			}
+#		}
+#
+#		ai_will_do = {
+#			base = 0
+#		}
+#	}
+#
+#	independent_break_free_neighbours = {
+#
+#		icon = break_free
+#
+#		available = {
+#			ROOT = {
+#				custom_trigger_tooltip = {
+#					tooltip = earth_kingdom_array_tt
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = FROM.id
+#					}
+#				}
+#				is_subject = no
+#			}
+#			FROM.owner = {
+#				compare_autonomy_progress_ratio > 0.99
+#			}
+#		}
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				is_capital = yes
+#				owner = {
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = THIS.id
+#					}
+#					OR = {
+#						is_neighbor_of = ROOT
+#						any_neighbor_country = {
+#							is_puppet_of = ROOT
+#						}
+#					}
+#					compare_autonomy_state < autonomy_county
+#				}
+#			}
+#		}
+#		visible = {
+#			ROOT = {
+#				is_subject = no
+#			}
+#			FROM.owner = {
+#				NOT = {
+#					is_puppet_of = ROOT
+#				}
+#			}
+#		}
+#
+#		fire_only_once = no
+#		cost = 50
+#
+#		complete_effect = {
+#			FROM.owner = {
+#				if = {
+#					limit = {
+#						has_autonomy_state = autonomy_vassalage
+#					}
+#					OVERLORD = {
+#						set_autonomy = {
+#							target = FROM.owner
+#							autonomy_state = autonomy_county
+#						}
+#					}
+#				}
+#				if = {
+#					limit = {
+#						has_autonomy_state = autonomy_royal_domain
+#					}
+#					OVERLORD = {
+#						set_autonomy = {
+#							target = FROM.owner
+#							autonomy_state = autonomy_vassalage
+#						}
+#					}
+#				}
+#			}
+#		}
+#
+#		ai_will_do = {
+#			base = 0
+#		}
+#	}
+#
+#	independent_take_over_neighbour = {
+#
+#		icon = take_over_puppet
+#
+#		available = {
+#			ROOT = {
+#				custom_trigger_tooltip = {
+#					tooltip = earth_kingdom_array_tt	
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = FROM.id
+#					}
+#				}
+#				is_subject = no
+#			}
+#			FROM.owner = {
+#				NOT = {
+#					has_country_flag = owner_is_changing
+#				}
+#			}
+#		}
+#
+#		state_target = yes
+#		target_trigger = {
+#			FROM = {
+#				is_capital = yes
+#				owner = {
+#					is_in_array = {
+#						array = global.earth_kingdom
+#						value = THIS.id
+#					}
+#					OR = {
+#						is_neighbor_of = ROOT
+#						any_neighbor_country = {
+#							is_puppet_of = ROOT
+#						}
+#					}
+#					has_autonomy_state = autonomy_county
+#					NOT = {
+#						has_country_flag = owner_is_changing
+#					}
+#				}
+#			}
+#		}
+#		visible = {
+#			ROOT = {
+#				is_subject = no
+#			}
+#			FROM.owner = {
+#				NOT = {
+#					is_puppet_of = ROOT
+#				}
+#			}
+#		}
+#
+#		fire_only_once = no
+#		cost = 50
+#
+#		days_remove = 60
+#		#days_re_enable = 180
+#		#on_map_mode = map_only
+#		complete_effect = {
+#			FROM.owner = {
+#				set_country_flag = owner_is_changing
+#			}
+#		}
+#
+#		modifier = {
+#			political_power_factor = -0.05
+#		}
+#
+#		remove_effect = {
+#			FROM.owner = {
+#				clr_country_flag = owner_is_changing
+#				end_puppet = OVERLORD
+#			}
+#			puppet = FROM.owner
+#		}
+#
+#		ai_will_do = {
+#			base = 0
+#		}
+#	}
 
 ##############################################################################################
 
@@ -899,8 +889,8 @@ THE_EARTHKINGDOM = {
 					}
 				}
 				OR = {
-					has_autonomy_state = autonomy_kingdom
-					has_autonomy_state = autonomy_county
+					#has_autonomy_state = autonomy_kingdom
+					#has_autonomy_state = autonomy_county
 					is_subject = no
 				}
 			}
@@ -972,8 +962,8 @@ THE_EARTHKINGDOM = {
 			}
 			any_country = {
 				OR = {
-					has_autonomy_state = autonomy_kingdom
-					has_autonomy_state = autonomy_county
+					#has_autonomy_state = autonomy_kingdom
+					#has_autonomy_state = autonomy_county
 					is_subject = no
 				}
 				has_country_flag = western_alliance
@@ -1089,56 +1079,56 @@ THE_EARTHKINGDOM = {
 	#	}
 	#}
 
-	effect_1 = {
-		cost = 100
-
-		allowed = {
-			
-		}
-
-		available = {
-			
-		}
-
-		visible = { 
-			tag = fir
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-				is_subject = yes
-				has_autonomy_state = autonomy_kingdom
-			}
-		}
-
-		fire_only_once = yes
-		days_remove = 90
-
-		modifier = {
-			
-		}
-
-		complete_effect = { 
-			
-		}
-
-		remove_effect = { 
-			every_country = {
-				limit = {
-					is_neighbor_of = ROOT
-					compare_autonomy_state < autonomy_kingdom
-				}
-				add_autonomy_score = {
-				    value = -100
-				    localization = KINGDOM
-				}
-			}
-		}
-		ai_will_do = {
-			factor = 0.05
-		}
-	}
+#	effect_1 = {
+#		cost = 100
+#
+#		allowed = {
+#			
+#		}
+#
+#		available = {
+#			
+#		}
+#
+#		visible = { 
+#			tag = fir
+#			ROOT = {
+#				is_in_array = {
+#					array = global.earth_kingdom
+#					value = THIS.id
+#				}
+#				is_subject = yes
+#				has_autonomy_state = autonomy_kingdom
+#			}
+#		}
+#
+#		fire_only_once = yes
+#		days_remove = 90
+#
+#		modifier = {
+#			
+#		}
+#
+#		complete_effect = { 
+#			
+#		}
+#
+#		remove_effect = { 
+#			every_country = {
+#				limit = {
+#					is_neighbor_of = ROOT
+#					compare_autonomy_state < autonomy_kingdom
+#				}
+#				add_autonomy_score = {
+#				    value = -100
+#				    localization = KINGDOM
+#				}
+#			}
+#		}
+#		ai_will_do = {
+#			factor = 0.05
+#		}
+#	}
 
 
 

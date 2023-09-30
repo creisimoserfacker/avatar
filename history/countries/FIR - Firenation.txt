@@ -899,24 +899,8 @@ set_technology = {
 		legacy_of_roku_and_sozin
 	}
 
-	if = {
-		limit = {
-			has_dlc = "Together for Victory"
-		}
-		set_autonomy = {
-			target = YFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		set_autonomy = {
-			target = KFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		else = {
-			puppet = YFC
-			puppet = KFC
-		}
-
-	}
+	puppet = YFC
+	puppet = KFC
 
 
 	set_variable = { azulon_x = 90 }
@@ -1565,40 +1549,17 @@ tech_support = 1
 		}
 	}
 
-	if = {
-		limit = {
-			has_dlc = "Together for Victory"
-		}
-		set_autonomy = {
-			target = PFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		set_autonomy = {
-			target = HFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		set_autonomy = {
-			target = MFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		set_autonomy = {
-			target = GFC
-			autonomous_state = autonomy_imperial_colony
-		}
-		else = {
-			puppet = PFC
-			puppet = HFC
-			puppet = MFC
-			puppet = GFC
-		}
-	}
+	puppet = PFC
+	puppet = HFC
+	puppet = MFC
+	puppet = GFC
 
-		add_to_faction = PFC
-		add_to_faction = HFC
-		add_to_faction = MFC
-		add_to_faction = GFC
+	add_to_faction = PFC
+	add_to_faction = HFC
+	add_to_faction = MFC
+	add_to_faction = GFC
 
-		war_setup_106 = yes
+	war_setup_106 = yes
 
 	create_equipment_variant = {
 		name = "Steel Armor"
@@ -2039,19 +2000,7 @@ tech_support = 1
 
 
 
-	if = {
-		limit = {
-			has_dlc = "Together for Victory"
-		}
-		set_autonomy = {
-			target = NAT
-			autonomous_state = autonomy_tributary
-		}
-		else = {
-			puppet = NAT
-		}
-
-	}
+	puppet = NAT
 		
 
 }
