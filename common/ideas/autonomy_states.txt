@@ -131,6 +131,128 @@ ideas = {
 
 
 
+		autonomy_tributary = {
+			
+			removal_cost = -1
+
+			cancel = {
+				OR = {
+					is_puppet = no
+					OR = {
+						has_idea = low_war_tributes
+						has_idea = medium_war_tributes
+						has_idea = high_war_tributes
+						has_idea = low_territorial_integration
+						has_idea = medium_territorial_integration
+						has_idea = high_territorial_integration
+					}
+				}
+			}
+
+			on_remove = {
+				autonomy_state_recalc = yes
+			}
+
+			rule = {
+				
+			}
+			
+			modifier = {
+				
+			}
+		}
+
+		autonomy_satelit_state = {
+			
+			removal_cost = -1
+
+			cancel = {
+				OR = {
+					is_puppet = no
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 750
+						compare = less_than_or_equals
+					}
+				}
+			}
+
+			on_remove = {
+				autonomy_state_recalc = yes
+			}
+
+			rule = {
+				
+			}
+			
+			modifier = {
+				
+			}
+		}
+
+		autonomy_imperial_dominion = {
+			
+			removal_cost = -1
+
+			cancel = {
+				OR = {
+					is_puppet = no
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 750
+							compare = less_than_or_equals
+						}
+					}
+				}
+			}
+
+			on_remove = {
+				autonomy_state_recalc = yes
+			}
+
+			rule = {
+				
+			}
+			
+			modifier = {
+				
+			}
+		}
+
+		autonomy_imperial_colony = {
+			
+			removal_cost = -1
+
+			cancel = {
+				OR = {
+					is_puppet = no
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 500
+							compare = less_than_or_equals
+						}
+					}
+				}
+			}
+
+			on_remove = {
+				autonomy_state_recalc = yes
+			}
+
+			rule = {
+				
+			}
+			
+			modifier = {
+				
+			}
+		}
+
+
+
+
 
 		
 

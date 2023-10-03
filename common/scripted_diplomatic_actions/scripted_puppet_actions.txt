@@ -1,6 +1,46 @@
 
 scripted_diplomatic_actions = {
 
+	release_puppet = {
+	
+		# root is the initiator of action and this is the target country
+		allowed = {
+			always = yes
+		}
+		visible = {
+			THIS = {
+				is_puppet_of = ROOT
+			}
+		}
+		selectable = {
+			
+		}
+
+		requires_acceptance = no
+		cost = 300
+
+		icon = 1
+
+		complete_effect = {
+			release_puppet = THIS
+		}
+
+		can_be_sent = { # send button will be disabled if no
+			always = yes
+		}
+
+		
+		
+		accept_title = release_puppet_accept
+		accept_description = release_puppet_accept_desc
+		
+
+		ai_desire = {
+			base = 0
+
+		}
+	}
+
 	increase_puppet_tax = {
 	
 		# root is the initiator of action and this is the target country
@@ -149,6 +189,58 @@ scripted_diplomatic_actions = {
 				add = 10
 				has_political_power > 250
 			}
+		}
+	}
+
+
+	break_free = {
+	
+		# root is the initiator of action and this is the target country
+		allowed = {
+			always = yes
+		}
+		visible = {
+			ROOT = {
+				is_puppet_of = PREV.THIS
+			}
+		}
+		selectable = {
+			custom_trigger_tooltip = {
+				tooltip = autonomy_1000_up
+				check_variable = {
+					var = THIS.autonomy_var
+					value = 1000
+					compare = greater_than_or_equals
+				}
+			}
+		}
+
+		requires_acceptance = no
+		cost = 300
+		#command_power = 10
+
+		#cost_string = loc_key
+		show_acceptance_on_action_button = yes
+
+		icon = 1
+
+		complete_effect = {
+			increase_puppet_territorial_integration_effect = yes
+		}
+
+		can_be_sent = { # send button will be disabled if no
+			always = yes
+		}
+
+		
+		
+		accept_title = break_free_accept
+		accept_description = break_free_accept_desc
+		
+
+		ai_desire = {
+			base = 100
+
 		}
 	}
 }

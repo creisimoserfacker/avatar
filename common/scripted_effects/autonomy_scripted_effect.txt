@@ -7,6 +7,24 @@ autonomy_state_recalc = {
 		}
 		if = {
 			limit = {
+				NOT = {
+					has_idea = low_war_tributes
+					has_idea = medium_war_tributes
+					has_idea = high_war_tributes
+					has_idea = low_territorial_integration
+					has_idea = medium_territorial_integration
+					has_idea = high_territorial_integration
+				}
+				OR = {
+					has_idea = low_vassal_taxes
+					has_idea = medium_vassal_taxes
+					has_idea = high_vassal_taxes
+				}
+			}
+			add_ideas = autonomy_tributary
+		}
+		else_if = {
+			limit = {
 				OVERLORD = {
 					has_government = earth_culture
 				}
@@ -72,6 +90,53 @@ autonomy_state_recalc = {
 				add_ideas = autonomy_royal_domain
 			}
 		}
+		else_if = {
+			limit = {
+				OVERLORD = {
+					has_government = fire_culture
+				}
+			}
+			if = {
+				limit = {
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 750
+							compare = less_than_or_equals
+						}
+					}
+				}
+				add_ideas = autonomy_satelit_state
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 750
+						compare = less_than_or_equals
+					}
+					NOT = {
+						check_variable = {
+							var = THIS.autonomy_var
+							value = 500
+							compare = less_than_or_equals
+						}
+					}
+				}
+				add_ideas = autonomy_imperial_dominion
+			}
+			else_if = {
+				limit = {
+					check_variable = {
+						var = THIS.autonomy_var
+						value = 500
+						compare = less_than_or_equals
+					}
+				}
+				add_ideas = autonomy_imperial_colony
+			}
+			
+		}
 	}
 }
 
@@ -102,6 +167,45 @@ set_vassalage_effect = {
 
 set_royal_domain_effect = {
 	set_variable = { autonomy_var = 200 }
+	add_ideas = {
+		high_vassal_taxes
+		high_war_tributes
+		high_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+
+set_tributary_effect = {
+	set_variable = { autonomy_var = 600 }
+	add_ideas = {
+		medium_vassal_taxes
+	}
+	autonomy_state_recalc = yes
+}
+
+set_satelit_state_effect = {
+	set_variable = { autonomy_var = 800 }
+	add_ideas = {
+		low_vassal_taxes
+		low_war_tributes
+		low_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+set_imperial_dominion_effect = {
+	set_variable = { autonomy_var = 400 }
+	add_ideas = {
+		medium_vassal_taxes
+		medium_war_tributes
+		medium_territorial_integration
+	}
+	autonomy_state_recalc = yes
+}
+
+set_imperial_colony_effect = {
+	set_variable = { autonomy_var = 100 }
 	add_ideas = {
 		high_vassal_taxes
 		high_war_tributes
