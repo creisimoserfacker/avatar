@@ -5,6 +5,7 @@
 add_namespace = struggles_ek
 add_namespace = western_alliance
 
+
 #Join Request
 country_event = {
 	id = struggles_ek.1
@@ -47,6 +48,7 @@ country_event = {
 		}
 	}
 }
+
 #Request Accepted
 country_event = {
 	id = struggles_ek.2
@@ -65,6 +67,7 @@ country_event = {
 	}
 
 }
+
 #Request Denied
 country_event = {
 	id = struggles_ek.3
@@ -81,8 +84,9 @@ country_event = {
 		}
 		
 	}
-
 }
+
+
 #Feast Invitation
 country_event = {
 	id = struggles_ek.4
@@ -97,11 +101,8 @@ country_event = {
 		ai_chance = { 
 			factor = 100
 		}
-		add_autonomy_score = {
-			value = 100
-			localization = ACT_OF_DISOBEDIENCE
-		}
-		add_political_power = -150
+		
+		add_political_power = -50
 		FROM = {
 			country_event = {
 				id = struggles_ek.5
@@ -124,8 +125,8 @@ country_event = {
 		}
 		
 	}
-
 }
+
 #Feast Joined
 country_event = {
 	id = struggles_ek.5
@@ -140,9 +141,10 @@ country_event = {
 		ai_chance = { 
 			factor = 100
 		}
-		add_autonomy_score = {
+		add_to_variable = {
+			var = autonomy_var
 			value = 100
-			localization = KINGDOM
+			tooltip = autonomy_change_ttp
 		}
 	}
 
@@ -163,8 +165,8 @@ country_event = {
 		}
 		
 	}
-
 }
+
 ##Event: governorship ---> kingdom DEMAND (sent TO the overlord)
 country_event = {
 	id = struggles_ek.7
@@ -177,9 +179,10 @@ country_event = {
 		ai_chance = { base = 100 }
 		name = struggles_ek.7.a
 
-		set_autonomy = {
-			target = FROM
-			autonomy_state = autonomy_kingdom
+		effect_tooltip = {
+			FROM = {
+				add_country_leader_trait = king
+			}
 		}
 
 		FROM = {
@@ -222,6 +225,8 @@ country_event = {
 		#Accept:
 		ai_chance = { base = 1}
 		name = struggles_ek.8.a
+
+		add_country_leader_trait = king
 	}
 }
 ##Event: governorship ---> kingdom OVERLORD deny
@@ -249,11 +254,6 @@ country_event = {
 		#Accept:
 		ai_chance = { base = 100 }
 		name = struggles_ek.10.a
-
-		set_autonomy = {
-			target = FROM
-			autonomy_state = autonomy_royal_domain
-		}
 
 		FROM = {
 			country_event = {
@@ -458,8 +458,8 @@ country_event = {
 					}
 				}
 				OR = {
-					has_autonomy_state = autonomy_kingdom
-					has_autonomy_state = autonomy_county
+					has_idea = autonomy_kingdom
+					has_idea = autonomy_county
 					is_subject = no
 				}
 			}
@@ -531,8 +531,8 @@ country_event = {
 					every_country = {
 						limit = {
 							OR = {
-								has_autonomy_state = autonomy_kingdom
-								has_autonomy_state = autonomy_county
+								has_idea = autonomy_kingdom
+								has_idea = autonomy_county
 								is_subject = no
 							}
 							capital_scope = {

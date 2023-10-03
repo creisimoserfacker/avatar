@@ -314,51 +314,7 @@ THE_EARTHKINGDOM = {
 #			factor = 0.05
 #		}
 #	}
-#
-#	county_demand_coronation = {
-#
-#		icon = earth_coronation
-#
-#		allowed = {
-#			
-#		}
-#
-#		available = {
-#			compare_autonomy_progress_ratio > 0.99
-#			NOT = {
-#				has_country_flag = demand_to_overlord
-#			}
-#		}
-#
-#		visible = { 
-#			ROOT = {
-#				is_in_array = {
-#					array = global.earth_kingdom
-#					value = THIS.id
-#				}
-#				is_subject = yes
-#				has_autonomy_state = autonomy_county
-#			}
-#		}
-#
-#		cost = 300
-#
-#		fire_only_once = no
-#
-#		complete_effect = { 
-#			set_country_flag = demand_to_overlord
-#			OVERLORD = {
-#				country_event = {
-#					id = struggles_ek.7
-#					days = 1
-#				}
-#			}
-#		}
-#
-#		ai_will_do = {
-#			factor = 0.05
-#		}
-#	}
+
 
 ##########################################################
 
@@ -371,106 +327,159 @@ THE_EARTHKINGDOM = {
 ##########################################################
 
 
-#	kingdom_diplomacy_to_overlord = {
-#
-#		icon = green_scroll
-#
-#		allowed = {
-#			
-#		}
-#
-#		available = {
-#			
-#		}
-#
-#		visible = { 
-#			ROOT = {
-#				is_in_array = {
-#					array = global.earth_kingdom
-#					value = THIS.id
-#				}
-#				is_subject = yes
-#				has_autonomy_state = autonomy_kingdom
-#			}
-#		}
-#
-#		cost = 50
-#
-#		fire_only_once = no
-#		days_remove = 100
-#
-#		modifier = {
-#			political_power_factor = -0.1
-#			autonomy_gain = 0.5
-#		}
-#
-#		complete_effect = { 
-#			
-#		}
-#
-#		remove_effect = {
-#			OVERLORD = {
-#				add_political_power = 50
-#			}
-#		}
-#		ai_will_do = {
-#			factor = 0.05
-#		}
-#	}
-#
-#	kingdom_hold_feast = {
-#		
-#		icon = earth_feast
-#
-#		allowed = {
-#			
-#		}
-#
-#		available = {
-#			
-#		}
-#
-#		visible = { 
-#			ROOT = {
-#				is_in_array = {
-#					array = global.earth_kingdom
-#					value = THIS.id
-#				}
-#				is_subject = yes
-#				has_autonomy_state = autonomy_kingdom
-#			}
-#		}
-#
-#		cost = 100
-#
-#		fire_only_once = no
-#		days_remove = 45
-#		days_re_enable = 365
-#
-#		modifier = {
-#			expenses_factor = 0.05
-#		}
-#
-#		complete_effect = { 
-#			
-#		}
-#
-#		remove_effect = { 
-#			every_country = {
-#				limit = {
-#					is_neighbor_of = ROOT
-#					compare_autonomy_state < autonomy_kingdom
-#				}
-#				country_event = {
-#					id = struggles_ek.4
-#					days = 2
-#				}
-#			}
-#		}
-#		ai_will_do = {
-#			factor = 0.05
-#		}
-#	}
+	county_demand_coronation = {
+
+		icon = earth_coronation
+
+		allowed = {
+			
+		}
+
+		available = {
+			has_idea = autonomy_kingdom
+			NOT = {
+				has_country_flag = demand_to_overlord
+			}
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				is_subject = yes
+				has_idea = autonomy_kingdom
+			}
+			NOT = {
+				has_country_leader_with_trait = king
+			}
+		}
+
+		cost = 300
+
+		fire_only_once = no
+
+		complete_effect = { 
+			set_country_flag = demand_to_overlord
+			OVERLORD = {
+				country_event = {
+					id = struggles_ek.7
+					days = 1
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+
+	kingdom_diplomacy_to_overlord = {
+
+		icon = green_scroll
+
+		allowed = {
+			
+		}
+
+		available = {
+			
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				is_subject = yes
+				has_idea = autonomy_kingdom
+			}
+		}
+
+		cost = 50
+
+		fire_only_once = no
+		days_remove = 100
+
+		modifier = {
+			political_power_factor = -0.1
+			autonomy_gain = 0.1
+		}
+
+		complete_effect = { 
+			
+		}
+
+		remove_effect = {
+			OVERLORD = {
+				add_political_power = 50
+			}
+		}
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
+
+	kingdom_hold_feast = {
+		
+		icon = earth_feast
+
+		allowed = {
+			
+		}
+
+		available = {
+			
+		}
+
+		visible = { 
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+				is_subject = yes
+				has_idea = autonomy_kingdom
+			}
+		}
+
+		cost = 100
+
+		fire_only_once = no
+		days_remove = 45
+		days_re_enable = 365
+
+		modifier = {
+			expenses_factor = 0.05
+		}
+
+		complete_effect = { 
+			
+		}
+
+		remove_effect = { 
+			every_country = {
+				limit = {
+					is_neighbor_of = ROOT
+					OR = {
+						has_idea = autonomy_county
+						has_idea = autonomy_vassalage
+						has_idea = autonomy_royal_domain
+					}
+				}
+				country_event = {
+					id = struggles_ek.4
+					days = 2
+				}
+			}
+		}
+		ai_will_do = {
+			factor = 0.05
+		}
+	}
 #
 #	kingdom_regional_power_demonstration = {
 #
