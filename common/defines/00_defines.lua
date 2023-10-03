@@ -2208,13 +2208,13 @@ NAI = {
 	MIN_AI_SCORE_TO_TRADE_LAW_OVERRIDE_HARD_CODED_SCORE = 1.0,
 	MIN_AI_SCORE_TO_ALL_LAWS_OVERRIDE_HARD_CODED_SCORE = 1.0,
 
-	AT_WAR_THREAT_FACTOR = 2.0,					-- How much increase in threat does AI feel for being in war against osmeone
-	NEIGHBOUR_WAR_THREAT_FACTOR = 1.10, 		-- How much increase in threat does AI feel against neighbours who are at war
-	POTENTIAL_ALLY_JOIN_WAR_FACTOR = 100, 		-- How much increase in threat does AI feel against neighbours who are allied against one of our enemies
-	POTENTIAL_FUTURE_ENEMY_FACTOR = 100, 		-- How much increase in threat does AI feel against neighbours who at war with our allies
-	NEUTRAL_THREAT_PARANOIA = 10,				-- How scared neutrals are of everyone
-	DIFFERENT_FACTION_THREAT = 30,				-- Threat caused by not being in the same faction
-	MAX_THREAT_FOR_FIRST_YEAR_CIVILIAN_MODE = 0, -- above this threshold, ai will leave first year civilian factory mode which bumps it civilian factory scores while building
+	AT_WAR_THREAT_FACTOR = 0.01,					-- How much increase in threat does AI feel for being in war against osmeone
+	NEIGHBOUR_WAR_THREAT_FACTOR = 0.01, 		-- How much increase in threat does AI feel against neighbours who are at war
+	POTENTIAL_ALLY_JOIN_WAR_FACTOR = 0.01, 		-- How much increase in threat does AI feel against neighbours who are allied against one of our enemies
+	POTENTIAL_FUTURE_ENEMY_FACTOR = 0.1, 		-- How much increase in threat does AI feel against neighbours who at war with our allies
+	NEUTRAL_THREAT_PARANOIA = 0.1,				-- How scared neutrals are of everyone
+	DIFFERENT_FACTION_THREAT = 1,				-- Threat caused by not being in the same faction
+	MAX_THREAT_FOR_FIRST_YEAR_CIVILIAN_MODE = 50, -- above this threshold, ai will leave first year civilian factory mode which bumps it civilian factory scores while building
 	PLAN_ATTACK_MIN_ORG_FACTOR_LOW = 0.85,		-- Minimum org % for a unit to actively attack an enemy unit when executing a plan
 	PLAN_ATTACK_MIN_STRENGTH_FACTOR_LOW = 0.4,	-- Minimum strength for a unit to actively attack an enemy unit when executing a plan
 	PLAN_ATTACK_MIN_ORG_FACTOR_MED = 0.7,		-- (LOW,MED,HIGH) corresponds to the plan execution agressiveness level.
@@ -2393,22 +2393,22 @@ NAI = {
 	TOO_INSIGNIFICANT_MAX_PENALTY = 350,						-- max penalty that will be applied for thinking a country is too insignificant
 
 	-- Calculating wanted nr of divisions
-	WANTED_UNITS_INDUSTRY_FACTOR = 0.45,                        -- How many units a country wants is partially based on how much military industry that is available
-	WANTED_UNITS_THREAT_BASE = 0.7,                             -- If no threat, multiply min wanted units by this
-	WANTED_UNITS_THREAT_MAX = 2.0,                             -- Normalized threat is clamped to this
-	WANTED_UNITS_WAR_THREAT_FACTOR = 2.5,                       -- Factor threat with this if country is at war. this value is overriden by the value in ideology database if that value exceedes this.
-	WANTED_UNITS_DANGEROUS_NEIGHBOR_FACTOR = 1.25,              -- Factor if has dangerous neighbor
-	WANTED_UNITS_MANPOWER_DIVISOR = 500,                      -- Normalizing divisor for AI manpower. (for each x max available manpower, they want one division)
-	WANTED_UNITS_WEIGHT_FRONTS_WANT = 0.35,                      -- Weight of front needs when computing final nr wanted units
-	WANTED_UNITS_WEIGHT_FACTORIES = 0.45,                        -- Weight of military factories when computing final nr wanted units
-	WANTED_UNITS_WEIGHT_MANPOWER = 0.3,                         -- Weight of manpower availability when computing final nr wanted units
-	WANTED_UNITS_MIN_DEFENCE_FACTOR = 0.4,						-- Factor on units required for min defence
+	WANTED_UNITS_INDUSTRY_FACTOR = 0.2,                        -- How many units a country wants is partially based on how much military industry that is available
+	WANTED_UNITS_THREAT_BASE = 0.01,                             -- If no threat, multiply min wanted units by this
+	WANTED_UNITS_THREAT_MAX = 0.1,                             -- Normalized threat is clamped to this
+	WANTED_UNITS_WAR_THREAT_FACTOR = 1.2,                       -- Factor threat with this if country is at war. this value is overriden by the value in ideology database if that value exceedes this.
+	WANTED_UNITS_DANGEROUS_NEIGHBOR_FACTOR = 0.25,              -- Factor if has dangerous neighbor
+	WANTED_UNITS_MANPOWER_DIVISOR = 800,                      -- Normalizing divisor for AI manpower. (for each x max available manpower, they want one division)
+	WANTED_UNITS_WEIGHT_FRONTS_WANT = 0.001,                      -- Weight of front needs when computing final nr wanted units
+	WANTED_UNITS_WEIGHT_FACTORIES = 0.01,                        -- Weight of military factories when computing final nr wanted units
+	WANTED_UNITS_WEIGHT_MANPOWER = 0.8,                         -- Weight of manpower availability when computing final nr wanted units
+	WANTED_UNITS_MIN_DEFENCE_FACTOR = 0.198,						-- Factor on units required for min defence
 	-- End of calculating wanted nr of divisions
 
-	WANTED_UNITS_MAX_WANTED_CAP = 500,	-- Maximum wanted divisions for a country. This can be exceeded by certain hardcoded multipliers, but not by base calculation logic.
+	WANTED_UNITS_MAX_WANTED_CAP = 130,	-- Maximum wanted divisions for a country. This can be exceeded by certain hardcoded multipliers, but not by base calculation logic.
 
 	WANTED_LAND_PLANES_PER_BASE_CAPACITY_FACTOR = 1,	-- Scales how many land-based planes the AI want per air base space (excluding carriers).
-	WANTED_LAND_PLANES_PER_DIVISION = 20,				-- How many land-based planes the AI want for each division it wants.
+	WANTED_LAND_PLANES_PER_DIVISION = 0.1,				-- How many land-based planes the AI want for each division it wants.
 	WANTED_LAND_PLANES_TOTAL_MAX_PER_DIVISION = 100,	-- The max total number of land-based planes the AI want.
 
 	WANTED_CARRIER_PLANES_PER_CARRIER_CAPACITY_FACTOR = 1,					-- Scales how many carrier planes the AI want per carrier deck space.
@@ -2514,7 +2514,7 @@ NAI = {
 	REFIT_SHIP_PERCENTAGE_OF_FORCES = 0.1,				-- How big part of the navy that should be considered for refitting
 
 
-	NAVY_PREFERED_MAX_SIZE = 20,						-- AI will generally attempt to merge fleets into this size, but as a soft limit.
+	NAVY_PREFERED_MAX_SIZE = 40,						-- AI will generally attempt to merge fleets into this size, but as a soft limit.
 	INVASION_COASTAL_PROVS_PER_ORDER = 1,				-- AI will consider one extra invasion per number of provinces stated here (num orders = total coast / this)
 	MIN_INVASION_AREA_SIZE_FOR_FLOATING_HARBORS = 15,   -- AI will consider using floating harbors for naval invasion if invasion area is larger than this many provinces
 
