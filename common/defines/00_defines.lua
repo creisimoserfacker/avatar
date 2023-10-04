@@ -2710,14 +2710,14 @@ NAI = {
 	RECON_PLANES_STRATEGIC = 50,                       -- scale on recon for strategic areas
 
 	ASSIGN_FRONT_ARMY_SOFT_ATTACK_FACTOR = 0.1,                 -- Importance of unit's ARMY_SOFT_ATTACK stat when assigning to a front
-	ASSIGN_FRONT_ARMY_HARD_ATTACK_FACTOR = 0.1,                -- Importance of unit's ARMY_HARD_ATTACK stat when assigning to a front
+	ASSIGN_FRONT_ARMY_HARD_ATTACK_FACTOR = 0.5,                -- Importance of unit's ARMY_HARD_ATTACK stat when assigning to a front
 	ASSIGN_FRONT_ARMY_BREAKTHROUGH_FACTOR = 0.2,               -- Importance of unit's ARMY_BREAKTHROUGH stat when assigning to a front
 	ASSIGN_DEFENSE_ARMY_DEFENSE_FACTOR = 3.0,                   -- Importance of unit's ARMY_DEFENSE stat when assigning to an area defense order
-	ASSIGN_DEFENSE_ARMY_ENTRENCHMENT_FACTOR = 2.0,              -- Importance of unit's ARMY_ENTRENCHMENT stat when assigning to an area defense order
+	ASSIGN_DEFENSE_ARMY_ENTRENCHMENT_FACTOR = 5.0,              -- Importance of unit's ARMY_ENTRENCHMENT stat when assigning to an area defense order
 	ASSIGN_DEFENSE_TEMPLATE_CLASS_SCORE = 3.0,                  -- Importance of unit's AI template class (AREA_DEFENSE, CAVALRY) when assigning to an area defense order
-	ASSIGN_INVASION_AMPHIBIOUS_ATTACK_FACTOR = 50.0,            -- Importance of unit's amphibious attack adjuster when assigning to an invasion order
+	ASSIGN_INVASION_AMPHIBIOUS_ATTACK_FACTOR = 100.0,            -- Importance of unit's amphibious attack adjuster when assigning to an invasion order
 	ORDER_ASSIGNMENT_DISTANCE_FACTOR = 100.0,                    -- When the AI assigns units to orders, how much should distance be taken into account?
-	REVISITED_PROV_BOOST_FACTOR = 4,                            -- When the AI picks units for a front, it prioritises units already nearby.
+	REVISITED_PROV_BOOST_FACTOR = 3,                            -- When the AI picks units for a front, it prioritises units already nearby.
 	UNIT_ASSIGNMENT_STATS_IMPORTANCE = 3.0,                     -- Stats score for units are multiplied by this when the AI is deciding which front they should be assigned to
 
 	ASSIGN_FRONT_TERRAIN_ATTACK_FACTOR = 3.0,                   -- Importance of unit's terrain adjusted attack stat when assigning to a front

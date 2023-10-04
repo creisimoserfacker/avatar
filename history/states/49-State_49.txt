@@ -2,6 +2,8 @@
 state={
 	id=49
 	name="STATE_49"
+	manpower=3720
+	state_category=rural
 
 	history = {
 		pop_growth = yes
@@ -12,41 +14,31 @@ state={
 		add_to_variable = {
 			var = forest
 			value = 0.9
-
 		}
 		add_to_variable = {
 			var = mountain
 			value = 0
-
 		}
 		add_to_variable = {
 			var = field
 			value = 0.4
-
 		}
 		add_to_variable = {
 			var = water
 			value = 0.4
-
 		}
 		add_to_variable = {
 			var = stonefield
 			value = 0
-
 		}
 		add_to_variable = {
 			var = animal
 			value = 0.5
+		}
+		
+		victory_points = { 2236 10 }
+		victory_points = { 6117 5 }
 
-		}
-		add_to_variable = {
-			var = resource_deposites
-			value = 0.6
-
-		}
-		victory_points = {
-			2236 5 
-		}
 		12.1.1 = {
 			owner = NOW
 			controller = NOW
@@ -54,13 +46,19 @@ state={
 			buildings = {
 				infrastructure = 2
 				lumber_mill = 1
-
 			}
 
 		}
 		52.5.16 = {
 			controller = NOW
-
+			buildings = {
+				infrastructure = 3
+				lumber_mill = 2
+				arms_factory = 1
+				6117 = {
+					wall = 2
+				}
+			}
 		}
 		106.2.4 = {
 			controller = FIR
@@ -76,7 +74,4 @@ state={
 	provinces={
 		536 779 1752 1813 1824 2236 2269 2344 2491 2941 4870 4995 5101 5243 6115 6117 6120 6131 6133 6134 6137 6144 6160 6171 6180 
 	}
-	manpower=3720
-	buildings_max_level_factor=1.000
-	state_category=rural
 }
