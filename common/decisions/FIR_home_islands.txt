@@ -56,7 +56,12 @@ FIR_civil_decision_category = {
 		days_remove = 700
 
 		ai_will_do = {
-			factor = 1000
+			base = 0
+
+			modifier = {
+				add = 100
+				check_variable = { modifier@stability_factor > 1.20 }  ### more than 120% extra stability
+			}
 		}
 	}
 	
