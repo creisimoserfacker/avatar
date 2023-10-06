@@ -1000,13 +1000,20 @@ country_event = {
 			clr_country_flag = approach_earthkingdom
 			set_country_flag = earth_war_path
 			
-			unlock_decision_category_tooltip = FIR_conquest_category
-			add_to_variable = { 
-				var = ROOT.acive_missions
-				value = 1
-				tooltip = add_mission_ttp
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = conquest_category_active
+					}
+				}
+				unlock_decision_category_tooltip = FIR_conquest_category
+				add_to_variable = { 
+					var = ROOT.acive_missions
+					value = 1
+					tooltip = add_mission_ttp
+				}
+				set_country_flag = conquest_category_active
 			}
-			set_country_flag = conquest_category_active
 		}
 		
 		add_named_threat = { 
@@ -1069,13 +1076,20 @@ country_event = {
 			add_war_support = 0.1
 			set_country_flag = earth_war_path
 			
-			unlock_decision_category_tooltip = FIR_conquest_category
-			add_to_variable = { 
-				var = ROOT.acive_missions
-				value = 1
-				tooltip = add_mission_ttp
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = conquest_category_active
+					}
+				}
+				unlock_decision_category_tooltip = FIR_conquest_category
+				add_to_variable = { 
+					var = ROOT.acive_missions
+					value = 1
+					tooltip = add_mission_ttp
+				}
+				set_country_flag = conquest_category_active
 			}
-			set_country_flag = conquest_category_active
 		}
 	}
 

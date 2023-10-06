@@ -492,13 +492,20 @@ country_event = {
 		set_country_flag = emergency_intervention_atrocity
 		#custom_effect_tooltip = fire_goes_to_war
 
-		add_to_variable = { 
-			var = ROOT.acive_missions
-			value = 1
-			tooltip = add_mission_ttp
+		if = {
+			limit = {
+				NOT = {
+					has_country_flag = conquest_category_active
+				}
+			}
+			unlock_decision_category_tooltip = FIR_conquest_category
+			add_to_variable = { 
+				var = ROOT.acive_missions
+				value = 1
+				tooltip = add_mission_ttp
+			}
+			set_country_flag = conquest_category_active
 		}
-		unlock_decision_category_tooltip = FIR_conquest_category
-		set_country_flag = conquest_category_active
 
 	}
 	option = { #evacuate
