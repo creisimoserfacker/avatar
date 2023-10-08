@@ -23,16 +23,11 @@ THE_EARTHKINGDOM = {
 			}
 			custom_trigger_tooltip = {
 				tooltip = can_add_mission		
-				check_variable = { ROOT.acive_missions < mtth:get_mission_cap }
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
 			}
 		}
 
 		complete_effect = {
-			add_to_variable = { 
-				var = ROOT.acive_missions
-				value = 1
-				tooltip = add_mission_ttp
-			}
 			unlock_decision_category_tooltip = earth_economic_buildup_category
 			set_country_flag = economy_category_active
 
