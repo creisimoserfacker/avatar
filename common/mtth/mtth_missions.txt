@@ -1,0 +1,68 @@
+
+
+get_emergencies = {
+	base = 0
+	modifier = {
+		has_country_flag = active_peasant_revolt
+		add = 1
+	}
+}
+
+get_mission_cap = {
+	base = 1
+	modifier = {
+		set_temp_variable = { missions = modifier@available_missions }
+		
+		add = missions
+	}
+}
+
+get_missions = {
+	base = 0
+
+	### fir missions
+
+	modifier = {
+		has_country_flag = colonies_category_active
+		add = 1
+	}
+	modifier = {
+		tag = FIR
+		has_country_flag = genocide_active
+		NOT = {
+			has_global_flag = air_nomad_genocide
+		}
+		add = 1
+	}
+	modifier = {
+		has_country_flag = civil_category_active
+		add = 1
+	}
+	modifier = {
+		has_country_flag = industrialisation_active
+		add = 1
+	}
+	modifier = {
+		has_country_flag = conquest_category_active
+		add = 1
+	}
+
+	### ear missions
+	modifier = {
+		has_country_flag = dai_li_category_active
+		add = 1
+	}
+	modifier = {
+		has_country_flag = fire_threat_category_active
+		add = 1
+	}
+	modifier = {
+		has_country_flag = economy_category_active
+		add = 1
+	}
+	modifier = {
+		has_country_flag = defense_category_active
+		add = 1
+	}
+
+}

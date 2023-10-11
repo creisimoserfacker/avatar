@@ -211,7 +211,7 @@ martial_law_occupation_law = {
 		base = 100
 
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.49}
+			check_variable  = { resistance_target_without_law > 0.5 }
 			add = 100
 		}
 	}
@@ -251,34 +251,30 @@ resistance_hunting = {
 		}
 		modifier = {
 			compliance > 5
-			add = -40
+			factor = 0.1
 		}
 		modifier = {
 			check_variable  = { resistance_target_without_law > 0.90 }
-			factor = 10
+			factor = 1.5
 		}
 		modifier = {
 			check_variable  = { resistance_target_without_law > 0.80 }
-			factor = 10
+			factor = 1.5
 		}
 		modifier = {
 			check_variable  = { resistance_target_without_law > 0.70 }
-			factor = 10
+			factor = 1.5
 		}
 		modifier = {
 			check_variable  = { resistance_target_without_law > 0.60 }
-			factor = 2
+			factor = 1.5
 		}
 		modifier = {
 			check_variable  = { resistance_target_without_law > 0.50 }
-			factor = 2
+			factor = 1.5
 		}
 		modifier = {
-			check_variable  = { resistance_target_without_law > 0.40 }
-			factor = 2
-		}
-		modifier = {
-			has_occupation_modifier = resistance_5
+			has_occupation_modifier = resistance_10
 			add = 50
 		}
 		modifier = {
@@ -364,11 +360,11 @@ longterm_occupation = {
 			add = 200
 		}
 		modifier = {
-			check_variable = { resistance_target_without_law > 0.1 }
+			check_variable = { resistance_target_without_law > 0.4 }
 			factor = 0.1
 		}
 		modifier = {
-			check_variable = { resistance_target_without_law < 0.1 }
+			check_variable = { resistance_target_without_law < 0.4 }
 			factor = 2
 		}
 		modifier = {
