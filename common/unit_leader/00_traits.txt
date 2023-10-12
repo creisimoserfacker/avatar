@@ -20,13 +20,18 @@
 #	custom_prerequisite_tooltip = "" # loc key
 #	custom_gain_xp_trigger_tooltip = "" # loc key
 #	mutually_exclusive = other_trait # trait key
-#	parent = other_trait # trait key
-#	num_parents_needed = -1 # integer, -1 means "all"
-#	gui_row = -1 # integer, starts at 0, -1 means auto
-#	gui_column = -1 # integer, starts at 0, -1 means auto
-#	allowed = trigger # scope is an unit leader
+#	parent = { # Can be added multiple times
+#	    traits = {XXX YYY ZZZ}  # A list of other traits that
+#       num_parents_needed = 1 # The number of the above traits that must be true
+#   }
+#   any_parent = { XXX YYY ZZZ } # shorthand for parent when num_parents_needed are defaulted to 1
+#   all_parents = { XXX YYY ZZZ } # shorthand for parent when num_parents_needed are the same as the number of parents
+#	gui_row = 0 # integer, starts at 0, unset or -1 means the trait does not appear in unlockable trait tree.
+#	gui_column = 0 # integer, starts at 0, unset or -1 means auto
+#	allowed = trigger # scope is a unit leader
 #	prerequisites = trigger # scope is an unit leader
 #	gain_xp = trigger # scope is a combatant
+#	gain_xp_leader = trigger # scope is a unit leader. ROOT is country you are from and FROM is any target nationality for agents
 #	gain_xp_on_spotting = 0 # integer
 #	modifier = { } # list of modifiers
 #	non_shared_modifier = {} #
@@ -101,7 +106,7 @@ leader_traits = {
 		}
 		logistics_skill_factor = 2
 		trait_type = assignable_trait
-		parent = skilled_staffer
+		all_parents = { skilled_staffer }
 		gui_row = 0
 	}
 	
@@ -130,7 +135,7 @@ leader_traits = {
 			factor = 1
 		}
 		trait_type = assignable_trait
-		parent = expert_staffer
+		all_parents = { expert_staffer }
 		gui_row = 0
 
 		slot = war_minister
@@ -335,7 +340,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = offensive_infantry
+		all_parents = { offensive_infantry }
 		trait_type = assignable_trait
 		mutually_exclusive = sneak_attack
 		gui_row = 1
@@ -365,7 +370,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = offensive_infantry
+		all_parents = { offensive_infantry }
 		trait_type = assignable_trait
 		mutually_exclusive = powerful_attack
 		gui_row = 2
@@ -394,7 +399,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = defensive_infantry
+		all_parents = { defensive_infantry }
 		trait_type = assignable_trait
 		mutually_exclusive = last_stand
 		
@@ -422,7 +427,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		parent = defensive_infantry
+		all_parents = { defensive_infantry }
 		trait_type = assignable_trait
 		mutually_exclusive = entrenchment
 		
@@ -446,7 +451,7 @@ leader_traits = {
 			factor = 1
 		}
 		gui_row = 5
-		parent = tactical_mind
+		all_parents = { tactical_mind }
 		trait_type = assignable_trait
 	}
 
@@ -469,7 +474,7 @@ leader_traits = {
 		gui_row = 6
 		mutually_exclusive = fast_planner
 
-		parent = tactical_mind
+		all_parents = { tactical_mind }
 		trait_type = assignable_trait
 	}
 
@@ -492,7 +497,7 @@ leader_traits = {
 		gui_row = 7
 		mutually_exclusive = thorough_planner
 
-		parent = tactical_mind
+		all_parents = { tactical_mind }
 		trait_type = assignable_trait
 	}
 
@@ -516,7 +521,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = trait_engineer
+		all_parents = { trait_engineer }
 		trait_type = assignable_trait
 		gui_row = 8
 
@@ -543,7 +548,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = supply_organisation
+		all_parents = { supply_organisation }
 		trait_type = assignable_trait
 		gui_row = 9
 
@@ -574,7 +579,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		parent = naval_invader
+		all_parents = { naval_invader }
 		
 		gui_row = 10
 
@@ -606,7 +611,7 @@ leader_traits = {
 		gui_row = 11
 		
 		trait_type = assignable_trait
-		parent = besieger
+		all_parents = { besieger }
 	}
 
 
@@ -631,9 +636,7 @@ leader_traits = {
 			factor = 1
 		}
 		gui_row = 1
-		parent = powerful_attack
-		parent = sneak_attack
-		num_parents_needed = 1
+		any_parent = { powerful_attack sneak_attack }
 		trait_type = assignable_trait
 
 		slot = war_minister
@@ -659,9 +662,7 @@ leader_traits = {
 			factor = 1
 		}
 		gui_row = 4
-		parent = last_stand
-		parent = entrenchment
-		num_parents_needed = 1
+		any_parent = { last_stand entrenchment}
 
 		trait_type = assignable_trait
 
@@ -688,10 +689,7 @@ leader_traits = {
 		}
 
 		gui_row = 6
-		parent = battlefield_observer
-		parent = thorough_planner
-		parent = fast_planner
-		num_parents_needed = 1
+		any_parent = { battlefield_observer thorough_planner fast_planner }
 
 		slot = war_minister
 		specialist_advisor_trait = flexible_strategist_1
@@ -719,7 +717,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = bridge_builder
+		all_parents = { bridge_builder }
 		trait_type = assignable_trait
 		gui_row = 8
 	}
@@ -742,7 +740,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = endurance_general
+		all_parents = { endurance_general }
 		trait_type = assignable_trait
 		gui_row = 9
 
@@ -808,7 +806,7 @@ leader_traits = {
 			factor = 1
 		}
 		
-		parent = winter_specialist
+		all_parents = { winter_specialist }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 7
@@ -890,7 +888,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = desert_fox
+		all_parents = { desert_fox }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 0
@@ -959,7 +957,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = swamp_fox
+		all_parents = { swamp_fox }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 1
@@ -1023,7 +1021,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = trait_mountaineer
+		all_parents = { trait_mountaineer }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 3
@@ -1098,7 +1096,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = hill_fighter
+		all_parents = { hill_fighter }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 2
@@ -1149,7 +1147,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = jungle_rat
+		all_parents = { jungle_rat }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 6
@@ -1205,7 +1203,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = ranger
+		all_parents = { ranger }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 5
@@ -1269,7 +1267,7 @@ leader_traits = {
 			factor = 1
 		}
 
-		parent = urban_assault_specialist
+		all_parents = { urban_assault_specialist }
 
 		trait_type = assignable_terrain_trait
 		gui_row = 4
@@ -1292,16 +1290,11 @@ leader_traits = {
 		trait_type = assignable_terrain_trait
 		gui_row = 8
 				
-		parent = desert_fox
-		parent = swamp_fox
-		parent = trait_mountaineer
-		parent = hill_fighter
-		parent = jungle_rat
-		parent = ranger
-		parent = urban_assault_specialist
-		parent = winter_specialist
-		
-		num_parents_needed = 2
+
+		parent = {
+			traits = { desert_fox swamp_fox trait_mountaineer hill_fighter jungle_rat ranger urban_assault_specialist winter_specialist }
+			num_parents_needed = 2
+		}
 	}
 
 ##################################
@@ -1406,7 +1399,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = fleet_admiral
+		all_parents = { fleet_admiral }
 		gui_row = 1
 		gui_column = 1
 	}
@@ -1421,7 +1414,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = artillery_expert
+		all_parents = { artillery_expert }
 		gui_row = 0
 		gui_column = 2
 	}
@@ -1436,7 +1429,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = artillery_expert
+		all_parents = { artillery_expert }
 
 		mutually_exclusive = trait_grand_admiral
 		mutually_exclusive = poser
@@ -1457,7 +1450,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = fleet_admiral
+		all_parents = { fleet_admiral }
 		gui_row = 2
 		gui_column = 1
 	}
@@ -1473,11 +1466,10 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = screening_specialist
-		parent = boarding_master
-		parent = artillery_expert
-
-		num_parents_needed = 2
+		parent = {
+			traits = { screening_specialist boarding_master artillery_expert }
+			num_parents_needed = 2
+		}
 
 		mutually_exclusive = fire_coordinator
 		mutually_exclusive = poser
@@ -1502,7 +1494,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = fleet_admiral
+		all_parents = { fleet_admiral }
 		gui_row = 3
 		gui_column = 1
 
@@ -1523,7 +1515,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = screening_specialist
+		all_parents = { screening_specialist }
 
 		mutually_exclusive = trait_grand_admiral
 		mutually_exclusive = fire_coordinator
@@ -1572,7 +1564,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = raiding_admiral
+		all_parents = { raiding_admiral }
 		gui_row = 4
 		gui_column = 1
 	}
@@ -1587,7 +1579,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = sailor_by_heart
+		all_parents = { sailor_by_heart }
 
 		gui_row = 4
 		gui_column = 2
@@ -1603,7 +1595,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = sailor_by_heart
+		all_parents = { sailor_by_heart }
 
 		gui_row = 5
 		gui_column = 2
@@ -1622,7 +1614,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = raiding_admiral
+		all_parents = { raiding_admiral }
 		gui_row = 7
 		gui_column = 1
 
@@ -1643,7 +1635,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = bold_one
+		all_parents = { bold_one }
 
 		gui_row = 6
 		gui_column = 2
@@ -1660,7 +1652,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = bold_one
+		all_parents = { bold_one }
 
 		gui_row = 7
 		gui_column = 2
@@ -1676,7 +1668,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = bold_one
+		all_parents = { bold_one }
 
 		gui_row = 8
 		gui_column = 2
@@ -1698,7 +1690,7 @@ leader_traits = {
 			factor = 1
 		}
 		trait_type = assignable_trait
-		parent = naval_strategist
+		all_parents = { naval_strategist }
 		gui_row = 9
 		gui_column = 1
 	}
@@ -1717,7 +1709,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = fleet_coordinator
+		all_parents = { fleet_coordinator }
 
 		gui_row = 9
 		gui_column = 2
@@ -1736,7 +1728,7 @@ leader_traits = {
 			factor = 1
 		}
 		trait_type = assignable_trait
-		parent = naval_strategist
+		all_parents = { naval_strategist }
 		mutually_exclusive = terror_of_the_sea
 		gui_row = 10
 		gui_column = 1
@@ -1757,7 +1749,7 @@ leader_traits = {
 		}
 
 		trait_type = assignable_trait
-		parent = naval_strategist
+		all_parents = { naval_strategist }
 		mutually_exclusive = trait_blockade_runner
 		gui_row = 11
 		gui_column = 1
@@ -1779,7 +1771,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		parent = trait_spotter
+		all_parents = { trait_spotter }
 		
 		gui_row = 12
 		gui_column = 1
@@ -1795,7 +1787,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		parent = trait_search_pattern_expert
+		all_parents = { trait_search_pattern_expert }
 		
 		gui_row = 12
 		gui_column = 2
@@ -1813,7 +1805,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		parent = trait_spotter
+		all_parents = { trait_spotter }
 		mutually_exclusive = trait_mine_layer
 		gui_row = 13
 		gui_column = 1
@@ -1829,7 +1821,7 @@ leader_traits = {
 		}
 		
 		trait_type = assignable_trait
-		parent = trait_spotter
+		all_parents = { trait_spotter }
 		mutually_exclusive = trait_mine_sweeper
 		gui_row = 14
 		gui_column = 1
@@ -1870,7 +1862,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = arctic_water_specialist
+		all_parents = { arctic_water_specialist }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 0
@@ -1928,7 +1920,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = trait_inshore_fighter
+		all_parents = { trait_inshore_fighter }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 1
@@ -1973,7 +1965,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = river_fighter
+		all_parents = { river_fighter }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 2
@@ -2018,7 +2010,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = green_water_specialist
+		all_parents = { green_water_specialist }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 3
@@ -2063,7 +2055,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = blue_water_specialist
+		all_parents = { blue_water_specialist }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 4
@@ -2108,7 +2100,7 @@ leader_traits = {
 		ai_will_do = {
 			factor = 1
 		}
-		parent = black_water_specialist
+		all_parents = { black_water_specialist }
 		
 		trait_type = assignable_terrain_trait
 		gui_row = 5
@@ -2131,14 +2123,10 @@ leader_traits = {
 			factor = 0
 		}
 
-		parent = arctic_water_specialist
-		parent = trait_inshore_fighter
-		parent = river_fighter
-		parent = green_water_specialist
-		parent = blue_water_specialist
-		parent = black_water_specialist
-		
-		num_parents_needed = 2
+		parent = {
+			traits = { arctic_water_specialist trait_inshore_fighter river_fighter green_water_specialist blue_water_specialist black_water_specialist }
+			num_parents_needed = 2
+		}
 
 		trait_type = assignable_terrain_trait
 		gui_row = 6
