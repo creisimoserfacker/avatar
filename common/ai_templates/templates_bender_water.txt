@@ -1,0 +1,79 @@
+
+	###  #### #   # ###  #### ###    ###                               
+	#  # #    ##  # #  # #    #  #  #                       
+	###  ###  # # # #  # ###  ###    ##                            
+	#  # #    #  ## #  # #    #  #     #                     
+	###  #### #   # ###  #### #   # ###                                 
+
+template_waterbenders = {
+
+	roles = {
+		waterbenders
+		benders_only
+	}
+	
+	upgrade_prio = {
+		base = 1
+	}
+	match_to_count = 0.5
+	
+	waterbender_1 = {
+	
+		upgrade_prio = { factor = 0.01 }
+		production_prio = { factor = 0.01 }
+		
+		target_width = 9
+		width_weight = 1
+		column_swap_factor = 1.5
+		reinforce_prio = 1
+		
+		target_template = {
+			weight = 0.95
+			match_value = 10000
+			
+			regiments = {
+				waterbender = 3
+			}
+		}
+		
+		allowed_types = {
+			waterbender
+		}
+	}
+
+	waterbender_2 = {
+	
+		upgrade_prio = { factor = 1 }
+		production_prio = { factor = 1 }
+		
+		target_width = 18
+		width_weight = 1
+		column_swap_factor = 1.5
+		reinforce_prio = 1
+		
+		target_template = {
+			weight = 0.95
+			match_value = 10000
+			
+			regiments = {
+				waterbender = 6
+			}
+
+			support = {
+				supply_wagon = 1
+				field_commander = 1
+				combat_pioneer = 1
+				scout = 1
+			}
+		}
+		
+		allowed_types = {
+			waterbender
+			supply_wagon
+			field_commander
+			combat_pioneer
+			scout
+		}
+	}
+	
+}
