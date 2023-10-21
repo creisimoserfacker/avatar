@@ -1,0 +1,221 @@
+
+
+FIR_dragon_category = {
+
+	dragon_hunt = {
+
+		icon = dragon_hunt
+
+		allowed = {
+			always = no
+		}
+		available = {
+			has_country_flag = hunting_dragons
+			FROM = {
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+		}
+
+		state_target = yes
+		target_trigger = {
+			
+		}
+
+		complete_effect = {
+			add_manpower = -100
+			add_equipment_to_stockpile = {
+				type = firebender_equipment
+				amount = -100
+				producer = FIR
+			}
+		}
+
+		remove_effect = {
+			random_list = {
+				80 = {
+					custom_effect_tooltip = hunt_successful
+					add_stability = 0.05
+					add_manpower = 90
+					random_list = {
+						60 = {
+							add_to_variable = {
+								var = weekly_accumulated_exhaustion
+								value = -10
+								tooltip = war_weariness_remove_tooltip
+							}
+							random_army_leader = {
+								limit = {
+									NOT = {
+										has_trait = dragon_of_the_west
+									}
+									skill > 2
+								}
+								unit_leader_event = {
+									id = generic.22
+								}
+							}
+							FROM = {
+								remove_dynamic_modifier = { modifier = dragon_herd }
+								clr_state_flag = hunt_failed_once
+								clr_state_flag = hunt_failed_twice
+							}
+							remove_targeted_decision = {
+								target = FROM
+								decision = dragon_hunt
+							}
+						}
+						40 = { 
+							modifier = {
+								add = -30
+								FROM = {
+									has_state_flag = hunt_failed_once
+								}
+							}
+							hidden_effect = {
+								FROM = {
+									set_state_flag = hunt_failed_once
+								}
+							}
+						}
+					}
+				}
+				80 = {
+					modifier = {
+						add = -60
+						FROM = {
+							has_state_flag = hunt_failed_twice
+						}
+					}
+					FROM = {
+						set_state_flag = hunt_failed_twice
+					}
+					custom_effect_tooltip = hunt_failed
+					add_stability = -0.05
+					add_war_support = -0.025
+				}
+			}
+
+		}
+
+		days_remove = 45
+		days_re_enable = 30
+
+		custom_cost_trigger = {
+			has_manpower > 99
+			has_equipment = {
+    			firebender_equipment > 99
+			}
+		}
+		custom_cost_text = firebender_100
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+
+	the_dragon_of_the_west_is_born = {
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = hunting_dragons
+			302 = {
+				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+			#has_unit_leader = 7
+			always = no
+		}
+
+		available = {
+			#has_unit_leader = 7
+			always = no
+        }
+
+		complete_effect = {
+			random_army_leader = { 
+				limit = {
+					has_id = 7
+				}
+				unit_leader_event = {
+					id = generic.22
+				}
+			}
+		}
+
+		cost = 100
+        fire_only_once = yes
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+
+	offerings_to_the_dragons = {
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = befriend_dragons
+		}
+
+		available = {
+			
+		}
+
+		cost = 25
+
+		days_remove = 30
+
+		modifier = {
+			country_resource_cost_food_resource = 20
+			country_resource_cost_luxury_goods_resource = 10
+		}
+
+		remove_effect = {
+			add_to_variable = {
+				var = dragons_befriended_var
+				value = 1
+				tooltip = befriend_dragons_var_ttp
+			}
+		}
+
+		days_re_enable = 10
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	dragons_in_the_army = {
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = befriend_dragons
+		}
+
+		available = {
+			
+		}
+
+		cost = 100
+
+		complete_effect = {
+			add_dynamic_modifier = { modifier = dragon_army }
+		}
+
+		fire_only_once = yes
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+}

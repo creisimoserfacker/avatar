@@ -664,4 +664,105 @@ FIR_royal_family_category = {
 		}
 
 	}
+
+
+
+	############################
+	###	DRAGON DECISIONS
+	############################
+
+
+	start_dragon_hunting = {
+
+		icon = hunt_dragons
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_country_leader = {
+				name = "Sozin"
+				ruling_only = yes
+			}
+			NOT = {
+				has_country_flag = befriend_dragons
+			}
+			has_global_flag = sozins_comet_first
+		}
+
+		available = {
+			NOT = {
+				has_country_flag = befriend_dragons
+			}
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = dragons_angry_tt
+			set_country_flag = hunting_dragons
+			set_country_flag = dragon_active
+			unlock_decision_tooltip = dragon_hunt
+			hidden_effect = {
+				every_state = {
+					limit = {
+						has_dynamic_modifier = { modifier = dragon_herd }
+					}
+					FIR = {
+						activate_targeted_decision = {
+							target = PREV
+							decision = dragon_hunt
+						}
+					}
+				}
+			}
+		}
+
+		cost = 100
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	alliance_with_the_dragons = {
+
+		icon = befriend_dragons
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			NOT = {
+				has_country_flag = hunting_dragons
+			}
+			has_global_flag = sozins_comet_first
+		}
+		available = {
+			NOT = {
+				has_war = yes
+				has_country_flag = hunting_dragons
+				has_country_leader_with_trait = out_of_controll
+			}
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
+			}
+		}
+
+		complete_effect = {
+			custom_effect_tooltip = dragons_friendly_tt
+			set_country_flag = befriend_dragons
+			set_country_flag = dragon_active
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+		ai_will_do = {
+			factor = 10
+		}
+	}
 }

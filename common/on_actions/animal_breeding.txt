@@ -163,6 +163,8 @@ on_actions = {
 			set_variable = { bison_cap = grain_supply }
 			set_variable = { bird_cap = grain_supply }
 
+			set_variable = { dragon_cap = modifier@dragons_modifier }
+
 
 			divide_variable = { komodo_cap = komodo_consumed }
 			divide_variable = { mongooze_cap = mongooze_consumed }
@@ -221,6 +223,9 @@ on_actions = {
 			subtract_from_variable = { bison_cap = num_equipment@bison_equipment_1 }
 			subtract_from_variable = { bird_cap = num_equipment@birb_equipment_1 }
 
+			subtract_from_variable = { dragon_cap = num_deployed_planes_with_type@dragon_equipment }
+			subtract_from_variable = { dragon_cap = num_equipment@dragon_equipment_1 }
+
 			clamp_variable = {
 				var = komodo_cap
 				min = 0
@@ -273,6 +278,12 @@ on_actions = {
 				var = bird_cap
 				min = 0
 			}
+
+
+			#clamp_variable = {
+			#	var = dragon_cap
+			#	min = 0
+			#}
 
 
 
@@ -613,6 +624,12 @@ on_actions = {
 			add_equipment_to_stockpile = {
 				type = birb_equipment_1
 				amount = var:bird_growth
+				producer = ROOT
+			}
+
+			add_equipment_to_stockpile = {
+				type = dragon_equipment_1
+				amount = var:dragon_cap
 				producer = ROOT
 			}
 
