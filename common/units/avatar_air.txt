@@ -1,12 +1,32 @@
 sub_units = {
 
-	birb = {
-		sprite = birb_sprite
+	small_birb = {
+		sprite = small_birb_sprite
 		priority = 1
 		active = yes
 		type = { scout_plane }
-		need = { birb_equipment = 1 }
-		categories = { category_birb }
+		need = { small_birb_equipment = 1 }
+		categories = { category_small_birb category_birb }
+		land_air_wing_size = 10
+	}
+
+	medium_birb = {
+		sprite = medium_birb_sprite
+		priority = 2
+		active = yes
+		type = { fighter cas scout_plane }
+		need = { medium_birb_equipment = 1 }
+		categories = { category_medium_birb category_birb }
+		land_air_wing_size = 10
+	}
+
+	heavy_birb = {
+		sprite = heavy_birb_sprite
+		priority = 3
+		active = yes
+		type = { fighter }
+		need = { heavy_birb_equipment = 1 }
+		categories = { category_heavy_birb category_birb }
 		land_air_wing_size = 10
 	}
 

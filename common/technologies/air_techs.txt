@@ -39,11 +39,16 @@ technologies = {
 		}
 
 		enable_equipments = {
-			birb_equipment_1
+			small_birb_equipment_1
 		}
 
 		path = {
 			leads_to_tech = birb_training
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = birb_tech_2
 			research_cost_coeff = 1
 		}
 
@@ -52,6 +57,65 @@ technologies = {
 		folder = {
 			name = air_techs_folder
 			position = { x = 0 y = 0 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_tech_2 = {
+		dependencies = {
+			domestication = 1
+			writing = 1
+		}
+
+		enable_equipments = {
+			medium_birb_equipment_1
+		}
+
+		path = {
+			leads_to_tech = birb_tech_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 0 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_tech_3 = {
+		dependencies = {
+			domestication = 1
+			writing = 1
+		}
+
+		enable_equipments = {
+			heavy_birb_equipment_1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 6 y = 0 }
 		}
 		
 		categories = {
