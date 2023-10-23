@@ -325,6 +325,10 @@ EAR_defense_category = {
 	}
 
 
+
+	
+
+
 	#earth_capital_castle_defenses = {
 #
 	#	icon = earth_defense
@@ -800,5 +804,87 @@ EAR_defense_category = {
 #			factor = 0.05
 #		}
 #	}
+
+
+}
+
+EAR_regional_security_category = {
+
+
+	underground_networks = {
+	
+		cost = 200
+
+		icon = ear_castle_supply
+
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+			surrender_progress > 0.75
+		}
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_underground_networks  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+	
+	roadside_ambushes = {
+	
+		cost = 200
+
+		icon = ear_castle_supply
+
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+
+		}
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_roadside_ambushes  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+	
+	bss_advisors = {
+	
+		cost = 200 
+
+		icon = ear_castle_supply
+
+		visible = {
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			} 
+		}
+		available = {
+			
+		}
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_bss_advisors  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+	
 
 }
