@@ -21,41 +21,6 @@ on_actions = {
 	on_monthly = {
 		effect = {
 
-			### dragon hunt
-
-			if = {
-				limit = {
-					tag = FIR
-					has_country_flag = hunting_dragons
-					any_state = {
-						NOT = {
-							state = 302
-						}
-						has_dynamic_modifier = { modifier = dragon_herd }
-					}
-				}
-
-				random_list = {
-					30 = {
-
-					}
-					0 = {
-						modifier = { add = 10 95 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 323 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 326 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 264 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 167 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 181 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						modifier = { add = 10 267 = { has_dynamic_modifier = { modifier = dragon_herd }}}
-						random_owned_state = {
-							set_variable = { global.dragon_attack = THIS.id }
-							set_state_flag = dragon_attack
-							THIS.OWNER = { country_event = { id = firenation.5  days = 5 } }
-						}
-					}
-				}
-			}
-
 			### calendar
 
 			if = {

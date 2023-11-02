@@ -85,7 +85,7 @@ extreme_poverty = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { standard_of_living < 0.10 }
+			check_variable = { standard_of_living < 10 }
 		}
 	}
 
@@ -104,8 +104,8 @@ poverty = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 0.300 }
-				check_variable = { standard_of_living > 0.099 }
+				check_variable = { standard_of_living < 30 }
+				check_variable = { standard_of_living > 9.999 }
 			}
 		}
 	}
@@ -125,8 +125,8 @@ struggeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 0.50 }
-				check_variable = { standard_of_living > 0.299 }
+				check_variable = { standard_of_living < 50 }
+				check_variable = { standard_of_living > 29.999 }
 			}
 		}
 	}
@@ -146,8 +146,8 @@ middeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 0.7 }
-				check_variable = { standard_of_living > 0.499 }
+				check_variable = { standard_of_living < 70 }
+				check_variable = { standard_of_living > 49.999 }
 			}
 		}
 	}
@@ -167,8 +167,8 @@ wealth = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 0.9 }
-				check_variable = { standard_of_living > 0.699 }
+				check_variable = { standard_of_living < 90 }
+				check_variable = { standard_of_living > 69.999 }
 			}
 		}
 	}
@@ -187,7 +187,7 @@ extreme_wealth = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { standard_of_living > 0.9 }
+			check_variable = { standard_of_living > 89.999 }
 		}
 	}
 

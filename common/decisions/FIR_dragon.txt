@@ -2,6 +2,186 @@
 
 FIR_dragon_category = {
 
+	assemble_dragon_hunter_parties = {
+
+		icon = dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+		available = {
+			has_country_flag = hunting_dragons
+		}
+		visible = {
+			
+		}
+
+		complete_effect = {
+			add_manpower = -100
+			add_equipment_to_stockpile = {
+				type = firebender_equipment
+				amount = -100
+				producer = FIR
+			}
+		}
+
+		remove_effect = {
+			if = {
+				limit = {
+					check_variable = { dragons_hunters_var > 200 }
+				}
+				random_controlled_state = {
+					limit = {
+						has_dynamic_modifier = { modifier = dragon_herd }
+					}
+					add_dynamic_modifier = { modifier = dragon_hunters }
+				}
+				add_to_variable = {
+					var = dragons_hunters_var
+					value = -200
+					tooltip = dragon_hunters_var_ttp
+				}
+			}
+			else = {
+				random_list = {
+					var:dragons_allive_var = {
+						activate_mission = dragon_rampage
+					}
+					var:dragons_hunters_var = {
+						add_to_variable = {
+							var = dragons_killed_var
+							value = 1
+							tooltip = kill_dragons_var_ttp
+						}
+						add_to_variable = { dragons_allive_var = -1 }
+					}
+				}
+			}
+			add_to_variable = {
+				var = dragons_hunters_var
+				value = 100
+				tooltip = dragon_hunters_var_ttp
+			}
+		}
+
+		days_remove = 1#45
+		days_re_enable = 30
+
+		custom_cost_trigger = {
+			has_manpower > 99
+			has_equipment = {
+    			firebender_equipment > 99
+			}
+		}
+		custom_cost_text = firebender_100
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	encourage_poaching = {
+
+		icon = dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+		available = {
+			has_country_flag = hunting_dragons
+		}
+		visible = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+
+		days_remove = -1
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	royal_hunts = {
+
+		icon = dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+		available = {
+			has_country_flag = hunting_dragons
+		}
+		visible = {
+			
+		}
+
+		complete_effect = {
+			
+		}
+
+		remove_effect = {
+			
+		}
+
+		days_remove = -1
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	dragon_rampage = {
+
+		icon = dragon_hunt
+
+		allowed = {
+			always = no
+		}
+		available = {
+			check_variable = { dragons_hunters_var > 400 }
+		}
+		cancel_trigger = {
+			always = no
+		}
+
+		is_good = no
+
+		days_mission_timeout = 15
+
+
+		remove_effect = {
+			random_owned_state = {
+				set_variable = { global.dragon_attack = THIS.id }
+				set_state_flag = dragon_attack
+				THIS.OWNER = { country_event = { id = firenation.5  days = 5 } }
+			}
+		}
+
+		complete_effect = {
+			add_to_variable = {
+				var = dragons_hunters_var
+				value = -400
+				tooltip = dragon_hunters_var_ttp
+			}
+		}
+
+		timeout_effect = {
+			random_owned_state = {
+				set_variable = { global.dragon_attack = THIS.id }
+				set_state_flag = dragon_attack
+				THIS.OWNER = { country_event = { id = firenation.5  days = 5 } }
+			}
+		}
+	}
+
 	dragon_hunt = {
 
 		icon = dragon_hunt
@@ -13,6 +193,11 @@ FIR_dragon_category = {
 			has_country_flag = hunting_dragons
 			FROM = {
 				has_dynamic_modifier = { modifier = dragon_herd }
+			}
+		}
+		visible = {
+			FROM = {
+				has_dynamic_modifier = { modifier = dragon_hunters }
 			}
 		}
 
