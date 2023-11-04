@@ -28,7 +28,15 @@ FIR_dragon_category = {
 		remove_effect = {
 			if = {
 				limit = {
-					check_variable = { dragons_hunters_var > 200 }
+					check_variable = { dragons_hunters_var > 500 }
+					random_controlled_state = {
+						limit = {
+							has_dynamic_modifier = { modifier = dragon_herd }
+						}
+						NOT = {
+							has_dynamic_modifier = { modifier = dragon_hunters }
+						}
+					}
 				}
 				random_controlled_state = {
 					limit = {
@@ -38,14 +46,22 @@ FIR_dragon_category = {
 				}
 				add_to_variable = {
 					var = dragons_hunters_var
-					value = -200
+					value = -500
 					tooltip = dragon_hunters_var_ttp
 				}
 			}
 			else = {
 				random_list = {
 					var:dragons_allive_var = {
-						activate_mission = dragon_rampage
+						if = {
+							limit = {
+								has_active_mission = dragon_rampage
+							}
+							country_event = { id = firenation.5  days = 1 }
+						}
+						else = {
+							activate_mission = dragon_rampage
+						}
 					}
 					var:dragons_hunters_var = {
 						add_to_variable = {
@@ -54,6 +70,27 @@ FIR_dragon_category = {
 							tooltip = kill_dragons_var_ttp
 						}
 						add_to_variable = { dragons_allive_var = -1 }
+
+						if = {
+							limit = {
+								has_idea = dragon_hunt_nobles
+							}
+							random = {
+								chance = 1
+								random_army_leader = {
+									limit = {
+										NOT = {
+											has_trait = dragon_of_the_west
+											is_character = FIR_iroh
+										}
+										skill > 2
+									}
+									unit_leader_event = {
+										id = unit_leader.22
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -64,8 +101,8 @@ FIR_dragon_category = {
 			}
 		}
 
-		days_remove = 1#45
-		days_re_enable = 30
+		days_remove = 7
+		days_re_enable = 7
 
 		custom_cost_trigger = {
 			has_manpower > 99
@@ -80,7 +117,7 @@ FIR_dragon_category = {
 		}
 	}
 
-	encourage_poaching = {
+	provoke_the_dragons = {
 
 		icon = dragon_hunt
 
@@ -94,15 +131,84 @@ FIR_dragon_category = {
 			
 		}
 
+		cost = 10
+
 		complete_effect = {
-			
+			if = {
+				limit = {
+					has_active_mission = dragon_rampage
+				}
+				country_event = { id = firenation.5  days = 1 }
+			}
+			else = {
+				activate_mission = dragon_rampage
+			}
 		}
 
 		remove_effect = {
-			
+			country_event = { id = firenation.6  days = 5 }
 		}
 
-		days_remove = -1
+		days_remove = 14
+		days_re_enable = 14
+
+        ai_will_do = {
+			factor = 10
+		}
+	}
+
+	encourage_poaching = {
+
+		icon = poacher_dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+		available = {
+			has_country_flag = hunting_dragons
+		}
+		visible = {
+			NOT = {
+				has_idea = dragon_hunt_poacher
+			}
+		}
+
+		cost = 25
+
+		complete_effect = {
+			if = {
+				limit = {
+					has_idea = dragon_hunt_nobles
+				}
+				swap_ideas = {
+					remove_idea = dragon_hunt_nobles
+					add_idea = dragon_hunt_neutral
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = dragon_hunt_neutral
+				}
+				swap_ideas = {
+					remove_idea = dragon_hunt_neutral
+					add_idea = dragon_hunt_poacher
+				}
+			}
+
+
+			hidden_effect = {
+				random_controlled_state = {
+					set_temp_variable = { volunteer_poachers = state_population_k }
+					multiply_temp_variable = { volunteer_poachers = 20 }
+					round_temp_variable = volunteer_poachers
+				}
+			}
+			add_to_variable = {
+				var = dragons_hunters_var
+				value = volunteer_poachers
+				tooltip = dragon_hunters_var_ttp
+			}
+		}
 
 		ai_will_do = {
 			factor = 10
@@ -111,7 +217,7 @@ FIR_dragon_category = {
 
 	royal_hunts = {
 
-		icon = dragon_hunt
+		icon = royal_dragon_hunt
 
 		allowed = {
 			tag = FIR
@@ -120,18 +226,38 @@ FIR_dragon_category = {
 			has_country_flag = hunting_dragons
 		}
 		visible = {
-			
+			NOT = {
+				has_idea = dragon_hunt_nobles
+			}
 		}
+
+		custom_cost_trigger = {
+			command_power > 40
+		}
+		custom_cost_text = honour_cost_40
 
 		complete_effect = {
-			
-		}
+			hidden_effect = { add_command_power = -40 }
 
-		remove_effect = {
-			
+			if = {
+				limit = {
+					has_idea = dragon_hunt_poacher
+				}
+				swap_ideas = {
+					remove_idea = dragon_hunt_poacher
+					add_idea = dragon_hunt_neutral
+				}
+			}
+			else_if = {
+				limit = {
+					has_idea = dragon_hunt_neutral
+				}
+				swap_ideas = {
+					remove_idea = dragon_hunt_neutral
+					add_idea = dragon_hunt_nobles
+				}
+			}
 		}
-
-		days_remove = -1
 
 		ai_will_do = {
 			factor = 10
@@ -140,7 +266,7 @@ FIR_dragon_category = {
 
 	dragon_rampage = {
 
-		icon = dragon_hunt
+		icon = dragon_rampage
 
 		allowed = {
 			always = no
@@ -153,16 +279,13 @@ FIR_dragon_category = {
 		}
 
 		is_good = no
+		selectable_mission = yes
 
 		days_mission_timeout = 15
 
 
 		remove_effect = {
-			random_owned_state = {
-				set_variable = { global.dragon_attack = THIS.id }
-				set_state_flag = dragon_attack
-				THIS.OWNER = { country_event = { id = firenation.5  days = 5 } }
-			}
+			country_event = { id = firenation.5  days = 5 }
 		}
 
 		complete_effect = {
@@ -174,11 +297,7 @@ FIR_dragon_category = {
 		}
 
 		timeout_effect = {
-			random_owned_state = {
-				set_variable = { global.dragon_attack = THIS.id }
-				set_state_flag = dragon_attack
-				THIS.OWNER = { country_event = { id = firenation.5  days = 5 } }
-			}
+			country_event = { id = firenation.5  days = 5 }
 		}
 	}
 
@@ -194,6 +313,7 @@ FIR_dragon_category = {
 			FROM = {
 				has_dynamic_modifier = { modifier = dragon_herd }
 			}
+			check_variable = { dragons_hunters_var > 99 }
 		}
 		visible = {
 			FROM = {
@@ -207,20 +327,32 @@ FIR_dragon_category = {
 		}
 
 		complete_effect = {
-			add_manpower = -100
-			add_equipment_to_stockpile = {
-				type = firebender_equipment
-				amount = -100
-				producer = FIR
+			add_to_variable = {
+				var = dragons_hunters_var
+				value = -100
+				tooltip = dragon_hunters_var_ttp
 			}
 		}
 
 		remove_effect = {
 			random_list = {
 				80 = {
+					modifier = {
+						add = -60
+						FROM = {
+							has_state_flag = hunt_failed_twice
+						}
+					}
+					FROM = {
+						set_state_flag = hunt_failed_twice
+					}
+					custom_effect_tooltip = hunt_failed
+					add_stability = -0.05
+					add_war_support = -0.025
+				}
+				80 = {
 					custom_effect_tooltip = hunt_successful
 					add_stability = 0.05
-					add_manpower = 90
 					random_list = {
 						60 = {
 							add_to_variable = {
@@ -228,17 +360,39 @@ FIR_dragon_category = {
 								value = -10
 								tooltip = war_weariness_remove_tooltip
 							}
-							random_army_leader = {
+
+							if = {
 								limit = {
-									NOT = {
-										has_trait = dragon_of_the_west
-									}
-									skill > 2
+									has_idea = dragon_hunt_nobles
 								}
-								unit_leader_event = {
-									id = generic.22
+								random = {
+									chance = 80
+									random_army_leader = {
+										limit = {
+											NOT = {
+												has_trait = dragon_of_the_west
+												is_character = FIR_iroh
+											}
+											skill > 2
+										}
+										unit_leader_event = {
+											id = unit_leader.22
+										}
+									}
 								}
 							}
+
+							if = {
+								limit = {
+									has_idea = dragon_hunt_poacher
+								}
+								random = {
+									chance = 80
+									army_experience = 20
+									air_experience = 5
+								}
+							}
+
 							FROM = {
 								remove_dynamic_modifier = { modifier = dragon_herd }
 								clr_state_flag = hunt_failed_once
@@ -248,6 +402,12 @@ FIR_dragon_category = {
 								target = FROM
 								decision = dragon_hunt
 							}
+							add_to_variable = {
+								var = dragons_killed_var
+								value = 20
+								tooltip = kill_dragons_var_ttp
+							}
+							add_to_variable = { dragons_allive_var = -20 }
 						}
 						40 = { 
 							modifier = {
@@ -264,34 +424,12 @@ FIR_dragon_category = {
 						}
 					}
 				}
-				80 = {
-					modifier = {
-						add = -60
-						FROM = {
-							has_state_flag = hunt_failed_twice
-						}
-					}
-					FROM = {
-						set_state_flag = hunt_failed_twice
-					}
-					custom_effect_tooltip = hunt_failed
-					add_stability = -0.05
-					add_war_support = -0.025
-				}
 			}
 
 		}
 
 		days_remove = 45
 		days_re_enable = 30
-
-		custom_cost_trigger = {
-			has_manpower > 99
-			has_equipment = {
-    			firebender_equipment > 99
-			}
-		}
-		custom_cost_text = firebender_100
 
         ai_will_do = {
 			factor = 10
@@ -301,39 +439,88 @@ FIR_dragon_category = {
 
 	the_dragon_of_the_west_is_born = {
 
+		icon = kill_last_dragon
+
 		allowed = {
 			tag = FIR
 		}
 
 		visible = {	
 			has_country_flag = hunting_dragons
-			302 = {
-				has_dynamic_modifier = { modifier = dragon_herd }
-			}
-			#has_unit_leader = 7
-			always = no
 		}
 
 		available = {
-			#has_unit_leader = 7
-			always = no
+			custom_trigger_tooltip = {
+				tooltip = dragons_allive_smaller_10
+				check_variable = { dragons_allive_var < 11 }
+			}
         }
 
+        cost = 100
+		fire_only_once = yes
+
 		complete_effect = {
-			random_army_leader = { 
+
+			if = {
 				limit = {
-					has_id = 7
+					FIR_iroh = {
+						has_character_flag = FIR_character_born
+					}
 				}
-				unit_leader_event = {
-					id = generic.22
+				FIR_iroh = {
+					add_unit_leader_trait = dragon_of_the_west
 				}
 			}
+			else = {
+				SNW = {
+					remove_ideas = ran_and_shaw
+				}
+			}
+
+			modify_country_flag = {
+				flag = dragon_active
+				value = 1
+			}
+			custom_effect_tooltip = complete_dragon_mission
 		}
 
-		cost = 100
-        fire_only_once = yes
-        ai_will_do = {
+		ai_will_do = {
 			factor = 10
+		}
+	}
+
+
+	negotiate_peace_with_dragons = {
+
+		icon = rewriting
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = hunting_dragons
+		}
+
+		available = {
+			
+        }
+
+        cost = 200
+		fire_only_once = yes
+		
+		complete_effect = {
+
+			modify_country_flag = {
+				flag = dragon_active
+				value = 1
+			}
+			custom_effect_tooltip = complete_dragon_mission
+			custom_effect_tooltip = complete_dragon_mission_warning
+		}
+
+		ai_will_do = {
+			factor = 0
 		}
 	}
 

@@ -553,6 +553,15 @@ country_event = {
 
 	is_triggered_only = yes
 
+	immediate = {
+		hidden_effect = {
+			random_owned_state = {
+				set_variable = { global.dragon_attack = THIS.id }
+				set_state_flag = dragon_attack
+			}
+		}
+	}
+
 	option = {
 		name = firenation.5.a
 
@@ -560,12 +569,56 @@ country_event = {
 			limit = {
 				has_state_flag = dragon_attack
 			}
-			damage_building = {
-				type = infrastructure
-				damage = 2
-			}
+			damage_all_building = yes
+
+			set_temp_variable = { population_killed = state_population_k }
+			multiply_temp_variable = { population_killed = -10 }
 			
+			add_manpower = var:population_killed
+
 			clr_state_flag = dragon_attack
+		}
+	}
+}
+
+#Dragon attack 2
+country_event = {
+	id = firenation.6
+	title = firenation.6.t
+	desc = firenation.6.d
+	picture = GFX_report_event_dragon_attack
+
+	is_triggered_only = yes
+
+	option = {
+		name = firenation.6.a
+
+		random_list = {
+			var:dragons_hunters_var = {
+				set_temp_variable = { dragons_hunters_killed = dragons_hunters_var }
+				multiply_temp_variable = { dragons_hunters_killed = -0.2 }
+				add_to_variable = {
+					var = dragons_hunters_var
+					value = dragons_hunters_killed
+					tooltip = dragon_hunters_var_ttp
+				}
+
+				add_to_variable = {
+					var = dragons_killed_var
+					value = 10
+					tooltip = kill_dragons_var_ttp
+				}
+				add_to_variable = { dragons_allive_var = -10 }
+			}
+			1000 = {
+				set_temp_variable = { dragons_hunters_killed = dragons_hunters_var }
+				multiply_temp_variable = { dragons_hunters_killed = -0.8 }
+				add_to_variable = {
+					var = dragons_hunters_var
+					value = dragons_hunters_killed
+					tooltip = dragon_hunters_var_ttp
+				}
+			}
 		}
 	}
 }

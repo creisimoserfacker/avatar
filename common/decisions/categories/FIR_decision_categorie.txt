@@ -290,7 +290,10 @@ FIR_dragon_category = {
 		original_tag = FIR
 		NOT = { has_country_flag = hide_mission_decisions }
 
-		has_country_flag = dragon_active
+		has_country_flag = {
+			flag = dragon_active
+			value < 2
+		}
 		NOT = {
 			has_country_flag = dragon_complete
 		}

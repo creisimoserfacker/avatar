@@ -148,19 +148,18 @@ FIR_civil_decision_category = {
 		allowed = {
 			tag = FIR
 		}
-		#available = {
-		#	fire_culture > 0.5
-		#	enemies_naval_strength_ratio > 0.25
-		#	has_country_leader_with_trait = personality_cult
-		#}
+		available = {
+			fire_culture > 0.5
+			has_country_leader_with_trait = personality_cult
+		}
 		visible = {
 			fire_culture > 0.4
-			#not = {
-			#	has_country_flag = great_gate_construction
-			#}
+			NOT = {
+				has_global_flag = great_gates_constructed
+			}
 		}
 
-		days_remove = 1#68
+		days_remove = 168
 
 		modifier = {
 			civilian_factory_use = 4

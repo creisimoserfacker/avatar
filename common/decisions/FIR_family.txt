@@ -692,6 +692,7 @@ FIR_royal_family_category = {
 			}
 			NOT = {
 				has_country_flag = befriend_dragons
+				has_country_flag = dragon_active
 			}
 			has_global_flag = sozins_comet_first
 		}
@@ -709,7 +710,10 @@ FIR_royal_family_category = {
 		complete_effect = {
 			custom_effect_tooltip = dragons_angry_tt
 			set_country_flag = hunting_dragons
-			set_country_flag = dragon_active
+			set_country_flag = {
+				flag = dragon_active
+				value = 1
+			}
 			unlock_decision_tooltip = dragon_hunt
 			hidden_effect = {
 				every_state = {
@@ -724,6 +728,8 @@ FIR_royal_family_category = {
 					}
 				}
 			}
+
+			add_ideas = dragon_hunt_neutral
 
 			set_variable = { dragon_rage = 0.5 }
 			set_variable = { dragons_allive_var = 481 }
@@ -746,6 +752,7 @@ FIR_royal_family_category = {
 		visible = {	
 			NOT = {
 				has_country_flag = hunting_dragons
+				has_country_flag = dragon_active
 			}
 			has_global_flag = sozins_comet_first
 		}
@@ -764,7 +771,10 @@ FIR_royal_family_category = {
 		complete_effect = {
 			custom_effect_tooltip = dragons_friendly_tt
 			set_country_flag = befriend_dragons
-			set_country_flag = dragon_active
+			set_country_flag = {
+				flag = dragon_active
+				value = 1
+			}
 		}
 
 		cost = 100
