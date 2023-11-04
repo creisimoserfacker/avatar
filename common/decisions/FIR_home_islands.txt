@@ -205,6 +205,45 @@ FIR_civil_decision_category = {
 	}
 
 
+	fire_academy = {
+
+		icon = research_slot
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {
+			
+		}
+
+		available = {
+			
+		}
+
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 10 }
+		}
+		custom_cost_text = expenses_10000
+
+		modifier = {
+			expenses_factor = 10
+		}
+
+
+		complete_effect = {
+			417 = {
+				add_dynamic_modifier = { modifier = fire_academy }
+			}
+		}
+
+
+		ai_will_do = {
+			base = 100
+		}
+	}
+
+
 
 	##### city development
 

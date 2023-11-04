@@ -35,6 +35,69 @@ defined_text = {
 	}
 }
 
+defined_text = {
+	name = literacy_tech_slot
+	text = {
+		trigger = {
+			check_variable = { literacy_variable > 75 }
+		}
+		localization_key = literacy_tech_slot_yes
+	}
+	text = {
+		localization_key = literacy_tech_slot_no
+	}
+}
+
+defined_text = {
+	name = economy_tech_slot
+	text = {
+		trigger = {
+			check_variable = { standard_of_living > 50 }
+		}
+		localization_key = economy_tech_slot_yes
+	}
+	text = {
+		localization_key = economy_tech_slot_no
+	}
+}
+
+defined_text = {
+	name = relation_tech_slot
+	text = {
+		trigger = {
+			any_country = {
+				has_opinion = {
+					target = ROOT
+					value > 80
+				}
+			}
+		}
+		localization_key = relation_tech_slot_yes
+	}
+	text = {
+		localization_key = relation_tech_slot_no
+	}
+}
+
+defined_text = {
+	name = modifier_tech_slot
+	text = {
+		trigger = {
+			OR = {
+				check_variable = { modifier@research_slots_num > 0 }
+				any_controlled_state = {
+					check_variable = { modifier@research_slots_num > 0 }
+				}
+			}
+		}
+		localization_key = modifier_tech_slot_yes
+	}
+	text = {
+		localization_key = modifier_tech_slot_no
+	}
+}
+
+
 ### peace
 
 defined_text = {

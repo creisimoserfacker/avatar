@@ -28,6 +28,16 @@ on_actions = {
 						check_variable = { standard_of_living = 0 }
 					}
 					set_variable = { standard_of_living = 50 }
+					set_variable = { sol_min = modifier@min_standard_of_living }
+					clamp_variable = {
+						var = sol_min
+						min = 0
+						max = 100
+					}
+					clamp_variable = {
+						var = standard_of_living
+						min = sol_min
+					}
 				}
 
 				set_variable = { army_medium_prio_var = 3 }

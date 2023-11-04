@@ -6,7 +6,6 @@ on_actions = {
 				
 
 				#### slot from literacy
-
 				if = {
 					limit = {
 						NOT = {
@@ -29,16 +28,12 @@ on_actions = {
 				}
 
 
-
-
 				#### slot from economy
-				
 				if = {
 					limit = {
 						NOT = {
 							has_country_flag = has_economy_tech_slot
 						}
-						check_variable = { num_of_civilian_factories > 50 }
 						check_variable = { standard_of_living > 50 }
 					}
 					add_research_slot = 1
@@ -48,7 +43,6 @@ on_actions = {
 					limit = {
 						has_country_flag = has_economy_tech_slot
 						NOT = {
-							check_variable = { num_of_civilian_factories > 50 }
 							check_variable = { standard_of_living > 50 }
 						}
 					}
@@ -58,7 +52,6 @@ on_actions = {
 
 
 				#### slot from international relations
-				
 				if = {
 					limit = {
 						NOT = {
@@ -89,6 +82,41 @@ on_actions = {
 					add_research_slot = -1
 					clr_country_flag = has_relation_tech_slot
 				}
+
+
+
+				#### slot from modifier
+				if = {
+					limit = {
+						NOT = {
+							has_country_flag = has_modifier_tech_slot
+						}
+						OR = {
+							check_variable = { modifier@research_slots_num > 0 }
+							any_controlled_state = {
+								check_variable = { modifier@research_slots_num > 0 }
+							}
+						}
+					}
+					add_research_slot = 1
+					set_country_flag = has_modifier_tech_slot
+				}
+				else_if = {
+					limit = {
+						has_country_flag = has_modifier_tech_slot
+						NOT = {
+							OR = {
+								check_variable = { modifier@research_slots_num > 0 }
+								any_controlled_state = {
+									check_variable = { modifier@research_slots_num > 0 }
+								}
+							}
+						}
+					}
+					add_research_slot = -1
+					clr_country_flag = has_modifier_tech_slot
+				}
+
 			}
 
 			
@@ -127,7 +155,6 @@ on_actions = {
 					NOT = {
 						has_country_flag = has_economy_tech_slot
 					}
-					check_variable = { num_of_civilian_factories > 50 }
 					check_variable = { standard_of_living > 50 }
 				}
 				add_research_slot = 1
@@ -137,7 +164,6 @@ on_actions = {
 				limit = {
 					has_country_flag = has_economy_tech_slot
 					NOT = {
-						check_variable = { num_of_civilian_factories > 50 }
 						check_variable = { standard_of_living > 50 }
 					}
 				}
@@ -176,6 +202,40 @@ on_actions = {
 				}
 				add_research_slot = -1
 				clr_country_flag = has_relation_tech_slot
+			}
+
+
+
+			#### slot from modifier
+			if = {
+				limit = {
+					NOT = {
+						has_country_flag = has_modifier_tech_slot
+					}
+					OR = {
+						check_variable = { modifier@research_slots_num > 0 }
+						any_controlled_state = {
+							check_variable = { modifier@research_slots_num > 0 }
+						}
+					}
+				}
+				add_research_slot = 1
+				set_country_flag = has_modifier_tech_slot
+			}
+			else_if = {
+				limit = {
+					has_country_flag = has_modifier_tech_slot
+					NOT = {
+						OR = {
+							check_variable = { modifier@research_slots_num > 0 }
+							any_controlled_state = {
+								check_variable = { modifier@research_slots_num > 0 }
+							}
+						}
+					}
+				}
+				add_research_slot = -1
+				clr_country_flag = has_modifier_tech_slot
 			}
 			
 
