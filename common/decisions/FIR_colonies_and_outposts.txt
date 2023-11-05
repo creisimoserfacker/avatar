@@ -231,10 +231,11 @@ FIR_colonies_category = {
 				country_exists = PFC
 				OR = {
 					has_decision = yu_dao_colony
+					has_decision = garsai_colony
 					has_decision = makapu_colony
 					has_decision = tienhai_colony
 					has_decision = han_tui_colony
-					has_decision = new_ozai
+					has_decision = omashu_colony
 				}
 			}
 			has_government = fire_culture
@@ -664,9 +665,10 @@ FIR_colonies_category = {
 				OR = {
 					has_decision = pohuai_colony
 					has_decision = makapu_colony
+					has_decision = garsai_colony
 					has_decision = tienhai_colony
 					has_decision = han_tui_colony
-					has_decision = new_ozai
+					has_decision = omashu_colony
 				}
 			}
 			has_government = fire_culture
@@ -769,10 +771,12 @@ FIR_colonies_category = {
 				country_exists = MFC
 				OR = {
 					has_decision = pohuai_colony
+					has_decision = yu_dao_colony
 					has_decision = makapu_colony
 					has_decision = tienhai_colony
+					has_decision = garsai_colony
 					has_decision = han_tui_colony
-					has_decision = new_ozai
+					has_decision = omashu_colony
 				}
 			}
 			has_government = fire_culture
@@ -850,192 +854,422 @@ FIR_colonies_category = {
 	}
 
 
+################################################################################## garsai #################
 
-#	tienhai_colony = {
-#
-#		icon = fir_colony
-#
-#		highlight_states = {
-#			highlight_state_targets = {
-#				state = 171
-#				#state = 165
-#				#state = 220
-#			}
-#		}
-#
-#		allowed = {
-#			tag = FIR
-#		}
-#		visible = {
-#			NOT = {
-#				country_exists = HFC
-#			}
-#			has_government = fire_culture
-#			has_war_with = EAR
-#		}
-#		available = {
-#			has_government = fire_culture
-#			controls_state = 171
-#			controls_state = 165
-#			controls_state = 220
-#			171 = {
-#				compliance > 80
-#			}
-#		}
-#
-#		complete_effect = {
-#
-#			HFC = {
-#				transfer_state = 171
-#				transfer_state = 165
-#				transfer_state = 220
-#				add_state_core = 171
-#				add_state_core = 165
-#				add_state_core = 220
-#			}
-#
-#			FIR = {
-#				puppet = HFC
-#				HFC = {
-#					set_imperial_colony_effect = yes
-#				}
-#			}
-#		
-#
-#		}
-#		ai_will_do = {
-#			factor = 1
-#		}
-#
-#		cost = 100
-#        fire_only_once = yes
-#	}
-#
-#	han_tui_colony = {
-#
-#		icon = fir_colony
-#
-#		highlight_states = {
-#			highlight_state_targets = {
-#				state = 280
-#				#state = 244
-#				#state = 270
-#			}
-#		}
-#	
-#		allowed = {
-#			tag = FIR
-#		}
-#		visible = {
-#			NOT = {
-#				country_exists = KFC
-#			}
-#			has_government = fire_culture
-#			has_war_with = EAR
-#		}
-#		available = {
-#			has_government = fire_culture
-#			controls_state = 280
-#			controls_state = 244
-#			controls_state = 270
-#			280 = {
-#				compliance > 80
-#			}
-#		}
-#
-#		complete_effect = {
-#
-#			KFC = {
-#				transfer_state = 280
-#				transfer_state = 244
-#				transfer_state = 270
-#				add_state_core = 280
-#				add_state_core = 244
-#				add_state_core = 270
-#			}
-#
-#			FIR = {
-#				puppet = KFC
-#				KFC = {
-#					set_imperial_colony_effect = yes
-#				}
-#			}
-#
-#		}
-#		ai_will_do = {
-#			factor = 1
-#		}
-#
-#		cost = 100
-#        fire_only_once = yes
-#	}
-#	
-#	new_ozai = {
-#
-#		icon = fir_colony
-#
-#		highlight_states = {
-#			highlight_state_targets = {
-#				state = 205
-#
-#			}
-#		}
-#	
-#		allowed = {
-#			tag = FIR
-#		}
-#		visible = {
-#			NOT = {
-#				country_exists = OMC
-#			}
-#			has_government = fire_culture
-#
-#			controls_state = 205
-#			has_war_with = EAR
-#			#has_country_leader = { name = "Ozai" ruling_only = yes }
-#		}
-#		available = {
-#			has_government = fire_culture
-#			controls_state = 205
-#			205 = {
-#				compliance > 80
-#			}
-#		}
-#		ai_will_do = {
-#			factor = 1
-#		}
-#
-#		complete_effect = {
-#
-#			OMC = {
-#				set_province_name = { id = 8584 name = "New Ozai" }
-#				transfer_state = 205
-#				add_state_core = 205
-#				transfer_state = 335
-#				add_state_core = 335
-#				transfer_state = 119
-#				add_state_core = 119
-#				transfer_state = 245
-#				add_state_core = 245
-#				transfer_state = 427
-#				add_state_core = 427
-#				transfer_state = 198
-#				add_state_core = 198
-#				transfer_state = 444
-#				add_state_core = 444
-#				transfer_state = 377
-#				add_state_core = 377
-#			}
-#
-#			FIR = {
-#				puppet = OMC
-#			}
-#
-#		}
-#
-#		cost = 100
-#        fire_only_once = yes
-#	}
+	garsai_colony = {
+
+		icon = fir_colony
+
+		priority = 10
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 124
+				state = 164
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = MFC
+				OR = {
+					has_decision = pohuai_colony
+					has_decision = yu_dao_colony
+					has_decision = makapu_colony
+					has_decision = tienhai_colony
+					has_decision = han_tui_colony
+					has_decision = omashu_colony
+				}
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			controls_state = 124
+			controls_state = 164
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				controls_state = 124
+				controls_state = 164
+			}
+		}
+
+		days_remove = -1
+
+		complete_effect = {
+			
+		}
+
+		remove_trigger = {
+			124 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			164 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+		}
+
+		remove_effect = {
+
+			GFC = {
+				transfer_state = 124
+				transfer_state = 164
+				add_state_core = 124
+				add_state_core = 164
+			}
+
+			FIR = {
+				puppet = GFC
+				GFC = {
+					set_imperial_colony_effect = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+################################################################################## tienhai #################
+
+	tienhai_colony = {
+
+		icon = fir_colony
+
+		priority = 10
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 171
+				state = 165
+				state = 220
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = HFC
+				OR = {
+					has_decision = pohuai_colony
+					has_decision = yu_dao_colony
+					has_decision = makapu_colony
+					has_decision = garsai_colony
+					has_decision = han_tui_colony
+					has_decision = omashu_colony
+				}
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			controls_state = 171
+			controls_state = 165
+			controls_state = 220
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				controls_state = 171
+				controls_state = 165
+				controls_state = 220
+			}
+		}
+
+		days_remove = -1
+
+		complete_effect = {
+			
+		}
+
+		remove_trigger = {
+			124 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			164 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			220 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+		}
+
+		remove_effect = {
+
+			HFC = {
+				transfer_state = 171
+				transfer_state = 165
+				transfer_state = 220
+				add_state_core = 171
+				add_state_core = 165
+				add_state_core = 220
+			}
+
+			FIR = {
+				puppet = HFC
+				HFC = {
+					set_imperial_colony_effect = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+
+################################################################################## han tui #################
+
+	han_tui_colony = {
+
+		icon = fir_colony
+
+		priority = 10
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 280
+				state = 244
+				state = 270
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = KFC
+				OR = {
+					has_decision = pohuai_colony
+					has_decision = yu_dao_colony
+					has_decision = makapu_colony
+					has_decision = garsai_colony
+					has_decision = han_tui_colony
+					has_decision = omashu_colony
+				}
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			controls_state = 280
+			controls_state = 244
+			controls_state = 270
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				controls_state = 280
+				controls_state = 244
+				controls_state = 270
+			}
+		}
+
+		days_remove = -1
+
+		complete_effect = {
+			
+		}
+
+		remove_trigger = {
+			280 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			244 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			270 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+		}
+
+		remove_effect = {
+
+			KFC = {
+				transfer_state = 280
+				transfer_state = 244
+				transfer_state = 270
+				add_state_core = 280
+				add_state_core = 244
+				add_state_core = 270
+			}
+
+			FIR = {
+				puppet = KFC
+				KFC = {
+					set_imperial_colony_effect = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+################################################################################## omashu #################
+
+	omashu_colony = {
+
+		icon = fir_colony
+
+		priority = 10
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 205
+				state = 335
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			NOT = {
+				country_exists = OMC
+				OR = {
+					has_decision = pohuai_colony
+					has_decision = yu_dao_colony
+					has_decision = makapu_colony
+					has_decision = garsai_colony
+					has_decision = han_tui_colony
+					has_decision = tienhai_colony
+				}
+			}
+			has_government = fire_culture
+			has_war_with = EAR
+		}
+		available = {
+			controls_state = 205
+			controls_state = 335
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		cancel_trigger = {
+			NOT = {
+				controls_state = 205
+				controls_state = 335
+			}
+		}
+
+		days_remove = -1
+
+		complete_effect = {
+			
+		}
+
+		remove_trigger = {
+			205 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+			335 = {
+				compliance > 80
+				custom_trigger_tooltip = {
+					tooltip = fire_population_trigger
+					check_variable = { fire_pop > 50 }
+				}
+			}
+		}
+
+		remove_effect = {
+
+				if = {
+					limit = {
+						AND = {
+							has_country_leader = {
+								character = FIR_ozai
+								ruling_only = yes
+							}
+							FIR_azula = {
+								has_character_flag = FIR_character_born
+							}
+						}
+					}
+					OMC = {
+						set_cosmetic_tag = OMC_new_ozai
+						set_province_name = { id = 8584 name = "New Ozai" }
+					}
+				}
+
+			OMC = {
+				transfer_state = 205
+				transfer_state = 335
+				add_state_core = 205
+				add_state_core = 335
+
+			}
+
+			FIR = {
+				puppet = OMC
+				OMC = {
+					set_imperial_colony_effect = yes
+				}
+			}
+		}
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
 
 
 }
