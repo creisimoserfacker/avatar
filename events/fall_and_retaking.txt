@@ -134,7 +134,23 @@ country_event = {
 			base = 100
 		}
 		154 = {
-			add_compliance = 20
+			add_compliance = 40
+
+			set_temp_variable = {
+				var = one_time_earth_add
+				value = -40
+				tooltip = add_earth_pop_100_tt
+			}
+			set_temp_variable = { one_time_fire_add = 0 }
+			set_temp_variable = { one_time_water_add = 0 }
+			set_temp_variable = { one_time_air_add = 0 }
+			set_temp_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			culture_growth_calculation_state = yes
 		}
 		add_named_threat = { 
 		    threat = 2 
@@ -151,6 +167,10 @@ country_event = {
 			}
 			set_victory_points = {
 				province = 563
+				value = 5
+			}
+			set_victory_points = {
+				province = 6901
 				value = 10
 			}
 		}

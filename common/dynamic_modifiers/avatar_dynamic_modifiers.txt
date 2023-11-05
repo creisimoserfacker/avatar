@@ -220,6 +220,53 @@ relocate_fire_population  = {
 	monthly_migration_state = mtth:fire_relocate_migration
 }
 
+firenation_colony  = {
+	enable = { always = yes }
+	remove_trigger = {
+		THIS.CONTROLLER = {
+			NOT = {
+				has_government = fire_culture
+			}
+		}
+	}
+
+	icon = GFX_modifiers_firenation_colony
+	
+	monthly_fire_culture_in_state = 0.5
+	compliance_gain = 0.02
+	
+}
+
+secure_trade_route  = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_secure_trade_route
+	
+	garrison_factor_modifier = 0.25
+	resistance_activity = -0.5
+	resistance_target = -0.25
+
+	state_production_speed_infrastructure_factor = 0.5
+	state_production_speed_supply_node_factor = 0.5
+	state_production_speed_rail_way_factor = 0.5
+}
+
+hostile_bottleneck  = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_hostile_bottleneck
+
+	enemy_attrition = 0.1
+	local_supply_impact_factor = 0.5
+	enemy_army_speed_factor = -0.5
+}
+
 recent_rebel_activity = {
 	enable = { always = yes }
 
@@ -375,7 +422,7 @@ boost_air = {
 		}
 	}
 
-	monthly_fire_culture_in_state = 0.1
+	monthly_air_culture_in_state = 0.1
 }
 boost_pluralist = {
 	enable = { always = yes }

@@ -1,0 +1,158 @@
+
+
+pohuai_castle = {
+	155 = {
+		set_victory_points = {
+			province = 6682
+			value = 30
+		}
+		add_province_modifier = {
+			static_modifiers = {
+				pohuai_stronghold
+			}
+			province = {
+				id = 6682
+			}
+		}
+		add_building_construction = {
+			type = wall
+			level = 25
+			instant_build = yes
+			province = 6682
+		}
+		add_compliance = 10
+	}
+}
+
+
+pohuai_chokepoint = {
+	if = {
+		limit = {
+			has_country_flag = pohuai_stronghold_chokepoint_extension
+		}
+		101 = {
+			set_building_level = {
+				type = supply_node
+				level = 0
+				province = {
+					all_provinces = yes
+					limit_to_supply_node = yes
+				}
+			}
+			remove_building = {
+				type = infrastructure
+				level = -8
+			}
+			add_dynamic_modifier = { modifier = hostile_bottleneck }
+		}
+		131 = {
+			add_building_construction = {
+				type = wall
+				level = 6
+				instant_build = yes
+				province = 5175
+			}
+			add_building_construction = {
+				type = supply_node
+				level = 1
+				instant_build = yes
+				province = 5175
+			}
+
+			build_railway = {
+				level = 1
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 5175 2694 844 4744 }
+				start_province = 5175
+				target_province = 4744
+			}
+		}
+		88 = {
+			add_building_construction = {
+				type = wall
+				level = 6
+				instant_build = yes
+				province = 4744
+			}
+			add_building_construction = {
+				type = supply_node
+				level = 1
+				instant_build = yes
+				province = 4744
+			}
+		}
+	}
+}
+
+
+pohuai_gates = {
+	if = {
+		limit = {
+			has_country_flag = pohuai_stronghold_gate_extension
+		}
+		155 = {
+			add_building_construction = {
+				type = wall
+				level = 10
+				instant_build = yes
+				province = 1639
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 6682 5339 1639 2471 }
+				start_province = 6682
+				target_province = 2471
+			}
+
+			add_building_construction = {
+				type = wall
+				level = 10
+				instant_build = yes
+				province = 6699
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 6682 1949 6708 6699 6752 }
+				start_province = 6682
+				target_province = 6752
+			}
+		}
+		
+	}
+}
+
+pohuai_harbour = {
+	if = {
+		limit = {
+			has_country_flag = pohuai_stronghold_harbour_extension
+		}
+		155 = {
+			add_building_construction = {
+				type = coastal_fortress
+				level = 10
+				instant_build = yes
+				province = 4159
+			}
+			add_building_construction = {
+				type = naval_base
+				level = 10
+				instant_build = yes
+				province = 4159
+			}
+			build_railway = {
+				level = 2
+				build_only_on_allied = yes
+				fallback = yes
+				path = { 6682 6741 4159 }
+				start_province = 6682
+				target_province = 4159
+			}
+		}
+		
+	}
+}
