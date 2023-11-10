@@ -72,7 +72,7 @@ technologies = {
 	birb_tech_2 = {
 		dependencies = {
 			domestication = 1
-			writing = 1
+			wind_manipulation = 1
 		}
 
 		enable_equipments = {
@@ -81,6 +81,10 @@ technologies = {
 
 		path = {
 			leads_to_tech = birb_tech_3
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = birb_training_2
 			research_cost_coeff = 1
 		}
 
@@ -104,9 +108,12 @@ technologies = {
 	birb_tech_3 = {
 		dependencies = {
 			domestication = 1
-			writing = 1
+			kinectics = 1
 		}
-
+		path = {
+			leads_to_tech = birb_training_3
+			research_cost_coeff = 1
+		}
 		enable_equipments = {
 			heavy_birb_equipment_1
 		}
@@ -130,10 +137,10 @@ technologies = {
 
 	birb_training = {
 		dependencies = {
-			wind_manipulation = 1
+			astronomy = 1
 		}
 
-		category_birb = {
+		category_small_birb = {
 			air_agility = 0.1
 		}
 
@@ -164,10 +171,77 @@ technologies = {
 		}
 	}
 
+	birb_training_2 = {
+		dependencies = {
+			astronomy = 1
+		}
+
+		category_medium_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_range_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 2 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_training_3 = {
+		dependencies = {
+			astronomy = 1
+		}
+
+		category_heavy_birb = {
+			air_agility = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_message_3
+			research_cost_coeff = 1
+		}
+
+		path = {
+			leads_to_tech = birb_intercept_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 6 y = 2 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	birb_intercept = {
 
-		category_birb = {
-			air_attack = 0.5
+		category_small_birb = {
+			maximum_speed = 0.15
 		}
 
 		path = {
@@ -194,8 +268,8 @@ technologies = {
 
 	birb_message = {
 
-		category_birb = {
-			air_range = 0.2
+		category_small_birb = {
+			air_range = 0.15
 		}
 
 		path = {
@@ -220,14 +294,147 @@ technologies = {
 		}
 	}
 
+	birb_intercept_2 = {
+
+		category_medium_birb = {
+			air_attack = 0.5
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 2 y = 8 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_message_2 = {
+
+		category_medium_birb = {
+			air_range = 0.2
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 8 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_intercept_3 = {
+
+		category_heavy_birb = {
+			air_attack = 0.5
+		}
+
+		path = {
+			leads_to_tech = birb_range_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 5 y = 4 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_message_3 = {
+
+		category_heavy_birb = {
+			air_ground_attack = 0.1
+		}
+
+		path = {
+			leads_to_tech = birb_range_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 7 y = 4 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_range_2 = {
+
+		dependencies = {
+			natural_philosophy = 1
+		}
+
+		category_medium_birb = {
+			air_range = 0.2
+		}
+
+		path = {
+			leads_to_tech = birb_seeb_2
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 4 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	birb_range = {
 		dependencies = {
 			natural_philosophy = 1
 		}
 
-		category_birb = {
+		category_small_birb = {
 			air_range = 0.2
-			maximum_speed = 0.1
 		}
 
 		path = {
@@ -252,13 +459,51 @@ technologies = {
 		}
 	}
 
+	birb_range_3 = {
+		dependencies = {
+			natural_philosophy = 1
+		}
+
+		category_heavy_birb = {
+			air_range = 0.2
+		}
+
+		path = {
+			leads_to_tech = birb_seeb_3
+			research_cost_coeff = 1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 6 y = 6 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
 	birb_seeb = {
 		dependencies = {
 			botanics = 1
 		}
 
-		category_birb = {
-			air_defence = 1
+		path = {
+			leads_to_tech = birb_defense
+			research_cost_coeff = 1
+		}
+
+		category_small_birb = {
+			air_defence = 0.25
+			maximum_speed = 0.1
+			air_range = 0.1
 		}
 
 		research_cost = 2
@@ -266,6 +511,267 @@ technologies = {
 		folder = {
 			name = air_techs_folder
 			position = { x = 0 y = 8 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_seeb_2 = {
+		dependencies = {
+			botanics = 1
+		}
+		path = {
+			leads_to_tech = birb_intercept_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = birb_message_2
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = birb_breeding
+			research_cost_coeff = 1
+		}
+
+		category_medium_birb = {
+			air_defence = 0.25
+			maximum_speed = 0.1
+			air_range = 0.1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 6 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_seeb_3 = {
+		dependencies = {
+			botanics = 1
+		}
+		path = {
+			leads_to_tech = birb_offense
+			research_cost_coeff = 1
+		}
+
+		category_heavy_birb = {
+			air_defence = 0.25
+			maximum_speed = 0.1
+			air_range = 0.1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 6 y = 8 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_defense = {
+		dependencies = {
+			laws_of_nature = 1
+		}
+		path = {
+			leads_to_tech = birb_armor
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = birb_breeding
+			research_cost_coeff = 1
+		}
+
+		category_birb = {
+			air_defence = 0.5
+			air_agility = 0.1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 1 y = 10 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_breeding = {
+		dependencies = {
+			genetics = 1
+		}
+		path = {
+			leads_to_tech = birb_armor
+			research_cost_coeff = 1
+		}
+		path = {
+			leads_to_tech = birb_weapons
+			research_cost_coeff = 1
+		}
+
+		category_birb = {
+			air_defence = 0.25
+			air_attack = 0.25
+			air_range = 0.1
+			air_agility = 0.15
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 10 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_offense = {
+		dependencies = {
+			laws_of_nature = 1
+		}
+		path = {
+			leads_to_tech = birb_weapons
+			research_cost_coeff = 1
+		}
+
+		category_birb = {
+			air_attack = 0.5
+			air_speed = 0.1
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 5 y = 10 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_weapons = {
+		dependencies = {
+			steel_alloy = 1
+		}
+		path = {
+			leads_to_tech = birb_bombs
+			research_cost_coeff = 1
+		}
+
+		category_birb = {
+			air_attack = 0.75
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 4 y = 12 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	birb_armor = {
+		dependencies = {
+			steel_alloy = 1
+		}
+		path = {
+			leads_to_tech = birb_bombs
+			research_cost_coeff = 1
+		}
+
+		category_birb = {
+			air_defence = 0.75
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 2 y = 12 }
+		}
+		
+		categories = {
+			air_tech
+			birb_tech
+		}
+		
+		ai_will_do = {
+			factor = 1
+		}
+	}
+	
+	birb_bombs = {
+		dependencies = {
+			chemistry = 1
+		}
+
+		category_birb = {
+			air_ground_attack = 0.15
+		}
+
+		research_cost = 2
+		##start_year = 1
+		folder = {
+			name = air_techs_folder
+			position = { x = 3 y = 14 }
 		}
 		
 		categories = {
