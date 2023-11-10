@@ -104,9 +104,9 @@ FIR_conquest_category = {
 		original_tag = FIR
 		NOT = { has_country_flag = hide_mission_decisions }
 
-		has_country_flag = conquest_category_active
-		NOT = {
-			has_country_flag = conquest_category_complete
+		has_country_flag = {
+			flag = conquest_category_active
+			value < 2
 		}
 	}
 
@@ -265,7 +265,7 @@ FIR_colonies_category = {
 	visible_when_empty = yes
 
 	priority = {
-		base = 40
+		base = 99940
 		modifier = {
 			factor = 2
 			has_war = yes

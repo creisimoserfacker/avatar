@@ -6,6 +6,14 @@ get_emergencies = {
 		has_country_flag = active_peasant_revolt
 		add = 1
 	}
+
+	modifier = {
+		OR = {
+			check_variable = { war_exhaustion_variable > 10 }
+			has_war = yes
+		}
+		add = 1
+	}
 }
 
 get_mission_cap = {
@@ -43,7 +51,10 @@ get_missions = {
 		add = 1
 	}
 	modifier = {
-		has_country_flag = conquest_category_active
+		has_country_flag = {
+			flag = conquest_category_active
+			value < 2
+		}
 		add = 1
 	}
 	modifier = {

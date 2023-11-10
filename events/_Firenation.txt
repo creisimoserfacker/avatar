@@ -6,6 +6,7 @@ add_namespace = firenation
 add_namespace = fir_focus
 add_namespace = fir_treaty
 add_namespace = fir_character
+add_namespace = fir_colonies
 
 
 country_event = {
@@ -1054,7 +1055,10 @@ country_event = {
 			set_country_flag = earth_war_path
 			
 			unlock_decision_category_tooltip = FIR_conquest_category
-			set_country_flag = conquest_category_active
+			set_country_flag = {
+				flag = conquest_category_active
+				value = 1
+			}
 		}
 		
 		add_named_threat = { 
@@ -1118,7 +1122,10 @@ country_event = {
 			set_country_flag = earth_war_path
 			
 			unlock_decision_category_tooltip = FIR_conquest_category
-			set_country_flag = conquest_category_active
+			set_country_flag = {
+				flag = conquest_category_active
+				value = 1
+			}
 		}
 	}
 
@@ -1725,4 +1732,170 @@ country_event = {
 		set_variable = { ozai_y = 96 }
 	}
 
+}
+
+
+
+
+################## colonies #################################################
+
+
+### taku rebuilding
+country_event = {
+	id = fir_colonies.1
+	title = fir_colonies.1.t
+	desc = fir_colonies.1.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			154 = {
+				remove_dynamic_modifier = { modifier = destroyed_city }
+			}
+		}
+ 	}
+
+	option = {
+		name = fir_colonies.1.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		154 = {
+			set_temp_variable = {
+				var = one_time_fire_add
+				value = 40
+				tooltip = add_fire_pop_100_tt
+			}
+			set_temp_variable = { one_time_earth_add = 0 }
+			set_temp_variable = { one_time_water_add = 0 }
+			set_temp_variable = { one_time_air_add = 0 }
+			set_temp_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			culture_growth_calculation_state = yes
+
+			add_compliance = 10
+		}
+	}
+	option = {
+		name = fir_colonies.1.b
+		
+		154 = {
+			add_compliance = 40
+
+			set_temp_variable = {
+				var = one_time_fire_add
+				value = 10
+				tooltip = add_fire_pop_100_tt
+			}
+			set_temp_variable = { one_time_earth_add = 0 }
+			set_temp_variable = { one_time_water_add = 0 }
+			set_temp_variable = { one_time_air_add = 0 }
+			set_temp_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			culture_growth_calculation_state = yes
+		}
+	}
+}
+
+### pohuai fort complete
+country_event = {
+	id = fir_colonies.2
+	title = fir_colonies.2.t
+	desc = fir_colonies.2.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			154 = {
+				remove_dynamic_modifier = { modifier = destroyed_city }
+			}
+		}
+ 	}
+
+	option = {
+		name = fir_colonies.2.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		155 = {
+			set_variable = {
+				var = one_time_fire_add
+				value = 75
+				tooltip = add_fire_pop_100_tt
+			}
+			set_variable = { one_time_earth_add = 0 }
+			set_variable = { one_time_water_add = 0 }
+			set_variable = { one_time_air_add = 0 }
+			set_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			clear_variable = one_time_air_add
+			clear_variable = one_time_earth_add
+			clear_variable = one_time_water_add
+			clear_variable = one_time_nonbender_add
+
+			culture_growth_calculation_state = yes
+
+			add_compliance = 50
+		}
+	}
+}
+
+
+### pohuai colony created
+country_event = {
+	id = fir_colonies.3
+	title = fir_colonies.3.t
+	desc = fir_colonies.3.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			
+		}
+ 	}
+
+	option = {
+		name = fir_colonies.3.a
+		ai_chance = { 
+			factor = 100
+		}
+
+		PFC = {
+			add_ideas = colonial_shield
+		}
+	}
+
+	option = {
+		name = fir_colonies.3.b
+		ai_chance = { 
+			factor = 100
+		}
+
+		PFC = {
+			add_ideas = mining_colony
+		}
+	}
 }
