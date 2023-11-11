@@ -212,7 +212,7 @@ FIR_colonies_category = {
 
 	pohuai_colony = {
 
-		icon = fir_colony
+		icon = FIR_pohuai_colony
 
 		priority = 10
 
@@ -293,6 +293,8 @@ FIR_colonies_category = {
 				PFC = {
 					set_imperial_colony_effect = yes
 				}
+
+				country_event = { id = fir_colonies.3 days = 2 }
 			}
 		}
 
@@ -339,7 +341,7 @@ FIR_colonies_category = {
 		days_remove = -1
 
 		complete_effect = {
-			set_country_flag = colony_being_build
+			
 		}
 
 		remove_trigger = {
@@ -386,7 +388,7 @@ FIR_colonies_category = {
 			pohuai_gates = yes
 			pohuai_harbour = yes
 
-			country_event = { id = fir_colonies.3 days = 2 }
+			country_event = { id = fir_colonies.2 days = 2 }
 		}
 
 		ai_will_do = {
@@ -483,7 +485,7 @@ FIR_colonies_category = {
 
 	pohuai_stronghold_construction_material = {
 
-		icon = bricks_and_stones
+		icon = iron_and_steel
 
 		visible = {
 			has_active_mission = pohuai_stronghold
@@ -496,14 +498,14 @@ FIR_colonies_category = {
 		}
 
 		custom_cost_trigger = {
-			check_variable = { resource@stone > 25 }
-			check_variable = { resource@bricks_resource > 100 }
+			check_variable = { resource@iron > 25 }
+			check_variable = { resource@steel > 100 }
 		}
-		custom_cost_text = stone_and_bricks
+		custom_cost_text = iron_and_steel
 
 		modifier = {
-			country_resource_cost_stone = 25
-			country_resource_cost_bricks_resource = 100
+			country_resource_cost_iron = 25
+			country_resource_cost_steel = 100
 		}
 
 		days_remove = 60
@@ -537,7 +539,7 @@ FIR_colonies_category = {
 
 	pohuai_stronghold_construction_material_2 = {
 
-		icon = bricks_and_stones
+		icon = wood_and_planks
 
 		visible = {
 			has_active_mission = pohuai_stronghold
@@ -858,7 +860,7 @@ FIR_colonies_category = {
 
 	garsai_colony = {
 
-		icon = fir_colony
+		icon = FIR_garsai_colony
 
 		priority = 10
 
@@ -944,6 +946,120 @@ FIR_colonies_category = {
 
 		ai_will_do = {
 			factor = 1
+		}
+	}
+
+	garsai_farmland = {
+
+		icon = farmland
+
+		highlight_states = {
+			highlight_state_targets = {
+				state = 124
+				state = 164
+			}
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_decision = garsai_colony
+		}
+		available = {
+			
+		}
+
+		cost = 20
+		fire_only_once = yes
+
+		complete_effect = {
+			
+		}
+
+		cancel_trigger = {
+			NOT = {
+				controls_state = 164
+			}
+		}
+
+		days_remove = -1
+
+		complete_effect = {
+			
+		}
+
+		remove_trigger = {
+			OR = {
+				164 = {
+					oil > 19
+				}
+				124 = {
+					oil > 19
+				}
+			}
+		}
+
+		remove_effect = {
+			164 = {
+				add_dynamic_modifier = { modifier = agricultural_subvention }
+			}
+		}
+	}
+
+	firenation_landowners = {
+
+		icon = landowners
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_decision = garsai_farmland
+		}
+		available = {
+			
+		}
+
+		fire_only_once = yes
+
+		modifier = {
+			expenses_factor = 0.5
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
+		days_remove = 90
+
+		remove_effect = {
+			164 = {
+				set_variable = {
+					var = one_time_fire_add
+					value = 25
+					tooltip = add_fire_pop_100_tt
+				}
+				set_variable = { one_time_earth_add = 0 }
+				set_variable = { one_time_water_add = 0 }
+				set_variable = { one_time_air_add = 0 }
+				set_variable = { one_time_nonbender_add = 0 }
+
+				culture_one_time_change_state = yes
+				culture_value_recalc_state = yes
+				state_culture_pie_chart_recalc = yes
+
+				clear_variable = one_time_air_add
+				clear_variable = one_time_earth_add
+				clear_variable = one_time_water_add
+				clear_variable = one_time_nonbender_add
+
+				culture_growth_calculation_state = yes
+			}
+		}
+
+		ai_will_do = {
+			base = 1
 		}
 	}
 
@@ -1058,7 +1174,7 @@ FIR_colonies_category = {
 
 	han_tui_colony = {
 
-		icon = fir_colony
+		icon = FIR_han_tui_colony
 
 		priority = 10
 

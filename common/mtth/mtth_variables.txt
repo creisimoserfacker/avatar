@@ -388,50 +388,187 @@ fire_settler_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { settler_factor = fire_pop }
-		multiply_temp_variable = { settler_factor = 0.5 }
-		multiply_temp_variable = { settler_factor = -0.01 }
+		divide_temp_variable = { settler_factor = -100 }
 		
 		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
 	}
 }
 water_settler_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { settler_factor = water_pop }
-		multiply_temp_variable = { settler_factor = 0.5 }
-		multiply_temp_variable = { settler_factor = -0.01 }
+		divide_temp_variable = { settler_factor = -100 }
 		
 		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
 	}
 }
 earth_settler_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { settler_factor = earth_pop }
-		multiply_temp_variable = { settler_factor = 0.5 }
-		multiply_temp_variable = { settler_factor = -0.01 }
+		divide_temp_variable = { settler_factor = -100 }
 		
 		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
 	}
 }
 air_settler_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { settler_factor = air_pop }
-		multiply_temp_variable = { settler_factor = 0.5 }
-		multiply_temp_variable = { settler_factor = -0.01 }
+		divide_temp_variable = { settler_factor = -100 }
 		
 		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
 	}
 }
 pluralist_settler_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { settler_factor = nonbender_pop }
-		multiply_temp_variable = { settler_factor = 0.5 }
-		multiply_temp_variable = { settler_factor = -0.01 }
+		divide_temp_variable = { settler_factor = -100 }
 		
 		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+}
+
+
+fire_settler_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = fire_pop }
+		divide_temp_variable = { settler_factor = -100 }
+		
+		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+
+	modifier = {
+		set_temp_variable = { law_modifier = 1 }
+		add_to_temp_variable = { law_modifier = THIS.modifier@culture_resource_effect }
+		
+		factor = law_modifier
+	}
+}
+water_settler_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = water_pop }
+		divide_temp_variable = { settler_factor = -100 }
+		
+		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+
+	modifier = {
+		set_temp_variable = { law_modifier = 1 }
+		add_to_temp_variable = { law_modifier = THIS.modifier@culture_resource_effect }
+		
+		factor = law_modifier
+	}
+}
+earth_settler_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = earth_pop }
+		divide_temp_variable = { settler_factor = -100 }
+		
+		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+
+	modifier = {
+		set_temp_variable = { law_modifier = 1 }
+		add_to_temp_variable = { law_modifier = THIS.modifier@culture_resource_effect }
+		
+		factor = law_modifier
+	}
+}
+air_settler_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = air_pop }
+		divide_temp_variable = { settler_factor = -100 }
+		
+		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+
+	modifier = {
+		set_temp_variable = { law_modifier = 1 }
+		add_to_temp_variable = { law_modifier = THIS.modifier@culture_resource_effect }
+		
+		factor = law_modifier
+	}
+}
+pluralist_settler_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { settler_factor = nonbender_pop }
+		divide_temp_variable = { settler_factor = -100 }
+		
+		add = settler_factor
+	}
+
+	modifier = {
+		set_temp_variable = { resistance_value = THIS.modifier@settler_defiance }
+		
+		factor = resistance_value
+	}
+
+	modifier = {
+		set_temp_variable = { law_modifier = 1 }
+		add_to_temp_variable = { law_modifier = THIS.modifier@culture_resource_effect }
+		
+		factor = law_modifier
 	}
 }
 

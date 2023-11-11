@@ -91,8 +91,8 @@ firenation_settlers = {
 
 	icon = GFX_modifiers_firenation_settlers
 	
-	state_resources_factor = mtth:fire_settler_modifier
-	state_production_speed_buildings_factor = mtth:fire_settler_modifier
+	state_resources_factor = mtth:fire_settler_resource_modifier
+	state_production_speed_buildings_factor = mtth:fire_settler_resource_modifier
 	local_supplies_for_controller = mtth:fire_settler_modifier
 	army_speed_factor_for_controller = mtth:fire_settler_modifier
 	local_manpower = mtth:fire_settler_modifier
@@ -110,8 +110,8 @@ earthkingdom_settlers = {
 
 	icon = GFX_modifiers_earthkingdom_settlers
 	
-	state_resources_factor = mtth:earth_settler_modifier
-	state_production_speed_buildings_factor = mtth:earth_settler_modifier
+	state_resources_factor = mtth:earth_settler_resource_modifier
+	state_production_speed_buildings_factor = mtth:earth_settler_resource_modifier
 	local_supplies_for_controller = mtth:earth_settler_modifier
 	army_speed_factor_for_controller = mtth:earth_settler_modifier
 	local_manpower = mtth:earth_settler_modifier
@@ -129,8 +129,8 @@ watertribe_settlers = {
 
 	icon = GFX_modifiers_watertribe_settlers
 	
-	state_resources_factor = mtth:water_settler_modifier
-	state_production_speed_buildings_factor = mtth:water_settler_modifier
+	state_resources_factor = mtth:water_settler_resource_modifier
+	state_production_speed_buildings_factor = mtth:water_settler_resource_modifier
 	local_supplies_for_controller = mtth:water_settler_modifier
 	army_speed_factor_for_controller = mtth:water_settler_modifier
 	local_manpower = mtth:water_settler_modifier
@@ -148,8 +148,8 @@ airnomad_settlers = {
 
 	icon = GFX_modifiers_airnomad_settlers
 	
-	state_resources_factor = mtth:air_settler_modifier
-	state_production_speed_buildings_factor = mtth:air_settler_modifier
+	state_resources_factor = mtth:air_settler_resource_modifier
+	state_production_speed_buildings_factor = mtth:air_settler_resource_modifier
 	local_supplies_for_controller = mtth:air_settler_modifier
 	army_speed_factor_for_controller = mtth:air_settler_modifier
 	local_manpower = mtth:air_settler_modifier
@@ -167,8 +167,8 @@ pluralist_settlers = {
 
 	icon = GFX_modifiers_pluralist_settlers
 	
-	state_resources_factor = mtth:pluralist_settler_modifier
-	state_production_speed_buildings_factor = mtth:pluralist_settler_modifier
+	state_resources_factor = mtth:pluralist_settler_resource_modifier
+	state_production_speed_buildings_factor = mtth:pluralist_settler_resource_modifier
 	local_supplies_for_controller = mtth:pluralist_settler_modifier
 	army_speed_factor_for_controller = mtth:pluralist_settler_modifier
 	local_manpower = mtth:pluralist_settler_modifier
@@ -216,6 +216,7 @@ relocate_fire_population  = {
 
 	icon = GFX_modifiers_relocate_fire_population
 	
+	settler_defiance = 1
 	monthly_fire_culture_in_state = -2.5
 	monthly_migration_state = mtth:fire_relocate_migration
 }
@@ -254,7 +255,7 @@ secure_trade_route  = {
 	state_production_speed_rail_way_factor = 0.5
 }
 
-hostile_bottleneck  = {
+hostile_bottleneck = {
 	enable = { always = yes }
 	remove_trigger = {
 		
@@ -265,6 +266,18 @@ hostile_bottleneck  = {
 	enemy_attrition = 0.1
 	local_supply_impact_factor = 0.5
 	enemy_army_speed_factor = -0.5
+}
+
+agricultural_subvention = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_agricultural_subvention
+
+	harvesting_factor = 0.1
+	compliance_gain = 0.02
 }
 
 recent_rebel_activity = {
