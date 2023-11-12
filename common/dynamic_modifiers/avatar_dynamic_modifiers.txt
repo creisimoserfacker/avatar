@@ -177,23 +177,25 @@ pluralist_settlers = {
 wandering_refugees = {
 	enable = { always = yes }
 	remove_trigger = {
-		
+		check_variable = { refugee_var = 0 }
 	}
 
 	icon = GFX_modifiers_refugees
 	
 	local_refugees = refugee_var
+	local_supplies = mtth:refugee_supplies
 }
 
 refugees = {
 	enable = { always = yes }
 	remove_trigger = {
-		
+		check_variable = { refugee_var = 0 }
 	}
 
 	icon = GFX_modifiers_refugees
 	
 	local_refugees = refugee_var
+	local_supplies = mtth:refugee_supplies
 }
 
 occupied_has_dominant_culture = {
@@ -219,65 +221,6 @@ relocate_fire_population  = {
 	settler_defiance = 1
 	monthly_fire_culture_in_state = -2.5
 	monthly_migration_state = mtth:fire_relocate_migration
-}
-
-firenation_colony  = {
-	enable = { always = yes }
-	remove_trigger = {
-		THIS.CONTROLLER = {
-			NOT = {
-				has_government = fire_culture
-			}
-		}
-	}
-
-	icon = GFX_modifiers_firenation_colony
-	
-	monthly_fire_culture_in_state = 0.5
-	compliance_gain = 0.02
-	
-}
-
-secure_trade_route  = {
-	enable = { always = yes }
-	remove_trigger = {
-		
-	}
-
-	icon = GFX_modifiers_secure_trade_route
-	
-	garrison_factor_modifier = 0.25
-	resistance_activity = -0.5
-	resistance_target = -0.25
-
-	state_production_speed_infrastructure_factor = 0.5
-	state_production_speed_supply_node_factor = 0.5
-	state_production_speed_rail_way_factor = 0.5
-}
-
-hostile_bottleneck = {
-	enable = { always = yes }
-	remove_trigger = {
-		
-	}
-
-	icon = GFX_modifiers_hostile_bottleneck
-
-	enemy_attrition = 0.1
-	local_supply_impact_factor = 0.5
-	enemy_army_speed_factor = -0.5
-}
-
-agricultural_subvention = {
-	enable = { always = yes }
-	remove_trigger = {
-		
-	}
-
-	icon = GFX_modifiers_agricultural_subvention
-
-	harvesting_factor = 0.1
-	compliance_gain = 0.02
 }
 
 recent_rebel_activity = {

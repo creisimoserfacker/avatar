@@ -105,6 +105,28 @@ defined_text = {
 		localization_key = weariness_bad
 	}
 }
+
+defined_text = {
+	name = CasualtiesdWWC
+	text = {
+		trigger = {
+			check_variable = { weariness_casualties < 0 }
+		}
+		localization_key = weariness_good
+	}
+	text = {
+		trigger = {
+			check_variable = { weariness_casualties = 0 }
+		}
+		localization_key = weariness_neutral
+	}
+	text = {
+		trigger = {
+			check_variable = { weariness_casualties > 0 }
+		}
+		localization_key = weariness_bad
+	}
+}
 defined_text = {
 	name = WeeklyWWC
 	text = {

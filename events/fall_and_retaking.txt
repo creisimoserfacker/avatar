@@ -46,7 +46,7 @@ country_event = {
 			activate_mission = taku_conquest_expectations
 			country_event = { days = 60 id = fir_battle.2 } 
 		}
-		#custom_effect_tooltip = conquest_expectations
+		set_country_flag = taku_conquest_expectations
 	}
 	option = {
 		name = fir_battle.1.b
@@ -125,8 +125,32 @@ country_event = {
 	picture = GFX_report_event_fir_soldiers
 
 	fire_only_once = yes
+	trigger = {
+		154 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
+		OR = {
+			154 = { is_owned_by = TAK }
+			154 = { is_owned_by = EAR }
+		}
+		OR = {
+			FIR = { has_war_with = TAK }
+			FIR = { has_war_with = EAR }
+		}
+		NOT = { has_global_flag = fall_of_taku }
+	}
 
-	is_triggered_only = yes
+	immediate = {
+		hidden_effect = {
+			set_global_flag = fall_of_taku
+			FIR = { news_event = { id = far_news.1 days = 1 } }
+		}
+	}
 
 	option = { #a great idea!
 		name = fir_battle.3.a
@@ -199,30 +223,7 @@ news_event = {
 	picture = GFX_far_news_event_001
 	
 	major = yes
-	
-	trigger = {
-		154 = { is_controlled_by = FIR }
-		OR = {
-			154 = { is_owned_by = TAK }
-			154 = { is_owned_by = EAR }
-		}
-		OR = {
-			FIR = { has_war_with = TAK }
-			FIR = { has_war_with = EAR }
-		}
-		NOT = { has_global_flag = fall_of_taku }
-	}
-
-	immediate = {
- 		hidden_effect = {
- 			set_global_flag = fall_of_taku
- 			FIR = { country_event = { hours = 12 id = fir_battle.3 } }
-		}
- 	}
-	
-	mean_time_to_happen = {
-		days = 2
-	}
+	is_triggered_only = yes
 	
 	option = {
 		name = far_news.1.a
@@ -252,12 +253,7 @@ news_event = {
 			}
 		}
 
-		add_to_variable = {
-			var = weekly_accumulated_exhaustion
-			value = -10
-			tooltip = war_weariness_remove_tooltip
-		}
-		add_war_support = 0.05
+		FIR_victory = yes
 	}
 	option = {
 		name = far_news.1.b_failure
@@ -333,7 +329,7 @@ country_event = {
 			activate_mission = yudao_conquest_expectations
 			country_event = { days = 60 id = fir_battle.5 } 
 		}
-		#custom_effect_tooltip = conquest_expectations
+		set_country_flag = yudao_conquest_expectations
 	}
 	option = {
 		name = fir_battle.4.b
@@ -418,7 +414,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		230 = { is_controlled_by = FIR }
+		230 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			230 = { is_owned_by = WUL }
 			230 = { is_owned_by = EAR }
@@ -468,12 +471,7 @@ news_event = {
 			}
 		}
 
-		add_to_variable = {
-			var = weekly_accumulated_exhaustion
-			value = -10
-			tooltip = war_weariness_remove_tooltip
-		}
-		add_war_support = 0.05
+		FIR_victory = yes
 	}
 	option = {
 		name = far_news.2.b_failure
@@ -549,7 +547,7 @@ country_event = {
 				country_event = { days = 60 id = fir_battle.8 } 
 			}
 		}
-		custom_effect_tooltip = conquest_expectations
+		set_country_flag = garsai_conquest_expectations
 	}
 	option = {
 		name = fir_battle.7.b
@@ -634,7 +632,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		124 = { is_controlled_by = FIR }
+		124 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			124 = { is_owned_by = XIN }
 			124 = { is_owned_by = EAR }
@@ -684,12 +689,7 @@ news_event = {
 			}
 		}
 
-		add_to_variable = {
-			var = weekly_accumulated_exhaustion
-			value = -10
-			tooltip = war_weariness_remove_tooltip
-		}
-		add_war_support = 0.05
+		FIR_victory = yes
 	}
 	option = {
 		name = far_news.3.b_failure
@@ -718,7 +718,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		171 = { is_controlled_by = FIR }
+		171 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			171 = { is_owned_by = YUE }
 			171 = { is_owned_by = EAR }
@@ -768,7 +775,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		243 = { is_controlled_by = FIR }
+		243 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			243 = { is_owned_by = HAN }
 			243 = { is_owned_by = EAR }
@@ -818,7 +832,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		276 = { is_controlled_by = FIR }
+		276 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			276 = { is_owned_by = GDD }
 			276 = { is_owned_by = EAR }
@@ -867,7 +888,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		29 = { is_controlled_by = FIR }
+		29 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			29 = { is_owned_by = GAO }
 			29 = { is_owned_by = EAR }
@@ -916,7 +944,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		205 = { is_controlled_by = FIR }
+		205 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			205 = { is_owned_by = OMS }
 			205 = { is_owned_by = EAR }
@@ -965,7 +1000,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		434 = { is_controlled_by = FIR }
+		434 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			434 = { is_owned_by = YII }
 			434 = { is_owned_by = EAR }
@@ -1014,7 +1056,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		179 = { is_controlled_by = FIR }
+		179 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		179 = { is_owned_by = EAR }
 		FIR = { has_war_with = EAR }
 		NOT = { has_global_flag = fall_of_basingse }
@@ -1113,7 +1162,14 @@ news_event = {
 	major = yes
 	
 	trigger = {
-		233 = { is_controlled_by = FIR }
+		233 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		OR = {
 			233 = { is_owned_by = WBA }
 			233 = { is_owned_by = EAR }
@@ -1228,7 +1284,14 @@ news_event = {
 	
 	trigger = {
 		85 = { is_owned_by = SWT }
-		85 = { is_controlled_by = FIR }
+		85 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		FIR = { has_war_with = SWT }
 		NOT = { has_global_flag = fall_of_the_south }
 	}
@@ -1272,7 +1335,14 @@ news_event = {
 	
 	trigger = {
 		17 = { is_owned_by = NWT }
-		17 = { is_controlled_by = FIR }
+		17 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		FIR = { has_war_with = NWT }
 		NOT = { has_global_flag = fall_of_the_north }
 	}
@@ -1316,7 +1386,14 @@ news_event = {
 	
 	trigger = {
 		105 = { is_owned_by = KYI }
-		105 = { is_controlled_by = FIR }
+		105 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		FIR = { has_war_with = KYI }
 		NOT = { has_global_flag = fall_of_kyoshi }
 	}
@@ -1359,7 +1436,14 @@ news_event = {
 	
 	trigger = {
 		117 = { is_owned_by = SWA }
-		117 = { is_controlled_by = FIR }
+		117 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
 		FIR = { has_war_with = SWA }
 		NOT = { has_global_flag = fall_of_swamp }
 	}

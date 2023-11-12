@@ -358,6 +358,7 @@ FIR_colonies_category = {
 
 		remove_effect = {
 			activate_mission = pohuai_stronghold
+			set_variable = { castle_reduction_factor = 0.5 }
 		}
 	}
 
@@ -636,9 +637,6 @@ FIR_colonies_category = {
 			country_event = { id = fir_colonies.1 days = 2 }
 		}
 	}
-
-
-
 
 
 
@@ -1060,6 +1058,49 @@ FIR_colonies_category = {
 
 		ai_will_do = {
 			base = 1
+		}
+	}
+
+	garsai_colony_city = {
+
+		icon = buildup
+
+		state_target = yes
+
+		targets = {
+			124
+		}
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_decision = garsai_farmland
+		}
+		available = {
+			
+		}
+
+		modifier = {
+			expenses_factor = 0.5
+		}
+		custom_cost_trigger = {
+			check_variable = { tax_balance > 0.5 }
+		}
+		custom_cost_text = expenses_500
+
+		fire_only_once = yes
+
+		days_remove = 365
+
+		complete_effect = {
+			124 = {
+				add_dynamic_modifier = { modifier = firenation_colony }
+			}
+		}
+
+		remove_effect = {
+			country_event = { id = fir_colonies.4 days = 2 }
 		}
 	}
 

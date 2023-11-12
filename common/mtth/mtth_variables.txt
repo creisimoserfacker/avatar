@@ -585,6 +585,17 @@ fire_relocate_migration = {
 }
 
 
+refugee_supplies = {
+	base = 0
+	modifier = {
+		set_temp_variable = { refugee = modifier@local_refugees }
+		divide_temp_variable = { refugee = state_population }
+		multiply_temp_variable = { refugee = -1 }
+		
+		add = refugee
+	}
+}
+
 
 
 animal_breeding = {

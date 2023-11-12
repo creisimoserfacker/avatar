@@ -14,9 +14,11 @@ country_event = {
 	is_triggered_only = yes
 
 	option = {
-		name = refugee_event.1.a
+		name = refugee_event.1.a  ## accept them
 
 		event_target:migration_state = {
+			add_to_variable = { refugees_accepted_last_month = refugee_var }
+			
 			set_temp_variable = { stability_debuff = refugee_var }
 
 			remove_dynamic_modifier = { modifier = refugees }
@@ -40,7 +42,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = refugee_event.1.b
+		name = refugee_event.1.b  ## dont accept them
 
 		event_target:migration_state = {
 			
@@ -57,7 +59,7 @@ country_event = {
 		}
 	}
 	option = {
-		name = refugee_event.1.c
+		name = refugee_event.1.c   ## establish refugee department
 
 		trigger = {
 			check_variable = { FROM.refugee_var > 1000 }

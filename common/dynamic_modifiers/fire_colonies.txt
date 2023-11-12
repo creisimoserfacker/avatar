@@ -1,0 +1,92 @@
+
+
+
+idea_victories_western_ek  = {
+	enable = { always = yes }
+	
+	icon = GFX_idea_victories_western_ek
+	
+	stability_factor = fir_victory_stability_var
+	war_support_factor = fir_victory_war_support_var
+	weekly_war_weariness = fir_victory_weariness_var
+	weekly_occupation_war_weariness = fir_victory_weariness_var
+	weekly_casualty_war_weariness = fir_victory_weariness_var
+}
+
+
+
+
+
+firenation_colony  = {
+	enable = { always = yes }
+	remove_trigger = {
+		THIS.CONTROLLER = {
+			NOT = {
+				has_government = fire_culture
+			}
+		}
+	}
+
+	icon = GFX_modifiers_firenation_colony
+	
+	monthly_fire_culture_in_state = 0.5
+	compliance_gain = 0.02
+	
+}
+
+secure_trade_route  = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_secure_trade_route
+	
+	garrison_factor_modifier = 0.25
+	resistance_activity = -0.5
+	resistance_target = -0.25
+
+	state_production_speed_infrastructure_factor = 0.5
+	state_production_speed_supply_node_factor = 0.5
+	state_production_speed_rail_way_factor = 0.5
+}
+
+hostile_bottleneck = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_hostile_bottleneck
+
+	enemy_attrition = 0.1
+	local_supply_impact_factor = 0.5
+	enemy_army_speed_factor = -0.5
+}
+
+agricultural_subvention = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_agricultural_subvention
+
+	harvesting_factor = 0.1
+	compliance_gain = 0.02
+	monthly_fire_culture_in_state = 0.2
+}
+
+training_grounds = {
+	enable = { always = yes }
+	remove_trigger = {
+		
+	}
+
+	icon = GFX_modifiers_training_grounds
+
+	local_non_core_manpower = 0.4
+	compliance_gain = 0.01
+	mobilization_speed = 0.1
+	recruitable_population = 0.02
+}
