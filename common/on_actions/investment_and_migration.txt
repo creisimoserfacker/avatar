@@ -94,7 +94,7 @@ on_actions = {
 														limit_to_coastal = yes
 													}
 													building = naval_base
-													level > 4
+													level > 0
 												}
 												PREV = {
 													any_province_building_level = {
@@ -103,7 +103,7 @@ on_actions = {
 															limit_to_coastal = yes
 														}
 														building = naval_base
-														level > 4
+														level > 0
 													}
 												}
 											}
@@ -173,6 +173,7 @@ on_actions = {
 									check_variable = { migrating_population < 50 }
 								}
 								add_manpower = var:migrating_population
+								add_to_variable = { refugees_accepted_last_month = migrating_population }
 							}
 							else_if = {
 								limit = {
@@ -251,7 +252,7 @@ on_actions = {
 															limit_to_coastal = yes
 														}
 														building = naval_base
-														level > 4
+														level > 0
 													}
 													PREV = {
 														any_province_building_level = {
@@ -260,7 +261,7 @@ on_actions = {
 																limit_to_coastal = yes
 															}
 															building = naval_base
-															level > 4
+															level > 0
 														}
 													}
 												}
@@ -332,6 +333,7 @@ on_actions = {
 										check_variable = { migrating_population < 50 }
 									}
 									add_manpower = var:migrating_population
+									add_to_variable = { refugees_accepted_last_month = migrating_population }
 								}
 								else_if = {
 									limit = {
@@ -396,7 +398,7 @@ on_actions = {
 															limit_to_coastal = yes
 														}
 														building = naval_base
-														level > 4
+														level > 0
 													}
 													PREV = {
 														any_province_building_level = {
@@ -405,7 +407,7 @@ on_actions = {
 																limit_to_coastal = yes
 															}
 															building = naval_base
-															level > 4
+															level > 0
 														}
 													}
 												}
@@ -521,6 +523,20 @@ on_actions = {
 						}
 						remove_dynamic_modifier = { modifier = wandering_refugees }
 						add_dynamic_modifier = { modifier = refugees }
+					}
+
+					if = {
+						limit = {
+							has_variable = refugees_accepted_last_month
+							NOT = {
+								has_state_flag = clear_refugee_accept
+							}
+						}
+						set_state_flag = clear_refugee_accept
+					}
+					else = {
+						clear_variable = refugees_accepted_last_month
+						clr_state_flag = clear_refugee_accept
 					}
 				}
 			}

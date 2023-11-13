@@ -1821,9 +1821,7 @@ country_event = {
 
 	immediate = {
  		hidden_effect = {
-			154 = {
-				remove_dynamic_modifier = { modifier = destroyed_city }
-			}
+			
 		}
  	}
 
@@ -1896,6 +1894,74 @@ country_event = {
 
 		PFC = {
 			add_ideas = mining_colony
+		}
+	}
+}
+
+
+### garsai city build
+country_event = {
+	id = fir_colonies.4
+	title = fir_colonies.4.t
+	desc = fir_colonies.4.d
+	picture = GFX_report_event_west_temple
+
+	is_triggered_only = yes
+	fire_only_once = yes
+
+	immediate = {
+ 		hidden_effect = {
+			154 = {
+				remove_dynamic_modifier = { modifier = destroyed_city }
+			}
+		}
+ 	}
+
+	option = {
+		name = fir_colonies.4.a   ### enforce culture
+		ai_chance = { 
+			factor = 100
+		}
+
+		124 = {
+			set_temp_variable = {
+				var = one_time_fire_add
+				value = 40
+				tooltip = add_fire_pop_100_tt
+			}
+			set_temp_variable = { one_time_earth_add = 0 }
+			set_temp_variable = { one_time_water_add = 0 }
+			set_temp_variable = { one_time_air_add = 0 }
+			set_temp_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			culture_growth_calculation_state = yes
+		}
+	}
+	option = {
+		name = fir_colonies.4.b   ### training grounds
+		
+		124 = {
+			add_dynamic_modifier = { modifier = training_grounds }
+
+			set_temp_variable = {
+				var = one_time_fire_add
+				value = 10
+				tooltip = add_fire_pop_100_tt
+			}
+			set_temp_variable = { one_time_earth_add = 0 }
+			set_temp_variable = { one_time_water_add = 0 }
+			set_temp_variable = { one_time_air_add = 0 }
+			set_temp_variable = { one_time_nonbender_add = 0 }
+
+			culture_one_time_change_state = yes
+			culture_value_recalc_state = yes
+			state_culture_pie_chart_recalc = yes
+
+			culture_growth_calculation_state = yes
 		}
 	}
 }

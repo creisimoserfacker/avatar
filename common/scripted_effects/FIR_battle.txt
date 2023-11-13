@@ -1,0 +1,22 @@
+FIR_victory = {
+	
+	add_to_variable = {
+		var = casualty_accumulated_exhaustion
+		value = -10
+		tooltip = casualty_war_weariness_remove_tooltip
+	}
+	add_to_variable = { fir_victory_stability_var = 0.05 }
+	add_to_variable = { fir_victory_war_support_var = 0.05 }
+	add_to_variable = { fir_victory_weariness_var = -0.01 }
+	add_to_variable = { fir_victory_weariness_var = -0.01 }
+	add_to_variable = { fir_victory_weariness_var = -0.01 }
+
+	if = {
+		limit = {
+			NOT = {
+				has_dynamic_modifier = { modifier = idea_victories_western_ek }
+			}
+		}
+		add_dynamic_modifier = { modifier = idea_victories_western_ek }
+	}
+}
