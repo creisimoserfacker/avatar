@@ -277,6 +277,15 @@ FIR_colonies_category = {
 					check_variable = { fire_pop > 50 }
 				}
 			}
+			if = {
+				limit = {
+					has_template = "Pohuai Guards"
+				}
+				delete_unit_template_and_units = {
+					division_template = "Pohuai Guards"
+					disband = yes
+				}
+			}
 		}
 
 		remove_effect = {
@@ -292,6 +301,39 @@ FIR_colonies_category = {
 				puppet = PFC
 				PFC = {
 					set_imperial_colony_effect = yes
+				}
+
+				if = {
+					limit = {
+						has_template = "Pohuai Guards"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Pohuai Guards"
+						disband = no
+					}
+					PFC = {
+							division_template = {
+							name = "Pohuai Guards"
+							is_locked = yes
+							priority = 0
+							regiments = {
+								spearmen = { x = 0 y = 0 }
+								spearmen = { x = 0 y = 1 }
+								spearmen = { x = 1 y = 0 }
+								spearmen = { x = 1 y = 1 }
+							}
+							support = {
+								infantry_guards = { x = 0 y = 0 }
+							}
+						}
+						155 = {
+							create_unit = {
+								division = "name = \"Pohuai Guard Unit\" division_template = \"Pohuai Guards\" start_manpower_factor = 1 start_equipment_factor = 1 start_experience_factor = 0.6"
+								owner = PFC
+								count = 4
+							}
+						}
+					}
 				}
 
 				country_event = { id = fir_colonies.3 days = 2 }
@@ -635,6 +677,84 @@ FIR_colonies_category = {
 
 		remove_effect = {
 			country_event = { id = fir_colonies.1 days = 2 }
+		}
+	}
+
+
+	train_pohuai_guards = {
+
+		icon = fir_colonial_guards
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {
+			has_decision = pohuai_colony
+		}
+		available = {
+			
+			has_equipment = { spear_equipment > 799 }
+			has_equipment = { heavy_armor_equipment > 799 }
+			has_equipment = { support_equipment > 399 }
+			
+		}
+
+		cost = 100
+		fire_only_once = yes
+
+		days_remove = 9
+
+		complete_effect = {
+			add_equipment_to_stockpile = {
+				type = spear_equipment
+				amount = -800
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = heavy_armor_equipment
+				amount = -800
+				producer = FIR
+			}
+			add_equipment_to_stockpile = {
+				type = support_equipment
+				amount = -400
+				producer = FIR
+			}
+		}
+
+		modifier = {
+			political_power_gain = -0.5
+		}
+
+		remove_effect = {
+			FIR = {
+				division_template = {
+					name = "Pohuai Guards"
+					is_locked = yes
+					priority = 0
+					regiments = {
+						spearmen = { x = 0 y = 0 }
+						spearmen = { x = 0 y = 1 }
+						spearmen = { x = 1 y = 0 }
+						spearmen = { x = 1 y = 1 }
+					}
+					support = {
+						infantry_guards = { x = 0 y = 0 }
+					}
+				}
+			}
+			155 = {
+				add_dynamic_modifier = { modifier = colonial_guards }
+				create_unit = {
+					division = "name = \"Pohuai Guard Unit\" division_template = \"Pohuai Guards\" start_manpower_factor = 0.5 start_equipment_factor = 0.5 start_experience_factor = 0.1"
+					owner = FIR
+					count = 4
+				}
+			}
+		}
+
+		ai_will_do = {
+			base = 10
 		}
 	}
 

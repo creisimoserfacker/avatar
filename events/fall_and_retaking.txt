@@ -46,7 +46,7 @@ country_event = {
 			activate_mission = taku_conquest_expectations
 			country_event = { days = 60 id = fir_battle.2 } 
 		}
-		set_country_flag = taku_conquest_expectations
+		#custom_effect_tooltip = conquest_expectations
 	}
 	option = {
 		name = fir_battle.1.b
@@ -125,32 +125,8 @@ country_event = {
 	picture = GFX_report_event_fir_soldiers
 
 	fire_only_once = yes
-	trigger = {
-		154 = {
-			controller = {
-				OR = {
-					tag = FIR
-					is_puppet_of = FIR
-				}
-			}
-		}
-		OR = {
-			154 = { is_owned_by = TAK }
-			154 = { is_owned_by = EAR }
-		}
-		OR = {
-			FIR = { has_war_with = TAK }
-			FIR = { has_war_with = EAR }
-		}
-		NOT = { has_global_flag = fall_of_taku }
-	}
 
-	immediate = {
-		hidden_effect = {
-			set_global_flag = fall_of_taku
-			FIR = { news_event = { id = far_news.1 days = 1 } }
-		}
-	}
+	is_triggered_only = yes
 
 	option = { #a great idea!
 		name = fir_battle.3.a
@@ -223,7 +199,37 @@ news_event = {
 	picture = GFX_far_news_event_001
 	
 	major = yes
-	is_triggered_only = yes
+	
+	trigger = {
+		154 = {
+			controller = {
+				OR = {
+					tag = FIR
+					is_puppet_of = FIR
+				}
+			}
+		}
+		OR = {
+			154 = { is_owned_by = TAK }
+			154 = { is_owned_by = EAR }
+		}
+		OR = {
+			FIR = { has_war_with = TAK }
+			FIR = { has_war_with = EAR }
+		}
+		NOT = { has_global_flag = fall_of_taku }
+	}
+
+	immediate = {
+ 		hidden_effect = {
+ 			set_global_flag = fall_of_taku
+ 			FIR = { country_event = { hours = 12 id = fir_battle.3 } }
+		}
+ 	}
+	
+	mean_time_to_happen = {
+		days = 2
+	}
 	
 	option = {
 		name = far_news.1.a
@@ -329,7 +335,7 @@ country_event = {
 			activate_mission = yudao_conquest_expectations
 			country_event = { days = 60 id = fir_battle.5 } 
 		}
-		set_country_flag = yudao_conquest_expectations
+		#custom_effect_tooltip = conquest_expectations
 	}
 	option = {
 		name = fir_battle.4.b
@@ -547,7 +553,7 @@ country_event = {
 				country_event = { days = 60 id = fir_battle.8 } 
 			}
 		}
-		set_country_flag = garsai_conquest_expectations
+		custom_effect_tooltip = conquest_expectations
 	}
 	option = {
 		name = fir_battle.7.b

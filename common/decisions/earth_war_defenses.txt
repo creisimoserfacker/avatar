@@ -1,4 +1,53 @@
 THE_EARTHKINGDOM = {
+
+	focus_on_defense = {
+
+		icon = focus_on_defense
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			has_dynamic_modifier = { modifier = earth_nation }
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
+			}
+			has_war = yes
+			has_tech = substance
+		}
+
+		cost = 50
+
+
+
+		complete_effect = {
+
+			unlock_decision_category_tooltip = EAR_defense_category
+			set_country_flag = {
+				flag = defense_category_active
+				value = 1
+			}
+		}
+
+		ai_will_do = {
+			base = 0
+
+			modifier = {
+				add = 10
+				alliance_strength_ratio < 2
+			}
+			modifier = {
+				add = 50
+				any_neighbor_country = {
+					surrender_progress > 0.1
+				}
+			}
+		}
+	}
+
 	
 	HEB_fongs_base = {
 
@@ -34,7 +83,10 @@ THE_EARTHKINGDOM = {
 			country_event = { id = earcas.1 }
 
 			unlock_decision_category_tooltip = EAR_defense_category
-			set_country_flag = defense_category_active
+			set_country_flag = {
+				flag = defense_category_active
+				value = 1
+			}
 		}
 
 		ai_will_do = {
@@ -76,7 +128,10 @@ THE_EARTHKINGDOM = {
 			country_event = { id = earcas.1 }
 
 			unlock_decision_category_tooltip = EAR_defense_category
-			set_country_flag = defense_category_active
+			set_country_flag = {
+				flag = defense_category_active
+				value = 1
+			}
 		}
 
 		ai_will_do = {
@@ -87,6 +142,13 @@ THE_EARTHKINGDOM = {
 }
 
 EAR_defense_category = {
+
+
+
+
+
+
+################################ castle construction ##########################################
 
 
 	castle_construction_mission = {
@@ -121,8 +183,6 @@ EAR_defense_category = {
 			clr_country_flag = castle_construction_measure_1
 			clear_variable = castle_construction
 			clear_variable = castle_location
-
-			clr_country_flag = defense_category_active
 		}
 
 		ai_will_do = {
@@ -326,7 +386,126 @@ EAR_defense_category = {
 
 
 
+
+
+################## resistance stuff (i assume) ###########
+
+
+
+
+	underground_networks = {
+
+		icon = ear_castle_supply
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+			surrender_progress > 0.75
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_underground_networks  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
 	
+	roadside_ambushes = {
+	
+		icon = ear_castle_supply
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_roadside_ambushes  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+	
+	bss_advisors = {
+	
+		icon = ear_castle_supply
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			} 
+		}
+		available = {
+			
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_bss_advisors  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+
+
+
+################################ scorched earth ##########################################
+
+	
+	scorched_earth = {
+
+		icon = scorched_earth
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			
+		}
+		available = {
+			
+		}
+
+		cost = 200 
+
+		complete_effect = {
+			add_ideas = earth_defensive_measures_1
+		}
+
+		ai_will_do = {
+			base = 1
+		}
+	}
 
 
 	#earth_capital_castle_defenses = {
@@ -805,86 +984,5 @@ EAR_defense_category = {
 #		}
 #	}
 
-
-}
-
-EAR_regional_security_category = {
-
-
-	underground_networks = {
-	
-		cost = 200
-
-		icon = ear_castle_supply
-
-		visible = {
-			ROOT = {
-				has_dynamic_modifier = { modifier = earth_nation }
-			}
-		}
-		available = {
-			surrender_progress > 0.75
-		}
-
-		complete_effect = {
-			add_timed_idea = { idea = idea_underground_networks  days = 365 }
-		}
-
-		ai_will_do = {
-			base = 0.1
-		}
-	}
-	
-	roadside_ambushes = {
-	
-		cost = 200
-
-		icon = ear_castle_supply
-
-		visible = {
-			ROOT = {
-				has_dynamic_modifier = { modifier = earth_nation }
-			}
-		}
-		available = {
-
-		}
-
-		complete_effect = {
-			add_timed_idea = { idea = idea_roadside_ambushes  days = 365 }
-		}
-
-		ai_will_do = {
-			base = 0.1
-		}
-	}
-	
-	bss_advisors = {
-	
-		cost = 200 
-
-		icon = ear_castle_supply
-
-		visible = {
-			ROOT = {
-				is_in_array = {
-					array = global.earth_kingdom
-					value = THIS.id
-				}
-			} 
-		}
-		available = {
-			
-		}
-
-		complete_effect = {
-			add_timed_idea = { idea = idea_bss_advisors  days = 365 }
-		}
-
-		ai_will_do = {
-			base = 0.1
-		}
-	}
-	
 
 }

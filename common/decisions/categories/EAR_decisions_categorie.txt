@@ -131,31 +131,10 @@ EAR_defense_category = {
 		has_dynamic_modifier = { modifier = earth_nation }
 		NOT = { has_country_flag = hide_mission_decisions }
 
-		has_country_flag = defense_category_active
-		NOT = {
-			has_country_flag = defense_category_complete
+		has_country_flag = {
+			flag = defense_category_active
+			value < 2
 		}
-	}
-
-	priority = {
-		base = 75
-	}
-}
-
-
-EAR_regional_security_category = {
-    icon = military_operation
-
-	picture = GFX_decision_cat_ear_defense
-
-	visible = {
-		has_dynamic_modifier = { modifier = earth_nation }
-		NOT = { has_country_flag = hide_mission_decisions }
-
-		#has_country_flag = defense_category_active
-		#NOT = {
-		#	has_country_flag = defense_category_complete
-		#}
 	}
 
 	priority = {

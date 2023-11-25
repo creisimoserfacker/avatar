@@ -643,3 +643,14 @@ autonomy_frame = {
 		add = autonomy
 	}
 }
+
+
+colonial_guards_effect = {
+	base = 0
+	modifier = {
+		set_temp_variable = { guards_effect = controller:num_armies_in_state@FROM }
+		multiply_temp_variable = { guards_effect = -0.05 }
+		
+		add = guards_effect
+	}
+}

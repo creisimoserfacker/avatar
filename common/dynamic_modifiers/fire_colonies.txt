@@ -1,22 +1,5 @@
 
 
-
-idea_victories_western_ek  = {
-	enable = { always = yes }
-	
-	icon = GFX_idea_victories_western_ek
-	
-	stability_factor = fir_victory_stability_var
-	war_support_factor = fir_victory_war_support_var
-	weekly_war_weariness = fir_victory_weariness_var
-	weekly_occupation_war_weariness = fir_victory_weariness_var
-	weekly_casualty_war_weariness = fir_victory_weariness_var
-}
-
-
-
-
-
 firenation_colony  = {
 	enable = { always = yes }
 	remove_trigger = {
@@ -89,4 +72,17 @@ training_grounds = {
 	compliance_gain = 0.01
 	mobilization_speed = 0.1
 	recruitable_population = 0.02
+}
+
+colonial_guards = {
+	enable = { always = yes }
+	remove_trigger = {
+		is_core_of = controller
+	}
+
+	icon = GFX_modifiers_colonial_guards
+
+	resistance_target = mtth:colonial_guards_effect
+	resistance_growth = mtth:colonial_guards_effect
+	resistance_damage_to_garrison = mtth:colonial_guards_effect
 }
