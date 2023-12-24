@@ -8,6 +8,14 @@ get_emergencies = {
 	}
 
 	modifier = {
+		has_country_flag = {
+			flag = resistance_category_active
+			value < 2
+		}
+		add = 1
+	}
+
+	modifier = {
 		OR = {
 			check_variable = { war_exhaustion_variable > 10 }
 			has_war = yes
@@ -98,6 +106,22 @@ get_missions = {
 	}
 	modifier = {
 		has_country_flag = defense_category_active
+		add = 1
+	}
+
+	# chn
+	modifier = {
+		has_country_flag = {
+			flag = take_power_category_active
+			value < 2
+		}
+		add = 1
+	}
+	modifier = {
+		has_country_flag = {
+			flag = CHN_empire_category_active
+			value < 2
+		}
 		add = 1
 	}
 

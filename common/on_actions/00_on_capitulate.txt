@@ -1,0 +1,51 @@
+on_actions = {
+
+	on_capitulation = {
+		effect = {
+
+			set_variable = { max_population_k = max_manpower_k }
+			set_variable = { loyalist_population_k = 0 }
+			every_core_state = {
+				limit = {
+					has_resistance = yes
+					NOT = {
+						is_controlled_by = ROOT
+					}
+				}
+				set_temp_variable = { loyal_state_pop = state_population_k }
+				multiply_temp_variable = { loyal_state_pop = resistance }
+				multiply_temp_variable = { loyal_state_pop = 0.01 }
+				add_to_variable = { ROOT.loyalist_population_k = loyal_state_pop }
+			}
+			add_to_variable = { max_population_k = loyalist_population_k }
+
+			add_ideas = occupation_black_market
+			add_ideas = occupation_economy
+			
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = earth_nation }
+					is_earth_kingdom = yes
+				}
+				set_country_flag = {
+					flag = resistance_category_active
+					value = 1
+				}
+			}
+		}
+	}
+	on_uncapitulation = {
+		effect = {
+			if = {
+				limit = {
+					has_country_flag = {
+						flag = resistance_category_active
+						value < 2
+					}
+				}
+				clr_country_flag = resistance_category_active
+			}
+		}
+	}
+
+}

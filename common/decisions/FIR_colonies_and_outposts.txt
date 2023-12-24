@@ -305,14 +305,12 @@ FIR_colonies_category = {
 
 				if = {
 					limit = {
-						has_template = "Pohuai Guards"
-					}
-					delete_unit_template_and_units = {
-						division_template = "Pohuai Guards"
-						disband = no
+						155 = {
+							has_dynamic_modifier = { modifier = colonial_guards }
+						}
 					}
 					PFC = {
-							division_template = {
+						division_template = {
 							name = "Pohuai Guards"
 							is_locked = yes
 							priority = 0
@@ -699,10 +697,16 @@ FIR_colonies_category = {
 			
 		}
 
+		highlight_states = {
+			highlight_state_targets = {
+				state = 155
+			}
+		}
+
 		cost = 100
 		fire_only_once = yes
 
-		days_remove = 9
+		days_remove = 60
 
 		complete_effect = {
 			add_equipment_to_stockpile = {
@@ -723,33 +727,12 @@ FIR_colonies_category = {
 		}
 
 		modifier = {
-			political_power_gain = -0.5
+			#political_power_gain = -0.5
 		}
 
 		remove_effect = {
-			FIR = {
-				division_template = {
-					name = "Pohuai Guards"
-					is_locked = yes
-					priority = 0
-					regiments = {
-						spearmen = { x = 0 y = 0 }
-						spearmen = { x = 0 y = 1 }
-						spearmen = { x = 1 y = 0 }
-						spearmen = { x = 1 y = 1 }
-					}
-					support = {
-						infantry_guards = { x = 0 y = 0 }
-					}
-				}
-			}
 			155 = {
 				add_dynamic_modifier = { modifier = colonial_guards }
-				create_unit = {
-					division = "name = \"Pohuai Guard Unit\" division_template = \"Pohuai Guards\" start_manpower_factor = 0.5 start_equipment_factor = 0.5 start_experience_factor = 0.1"
-					owner = FIR
-					count = 4
-				}
 			}
 		}
 

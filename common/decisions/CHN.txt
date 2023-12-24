@@ -1,52 +1,93 @@
 
-#CHN_tradition_category = {
-#
-#
-#	CHN_realize_ambitions = {
-#
-#		icon = chins_dynasty
-#		
-#		allowed = {
-#			tag = CHN
-#		}
-#
-#		visible = {
-#			
-#		}
-#
-#		available = {
-#			is_in_faction = no
-#			has_army_manpower = 1000
-#			custom_trigger_tooltip = {
-#				tooltip = not_earth_kingdom_array_tt	
-#				NOT = {	
-#					is_in_array = {
-#						array = global.earth_kingdom
-#						value = FROM.id
-#					}
-#				}
-#			}
-#			has_idea = chin_legacy_spirit
-#		}
-#
-#		cost = 100
-#
-#		days_remove = 70
-#
-#		complete_effect = {
-#			
-#		}
-#
-#		remove_effect = {
-#			
-#		}
-#	}
-#
-#}
-#
-#CHN_take_power_category = {
+CHN_tradition_category = {
 
-#	propaganda_chin = {
+	CHN_realize_ambitions = {
+
+		icon = chins_dynasty
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			
+		}
+
+		available = {
+			is_in_faction = no
+			has_army_manpower = {
+				size > 1000
+			}
+			has_navy_size = {
+				size > 0
+			}
+			custom_trigger_tooltip = {
+				tooltip = not_earth_kingdom_array_tt	
+				NOT = {	
+					is_in_array = {
+						array = global.earth_kingdom
+						value = FROM.id
+					}
+				}
+			}
+			has_idea = chin_legacy_spirit
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
+			}
+		}
+
+		cost = 100
+
+		fire_only_once = yes
+
+		days_remove = 70
+
+		complete_effect = {
+			unlock_decision_category_tooltip = CHN_take_power_category
+			set_country_flag = {
+				flag = take_power_category_active
+				value = 1
+			}
+		}
+
+		remove_effect = {
+			
+		}
+	}
+
+}
+
+CHN_take_power_category = {
+
+	propaganda_chin = {
+
+		icon = chin_revenge
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			
+		}
+
+		available = {
+			
+		}
+
+		cost = 50
+
+		days_remove = 30
+		days_re_enable = 60
+
+		remove_effect = {
+			set_temp_variable = { temp_chin_support = 10 }
+			CHN_add_support = yes
+		}
+	}
+
+#	opposition_chin = {
 #
 #		icon = chin_revenge
 #		
@@ -65,43 +106,110 @@
 #		cost = 1
 #
 #		complete_effect = {
-#			set_temp_variable = { temp_chin_support = 10 }
+#			set_temp_variable = { temp_chin_support = -10 }
 #			CHN_add_support = yes
 #		}
 #	}
-#
-#}
+
+	avenge_chin = {
+
+		icon = chin_revenge
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			has_country_leader_with_trait = heir_of_chin
+		}
+
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = chin_support_90	
+				check_variable = { CHN_chin_support > 90 }
+			}
+		}
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			347 = {
+				owner = {
+					ROOT = {
+						declare_war_on = {
+							target = PREV
+							type = annex_everything
+						}
+					}
+				}
+			}
+
+			set_country_flag = {
+				flag = take_power_category_active
+				value = 2
+			}
+			set_country_flag = {
+				flag = CHN_empire_category_active
+				value = 1
+			}
+			unlock_decision_category_tooltip = CHN_empire_category
+		}
+	}
+
+}
 
 
-#CHN_empire_category = {
+CHN_empire_category = {
 
-#	avenge_chin = {
-#
-#		icon = chin_revenge
-#		
-#		allowed = {
-#			tag = CHN
-#		}
-#
-#		visible = {
-#			
-#		}
-#
-#		available = {
-#			controls_state = 347
-#			controls_state = 105
-#		}
-#		
-#		fire_only_once = yes
-#
-#		
-#
-#		complete_effect = {
-#			swap_ideas = {
-#				remove_idea = CHN_kyoshi_rivalry
-#				add_idea = CHN_triumph_over_kyoshi
-#			}
-#		}
-#	}
+	celebrate_victory_over_arch_nemesis = {
 
-#}
+		icon = chin_revenge
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			
+		}
+
+		available = {
+			controls_state = 347
+		}
+		
+		fire_only_once = yes
+
+
+		complete_effect = {
+			swap_ideas = {
+				remove_idea = CHN_kyoshi_rivalry
+				add_idea = CHN_triumph_over_kyoshi
+			}
+
+		}
+	}
+
+	reform_the_chin_empire = {
+
+		icon = chin_revenge
+		
+		allowed = {
+			tag = CHN
+		}
+
+		visible = {
+			has_country_leader_with_trait = heir_of_chin
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		complete_effect = {
+			set_cosmetic_tag = CHN_empire
+		}
+	}
+
+}

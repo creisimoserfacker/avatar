@@ -1,0 +1,156 @@
+division_template = {
+	name = "Town Guard"
+	regiments = {
+		spearmen = {
+			x = 0
+			y = 0
+		}
+		spearmen = {
+			x = 0
+			y = 1
+		}
+		spearmen = {
+			x = 1
+			y = 0
+		}
+		spearmen = {
+			x = 1
+			y = 1
+		}
+	}
+}
+
+division_template = {
+	name = "Militia Brigade"
+	regiments = {
+		spearmen = {
+			x = 0
+			y = 0
+		}
+		swordsmen = {
+			x = 1
+			y = 0
+		}
+		swordsmen = {
+			x = 1
+			y = 1
+		}
+	}
+}
+
+division_template = {
+	name = "Earthbender Brigade"
+	regiments = {
+		earthbender = {
+			x = 0
+			y = 0
+		}
+		earthbender = {
+			x = 0
+			y = 1
+		}
+		earthbender = {
+			x = 1
+			y = 0
+		}
+		earthbender = {
+			x = 1
+			y = 1
+		}
+	}
+}
+
+#############################################
+units = {
+	division = {
+		location = 8182
+		division_template = "Town Guard"
+	}
+	division = {
+		location = 4186
+		division_template = "Town Guard"
+	}
+	division = {
+		location = 4433
+		division_template = "Town Guard"
+	}
+	division = {
+		location = 8056
+		division_template = "Earthbender Brigade"
+	}
+	division = {
+		location = 2704
+		division_template = "Earthbender Brigade"
+	}
+	division = {
+		location = 555
+		division_template = "Earthbender Brigade"
+	}
+	division = {
+		location = 851
+		division_template = "Earthbender Brigade"
+	}
+}
+
+#########################
+## STARTING PRODUCTION ##
+#########################
+
+instant_effect = {
+
+	add_equipment_production = {
+		equipment = {
+			type = heavy_armor_equipment_1
+			creator = "HEB"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+	add_equipment_production = {
+		equipment = {
+			type = spear_equipment_1
+			creator = "HEB"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = earthbender_equipment_1
+			creator = "HEB"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+
+	add_equipment_production = {
+		equipment = {
+			type = support_equipment_1
+			creator = "HEB"
+		}
+		requested_factories = 1
+		progress = 0.1
+		efficiency = 50
+	}
+
+add_equipment_to_stockpile = {
+
+        type = transport_equipment_1
+
+        amount = 650
+		producer = HEB
+    }
+
+add_equipment_to_stockpile = {
+
+        type = train_equipment_1
+
+        amount = 30
+		producer = HEB
+    }
+
+}

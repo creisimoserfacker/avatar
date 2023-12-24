@@ -142,6 +142,31 @@ EAR_defense_category = {
 	}
 }
 
+EAR_resistance_category = {
+
+	icon = earth_resistance
+
+	picture = GFX_decision_cat_earth_resistance
+
+	allowed = {
+		is_earth_kingdom = yes
+	}
+
+	visible = {
+		has_dynamic_modifier = { modifier = earth_nation }
+		NOT = { has_country_flag = hide_emergency_decisions }
+
+		has_country_flag = {
+			flag = resistance_category_active
+			value < 2
+		}
+	}
+
+	priority = {
+		base = 175
+	}
+}
+
 earth_economic_buildup_category = {
     icon = GFX_decision_category_buildup
 

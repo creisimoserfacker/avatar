@@ -12,6 +12,7 @@ ideas = {
 					has_idea = hidden_economy
 					has_idea = remote_isolation
 					has_idea = remote_isolation_1
+					has_capitulated = yes
 				}
 				has_equipment = {
 				    convoy_1 > 99
@@ -91,6 +92,7 @@ ideas = {
 			available = {
 				NOT = {
 					has_idea = hidden_economy
+					has_capitulated = yes
 					OR = {
 						has_idea = remote_isolation
 						has_idea = remote_isolation_1
@@ -173,6 +175,7 @@ ideas = {
 			available = {
 				NOT = {
 					has_idea = hidden_economy
+					has_capitulated = yes
 					OR = {
 						has_idea = remote_isolation
 						has_idea = remote_isolation_1
@@ -254,6 +257,7 @@ ideas = {
 			available = {
 				NOT = {
 					has_idea = hidden_economy
+					has_capitulated = yes
 					OR = {
 						has_idea = remote_isolation
 						has_idea = remote_isolation_1
@@ -341,6 +345,7 @@ ideas = {
 				#}
 				NOT = {
 					has_idea = hidden_economy
+					has_capitulated = yes
 				}
 			}
 			
@@ -418,6 +423,9 @@ ideas = {
 			
 			available = {
 				has_country_flag = lost_civilisation
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 			visible = {
 				has_country_flag = lost_civilisation
@@ -436,7 +444,32 @@ ideas = {
 				custom_effect_tooltip = closed_economy_TT
 			}
 			
-			cancel_if_invalid = no
+			cancel_if_invalid = yes
+		}
+
+		occupation_black_market = {
+			
+			available = {
+				has_capitulated = yes
+			}
+			visible = {
+				has_capitulated = yes
+			}
+
+			cost = 0
+			removal_cost = -1
+			
+			modifier = {
+				min_export = 0
+				weekly_centralisation = -0.1
+				centralisation_target_modifier = -0.1
+			}
+			
+			on_add = {
+				custom_effect_tooltip = closed_economy_TT
+			}
+			
+			cancel_if_invalid = yes
 		}
 	}
 }

@@ -18,6 +18,9 @@ ideas = {
 						compare = greater_than_or_equals
 					}
 				}
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 			
 			cost = 150
@@ -87,6 +90,9 @@ ideas = {
 					has_war = yes
 					has_war_support > 0.5
 				}
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 		
 			cost = 150
@@ -152,7 +158,9 @@ ideas = {
 		economy_3 = {
 			
 			available = {
-				always = yes
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 
 			cost = 150
@@ -217,6 +225,9 @@ ideas = {
 						}
 					}
 				}
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 
 			default = yes
@@ -278,6 +289,9 @@ ideas = {
 						}
 					}
 				}
+				NOT = {
+					has_capitulated = yes
+				}
 			}
 		
 			cost = 150
@@ -317,6 +331,28 @@ ideas = {
 			
 			
 			cancel_if_invalid = no
+		}
+
+
+		occupation_economy = {
+			
+			available = {
+				has_capitulated = yes
+			}
+			visible = {
+				has_capitulated = yes
+			}
+
+			cost = 0
+			removal_cost = -1
+			
+			modifier = {
+				weekly_centralisation = -0.1
+				centralisation_target_modifier = -0.1
+				civil_to_military_factory = 1
+			}
+			
+			cancel_if_invalid = yes
 		}
 	}
 	

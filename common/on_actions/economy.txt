@@ -143,22 +143,34 @@ on_actions = {
 				add_to_variable = { ROOT.granary_count = building_level@granary }
 			}
 
-#			if = {
-#				limit = {
-#					has_capitulated = yes
-#				}
-#				every_core_state = {
-#					add_to_variable = { ROOT.smithy_count = building_level@arms_factory }
-#					add_to_variable = { ROOT.factory_count = building_level@factory }
-#					add_to_variable = { ROOT.harbour_count = building_level@harbour }
-#					add_to_variable = { ROOT.dockyard_count = building_level@dockyard }
-#				}
-#
-#				multiply_variable = { smithy_count = THIS.core_resistance}
-#				multiply_variable = { factory_count = THIS.core_resistance}
-#				multiply_variable = { harbour_count = THIS.core_resistance}
-#				multiply_variable = { dockyard_count = THIS.core_resistance}
-#			}
+			if = {
+				limit = {
+					has_capitulated = yes
+				}
+				every_core_state = {
+
+					set_temp_variable = { occupied_smithy_count = building_level@arms_factory }
+					multiply_temp_variable = { occupied_smithy_count = 2 }    #### because base output of 1 wouldnt be counted so it has to be duplicated to 2
+					set_temp_variable = { occupied_factory_count = building_level@factory }
+					set_temp_variable = { occupied_harbour_count = building_level@harbour }
+					set_temp_variable = { occupied_dockyard_count = building_level@dockyard }
+
+					multiply_temp_variable = { occupied_smithy_count = resistance }
+					multiply_temp_variable = { occupied_factory_count = resistance }
+					multiply_temp_variable = { occupied_harbour_count = resistance }
+					multiply_temp_variable = { occupied_dockyard_count = resistance }
+
+					multiply_temp_variable = { occupied_smithy_count = 0.01 }
+					multiply_temp_variable = { occupied_factory_count = 0.01 }
+					multiply_temp_variable = { occupied_harbour_count = 0.01 }
+					multiply_temp_variable = { occupied_dockyard_count = 0.01 }
+
+					add_to_variable = { ROOT.smithy_count = occupied_smithy_count }
+					add_to_variable = { ROOT.factory_count = occupied_factory_count }
+					add_to_variable = { ROOT.harbour_count = occupied_harbour_count }
+					add_to_variable = { ROOT.dockyard_count = occupied_dockyard_count }
+				}
+			}
 
 
 			set_variable = { building_count = 0 }
@@ -285,14 +297,14 @@ on_actions = {
 			}
 
 			set_variable = { recruits_percentage = max_available_manpower_k }
-			divide_variable = { recruits_percentage = max_manpower_k }
+			divide_variable = { recruits_percentage = max_population_k }
 			subtract_from_variable = { working_percentage = recruits_percentage }
 
-			set_variable = { working_population_k = max_manpower_k }
+			set_variable = { working_population_k = max_population_k }
 			multiply_variable = { working_population_k = working_percentage }
 
 
-			set_variable = { dependant_population_k = max_manpower_k }
+			set_variable = { dependant_population_k = max_population_k }
 			subtract_from_variable = { dependant_population_k = working_population_k }
 			subtract_from_variable = { dependant_population_k = max_available_manpower_k }
 
@@ -325,7 +337,8 @@ on_actions = {
 
 			set_variable = { workless_to_self = working_population_k }
 			multiply_variable = { workless_to_self = modifier@weekly_workless_people }
-			multiply_variable = { workless_to_self = -0.01 }
+			multiply_variable = { workless_to_self = -1 }
+			multiply_variable = { workless_to_self = workless_percentage }
 			
 			subtract_from_variable = { workless_population_k = workless_to_self }
 
@@ -497,31 +510,31 @@ on_actions = {
 
 
 			set_variable = { steel_demand = steel_need }
-			multiply_variable = { steel_demand = max_manpower_k }
+			multiply_variable = { steel_demand = max_population_k }
 			set_variable = { animal_products_demand = animal_products_need }
-			multiply_variable = { animal_products_demand = max_manpower_k }
+			multiply_variable = { animal_products_demand = max_population_k }
 			set_variable = { wood_demand = wood_need }
-			multiply_variable = { wood_demand = max_manpower_k }
+			multiply_variable = { wood_demand = max_population_k }
 			set_variable = { iron_demand = iron_need }
-			multiply_variable = { iron_demand = max_manpower_k }
+			multiply_variable = { iron_demand = max_population_k }
 			set_variable = { textile_demand = textile_need }
-			multiply_variable = { textile_demand = max_manpower_k }
+			multiply_variable = { textile_demand = max_population_k }
 			set_variable = { minerals_demand = minerals_need }
-			multiply_variable = { minerals_demand = max_manpower_k }
+			multiply_variable = { minerals_demand = max_population_k }
 			set_variable = { grain_demand = grain_need }
-			multiply_variable = { grain_demand = max_manpower_k }
+			multiply_variable = { grain_demand = max_population_k }
 			set_variable = { fossile_fuels_demand = fossile_fuels_need }
-			multiply_variable = { fossile_fuels_demand = max_manpower_k }
+			multiply_variable = { fossile_fuels_demand = max_population_k }
 			set_variable = { consumer_goods_demand = consumer_goods_need }
-			multiply_variable = { consumer_goods_demand = max_manpower_k }
+			multiply_variable = { consumer_goods_demand = max_population_k }
 			set_variable = { luxury_goods_demand = luxury_goods_need }
-			multiply_variable = { luxury_goods_demand = max_manpower_k }
+			multiply_variable = { luxury_goods_demand = max_population_k }
 			set_variable = { planks_demand = planks_need }
-			multiply_variable = { planks_demand = max_manpower_k }
+			multiply_variable = { planks_demand = max_population_k }
 			set_variable = { bricks_demand = bricks_need }
-			multiply_variable = { bricks_demand = max_manpower_k }
+			multiply_variable = { bricks_demand = max_population_k }
 			set_variable = { steel_beams_demand = steel_beams_need }
-			multiply_variable = { steel_beams_demand = max_manpower_k }
+			multiply_variable = { steel_beams_demand = max_population_k }
 
 
 
@@ -612,10 +625,10 @@ on_actions = {
 			subtract_from_variable = { country_gdp_netto = country_tax }
 
 			set_variable = { country_gdp_per_capita = country_gdp }
-			divide_variable = { country_gdp_per_capita = max_manpower_k }
+			divide_variable = { country_gdp_per_capita = max_population_k }
 
 			set_variable = { country_gdp_netto_per_capita = country_gdp_netto }
-			divide_variable = { country_gdp_netto_per_capita = max_manpower_k }
+			divide_variable = { country_gdp_netto_per_capita = max_population_k }
 
 
 			set_variable = { steel_price = resource@steel }
@@ -770,14 +783,14 @@ on_actions = {
 			divide_variable = { average_gdp = 2 }
 
 			set_variable = { average_gdp_per_capita = average_gdp }
-			divide_variable = { average_gdp_per_capita = max_manpower_k }
+			divide_variable = { average_gdp_per_capita = max_population_k }
 
 			set_variable = { average_gdp_netto = country_gdp_netto }
 			add_to_variable = { average_gdp_netto = self_employed_gdp_netto }
 			divide_variable = { average_gdp_netto = 2 }
 
 			set_variable = { average_gdp_per_capita_netto = average_gdp_netto }
-			divide_variable = { average_gdp_per_capita_netto = max_manpower_k }
+			divide_variable = { average_gdp_per_capita_netto = max_population_k }
 
 
 
@@ -797,7 +810,7 @@ on_actions = {
 			add_to_variable = { resource_surplus = bricks_price }
 			add_to_variable = { resource_surplus = steel_beams_price }
 
-			divide_variable = { resource_surplus = max_manpower_k }
+			divide_variable = { resource_surplus = max_population_k }
 
 			clamp_variable = {
 				var = resource_surplus
@@ -823,7 +836,7 @@ on_actions = {
 			multiply_variable = { cost_of_living = mtth:inflation_factor }
 
 			set_variable = { cost_of_living_per_capita = cost_of_living }
-			divide_variable = { cost_of_living_per_capita = max_manpower_k }
+			divide_variable = { cost_of_living_per_capita = max_population_k }
 
 
 			### investment pool
@@ -1216,6 +1229,11 @@ on_actions = {
 
 			set_variable = { ic_real_transfer = modifier@military_to_civil_factory }
 			subtract_from_variable = { ic_real_transfer = modifier@civil_to_military_factory }
+			clamp_variable = { 
+				var = ic_real_transfer
+				min = -1
+				max = 1
+			}
 
 			set_variable = { military_ic_transfer = total_military_ic }
 			multiply_variable = { military_ic_transfer = ic_real_transfer }
@@ -1564,11 +1582,23 @@ on_actions = {
 			set_variable = { ration_max = 0 }
 			add_to_variable = { ration_max = owned_controlled_states }
 			multiply_variable = { ration_max = 100 }
+			if = {
+				limit = {
+					has_capitulated = yes
+				}
+				add_to_variable = { ration_max = num_core_states }
+				multiply_variable = { ration_max = 10 }
+			}
 			set_temp_variable = { ration_storage = modifier@max_rations_building_k }
 			add_to_variable = { ration_max = ration_storage }
 			set_temp_variable = { ration_capacity_factor = 1 }
 			add_to_temp_variable = { ration_capacity_factor = modifier@ration_capacity_factor }
 			multiply_variable = { ration_max = ration_capacity_factor }
+
+			clamp_variable = { 
+				var = ration_max 
+				min = 0.1
+			}
 
 			clamp_variable = { 
 				var = ration_variable 

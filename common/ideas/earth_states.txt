@@ -1,13 +1,7 @@
 ideas = {
 	country = {
 		depression = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
+			
 			modifier = {
 				peoples_initiative = -0.5
 				farmer_factor = -0.75
@@ -34,13 +28,7 @@ ideas = {
 		}
 
 		population_counted = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
+			
 			modifier = {
 				weekly_centralisation = 1
 				expenses_factor = -1
@@ -48,13 +36,6 @@ ideas = {
 		}
 
 		a_strong_national_economy = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
 
 			modifier = {
 				weekly_standard_of_living = 0.01
@@ -63,13 +44,6 @@ ideas = {
 		}
 
 		our_lives_for_freedom = {
-			allowed = {
-				always = no
-			}
-			allowed_civil_war = {
-				always = yes
-			}
-			removal_cost = -1
 
 			modifier = {
 				army_org_factor = 1
@@ -78,6 +52,20 @@ ideas = {
 
 			traits = {
 				cheap_spears
+			}
+		}
+
+		stolen_resources = {
+			cancel = {
+				has_capitulated = no
+			}
+			allowed_civil_war = {
+				always = yes
+			}
+			removal_cost = -1
+
+			modifier = {
+				production_lack_of_resource_penalty_factor = -0.9
 			}
 		}
 

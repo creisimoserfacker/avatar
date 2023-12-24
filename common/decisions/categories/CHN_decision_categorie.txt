@@ -12,7 +12,8 @@ CHN_tradition_category = {
 	}
 
 	visible = {
-		
+		original_tag = CHN
+		NOT = { has_country_flag = hide_country_decisions }
 	}
 
 	priority = {
@@ -31,7 +32,12 @@ CHN_take_power_category = {
 	scripted_gui = chin_support_ui
 
 	visible = {
-		
+		original_tag = CHN
+		NOT = { has_country_flag = hide_mission_decisions }
+		has_country_flag = {
+			flag = take_power_category_active
+			value < 2
+		}
 	}
 
 	visible_when_empty = yes
@@ -51,7 +57,12 @@ CHN_empire_category = {
 	}
 
 	visible = {
-		has_country_leader_with_trait = heir_of_chin
+		original_tag = CHN
+		NOT = { has_country_flag = hide_mission_decisions }
+		has_country_flag = {
+			flag = CHN_empire_category_active
+			value < 2
+		}
 	}
 
 	priority = {

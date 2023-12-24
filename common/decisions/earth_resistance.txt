@@ -1,0 +1,140 @@
+
+EAR_resistance_category = {
+
+	steal_resources_for_production = {
+
+		icon = ear_production_resources
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+			has_capitulated = yes
+		}
+
+		custom_cost_trigger = {
+			command_power > 10
+		}
+		custom_cost_text = honour_cost_10
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -10
+			}
+
+			add_timed_idea = { idea = stolen_resources  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 10
+		}
+	}
+
+	
+#	underground_networks = {
+#
+#		icon = ear_castle_supply
+#
+#		allowed = {
+#			is_earth_kingdom = yes
+#		}
+#		visible = {
+#			ROOT = {
+#				has_dynamic_modifier = { modifier = earth_nation }
+#			}
+#		}
+#		available = {
+#			surrender_progress > 0.75
+#		}
+#
+#		cost = 200
+#
+#		complete_effect = {
+#			add_timed_idea = { idea = idea_underground_networks  days = 365 }
+#		}
+#
+#		ai_will_do = {
+#			base = 0.1
+#		}
+#	}
+	
+	roadside_ambushes = {
+	
+		icon = ear_castle_supply
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				has_dynamic_modifier = { modifier = earth_nation }
+			}
+		}
+		available = {
+
+		}
+
+
+		custom_cost_trigger = {
+			command_power > 20
+		}
+		custom_cost_text = honour_cost_20
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -20
+			}
+
+			random_core_state = {
+				limit = {
+					has_resistance = yes
+				}
+				add_dynamic_modifier = { modifier = roadside_ambush  days = 120 }
+				add_resistance = 15
+			}
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+	
+	bss_advisors = {
+	
+		icon = ear_castle_supply
+
+		allowed = {
+			is_earth_kingdom = yes
+		}
+		visible = {
+			ROOT = {
+				is_in_array = {
+					array = global.earth_kingdom
+					value = THIS.id
+				}
+			} 
+		}
+		available = {
+			
+		}
+
+		cost = 200
+
+		complete_effect = {
+			add_timed_idea = { idea = idea_bss_advisors  days = 365 }
+		}
+
+		ai_will_do = {
+			base = 0.1
+		}
+	}
+
+
+
+
+}
