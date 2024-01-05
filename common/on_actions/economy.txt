@@ -95,6 +95,7 @@ on_actions = {
 			set_variable = { scout_tower_count = 0 }
 			set_variable = { anti_air_building_count = 0 }
 			set_variable = { air_base_count = 0 }
+			set_variable = { granary_count = 0 }
 			every_controlled_state = {
 				add_to_variable = { ROOT.farm_count = building_level@farm }
 				set_variable = { mill_count = building_level@mill }
@@ -301,7 +302,7 @@ on_actions = {
 				add_to_variable = { local_prosperity = mtth:local_tax }
 				add_to_variable = { local_prosperity = mtth:local_inflation_steal }
 				add_to_variable = { local_prosperity = mtth:local_prosperity_growth }
-				set_temp_variable = { prosp_cap = mtth:local_prosperity_cap }
+				set_variable = { prosp_cap = mtth:local_prosperity_cap }
 				clamp_variable = { 
 					var = local_prosperity
 					min = 0
