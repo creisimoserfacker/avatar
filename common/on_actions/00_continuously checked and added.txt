@@ -6,14 +6,6 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = {
-						has_dynamic_modifier = { modifier = additional_scripted_resources }
-					}
-				}
-				add_dynamic_modifier = { modifier = additional_scripted_resources }
-			}
-			if = {
-				limit = {
-					NOT = {
 						has_dynamic_modifier = { modifier = factory_resource_consumption }
 					}
 				}
@@ -26,6 +18,14 @@ on_actions = {
 					}
 				}
 				add_dynamic_modifier = { modifier = population_resource_bought_on_market }
+			}
+			if = {
+				limit = {
+					NOT = {
+						has_dynamic_modifier = { modifier = building_upkeep_resources }
+					}
+				}
+				add_dynamic_modifier = { modifier = building_upkeep_resources }
 			}
 
 			if = {

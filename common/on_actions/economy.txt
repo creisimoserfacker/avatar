@@ -203,77 +203,135 @@ on_actions = {
 
 
 			set_variable = { employment_need_k = 0 }
+			set_variable = { farm_employed = 0 }
+			set_variable = { mill_employed = 0 }
+			set_variable = { fishing_stand_employed = 0 }
+			set_variable = { ranch_employed = 0 }
+			set_variable = { lumber_mill_employed = 0 }
+			set_variable = { mine_employed = 0 }
+			set_variable = { weaving_employed = 0 }
+			set_variable = { smithy_employed = 0 }
+			set_variable = { factory_employed = 0 }
+			set_variable = { shopkeeper_employed = 0 }
+			set_variable = { harbour_employed = 0 }
+			set_variable = { craftsman_employed = 0 }
 
-			###view farm
-			set_variable = { farm_employed = modifier@farmer_k }
-			multiply_variable = { farm_employed = mtth:farmer_factor }
-			add_to_variable = { employment_need_k = farm_employed }
+			set_variable = { taxation_var = 0 }
+			set_variable = { inflation_money = 0 }
+			set_variable = { weekly_peoples_investment_ic = 0 }
+			set_variable = { prosperity_productivity = 0 }
 
-			###view mill
-			set_variable = { mill_employed = modifier@miller_k }
-			multiply_variable = { mill_employed = mtth:miller_factor }
-			add_to_variable = { employment_need_k = mill_employed }
+			every_controlled_state = {
+				###view farm
+				set_variable = { farm_employed = modifier@farmer_k }
+				multiply_variable = { farm_employed = mtth:farmer_factor }
+				add_to_variable = { ROOT.employment_need_k = farm_employed }
+				add_to_variable = { ROOT.farm_employed = farm_employed }
+	
+				###view mill
+				set_variable = { mill_employed = modifier@miller_k }
+				multiply_variable = { mill_employed = mtth:miller_factor }
+				add_to_variable = { ROOT.employment_need_k = mill_employed }
+				add_to_variable = { ROOT.mill_employed = mill_employed }
+	
+				###view fishing_stand
+				set_variable = { fishing_stand_employed = modifier@fisher_k }
+				multiply_variable = { fishing_stand_employed = mtth:fisher_factor }
+				add_to_variable = { ROOT.employment_need_k = fishing_stand_employed }
+				add_to_variable = { ROOT.fishing_stand_employed = fishing_stand_employed }
+	
+				###view ranch
+				set_variable = { ranch_employed = modifier@rancher_k }
+				multiply_variable = { ranch_employed = mtth:rancher_factor }
+				add_to_variable = { ROOT.employment_need_k = ranch_employed }
+				add_to_variable = { ROOT.ranch_employed = ranch_employed }
+	
+				###view lumber_mill
+				set_variable = { lumber_mill_employed = modifier@lumberjack_k }
+				multiply_variable = { lumber_mill_employed = mtth:lumberjack_factor }
+				add_to_variable = { ROOT.employment_need_k = lumber_mill_employed }
+				add_to_variable = { ROOT.lumber_mill_employed = lumber_mill_employed }
+	
+				###view mine
+				set_variable = { mine_employed = modifier@miner_k }
+				multiply_variable = { mine_employed = mtth:miner_factor }
+				add_to_variable = { ROOT.employment_need_k = mine_employed }
+				add_to_variable = { ROOT.mine_employed = mine_employed }
+	
+				###view weaving
+				set_variable = { weaving_employed = modifier@weaver_k }
+				multiply_variable = { weaving_employed = mtth:weaver_factor }
+				add_to_variable = { ROOT.employment_need_k = weaving_employed }
+				add_to_variable = { ROOT.weaving_employed = weaving_employed }
+	
+				###view smithy
+				set_variable = { smithy_employed = modifier@smith_k }
+				multiply_variable = { smithy_employed = mtth:smith_factor }
+				add_to_variable = { ROOT.employment_need_k = smithy_employed }
+				add_to_variable = { ROOT.smithy_employed = smithy_employed }
+	
+				###view factory
+				set_variable = { factory_employed = modifier@industrial_worker_k }
+				multiply_variable = { factory_employed = mtth:industrial_worker_factor }
+				add_to_variable = { ROOT.employment_need_k = factory_employed }
+				add_to_variable = { ROOT.factory_employed = factory_employed }
+	
+				###view shopkeeper
+				set_variable = { shopkeeper_employed = modifier@shopkeeper_k }
+				multiply_variable = { shopkeeper_employed = mtth:shopkeeper_factor }
+				add_to_variable = { ROOT.employment_need_k = shopkeeper_employed }
+				add_to_variable = { ROOT.shopkeeper_employed = shopkeeper_employed }
+	
+				###view harbour
+				set_variable = { harbour_employed = modifier@harbour_worker_k }
+				multiply_variable = { harbour_employed = mtth:harbour_worker_factor }
+				add_to_variable = { ROOT.employment_need_k = harbour_employed }
+				add_to_variable = { ROOT.harbour_employed = harbour_employed }
+	
+				###view craftsman
+				set_variable = { craftsman_employed = modifier@craftsman_k }
+				multiply_variable = { craftsman_employed = mtth:craftsman_factor }
+				add_to_variable = { ROOT.employment_need_k = craftsman_employed }
+				add_to_variable = { ROOT.craftsman_employed = craftsman_employed }
 
-			###view fishing_stand
-			set_variable = { fishing_stand_employed = modifier@fisher_k }
-			multiply_variable = { fishing_stand_employed = mtth:fisher_factor }
-			add_to_variable = { employment_need_k = fishing_stand_employed }
 
-			###view ranch
-			set_variable = { ranch_employed = modifier@rancher_k }
-			multiply_variable = { ranch_employed = mtth:rancher_factor }
-			add_to_variable = { employment_need_k = ranch_employed }
 
-			###view lumber_mill
-			set_variable = { lumber_mill_employed = modifier@lumberjack_k }
-			multiply_variable = { lumber_mill_employed = mtth:lumberjack_factor }
-			add_to_variable = { employment_need_k = lumber_mill_employed }
+				add_to_variable = { ROOT.prosperity_productivity = mtth:local_prosperity_growth }
+				add_to_variable = { local_prosperity = mtth:local_goods_bought }
+				add_to_variable = { local_prosperity = mtth:local_tax }
+				add_to_variable = { local_prosperity = mtth:local_inflation_steal }
+				add_to_variable = { local_prosperity = mtth:local_prosperity_growth }
+				set_temp_variable = { prosp_cap = mtth:local_prosperity_cap }
+				clamp_variable = { 
+					var = local_prosperity
+					min = 0
+					max = prosp_cap
+				}
 
-			###view mine
-			set_variable = { mine_employed = modifier@miner_k }
-			multiply_variable = { mine_employed = mtth:miner_factor }
-			add_to_variable = { employment_need_k = mine_employed }
+				subtract_from_variable = { ROOT.taxation_var = mtth:local_tax }
+				subtract_from_variable = { ROOT.inflation_money = mtth:local_inflation_steal }
 
-			###view weaving
-			set_variable = { weaving_employed = modifier@weaver_k }
-			multiply_variable = { weaving_employed = mtth:weaver_factor }
-			add_to_variable = { employment_need_k = weaving_employed }
+				add_to_variable = { ROOT.weekly_peoples_investment_ic = mtth:local_investment }
+			}
 
-			###view smithy
-			set_temp_variable = { smithy_employed_temp = smithy_count }
-			multiply_temp_variable = { smithy_employed_temp = 0.10 } #40men
-			set_variable = { smithy_employed = smithy_employed_temp }
-			multiply_variable = { smithy_employed = mtth:smith_factor }
-			add_to_variable = { employment_need_k = smithy_employed }
+			set_variable = { national_prosperity = 0 }
+			every_core_state = {
+				add_to_variable = { ROOT.national_prosperity = THIS.local_prosperity }
+			}
+			set_variable = { national_prosperity_cap = core_population_k }
 
-			###view factory
-			set_variable = { factory_employed = modifier@industrial_worker_k }
-			multiply_variable = { factory_employed = mtth:industrial_worker_factor }
-			add_to_variable = { employment_need_k = factory_employed }
+			set_variable = { national_prosperity_percent = national_prosperity }
+			divide_variable = { national_prosperity_percent = national_prosperity_cap }
+			set_variable = { wealth_bar = national_prosperity_percent }
+			multiply_variable = { wealth_bar = 100 }
 
-			###view shopkeeper
-			set_variable = { shopkeeper_employed = modifier@shopkeeper_k }
-			multiply_variable = { shopkeeper_employed = mtth:shopkeeper_factor }
-			add_to_variable = { employment_need_k = shopkeeper_employed }
 
-			###view harbour
-			set_temp_variable = { harbour_employed_temp = harbour_count }
-			multiply_temp_variable = { harbour_employed_temp = 0.400 } #400men
-			set_variable = { harbour_employed = harbour_employed_temp }
-			set_temp_variable = { dockyard_employed_temp = dockyard_count }
-			multiply_temp_variable = { dockyard_employed_temp = 0.200 } #200men
-			add_to_variable = { harbour_employed = dockyard_employed_temp }
-			multiply_variable = { harbour_employed = mtth:harbour_worker_factor }
-			add_to_variable = { employment_need_k = harbour_employed }
+			set_variable = { tax_balance = taxation_var }
+			add_to_variable = { tax_balance = inflation_money }
+			set_variable = { state_expenses = modifier@expenses_factor }
+			subtract_from_variable = { tax_balance = state_expenses }
+			clamp_variable = { var = tax_balance  min = 0 }
 
-			###view craftsman
-			set_variable = { craftsman_employed = modifier@craftsman_k }
-			set_temp_variable = { manufactory_employed_temp = manufactory_count }
-			multiply_temp_variable = { manufactory_employed_temp = 0.1 } #20men
-			set_variable = { manufactory_employed = manufactory_employed_temp }
-			add_to_variable = { craftsman_employed = manufactory_employed }
-			multiply_variable = { craftsman_employed = mtth:craftsman_factor }
-			add_to_variable = { employment_need_k = craftsman_employed }
 
 
 			###view food
@@ -309,53 +367,6 @@ on_actions = {
 			subtract_from_variable = { dependant_population_k = max_available_manpower_k }
 
 
-
-			##### first employed calc with old stats
-
-			set_variable = { employed_population_k = employment_need_old_k }
-			clamp_variable = { 
-				var = employed_population_k
-				max = working_population_k 
-			}
-
-			######
-
-			set_variable = { employed_and_military_k = employed_population_k }
-			add_to_variable = { employed_and_military_k = max_available_manpower_k }
-
-			if = {
-				limit = {
-					check_variable = { employed_and_military_k > highest_employment_need_k }
-				}
-				set_variable = { highest_employment_need_k = employed_and_military_k }
-			}
-			set_variable = { retired_soldiers = highest_employment_need_k }
-			subtract_from_variable = { retired_soldiers = employed_and_military_k }
-
-			subtract_from_variable = { highest_employment_need_k = retired_soldiers }
-			add_to_variable = { workless_population_k = retired_soldiers }
-
-			set_variable = { workless_to_self = working_population_k }
-			multiply_variable = { workless_to_self = modifier@weekly_workless_people }
-			multiply_variable = { workless_to_self = -1 }
-			multiply_variable = { workless_to_self = workless_percentage }
-			
-			subtract_from_variable = { workless_population_k = workless_to_self }
-
-			set_variable = { employment_need_old_k = employment_need_k }
-
-			set_temp_variable = { temp_old_epmployed = employed_population_k }
-			subtract_from_temp_variable = { temp_old_epmployed = employment_need_k }
-
-			add_to_variable = { workless_population_k = temp_old_epmployed }
-
-			clamp_variable = { 
-				var = workless_population_k
-				min = 0
-				max = working_population_k 
-			}
-
-
 			##### second employed calc for true value
 
 			set_variable = { employed_population_k = employment_need_k }
@@ -370,50 +381,16 @@ on_actions = {
 			divide_temp_variable = { temp_epmployed_percentage = working_population_k }
 			set_variable = { epmployed_percentage = temp_epmployed_percentage }
 
-			set_temp_variable = { temp_workless_percentage = workless_population_k }
-			divide_temp_variable = { temp_workless_percentage = working_population_k }
-			set_variable = { workless_percentage = temp_workless_percentage }
-
-			set_variable = { workless_malus = workless_percentage }
-			multiply_variable = { workless_malus = -2 }
-
-			set_variable = { worker_deficit_k = employment_need_k }
-			subtract_from_variable = { worker_deficit_k = employed_population_k }
-			clamp_variable = { 
-				var = worker_deficit_k
-				min = 0 
-			}
-
-			set_temp_variable = { temp_worker_deficit = worker_deficit_k }
-			set_temp_variable = { temp_total_ratio = worker_deficit_k }
-			add_to_temp_variable = { temp_total_ratio = employed_population_k }
-			divide_temp_variable = { temp_worker_deficit = temp_total_ratio }
-			set_variable = { worker_deficit_malus = temp_worker_deficit }
-			multiply_variable = { worker_deficit_malus = -1 }
-
 
 			###view selfsufficient
 			set_temp_variable = { self_employed_temp = working_population_k }
 			subtract_from_temp_variable = { self_employed_temp = employed_population_k }
-			subtract_from_temp_variable = { self_employed_temp = workless_population_k }
 			set_variable = { self_employed_k = self_employed_temp }
 			set_temp_variable = { temp_unepmployed_percentage = 1 }
 			subtract_from_temp_variable = { temp_unepmployed_percentage = epmployed_percentage }
-			subtract_from_temp_variable = { temp_unepmployed_percentage = workless_percentage }
 			set_variable = { unepmployed_percentage = temp_unepmployed_percentage }
 
-			if = {
-				limit = {
-					NOT = {
-						has_dynamic_modifier = { modifier = workless_debuff }
-						OR = {
-							check_variable = { workless_malus > 0 }
-							check_variable = { workless_malus = 0 }
-						}
-					}
-				}
-				add_dynamic_modifier = { modifier = workless_debuff }
-			}
+
 			if = {
 				limit = {
 					NOT = {
@@ -466,47 +443,19 @@ on_actions = {
 			set_variable = { steel_beams_need = 0.01 }
 			multiply_variable = { steel_beams_need = mtth:steel_beams_demand }
 
-			set_variable = { all_need = steel_need }
-			add_to_variable = { all_need = animal_products_need }
-			add_to_variable = { all_need = wood_need }
-			add_to_variable = { all_need = iron_need }
-			add_to_variable = { all_need = textile_need }
-			add_to_variable = { all_need = minerals_need }
-			add_to_variable = { all_need = grain_need }
-			add_to_variable = { all_need = fossile_fuels_need }
-			add_to_variable = { all_need = consumer_goods_need }
-			add_to_variable = { all_need = luxury_goods_need }
-			add_to_variable = { all_need = planks_need }
-			add_to_variable = { all_need = bricks_need }
-			add_to_variable = { all_need = steel_beams_need }
-
-			set_variable = { steel_need_p = steel_need }
-			set_variable = { animal_products_need_p = animal_products_need }
-			set_variable = { wood_need_p = wood_need }
-			set_variable = { iron_need_p = iron_need }
-			set_variable = { textile_need_p = textile_need }
-			set_variable = { minerals_need_p = minerals_need }
-			set_variable = { grain_need_p = grain_need }
-			set_variable = { fossile_fuels_need_p = fossile_fuels_need }
-			set_variable = { consumer_goods_need_p = consumer_goods_need }
-			set_variable = { luxury_goods_need_p = luxury_goods_need }
-			set_variable = { planks_need_p = planks_need }
-			set_variable = { bricks_need_p = bricks_need }
-			set_variable = { steel_beams_need_p = steel_beams_need }
-
-			multiply_variable = { steel_need_p = all_need }
-			multiply_variable = { animal_products_need_p = all_need }
-			multiply_variable = { wood_need_p = all_need }
-			multiply_variable = { iron_need_p = all_need }
-			multiply_variable = { textile_need_p = all_need }
-			multiply_variable = { minerals_need_p = all_need }
-			multiply_variable = { grain_need_p = all_need }
-			multiply_variable = { fossile_fuels_need_p = all_need }
-			multiply_variable = { consumer_goods_need_p = all_need }
-			multiply_variable = { luxury_goods_need_p = all_need }
-			multiply_variable = { planks_need_p = all_need }
-			multiply_variable = { bricks_need_p = all_need }
-			multiply_variable = { steel_beams_need_p = all_need }
+			multiply_variable = { steel_need = mtth:consumer_demand }
+			multiply_variable = { animal_products_need = mtth:consumer_demand }
+			multiply_variable = { wood_need = mtth:consumer_demand }
+			multiply_variable = { iron_need = mtth:consumer_demand }
+			multiply_variable = { textile_need = mtth:consumer_demand }
+			multiply_variable = { minerals_need = mtth:consumer_demand }
+			multiply_variable = { grain_need = mtth:consumer_demand }
+			multiply_variable = { fossile_fuels_need = mtth:consumer_demand }
+			multiply_variable = { consumer_goods_need = mtth:consumer_demand }
+			multiply_variable = { luxury_goods_need = mtth:consumer_demand }
+			multiply_variable = { planks_need = mtth:consumer_demand }
+			multiply_variable = { bricks_need = mtth:consumer_demand }
+			multiply_variable = { steel_beams_need = mtth:consumer_demand }
 
 
 			set_variable = { steel_demand = steel_need }
@@ -536,313 +485,180 @@ on_actions = {
 			set_variable = { steel_beams_demand = steel_beams_need }
 			multiply_variable = { steel_beams_demand = max_population_k }
 
-
-
-			set_variable = { steel_market_value = resource_produced@steel }
-			multiply_variable = { steel_market_value = steel_need }
-			clamp_variable = { var = steel_market_value min = 0 }
-			
-			set_variable = { animal_products_market_value = resource_produced@chromium }
-			multiply_variable = { animal_products_market_value = animal_products_need }
-			clamp_variable = { var = animal_products_market_value min = 0 }
-			
-			set_variable = { wood_market_value = resource_produced@aluminium }
-			multiply_variable = { wood_market_value = wood_need }
-			clamp_variable = { var = wood_market_value min = 0 }
-			
-			set_variable = { iron_market_value = resource_produced@iron }
-			multiply_variable = { iron_market_value = iron_need }
-			clamp_variable = { var = iron_market_value min = 0 }
-	
-			set_variable = { textile_market_value = resource_produced@tungsten }
-			multiply_variable = { textile_market_value = textile_need }
-			clamp_variable = { var = textile_market_value min = 0 }
-			
-			set_variable = { minerals_market_value = resource_produced@stone }
-			multiply_variable = { minerals_market_value = minerals_need }
-			clamp_variable = { var = minerals_market_value min = 0 }
-			
-			set_variable = { grain_market_value = resource_produced@oil }
-			multiply_variable = { grain_market_value = grain_need }
-			clamp_variable = { var = grain_market_value min = 0 }
-			
-			set_variable = { fossile_fuels_market_value = resource_produced@rubber }
-			multiply_variable = { fossile_fuels_market_value = fossile_fuels_need }
-			clamp_variable = { var = fossile_fuels_market_value min = 0 }
-			
-			set_variable = { consumer_goods_market_value = resource_produced@consumer_goods_resource }
-			multiply_variable = { consumer_goods_market_value = consumer_goods_need }
-			clamp_variable = { var = consumer_goods_market_value min = 0 }
-			
-			set_variable = { luxury_goods_market_value = resource_produced@luxury_goods_resource }
-			multiply_variable = { luxury_goods_market_value = luxury_goods_need }
-			clamp_variable = { var = luxury_goods_market_value min = 0 }
-			
-			set_variable = { planks_market_value = resource_produced@planks_resource }
-			multiply_variable = { planks_market_value = planks_need }
-			clamp_variable = { var = planks_market_value min = 0 }
-
-			set_variable = { bricks_market_value = resource_produced@bricks_resource }
-			multiply_variable = { bricks_market_value = bricks_need }
-			clamp_variable = { var = bricks_market_value min = 0 }
-
-			set_variable = { steel_beams_market_value = resource_produced@steel_beams_resource }
-			multiply_variable = { steel_beams_market_value = steel_beams_need }
-			clamp_variable = { var = steel_beams_market_value min = 0 }
-			
-
-			set_variable = { country_gdp = 0 }
-
-			set_variable = { real_gdp = 0 }
-
-			add_to_variable = { country_gdp = steel_market_value }
-			add_to_variable = { country_gdp = animal_products_market_value }
-			add_to_variable = { country_gdp = wood_market_value }
-			add_to_variable = { country_gdp = iron_market_value }
-			add_to_variable = { country_gdp = textile_market_value}
-			add_to_variable = { country_gdp = minerals_market_value }
-			add_to_variable = { country_gdp = grain_market_value }
-			add_to_variable = { country_gdp = fossile_fuels_market_value }
-			add_to_variable = { country_gdp = consumer_goods_market_value }
-			add_to_variable = { country_gdp = luxury_goods_market_value }
-			add_to_variable = { country_gdp = planks_market_value }
-			add_to_variable = { country_gdp = bricks_market_value }
-			add_to_variable = { country_gdp = steel_beams_market_value }
-
-			clamp_variable = { var = country_gdp min = 1 }
-
-			add_to_variable = { real_gdp = country_gdp }
-
-			multiply_variable = { country_gdp = mtth:inflation_factor }
-
-			set_variable = { country_gdp_netto = country_gdp }
-
-			set_variable = { taxation_var = modifier@taxation }
-			clamp_variable = { var = taxation_var min = 0 }
-
-			set_variable = { country_tax = country_gdp }
-			multiply_variable = { country_tax = taxation_var }
-			subtract_from_variable = { country_gdp_netto = country_tax }
-
-			set_variable = { country_gdp_per_capita = country_gdp }
-			divide_variable = { country_gdp_per_capita = max_population_k }
-
-			set_variable = { country_gdp_netto_per_capita = country_gdp_netto }
-			divide_variable = { country_gdp_netto_per_capita = max_population_k }
-
-
 			set_variable = { steel_price = resource@steel }
-			multiply_variable = { steel_price = steel_need }
-			multiply_variable = { steel_price = -1 }
+			set_variable = { steel_used = steel_demand }
+			add_to_variable = { steel_used = resource_consumed@steel }
+			add_to_variable = { steel_used = mtth:steel_cost }
+			divide_variable = { steel_price = steel_used }
 
 			set_variable = { animal_products_price = resource@chromium }
-			multiply_variable = { animal_products_price = animal_products_need }
-			multiply_variable = { animal_products_price = -1 }
+			set_variable = { animal_products_used = animal_products_demand }
+			add_to_variable = { animal_products_used = resource_consumed@chromium }
+			add_to_variable = { animal_products_used = mtth:leather_cost }
+			divide_variable = { animal_products_price = animal_products_used }
 
 			set_variable = { wood_price = resource@aluminium }
-			multiply_variable = { wood_price = wood_need }
-			multiply_variable = { wood_price = -1 }
+			set_variable = { wood_used = wood_demand }
+			add_to_variable = { wood_used = resource_consumed@aluminium }
+			add_to_variable = { wood_used = mtth:wood_cost }
+			divide_variable = { wood_price = wood_used }
 
 			set_variable = { iron_price = resource@iron }
-			multiply_variable = { iron_price = iron_need }
-			multiply_variable = { iron_price = -1 }
-
+			set_variable = { iron_used = iron_demand }
+			add_to_variable = { iron_used = resource_consumed@iron }
+			add_to_variable = { iron_used = mtth:iron_cost }
+			divide_variable = { iron_price = iron_used }
+	
 			set_variable = { textile_price = resource@tungsten }
-			multiply_variable = { textile_price = textile_need }
-			multiply_variable = { textile_price = -1 }
-
+			set_variable = { textile_used = textile_demand }
+			add_to_variable = { textile_used = resource_consumed@tungsten }
+			add_to_variable = { textile_used = mtth:textile_cost }
+			divide_variable = { textile_price = textile_used }
+	
 			set_variable = { minerals_price = resource@stone }
-			multiply_variable = { minerals_price = minerals_need }
-			multiply_variable = { minerals_price = -1 }
-
+			set_variable = { minerals_used = minerals_demand }
+			add_to_variable = { minerals_used = resource_consumed@stone }
+			add_to_variable = { minerals_used = mtth:stone_cost }
+			divide_variable = { minerals_price = minerals_used }
+	
 			set_variable = { grain_price = resource@oil }
-			multiply_variable = { grain_price = grain_need }
-			multiply_variable = { grain_price = -1 }
-
+			set_variable = { grain_used = grain_demand }
+			add_to_variable = { grain_used = resource_consumed@oil }
+			add_to_variable = { grain_used = mtth:crop_cost }
+			divide_variable = { grain_price = grain_used }
+	
 			set_variable = { fossile_fuels_price = resource@rubber }
-			multiply_variable = { fossile_fuels_price = fossile_fuels_need }
-			multiply_variable = { fossile_fuels_price = -1 }
+			set_variable = { fossile_fuels_used = fossile_fuels_demand }
+			add_to_variable = { fossile_fuels_used = resource_consumed@rubber }
+			divide_variable = { fossile_fuels_price = fossile_fuels_used }
 
 			set_variable = { consumer_goods_price = resource@consumer_goods_resource }
-			multiply_variable = { consumer_goods_price = consumer_goods_need }
-			multiply_variable = { consumer_goods_price = -1 }
+			set_variable = { consumer_goods_used = consumer_goods_demand }
+			add_to_variable = { consumer_goods_used = resource_consumed@consumer_goods_resource }
+			divide_variable = { consumer_goods_price = consumer_goods_used }
 
 			set_variable = { luxury_goods_price = resource@luxury_goods_resource }
-			multiply_variable = { luxury_goods_price = luxury_goods_need }
-			multiply_variable = { luxury_goods_price = -1 }
-
+			set_variable = { luxury_goods_used = luxury_goods_demand }
+			add_to_variable = { luxury_goods_used = resource_consumed@luxury_goods_resource }
+			divide_variable = { luxury_goods_price = luxury_goods_used }
+	
 			set_variable = { planks_price = resource@planks_resource }
-			multiply_variable = { planks_price = planks_need }
-			multiply_variable = { planks_price = -1 }
-
+			set_variable = { planks_used = planks_demand }
+			add_to_variable = { planks_used = resource_consumed@planks_resource }
+			divide_variable = { planks_price = planks_used }
+	
 			set_variable = { bricks_price = resource@bricks_resource }
-			multiply_variable = { bricks_price = bricks_need }
-			multiply_variable = { bricks_price = -1 }
+			set_variable = { bricks_used = bricks_demand }
+			add_to_variable = { bricks_used = resource_consumed@bricks_resource }
+			divide_variable = { bricks_price = bricks_used }
 
 			set_variable = { steel_beams_price = resource@steel_beams_resource }
-			multiply_variable = { steel_beams_price = steel_beams_need }
+			set_variable = { steel_beams_used = steel_beams_demand }
+			add_to_variable = { steel_beams_used = resource_consumed@steel_beams_resource }
+			divide_variable = { steel_beams_price = steel_beams_used }
+
+			multiply_variable = { steel_price = -1 }
+			multiply_variable = { animal_products_price = -1 }
+			multiply_variable = { wood_price = -1 }
+			multiply_variable = { iron_price = -1 }
+			multiply_variable = { textile_price = -1 }
+			multiply_variable = { minerals_price = -1 }
+			multiply_variable = { grain_price = -1 }
+			multiply_variable = { fossile_fuels_price = -1 }
+			multiply_variable = { consumer_goods_price = -1 }
+			multiply_variable = { luxury_goods_price = -1 }
+			multiply_variable = { planks_price = -1 }
+			multiply_variable = { bricks_price = -1 }
 			multiply_variable = { steel_beams_price = -1 }
 
-	
-
-
-
-			set_variable = { self_employed_output = self_employed_k }
-			multiply_variable = { self_employed_output = mtth:peasant_output_factor }
-
-			
-			set_variable = { self_animal_products_supply = self_employed_output }
-			multiply_variable = { self_animal_products_supply = animal_products_need }
-			clamp_variable = { var = self_animal_products_supply min = 0 }
-			
-			set_variable = { self_employed_wood_supply = self_employed_output }
-			multiply_variable = { self_employed_wood_supply = wood_need }
-			clamp_variable = { var = self_employed_wood_supply min = 0 }
-			
-			set_variable = { self_employed_iron_supply = self_employed_output }
-			multiply_variable = { self_employed_iron_supply = iron_need }
-			clamp_variable = { var = self_employed_iron_supply min = 0 }
-	
-			set_variable = { self_employed_textile_supply = self_employed_output }
-			multiply_variable = { self_employed_textile_supply = textile_need }
-			clamp_variable = { var = self_employed_textile_supply min = 0 }
-			
-			set_variable = { self_employed_minerals_supply = self_employed_output }
-			multiply_variable = { self_employed_minerals_supply = minerals_need }
-			clamp_variable = { var = self_employed_minerals_supply min = 0 }
-			
-			set_variable = { self_employed_grain_supply = self_employed_output }
-			multiply_variable = { self_employed_grain_supply = grain_need }
-			clamp_variable = { var = self_employed_grain_supply min = 0 }
-
-			set_variable = { self_employed_consumer_goods_supply = self_employed_output }
-			multiply_variable = { self_employed_consumer_goods_supply = consumer_goods_need }
-			clamp_variable = { var = self_employed_consumer_goods_supply min = 0 }
-
-			set_variable = { self_employed_planks_supply = self_employed_output }
-			multiply_variable = { self_employed_planks_supply = planks_need }
-			clamp_variable = { var = self_employed_planks_supply min = 0 }
-
-			set_variable = { self_employed_bricks_supply = self_employed_output }
-			multiply_variable = { self_employed_bricks_supply = bricks_need }
-			clamp_variable = { var = self_employed_bricks_supply min = 0 }
-
-			set_variable = { self_employed_gdp_1 = self_employed_steel_supply }
-			multiply_variable = { self_employed_gdp_1 = steel_need_p }
-			set_variable = { self_employed_gdp_2 = self_employed_animal_products_supply }
-			multiply_variable = { self_employed_gdp_2 = animal_products_need_p }
-			set_variable = { self_employed_gdp_3 = self_employed_wood_supply }
-			multiply_variable = { self_employed_gdp_3 = wood_need_p }
-			set_variable = { self_employed_gdp_4 = self_employed_iron_supply }
-			multiply_variable = { self_employed_gdp_4 = iron_need_p }
-			set_variable = { self_employed_gdp_5 = self_employed_textile_supply }
-			multiply_variable = { self_employed_gdp_5 = textile_need_p }
-			set_variable = { self_employed_gdp_6 = self_employed_minerals_supply }
-			multiply_variable = { self_employed_gdp_6 = minerals_need_p }
-			set_variable = { self_employed_gdp_7 = self_employed_grain_supply }
-			multiply_variable = { self_employed_gdp_7 = grain_need_p }
-			set_variable = { self_employed_gdp_8 = self_employed_consumer_goods_supply }
-			multiply_variable = { self_employed_gdp_8 = consumer_goods_need_p }
-			set_variable = { self_employed_gdp_9 = self_employed_planks_supply }
-			multiply_variable = { self_employed_gdp_9 = planks_need_p }
-			set_variable = { self_employed_gdp_10 = self_employed_bricks_supply }
-			multiply_variable = { self_employed_gdp_10 = bricks_need_p }
-
-			set_variable = { self_employed_gdp = 0 }
-
-			add_to_variable = { self_employed_gdp = self_employed_gdp_1 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_2 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_3 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_4 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_5 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_6 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_7 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_8 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_9 }
-			add_to_variable = { self_employed_gdp = self_employed_gdp_10 }
-
-			add_to_variable = { real_gdp = self_employed_gdp }
-
-			multiply_variable = { self_employed_gdp = mtth:inflation_factor }
-
-			set_variable = { self_employed_gdp_netto = self_employed_gdp }
-
-			set_variable = { self_employed_tax = self_employed_gdp }
-			multiply_variable = { self_employed_tax = taxation_var }
-			subtract_from_variable = { self_employed_gdp_netto = self_employed_tax }
-
-			set_variable = { self_employed_gdp_per_capita = self_employed_gdp }
-			divide_variable = { self_employed_gdp_per_capita = self_employed_k }
-
-			set_variable = { self_employed_gdp_netto_per_capita = self_employed_gdp_netto }
-			divide_variable = { self_employed_gdp_netto_per_capita = self_employed_k }
-
-
-			set_variable = { average_gdp = country_gdp }
-			add_to_variable = { average_gdp = self_employed_gdp }
-			divide_variable = { average_gdp = 2 }
-
-			set_variable = { average_gdp_per_capita = average_gdp }
-			divide_variable = { average_gdp_per_capita = max_population_k }
-
-			set_variable = { average_gdp_netto = country_gdp_netto }
-			add_to_variable = { average_gdp_netto = self_employed_gdp_netto }
-			divide_variable = { average_gdp_netto = 2 }
-
-			set_variable = { average_gdp_per_capita_netto = average_gdp_netto }
-			divide_variable = { average_gdp_per_capita_netto = max_population_k }
-
-
-
-			set_variable = { resource_surplus = 0 }
-
-			add_to_variable = { resource_surplus = steel_price }
-			add_to_variable = { resource_surplus = animal_products_price }
-			add_to_variable = { resource_surplus = wood_price }
-			add_to_variable = { resource_surplus = iron_price }
-			add_to_variable = { resource_surplus = textile_price}
-			add_to_variable = { resource_surplus = minerals_price }
-			add_to_variable = { resource_surplus = grain_price }
-			add_to_variable = { resource_surplus = fossile_fuels_price }
-			add_to_variable = { resource_surplus = consumer_goods_price }
-			add_to_variable = { resource_surplus = luxury_goods_price }
-			add_to_variable = { resource_surplus = planks_price }
-			add_to_variable = { resource_surplus = bricks_price }
-			add_to_variable = { resource_surplus = steel_beams_price }
-
-			divide_variable = { resource_surplus = max_population_k }
-
 			clamp_variable = {
-				var = resource_surplus
-				min = -1
-				max = 1
+				var = steel_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = animal_products_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = wood_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = iron_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = textile_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = minerals_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = grain_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = fossile_fuels_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = consumer_goods_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = luxury_goods_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = planks_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = bricks_price
+				min = -0.75
+				max = 0.75
+			}
+			clamp_variable = {
+				var = steel_beams_price
+				min = -0.75
+				max = 0.75
 			}
 
-			set_variable = { average_market_price = resource_surplus }
 
-			clamp_variable = {
-				var = resource_surplus
-				min = -0.9
-				max = 1
-			}
+			set_variable = { total_need = 0 }
+			add_to_variable = { total_need = steel_need }
+			add_to_variable = { total_need = animal_products_need }
+			add_to_variable = { total_need = wood_need }
+			add_to_variable = { total_need = iron_need }
+			add_to_variable = { total_need = textile_need }
+			add_to_variable = { total_need = minerals_need }
+			add_to_variable = { total_need = grain_need }
+			add_to_variable = { total_need = fossile_fuels_need }
+			add_to_variable = { total_need = consumer_goods_need }
+			add_to_variable = { total_need = luxury_goods_need }
+			add_to_variable = { total_need = planks_need }
+			add_to_variable = { total_need = bricks_need }
+			add_to_variable = { total_need = steel_beams_need }
 
-			multiply_variable = { resource_surplus = -1 }
-
-
-			set_variable = { cost_of_living = average_gdp }
-			set_temp_variable = { resource_factor = 1 }
-			subtract_from_temp_variable = { resource_factor = resource_surplus }
-			multiply_variable = { cost_of_living = resource_factor }
-			multiply_variable = { cost_of_living = mtth:inflation_factor }
-
-			set_variable = { cost_of_living_per_capita = cost_of_living }
-			divide_variable = { cost_of_living_per_capita = max_population_k }
+			set_variable = { avg_price = 1 }
+			add_to_variable = { avg_price = mtth:avg_price }
+			multiply_variable = { total_need = avg_price }
 
 
 			### investment pool
-			set_variable = { weekly_peoples_investment_ic = average_gdp_netto }
-			subtract_from_variable = { weekly_peoples_investment_ic = cost_of_living }
-			multiply_variable = { weekly_peoples_investment_ic = 7 }
 
 			set_variable = { initiative_chance = modifier@peoples_initiative }
 			clamp_variable = { 
@@ -850,7 +666,6 @@ on_actions = {
 				min = 0
 				max = 1
 			}
-			multiply_variable = { weekly_peoples_investment_ic = initiative_chance }
 			clamp_variable = { 
 				var = weekly_peoples_investment_ic
 				min = 0
@@ -862,146 +677,10 @@ on_actions = {
 			multiply_variable = { peoples_ic_points = 10 }
 
 
-			set_variable = { cost_of_living_150 = cost_of_living }
-			multiply_variable = { cost_of_living_150 = 1.5 }
-
-			set_variable = { cost_of_living_double = cost_of_living }
-			multiply_variable = { cost_of_living_double = 2 }
-
-			set_variable = { cost_of_living_tripple = cost_of_living }
-			multiply_variable = { cost_of_living_tripple = 3 }
-
-			set_variable = { cost_of_living_75 = cost_of_living }
-			multiply_variable = { cost_of_living_75 = 0.75 }
-
-			set_variable = { cost_of_living_half = cost_of_living }
-			multiply_variable = { cost_of_living_half = 0.5 }
-
-
-
-			set_variable = { sol_change = modifier@weekly_standard_of_living }
-
 
 			if = {
 				limit = {
-					check_variable = { average_gdp_netto = 0 }
-				}
-				add_to_variable = { sol_change = -1 }
-
-				set_variable = { sol_lower_cap = 0 }
-				set_variable = { sol_upper_cap = 1 }
-			}
-
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_half }
-				}
-				add_to_variable = { sol_change = -0.1 }
-
-				set_variable = { sol_lower_cap = 0 }
-				set_variable = { sol_upper_cap = 40 }
-			}
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_75 }
-					check_variable = { average_gdp_netto > cost_of_living_half }
-				}
-				add_to_variable = { sol_change = -0.05 }
-
-				set_variable = { sol_lower_cap = 25 }
-				set_variable = { sol_upper_cap = 50 }
-			}
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto < cost_of_living }
-					check_variable = { average_gdp_netto > cost_of_living_75 }
-				}
-				add_to_variable = { sol_change = -0.01 }
-
-				set_variable = { sol_lower_cap = 40 }
-				set_variable = { sol_upper_cap = 60 }
-			}
-
-
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_150 }
-					check_variable = { average_gdp_netto > cost_of_living }
-				}
-				add_to_variable = { sol_change = 0.001 }
-
-				set_variable = { sol_lower_cap = 50 }
-				set_variable = { sol_upper_cap = 70 }
-			}
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto < cost_of_living_double }
-					check_variable = { average_gdp_netto > cost_of_living_150 }
-				}
-				add_to_variable = { sol_change = 0.002 }
-
-				set_variable = { sol_lower_cap = 60 }
-				set_variable = { sol_upper_cap = 80 }
-			}
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto > cost_of_living_double }
-					check_variable = { average_gdp_netto < cost_of_living_tripple }
-				}
-				add_to_variable = { sol_change = 0.003 }
-
-				set_variable = { sol_lower_cap = 65 }
-				set_variable = { sol_upper_cap = 90 }
-			}
-			if = {
-				limit = {
-					check_variable = { average_gdp_netto > cost_of_living_tripple }
-				}
-				add_to_variable = { sol_change = 0.01 }
-
-				set_variable = { sol_lower_cap = 80 }
-				set_variable = { sol_upper_cap = 100 }
-			}
-
-			set_variable = { sol_min = modifier@min_standard_of_living }
-			clamp_variable = {
-				var = sol_min
-				min = 0
-				max = 100
-			}
-
-			add_to_variable = { standard_of_living = sol_change }
-
-			if = {
-				limit = {
-					check_variable = { sol_change > 0 }
-				}
-				clamp_variable = {
-					var = standard_of_living
-					min = 0
-					max = sol_upper_cap
-				}
-			}
-			else = {
-				clamp_variable = {
-					var = standard_of_living
-					min = sol_lower_cap
-					max = 100
-				}
-			}
-			clamp_variable = {
-				var = standard_of_living
-				min = sol_min
-			}
-
-			set_variable = { standard_of_living_percent = standard_of_living }
-			divide_variable = { standard_of_living_percent = 100 }
-
-
-
-			if = {
-				limit = {
-					check_variable = { standard_of_living < 10 }
+					check_variable = { wealth_bar < 10 }
 					NOT = {
 						has_dynamic_modifier = { modifier = extreme_poverty }
 					}
@@ -1010,8 +689,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { standard_of_living < 30 }
-					check_variable = { standard_of_living > 9.999 }
+					check_variable = { wealth_bar < 30 }
+					check_variable = { wealth_bar > 9.999 }
 					NOT = {
 						has_dynamic_modifier = { modifier = poverty }
 					}
@@ -1020,8 +699,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { standard_of_living < 50 }
-					check_variable = { standard_of_living > 29.999 }
+					check_variable = { wealth_bar < 50 }
+					check_variable = { wealth_bar > 29.999 }
 					NOT = {
 						has_dynamic_modifier = { modifier = struggeling }
 					}
@@ -1032,8 +711,8 @@ on_actions = {
 
 			if = {
 				limit = {
-					check_variable = { standard_of_living < 70 }
-					check_variable = { standard_of_living > 49.999 }
+					check_variable = { wealth_bar < 70 }
+					check_variable = { wealth_bar > 49.999 }
 					NOT = {
 						has_dynamic_modifier = { modifier = middeling }
 					}
@@ -1042,8 +721,8 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { standard_of_living < 90 }
-					check_variable = { standard_of_living > 69.999 }
+					check_variable = { wealth_bar < 90 }
+					check_variable = { wealth_bar > 69.999 }
 					NOT = {
 						has_dynamic_modifier = { modifier = wealth }
 					}
@@ -1052,7 +731,7 @@ on_actions = {
 			}
 			if = {
 				limit = {
-					check_variable = { standard_of_living > 89.999 }
+					check_variable = { wealth_bar > 89.999 }
 					NOT = {
 						has_dynamic_modifier = { modifier = extreme_wealth }
 					}
@@ -1062,87 +741,63 @@ on_actions = {
 
 
 
-			set_variable = { total_tax_money = self_employed_tax }
-			add_to_variable = { total_tax_money = country_tax }
-
-			set_variable = { self_employed_tax_percentage_of_gdp = self_employed_tax }
-			divide_variable = { self_employed_tax_percentage_of_gdp = cost_of_living }
-
-			set_variable = { country_tax_percentage_of_gdp = country_tax }
-			divide_variable = { country_tax_percentage_of_gdp = cost_of_living }
-
-			set_variable = { tax_balance = total_tax_money }
-
-			set_variable = { state_expenses = modifier@expenses_factor }
-			#clamp_variable = { var = state_expenses   min = 0 }
-			subtract_from_variable = { tax_balance = state_expenses }
-
-
-			set_variable = { remaining_capacity = 1 }
-			subtract_from_variable = { remaining_capacity = self_employed_tax_percentage_of_gdp }
-			set_variable = { capacity_for_food_supply = remaining_capacity }
-
-			multiply_variable = { capacity_for_food_supply = mtth:peasant_food_factor }
-
-			set_variable = { food_production_bonus = 1 }
-			add_to_variable = { food_production_bonus = modifier@peasant_food_factor }
-			clamp_variable = {
-				var = food_production_bonus
-				min = 0
-			}
-
-			set_variable = { self_employed_food_supply = self_employed_output }
-			multiply_variable = { self_employed_food_supply = capacity_for_food_supply }
-			multiply_variable = { self_employed_food_supply = food_production_bonus }
-
-			set_variable = { mill_production = mill_count }
-			multiply_variable = { mill_production = mill_output }
-
-			set_variable = { farm_production = farm_count }
-			multiply_variable = { farm_production = farm_output }
-
-			set_variable = { fishing_stand_production = fishing_stand_count }
-			multiply_variable = { fishing_stand_production = fishing_stand_output }
-
-			set_variable = { employed_food_production = mill_production }
-			add_to_variable = { employed_food_production = fishing_stand_production }
-
-			set_variable = { self_employed_consumer_good_supply = self_employed_output }
-			divide_variable = { self_employed_consumer_good_supply = 2 }
-			multiply_variable = { self_employed_consumer_good_supply = capacity_for_consumer_good_supply }
-
-			set_variable = { consumer_good_factory_production = consumer_good_factory_count }
-			multiply_variable = { consumer_good_factory_production = consumer_good_factory_output }
-
-
 			set_variable = { planks = resource@planks_resource }
 			set_variable = { bricks = resource@bricks_resource }
 			set_variable = { steel_beams = resource@steel_beams_resource }
 
+			set_variable = { local_upkeep_cost = 0 }
+
+			every_controlled_state = {
+				add_to_variable = { ROOT.local_upkeep_cost = modifier@building_upkeep_cost }
+			}
+
+			multiply_variable = { local_upkeep_cost = mtth:upkeep_factor }
+
+			set_variable = { local_steel_beam_factor = modifier@steel_upkeep_factor }
+			clamp_variable = {
+				var = local_steel_beam_factor
+				min = 0
+				max = 1
+			}
+			set_variable = { local_brick_clamp = 1 }
+			subtract_from_variable = { local_brick_clamp = local_steel_beam_factor }
+			set_variable = { local_brick_factor = modifier@stone_upkeep_factor }
+			clamp_variable = {
+				var = local_brick_factor
+				min = 0
+				max = local_brick_clamp
+			}
+			set_variable = { local_plank_clamp = 1 }
+			subtract_from_variable = { local_plank_clamp = local_steel_beam_factor }
+			subtract_from_variable = { local_plank_clamp = local_brick_factor }
+			set_variable = { local_plank_factor = 1 }
+			clamp_variable = {
+				var = local_plank_factor
+				min = 0
+				max = local_plank_clamp
+			}
+
+			set_variable = { local_plank_upkeep_cost = local_upkeep_cost }
+			set_variable = { local_brick_upkeep_cost = local_upkeep_cost }
+			set_variable = { local_steel_beam_upkeep_cost = local_upkeep_cost }
+
+			multiply_variable = { local_plank_upkeep_cost = local_plank_factor }
+			multiply_variable = { local_brick_upkeep_cost = local_brick_factor }
+			multiply_variable = { local_steel_beam_upkeep_cost = local_steel_beam_factor }
+
 			set_variable = { construction_material = 0 }
 			set_variable = { plank_factor = planks }
-			multiply_variable = { plank_factor = 1 }
+			multiply_variable = { plank_factor = local_plank_factor }
 			add_to_variable = { construction_material = plank_factor }
 			set_variable = { brick_factor = bricks }
-			multiply_variable = { brick_factor = 2 }
+			multiply_variable = { brick_factor = local_brick_factor }
 			add_to_variable = { construction_material = brick_factor }
 			set_variable = { steel_beam_factor = steel_beams }
-			multiply_variable = { steel_beam_factor = 3 }
+			multiply_variable = { steel_beam_factor = local_steel_beam_factor }
 			add_to_variable = { construction_material = steel_beam_factor }
-			set_variable = { construction_material_show = construction_material }
 
-			set_variable = { building_factor = 0 }
-			add_to_variable = { building_factor = modifier@building_upkeep_cost }
+			set_variable = { building_factor = local_upkeep_cost }
 
-			set_variable = { fake_buildings = smithy_count }
-			add_to_variable = { fake_buildings = harbour_count }
-			add_to_variable = { fake_buildings = manufactory_count }
-			multiply_variable = { fake_buildings = 2 }
-
-			add_to_variable = { building_factor = fake_buildings }
-			multiply_variable = { building_factor = mtth:upkeep_factor }
-
-			subtract_from_variable = { construction_material = building_factor }
 			divide_variable = { construction_material = building_factor }
 			clamp_variable = {
 				var = construction_material
@@ -1151,13 +806,6 @@ on_actions = {
 			}
 			set_variable = { construction_material_factor = 1 }
 			add_to_variable = { construction_material_factor = construction_material }
-
-			set_variable = { construction_resouces = 0 }
-			subtract_from_variable = { construction_resouces = building_factor }
-			add_to_variable = { construction_resouces = plank_factor }
-			add_to_variable = { construction_resouces = brick_factor }
-			add_to_variable = { construction_resouces = steel_beam_factor }
-
 
 			#### civil capacity
 
@@ -1235,17 +883,37 @@ on_actions = {
 				max = 1
 			}
 
-			set_variable = { military_ic_transfer = total_military_ic }
-			multiply_variable = { military_ic_transfer = ic_real_transfer }
-			set_variable = { ic_transfer_integer = military_ic_transfer }
 			if = {
 				limit = {
-					check_variable = { ic_transfer_integer < 0 }
+					check_variable = { ic_real_transfer < 0 }
 				}
+				set_variable = { military_ic_transfer = ic }
+				multiply_variable = { military_ic_transfer = ic_real_transfer }
+				set_variable = { ic_transfer_integer = military_ic_transfer }
 				multiply_variable = { ic_transfer_integer = -1 }
-			}
 
-			add_to_variable = { ic = military_ic_transfer }
+				add_to_variable = { ic = military_ic_transfer }
+
+				subtract_from_variable = { factory_duplicator = military_ic_transfer }
+			}
+			else_if = {
+				limit = {
+					check_variable = { ic_real_transfer > 0 }
+				}
+				set_variable = { military_ic_transfer = total_military_ic }
+				multiply_variable = { military_ic_transfer = ic_real_transfer }
+				set_variable = { ic_transfer_integer = military_ic_transfer }
+
+				add_to_variable = { ic = military_ic_transfer }
+
+				subtract_from_variable = { factory_duplicator = military_ic_transfer }
+
+			}
+			else = {
+				set_variable = { military_ic_transfer = total_military_ic }
+				multiply_variable = { military_ic_transfer = ic_real_transfer }
+				set_variable = { ic_transfer_integer = military_ic_transfer }
+			}
 
 			round_variable = ic
 			clamp_variable = { 
@@ -1253,9 +921,7 @@ on_actions = {
 				min = 0
 			}
 
-			subtract_from_variable = { factory_duplicator = military_ic_transfer }
 			round_variable = factory_duplicator
-
 			clamp_variable = { 
 				var = factory_duplicator
 				min = 0
@@ -1785,6 +1451,8 @@ on_actions = {
 
 	on_monthly = {
 		effect = {
+
+
 			set_variable = { fishing_stand_dockyards = 0 }
 
 			every_controlled_state = {

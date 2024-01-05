@@ -49,6 +49,75 @@ guiTypes = {
 	}
 
 	containerWindowType = {
+		name = "population_job_ui_window"
+		position = { x = 0 y = -20 }
+		Orientation = UPPER_LEFT
+
+		instantTextBoxType = {
+			name ="population_text"
+			position = { x = 64 y = -10 }
+			font = "hoi_18mbs"
+			text = "population_number"
+			maxWidth = 50
+			maxHeight = 23
+			format = left
+			pdx_tooltip = "state_population_tooltip"
+		}
+
+		iconType = {
+			name = "workers_active"
+			spriteType = "GFX_employed"
+			position = { x = 24 y = 12 }
+			pdx_tooltip = "workers_tootlip"
+			scale = 0.55
+		}
+		instantTextBoxType = {
+			name ="workers_text"
+			position = { x = 64 y = 16 }
+			font = "hoi_18mbs"
+			text = "workers_number"
+			maxWidth = 50
+			maxHeight = 23
+			format = left
+			pdx_tooltip = "workers_tootlip"
+		}
+
+		iconType = {
+			name = "soldiers_active"
+			spriteType = "GFX_manpower_icon"
+			position = { x = 20 y = 34 }
+			pdx_tooltip = "working_soldiers"
+		}
+		instantTextBoxType = {
+			name ="soldiers_text"
+			position = { x = 64 y = 40 }
+			font = "hoi_18mbs"
+			text = "working_soldiers_number"
+			maxWidth = 50
+			maxHeight = 23
+			format = left
+			pdx_tooltip = "working_soldiers"
+		}
+	}
+
+	containerWindowType = {
+		name = "prosperity_ui_window"
+		position = { x = 460 y = -20 }
+		Orientation = UPPER_LEFT
+
+		instantTextBoxType = {
+			name ="population_text"
+			position = { x = 64 y = -10 }
+			font = "hoi_18mbs"
+			text = "prosperity_number"
+			maxWidth = 80
+			maxHeight = 23
+			format = left
+			pdx_tooltip = "prosperity_tooltip"
+		}
+	}
+
+	containerWindowType = {
 		name = "population_culture_ui_window"
 		position = { x = 17 y = 6 }
 		Orientation = UPPER_LEFT
@@ -56,19 +125,19 @@ guiTypes = {
 		buttonType ={
 			name ="boost_culture"
 			spriteType = "GFX_boost_culture"
-			position = { x=70 y=-15 }
+			position = { x=100 y=-5 }
 			Orientation = "UPPER_RIGHT"
 			clicksound = click_default
-			scale = 1.0
+			scale = 0.75
 			pdx_tooltip = "add_cultural_advisor_tooltip"
 		}
 		buttonType ={
 			name ="stop_boost_culture"
 			spriteType = "GFX_boost_culture"
-			position = { x=70 y=-15 }
+			position = { x=100 y=-5 }
 			Orientation = "UPPER_RIGHT"
 			clicksound = click_default
-			scale = 1.0
+			scale = 0.75
 			pdx_tooltip = "remove_cultural_advisor_tooltip"
 		}
 
@@ -76,19 +145,19 @@ guiTypes = {
 			name = "tooltipoverlay"
 			spriteType = "GFX_pol_piechart_overlay_state"
 			centerPosition = yes
-			position = { x = 38 y = 15 }
-			scale = 0.75
+			position = { x = 122 y = -24 }
+			scale = 0.50
 			pdx_tooltip = "state_culture_tooltip"
 		}
 	}
 
 	containerWindowType = {
 		name = "pie_container"
-		position = { x=56 y =21 }
+		position = { x=140 y = -20 }
 		clipping = no
 		Orientation = UPPER_LEFT
 		origo = center
-		scale = 0.05 # scale = 1 = 1024px x 1024px
+		scale = 0.036 # scale = 1 = 1024px x 1024px
 		
 
 		iconType = {

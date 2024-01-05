@@ -85,14 +85,12 @@ extreme_poverty = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { standard_of_living < 10 }
+			check_variable = { wealth_bar < 10 }
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
 }
@@ -104,16 +102,14 @@ poverty = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 30 }
-				check_variable = { standard_of_living > 9.999 }
+				check_variable = { wealth_bar < 30 }
+				check_variable = { wealth_bar > 9.999 }
 			}
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
 }
@@ -125,16 +121,14 @@ struggeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 50 }
-				check_variable = { standard_of_living > 29.999 }
+				check_variable = { wealth_bar < 50 }
+				check_variable = { wealth_bar > 29.999 }
 			}
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
 }
@@ -146,16 +140,14 @@ middeling = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 70 }
-				check_variable = { standard_of_living > 49.999 }
+				check_variable = { wealth_bar < 70 }
+				check_variable = { wealth_bar > 49.999 }
 			}
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
 }
@@ -167,16 +159,14 @@ wealth = {
 	remove_trigger = {
 		NOT = {
 			AND = {
-				check_variable = { standard_of_living < 90 }
-				check_variable = { standard_of_living > 69.999 }
+				check_variable = { wealth_bar < 90 }
+				check_variable = { wealth_bar > 69.999 }
 			}
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
 }
@@ -187,40 +177,12 @@ extreme_wealth = {
 	enable = { always = yes }
 	remove_trigger = {
 		NOT = {
-			check_variable = { standard_of_living > 89.999 }
+			check_variable = { wealth_bar > 89.999 }
 		}
 	}
 
-	weekly_workless_people = mtth:sol_workless_factor
-
-	consumer_goods_demand = mtth:sol_consumer_goods_factor
-	luxury_goods_demand = mtth:sol_luxury_goods_factor
+	consumer_demand = mtth:prosperity_consumer_demand_factor
+	prosperity = mtth:prosperity_wealthy_factor
 	research_speed_factor = mtth:sol_base_impact_factor
 	stability_factor = mtth:sol_base_impact_factor
-}
-
-
-workless_debuff = {
-	enable = { always = yes }
-	remove_trigger = {
-		OR = {
-			check_variable = { workless_malus > 0 }
-			check_variable = { workless_malus = 0 }
-		}
-	}
-	stability_factor = workless_malus
-}
-
-missing_workers = {
-	enable = { always = yes }
-	remove_trigger = {
-		OR = {
-			check_variable = { worker_deficit_malus > 0 }
-			check_variable = { worker_deficit_malus = 0 }
-		}
-	}
-	local_resources_factor = worker_deficit_malus
-	industrial_capacity_factory = worker_deficit_malus
-	industrial_capacity_dockyard = worker_deficit_malus
-	production_speed_buildings_factor = worker_deficit_malus
 }

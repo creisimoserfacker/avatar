@@ -540,6 +540,44 @@ scripted_map_modes = {
 		near_text = state
 		update_daily = no
 	}
+	prosperity_map_mode = {
+		top = {
+			type = state
+			color = {
+				set_temp_variable = { red = 1 }
+				set_temp_variable = { blue = 0 }
+				set_temp_variable = { green = 0 }
+				set_temp_variable = { alpha = 1 }
+
+				FROM = {
+					set_temp_variable = { sol = local_prosperity }
+					clamp_temp_variable = { var = sol  min = 0  max = 1 }
+					multiply_temp_variable = { sol = mtth:prosperity_number }
+
+					subtract_from_temp_variable = { red = sol }
+					multiply_temp_variable = { blue = 0 }
+					add_to_temp_variable = { green = sol }
+
+					set_temp_variable = { alpha_factor = mtth:prosperity_number }
+					multiply_temp_variable = { alpha_factor = 0.05 }
+					multiply_temp_variable = { alpha = alpha_factor }
+					clamp_temp_variable = { var = alpha  min = 0.3  max = 0.9 }
+				}
+				
+			}
+
+			targets = {
+				
+			}
+		}
+		bottom = {
+			
+			type = none
+		}
+		far_text = state
+		near_text = state
+		update_daily = no
+	}
 
 	empty_map_mode = {
 		top = {

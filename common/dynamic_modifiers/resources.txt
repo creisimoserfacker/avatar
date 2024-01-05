@@ -56,16 +56,16 @@ additional_scripted_resources = {
 
 	#icon = GFX_fall
 
-	country_resource_oil = self_employed_grain_supply
-	country_resource_chromium = self_animal_products_supply
-	country_resource_stone = self_employed_minerals_supply
-	country_resource_iron = self_employed_iron_supply
-	country_resource_aluminium = self_employed_wood_supply
-	country_resource_tungsten = self_employed_textile_supply
-	country_resource_consumer_goods_resource = self_employed_consumer_goods_supply
-	country_resource_planks_resource = self_employed_planks_supply
-	country_resource_bricks_resource = self_employed_bricks_supply
-	country_resource_food_resource = self_employed_food_supply
+	state_resource_oil = mtth:self_employed_grain_supply
+	state_resource_chromium = mtth:self_animal_products_supply
+	state_resource_stone = mtth:self_employed_minerals_supply
+	state_resource_iron = mtth:self_employed_iron_supply
+	state_resource_aluminium = mtth:self_employed_wood_supply
+	state_resource_tungsten = mtth:self_employed_textile_supply
+	state_resource_consumer_goods_resource = mtth:self_employed_consumer_goods_supply
+	state_resource_planks_resource = mtth:self_employed_planks_supply
+	state_resource_bricks_resource = mtth:self_employed_bricks_supply
+	state_resource_food_resource = mtth:self_employed_food_supply
 }
 
 factory_resource_consumption = {
@@ -103,6 +103,25 @@ population_resource_bought_on_market = {
 	country_resource_cost_bricks_resource = bricks_demand
 	country_resource_cost_steel_beams_resource = steel_beams_demand
 
+}
+
+building_upkeep_resources = {
+	enable = { always = yes }
+
+	#icon = GFX_fall
+
+	country_resource_cost_planks_resource = local_plank_upkeep_cost
+	country_resource_cost_bricks_resource = local_brick_upkeep_cost
+	country_resource_cost_steel_beams_resource = local_steel_beam_upkeep_cost
+
+}
+
+missing_workers_state = {
+	enable = { always = yes }
+
+	#icon = GFX_fall
+
+	state_resources_factor = mtth:missing_workers_resource_modifier
 }
 
 

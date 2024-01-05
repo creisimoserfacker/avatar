@@ -3,6 +3,9 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_state = {
+				add_dynamic_modifier = { modifier = additional_scripted_resources }
+				add_dynamic_modifier = { modifier = missing_workers_state }
+				
 				add_dynamic_modifier = { modifier = farm_scripted_resources }
 				add_dynamic_modifier = { modifier = ranch_scripted_resources }
 				add_dynamic_modifier = { modifier = fishing_stand_scripted_resources }
@@ -27,57 +30,41 @@ on_actions = {
 				#### population counter
 
 				set_variable = { max_population_k = max_manpower_k }
-				set_variable = { core_population_k = 0 }
-				set_variable = { occupied_population_k = max_manpower_k }
-				set_variable = { loyalist_population_k = 0 }
-
-				every_core_state = {
-					limit = {
-						is_controlled_by = ROOT
-					}
-					add_to_variable = { ROOT.core_population_k = state_population_k }
-				}
-				if = {
-					limit = {
-						has_capitulated = yes
-					}
-					every_core_state = {
-						limit = {
-							has_resistance = yes
-							NOT = {
-								is_controlled_by = ROOT
-							}
-						}
-						set_temp_variable = { loyal_state_pop = state_population_k }
-						multiply_temp_variable = { loyal_state_pop = resistance }
-						multiply_temp_variable = { loyal_state_pop = 0.01 }
-						add_to_variable = { ROOT.loyalist_population_k = loyal_state_pop }
-					}
-				}
-				add_to_variable = { max_population_k = loyalist_population_k }
-
-
-				subtract_from_variable = { occupied_population_k = core_population_k }
-
-
 				
 
-				if = {
-					limit = {
-						check_variable = { standard_of_living = 0 }
+				every_controlled_state = {
+					set_variable = { local_prosperity = state_population_k }
+					if = {
+						limit = {
+							owner = {
+								tag = FIR
+							}
+						}
+						multiply_variable = { local_prosperity = 0.6 }
 					}
-					set_variable = { standard_of_living = 50 }
-					set_variable = { sol_min = modifier@min_standard_of_living }
-					clamp_variable = {
-						var = sol_min
-						min = 0
-						max = 100
+					else_if = {
+						limit = {
+							owner = {
+								is_earth_kingdom = yes
+							}
+						}
+						multiply_variable = { local_prosperity = 0.45 }
 					}
-					clamp_variable = {
-						var = standard_of_living
-						min = sol_min
+					else = {
+						multiply_variable = { local_prosperity = 0.25 }
 					}
 				}
+
+				set_variable = { national_prosperity = 0 }
+				every_core_state = {
+					add_to_variable = { ROOT.national_prosperity = THIS.local_prosperity }
+				}
+				set_variable = { national_prosperity_cap = core_population_k }
+
+				set_variable = { wealth_bar = national_prosperity }
+				divide_variable = { wealth_bar = national_prosperity_cap }
+				multiply_variable = { wealth_bar = 100 }
+				
 
 				set_variable = { army_medium_prio_var = 3 }
 				set_variable = { population_medium_prio_var = 3 }

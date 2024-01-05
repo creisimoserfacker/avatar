@@ -3,40 +3,28 @@ sol_base_impact_factor = {
 	base = 0
 	modifier = {
 		set_temp_variable = { solf = -0.5 }
-		add_to_temp_variable = { solf = standard_of_living_percent }
+		add_to_temp_variable = { solf = national_prosperity_percent }
 		multiply_temp_variable = { solf = 0.5 }
 		
 		add = solf
 	}
 }
 
-sol_workless_factor = {
-	base = 0
-	modifier = {
-		set_temp_variable = { solf = 0.1 }
-		multiply_temp_variable = { solf = standard_of_living_percent }
-		add_to_temp_variable = { solf = -0.11 }
-		
-		add = solf
-	}
-}
-
-sol_consumer_goods_factor = {
+prosperity_consumer_demand_factor = {
 	base = 0
 	modifier = {
 		set_temp_variable = { solf = -0.5 }
-		add_to_temp_variable = { solf = standard_of_living_percent }
+		add_to_temp_variable = { solf = national_prosperity_percent }
+		multiply_temp_variable = { solf = 2 }
 		
 		add = solf
 	}
 }
 
-sol_luxury_goods_factor = {
+prosperity_wealthy_factor = {
 	base = 0
 	modifier = {
-		set_temp_variable = { solf = -1 }
-		add_to_temp_variable = { solf = standard_of_living_percent }
-		add_to_temp_variable = { solf = standard_of_living_percent }
+		set_temp_variable = { solf = national_prosperity_percent }
 		
 		add = solf
 	}
@@ -1422,5 +1410,597 @@ industrial_zone_modifier_3 = {
 		multiply_temp_variable = { zone_size = 0.01 }
 
 		add = zone_size
+	}
+}
+
+
+soldiers_k = {
+	base = 0
+	modifier = {
+		set_temp_variable = { soldiers_k = state_population_k }
+		multiply_temp_variable = { soldiers_k = controller:modifier@conscription }
+
+		add = soldiers_k
+	}
+}
+
+working_soldiers_k = {
+	base = 0
+	modifier = {
+		set_temp_variable = { working_soldiers_k = state_population_k }
+		multiply_temp_variable = { working_soldiers_k = controller:modifier@conscription }
+
+		set_temp_variable = { working_soldiers = modifier@recruitable_population_factor }
+		add_to_temp_variable = { working_soldiers = 1 }
+		multiply_temp_variable = { working_soldiers_k = working_soldiers }
+
+		set_temp_variable = { working_soldiers = controller:modifier@conscription_factor }
+		add_to_temp_variable = { working_soldiers = 1 }
+		multiply_temp_variable = { working_soldiers_k = working_soldiers }
+
+		clamp_temp_variable = {
+			var = working_soldiers_k
+			min = 0
+			max = mtth:soldiers_k
+		}
+
+		add = working_soldiers_k
+	}
+}
+
+mtth_state_population_k = {
+	base = 0
+	modifier = {
+		set_temp_variable = { population_k = state_population_k }
+		subtract_from_temp_variable = { population_k = mtth:working_soldiers_k }
+
+		add = population_k
+	}
+}
+
+workers_needed = {
+	base = 0
+	modifier = {
+		set_temp_variable = { workers_number = 0 }
+		
+		add_to_temp_variable = { workers_number = farm_employed }
+		add_to_temp_variable = { workers_number = mill_employed }
+		add_to_temp_variable = { workers_number = fishing_stand_employed }
+		add_to_temp_variable = { workers_number = ranch_employed }
+		add_to_temp_variable = { workers_number = lumber_mill_employed }
+		add_to_temp_variable = { workers_number = mine_employed }
+		add_to_temp_variable = { workers_number = weaving_employed }
+		add_to_temp_variable = { workers_number = smithy_employed }
+		add_to_temp_variable = { workers_number = harbour_employed }
+		add_to_temp_variable = { workers_number = shopkeeper_employed }
+		add_to_temp_variable = { workers_number = craftsman_employed }
+		add_to_temp_variable = { workers_number = factory_employed }
+
+		add = workers_number
+	}
+}
+
+workers_number = {
+	base = 0
+	modifier = {
+		set_temp_variable = { workers_number = mtth:workers_needed }
+		
+		clamp_temp_variable = {
+			var = workers_number
+			min = 0
+			max = mtth:mtth_state_population_k
+		}
+
+		add = workers_number
+	}
+}
+
+state_self_employed = {
+	base = 0
+	modifier = {
+		set_temp_variable = { self_employed = mtth:mtth_state_population_k }
+		subtract_from_temp_variable = { self_employed = mtth:workers_number }
+		
+		clamp_temp_variable = {
+			var = self_employed
+			min = 0
+			max = mtth:mtth_state_population_k
+		}
+
+		add = self_employed
+	}
+}
+
+
+self_employed_grain_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		controller = {
+			multiply_temp_variable = { output = grain_need }
+		}
+
+		set_temp_variable = { field_available = field }
+		add_to_temp_variable = { field_available = modifier@fertilizer }
+		clamp_temp_variable = { var = field_available  min = 0}
+		multiply_temp_variable = { output = field_available }
+		set_temp_variable = { harvest = 1 }
+		add_to_temp_variable = { harvest = modifier@harvesting_factor }
+		add_to_temp_variable = { harvest = controller:modifier@harvesting_factor }
+		multiply_temp_variable = { output = harvest }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+		
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_animal_products_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		controller = {
+			multiply_temp_variable = { output = animal_products_need }
+		}
+
+		set_temp_variable = { animal_available = animal }
+		add_to_temp_variable = { animal_available = modifier@breeding }
+		multiply_temp_variable = { output = animal_available }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+		
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_minerals_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		controller = {
+			multiply_temp_variable = { output = minerals_need }
+		}
+
+		multiply_temp_variable = { output = stonefield }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+		
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_iron_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		controller = {
+			multiply_temp_variable = { output = iron_need }
+		}
+
+		multiply_temp_variable = { output = mountain }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+		
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_wood_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		multiply_temp_variable = { output = controller:wood_need }
+
+		set_temp_variable = { wood_available = forest }
+		add_to_temp_variable = { wood_available = modifier@reforestation }
+		clamp_temp_variable = { var = wood_available  min = 0}
+		multiply_temp_variable = { output = wood_available }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+		
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_textile_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		multiply_temp_variable = { output = controller:textile_need }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_consumer_goods_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		multiply_temp_variable = { output = controller:consumer_goods_need }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_planks_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		multiply_temp_variable = { output = controller:planks_need }
+
+		set_temp_variable = { wood_available = forest }
+		add_to_temp_variable = { wood_available = modifier@reforestation }
+		clamp_temp_variable = { var = wood_available  min = 0}
+		multiply_temp_variable = { output = wood_available }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_bricks_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		multiply_temp_variable = { output = controller:bricks_need }
+		multiply_temp_variable = { output = stonefield }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+self_employed_food_supply = {
+	base = 0
+	modifier = {
+		set_temp_variable = { output = mtth:state_self_employed }
+		controller = {
+			multiply_temp_variable = { output = mtth:peasant_output_factor }
+		}
+		multiply_temp_variable = { output = mtth:peasant_output_factor }
+
+		controller = {
+			set_temp_variable = { food_production_bonus = 1 }
+			add_to_temp_variable = { food_production_bonus = modifier@peasant_food_factor }
+			clamp_temp_variable = {
+				var = food_production_bonus
+				min = 0
+			}
+			multiply_temp_variable = { output = food_production_bonus }
+		}
+
+		set_temp_variable = { food_available = field }
+		add_to_temp_variable = { food_available = modifier@fertilizer }
+		clamp_temp_variable = { var = food_available  min = 0}
+		set_temp_variable = { harvest = 1 }
+		add_to_temp_variable = { harvest = modifier@harvesting_factor }
+		add_to_temp_variable = { harvest = controller:modifier@harvesting_factor }
+		multiply_temp_variable = { food_available = harvest }
+
+		add_to_temp_variable = { food_available = animal }
+		add_to_temp_variable = { food_available = modifier@breeding }
+		multiply_temp_variable = { output = food_available }
+		multiply_temp_variable = { output = mtth:local_resource_factor }
+
+		clamp_temp_variable = {
+			var = output
+			min = 0
+		}
+		round_temp_variable = output
+
+		add = output
+	}
+}
+
+
+local_prosperity_growth = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_prosperity = 0 }
+
+		controller = {
+			set_temp_variable = { steel_price = 1 }
+			set_temp_variable = { animal_products_price = 1 }
+			set_temp_variable = { wood_price = 1 }
+			set_temp_variable = { iron_price = 1 }
+			set_temp_variable = { textile_price = 1 }
+			set_temp_variable = { minerals_price = 1 }
+			set_temp_variable = { grain_price = 1 }
+			set_temp_variable = { fossile_fuels_price = 1 }
+			set_temp_variable = { consumer_goods_price = 1 }
+			set_temp_variable = { luxury_goods_price = 1 }
+			set_temp_variable = { planks_price = 1 }
+			set_temp_variable = { bricks_price = 1 }
+			set_temp_variable = { steel_beams_price = 1 }
+
+			add_to_temp_variable = { steel_price = ROOT.steel_price }
+			add_to_temp_variable = { animal_products_price = ROOT.animal_products_price }
+			add_to_temp_variable = { wood_price = ROOT.wood_price }
+			add_to_temp_variable = { iron_price = ROOT.iron_price }
+			add_to_temp_variable = { textile_price = ROOT.textile_price }
+			add_to_temp_variable = { minerals_price = ROOT.minerals_price }
+			add_to_temp_variable = { grain_price = ROOT.grain_price }
+			add_to_temp_variable = { fossile_fuels_price = ROOT.fossile_fuels_price }
+			add_to_temp_variable = { consumer_goods_price = ROOT.consumer_goods_price }
+			add_to_temp_variable = { luxury_goods_price = ROOT.luxury_goods_price }
+			add_to_temp_variable = { planks_price = ROOT.planks_price }
+			add_to_temp_variable = { bricks_price = ROOT.bricks_price }
+			add_to_temp_variable = { steel_beams_price = ROOT.steel_beams_price }
+		}
+
+		multiply_temp_variable = { steel_price = resource@steel }
+		multiply_temp_variable = { animal_products_price = resource@chromium }
+		multiply_temp_variable = { wood_price = resource@aluminium }
+		multiply_temp_variable = { iron_price = resource@iron }
+		multiply_temp_variable = { textile_price = resource@tungsten }
+		multiply_temp_variable = { minerals_price = resource@stone }
+		multiply_temp_variable = { grain_price = resource@oil }
+		multiply_temp_variable = { fossile_fuels_price = resource@rubber }
+		multiply_temp_variable = { consumer_goods_price = resource@consumer_goods_resource }
+		multiply_temp_variable = { luxury_goods_price = resource@luxury_goods_resource }
+		multiply_temp_variable = { planks_price = resource@planks_resource }
+		multiply_temp_variable = { bricks_price = resource@bricks_resource }
+		multiply_temp_variable = { steel_beams_price = resource@steel_beams_resource }
+
+		add_to_temp_variable = { local_prosperity = steel_price }
+		add_to_temp_variable = { local_prosperity = animal_products_price }
+		add_to_temp_variable = { local_prosperity = wood_price }
+		add_to_temp_variable = { local_prosperity = iron_price }
+		add_to_temp_variable = { local_prosperity = textile_price }
+		add_to_temp_variable = { local_prosperity = minerals_price }
+		add_to_temp_variable = { local_prosperity = grain_price }
+		add_to_temp_variable = { local_prosperity = fossile_fuels_price }
+		add_to_temp_variable = { local_prosperity = consumer_goods_price }
+		add_to_temp_variable = { local_prosperity = luxury_goods_price }
+		add_to_temp_variable = { local_prosperity = planks_price }
+		add_to_temp_variable = { local_prosperity = bricks_price }
+		add_to_temp_variable = { local_prosperity = steel_beams_price }
+
+		multiply_temp_variable = { local_prosperity = 0.01 }
+
+		set_temp_variable = { prosperity_growth = 1 }
+		add_to_temp_variable = { prosperity_growth = modifier@prosperity }
+		add_to_temp_variable = { prosperity_growth = controller:modifier@prosperity }
+
+		clamp_temp_variable = {
+			var = prosperity_growth
+			min = 0
+		}
+
+		multiply_temp_variable = { local_prosperity = prosperity_growth }
+
+		add = local_prosperity
+	}
+}
+
+avg_price = {
+	base = 0
+	modifier = {
+		set_temp_variable = { avg_price = 0 }
+
+		add_to_temp_variable = { avg_price = steel_price }
+		add_to_temp_variable = { avg_price = animal_products_price }
+		add_to_temp_variable = { avg_price = wood_price }
+		add_to_temp_variable = { avg_price = iron_price }
+		add_to_temp_variable = { avg_price = textile_price }
+		add_to_temp_variable = { avg_price = minerals_price }
+		add_to_temp_variable = { avg_price = grain_price }
+		add_to_temp_variable = { avg_price = fossile_fuels_price }
+		add_to_temp_variable = { avg_price = consumer_goods_price }
+		add_to_temp_variable = { avg_price = luxury_goods_price }
+		add_to_temp_variable = { avg_price = planks_price }
+		add_to_temp_variable = { avg_price = bricks_price }
+		add_to_temp_variable = { avg_price = steel_beams_price }
+
+		divide_temp_variable = { avg_price = 13 }
+
+		add = avg_price
+	}
+}
+
+local_inflation_steal = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_inflation = mtth:local_prosperity_growth }
+		set_temp_variable = { steal = mtth:local_prosperity_growth }
+		multiply_temp_variable = { steal = mtth:inflation_factor }
+		subtract_from_temp_variable = { local_inflation = steal }
+		multiply_temp_variable = { local_inflation = -1 }
+
+		add = local_inflation
+	}
+}
+
+local_prosperity_cap = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_prosperity_cap = state_population_k }
+
+		set_temp_variable = { prosperity_factor = 1 }
+		add_to_temp_variable = { prosperity_factor = modifier@prosperity_factor }
+		add_to_temp_variable = { prosperity_factor = controller:modifier@prosperity_factor }
+
+		clamp_temp_variable = {
+			var = prosperity_factor
+			min = 0
+		}
+
+		multiply_temp_variable = { local_prosperity_cap = prosperity_factor }
+
+		clamp_temp_variable = {
+			var = local_prosperity_cap
+			min = 1
+		}
+
+		add = local_prosperity_cap
+	}
+}
+
+prosperity_number = {
+	base = 0
+	modifier = {
+		set_temp_variable = { prosperity_number = local_prosperity }
+
+		divide_temp_variable = { prosperity_number = mtth:local_prosperity_cap }
+
+		add = prosperity_number
+	}
+}
+
+local_tax = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_tax = THIS.local_prosperity }
+
+		multiply_temp_variable = { local_tax = controller:modifier@taxation }
+		multiply_temp_variable = { local_tax = -1 }
+
+		add = local_tax
+	}
+}
+
+local_goods_bought = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_goods_bought = state_population_k }
+
+		controller = {
+			multiply_temp_variable = { local_goods_bought = ROOT.total_need }
+		}
+
+		multiply_temp_variable = { local_goods_bought = -0.05 }
+
+		add = local_goods_bought
+	}
+}
+
+local_investment = {
+	base = 0
+	modifier = {
+		set_temp_variable = { local_investment = THIS.local_prosperity }
+
+		multiply_temp_variable = { local_investment = controller:modifier@peoples_initiative }
+		clamp_temp_variable = { 
+			var = local_investment
+			min = 0 
+		}
+
+		add = local_investment
+	}
+}
+
+missing_workers_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { worker_deficit_k = mtth:workers_needed }
+		subtract_from_temp_variable = { worker_deficit_k = mtth:mtth_state_population_k }
+		clamp_temp_variable = { 
+			var = worker_deficit_k
+			min = 0.001
+		}
+
+		set_temp_variable = { temp_worker_deficit = worker_deficit_k }
+		set_temp_variable = { temp_total_ratio = worker_deficit_k }
+		add_to_temp_variable = { temp_total_ratio = mtth:mtth_state_population_k }
+		divide_temp_variable = { temp_worker_deficit = temp_total_ratio }
+		set_temp_variable = { worker_deficit_malus = temp_worker_deficit }
+		multiply_temp_variable = { worker_deficit_malus = -1 }
+
+		add = worker_deficit_malus
+	}
+
+	modifier = {
+		set_temp_variable = { worker_deficit_k = mtth:workers_needed }
+		subtract_from_temp_variable = { worker_deficit_k = mtth:mtth_state_population_k }
+		check_variable = { worker_deficit_k < 0.001 }
+
+		factor = 0
 	}
 }
