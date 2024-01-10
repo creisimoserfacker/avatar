@@ -12,6 +12,56 @@ ideas = {
 		use_list_view = yes
 		#designer = yes
 
+		ear_homemade_arms_workshop = {
+
+			allowed = {
+				is_earth_kingdom = yes
+			}
+			available = {
+				
+			}
+
+			cost = 50
+
+			research_bonus = {
+				heavy_armor = 0.025
+			}
+			
+			traits = { homemade_arms_workshop }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+
+		ear_homemade_arms_designer = {
+
+			allowed = {
+				is_earth_kingdom = yes
+			}
+			available = {
+				
+			}
+			visible = {
+				OR = {
+					has_idea = ear_homemade_arms_workshop
+					has_idea = ear_homemade_arms_designer
+				}
+			}
+
+			cost = 150
+
+			research_bonus = {
+				heavy_armor = 0.05
+			}
+			
+			traits = { homemade_arms_designer }
+
+			ai_will_do = {
+				factor = 0.5
+			}
+		}
+
 		ear_melee_designer_1 = {
 
 			allowed = {

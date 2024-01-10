@@ -329,7 +329,10 @@ on_actions = {
 
 			set_variable = { tax_balance = taxation_var }
 			add_to_variable = { tax_balance = inflation_money }
-			set_variable = { state_expenses = modifier@expenses_factor }
+			set_variable = { state_expenses = modifier@expenses_gain }
+			add_to_variable = { state_expenses = mtth:expenses_per_pop }
+			multiply_variable = { state_expenses = mtth:expenses_factor }
+			clamp_variable = { var = state_expenses  min = 0 }
 			subtract_from_variable = { tax_balance = state_expenses }
 			clamp_variable = { var = tax_balance  min = 0 }
 

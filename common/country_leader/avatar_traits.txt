@@ -10,16 +10,22 @@
 @inst2 = 0.4
 @inst3 = 0.6
 
-@designer1 = 0.01
-@designer2 = 0.02
-@designer3 = 0.05
-@designer4 = 0.1
-@designer5 = 0.2
-@designer6 = 0.5
-@designer7 = 1
-@designer8 = 2
-@designer9 = 5
-@designer10 = 10
+@designer1 = 0.1
+@designer2 = 0.2
+@designer3 = 0.3
+@designer4 = 0.4
+@designer5 = 0.5
+@designer6 = 0.6
+@designer7 = 0.7
+@designer8 = 0.8
+@designer9 = 0.9
+@designer10 = 1
+@designer20 = 2
+@designer25 = 2.5
+@designer50 = 5
+@designer75 = 7.5
+@designer100 = 10
+@designer150 = 15
 
 leader_traits = {
 
@@ -397,7 +403,7 @@ leader_traits = {
 	fiscal_conservative = {
 		random = no
 		sprite = 6
-		expenses_factor = -0.5
+		expenses_gain = -0.5
 
 		political_power_cost = @adv1
 
@@ -485,7 +491,7 @@ leader_traits = {
 	corrupt_spymaster = {
 		random = no
 		sprite = 6
-		expenses_factor = 0.1
+		expenses_gain = 0.1
 		agency_upgrade_time = -0.25
 
 		political_power_cost = @adv1
@@ -589,7 +595,7 @@ leader_traits = {
 		random = no
 		sprite = 13
 		water_culture_drift = 0.05
-		expenses_factor = -0.2
+		expenses_gain = -0.2
 
 		political_power_cost = @adv1
 
@@ -822,7 +828,7 @@ leader_traits = {
 		cic_to_overlord_factor = 0.1
 		mic_to_overlord_factor = 0.15
 		conscription_factor = 0.05
-		expenses_factor = -0.5
+		expenses_gain = -0.5
 
 		political_power_cost = @adv1
 
@@ -836,7 +842,7 @@ leader_traits = {
 		
 		monthly_population = 0.1
 		stability_factor = 0.05
-		expenses_factor = 0.2
+		expenses_per_pop = 0.2
 		#weekly_workless_people = 0.01
 
 		political_power_cost = @adv1
@@ -870,7 +876,7 @@ leader_traits = {
 		random = no
 		sprite = 20
 		production_factory_start_efficiency_factor = 0.25
-		expenses_factor = 0.5
+		expenses_gain = 0.5
 		earth_culture_drift = 0.01
 
 		political_power_cost = @adv1
@@ -2474,7 +2480,7 @@ leader_traits = {
 		}
 		heavy_armor_equipment_design_cost_factor = -0.75
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2492,7 +2498,35 @@ leader_traits = {
 		}
 		heavy_armor_equipment_design_cost_factor = -0.75
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	homemade_arms_workshop = {
+		random = no
+		
+		production_lack_of_resource_penalty_factor = -0.1
+		out_of_supply_factor = -0.1
+
+		expenses_gain = @designer1
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	homemade_arms_designer = {
+		random = no
+		
+		production_lack_of_resource_penalty_factor = -0.2
+		out_of_supply_factor = -0.1
+		civil_to_military_factory = 0.05
+		custom_modifier_tooltip = enables_homemade_spears_and_armor
+
+		expenses_gain = @designer10
 
 		ai_will_do = {
 			factor = 1
@@ -2509,7 +2543,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2526,7 +2560,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2543,7 +2577,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2560,7 +2594,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2581,7 +2615,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2602,7 +2636,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2623,7 +2657,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2644,7 +2678,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2663,7 +2697,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2686,7 +2720,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2703,7 +2737,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2720,7 +2754,7 @@ leader_traits = {
 			}
 		}
 
-		expenses_factor = @designer1
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2733,7 +2767,7 @@ leader_traits = {
 		animal_products_throughput = 0.5
 		production_speed_ranch_factor = 0.5
 
-		expenses_factor = @designer1
+		expenses_gain = @designer2
 
 		ai_will_do = {
 			factor = 1
@@ -2746,7 +2780,7 @@ leader_traits = {
 		consumer_demand = 0.2
 		prosperity = 0.1
 
-		expenses_factor = @designer3
+		expenses_gain = @designer1
 
 		ai_will_do = {
 			factor = 1
@@ -2760,7 +2794,7 @@ leader_traits = {
 		food_throughput = 0.05
 		prosperity = 0.1
 
-		expenses_factor = @designer3
+		expenses_gain = @designer2
 
 		ai_will_do = {
 			factor = 1
@@ -2772,40 +2806,53 @@ leader_traits = {
 		
 		production_speed_consumer_good_factory_factor = 0.2
 		production_speed_luxury_good_factory_factor = 0.2
-		consumer_goods_demand = 0.2
-		luxury_goods_demand = 0.2
+		consumer_goods_demand = 0.5
+		luxury_goods_demand = 0.25
 		consumer_goods_throughput = 0.2
 		luxury_goods_throughput = 0.2
 		min_export = 0.05
 		trade_opinion_factor = 0.5
 
-		expenses_factor = @designer1
+		expenses_gain = @designer10
 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	fir_heavy_industries_1 = {
+	fir_steel_workshops = {
 		random = no
 		
-		steel_throughput = 0.01
+		steel_throughput = 0.025
+		smithy_output_2 = 1
+
+		expenses_gain = @designer4
+
+		ai_will_do = {
+			factor = 1
+		}
+	}
+
+	fir_heavy_industries = {
+		random = no
+		
+		steel_throughput = 0.05
 		production_speed_steelworks_factor = 0.05
 
-		expenses_factor = @designer1
+		expenses_gain = @designer25
 
 		ai_will_do = {
 			factor = 1
 		}
 	}
 
-	fir_heavy_industries_2 = {
+	fir_heavy_industries_expanded = {
 		random = no
 		
-		steel_throughput = 0.02
-		production_speed_steelworks_factor = 0.1
+		steel_throughput = 0.1
+		production_factory_max_efficiency_factor = 0.05
 
-		expenses_factor = @designer2
+		expenses_gain = @designer100
 
 		ai_will_do = {
 			factor = 1
@@ -2817,8 +2864,9 @@ leader_traits = {
 		
 		production_speed_arms_factory_factor = 0.1
 		production_speed_factory_factor = 0.1
+		civil_to_military_factory = 0.1
 
-		expenses_factor = @designer1
+		expenses_gain = @designer25
 
 		ai_will_do = {
 			factor = 1
@@ -3253,7 +3301,7 @@ leader_traits = {
 
 		avatar_opinion_modifier = 0
 	
-		expenses_factor = 0.1
+		expenses_gain = 0.1
 		weekly_war_weariness = -0.01
 		stability_factor = 0.10
 		clergy_opinion = 5

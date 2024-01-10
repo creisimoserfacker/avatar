@@ -92,7 +92,7 @@
  consumer_goods_supply_ttp_delayed:0 "§LThe National wealth determines the economic capacity of a nation. The wealthier your citizens, the more you can tax them, the more you can spend again in return. However, a wealthy society also has a high request for consumer goods and luxury goods, so pay attention to how the consumption behaviour changes.§!"
  
  standartd_of_living:0 "§YStandard of Living§!"
- sol_tooltip:0 "[GetSol] \n£consumer_goods_texticon  Consumer Demand: [?mtth:prosperity_consumer_demand_factor|Y=%] \nProsperity Growth: [?mtth:prosperity_wealthy_factor|+=%] \n£stability_texticon  Stability: [?mtth:sol_base_impact_factor|+=%] \n£research_speed_texticon  Research Speed: [?mtth:sol_base_impact_factor|+=%]"
+ sol_tooltip:0 "[GetSol] \n£consumer_goods_texticon  Consumer Demand: [?mtth:prosperity_consumer_demand_factor|Y=%] \nMax Prosperity: [?mtth:prosperity_wealthy_factor|+=%] \n£stability_texticon  Stability: [?mtth:sol_base_impact_factor|+=%] \n£research_speed_texticon  Research Speed: [?mtth:sol_base_impact_factor|+=%]"
  sol_tooltip_delayed:0 "[GetSolTooltip]"
 
  animal_breeding_tooltip:0 "§YAnimal Breeding§! \n\nCurrent Grain: [?grain_variable|Y] \nDaily Gain: [?grain_supply|+=] \nDaily need: [?grain_use|-=] \nGrain Capacity: [?grain_max|Y=] \n\nGrain influence animal growth rate: [?grain_breeding_effect|+=%]   \nModifier effect on breeding: [?modifier@animal_breeding_factor|+=%] \n\n£unit_komodo_icon_small_small|2  §YKomodo Rhinos§!: \nGrowth:[?komodo_breeding|+=]  Free Stables:[?komodo_cap|Y=]  \nConsumed:[?komodo_grain|-]([?komodo_consumed|-]/animal) \n£unit_mongooze_icon_small_small|2  §YMongooze Lizards§!: \nGrowth:[?mongooze_breeding|+=]  Free Stables:[?mongooze_cap|Y=]  \nConsumed:[?mongooze_grain|-]([?mongooze_consumed|-]/animal) \n£unit_ostrich_icon_small_small|2  §YOstrich Horses§!: \nGrowth:[?ostrich_breeding|+=]  Free Stables:[?ostrich_cap|Y=]  \nConsumed:[?ostrich_grain|-]([?ostrich_consumed|-]/animal)"
@@ -153,7 +153,7 @@
  construction_capacity_tooltip_delayed:0 ""
  economy_help:0 ""
  money_number:0 "[?tax_balance|Y3]"
- money_tooltip:0 "§HTreasury§! \n£taxes_texticon  Taxation: [?taxation_var|+=Y3] ([?modifier@taxation|%1Y])  \n\n£inflation_texticon  Minting: [?inflation_money|+=Y3] ([?modifier@currency_amount|%1Y]) \n\n£payments_texticon  Expenses: [?state_expenses|-=3]  \n\nBalance: [?tax_balance|+=3] \n\nUsed to buy [?factories_bought|Y0] £civ_factory  Civilian Capacities"
+ money_tooltip:0 "§HTreasury§! \n£taxes_texticon  Taxation: [?taxation_var|+=Y3] ([?modifier@taxation|%1Y])  \n\n£inflation_texticon  Minting: [?inflation_money|+=Y3] ([?modifier@currency_amount|%1Y]) \n\n£payments_texticon  Expenses: [?state_expenses|-=3]  \n -Flat Expenses: [?modifier@expenses_gain|-=3] \n -Per §Y10K§!  £population_texticon  Population Expenses: [?mtth:expenses_per_pop|-=3] \n -Expenses Factor: [?modifier@expenses_factor|-=2%]   \n\nBalance: [?tax_balance|+=3] \n\nUsed to buy [?factories_bought|Y0] £civ_factory  Civilian Capacities"
  money_tooltip_delayed:0 "§LThe National Gold reserves. Don´t worry about it, it can never run out.§!"
  expense_number:0 "[?modifier@expenses_factor|-%1]"
  expenses_tooltip:0 "£payments_texticon  §HExpenses§!"
@@ -226,9 +226,9 @@
  open_construction_info_delayed:0 "§LFor precise construction in this state.§!"
  
  population_number:0 "[?state_population_k|Y2]§YK§!"
- state_population_tooltip:0 "§YState Population§! \nTotal Population: [?state_population_k|Y2]§YK§! \nCivilian Population: [?mtth:mtth_state_population_k|Y2]§YK§! \nActive Recruits: [?mtth:working_soldiers_k|Y2]§YK§!"
+ state_population_tooltip:0 "§YState Population§! \nTotal Population: [?state_population_k|Y2]§YK§! \nCivilian Population: [?mtth:state_workfore_k|Y2]§YK§! \nActive Recruits: [?mtth:working_soldiers_k|Y2]§YK§!"
  workers_number:0 "[?mtth:workers_number|Y2]§YK§!"
- workers_tootlip:0 "§YLocal Workforce§! \nAvailable Workforce: [?mtth:mtth_state_population_k|Y2]§YK§! \nEmployed in Buildings: [?mtth:workers_number|Y2]§YK§! \n£farming|1 Farmers: [?farm_employed|*Y3] \n£milling|1 Millers: [?mill_employed|*Y3] \n£fishing|1 Fishers: [?fishing_stand_employed|*Y3] \n£ranch|1 Rancher: [?ranch_employed|*Y3] \n£lumberjack|1 Lumberjack : [?lumber_mill_employed|*Y3] \n£mine|1 Miners: [?mine_employed|*Y3]\n£weaving|1 Weaver: [?weaving_employed|*Y3] \n£smithy|1 Blacksmiths: [?smithy_employed|*Y3] \n£factory|1 Factory Workers: [?factory_employed|*Y3] \n£harbour|1 Harbour Workers: [?harbour_employed|*Y3]\n£store|1 Shopkeeper: [?shopkeeper_employed|*Y3]\n£carpentry|1 Craftsmen: [?craftsman_employed|*Y3]"
+ workers_tootlip:0 "§YLocal Workforce§! \nAvailable Workforce: [?mtth:state_workfore_k|Y2]§YK§! \nEmployed in Buildings: [?mtth:workers_number|Y2]§YK§! \n£farming|1 Farmers: [?farm_employed|*Y3] \n£milling|1 Millers: [?mill_employed|*Y3] \n£fishing|1 Fishers: [?fishing_stand_employed|*Y3] \n£ranch|1 Rancher: [?ranch_employed|*Y3] \n£lumberjack|1 Lumberjack : [?lumber_mill_employed|*Y3] \n£mine|1 Miners: [?mine_employed|*Y3]\n£weaving|1 Weaver: [?weaving_employed|*Y3] \n£smithy|1 Blacksmiths: [?smithy_employed|*Y3] \n£factory|1 Factory Workers: [?factory_employed|*Y3] \n£harbour|1 Harbour Workers: [?harbour_employed|*Y3]\n£store|1 Shopkeeper: [?shopkeeper_employed|*Y3]\n£carpentry|1 Craftsmen: [?craftsman_employed|*Y3]"
  working_soldiers_number:0 "[?mtth:working_soldiers_k|Y2]§YK§!"
  working_soldiers:0 "§YActive Recruits§!"
  working_soldiers_delayed:0 "§LFor precise construction in this state.§!"

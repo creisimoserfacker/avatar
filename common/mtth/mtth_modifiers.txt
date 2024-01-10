@@ -429,3 +429,24 @@ steel_beams_throughput = {
 		add = factor
 	}
 }
+
+expenses_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@expenses_factor } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
+expenses_per_pop = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { expenses = modifier@expenses_per_pop } 
+		multiply_temp_variable = { expenses = max_manpower_k }
+		multiply_temp_variable = { expenses = 0.1 }
+		clamp_temp_variable = { var = expenses min = 0 }
+		add = expenses
+	}
+}

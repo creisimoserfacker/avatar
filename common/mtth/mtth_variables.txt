@@ -128,6 +128,19 @@ literacy_target_100 = {
 	}
 }
 
+legitimacy_pp_cap = {
+	base = 0
+	modifier = {
+		set_temp_variable = { pp_cap = centralisation_variable }
+		subtract_from_temp_variable = { pp_cap = 100 }
+		divide_temp_variable = { pp_cap = -1 }
+		clamp_temp_variable = { var = pp_cap min = 0  max = 100 }
+		round_temp_variable = pp_cap
+		
+		add = pp_cap
+	}
+}
+
 legitimacy_autonomy = {
 	base = 0
 	modifier = {
@@ -166,6 +179,7 @@ legitimacy_war_support = {
 		set_temp_variable = { war_support = 50 }
 		subtract_from_temp_variable = { war_support = centralisation_variable }
 		divide_temp_variable = { war_support = 100 }
+		#clamp_temp_variable = { var = war_support min = 0 }
 		
 		add = war_support
 	}
@@ -188,6 +202,7 @@ legitimacy_stability = {
 		set_temp_variable = { stability = -50 }
 		add_to_temp_variable = { stability = centralisation_variable }
 		divide_temp_variable = { stability = 100 }
+		#clamp_temp_variable = { var = stability min = 0 }
 		
 		add = stability
 	}
@@ -613,7 +628,7 @@ animal_breeding = {
 }
 
 pp_cap = {
-	base = 200
+	base = 150
 	modifier = {
 		set_temp_variable = { cap = modifier@political_power_cap }
 		
