@@ -1456,6 +1456,10 @@ state_workfore_k = {
 			multiply_temp_variable = { population_k = working_percentage }
 		}
 		subtract_from_temp_variable = { population_k = mtth:working_soldiers_k }
+		clamp_temp_variable = {
+			var = population_k
+			min = 0.001
+		}
 
 		add = population_k
 	}
@@ -1491,6 +1495,9 @@ workers_number = {
 		clamp_temp_variable = {
 			var = workers_number
 			min = 0
+		}
+		clamp_temp_variable = {
+			var = workers_number
 			max = mtth:state_workfore_k
 		}
 
@@ -1507,6 +1514,9 @@ state_self_employed = {
 		clamp_temp_variable = {
 			var = self_employed
 			min = 0
+		}
+		clamp_temp_variable = {
+			var = self_employed
 			max = mtth:state_workfore_k
 		}
 
