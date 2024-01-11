@@ -398,7 +398,6 @@ on_actions = {
 			if = {
 				limit = {
 					NOT = {
-						has_dynamic_modifier = { modifier = missing_workers }
 						OR = {
 							check_variable = { worker_deficit_malus > 0 }
 							check_variable = { worker_deficit_malus = 0 }
@@ -407,11 +406,10 @@ on_actions = {
 				}
 				if = {
 					limit = {
-						check_variable = { standard_of_living < 40 }
+						check_variable = { wealth_bar < 40 }
 					}
 					country_event = { id = population.1 hours = 24 random_hours = 48 }
 				}
-				add_dynamic_modifier = { modifier = missing_workers }
 			}
 
 
@@ -761,9 +759,9 @@ on_actions = {
 			clamp_variable = {
 				var = local_steel_beam_factor
 				min = 0
-				max = 1
+				max = 0.8
 			}
-			set_variable = { local_brick_clamp = 1 }
+			set_variable = { local_brick_clamp = 0.9 }
 			subtract_from_variable = { local_brick_clamp = local_steel_beam_factor }
 			set_variable = { local_brick_factor = modifier@stone_upkeep_factor }
 			clamp_variable = {

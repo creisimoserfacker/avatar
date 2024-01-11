@@ -65,6 +65,29 @@ clear_sabotaged_resources_if_necesary = {
 	}
 }
 
+remove_from_allowed_party = {
+	if = {
+		limit = { has_government = fire_culture }
+		set_temp_variable = { allowed_party_fire_culture = 0 }
+	}
+	if = {
+		limit = { has_government = earth_culture }
+		set_temp_variable = { allowed_party_earth_culture = 0 }
+	}
+	if = {
+		limit = { has_government = water_culture }
+		set_temp_variable = { allowed_party_water_culture = 0 }
+	}
+	if = {
+		limit = { has_government = air_culture }
+		set_temp_variable = { allowed_party_air_culture = 0 }
+	}
+	if = {
+		limit = { has_government = pluralist_culture }
+		set_temp_variable = { allowed_party_pluralist_culture = 0 }
+	}
+}
+
 
 
 invention_check = {

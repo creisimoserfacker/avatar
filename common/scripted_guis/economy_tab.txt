@@ -74,7 +74,10 @@ scripted_gui = {
 			}
 
 			warning_missing_workers_visible = {
-				has_dynamic_modifier = { modifier = missing_workers }
+				#any_controlled_state {
+				#	check_variable = { mtth:workers_needed > mtth:state_workfore_k }
+				#}
+				always = no
 			}
 
 			fire_boni_visible = {

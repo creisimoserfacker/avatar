@@ -277,15 +277,6 @@ FIR_colonies_category = {
 					check_variable = { fire_pop > 50 }
 				}
 			}
-			if = {
-				limit = {
-					has_template = "Pohuai Guards"
-				}
-				delete_unit_template_and_units = {
-					division_template = "Pohuai Guards"
-					disband = yes
-				}
-			}
 		}
 
 		remove_effect = {
@@ -298,6 +289,16 @@ FIR_colonies_category = {
 			}
 
 			FIR = {
+				if = {
+					limit = {
+						has_template = "Pohuai Guards"
+					}
+					delete_unit_template_and_units = {
+						division_template = "Pohuai Guards"
+						disband = yes
+					}
+				}
+				
 				puppet = PFC
 				PFC = {
 					set_imperial_colony_effect = yes

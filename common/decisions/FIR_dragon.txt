@@ -29,10 +29,8 @@ FIR_dragon_category = {
 			if = {
 				limit = {
 					check_variable = { dragons_hunters_var > 500 }
-					random_controlled_state = {
-						limit = {
-							has_dynamic_modifier = { modifier = dragon_herd }
-						}
+					any_controlled_state = {
+						has_dynamic_modifier = { modifier = dragon_herd }
 						NOT = {
 							has_dynamic_modifier = { modifier = dragon_hunters }
 						}

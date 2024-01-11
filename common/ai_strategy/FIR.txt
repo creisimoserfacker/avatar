@@ -7,6 +7,9 @@ FIR_naval_role_ratios_historical = {
 	enable = {
 		always = yes
 	}
+	abort = {
+		always = no
+	}
 
 	ai_strategy = {
 		type = role_ratio
@@ -21,6 +24,9 @@ FIR_area_priority = {
 	}
 	enable = {
 		always = yes
+	}
+	abort = {
+		always = no
 	}
 
 	ai_strategy = {
@@ -85,7 +91,9 @@ invasion_manager = {
 	enable = {
 		always = yes
 	}
-	#abort_when_not_enabled = yes
+	abort = {
+		always = no
+	}
 
 	ai_strategy = {
 		type = invade
@@ -185,7 +193,7 @@ pohuai_invasions = {
 			}
 		}
 		NOT = {
-			has_active_mission = rescue_fire_citizen_mission
+			has_idea = evacuation_expenses
 		}
 		OR = {
 			has_country_flag = central_attack_planned
@@ -818,6 +826,9 @@ FIR_prepare_for_war_with_watertribes = {
 	enable = {
 		date > 26.6.1
 	}
+	abort = {
+		always = no
+	}
 	ai_strategy = {
 		type = prepare_for_war
 		id = NWT
@@ -950,7 +961,7 @@ FIR_naval_war_with_SWT = {
 	}
 	ai_strategy = {
 		type = strike_force_home_base
-		id = 179 
+		id = 179
 		value = 70
 	}
 	ai_strategy = {
@@ -1024,6 +1035,7 @@ Siege_Invasions = {
 		OR = { controls_state = 138 controls_state = 231 controls_state = 116 controls_state = 80  controls_state = 99 }
 		original_tag = FIR
 	}
+	abort_when_not_enabled = yes
 	
 	ai_strategy = {
 		type = invade
