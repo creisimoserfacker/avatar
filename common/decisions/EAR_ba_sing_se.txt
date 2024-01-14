@@ -1,0 +1,251 @@
+
+THE_EARTHKINGDOM = {
+	
+	ba_sing_se_buildup = {
+
+		icon = ba_sing_se_buildup
+
+		allowed = {
+			tag = EAR
+		}
+		visible = {
+			tag = EAR
+		}
+		available = {
+			custom_trigger_tooltip = {
+				tooltip = can_add_mission		
+				check_variable = { mtth:get_missions < mtth:get_mission_cap }
+			}
+		}
+		
+		fire_only_once = yes
+
+		cost = 10
+
+		ai_will_do = {
+			base = 100
+			modifier = {
+				factor = 100
+				is_historical_focus_on = yes
+			}
+		}
+
+		complete_effect = {
+			unlock_decision_category_tooltip = EAR_ba_sing_se_expansion
+			set_country_flag = {
+				flag = ba_sing_se_expansion_active
+				value = 1
+			}
+		}
+	}
+
+}
+
+EAR_ba_sing_se_expansion = {
+
+	field_irrigation_canals = { 
+
+		icon = population_census
+
+		allowed = {
+			original_tag = EAR
+		}
+		visible = { 
+			NOT = {
+				AND = {
+					126 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					129 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					145 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					150 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					193 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					213 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					149 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+					178 = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+				}
+			}
+		}
+		available = {
+			
+		}
+
+		days_remove = 1#00
+		days_re_enable = 5#0
+
+		modifier = {
+			building_upkeep_factor = 0.1
+		}
+		custom_cost_trigger = {
+			check_variable = { construction_material > -0.65 }
+		}
+		custom_cost_text = construction_material_10
+
+		complete_effect = {
+			set_country_flag = economic_investments
+		}
+		remove_effect = {
+			random_controlled_state = {
+				limit = {
+					OR = {
+						state = 126
+						state = 129
+						state = 145
+						state = 150
+						state = 193
+						state = 213
+						state = 149
+						state = 178
+					}
+					NOT = { has_dynamic_modifier = { modifier = fields_of_ba_sing_se }}
+				}
+				add_dynamic_modifier = { modifier = fields_of_ba_sing_se }
+			}
+		}
+
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	outer_wall_baraques_construction = {
+
+		icon = quarry
+		
+		visible = {
+			
+		}
+
+		available = {
+			
+		}
+		
+		fire_only_once = yes
+
+		days_remove = 3#65
+
+		modifier = {
+			building_upkeep_factor = 0.25
+		}
+		custom_cost_trigger = {
+			check_variable = { construction_material > -0.5 }
+		}
+		custom_cost_text = construction_material_25
+
+		remove_effect = {
+			145 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 6507
+						id = 10362
+						id = 6590
+						id = 10361
+						id = 10360
+						id = 9348
+						id = 9293
+						id = 10366
+						id = 10368
+						id = 10369
+						id = 6876
+						id = 10372
+					}
+				}
+			}
+			126 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 10363
+						id = 1189
+						id = 6388
+						id = 10433
+						id = 10432
+						id = 10431
+						id = 889
+						id = 10430
+						id = 10427
+					}
+				}
+			}
+			129 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 10426
+						id = 10424
+						id = 6498
+						id = 10423
+						id = 10422
+						id = 10419
+					}
+				}
+			}
+			149 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 10418
+						id = 6514
+						id = 6536
+						id = 6561
+						id = 10417
+						id = 10416
+						id = 197
+					}
+				}
+			}
+			178 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 10392
+						id = 10394
+						id = 7141
+						id = 10395
+						id = 10399
+						id = 10400
+						id = 540
+						id = 10403
+						id = 4271
+						id = 10405
+						id = 6999
+						id = 10406
+						id = 10410
+						id = 10414
+						id = 10415
+					}
+				}
+			}
+			213 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 7149
+						id = 10388
+						id = 7143
+						id = 10389
+						id = 7140
+					}
+				}
+			}
+			193 = {
+				add_province_modifier = {
+					static_modifiers = { integrated_baraques }
+					province = {
+						id = 10374
+						id = 10375
+						id = 10379
+						id = 10381
+						id = 6975
+						id = 10382
+						id = 10383
+						id = 10385
+						id = 10386
+						id = 744
+					}
+				}
+			}
+		}
+	}
+	
+
+}

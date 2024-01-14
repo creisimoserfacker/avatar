@@ -13,9 +13,9 @@ sol_base_impact_factor = {
 prosperity_consumer_demand_factor = {
 	base = 0
 	modifier = {
-		set_temp_variable = { solf = -0.5 }
+		set_temp_variable = { solf = -0.25 }
 		add_to_temp_variable = { solf = national_prosperity_percent }
-		multiply_temp_variable = { solf = 1.5 }
+		multiply_temp_variable = { solf = 3 }
 		
 		add = solf
 	}
@@ -1536,6 +1536,7 @@ self_employed_grain_supply = {
 
 		controller = {
 			multiply_temp_variable = { output = grain_need }
+			multiply_temp_variable = { output = mtth:grain_throughput }
 		}
 
 		set_temp_variable = { field_available = field }
@@ -1568,6 +1569,7 @@ self_animal_products_supply = {
 
 		controller = {
 			multiply_temp_variable = { output = animal_products_need }
+			multiply_temp_variable = { output = mtth:animal_products_throughput }
 		}
 
 		set_temp_variable = { animal_available = animal }
@@ -1595,6 +1597,7 @@ self_employed_minerals_supply = {
 
 		controller = {
 			multiply_temp_variable = { output = minerals_need }
+			multiply_temp_variable = { output = mtth:minerals_throughput }
 		}
 
 		multiply_temp_variable = { output = stonefield }
@@ -1620,6 +1623,7 @@ self_employed_iron_supply = {
 
 		controller = {
 			multiply_temp_variable = { output = iron_need }
+			multiply_temp_variable = { output = mtth:iron_throughput }
 		}
 
 		multiply_temp_variable = { output = mountain }
@@ -1640,10 +1644,10 @@ self_employed_wood_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = wood_need }
+			multiply_temp_variable = { output = mtth:wood_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
-
-		multiply_temp_variable = { output = controller:wood_need }
 
 		set_temp_variable = { wood_available = forest }
 		add_to_temp_variable = { wood_available = modifier@reforestation }
@@ -1666,10 +1670,11 @@ self_employed_textile_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = textile_need }
+			multiply_temp_variable = { output = mtth:textile_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
 
-		multiply_temp_variable = { output = controller:textile_need }
 		multiply_temp_variable = { output = mtth:local_resource_factor }
 
 		clamp_temp_variable = {
@@ -1687,10 +1692,11 @@ self_employed_consumer_goods_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = consumer_goods_need }
+			multiply_temp_variable = { output = mtth:consumer_goods_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
 
-		multiply_temp_variable = { output = controller:consumer_goods_need }
 		multiply_temp_variable = { output = mtth:local_resource_factor }
 
 		clamp_temp_variable = {
@@ -1708,10 +1714,10 @@ self_employed_planks_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = planks_need }
+			multiply_temp_variable = { output = mtth:planks_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
-
-		multiply_temp_variable = { output = controller:planks_need }
 
 		set_temp_variable = { wood_available = forest }
 		add_to_temp_variable = { wood_available = modifier@reforestation }
@@ -1734,10 +1740,11 @@ self_employed_bricks_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = bricks_need }
+			multiply_temp_variable = { output = mtth:bricks_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
 
-		multiply_temp_variable = { output = controller:bricks_need }
 		multiply_temp_variable = { output = stonefield }
 		multiply_temp_variable = { output = mtth:local_resource_factor }
 
@@ -1756,6 +1763,7 @@ self_employed_food_supply = {
 		set_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
+			multiply_temp_variable = { output = mtth:food_throughput }
 		}
 		multiply_temp_variable = { output = mtth:peasant_output_factor }
 
@@ -1856,7 +1864,7 @@ local_prosperity_growth = {
 		add_to_temp_variable = { local_prosperity = bricks_price }
 		add_to_temp_variable = { local_prosperity = steel_beams_price }
 
-		multiply_temp_variable = { local_prosperity = 0.01 }
+		multiply_temp_variable = { local_prosperity = 0.02 }
 
 		set_temp_variable = { prosperity_growth = 1 }
 		add_to_temp_variable = { prosperity_growth = modifier@prosperity }
@@ -1971,7 +1979,7 @@ local_goods_bought = {
 		set_temp_variable = { local_goods_bought = state_population_k }
 
 		controller = {
-			multiply_temp_variable = { local_goods_bought = ROOT.total_need }
+			multiply_temp_variable = { local_goods_bought = ROOT.total_need_factor }
 		}
 
 		multiply_temp_variable = { local_goods_bought = -0.05 }

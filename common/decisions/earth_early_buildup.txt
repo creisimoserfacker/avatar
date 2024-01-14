@@ -68,7 +68,7 @@ earth_economic_buildup_category = {
 		available = {
 			custom_trigger_tooltip = {
 				tooltip = gdp_increased_by_10		
-				check_variable = { average_gdp > EARTH_gdp_target_value }
+				check_variable = { national_prosperity > EARTH_gdp_target_value }
 			}
 		}
 
@@ -158,24 +158,6 @@ earth_economic_buildup_category = {
 					}
 				}
 			}
-			#every_owned_state = {
-			#	limit = { 
-			#		is_fully_controlled_by = ROOT 
-			#		free_building_slots = {
-			#			building = farm
-			#			size > 0
-			#			include_locked = yes
-			#		}
-			#		check_variable = {
-			#			field > 0.4
-			#		}
-			#	}
-			#	add_building_construction = {
-			#		type = farm
-			#		level = 1
-			#		instant_build = yes
-			#	}
-			#}
 		}
 
 		ai_will_do = {
@@ -717,6 +699,14 @@ earth_economic_buildup_category = {
 	}
 	
 }
+
+
+
+
+
+
+
+
 earth_military_buildup_category = {
 
 	establish_local_arsenal = { 

@@ -101,7 +101,7 @@ EAR_firenation_hostility_category = {
 	}
 }
 
-EAR_ba_sing_se_wall = {
+EAR_ba_sing_se_expansion = {
     icon = dai_li
 
     picture = GFX_decision_cat_ba_sing_se_wall
@@ -110,9 +110,9 @@ EAR_ba_sing_se_wall = {
 		TAG = EAR
 		NOT = { has_country_flag = hide_mission_decisions }
 
-		has_country_flag = ba_sing_se_wall_active
-		NOT = {
-			has_country_flag = ba_sing_se_wall_complete
+		has_country_flag = {
+			flag = ba_sing_se_expansion_active
+			value < 2
 		}
 	}
 
