@@ -298,10 +298,11 @@ on_actions = {
 
 
 				add_to_variable = { ROOT.prosperity_productivity = mtth:local_prosperity_growth }
-				add_to_variable = { local_prosperity = mtth:local_goods_bought }
-				add_to_variable = { local_prosperity = mtth:local_tax }
-				add_to_variable = { local_prosperity = mtth:local_inflation_steal }
-				add_to_variable = { local_prosperity = mtth:local_prosperity_growth }
+				set_variable = { local_prosperity_growth = mtth:local_prosperity_growth }
+				add_to_variable = { local_prosperity_growth = mtth:local_tax }
+				add_to_variable = { local_prosperity_growth = mtth:local_inflation_steal }
+				add_to_variable = { local_prosperity_growth = mtth:local_goods_bought }
+				add_to_variable = { local_prosperity = THIS.local_prosperity_growth }
 				set_variable = { prosp_cap = mtth:local_prosperity_cap }
 				clamp_variable = { 
 					var = local_prosperity
@@ -313,6 +314,10 @@ on_actions = {
 				subtract_from_variable = { ROOT.inflation_money = mtth:local_inflation_steal }
 
 				add_to_variable = { ROOT.weekly_peoples_investment_ic = mtth:local_investment }
+
+				set_variable = { lp_frame = THIS.local_prosperity }
+				divide_variable = { lp_frame = THIS.prosp_cap }
+				multiply_variable = { lp_frame = 100 }
 			}
 
 			set_variable = { national_prosperity = 0 }

@@ -2,6 +2,16 @@ on_actions = {
 
 	on_state_control_changed = {
 
+		#### prosperity reduction 20%
+
+		effect = {
+			FROM.FROM = {
+				set_temp_variable = { new_prosperity = local_prosperity }
+				multiply_temp_variable = { new_prosperity = 0.8 }
+				set_variable = { local_prosperity = new_prosperity }
+			}
+		}
+
 
 		### firenation campaign supply hubs
 		effect = {

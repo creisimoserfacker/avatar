@@ -13,9 +13,9 @@ sol_base_impact_factor = {
 prosperity_consumer_demand_factor = {
 	base = 0
 	modifier = {
-		set_temp_variable = { solf = -0.25 }
+		set_temp_variable = { solf = -0.5 }
 		add_to_temp_variable = { solf = national_prosperity_percent }
-		multiply_temp_variable = { solf = 3 }
+		multiply_temp_variable = { solf = 2 }
 		
 		add = solf
 	}
@@ -370,8 +370,8 @@ animal_weaving_textile_gain = {
 				limit = {
 					check_variable = { resource@chromium < 0 }
 				}	
-				set_temp_variable = { crop_weaving_consumed = animal_weaving_count }
-				multiply_temp_variable = { crop_weaving_consumed = animal_weaving_need }
+				set_temp_variable = { animal_weaving_consumed = animal_weaving_count }
+				multiply_temp_variable = { animal_weaving_consumed = animal_weaving_need }
 				set_temp_variable = { resource_lack_penalty = resource@chromium }
 				if = {
 					limit = {
@@ -678,7 +678,7 @@ luxury_store_luxury_goods_gain = {
 					check_variable = { resource@iron < 0 }
 				}	
 				set_temp_variable = { store_consumed = luxury_good_factory_count }
-				multiply_temp_variable = { store_consumed = luxury_good_factory_need2 }
+				multiply_temp_variable = { store_consumed = luxury_good_factory_need1 }
 				set_temp_variable = { resource_lack_penalty = resource@iron }
 				if = {
 					limit = {
@@ -702,7 +702,7 @@ luxury_store_luxury_goods_gain = {
 					check_variable = { resource@stone < 0 }
 				}
 				set_temp_variable = { store_consumed_2 = luxury_good_factory_count }
-				multiply_temp_variable = { store_consumed_2 = luxury_good_factory_need1 }
+				multiply_temp_variable = { store_consumed_2 = luxury_good_factory_need2 }
 				set_temp_variable = { resource_lack_penalty_2 = resource@stone }
 				if = {
 					limit = {

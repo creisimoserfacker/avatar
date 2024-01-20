@@ -85,6 +85,21 @@ scripted_gui = {
 			always = yes
 		}
 
+		triggers = {
+			prosperity_increase_visible = {
+				check_variable = { local_prosperity_growth > 0 }
+			}
+			prosperity_decrease_visible = {
+				check_variable = { local_prosperity_growth < 0 }
+			}
+		}
+
+		properties = {
+			prosperity_bar = {
+				frame = THIS.lp_frame
+			}
+		}
+
 	}
 	
 }
