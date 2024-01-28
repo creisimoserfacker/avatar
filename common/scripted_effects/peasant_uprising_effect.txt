@@ -98,20 +98,61 @@ clear_revolt = {
 			remove_core_of = var:ROOT.peasant_tag
 			add_core_of = PREV
 
-			remove_dynamic_modifier = { modifier = revolt_origin }
-			remove_dynamic_modifier = { modifier = peasant_discontent }
-			remove_dynamic_modifier = { modifier = peasant_insurgency }
-			remove_dynamic_modifier = { modifier = peasant_rampage }
+
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = revolt_origin }
+				}
+				remove_dynamic_modifier = { modifier = revolt_origin }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_discontent }
+				}
+				remove_dynamic_modifier = { modifier = peasant_discontent }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_insurgency }
+				}
+				remove_dynamic_modifier = { modifier = peasant_insurgency }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_rampage }
+				}
+				remove_dynamic_modifier = { modifier = peasant_rampage }
+			}
 			set_variable = { state_loyalty_variable = 100 }
 		}
 		every_core_state = {
 			limit = {
 				is_controlled_by = ROOT
 			}
-			remove_dynamic_modifier = { modifier = revolt_origin }
-			remove_dynamic_modifier = { modifier = peasant_discontent }
-			remove_dynamic_modifier = { modifier = peasant_insurgency }
-			remove_dynamic_modifier = { modifier = peasant_rampage }
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = revolt_origin }
+				}
+				remove_dynamic_modifier = { modifier = revolt_origin }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_discontent }
+				}
+				remove_dynamic_modifier = { modifier = peasant_discontent }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_insurgency }
+				}
+				remove_dynamic_modifier = { modifier = peasant_insurgency }
+			}
+			if = {
+				limit = {
+					has_dynamic_modifier = { modifier = peasant_rampage }
+				}
+				remove_dynamic_modifier = { modifier = peasant_rampage }
+			}
 			set_variable = { state_loyalty_variable = 100 }
 		}
 		clear_variable = peasant_anger_variable

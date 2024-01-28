@@ -336,10 +336,16 @@ ideas = {
 		occupation_economy = {
 			
 			available = {
-				has_capitulated = yes
+				surrender_progress > 0.9
 			}
 			visible = {
-				has_capitulated = yes
+				surrender_progress > 0.8
+			}
+			cancel = {
+				surrender_progress < 0.9
+			}
+			on_remove = {
+				add_idea = economy_3
 			}
 
 			cost = 0
@@ -350,8 +356,6 @@ ideas = {
 				centralisation_target_modifier = -0.1
 				civil_to_military_factory = 1
 			}
-			
-			cancel_if_invalid = yes
 		}
 	}
 	
