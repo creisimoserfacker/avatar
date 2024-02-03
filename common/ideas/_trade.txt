@@ -462,11 +462,8 @@ ideas = {
 			visible = {
 				surrender_progress > 0.8
 			}
-			cancel = {
-				surrender_progress < 0.9
-			}
 			on_remove = {
-				add_idea = local_markets
+				add_ideas = local_markets
 			}
 
 			cost = 0
@@ -481,6 +478,8 @@ ideas = {
 			on_add = {
 				custom_effect_tooltip = closed_economy_TT
 			}
+
+			cancel_if_invalid = yes
 		}
 	}
 }

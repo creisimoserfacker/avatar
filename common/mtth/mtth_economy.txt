@@ -1807,62 +1807,82 @@ local_prosperity_growth = {
 		set_temp_variable = { local_prosperity = 0 }
 
 		controller = {
-			set_temp_variable = { steel_price = 1 }
-			set_temp_variable = { animal_products_price = 1 }
-			set_temp_variable = { wood_price = 1 }
-			set_temp_variable = { iron_price = 1 }
-			set_temp_variable = { textile_price = 1 }
-			set_temp_variable = { minerals_price = 1 }
-			set_temp_variable = { grain_price = 1 }
-			set_temp_variable = { fossile_fuels_price = 1 }
-			set_temp_variable = { consumer_goods_price = 1 }
-			set_temp_variable = { luxury_goods_price = 1 }
-			set_temp_variable = { planks_price = 1 }
-			set_temp_variable = { bricks_price = 1 }
-			set_temp_variable = { steel_beams_price = 1 }
+			set_temp_variable = { 2_steel_price = 1 }
+			set_temp_variable = { 2_animal_products_price = 1 }
+			set_temp_variable = { 2_wood_price = 1 }
+			set_temp_variable = { 2_iron_price = 1 }
+			set_temp_variable = { 2_textile_price = 1 }
+			set_temp_variable = { 2_minerals_price = 1 }
+			set_temp_variable = { 2_grain_price = 1 }
+			set_temp_variable = { 2_fossile_fuels_price = 1 }
+			set_temp_variable = { 2_consumer_goods_price = 1 }
+			set_temp_variable = { 2_luxury_goods_price = 1 }
+			set_temp_variable = { 2_planks_price = 1 }
+			set_temp_variable = { 2_bricks_price = 1 }
+			set_temp_variable = { 2_steel_beams_price = 1 }
+			set_temp_variable = { 2_smithy_value = 1 }
+			set_temp_variable = { 2_factory_value = 1 }
+			set_temp_variable = { 2_manufactory_value = 1 }
+			set_temp_variable = { 2_harbour_value = 1 }
+			set_temp_variable = { 2_dockyard_value = 1 }
 
-			add_to_temp_variable = { steel_price = ROOT.steel_price }
-			add_to_temp_variable = { animal_products_price = ROOT.animal_products_price }
-			add_to_temp_variable = { wood_price = ROOT.wood_price }
-			add_to_temp_variable = { iron_price = ROOT.iron_price }
-			add_to_temp_variable = { textile_price = ROOT.textile_price }
-			add_to_temp_variable = { minerals_price = ROOT.minerals_price }
-			add_to_temp_variable = { grain_price = ROOT.grain_price }
-			add_to_temp_variable = { fossile_fuels_price = ROOT.fossile_fuels_price }
-			add_to_temp_variable = { consumer_goods_price = ROOT.consumer_goods_price }
-			add_to_temp_variable = { luxury_goods_price = ROOT.luxury_goods_price }
-			add_to_temp_variable = { planks_price = ROOT.planks_price }
-			add_to_temp_variable = { bricks_price = ROOT.bricks_price }
-			add_to_temp_variable = { steel_beams_price = ROOT.steel_beams_price }
+			add_to_temp_variable = { 2_steel_price = ROOT.steel_price }
+			add_to_temp_variable = { 2_animal_products_price = ROOT.animal_products_price }
+			add_to_temp_variable = { 2_wood_price = ROOT.wood_price }
+			add_to_temp_variable = { 2_iron_price = ROOT.iron_price }
+			add_to_temp_variable = { 2_textile_price = ROOT.textile_price }
+			add_to_temp_variable = { 2_minerals_price = ROOT.minerals_price }
+			add_to_temp_variable = { 2_grain_price = ROOT.grain_price }
+			add_to_temp_variable = { 2_fossile_fuels_price = ROOT.fossile_fuels_price }
+			add_to_temp_variable = { 2_consumer_goods_price = ROOT.consumer_goods_price }
+			add_to_temp_variable = { 2_luxury_goods_price = ROOT.luxury_goods_price }
+			add_to_temp_variable = { 2_planks_price = ROOT.planks_price }
+			add_to_temp_variable = { 2_bricks_price = ROOT.bricks_price }
+			add_to_temp_variable = { 2_steel_beams_price = ROOT.steel_beams_price }
+			multiply_temp_variable = { 2_smithy_value = ROOT.smithy_output }
+			multiply_temp_variable = { 2_factory_value = ROOT.factory_output }
+			multiply_temp_variable = { 2_harbour_value = 1 }
+			multiply_temp_variable = { 2_dockyard_value = 2 }
 		}
 
-		multiply_temp_variable = { steel_price = resource@steel }
-		multiply_temp_variable = { animal_products_price = resource@chromium }
-		multiply_temp_variable = { wood_price = resource@aluminium }
-		multiply_temp_variable = { iron_price = resource@iron }
-		multiply_temp_variable = { textile_price = resource@tungsten }
-		multiply_temp_variable = { minerals_price = resource@stone }
-		multiply_temp_variable = { grain_price = resource@oil }
-		multiply_temp_variable = { fossile_fuels_price = resource@rubber }
-		multiply_temp_variable = { consumer_goods_price = resource@consumer_goods_resource }
-		multiply_temp_variable = { luxury_goods_price = resource@luxury_goods_resource }
-		multiply_temp_variable = { planks_price = resource@planks_resource }
-		multiply_temp_variable = { bricks_price = resource@bricks_resource }
-		multiply_temp_variable = { steel_beams_price = resource@steel_beams_resource }
+		multiply_temp_variable = { 2_steel_price = resource@steel }
+		multiply_temp_variable = { 2_animal_products_price = resource@chromium }
+		multiply_temp_variable = { 2_wood_price = resource@aluminium }
+		multiply_temp_variable = { 2_iron_price = resource@iron }
+		multiply_temp_variable = { 2_textile_price = resource@tungsten }
+		multiply_temp_variable = { 2_minerals_price = resource@stone }
+		multiply_temp_variable = { 2_grain_price = resource@oil }
+		multiply_temp_variable = { 2_fossile_fuels_price = resource@rubber }
+		multiply_temp_variable = { 2_consumer_goods_price = resource@consumer_goods_resource }
+		multiply_temp_variable = { 2_luxury_goods_price = resource@luxury_goods_resource }
+		multiply_temp_variable = { 2_planks_price = resource@planks_resource }
+		multiply_temp_variable = { 2_bricks_price = resource@bricks_resource }
+		multiply_temp_variable = { 2_steel_beams_price = resource@steel_beams_resource }
+		multiply_temp_variable = { 2_smithy_value = non_damaged_building_level@arms_factory }
+		multiply_temp_variable = { 2_factory_value = non_damaged_building_level@factory }
+		multiply_temp_variable = { 2_manufactory_value = non_damaged_building_level@industrial_complex }
+		multiply_temp_variable = { 2_harbour_value = non_damaged_building_level@harbour }
+		multiply_temp_variable = { 2_dockyard_value = non_damaged_building_level@dockyard }
 
-		add_to_temp_variable = { local_prosperity = steel_price }
-		add_to_temp_variable = { local_prosperity = animal_products_price }
-		add_to_temp_variable = { local_prosperity = wood_price }
-		add_to_temp_variable = { local_prosperity = iron_price }
-		add_to_temp_variable = { local_prosperity = textile_price }
-		add_to_temp_variable = { local_prosperity = minerals_price }
-		add_to_temp_variable = { local_prosperity = grain_price }
-		add_to_temp_variable = { local_prosperity = fossile_fuels_price }
-		add_to_temp_variable = { local_prosperity = consumer_goods_price }
-		add_to_temp_variable = { local_prosperity = luxury_goods_price }
-		add_to_temp_variable = { local_prosperity = planks_price }
-		add_to_temp_variable = { local_prosperity = bricks_price }
-		add_to_temp_variable = { local_prosperity = steel_beams_price }
+		add_to_temp_variable = { local_prosperity = 2_steel_price }
+		add_to_temp_variable = { local_prosperity = 2_animal_products_price }
+		add_to_temp_variable = { local_prosperity = 2_wood_price }
+		add_to_temp_variable = { local_prosperity = 2_iron_price }
+		add_to_temp_variable = { local_prosperity = 2_textile_price }
+		add_to_temp_variable = { local_prosperity = 2_minerals_price }
+		add_to_temp_variable = { local_prosperity = 2_grain_price }
+		add_to_temp_variable = { local_prosperity = 2_fossile_fuels_price }
+		add_to_temp_variable = { local_prosperity = 2_consumer_goods_price }
+		add_to_temp_variable = { local_prosperity = 2_luxury_goods_price }
+		add_to_temp_variable = { local_prosperity = 2_planks_price }
+		add_to_temp_variable = { local_prosperity = 2_bricks_price }
+		add_to_temp_variable = { local_prosperity = 2_steel_beams_price }
+		add_to_temp_variable = { local_prosperity = 2_smithy_value }
+		add_to_temp_variable = { local_prosperity = 2_factory_value }
+		add_to_temp_variable = { local_prosperity = 2_manufactory_value }
+		add_to_temp_variable = { local_prosperity = 2_harbour_value }
+		add_to_temp_variable = { local_prosperity = 2_dockyard_value }
+
 
 		multiply_temp_variable = { local_prosperity = 0.02 }
 
@@ -1884,25 +1904,25 @@ local_prosperity_growth = {
 avg_price = {
 	base = 0
 	modifier = {
-		set_temp_variable = { avg_price = 0 }
+		set_temp_variable = { 2_avg_price = 0 }
 
-		add_to_temp_variable = { avg_price = steel_price }
-		add_to_temp_variable = { avg_price = animal_products_price }
-		add_to_temp_variable = { avg_price = wood_price }
-		add_to_temp_variable = { avg_price = iron_price }
-		add_to_temp_variable = { avg_price = textile_price }
-		add_to_temp_variable = { avg_price = minerals_price }
-		add_to_temp_variable = { avg_price = grain_price }
-		add_to_temp_variable = { avg_price = fossile_fuels_price }
-		add_to_temp_variable = { avg_price = consumer_goods_price }
-		add_to_temp_variable = { avg_price = luxury_goods_price }
-		add_to_temp_variable = { avg_price = planks_price }
-		add_to_temp_variable = { avg_price = bricks_price }
-		add_to_temp_variable = { avg_price = steel_beams_price }
+		add_to_temp_variable = { 2_avg_price = steel_price }
+		add_to_temp_variable = { 2_avg_price = animal_products_price }
+		add_to_temp_variable = { 2_avg_price = wood_price }
+		add_to_temp_variable = { 2_avg_price = iron_price }
+		add_to_temp_variable = { 2_avg_price = textile_price }
+		add_to_temp_variable = { 2_avg_price = minerals_price }
+		add_to_temp_variable = { 2_avg_price = grain_price }
+		add_to_temp_variable = { 2_avg_price = fossile_fuels_price }
+		add_to_temp_variable = { 2_avg_price = consumer_goods_price }
+		add_to_temp_variable = { 2_avg_price = luxury_goods_price }
+		add_to_temp_variable = { 2_avg_price = planks_price }
+		add_to_temp_variable = { 2_avg_price = bricks_price }
+		add_to_temp_variable = { 2_avg_price = steel_beams_price }
 
-		divide_temp_variable = { avg_price = 13 }
+		divide_temp_variable = { 2_avg_price = 13 }
 
-		add = avg_price
+		add = 2_avg_price
 	}
 }
 

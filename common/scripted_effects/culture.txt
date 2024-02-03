@@ -245,20 +245,36 @@ global_culture = {
 	set_variable = { global.water_pop = 0 }
 	set_variable = { global.air_pop = 0 }
 	set_variable = { global.nonbender_pop = 0 }
+	set_variable = { global.total_pop = 0 }
 
 	every_state = {
-		add_to_variable = { global.fire_pop = fire_pop }
-		add_to_variable = { global.earth_pop = earth_pop }
-		add_to_variable = { global.water_pop = water_pop }
-		add_to_variable = { global.air_pop = air_pop }
-		add_to_variable = { global.nonbender_pop = nonbender_pop }
+
+		set_temp_variable = { temp_fire_pop = fire_pop }
+		set_temp_variable = { temp_earth_pop = earth_pop }
+		set_temp_variable = { temp_water_pop = water_pop }
+		set_temp_variable = { temp_air_pop = air_pop }
+		set_temp_variable = { temp_nonbender_pop = nonbender_pop }
+
+		multiply_temp_variable = { temp_fire_pop = state_population_k }
+		multiply_temp_variable = { temp_earth_pop = state_population_k }
+		multiply_temp_variable = { temp_water_pop = state_population_k }
+		multiply_temp_variable = { temp_air_pop = state_population_k }
+		multiply_temp_variable = { temp_nonbender_pop = state_population_k }
+
+		add_to_variable = { global.fire_pop = temp_fire_pop }
+		add_to_variable = { global.earth_pop = temp_earth_pop }
+		add_to_variable = { global.water_pop = temp_water_pop }
+		add_to_variable = { global.air_pop = temp_air_pop }
+		add_to_variable = { global.nonbender_pop = temp_nonbender_pop }
+
+		add_to_variable = { global.total_pop = state_population_k }
 	}
 
-	divide_variable = { global.fire_pop = global.states^num }
-	divide_variable = { global.earth_pop = global.states^num }
-	divide_variable = { global.water_pop = global.states^num }
-	divide_variable = { global.air_pop = global.states^num }
-	divide_variable = { global.nonbender_pop = global.states^num }
+	divide_variable = { global.fire_pop = global.total_pop }
+	divide_variable = { global.earth_pop = global.total_pop }
+	divide_variable = { global.water_pop = global.total_pop }
+	divide_variable = { global.air_pop = global.total_pop }
+	divide_variable = { global.nonbender_pop = global.total_pop }
 }
 
 culture_growth_calculation = {
