@@ -1,8 +1,11 @@
 ﻿l_english:
 
- toggle_core:0 "Build in §GCore States§! only"
- toggle_all:0 "Build in every §YControlled State§!"
+ toggle_core:0 "Currently §YAuto select§! will add buildings to §GCore States§! only"
+ toggle_all:0 "Currently §YAuto select§! will add buildings to all §YControlled State§!"
  toggle_core_delayed:0 "Click to change"
+ toggle_auto:0 "§YAutomatic State Selection§!"
+ toggle_vanilla:0 "Close §YAutomatic State Selection§!"
+ toggle_auto_delayed:0 "§LAdd a building in the state best suited for its type.§!"
  CONSTRUCTION_BUILDING_LABEL:0 "Construction"
 
  foodstuffs_count:0 "[?food_supply|+0]"
@@ -88,11 +91,11 @@
  RATION_HIGH_PRIORITY_DESC:0 "High Ration Priority"
  consumer_goods_title:0 "National Wealth:"
  consumer_goods_supply:0 "[?average_gdp_netto|3Y] / [?cost_of_living|3Y]"
- consumer_goods_supply_ttp:0 "§YNational Wealth§! \nTotal Prosperity: [?national_prosperity|2Y]\n\nPopulation Productivity: [?prosperity_productivity|3Y]"
+ consumer_goods_supply_ttp:0 "§YNational Wealth§! \n\n£prosperity_texticon  Prosperity: [?national_prosperity|2Y]/[?national_prosperity_cap|2Y]\n£construction_capacity_texticon  Population Productivity: [?prosperity_productivity|3Y]"
  consumer_goods_supply_ttp_delayed:0 "§LThe National wealth determines the economic capacity of a nation. The wealthier your citizens, the more you can tax them, the more you can spend again in return. However, a wealthy society also has a high request for consumer goods and luxury goods, so pay attention to how the consumption behaviour changes.§!"
  
  standartd_of_living:0 "§YNational Wealth§!"
- sol_tooltip:0 "[GetSol] \n£consumer_goods_texticon  Consumer Demand: [?mtth:prosperity_consumer_demand_factor|Y=%] \nMax Prosperity: [?mtth:prosperity_wealthy_factor|+=%] \n£stability_texticon  Stability: [?mtth:sol_base_impact_factor|+=%] \n£research_speed_texticon  Research Speed: [?mtth:sol_base_impact_factor|+=%]"
+ sol_tooltip:0 "[GetSol] \n£consumer_goods_texticon  Consumer Demand: [?mtth:prosperity_consumer_demand_factor|Y=%] \n£prosperity_texticon  Max Prosperity: [?mtth:prosperity_wealthy_factor|+=%] \n£stability_texticon  Stability: [?mtth:sol_base_impact_factor|+=%] \n£research_speed_texticon  Research Speed: [?mtth:sol_base_impact_factor|+=%]"
  sol_tooltip_delayed:0 "[GetSolTooltip]"
 
  animal_breeding_tooltip:0 "§YAnimal Breeding§! \n\nCurrent Grain: [?grain_variable|Y] \nDaily Gain: [?grain_supply|+=] \nDaily need: [?grain_use|-=] \nGrain Capacity: [?grain_max|Y=] \n\nGrain influence animal growth rate: [?grain_breeding_effect|+=%]   \nModifier effect on breeding: [?modifier@animal_breeding_factor|+=%] \n\n£unit_komodo_icon_small_small|2  §YKomodo Rhinos§!: \nGrowth:[?komodo_breeding|+=]  Free Stables:[?komodo_cap|Y=]  \nConsumed:[?komodo_grain|-]([?komodo_consumed|-]/animal) \n£unit_mongooze_icon_small_small|2  §YMongooze Lizards§!: \nGrowth:[?mongooze_breeding|+=]  Free Stables:[?mongooze_cap|Y=]  \nConsumed:[?mongooze_grain|-]([?mongooze_consumed|-]/animal) \n£unit_ostrich_icon_small_small|2  §YOstrich Horses§!: \nGrowth:[?ostrich_breeding|+=]  Free Stables:[?ostrich_cap|Y=]  \nConsumed:[?ostrich_grain|-]([?ostrich_consumed|-]/animal)"
@@ -125,7 +128,7 @@
  state_steal_number:0 "§G-[?modifier@taxation|%0]§!"
  employed_title:0 "Employed:"
  employed_count:0 "[?employed_population_k|*Y3] ([?epmployed_percentage|%1])"
- employed_tooltip:0 "§YEmployed§! \n\n[?employed_population_k|*Y3]/§Y[?working_population_k|Y0]K§! workers are employed in factories. \n£farming|1 Farmers: [?farm_employed|*Y3] \n£milling|1 Millers: [?mill_employed|*Y3] \n£fishing|1 Fishers: [?fishing_stand_employed|*Y3] \n£ranch|1 Rancher: [?ranch_employed|*Y3] \n£lumberjack|1 Lumberjack : [?lumber_mill_employed|*Y3] \n£mine|1 Miners: [?mine_employed|*Y3]\n£weaving|1 Weaver: [?weaving_employed|*Y3] \n£smithy|1 Blacksmiths: [?smithy_employed|*Y3] \n£factory|1 Factory Workers: [?factory_employed|*Y3] \n£harbour|1 Harbour Workers: [?harbour_employed|*Y3]\n£store|1 Shopkeeper: [?shopkeeper_employed|*Y3]\n£carpentry|1 Craftsmen: [?craftsman_employed|*Y3]"
+ employed_tooltip:0 "§YEmployed§! \n\n[?employed_population_k|*Y3]/§Y[?working_population_k|Y0]K§! workers are employed in factories. \n£farming|1 Farmers: [?farm_employed|*Y3]  [?modifier@farmer_factor|-=%]\n£milling|1 Millers: [?mill_employed|*Y3]  [?modifier@miller_factor|-=%]\n£fishing|1 Fishers: [?fishing_stand_employed|*Y3]  [?modifier@fisher_factor|-=%]\n£ranch|1 Rancher: [?ranch_employed|*Y3]  [?modifier@rancher_factor|-=%]\n£lumberjack|1 Lumberjack : [?lumber_mill_employed|*Y3]  [?modifier@lumberjack_factor|-=%]\n£mine|1 Miners: [?mine_employed|*Y3]  [?modifier@miner_factor|-=%]\n£weaving|1 Weaver: [?weaving_employed|*Y3]  [?modifier@weaver_factor|-=%]\n£smithy|1 Blacksmiths: [?smithy_employed|*Y3]  [?modifier@smith_factor|-=%]\n£factory|1 Factory Workers: [?factory_employed|*Y3]  [?modifier@industrial_worker_factor|-=%]\n£harbour|1 Harbour Workers: [?harbour_employed|*Y3]  [?modifier@harbour_worker_factor|-=%]\n£store|1 Shopkeeper: [?shopkeeper_employed|*Y3]  [?modifier@shopkeeper_factor|-=%]\n£carpentry|1 Craftsmen: [?craftsman_employed|*Y3]  [?modifier@craftsman_factor|-=%]"
  employed_tooltip_delayed:0 "§LEmployed Workers are a far more efficient bunch. They have the right tools and materials to do their job, in which they were specially trained. Employed people work in buildings that are constructed. Their high output to workforce ratio makes them very efficient and prosperous.§!"
  missing_workers_tooltip:0 "§YMissing Workers§!: [?worker_deficit_k|*R3] \n\n£resource_eff  Resource Gain Efficiency: [?worker_deficit_malus|+=2%] \n£factory_output_texticon  Military Capacity Output: [?worker_deficit_malus|+=2%] \n£dockyard_output_texticon  Naval Capacity Output: [?worker_deficit_malus|+=2%] \n£construction_speed_texticon  Civilian Capacity Output: [?worker_deficit_malus|+=2%]"
  missing_workers_tooltip_delayed:0 "§LWithout people to work in our factories the economy can not grow.§!"

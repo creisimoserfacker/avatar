@@ -222,6 +222,8 @@ on_actions = {
 			set_variable = { weekly_peoples_investment_ic = 0 }
 			set_variable = { prosperity_productivity = 0 }
 
+			set_variable = { national_prosperity = 0 }
+
 			every_controlled_state = {
 				###view farm
 				set_variable = { farm_employed = modifier@farmer_k }
@@ -318,13 +320,17 @@ on_actions = {
 				set_variable = { lp_frame = THIS.local_prosperity }
 				divide_variable = { lp_frame = THIS.prosp_cap }
 				multiply_variable = { lp_frame = 100 }
-			}
 
-			set_variable = { national_prosperity = 0 }
-			every_core_state = {
 				add_to_variable = { ROOT.national_prosperity = THIS.local_prosperity }
 			}
+
 			set_variable = { national_prosperity_cap = core_population_k }
+
+			clamp_variable = { 
+				var = national_prosperity  
+				min = 0 
+				max = national_prosperity_cap
+			}
 
 			set_variable = { national_prosperity_percent = national_prosperity }
 			divide_variable = { national_prosperity_percent = national_prosperity_cap }
