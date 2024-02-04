@@ -1,0 +1,99 @@
+on_actions = {
+
+	on_daily = {
+		effect = {
+
+			#### captured spies flee or are replaced #####
+
+			subtract_from_variable = { removed_spies = modifier@new_operative_slot_bonus }
+			clamp_variable = { 
+				var = removed_spies
+				min = 0
+			}
+
+			every_country = {
+				limit = {
+					is_in_array = {
+						array = ROOT.countries_with_spies
+						value = THIS.id
+					}
+				}
+
+
+				#### spies get captured #####
+
+				set_temp_variable = { capture_chance = mtth:spy_detection_chance }
+				multiply_temp_variable = { capture_chance = 100 }
+				random = {
+					chance = var:capture_chance
+					add_to_variable = { ROOT.removed_spies = 1 }
+					subtract_from_variable = { ROOT.spies_send_to_@THIS = 1 }
+					add_to_variable = { ROOT.available_spies = 1 }
+
+					if = {
+						limit = {
+							check_variable = {
+								ROOT.spies_send_to_@THIS = 0
+							}
+						}
+						remove_from_array = {
+							array = ROOT.countries_with_spies
+							value = THIS.id
+						}
+					}
+				}
+
+				#### spies get killed #####
+
+				set_temp_variable = { kill_chance = mtth:spy_kill_chance }
+				multiply_temp_variable = { kill_chance = 100 }
+				random = {
+					chance = var:kill_chance
+					
+					add_to_variable = { removed_spies = 100 }
+				}
+
+
+
+				##### spies steal intel and stuff ######
+
+				set_temp_variable = { local_network_strength = mtth:local_network_strength_100 }
+
+				ROOT = {
+					meta_effect = {
+						text = {
+							random_list = {
+								25 = { 
+									add_intel = {
+										target = PREV
+										civilian_intel = [INTEL]
+									}
+								}
+								25 = { 
+									add_intel = {
+										target = PREV
+										army_intel = [INTEL]
+									}
+								}
+								25 = { 
+									add_intel = {
+										target = PREV
+										navy_intel = [INTEL]
+									}
+								}
+								25 = { 
+									add_intel = {
+										target = PREV
+										airforce_intel = [INTEL]
+									}
+								}
+							}
+						}
+						INTEL = "[?local_network_strength]"
+					}
+				}
+			}
+		}
+	}
+
+}

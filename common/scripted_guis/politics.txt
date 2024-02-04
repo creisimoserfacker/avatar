@@ -50,7 +50,74 @@ scripted_gui = {
 		}
 
 		triggers = {
-			
+			operatives_visible = {
+				FROM =  {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+			available_spies_visible = {
+				FROM =  {
+					tag = ROOT
+				}
+			}
+			send_spies_visible = {
+				FROM =  {
+					NOT = {
+						tag = ROOT
+					}
+				}
+			}
+			recall_local_spies_visible = {
+				always = no
+			}
+			send_spies_click_enabled = {
+				ROOT = {
+					check_variable = { mtth:available_spies > 0 }
+				}
+			}
+			recall_spies_visible = {
+				FROM =  {
+					tag = ROOT
+				}
+			}
+		}
+
+		effects = {
+			send_spies_click = {
+				if = {
+					limit = {
+						NOT = {
+							is_in_array = {
+								array = ROOT.countries_with_spies
+								value = FROM.id
+							}
+						}
+					}
+					add_to_array = {
+						array = ROOT.countries_with_spies
+						value = FROM.id
+					}
+				}
+				add_to_variable = { ROOT.spies_send_to_@FROM = 1 }
+				add_to_variable = { ROOT.available_spies = -1 }
+			}
+			recall_local_spies_click = {
+				remove_from_array = {
+					array = ROOT.countries_with_spies
+					value = FROM.id
+				}
+			}
+			recall_spies_click = {
+				for_each_scope_loop = {
+					array = ROOT.countries_with_spies
+
+					add_to_variable = { PREV.available_spies = PREV.spies_send_to_@THIS }
+					clear_variable = PREV.spies_send_to_@THIS
+				}
+				clear_array = countries_with_spies
+			}
 		}
 	}
 	

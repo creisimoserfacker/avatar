@@ -3357,10 +3357,10 @@ NOperatives = {
 	OPERATIVE_MIN_DAYS_FORCED_INTO_HIDING = 7,				-- Minimum number of days an operative can be forced into hiding. Applied after modifiers. Can be zero.
 	OPERATIVE_MAX_DAYS_FORCED_INTO_HIDING = 120,				-- Maximum number of days an operative can be forced into hiding. Applied after modifiers. Is ignored if negative
 	OPERATIVE_MAX_DAYS_TO_AUTO_RESUME_MISSION = 30,				-- Maximum number of days an operative has to be disabled before its mission is not automatically resumed once he is available again
-	MAX_RECRUITED_OPERATIVES = 10,
+	MAX_RECRUITED_OPERATIVES = 0,
 
-	CRYPTO_BASE_CRYPTO_LEVEL = 12000,						-- base crypto strength for a country
-	CRYPTO_CRYPTO_LEVEL_PER_CRYPTO_UPGRADE = 4250,			-- crypto strength per crypto upgrade
+	CRYPTO_BASE_CRYPTO_LEVEL = 1,						-- base crypto strength for a country
+	CRYPTO_CRYPTO_LEVEL_PER_CRYPTO_UPGRADE = 0,			-- crypto strength per crypto upgrade
 	
 	CRYPTO_CRYPTO_ACTIVE_BONUS_DURATION = 30,				-- number of days the active decryption bonuses will be applied before enemy resets their intelligence
 	CYRPTO_ACTIVE_BONUS_ACTIVATION_PROGRESS_RATIO = 0.5,	-- once bonus is activated, decryption progress will be reduced to this ratio
@@ -3618,8 +3618,8 @@ NIntel = {
 		-- Factored to ( 1 + A.decryption ) / ( 1 + B.encryption ) to determine the intel
 		-- A has over B when legacy encryption and decryption modifier are used.
 		-- Note that if A.decryption is zero, the result is forced to zero
-		-- In the ame order as COUNTRY_LEVEL_INTEL_MAXIMUMS
-		15.0, 15.0, 15.0, 15.0
+		-- In the same order as COUNTRY_LEVEL_INTEL_MAXIMUMS
+		10.0, 10.0, 10.0, 10.0
 	},
 
 	-- intel ledger defines
@@ -3876,9 +3876,9 @@ NCharacter = {
 	COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH = 10, -- When creating a dynamic country leader if an expire date is not set it will have 5 years as a base expiration date
 	COUNTRY_LEADER_BASE_RANDOM_MAX_YEAR_LENGTH = 25, -- Max random value added to COUNTRY_LEADER_BASE_EXPIRE_YEAR_LENGTH
 
-	SPECIALIST_ADVISOR_MIN_RANK = 4,
+	SPECIALIST_ADVISOR_MIN_RANK = 3,
 	EXPERT_ADVISOR_MIN_RANK = 6,
-	GENIUS_ADVISOR_MIN_RANK = 8,
+	GENIUS_ADVISOR_MIN_RANK = 9,
 },
 
 NSupply = {
