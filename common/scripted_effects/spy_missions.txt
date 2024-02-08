@@ -1,0 +1,55 @@
+
+
+trade_influence_mission = {
+
+
+	#### better trade opinion is always gained
+
+	THIS = {
+		add_opinion_modifier = {
+			target = ROOT
+			modifier = infiltrated_trade
+		}
+	}
+
+
+	random = {
+		chance = var:ROOT.modifier@cheaper_trade_chance_factor
+		
+		add_operation_token = {
+			tag = ROOT
+			token = token_cheaper_trade_deal
+		}
+	}
+
+	random = {
+		chance = var:ROOT.modifier@more_trade_chance_factor
+		
+		add_operation_token = {
+			tag = ROOT
+			token = token_trade_deal_more_resources
+		}
+	}
+
+}
+
+
+steal_tech_mission = {
+	
+	if = {
+		limit = {
+			check_variable = { ROOT.tech_age < THIS.tech_age }
+		}
+		random = {
+			chance = var:ROOT.modifier@steal_invention_chance
+			
+			ROOT = {
+				steal_random_tech_bonus = {
+					category = inventions
+					instant = yes
+					target = PREV
+				}
+			}
+		}
+	}
+}

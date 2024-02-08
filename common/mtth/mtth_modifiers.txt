@@ -33,6 +33,16 @@ enemy_intel_network_factor = {
 	}
 }
 
+intel_from_operatives_factor_factor = {
+	base = 0
+	modifier = {
+		set_temp_variable = { factor = 1 }
+		add_to_temp_variable = { factor = modifier@intel_from_operatives_factor }
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
 detection_chance = {
 	base = 0
 	modifier = {

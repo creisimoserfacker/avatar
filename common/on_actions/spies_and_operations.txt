@@ -1,15 +1,340 @@
 on_actions = {
 
-	on_daily = {
+	on_weekly = {
 		effect = {
 
-			#### captured spies flee or are replaced #####
+			#### new spy recruitment #####
 
-			subtract_from_variable = { removed_spies = modifier@new_operative_slot_bonus }
-			clamp_variable = { 
-				var = removed_spies
-				min = 0
+			set_variable = { new_spies = 1 }
+			add_to_variable = { new_spies = modifier@new_operative_slot_bonus }
+			while_loop_effect = {
+				limit = {
+					check_variable = {
+						var = new_spies
+						value = 0
+						compare = greater_than
+					}
+				}
+				if = {
+					limit = {
+						check_variable = {
+							var = spies_on_quard_removed
+							value = 0
+							compare = greater_than
+						}
+					}
+					subtract_from_variable = { spies_on_quard_removed = 1 }
+					clamp_variable = {
+						var = spies_on_quard_removed
+						min = 0
+					}
+				}
+				else = {
+					random_scope_in_array = {
+						array = ROOT.countries_with_spies
+						
+						subtract_from_variable = { PREV:spies_removed_by_@THIS = 1 }
+						clamp_variable = {
+							var = PREV:spies_removed_by_@THIS
+							min = 0
+						}
+					}
+				}
+				subtract_from_variable = { new_spies = 1 }
 			}
+
+			set_variable = { removed_spies = 0 }
+			for_each_scope_loop = {
+				array = ROOT.countries_with_spies
+				add_to_variable = { ROOT:removed_spies = ROOT:spies_removed_by_@THIS }
+			}
+			add_to_variable = { removed_spies = spies_on_quard_removed }
+
+			add_to_variable = { spies_on_quard_removed = spies_on_quard_removed_delayed }
+			clear_variable = spies_on_quard_removed_delayed
+
+
+			####### start an operation ######
+
+			every_country = {
+				limit = {
+					is_in_array = {
+						array = ROOT.countries_with_spies
+						value = THIS.id
+					}
+				}
+				
+
+				while_loop_effect = {
+					limit = {
+						check_variable = {
+							var = THIS.available_missions_from_@ROOT
+							value = 0
+							compare = greater_than
+						}
+					}
+
+
+					#### spies get captured calculation #####
+
+					set_temp_variable = { detection_chance = mtth:available_spies }
+					divide_temp_variable = { detection_chance = THIS.num_controlled_states }
+					multiply_temp_variable = { detection_chance = 0.1 }
+					set_temp_variable = { local_spies = ROOT:spies_send_to_@THIS }
+					subtract_from_temp_variable = { local_spies = ROOT:spies_removed_by_@THIS }
+					multiply_temp_variable = { detection_chance = local_spies }
+
+					ROOT = {
+						multiply_temp_variable = { detection_chance = mtth:detection_chance }
+					}
+					THIS = {
+						multiply_temp_variable = { detection_chance = mtth:enemy_detection_chance }
+					}
+
+					set_temp_variable = { capture_chance = detection_chance }
+					multiply_temp_variable = { capture_chance = 100 }
+
+					set_temp_variable = { tested_spies = ROOT.spies_send_to_@THIS }
+					subtract_from_temp_variable = { tested_spies = ROOT:spies_removed_by_@THIS }
+
+
+
+					#### spies get killed calculation #####
+
+					set_temp_variable = { local_spies = ROOT:spies_send_to_@THIS }
+					subtract_from_temp_variable = { local_spies = ROOT:spies_removed_by_@THIS }
+					set_temp_variable = { spy_kill_chance = local_spies }
+					divide_temp_variable = { spy_kill_chance = THIS.num_controlled_states }
+
+					ROOT = {
+						multiply_temp_variable = { spy_kill_chance = modifier@kill_agent_factor }
+					}
+
+					set_temp_variable = { kill_chance = spy_kill_chance }
+					multiply_temp_variable = { kill_chance = 100 }
+
+					set_temp_variable = { tested_spies_2 = mtth:available_spies }
+					subtract_from_temp_variable = { tested_spies_2 = THIS.spies_on_quard_removed }
+
+					set_temp_variable = { tested_spies_3 = mtth:available_spies }
+
+
+
+					###### spy gets captured
+
+					while_loop_effect = {
+						limit = {
+							check_variable = {
+								var = tested_spies
+								value = 0
+								compare = greater_than
+							}
+						}
+						random = {
+							chance = var:capture_chance
+							add_to_variable = { ROOT:spies_removed_by_@THIS = 1 }
+
+						}
+
+						subtract_from_temp_variable = { tested_spies = 1 }
+					}
+
+
+
+					#### spies get killed #####
+
+					while_loop_effect = {
+						limit = {
+							check_variable = {
+								var = tested_spies_2
+								value = 0
+								compare = greater_than
+							}
+						}
+						random = {
+							chance = var:kill_chance
+							
+							add_to_variable = { spies_on_quard_removed_delayed = 10 }
+							clamp_variable = {
+								var = spies_on_quard_removed_delayed
+								max = tested_spies_3
+							}
+						}
+
+						subtract_from_temp_variable = { tested_spies_2 = 1 }
+					}
+
+
+
+
+
+					##### spies steal intel and stuff ######
+
+					###success chance
+
+					set_temp_variable = { success_chance = 100 }
+					set_temp_variable = { success_chance_factor = 1 }
+					subtract_from_temp_variable = { success_chance_factor = detection_chance }
+					add_to_temp_variable = { success_chance_factor = ROOT.modifier@operation_outcome }
+					clamp_temp_variable = {
+						var = success_chance_factor
+						min = 0
+						max = 1
+					}
+					multiply_temp_variable = { success_chance = success_chance_factor }
+
+
+
+					random = {
+						chance = var:success_chance
+
+						########### effect on success
+
+						
+						
+						#### basic event intel gain ####
+
+						set_temp_variable = { local_network_strength = ROOT.local_network_growth_in_@THIS }
+						multiply_temp_variable = { local_network_strength = 100 }
+						ROOT = { multiply_temp_variable = { local_network_strength = mtth:intel_from_operatives_factor_factor } }
+
+						ROOT = {
+							meta_effect = {
+								text = {
+									add_intel = {
+										target = PREV
+										civilian_intel = [INTEL]
+									}
+									add_intel = {
+										target = PREV
+										army_intel = [INTEL]
+									}
+									add_intel = {
+										target = PREV
+										navy_intel = [INTEL]
+									}
+									add_intel = {
+										target = PREV
+										airforce_intel = [INTEL]
+									}
+								}
+								INTEL = "[?local_network_strength]"
+							}
+						}
+
+
+
+						####### specialised token intel gain #####
+
+						random = {
+							chance = var:ROOT.modifier@civil_infiltration_factor
+							
+							ROOT = {
+								if = {
+									limit = {
+										has_operation_token = {
+											tag = PREV
+											token = token_civilian
+										}
+									}
+								}
+								add_operation_token = {
+									tag = PREV
+									token = token_civilian
+								}
+							}
+						}
+						random = {
+							chance = var:ROOT.modifier@army_infiltration_factor
+							
+							ROOT = {
+								if = {
+									limit = {
+										has_operation_token = {
+											tag = PREV
+											token = token_army
+										}
+									}
+								}
+								add_operation_token = {
+									tag = PREV
+									token = token_army
+								}
+							}
+						}
+						random = {
+							chance = var:ROOT.modifier@navy_infiltration_factor
+							
+							ROOT = {
+								if = {
+									limit = {
+										has_operation_token = {
+											tag = PREV
+											token = token_navy
+										}
+									}
+								}
+								add_operation_token = {
+									tag = PREV
+									token = token_navy
+								}
+							}
+						}
+						random = {
+							chance = var:ROOT.modifier@air_infiltration_factor
+							
+							ROOT = {
+								if = {
+									limit = {
+										has_operation_token = {
+											tag = PREV
+											token = token_airforce
+										}
+									}
+								}
+								add_operation_token = {
+									tag = PREV
+									token = token_airforce
+								}
+							}
+						}
+
+
+
+						###### steal tech active
+
+						if = {
+							limit = {
+								check_variable = { ROOT.spy_operation_in_@THIS = 2 }
+							}
+							steal_tech_mission = yes
+						}
+
+						###### trade mission active
+
+						if = {
+							limit = {
+								check_variable = { ROOT.spy_operation_in_@THIS = 3 }
+							}
+							trade_influence_mission = yes
+						}
+
+					}
+
+
+
+					
+					subtract_from_variable = { THIS.available_missions_from_@ROOT = 1 }
+				}
+
+
+			}
+
+		}
+	}
+
+	on_daily = {
+		effect = {
 
 			every_country = {
 				limit = {
@@ -19,79 +344,71 @@ on_actions = {
 					}
 				}
 
-
-				#### spies get captured #####
-
-				set_temp_variable = { capture_chance = mtth:spy_detection_chance }
-				multiply_temp_variable = { capture_chance = 100 }
-				random = {
-					chance = var:capture_chance
-					add_to_variable = { ROOT.removed_spies = 1 }
-					subtract_from_variable = { ROOT.spies_send_to_@THIS = 1 }
-					add_to_variable = { ROOT.available_spies = 1 }
-
-					if = {
-						limit = {
-							check_variable = {
-								ROOT.spies_send_to_@THIS = 0
-							}
-						}
-						remove_from_array = {
-							array = ROOT.countries_with_spies
-							value = THIS.id
-						}
-					}
-				}
-
-				#### spies get killed #####
-
-				set_temp_variable = { kill_chance = mtth:spy_kill_chance }
-				multiply_temp_variable = { kill_chance = 100 }
-				random = {
-					chance = var:kill_chance
-					
-					add_to_variable = { removed_spies = 100 }
-				}
-
-
-
-				##### spies steal intel and stuff ######
-
-				set_temp_variable = { local_network_strength = mtth:local_network_strength_100 }
-
+				set_variable = { ROOT.local_network_growth_in_@THIS = ROOT.spies_send_to_@THIS }
+				subtract_from_variable = { ROOT.local_network_growth_in_@THIS = ROOT:spies_removed_by_@THIS }
+				divide_variable = { ROOT.local_network_growth_in_@THIS = THIS.num_controlled_states }
+				multiply_variable = { ROOT.local_network_growth_in_@THIS = 0.1 }
 				ROOT = {
-					meta_effect = {
-						text = {
-							random_list = {
-								25 = { 
-									add_intel = {
-										target = PREV
-										civilian_intel = [INTEL]
-									}
-								}
-								25 = { 
-									add_intel = {
-										target = PREV
-										army_intel = [INTEL]
-									}
-								}
-								25 = { 
-									add_intel = {
-										target = PREV
-										navy_intel = [INTEL]
-									}
-								}
-								25 = { 
-									add_intel = {
-										target = PREV
-										airforce_intel = [INTEL]
-									}
-								}
-							}
-						}
-						INTEL = "[?local_network_strength]"
-					}
+					multiply_variable = { local_network_growth_in_@PREV.THIS = mtth:intel_network_factor }
 				}
+				THIS = {
+					multiply_variable = { ROOT.local_network_growth_in_@THIS = mtth:enemy_intel_network_factor }
+				}
+
+				if = {
+					limit = {
+						check_variable = { THIS.local_network_@ROOT > 0 }
+						check_variable = { ROOT.spies_send_to_@THIS < 1 }
+					}
+					set_variable = { ROOT.local_network_growth_in_@THIS = -0.01 }
+				}
+
+				if = {
+					limit = {
+						check_variable = { ROOT.local_network_growth_in_@THIS = 0 }
+					}
+					remove_from_array = {
+						array = ROOT.countries_with_spies
+						value = FROM.id
+					}
+					set_variable = { ROOT.local_network_growth_in_@THIS = 0 }
+				}
+
+				add_to_variable = { THIS.local_network_@ROOT = ROOT.local_network_growth_in_@THIS }
+				if = {
+					limit = {
+						check_variable = { 
+							var = THIS.local_network_@ROOT
+							value = 1
+							compare = greater_than_or_equals
+						}
+					}
+					subtract_from_variable = { THIS.local_network_@ROOT = 1 }
+					add_to_variable = { THIS.available_missions_from_@ROOT = 1 }
+				}
+				clamp_variable = {
+					var = THIS.local_network_@ROOT
+					min = 0
+					max = 1
+				}
+
+
+				#### removefrom array
+
+				if = {
+					limit = {
+						check_variable = { ROOT.spies_send_to_@FROM = 0 }
+						check_variable = { THIS.local_network_@ROOT = 0 }
+					}
+					remove_from_array = {
+						array = ROOT.countries_with_spies
+						value = THIS.id
+					}
+					clear_variable = ROOT.local_network_growth_in_@THIS
+					clear_variable = THIS.available_missions_from_@ROOT
+				}
+
+
 			}
 		}
 	}

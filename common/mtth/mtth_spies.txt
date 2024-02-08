@@ -5,7 +5,7 @@ available_spies = {
 	modifier = {
 		set_temp_variable = { spies = modifier@operative_slot }
 		add_to_temp_variable = { spies = available_spies }
-		subtract_from_temp_variable = { spies = removed_spies }
+		subtract_from_temp_variable = { spies = spies_on_quard_removed }
 		
 		add = spies
 	}
@@ -17,37 +17,9 @@ local_spies = {
 		set_temp_variable = { local_spies = 0 }
 
 		add_to_temp_variable = { local_spies = ROOT:spies_send_to_@FROM }
+		subtract_from_temp_variable = { local_spies = ROOT:spies_removed_by_@FROM }
 		
 		add = local_spies
-	}
-}
-
-local_network_strength = {
-	base = 0
-	modifier = {
-
-		set_temp_variable = { spy_strength = ROOT.spies_send_to_@THIS }
-		divide_temp_variable = { spy_strength = THIS.num_controlled_states }
-		ROOT = {
-			multiply_temp_variable = { spy_strength = mtth:intel_network_factor }
-		}
-		FROM = {
-			multiply_temp_variable = { spy_strength = mtth:enemy_intel_network_factor }
-		}
-
-		add = spy_strength
-	}
-
-}
-
-local_network_strength_100 = {
-	base = 0
-	modifier = {
-
-		set_temp_variable = { spy_strength = mtth:local_network_strength }
-		multiply_temp_variable = { spy_strength = 100 }
-
-		add = spy_strength
 	}
 }
 
@@ -77,11 +49,9 @@ spy_kill_chance = {
 
 		set_temp_variable = { kill_chance = mtth:local_spies }
 		divide_temp_variable = { kill_chance = THIS.num_controlled_states }
-		multiply_temp_variable = { kill_chance = 0.1 }
-		multiply_temp_variable = { kill_chance = mtth:available_spies }
 
 		ROOT = {
-			multiply_temp_variable = { kill_chance = modifier@operative_death_on_capture_chance }
+			multiply_temp_variable = { kill_chance = modifier@kill_agent_factor }
 		}
 
 		add = kill_chance

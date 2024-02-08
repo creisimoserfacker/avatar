@@ -69,13 +69,10 @@ scripted_gui = {
 					}
 				}
 			}
-			recall_local_spies_visible = {
-				always = no
-			}
 			send_spies_click_enabled = {
-				ROOT = {
-					check_variable = { mtth:available_spies > 0 }
-				}
+				#ROOT = {
+				#	check_variable = { mtth:available_spies > 0 }
+				#}
 			}
 			recall_spies_visible = {
 				FROM =  {
@@ -88,25 +85,35 @@ scripted_gui = {
 			send_spies_click = {
 				if = {
 					limit = {
-						NOT = {
-							is_in_array = {
-								array = ROOT.countries_with_spies
-								value = FROM.id
-							}
+						ROOT = {
+							check_variable = { mtth:available_spies > 0 }
 						}
 					}
-					add_to_array = {
-						array = ROOT.countries_with_spies
-						value = FROM.id
+					if = {
+						limit = {
+							NOT = {
+								is_in_array = {
+									array = ROOT.countries_with_spies
+									value = FROM.id
+								}
+							}
+						}
+						add_to_array = {
+							array = ROOT.countries_with_spies
+							value = FROM.id
+						}
 					}
+					add_to_variable = { ROOT.spies_send_to_@FROM = 1 }
+					add_to_variable = { ROOT.available_spies = -1 }
 				}
-				add_to_variable = { ROOT.spies_send_to_@FROM = 1 }
-				add_to_variable = { ROOT.available_spies = -1 }
 			}
-			recall_local_spies_click = {
-				remove_from_array = {
-					array = ROOT.countries_with_spies
-					value = FROM.id
+			send_spies_right_click = {
+				if = {
+					limit = {
+						check_variable = { ROOT.spies_send_to_@FROM > 0 }
+					}
+					add_to_variable = { ROOT.spies_send_to_@FROM = -1 }
+					add_to_variable = { ROOT.available_spies = 1 }
 				}
 			}
 			recall_spies_click = {
@@ -116,8 +123,28 @@ scripted_gui = {
 					add_to_variable = { PREV.available_spies = PREV.spies_send_to_@THIS }
 					clear_variable = PREV.spies_send_to_@THIS
 				}
-				clear_array = countries_with_spies
 			}
+			select_mission_click = {
+				if = {
+					limit = {
+						NOT = { has_variable = ROOT.spy_operation_in_@FROM }
+					}
+					set_variable = { ROOT.spy_operation_in_@FROM = 1 }
+				}
+				add_to_variable = { ROOT.spy_operation_in_@FROM = 1 }
+				if = {
+					limit = {
+						check_variable = { ROOT.spy_operation_in_@FROM > 3 }
+					}
+					set_variable = { ROOT.spy_operation_in_@FROM = 1 }
+				}
+			}
+		}
+		properties = {
+			select_mission = {
+				frame = ROOT.spy_operation_in_@FROM
+			}
+			
 		}
 	}
 	

@@ -86,49 +86,23 @@ guiTypes = {
 				alwaystransparent = yes				
 			}
 
-			instantTextboxType = {
-				name = "civilian_intel"
-				position = { x = 30 y = 18 }
-				font = "hoi_16mbs"
-				text = "civilian_intel"
-				maxWidth = 44
-				maxHeight = 20
-				format = center
-				pdx_tooltip = "civilian_intel_tooltip"
-				pdx_tooltip_delayed = "civilian_intel_tooltip_delayed"
+			iconType = {
+				name = "intel_icon"
+				spriteType = "GFX_intel_icon"
+				position = { x = 36 y = 26 }
+				pdx_tooltip = "intel_tooltip"
+				pdx_tooltip_delayed = "intel_tooltip_delayed"
 			}
 			instantTextboxType = {
-				name = "army_intel"
-				position = { x = 66 y = 18 }
+				name = "network_strength"
+				position = { x = 36 y = 16 }
 				font = "hoi_16mbs"
-				text = "army_intel"
-				maxWidth = 44
+				text = "network_strength"
+				maxWidth = 120
 				maxHeight = 20
-				format = center
-				pdx_tooltip = "army_intel_tooltip"
-				pdx_tooltip_delayed = "army_intel_tooltip_delayed"
-			}
-			instantTextboxType = {
-				name = "navy_intel"
-				position = { x = 30 y = 36 }
-				font = "hoi_16mbs"
-				text = "navy_intel"
-				maxWidth = 44
-				maxHeight = 20
-				format = center
-				pdx_tooltip = "navy_intel_tooltip"
-				pdx_tooltip_delayed = "navy_intel_tooltip_delayed"
-			}
-			instantTextboxType = {
-				name = "air_intel"
-				position = { x = 66 y = 36 }
-				font = "hoi_16mbs"
-				text = "air_intel"
-				maxWidth = 44
-				maxHeight = 20
-				format = center
-				pdx_tooltip = "air_intel_tooltip"
-				pdx_tooltip_delayed = "air_intel_tooltip_delayed"
+				format = left
+				pdx_tooltip = "operatives_tooltip"
+				pdx_tooltip_delayed = "operatives_tooltip_delayed"
 			}
 
 			instantTextboxType = {
@@ -155,9 +129,19 @@ guiTypes = {
 			}
 
 			buttonType = {
+				name = "select_mission"
+				spriteType = "GFX_operation_icon_strip"
+				position = { x = 74 y = 30 }
+				scale = 0.8
+				frame = 1
+				pdx_tooltip = "select_mission_tooltip"
+				pdx_tooltip_delayed = "select_mission_tooltip_delayed"
+			}
+
+			buttonType = {
 				name = "send_spies"
 				spriteType = "GFX_show_decisions"
-				position = { x= 86 y = -16 }
+				position = { x= 86 y = -22 }
 				Orientation = "UPPER_LEFT"
 				scale = 0.6
 				pdx_tooltip = "send_spies_tooltip"
@@ -167,20 +151,11 @@ guiTypes = {
 			buttonType = {
 				name = "recall_spies"
 				spriteType = "GFX_hide_decisions"
-				position = { x= 86 y = -16 }
+				position = { x= 86 y = -22 }
 				Orientation = "UPPER_LEFT"
 				scale = 0.6
 				pdx_tooltip = "recall_spies_tooltip"
 				pdx_tooltip_delayed = "recall_spies_tooltip_delayed"
-			}
-			buttonType = {
-				name = "recall_local_spies"
-				spriteType = "GFX_hide_decisions"
-				position = { x= 86 y = -16 }
-				Orientation = "UPPER_LEFT"
-				scale = 0.6
-				pdx_tooltip = "recall_local_spies_tooltip"
-				pdx_tooltip_delayed = "recall_local_spies_tooltip_delayed"
 			}
 
 		}
