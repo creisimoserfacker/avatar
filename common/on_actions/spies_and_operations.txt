@@ -77,8 +77,13 @@ on_actions = {
 
 					#### spies get captured calculation #####
 
-					set_temp_variable = { detection_chance = mtth:available_spies }
-					divide_temp_variable = { detection_chance = THIS.num_controlled_states }
+					set_temp_variable = { detection_chance = mtth:available_agents }
+					set_temp_variable = { spy_states = THIS.num_controlled_states }
+					clamp_temp_variable = {
+						var = spy_states
+						min = 1
+					}
+					divide_temp_variable = { detection_chance = spy_states }
 					multiply_temp_variable = { detection_chance = 0.1 }
 					set_temp_variable = { local_spies = ROOT:spies_send_to_@THIS }
 					subtract_from_temp_variable = { local_spies = ROOT:spies_removed_by_@THIS }
@@ -104,7 +109,12 @@ on_actions = {
 					set_temp_variable = { local_spies = ROOT:spies_send_to_@THIS }
 					subtract_from_temp_variable = { local_spies = ROOT:spies_removed_by_@THIS }
 					set_temp_variable = { spy_kill_chance = local_spies }
-					divide_temp_variable = { spy_kill_chance = THIS.num_controlled_states }
+					set_temp_variable = { spy_states = THIS.num_controlled_states }
+					clamp_temp_variable = {
+						var = spy_states
+						min = 1
+					}
+					divide_temp_variable = { kill_chance = spy_states }
 
 					ROOT = {
 						multiply_temp_variable = { spy_kill_chance = modifier@kill_agent_factor }
@@ -226,78 +236,7 @@ on_actions = {
 
 						####### specialised token intel gain #####
 
-						random = {
-							chance = var:ROOT.modifier@civil_infiltration_factor
-							
-							ROOT = {
-								if = {
-									limit = {
-										has_operation_token = {
-											tag = PREV
-											token = token_civilian
-										}
-									}
-								}
-								add_operation_token = {
-									tag = PREV
-									token = token_civilian
-								}
-							}
-						}
-						random = {
-							chance = var:ROOT.modifier@army_infiltration_factor
-							
-							ROOT = {
-								if = {
-									limit = {
-										has_operation_token = {
-											tag = PREV
-											token = token_army
-										}
-									}
-								}
-								add_operation_token = {
-									tag = PREV
-									token = token_army
-								}
-							}
-						}
-						random = {
-							chance = var:ROOT.modifier@navy_infiltration_factor
-							
-							ROOT = {
-								if = {
-									limit = {
-										has_operation_token = {
-											tag = PREV
-											token = token_navy
-										}
-									}
-								}
-								add_operation_token = {
-									tag = PREV
-									token = token_navy
-								}
-							}
-						}
-						random = {
-							chance = var:ROOT.modifier@air_infiltration_factor
-							
-							ROOT = {
-								if = {
-									limit = {
-										has_operation_token = {
-											tag = PREV
-											token = token_airforce
-										}
-									}
-								}
-								add_operation_token = {
-									tag = PREV
-									token = token_airforce
-								}
-							}
-						}
+						steal_extra_intel = yes
 
 
 
@@ -319,6 +258,15 @@ on_actions = {
 							trade_influence_mission = yes
 						}
 
+						###### unrest mission active
+
+						if = {
+							limit = {
+								check_variable = { ROOT.spy_operation_in_@THIS = 4 }
+							}
+							spread_unrest_mission = yes
+						}
+
 					}
 
 
@@ -330,6 +278,16 @@ on_actions = {
 
 			}
 
+			set_variable = { spy_destabilisation_regain = modifier@spy_destabilisation_regain }
+			clamp_variable = {
+				var = spy_destabilisation_regain
+				min = 0.005
+			}
+			add_to_variable = { spy_destabilisation = spy_destabilisation_regain }
+			clamp_variable = {
+				var = spy_destabilisation
+				max = 0
+			}
 		}
 	}
 
@@ -363,17 +321,6 @@ on_actions = {
 					set_variable = { ROOT.local_network_growth_in_@THIS = -0.01 }
 				}
 
-				if = {
-					limit = {
-						check_variable = { ROOT.local_network_growth_in_@THIS = 0 }
-					}
-					remove_from_array = {
-						array = ROOT.countries_with_spies
-						value = FROM.id
-					}
-					set_variable = { ROOT.local_network_growth_in_@THIS = 0 }
-				}
-
 				add_to_variable = { THIS.local_network_@ROOT = ROOT.local_network_growth_in_@THIS }
 				if = {
 					limit = {
@@ -397,8 +344,11 @@ on_actions = {
 
 				if = {
 					limit = {
-						check_variable = { ROOT.spies_send_to_@FROM = 0 }
-						check_variable = { THIS.local_network_@ROOT = 0 }
+						AND = {
+							check_variable = { ROOT.local_network_growth_in_@THIS = 0 }
+							check_variable = { THIS.local_network_@ROOT = 0 }
+							check_variable = { ROOT.spies_send_to_@THIS < 1 }
+						}
 					}
 					remove_from_array = {
 						array = ROOT.countries_with_spies

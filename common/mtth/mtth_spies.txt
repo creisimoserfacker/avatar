@@ -23,12 +23,30 @@ local_spies = {
 	}
 }
 
+available_agents = {
+	base = 0
+	modifier = {
+		set_temp_variable = { available_agents = modifier@operative_slot }
+		add_to_temp_variable = { available_agents = available_spies }
+		subtract_from_temp_variable = { available_agents = spies_on_quard_removed }
+		add_to_temp_variable = { available_agents = modifier@intelligence_agency_defense }
+		
+		add = available_agents
+	}
+}
+
+
 spy_detection_chance = {
 	base = 0
 	modifier = {
 
-		set_temp_variable = { detection_chance = mtth:available_spies }
-		divide_temp_variable = { detection_chance = THIS.num_controlled_states }
+		set_temp_variable = { detection_chance = mtth:available_agents }
+		set_temp_variable = { spy_states = THIS.num_controlled_states }
+		clamp_temp_variable = {
+			var = spy_states
+			min = 1
+		}
+		divide_temp_variable = { detection_chance = spy_states }
 		multiply_temp_variable = { detection_chance = 0.1 }
 		multiply_temp_variable = { detection_chance = mtth:local_spies }
 
@@ -48,7 +66,12 @@ spy_kill_chance = {
 	modifier = {
 
 		set_temp_variable = { kill_chance = mtth:local_spies }
-		divide_temp_variable = { kill_chance = THIS.num_controlled_states }
+		set_temp_variable = { spy_states = THIS.num_controlled_states }
+		clamp_temp_variable = {
+			var = spy_states
+			min = 1
+		}
+		divide_temp_variable = { kill_chance = spy_states }
 
 		ROOT = {
 			multiply_temp_variable = { kill_chance = modifier@kill_agent_factor }
@@ -83,5 +106,22 @@ cypher_advantage = {
 		check_variable = { ROOT.modifier@decryption = 0 }
 
 		factor = 0
+	}
+}
+
+
+operation_success = {
+	base = 0
+	modifier = {
+		set_temp_variable = { success_chance_factor = 1 }
+		subtract_from_temp_variable = { success_chance_factor = detection_chance }
+		add_to_temp_variable = { success_chance_factor = ROOT.modifier@operation_outcome }
+		clamp_temp_variable = {
+			var = success_chance_factor
+			min = 0
+			max = 1
+		}
+
+		add = success_chance_factor
 	}
 }

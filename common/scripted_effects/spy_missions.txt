@@ -1,4 +1,79 @@
 
+steal_extra_intel = {
+	random = {
+		chance = var:ROOT.modifier@civil_infiltration_factor
+		
+		ROOT = {
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_civilian
+					}
+				}
+			}
+			add_operation_token = {
+				tag = PREV
+				token = token_civilian
+			}
+		}
+	}
+	random = {
+		chance = var:ROOT.modifier@army_infiltration_factor
+		
+		ROOT = {
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_army
+					}
+				}
+			}
+			add_operation_token = {
+				tag = PREV
+				token = token_army
+			}
+		}
+	}
+	random = {
+		chance = var:ROOT.modifier@navy_infiltration_factor
+		
+		ROOT = {
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_navy
+					}
+				}
+			}
+			add_operation_token = {
+				tag = PREV
+				token = token_navy
+			}
+		}
+	}
+	random = {
+		chance = var:ROOT.modifier@air_infiltration_factor
+		
+		ROOT = {
+			if = {
+				limit = {
+					has_operation_token = {
+						tag = PREV
+						token = token_airforce
+					}
+				}
+			}
+			add_operation_token = {
+				tag = PREV
+				token = token_airforce
+			}
+		}
+	}
+}
+
 
 trade_influence_mission = {
 
@@ -52,4 +127,31 @@ steal_tech_mission = {
 			}
 		}
 	}
+}
+
+spread_unrest_mission = {
+
+	random = {
+		chance = var:ROOT.modifier@spy_destabilisation_chance
+		
+		set_temp_variable = { destabilisation_added = ROOT.modifier@spy_destabilisation }
+		add_to_temp_variable = { destabilisation_added = THIS.spy_destabilisation }
+		clamp_temp_variable = {
+			var = destabilisation_added
+			min = 0
+		}
+		multiply_temp_variable = { destabilisation_added = -1 }
+
+		add_to_variable = { THIS.spy_destabilisation = destabilisation_added }
+
+		if = {
+			limit = {
+				NOT = {
+					has_dynamic_modifier = { modifier = destabilisation_from_spies }
+				}
+			}
+			add_dynamic_modifier = { modifier = destabilisation_from_spies }
+		}
+	}
+
 }

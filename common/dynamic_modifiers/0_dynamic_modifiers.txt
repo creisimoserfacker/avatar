@@ -120,3 +120,16 @@ pluralist_nation = {
 	bender_growth = 0.005
 	
 }
+
+
+destabilisation_from_spies = {
+	enable = { always = yes }
+	remove_trigger = {
+		NOT = {
+			check_variable = { spy_destabilisation < 0 }
+		}
+	}
+
+	stability_factor = spy_destabilisation
+	
+}
