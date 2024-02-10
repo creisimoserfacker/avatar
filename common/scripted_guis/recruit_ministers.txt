@@ -1,0 +1,152 @@
+scripted_gui = {
+
+	recruit_ministers_window = {
+		context_type = player_context
+		
+		window_name = "recruit_ministers"
+		#parent_window_token = politics_tab
+		parent_window_name = country_politics_idea_category_entry
+		
+		visible = {
+			always = yes
+		}
+		
+		triggers = {
+			new_minister_of_personnel_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_personnel
+				}
+			}
+			new_minister_of_finance_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_finance
+				}
+			}
+			new_minister_of_culture_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_culture
+				}
+			}
+			new_minister_of_justice_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_justice
+				}
+			}
+			new_minister_of_works_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_works
+				}
+			}
+			new_minister_of_rites_button_click_enabled = {
+				check_variable = { mtth:minister_cost < political_power }
+				any_character = {
+					has_character_flag = generic_advisor
+					has_character_flag = advisor_retired
+					is_character_slot = minister_of_rites
+				}
+			}
+		}
+
+		effects = {
+			new_minister_of_personnel_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_personnel
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+			new_minister_of_finance_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_finance
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+			new_minister_of_culture_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_culture
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+			new_minister_of_justice_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_justice
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+			new_minister_of_works_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_works
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+			new_minister_of_rites_button_click = {
+				random_character = {
+					limit = { 
+						has_character_flag = generic_advisor
+						has_character_flag = advisor_retired
+						is_character_slot = minister_of_rites
+					}
+					generic_minister_random_trait = yes
+					clr_character_flag = advisor_retired
+				}
+				add_political_power = mtth:minister_cost_remove
+				generic_minister_recalc = yes
+			}
+		}
+
+		properties = {
+			
+		}
+		
+	}
+	
+}

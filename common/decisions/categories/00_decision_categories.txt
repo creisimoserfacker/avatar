@@ -59,11 +59,7 @@ recruitment_decision_category = {
 	picture = GFX_decision_cat_recruitment
 
 	visible = {
-		OR = {
-			has_idea = all_adults_serve
-			has_idea = scraping_the_barrel
-			has_idea_with_trait = feminist
-		}
+		check_variable = { modifier@women_recruitment_modifier > 0 }
 		NOT = { has_country_flag = hide_generic_decisions }
 	}
 

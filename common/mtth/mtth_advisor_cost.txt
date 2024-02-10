@@ -1,0 +1,48 @@
+
+minister_cost = {
+	base = 5
+	modifier = { 
+		set_temp_variable = { generic_minister_cost = generic_minster_var }
+		multiply_temp_variable = { generic_minister_cost = 5 }
+
+		add = generic_minister_cost
+	}
+	
+
+	modifier = { 
+		set_temp_variable = { minister_cost_factor = 1 }
+		add_to_temp_variable = { minister_cost_factor = modifier@civil_leader_cost_factor }
+		clamp_temp_variable = {
+			var = minister_cost_factor
+			min = 0.1
+		}
+
+		factor = minister_cost_factor
+	}
+
+	
+}
+
+minister_cost_remove = {
+	base = 5
+	modifier = { 
+		set_temp_variable = { generic_minister_cost = generic_minster_var }
+		multiply_temp_variable = { generic_minister_cost = -5 }
+
+		add = generic_minister_cost
+	}
+	
+
+	modifier = { 
+		set_temp_variable = { minister_cost_factor = 1 }
+		add_to_temp_variable = { minister_cost_factor = modifier@civil_leader_cost_factor }
+		clamp_temp_variable = {
+			var = minister_cost_factor
+			min = 0.1
+		}
+
+		factor = minister_cost_factor
+	}
+
+	
+}

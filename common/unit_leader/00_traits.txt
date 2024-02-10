@@ -673,6 +673,55 @@ leader_traits = {
 		gui_row = 5
 		all_parents = { tactical_mind }
 		trait_type = assignable_trait
+
+		slot = head_of_intelligence
+		specialist_advisor_trait = skilled_scout_1
+		expert_advisor_trait = skilled_scout_2
+		genius_advisor_trait = skilled_scout_3
+
+		on_add = {
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				if = {
+					limit = {
+						skill > 8
+					}
+					add_advisor_role = {
+						advisor = {
+							slot = head_of_intelligence
+							cost = 200
+							traits = { skilled_scout_3 }
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						skill > 5
+					}
+					add_advisor_role = {
+						advisor = {
+							slot = head_of_intelligence
+							cost = 100
+							traits = { skilled_scout_2 }
+						}
+					}
+				}
+				else_if = {
+					limit = {
+						skill > 2
+					}
+					add_advisor_role = {
+						advisor = {
+							slot = head_of_intelligence
+							cost = 50
+							traits = { skilled_scout_1 }
+						}
+					}
+				}
+			}
+		}
 	}
 
 	thorough_planner = { 
@@ -3154,6 +3203,15 @@ leader_traits = {
 ##################################
 
 	generic = { 
+		type = all
+		trait_type = personality_trait
+
+		new_commander_weight = {
+			factor = 0
+		}
+	}
+
+	not_a_real_officer = { 
 		type = all
 		trait_type = personality_trait
 

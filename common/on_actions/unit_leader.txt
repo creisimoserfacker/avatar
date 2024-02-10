@@ -2,7 +2,50 @@ on_actions = {
 
 	on_startup = {
 		effect = {
-			
+
+			every_country = {
+
+				every_character = {
+					limit = {
+						has_trait = not_a_real_officer
+					}
+					remove_unit_leader_role = yes
+					set_character_flag = generic_advisor
+				}
+				
+				generic_minister_recalc = yes
+			}
+		}
+	}
+
+	on_daily = {
+		effect = {
+			generic_minister_recalc = yes
+			every_character = {
+
+				#### advisor retires
+				if = {
+					limit = {
+						has_character_flag = generic_advisor
+
+						###	some nice math
+						#
+						#	p1 = 1%, p2 = 0.01%, p3 = 0.0001%
+						#
+						#	Probability of A occuring = 1 - (1 - 0.0001)25000 = 0.91792526204365
+						#
+						#	25000 days = 68,5 years
+						#
+						#	after 68,5 years the leader retired with a 92% certainty
+
+
+						check_variable = { random < 0.01 }
+						check_variable = { random < 0.01 }
+						check_variable = { random < 0.01 }
+					}
+					set_character_flag = advisor_retired
+				}
+			}
 		}
 	}
 

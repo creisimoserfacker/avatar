@@ -7,7 +7,8 @@ guiTypes = {
 		
 		iconType = {
 			name ="background"
-			spriteType = "GFX_topbar_background_extended"
+			#spriteType = "GFX_topbar_background_extended"
+			spriteType = "GFX_topbar_background"
 			position = { x= 0 y = 0 }
 			Orientation = "UPPER_LEFT"
 		}
@@ -767,7 +768,7 @@ guiTypes = {
 				Orientation = "UPPER_LEFT"
 				clicksound = click_close
 				oversound = ui_menu_over
-				shortcut = "shift+w"
+				hide = yes
 			}
 
 			iconType = {
@@ -776,6 +777,7 @@ guiTypes = {
 				position = { x = -49 y = 4}
 				alwaystransparent = yes
 				frame = 4
+				hide = yes
 			}
 	
 			instantTextBoxType = {
@@ -787,6 +789,7 @@ guiTypes = {
 				maxWidth = 20
 				maxHeight = 24
 				fixedsize = yes
+				hide = yes
 			}
 			
 			iconType = {
@@ -795,6 +798,7 @@ guiTypes = {
 				position = { x = -49 y = 20}
 				alwaystransparent = yes
 				frame = 1
+				hide = yes
 			}
 
 			instantTextBoxType = {
@@ -806,12 +810,13 @@ guiTypes = {
 				maxWidth = 20
 				maxHeight = 24
 				fixedsize = yes
+				hide = yes
 			}
 
 			# Here, several buttons are put in the container "after_intel_agency_button", to be easily moved if the player don't have the DLC requiered by "intel_agency_button".
 			containerWindowType = {
 				name = "after_intel_agency_button"
-				position = { x=56 y=0 }
+				position = { x=1 y=0 }
 				
 				buttonType = {
 					name = "technology_button"

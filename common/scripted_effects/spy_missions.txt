@@ -114,6 +114,9 @@ steal_tech_mission = {
 	if = {
 		limit = {
 			check_variable = { ROOT.tech_age < THIS.tech_age }
+			NOT = {
+				check_variable = { THIS.modifier@tech_share_modifier > 0 }
+			}
 		}
 		random = {
 			chance = var:ROOT.modifier@steal_invention_chance

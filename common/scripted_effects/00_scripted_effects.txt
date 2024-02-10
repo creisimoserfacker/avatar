@@ -131,3 +131,56 @@ invention_check = {
 		set_country_flag = all_inventions_made
 	}
 }
+
+generic_minister_recalc = {
+	set_variable = { generic_minster_var = 0 }
+	every_character = {
+		limit = {
+			has_character_flag = generic_advisor
+			NOT = {
+				has_character_flag = advisor_retired
+			}
+		}
+		add_to_variable = { ROOT.generic_minster_var = 1 }
+	}
+}
+
+
+generic_minister_random_trait = {
+	if = {
+		limit = {
+			is_character_slot = minister_of_personnel
+		}
+		
+	}
+	if = {
+		limit = {
+			is_character_slot = minister_of_finance
+		}
+		
+	}
+	if = {
+		limit = {
+			is_character_slot = minister_of_culture
+		}
+		
+	}
+	if = {
+		limit = {
+			is_character_slot = minister_of_justice
+		}
+		
+	}
+	if = {
+		limit = {
+			is_character_slot = minister_of_works
+		}
+		
+	}
+	if = {
+		limit = {
+			is_character_slot = minister_of_rites
+		}
+		
+	}
+}
