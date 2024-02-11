@@ -509,6 +509,36 @@ expenses_factor = {
 	}
 }
 
+army_wages_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@army_wages_factor } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
+navy_wages_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@navy_wages_factor } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
+air_wages_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@air_wages_factor } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
 expenses_per_pop = {
 	base = 0
 	modifier = { 

@@ -343,14 +343,29 @@ on_actions = {
 			multiply_variable = { wealth_bar = 100 }
 
 
+			set_variable = { army_wages = num_battalions }
+			multiply_variable = { army_wages = 0.01 }  ### 10 money per battalion
+			multiply_variable = { army_wages = mtth:army_wages_factor }
+			set_variable = { navy_wages = num_ships }
+			multiply_variable = { navy_wages = 0.1 }  ### 100 money per ship
+			multiply_variable = { navy_wages = mtth:navy_wages_factor }
+			set_variable = { air_wages = num_deployed_planes }
+			ultiply_variable = { air_wages = 0.05 }  ### 50 money per plane
+			multiply_variable = { air_wages = mtth:air_wages_factor }
+
+
 			set_variable = { tax_balance = taxation_var }
 			add_to_variable = { tax_balance = inflation_money }
-			set_variable = { state_expenses = modifier@expenses_gain }
+			set_variable = { state_expenses = modifier@income }
+			multiply_variable = { state_expenses = -1 }
 			add_to_variable = { state_expenses = mtth:expenses_per_pop }
+			add_to_variable = { state_expenses = army_wages }
+			add_to_variable = { state_expenses = navy_wages }
+			add_to_variable = { state_expenses = air_wages }
 			multiply_variable = { state_expenses = mtth:expenses_factor }
 			clamp_variable = { var = state_expenses  min = 0 }
 			subtract_from_variable = { tax_balance = state_expenses }
-			clamp_variable = { var = tax_balance  min = 0 }
+			#clamp_variable = { var = tax_balance  min = 0 }
 
 
 
@@ -838,6 +853,7 @@ on_actions = {
 
 
 			set_variable = { factories_bought = tax_balance }
+			clamp_variable = { var = factories_bought  min = 0 }
 			multiply_variable = { factories_bought = 10 }
 			round_variable = factories_bought
 

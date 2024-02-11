@@ -287,6 +287,68 @@ war_weariness_peanalty_2 = {
 }
 
 
+spirit_supply_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { supply = logistic_spirit_var }
+		multiply_temp_variable = { supply = 0.03 }
+		subtract_from_temp_variable = { supply = 1 }
+		
+		add = supply
+	}
+}
+spirit_army_orga_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { orga = logistic_spirit_var }
+		multiply_temp_variable = { orga = 0.025 }
+		subtract_from_temp_variable = { orga = 0.5 }
+		
+		add = orga
+	}
+}
+
+spirit_wages_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { wages = quality_spirit_var }
+		multiply_temp_variable = { wages = 0.025 }
+		subtract_from_temp_variable = { wages = 1 }
+		
+		add = wages
+	}
+}
+spirit_unit_quality_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { unit_quality = quality_spirit_var }
+		multiply_temp_variable = { unit_quality = 0.01 }
+		subtract_from_temp_variable = { unit_quality = 0.5 }
+		
+		add = unit_quality
+	}
+}
+
+spirit_leader_cost_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { leader_cost = unit_leader_spirit_var }
+		multiply_temp_variable = { leader_cost = 0.01 }
+		subtract_from_temp_variable = { leader_cost = 0.75 }
+		
+		add = leader_cost
+	}
+}
+spirit_leader_level_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { leader_level = unit_leader_spirit_var }
+		multiply_temp_variable = { leader_level = 0.1 }
+		
+		add = leader_level
+	}
+}
+
 allowed_bender_units = {
 	base = 0
 	modifier = {

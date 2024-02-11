@@ -184,3 +184,89 @@ generic_minister_random_trait = {
 		
 	}
 }
+
+
+
+logistics_and_orga_spirit_add_1 = {
+	if = {
+		limit = {
+			check_variable = {
+				var = army_experience
+				value = 50
+				compare = greater_than_or_equals
+			}
+		}
+		add_to_variable = { logistic_spirit_var = 1 }
+		army_experience = -50
+	}
+	set_variable = { spirit_army_orga = logistic_spirit_var }
+	multiply_variable = { spirit_army_orga = 0.025 }
+	subtract_from_variable = { spirit_army_orga = 0.5 }
+}
+logistics_and_orga_spirit_add_10 = {
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+	logistics_and_orga_spirit_add_1 = yes
+}
+
+wages_and_professionalism_spirit_add_1 = {
+	if = {
+		limit = {
+			check_variable = {
+				var = army_experience
+				value = 50
+				compare = greater_than_or_equals
+			}
+		}
+		add_to_variable = { quality_spirit_var = 1 }
+		army_experience = -50
+	}
+}
+wages_and_professionalism_spirit_add_10 = {
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+	wages_and_professionalism_spirit_add_1 = yes
+}
+
+unit_leader_spirit_add_1 = {
+	if = {
+		limit = {
+			check_variable = {
+				var = army_experience
+				value = 50
+				compare = greater_than_or_equals
+			}
+		}
+		add_to_variable = { unit_leader_spirit_var = 1 }
+		army_experience = -50
+	}
+}
+unit_leader_spirit_add_10 = {
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+	unit_leader_spirit_add_1 = yes
+}
