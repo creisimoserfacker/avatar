@@ -318,13 +318,6 @@ recruit_character = FIR_quartermaster_5
 recruit_character = FIR_quartermaster_6
 
 
-if = {
-	limit = {
-		has_dlc = "La Resistance"
-	}
-	create_intelligence_agency = yes
-}
-
 recruit_character = FIR_empty_throne
 
 recruit_character = FIR_sozin
@@ -966,16 +959,6 @@ set_technology = {
 		legacy_of_roku_and_sozin
 	}
 
-	puppet = YFC
-	puppet = KFC
-
-	YFC = {
-		set_imperial_colony_effect = yes
-	}
-	KFC = {
-		set_imperial_colony_effect = yes
-	}
-
 
 	set_variable = { azulon_x = 90 }
 
@@ -1025,29 +1008,6 @@ set_technology = {
 	set_variable = { FIR.iroh_birth_event = 51 }
 	set_variable = { iroh_x = 300 }
 	set_variable = { iroh_y = 116 }
-
-	create_faction = Alliance_of_Fire
-	add_to_faction = FIR
-	add_to_faction = YFC
-	add_to_faction = KFC
-
-
-# WAR
-	
-	declare_war_on = {
-		target = EAR
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = NWT
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = SWT
-		type = annex_everything
-	}
-
-	war_setup_52 = yes
 
 
 }
@@ -1526,44 +1486,6 @@ if = {
 		}
 	}
 
-	puppet = PFC
-	puppet = HFC
-	puppet = MFC
-	puppet = GFC
-
-	PFC = {
-		set_imperial_colony_effect = yes
-	}
-	HFC = {
-		set_imperial_colony_effect = yes
-	}
-	MFC = {
-		set_imperial_colony_effect = yes
-	}
-	GFC = {
-		set_imperial_colony_effect = yes
-	}
-
-	add_to_faction = PFC
-	add_to_faction = HFC
-	add_to_faction = MFC
-	add_to_faction = GFC
-
-	declare_war_on = {
-		target = EAR
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = NWT
-		type = annex_everything
-	}
-	declare_war_on = {
-		target = SWT
-		type = annex_everything
-	}
-
-	war_setup_106 = yes
-
 	create_equipment_variant = {
 		name = "Steel Armor"
 		type = heavy_armor_equipment_6
@@ -1782,13 +1704,175 @@ if = {
 
 	set_variable = { iroh_x = 350 }
 	set_variable = { iroh_y = 6 }
-
-
-
-	puppet = NAT
-	NAT = {
-		set_tributary_effect = yes
-	}
 		
+
+}
+
+
+
+
+
+
+#############################################
+#############################################
+#				HISTORY SETUP				#
+#############################################
+#############################################
+
+
+##############################################   year 12 after rokus death
+
+if = {
+	limit = {
+		has_start_date < 13.01.01
+	}
+	EAR = {
+		earth_puppets_12 = yes
+	}
+}
+
+##############################################   year 52 after rokus death
+
+if = {
+	limit = {
+		has_start_date > 13.01.01
+		has_start_date < 53.01.01
+	}
+
+	###### war declaration
+
+	FIR = {
+		declare_war_on = {
+			target = EAR
+			type = annex_everything
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = EAR
+			}
+			add_to_war = {
+				targeted_alliance = EAR
+				enemy = FIR
+			}
+		}
+	}
+
+
+	###### diplomatic relations
+	FIR = {
+		fire_puppets_52 = yes
+	}
+	EAR = {
+		ear_exiles_52 = yes
+		earth_puppets_52 = yes
+	}
+
+	###### alliances
+
+	EAR = {
+		earth_faction_52 = yes
+	}
+	FIR = {
+		fire_faction_52 = yes
+	}
+
+
+}
+
+##############################################   year 106 after rokus death
+
+if = {
+	limit = {
+		has_start_date > 53.01.01
+		has_start_date < 107.01.01
+	}
+
+	###### war declaration
+
+	FIR = {
+		declare_war_on = {
+			target = EAR
+			type = annex_everything
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = EAR
+			}
+			add_to_war = {
+				targeted_alliance = EAR
+				enemy = FIR
+			}
+		}
+	}
+
+
+	###### diplomatic relations
+	FIR = {
+		fire_puppets_52 = yes
+		fire_puppets_106 = yes
+	}
+	EAR = {
+		ear_exiles_52 = yes
+		ear_exiles_106 = yes
+		earth_puppets_106 = yes
+	}
+
+	###### alliances
+
+	EAR = {
+		earth_faction_106 = yes
+	}
+	FIR = {
+		fire_faction_106 = yes
+	}
+}
+
+##############################################   year 111 after rokus death
+
+if = {
+	limit = {
+		has_start_date > 107.01.01
+	}
+
+	###### war declaration
+
+	FIR = {
+		declare_war_on = {
+			target = EAR
+			type = annex_everything
+		}
+		every_country = {
+			limit = {
+				is_in_faction_with = EAR
+			}
+			add_to_war = {
+				targeted_alliance = EAR
+				enemy = FIR
+			}
+		}
+	}
+
+
+	###### diplomatic relations
+	FIR = {
+		fire_puppets_52 = yes
+		fire_puppets_106 = yes
+		fire_puppets_111 = yes
+	}
+	EAR = {
+		ear_exiles_52 = yes
+		ear_exiles_106 = yes
+		earth_puppets_111 = yes
+	}
+
+	###### alliances
+
+	EAR = {
+		earth_faction_111 = yes
+	}
+	FIR = {
+		fire_faction_111 = yes
+	}
+
 
 }
