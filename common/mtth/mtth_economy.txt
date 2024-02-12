@@ -1888,7 +1888,9 @@ local_prosperity_growth = {
 
 		set_temp_variable = { prosperity_growth = 1 }
 		add_to_temp_variable = { prosperity_growth = modifier@prosperity }
-		add_to_temp_variable = { prosperity_growth = controller:modifier@prosperity }
+		controller = {
+			add_to_temp_variable = { prosperity_growth = modifier@prosperity }
+		}
 
 		clamp_temp_variable = {
 			var = prosperity_growth
@@ -1946,7 +1948,9 @@ local_prosperity_cap = {
 
 		set_temp_variable = { prosperity_factor = 1 }
 		add_to_temp_variable = { prosperity_factor = modifier@prosperity_factor }
-		add_to_temp_variable = { prosperity_factor = controller:modifier@prosperity_factor }
+		controller = {
+			add_to_temp_variable = { prosperity_factor = modifier@prosperity_factor }
+		}
 
 		clamp_temp_variable = {
 			var = prosperity_factor
@@ -1986,7 +1990,9 @@ local_tax = {
 			min = local_clamp
 		}
 
-		multiply_temp_variable = { local_tax = controller:modifier@taxation }
+		controller = {
+			multiply_temp_variable = { local_tax = modifier@taxation }
+		}
 		multiply_temp_variable = { local_tax = -1 }
 
 		add = local_tax
@@ -2013,7 +2019,9 @@ local_investment = {
 	modifier = {
 		set_temp_variable = { local_investment = THIS.local_prosperity }
 
-		multiply_temp_variable = { local_investment = controller:modifier@peoples_initiative }
+		controller = {
+			multiply_temp_variable = { local_investment = modifier@peoples_initiative }
+		}
 		clamp_temp_variable = { 
 			var = local_investment
 			min = 0 

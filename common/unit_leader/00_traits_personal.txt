@@ -96,6 +96,123 @@ leader_traits = {
 
 
 
+	##################################
+	# bender traits
+	##################################
+
+	firebender_trait = { 
+		type = land
+		trait_type = personality_trait
+
+		non_shared_modifier = {
+			breakthrough_factor = 0.1
+		}
+
+		new_commander_weight = {
+			base = 0
+
+			modifier = {
+				FROM = {
+					has_dynamic_modifier = { modifier = fire_nation }
+				}
+				add = 1 
+			}
+			modifier = {
+				
+				set_temp_variable = { bender = modifier@nonbender_factor }
+				multiply_temp_variable = { bender = -10 }
+				add_to_temp_variable = { bender = 1 }
+
+				factor = 10
+			}
+		}
+	}
+
+	waterbender_trait = { 
+		type = land
+		trait_type = personality_trait
+
+		non_shared_modifier = {
+			army_morale_factor = 0.1
+		}
+
+		new_commander_weight = {
+			base = 0
+
+			modifier = {
+				FROM = {
+					has_dynamic_modifier = { modifier = water_nation }
+				}
+				add = 1 
+			}
+			modifier = {
+				
+				set_temp_variable = { bender = modifier@nonbender_factor }
+				multiply_temp_variable = { bender = -10 }
+				add_to_temp_variable = { bender = 1 }
+
+				factor = 10
+			}
+		}
+	}
+
+	earthbender_trait = { 
+		type = land
+		trait_type = personality_trait
+
+		non_shared_modifier = {
+			army_strength_factor = 0.1
+		}
+
+		new_commander_weight = {
+			base = 0
+
+			modifier = {
+				FROM = {
+					has_dynamic_modifier = { modifier = earth_nation }
+				}
+				add = 1 
+			}
+			modifier = {
+				
+				set_temp_variable = { bender = modifier@nonbender_factor }
+				multiply_temp_variable = { bender = -10 }
+				add_to_temp_variable = { bender = 1 }
+
+				factor = 10
+			}
+		}
+	}
+
+	airbender_trait = { 
+		type = land
+		trait_type = personality_trait
+
+		non_shared_modifier = {
+			paradrop_organization_factor = 1
+		}
+
+		new_commander_weight = {
+			base = 0
+
+			modifier = {
+				FROM = {
+					has_dynamic_modifier = { modifier = air_nation }
+				}
+				add = 1 
+			}
+			modifier = {
+				
+				set_temp_variable = { bender = modifier@nonbender_factor }
+				multiply_temp_variable = { bender = -10 }
+				add_to_temp_variable = { bender = 1 }
+
+				factor = 10
+			}
+		}
+	}
+
+
 
 	##################################
 	# character attributes

@@ -2,12 +2,40 @@ ideas = {
 
 	hidden_ideas = {
 
+		autonomy_generic_puppet = {
+			removal_cost = -1
+
+			cancel = {
+				is_puppet = no
+			}
+
+			on_remove = {
+				autonomy_state_recalc = yes
+			}
+
+			rule = {
+				can_not_declare_war = no
+				can_decline_call_to_war = yes
+				can_be_spymaster = yes
+				contributes_operatives = yes
+			}
+			
+			modifier = {
+				
+			}
+		}
+		
 		autonomy_kingdom = {
 			
 			removal_cost = -1
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = earth_culture
+						}
+					}
 					is_puppet = no
 					OR = {
 						has_idea = low_vassal_taxes
@@ -45,6 +73,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = earth_culture
+						}
+					}
 					is_puppet = no
 					NOT = {
 						check_variable = {
@@ -83,6 +116,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = earth_culture
+						}
+					}
 					is_puppet = no
 					NOT = {
 						check_variable = {
@@ -118,6 +156,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = earth_culture
+						}
+					}
 					is_puppet = no
 					NOT = {
 						check_variable = {
@@ -181,6 +224,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = fire_culture
+						}
+					}
 					is_puppet = no
 					check_variable = {
 						var = THIS.autonomy_var
@@ -209,6 +257,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = fire_culture
+						}
+					}
 					is_puppet = no
 					NOT = {
 						check_variable = {
@@ -239,6 +292,11 @@ ideas = {
 
 			cancel = {
 				OR = {
+					NOT = {
+						OVERLORD = {
+							has_government = fire_culture
+						}
+					}
 					is_puppet = no
 					NOT = {
 						check_variable = {

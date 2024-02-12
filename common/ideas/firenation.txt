@@ -31,6 +31,16 @@ ideas = {
 		fire_supremacy_spirit_delayed = {
 			removal_cost = -1
 		}
+		fire_supremacy_spirit_hidden= {
+			removal_cost = -1
+
+			cancel = {
+				check_variable = { global.fire_pop > 25 }
+			}
+			on_remove = {
+				add_ideas = { fire_supremacy_idea }
+			}
+		}
 
 
 		fire_imperialism_spirit = {
@@ -56,6 +66,16 @@ ideas = {
 		fire_imperialism_spirit_delayed = {
 			removal_cost = -1
 		}
+		fire_imperialism_spirit_hidden= {
+			removal_cost = -1
+
+			cancel = {
+				check_variable = { global.fire_pop > 25 }
+			}
+			on_remove = {
+				add_ideas = { fire_supremacy_idea }
+			}
+		}
 	}
 
 	country = {
@@ -64,10 +84,12 @@ ideas = {
 			
 			removal_cost = -1
 
-			### temporarily deactivated until better remove mechanic found
-			#cancel = {
-			#	check_variable = { global.fire_pop < 0.25 }
-			#}
+			cancel = {
+				check_variable = { global.fire_pop < 25 }
+			}
+			on_remove = {
+				add_ideas = { fire_supremacy_spirit_hidden }
+			}
 			
 			modifier = {
 				fire_culture_drift = 0.02
@@ -82,9 +104,12 @@ ideas = {
 			removal_cost = -1
 
 			### temporarily deactivated until better remove mechanic found
-			#cancel = {
-			#	check_variable = { num_controlled_states < 200 }
-			#}
+			cancel = {
+				check_variable = { num_controlled_states < 200 }
+			}
+			on_remove = {
+				add_ideas = { fire_imperialism_spirit_hidden }
+			}
 			
 			modifier = {
 				fire_culture_drift = 0.05
@@ -115,10 +140,7 @@ ideas = {
 					limit = {
 						has_start_date < 13.01.01
 					}
-					add_timed_idea = {
-						idea = national_prosperity_decline_1
-						days = 90
-					}
+					add_ideas = national_prosperity_decline_1
 				}
 			}
 
@@ -131,11 +153,12 @@ ideas = {
 				war_support_factor = -0.4
 				war_support_weekly = -0.002
 				consumer_demand = 0.1
+				unit_quality_target = -0.5
 
 				#good
 				#research_speed_factor = 0.15
-				currency_amount = -0.2
-				prosperity = 0.6
+				#currency_amount = -0.2
+				prosperity = 1
 				production_speed_infrastructure_factor = 0.15
 				production_speed_consumer_good_factory_factor = 0.15
 				production_speed_luxury_good_factory_factor = 0.15
@@ -150,11 +173,11 @@ ideas = {
 
 			removal_cost = -1
 
+			cancel = {
+				check_variable = { war_exhaustion_variable > 10 }
+			}
 			on_remove = {
-				add_timed_idea = {
-					idea = national_prosperity_decline_2
-					days = 90
-				}
+				add_ideas = national_prosperity_decline_2
 			}
 
 			research_bonus = {
@@ -164,10 +187,11 @@ ideas = {
 			modifier = {
 				#bad
 				consumer_demand = 0.1
+				unit_quality_target = -0.25
 
 				#good
-				currency_amount = -0.1
-				prosperity = 0.4
+				#currency_amount = -0.1
+				prosperity = 0.5
 				production_speed_infrastructure_factor = 0.1
 				production_speed_consumer_good_factory_factor = 0.1
 				production_speed_luxury_good_factory_factor = 0.1
@@ -182,6 +206,9 @@ ideas = {
 
 			removal_cost = -1
 
+			cancel = {
+				check_variable = { war_exhaustion_variable > 50 }
+			}
 			on_remove = {
 				
 			}
@@ -193,10 +220,11 @@ ideas = {
 			modifier = {
 				#bad
 				consumer_demand = 0.05
+				unit_quality_target = -0.1
 
 				#good
-				currency_amount = -0.05
-				prosperity = 0.2
+				#currency_amount = -0.05
+				prosperity = 0.25
 				production_speed_infrastructure_factor = 0.05
 				production_speed_consumer_good_factory_factor = 0.05
 				production_speed_luxury_good_factory_factor = 0.05
@@ -513,6 +541,7 @@ ideas = {
 			modifier = {
 				available_missions = 1
 				political_power_factor = 0.25
+				political_power_cap = 50
 			}
 
 		}
