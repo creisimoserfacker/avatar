@@ -330,14 +330,45 @@ on_actions = {
 	# This uses the UNIT LEADER sub scope of a character, FROM == country
 
 		effect = {
-			character = {
 
+
+			##### broken dlc mechanics
+			if = {
+				limit = {
+					NOT = { has_dlc = "No Step Back" }
+				}
+				#### starting level 10 or higher
+				character = {
+					if = { 
+						limit = {
+							is_army_leader = yes
+							FROM = { 
+								check_variable = { 
+									var = modifier@army_leader_start_level
+									value = 10
+									compare = greater_than_or_equals
+								}
+							}
+						}
+						unit_leader_event = {
+							id = unit_leader.2
+							hours = 1
+						}
+					}
+				}
+			}
+
+
+			character = {
 				#### make character generic
 				root = {
 					add_unit_leader_trait = generic
 				}
+			}
 
 
+			#### extra trait chances
+			character = {
 				if = { 
 					limit = {
 						is_army_leader = yes

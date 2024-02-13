@@ -11,11 +11,46 @@ unit_leader_event = {
 	picture = GFX_report_event_military_planning
 
 	is_triggered_only = yes
+	
+	option = {
+		name = unit_leader.1.a
+		ai_chance = {
+			factor = 1
+		}		
+	}
+}
+
+
+# skill above 10
+unit_leader_event = {
+	id = unit_leader.2
+	title = unit_leader.2.t
+	desc = unit_leader.2.d
+
+	hidden = yes
+	
+	immediate = {
+		hidden_effect = {
+			FROM = {
+				set_temp_variable = { temp_level_calculated = 10 }
+				subtract_from_temp_variable = { temp_level_calculated = skill_level }
+
+				meta_effect = {
+					text = {
+						PREV = {
+							add_skill_level = [LEVEL]
+						}
+					}
+					LEVEL = "[?temp_level_calculated]"
+				}
+			}
+		}
+	}
 
 	is_triggered_only = yes
 	
 	option = {
-		name = unit_leader.1.a
+		name = unit_leader.2.a
 		ai_chance = {
 			factor = 1
 		}		

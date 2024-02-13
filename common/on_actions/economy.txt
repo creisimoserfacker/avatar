@@ -319,7 +319,8 @@ on_actions = {
 				subtract_from_variable = { ROOT.taxation_var = var_local_tax }
 				subtract_from_variable = { ROOT.inflation_money = var_local_inflation_steal }
 
-				add_to_variable = { ROOT.weekly_peoples_investment_ic = mtth:local_investment }
+				set_variable = { var_local_investment = mtth:local_investment }
+				add_to_variable = { ROOT.weekly_peoples_investment_ic = var_local_investment }
 
 				set_variable = { lp_frame = THIS.local_prosperity }
 				divide_variable = { lp_frame = THIS.prosp_cap }
