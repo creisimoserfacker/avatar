@@ -21,526 +21,614 @@ on_actions = {
 			}
 
 
-			#	0.1 = {
-			#		random_list = {
-			#			1 = {
-			#				country_event = { id = centralisation.12  days = 1  random_days = 30 }
-			#			}
-			#			1 = {
-			#				country_event = { id = centralisation.13  days = 1  random_days = 30 }
-			#			}
-			#			1 = {
-			#				country_event = { id = centralisation.1  days = 1  random_days = 30 }
-			#			}
-			#			1 = {
-			#				country_event = { id = centralisation.17  days = 1  random_days = 30 }
-			#			}
-			#		}
-			#	}
 
-
-
-			#### migration
+			### migration improved mechanic
 
 			if = {
 				limit = {
 					has_country_flag = calculator
 				}
 
+				set_variable = { global.migrat_1 = 0 }
+				set_variable = { global.migrat_2 = 0 }
+
 				every_state = {
-
-					if = {
-						limit = {
-							has_dynamic_modifier = { modifier = refugees }
-						}
-
-						save_event_target_as = migration_origin
-	
-						set_temp_variable = { migrating_population = refugee_var }
-						remove_dynamic_modifier = { modifier = refugees }
-						subtract_from_variable = { refugee_var = migrating_population }
-	
-						random_state = {
-							limit = {
-								OR = {
-									### neighbour state with good attraction
-									AND = {
-										any_neighbor_state = {
-											state = event_target:migration_origin
-										}
-										check_variable = {
-											var = modifier@monthly_migration_state
-											value = PREV.modifier@monthly_migration_state
-											compare = greater_than_or_equals
-										}
-									}
-									### same country or faction, small harbour or path and good attraction
-									AND = {
-										OR = {
-											controller = { tag = PREV.PREV.controller }
-											controller = {
-												is_in_faction_with = PREV.PREV.controller
-											}
-										}
-										OR = {
-											has_railway_connection = {
-												start_state = THIS
-												target_state = PREV
-											}
-											AND = {
-												any_province_building_level = {
-													province = {
-														all_provinces = yes
-														limit_to_coastal = yes
-													}
-													building = naval_base
-													level > 0
-												}
-												PREV = {
-													any_province_building_level = {
-														province = {
-															all_provinces = yes
-															limit_to_coastal = yes
-														}
-														building = naval_base
-														level > 0
-													}
-												}
-											}
-										}
-										check_variable = {
-											var = modifier@monthly_migration_state
-											value = PREV.modifier@monthly_migration_state
-											compare = greater_than_or_equals
-										}
-									}
-									### same continent with good port connection and good attraction
-									AND = {
-										if = {
-											limit = { PREV = { is_on_continent = europe }}
-											is_on_continent = europe
-										}
-										if = {
-											limit = { PREV = { is_on_continent = africa }}
-											is_on_continent = africa
-										}
-										if = {
-											limit = { PREV = { is_on_continent = asia }}
-											is_on_continent = asia
-										}
-										if = {
-											limit = { PREV = { is_on_continent = australia }}
-											is_on_continent = australia
-										}
-										if = {
-											limit = { PREV = { is_on_continent = north_america }}
-											is_on_continent = north_america
-										}
-										if = {
-											limit = { PREV = { is_on_continent = south_america }}
-											is_on_continent = south_america
-										}
-										any_province_building_level = {
-											province = {
-												all_provinces = yes
-												limit_to_coastal = yes
-											}
-											building = naval_base
-											level > 9
-										}
-										PREV = {
-											any_province_building_level = {
-												province = {
-													all_provinces = yes
-													limit_to_coastal = yes
-												}
-												building = naval_base
-												level > 9
-											}
-										}
-										check_variable = {
-											var = modifier@monthly_migration_state
-											value = PREV.modifier@monthly_migration_state
-											compare = greater_than_or_equals
-										}
-									}
-								}
-							}
-							save_event_target_as = migration_state
-						
-							if = {
-								limit = {
-									check_variable = { migrating_population < 50 }
-								}
-								add_manpower = var:migrating_population
-								add_to_variable = { refugees_accepted_last_month = migrating_population }
-							}
-							else_if = {
-								limit = {
-									is_controlled_by = PREV.controller
-								}
-								add_to_variable = { refugee_var = migrating_population }
-								add_dynamic_modifier = { modifier = wandering_refugees }
-							}
-							else = {
-								add_to_variable = { refugee_var = migrating_population }
-								add_dynamic_modifier = { modifier = wandering_refugees }
-								controller = {
-									country_event = {
-										id = refugee_event.1
-										days = 1
-										random_days = 2
-									}
-								}
-							}
-						}
-
+					### migration attraction
+					set_variable = { local_migration_attraction = 1 }
+					add_to_variable = { local_migration_attraction = modifier@migration_attraction }
+					clamp_variable = {
+						var = local_migration_attraction
+						min = 0.001
 					}
-	
+
+					set_variable = { refugees_accepted_last_month = 0 }
+					set_variable = { migrant_states_value = 0 }
+					set_variable = { available_migrant_states = 0 }
+					set_variable = { received_migrants = 0 }
+					set_variable = { target_of_migrants = 0 }
+					set_variable = { migrating_population = 0 }
+				}
+
+				every_state = {
 					if = {
 						limit = {
-							check_variable = {
-								var = modifier@monthly_migration_state
-								value = 0
-								compare = not_equals
-							}
-						}
-
-						save_event_target_as = migration_origin
-	
-						if = {
-							limit = {
+							AND = {
 								check_variable = { modifier@monthly_migration_state < 0 }
 							}
-							
-							set_temp_variable = { migrating_population = state_population }
-							multiply_temp_variable = { migrating_population = 	modifier@monthly_migration_state }
-							
-							add_manpower = var:migrating_population
-							
-							random_state = {
-								limit = {
-									OR = {
-										### neighbour state with good attraction
-										AND = {
-											any_neighbor_state = {
-												state = event_target:migration_origin
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = greater_than_or_equals
-											}
-										}
-										### same country or faction, small harbour or path and good attraction
-										AND = {
-											OR = {
-												controller = { tag = PREV.PREV.controller }
-												controller = {
-													is_in_faction_with = PREV.PREV.controller
-												}
-											}
-											OR = {
-												has_railway_connection = {
-													start_state = THIS
-													target_state = PREV
-												}
-												AND = {
-													any_province_building_level = {
-														province = {
-															all_provinces = yes
-															limit_to_coastal = yes
-														}
-														building = naval_base
-														level > 0
-													}
-													PREV = {
-														any_province_building_level = {
-															province = {
-																all_provinces = yes
-																limit_to_coastal = yes
-															}
-															building = naval_base
-															level > 0
-														}
-													}
-												}
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = greater_than_or_equals
-											}
-										}
-										### same continent with good port connection and good attraction
-										AND = {
-											if = {
-												limit = { PREV = { is_on_continent = europe }}
-												is_on_continent = europe
-											}
-											if = {
-												limit = { PREV = { is_on_continent = africa }}
-												is_on_continent = africa
-											}
-											if = {
-												limit = { PREV = { is_on_continent = asia }}
-												is_on_continent = asia
-											}
-											if = {
-												limit = { PREV = { is_on_continent = australia }}
-												is_on_continent = australia
-											}
-											if = {
-												limit = { PREV = { is_on_continent = north_america }}
-												is_on_continent = north_america
-											}
-											if = {
-												limit = { PREV = { is_on_continent = south_america }}
-												is_on_continent = south_america
-											}
-											any_province_building_level = {
-												province = {
-													all_provinces = yes
-													limit_to_coastal = yes
-												}
-												building = naval_base
-												level > 9
-											}
-											PREV = {
-												any_province_building_level = {
-													province = {
-														all_provinces = yes
-														limit_to_coastal = yes
-													}
-													building = naval_base
-													level > 9
-												}
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = greater_than_or_equals
-											}
-										}
-									}
-								}
-								save_event_target_as = migration_state
-							
-								multiply_temp_variable = { migrating_population = -1 }
-							
-								if = {
-									limit = {
-										check_variable = { migrating_population < 50 }
-									}
-									add_manpower = var:migrating_population
-									add_to_variable = { refugees_accepted_last_month = migrating_population }
-								}
-								else_if = {
-									limit = {
-										is_controlled_by = PREV.controller
-									}
-									add_to_variable = { refugee_var = migrating_population }
-									add_dynamic_modifier = { modifier = refugees }
-								}
-								else = {
-									add_to_variable = { refugee_var = migrating_population }
-									add_dynamic_modifier = { modifier = refugees }
-									controller = {
-										country_event = {
-											id = refugee_event.1
-											days = 1
-											random_days = 2
-										}
-									}
-								}
-							}
 						}
-	
-						if = {
+						save_event_target_as = migration_origin
+						
+						set_variable = { migrating_population = state_population }
+						multiply_variable = { migrating_population = modifier@monthly_migration_state }
+						round_variable = migrating_population
+					
+						add_manpower = var:migrating_population
+
+						multiply_variable = { migrating_population = -1 }
+
+
+						set_variable = { available_migrant_states = 0 }
+
+						#### states they can go to
+
+						every_state = {
 							limit = {
-								check_variable = { modifier@monthly_migration_state > 0 }
+								is_valid_migration_target = yes
 							}
+							set_variable = { potential_migrants = 0 }
 
-							save_event_target_as = migration_state
-							
-							random_state = {
-								limit = {
-									state_population > 1000
-									OR = {
-										### neighbour state with bad attraction
-										AND = {
-											any_neighbor_state = {
-												state = event_target:migration_state
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = less_than_or_equals
-											}
-										}
-										### same country or faction, small harbour or path and bad attraction
-										AND = {
-											OR = {
-												controller = { tag = PREV.PREV.controller }
-												controller = {
-													is_in_faction_with = PREV.PREV.controller
-												}
-											}
-											OR = {
-												has_railway_connection = {
-													start_state = THIS
-													target_state = PREV
-												}
-												AND = {
-													any_province_building_level = {
-														province = {
-															all_provinces = yes
-															limit_to_coastal = yes
-														}
-														building = naval_base
-														level > 0
-													}
-													PREV = {
-														any_province_building_level = {
-															province = {
-																all_provinces = yes
-																limit_to_coastal = yes
-															}
-															building = naval_base
-															level > 0
-														}
-													}
-												}
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = less_than_or_equals
-											}
-										}
-										### same continent with good port connection and bad attraction
-										AND = {
-											if = {
-												limit = { PREV = { is_on_continent = europe }}
-												is_on_continent = europe
-											}
-											if = {
-												limit = { PREV = { is_on_continent = africa }}
-												is_on_continent = africa
-											}
-											if = {
-												limit = { PREV = { is_on_continent = asia }}
-												is_on_continent = asia
-											}
-											if = {
-												limit = { PREV = { is_on_continent = australia }}
-												is_on_continent = australia
-											}
-											if = {
-												limit = { PREV = { is_on_continent = north_america }}
-												is_on_continent = north_america
-											}
-											if = {
-												limit = { PREV = { is_on_continent = south_america }}
-												is_on_continent = south_america
-											}
-											any_province_building_level = {
-												province = {
-													all_provinces = yes
-													limit_to_coastal = yes
-												}
-												building = naval_base
-												level > 9
-											}
-											PREV = {
-												any_province_building_level = {
-													province = {
-														all_provinces = yes
-														limit_to_coastal = yes
-													}
-													building = naval_base
-													level > 9
-												}
-											}
-											check_variable = {
-												var = modifier@monthly_migration_state
-												value = PREV.modifier@monthly_migration_state
-												compare = less_than_or_equals
-											}
-										}
-									}
-								}
-								save_event_target_as = migration_origin
-							
-								set_variable = { migrating_population = state_population }
-								multiply_variable = { migrating_population = PREV.modifier@monthly_migration_state }
-								
-								if = {
-									limit = {
-										check_variable = { migrating_population < 50 }
-									}
-									multiply_variable = { migrating_population = -1 }
-									add_manpower = var:migrating_population
+							add_to_variable = { target_of_migrants = 1 }
 
-									event_target:migration_state = {
-										multiply_variable = { PREV.migrating_population = -1 }
-										add_manpower = var:PREV.migrating_population
-									}
-									clear_variable = migrating_population
-								}
-								else_if = {
-									limit = {
-										is_controlled_by = PREV.controller
-									}
-									multiply_variable = { migrating_population = -1 }
-									add_manpower = var:migrating_population
+							set_variable = { potential_migrants = PREV.migrating_population }
 
-									event_target:migration_state = {
-										multiply_variable = { PREV.migrating_population = -1 }
-										add_manpower = var:PREV.migrating_population
-									}
-									clear_variable = migrating_population
-								}
-								else = {
-									controller = {
-										country_event = {
-											id = refugee_event.2
-											days = 1
-											random_days = 2
-										}
-									}
-								}
+							add_to_variable = { PREV.migrant_states_value = local_migration_attraction }
+
+							add_to_variable = { PREV.available_migrant_states = 1 }
+						}
+
+
+
+						### actual adding of migrants
+
+						every_state = {
+							limit = {
+								is_valid_migration_target = yes
 							}
+							
+							set_variable = { received_migrants = local_migration_attraction }
 
+							divide_variable = { received_migrants = PREV.migrant_states_value }
+							multiply_variable = { received_migrants = potential_migrants }
+							add_to_variable = { refugees_accepted_last_month = received_migrants }
 						}
 					}
 				}
 
 				every_state = {
-					if = {
-						limit = {
-							has_dynamic_modifier = { modifier = wandering_refugees }
-						}
-						remove_dynamic_modifier = { modifier = wandering_refugees }
-						add_dynamic_modifier = { modifier = refugees }
+
+
+					round_variable = received_migrants
+					round_variable = refugees_accepted_last_month
+
+					add_to_variable = { global.migrat_1 = refugees_accepted_last_month }
+					add_to_variable = { global.migrat_2 = migrating_population }
+
+					#### potential fluctuation here, but not everyone can survive and some are born along the way ;D
+
+					clamp_variable = {
+						var = global.max_refugees_accepted
+						min = refugees_accepted_last_month
 					}
 
-					if = {
-						limit = {
-							has_variable = refugees_accepted_last_month
-							NOT = {
-								has_state_flag = clear_refugee_accept
-							}
-						}
-						set_state_flag = clear_refugee_accept
-					}
-					else = {
-						clear_variable = refugees_accepted_last_month
-						clr_state_flag = clear_refugee_accept
-					}
+					add_manpower = var:received_migrants
 				}
+
 			}
 
+
+
+
+#			#### migration
+#
+#			if = {
+#				limit = {
+#					has_country_flag = calculator
+#				}
+#
+#				every_state = {
+#
+#					if = {
+#						limit = {
+#							has_dynamic_modifier = { modifier = refugees }
+#						}
+#
+#						save_event_target_as = migration_origin
+#	
+#						set_temp_variable = { migrating_population = refugee_var }
+#						remove_dynamic_modifier = { modifier = refugees }
+#						subtract_from_variable = { refugee_var = migrating_population }
+#	
+#						random_state = {
+#							limit = {
+#								OR = {
+#									### neighbour state with good attraction
+#									AND = {
+#										any_neighbor_state = {
+#											state = event_target:migration_origin
+#										}
+#										check_variable = {
+#											var = modifier@monthly_migration_state
+#											value = PREV.modifier@monthly_migration_state
+#											compare = greater_than_or_equals
+#										}
+#									}
+#									### same country or faction, small harbour or path and good attraction
+#									AND = {
+#										OR = {
+#											controller = { tag = PREV.PREV.controller }
+#											controller = {
+#												is_in_faction_with = PREV.PREV.controller
+#											}
+#										}
+#										OR = {
+#											has_railway_connection = {
+#												start_state = THIS
+#												target_state = PREV
+#											}
+#											AND = {
+#												any_province_building_level = {
+#													province = {
+#														all_provinces = yes
+#														limit_to_coastal = yes
+#													}
+#													building = naval_base
+#													level > 0
+#												}
+#												PREV = {
+#													any_province_building_level = {
+#														province = {
+#															all_provinces = yes
+#															limit_to_coastal = yes
+#														}
+#														building = naval_base
+#														level > 0
+#													}
+#												}
+#											}
+#										}
+#										check_variable = {
+#											var = modifier@monthly_migration_state
+#											value = PREV.modifier@monthly_migration_state
+#											compare = greater_than_or_equals
+#										}
+#									}
+#									### same continent with good port connection and good attraction
+#									AND = {
+#										if = {
+#											limit = { PREV = { is_on_continent = europe }}
+#											is_on_continent = europe
+#										}
+#										if = {
+#											limit = { PREV = { is_on_continent = africa }}
+#											is_on_continent = africa
+#										}
+#										if = {
+#											limit = { PREV = { is_on_continent = asia }}
+#											is_on_continent = asia
+#										}
+#										if = {
+#											limit = { PREV = { is_on_continent = australia }}
+#											is_on_continent = australia
+#										}
+#										if = {
+#											limit = { PREV = { is_on_continent = north_america }}
+#											is_on_continent = north_america
+#										}
+#										if = {
+#											limit = { PREV = { is_on_continent = south_america }}
+#											is_on_continent = south_america
+#										}
+#										any_province_building_level = {
+#											province = {
+#												all_provinces = yes
+#												limit_to_coastal = yes
+#											}
+#											building = naval_base
+#											level > 9
+#										}
+#										PREV = {
+#											any_province_building_level = {
+#												province = {
+#													all_provinces = yes
+#													limit_to_coastal = yes
+#												}
+#												building = naval_base
+#												level > 9
+#											}
+#										}
+#										check_variable = {
+#											var = modifier@monthly_migration_state
+#											value = PREV.modifier@monthly_migration_state
+#											compare = greater_than_or_equals
+#										}
+#									}
+#								}
+#							}
+#							save_event_target_as = migration_state
+#						
+#							if = {
+#								limit = {
+#									check_variable = { migrating_population < 50 }
+#								}
+#								add_manpower = var:migrating_population
+#								add_to_variable = { refugees_accepted_last_month = migrating_population }
+#							}
+#							else_if = {
+#								limit = {
+#									is_controlled_by = PREV.controller
+#								}
+#								add_to_variable = { refugee_var = migrating_population }
+#								add_dynamic_modifier = { modifier = wandering_refugees }
+#							}
+#							else = {
+#								add_to_variable = { refugee_var = migrating_population }
+#								add_dynamic_modifier = { modifier = wandering_refugees }
+#								controller = {
+#									country_event = {
+#										id = refugee_event.1
+#										days = 1
+#										random_days = 2
+#									}
+#								}
+#							}
+#						}
+#
+#					}
+#	
+#					if = {
+#						limit = {
+#							check_variable = {
+#								var = modifier@monthly_migration_state
+#								value = 0
+#								compare = not_equals
+#							}
+#						}
+#
+#						save_event_target_as = migration_origin
+#	
+#						if = {
+#							limit = {
+#								check_variable = { modifier@monthly_migration_state < 0 }
+#							}
+#							
+#							set_temp_variable = { migrating_population = state_population }
+#							multiply_temp_variable = { migrating_population = 	modifier@monthly_migration_state }
+#							
+#							add_manpower = var:migrating_population
+#							
+#							random_state = {
+#								limit = {
+#									OR = {
+#										### neighbour state with good attraction
+#										AND = {
+#											any_neighbor_state = {
+#												state = event_target:migration_origin
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = greater_than_or_equals
+#											}
+#										}
+#										### same country or faction, small harbour or path and good attraction
+#										AND = {
+#											OR = {
+#												controller = { tag = PREV.PREV.controller }
+#												controller = {
+#													is_in_faction_with = PREV.PREV.controller
+#												}
+#											}
+#											OR = {
+#												has_railway_connection = {
+#													start_state = THIS
+#													target_state = PREV
+#												}
+#												AND = {
+#													any_province_building_level = {
+#														province = {
+#															all_provinces = yes
+#															limit_to_coastal = yes
+#														}
+#														building = naval_base
+#														level > 0
+#													}
+#													PREV = {
+#														any_province_building_level = {
+#															province = {
+#																all_provinces = yes
+#																limit_to_coastal = yes
+#															}
+#															building = naval_base
+#															level > 0
+#														}
+#													}
+#												}
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = greater_than_or_equals
+#											}
+#										}
+#										### same continent with good port connection and good attraction
+#										AND = {
+#											if = {
+#												limit = { PREV = { is_on_continent = europe }}
+#												is_on_continent = europe
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = africa }}
+#												is_on_continent = africa
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = asia }}
+#												is_on_continent = asia
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = australia }}
+#												is_on_continent = australia
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = north_america }}
+#												is_on_continent = north_america
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = south_america }}
+#												is_on_continent = south_america
+#											}
+#											any_province_building_level = {
+#												province = {
+#													all_provinces = yes
+#													limit_to_coastal = yes
+#												}
+#												building = naval_base
+#												level > 9
+#											}
+#											PREV = {
+#												any_province_building_level = {
+#													province = {
+#														all_provinces = yes
+#														limit_to_coastal = yes
+#													}
+#													building = naval_base
+#													level > 9
+#												}
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = greater_than_or_equals
+#											}
+#										}
+#									}
+#								}
+#								save_event_target_as = migration_state
+#							
+#								multiply_temp_variable = { migrating_population = -1 }
+#							
+#								if = {
+#									limit = {
+#										check_variable = { migrating_population < 50 }
+#									}
+#									add_manpower = var:migrating_population
+#									add_to_variable = { refugees_accepted_last_month = migrating_population }
+#								}
+#								else_if = {
+#									limit = {
+#										is_controlled_by = PREV.controller
+#									}
+#									add_to_variable = { refugee_var = migrating_population }
+#									add_dynamic_modifier = { modifier = refugees }
+#								}
+#								else = {
+#									add_to_variable = { refugee_var = migrating_population }
+#									add_dynamic_modifier = { modifier = refugees }
+#									controller = {
+#										country_event = {
+#											id = refugee_event.1
+#											days = 1
+#											random_days = 2
+#										}
+#									}
+#								}
+#							}
+#						}
+#	
+#						if = {
+#							limit = {
+#								check_variable = { modifier@monthly_migration_state > 0 }
+#							}
+#
+#							save_event_target_as = migration_state
+#							
+#							random_state = {
+#								limit = {
+#									state_population > 1000
+#									OR = {
+#										### neighbour state with bad attraction
+#										AND = {
+#											any_neighbor_state = {
+#												state = event_target:migration_state
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = less_than_or_equals
+#											}
+#										}
+#										### same country or faction, small harbour or path and bad attraction
+#										AND = {
+#											OR = {
+#												controller = { tag = PREV.PREV.controller }
+#												controller = {
+#													is_in_faction_with = PREV.PREV.controller
+#												}
+#											}
+#											OR = {
+#												has_railway_connection = {
+#													start_state = THIS
+#													target_state = PREV
+#												}
+#												AND = {
+#													any_province_building_level = {
+#														province = {
+#															all_provinces = yes
+#															limit_to_coastal = yes
+#														}
+#														building = naval_base
+#														level > 0
+#													}
+#													PREV = {
+#														any_province_building_level = {
+#															province = {
+#																all_provinces = yes
+#																limit_to_coastal = yes
+#															}
+#															building = naval_base
+#															level > 0
+#														}
+#													}
+#												}
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = less_than_or_equals
+#											}
+#										}
+#										### same continent with good port connection and bad attraction
+#										AND = {
+#											if = {
+#												limit = { PREV = { is_on_continent = europe }}
+#												is_on_continent = europe
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = africa }}
+#												is_on_continent = africa
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = asia }}
+#												is_on_continent = asia
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = australia }}
+#												is_on_continent = australia
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = north_america }}
+#												is_on_continent = north_america
+#											}
+#											if = {
+#												limit = { PREV = { is_on_continent = south_america }}
+#												is_on_continent = south_america
+#											}
+#											any_province_building_level = {
+#												province = {
+#													all_provinces = yes
+#													limit_to_coastal = yes
+#												}
+#												building = naval_base
+#												level > 9
+#											}
+#											PREV = {
+#												any_province_building_level = {
+#													province = {
+#														all_provinces = yes
+#														limit_to_coastal = yes
+#													}
+#													building = naval_base
+#													level > 9
+#												}
+#											}
+#											check_variable = {
+#												var = modifier@monthly_migration_state
+#												value = PREV.modifier@monthly_migration_state
+#												compare = less_than_or_equals
+#											}
+#										}
+#									}
+#								}
+#								save_event_target_as = migration_origin
+#							
+#								set_variable = { migrating_population = state_population }
+#								multiply_variable = { migrating_population = PREV.modifier@monthly_migration_state }
+#								
+#								if = {
+#									limit = {
+#										check_variable = { migrating_population < 50 }
+#									}
+#									multiply_variable = { migrating_population = -1 }
+#									add_manpower = var:migrating_population
+#
+#									event_target:migration_state = {
+#										multiply_variable = { PREV.migrating_population = -1 }
+#										add_manpower = var:PREV.migrating_population
+#									}
+#									clear_variable = migrating_population
+#								}
+#								else_if = {
+#									limit = {
+#										is_controlled_by = PREV.controller
+#									}
+#									multiply_variable = { migrating_population = -1 }
+#									add_manpower = var:migrating_population
+#
+#									event_target:migration_state = {
+#										multiply_variable = { PREV.migrating_population = -1 }
+#										add_manpower = var:PREV.migrating_population
+#									}
+#									clear_variable = migrating_population
+#								}
+#								else = {
+#									controller = {
+#										country_event = {
+#											id = refugee_event.2
+#											days = 1
+#											random_days = 2
+#										}
+#									}
+#								}
+#							}
+#
+#						}
+#					}
+#				}
+#
+#				every_state = {
+#					if = {
+#						limit = {
+#							has_dynamic_modifier = { modifier = wandering_refugees }
+#						}
+#						remove_dynamic_modifier = { modifier = wandering_refugees }
+#						add_dynamic_modifier = { modifier = refugees }
+#					}
+#
+#					if = {
+#						limit = {
+#							has_variable = refugees_accepted_last_month
+#							NOT = {
+#								has_state_flag = clear_refugee_accept
+#							}
+#						}
+#						set_state_flag = clear_refugee_accept
+#					}
+#					else = {
+#						clear_variable = refugees_accepted_last_month
+#						clr_state_flag = clear_refugee_accept
+#					}
+#				}
+#			}
+#
 
 			#### population counter
 

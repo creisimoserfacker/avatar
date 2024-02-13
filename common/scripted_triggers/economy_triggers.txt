@@ -17,3 +17,96 @@ crop_weaving_investment_allowed = {
 		has_idea = no_ruler
 	}
 }
+
+
+is_valid_migration_target = {
+	NOT = {
+		state = PREV
+	}
+	OR = {
+		### neighbour state with good attraction
+		any_neighbor_state = {
+			state = event_target:migration_origin
+		}
+		### same country or faction, small harbour or path and good attraction
+		AND = {
+		#	OR = {
+		#		controller = { tag = PREV.PREV.controller }
+		#		controller = {
+		#			is_in_faction_with = PREV.PREV.controller
+		#		}
+		#	}
+			OR = {
+				has_railway_connection = {
+					start_state = THIS
+					target_state = PREV
+				}
+				AND = {
+					any_province_building_level = {
+						province = {
+							all_provinces = yes
+							limit_to_coastal = yes
+						}
+						building = naval_base
+						level > 0
+					}
+					PREV = {
+						any_province_building_level = {
+							province = {
+								all_provinces = yes
+								limit_to_coastal = yes
+							}
+							building = naval_base
+							level > 0
+						}
+					}
+				}
+			}
+		}
+	#	### same continent with good port connection and good attraction
+	#	AND = {
+	#		if = {
+	#			limit = { PREV = { is_on_continent = europe }}
+	#			is_on_continent = europe
+	#		}
+	#		if = {
+	#			limit = { PREV = { is_on_continent = africa }}
+	#			is_on_continent = africa
+	#		}
+	#		if = {
+	#			limit = { PREV = { is_on_continent = asia }}
+	#			is_on_continent = asia
+	#		}
+	#		if = {
+	#			limit = { PREV = { is_on_continent = australia }}
+	#			is_on_continent = australia
+	#		}
+	#		if = {
+	#			limit = { PREV = { is_on_continent = north_america }}
+	#			is_on_continent = north_america
+	#		}
+	#		if = {
+	#			limit = { PREV = { is_on_continent = south_america }}
+	#			is_on_continent = south_america
+	#		}
+	#		any_province_building_level = {
+	#			province = {
+	#				all_provinces = yes
+	#				limit_to_coastal = yes
+	#			}
+	#			building = naval_base
+	#			level > 9
+	#		}
+	#		PREV = {
+	#			any_province_building_level = {
+	#				province = {
+	#					all_provinces = yes
+	#					limit_to_coastal = yes
+	#				}
+	#				building = naval_base
+	#				level > 9
+	#			}
+	#		}
+	#	}
+	}
+}

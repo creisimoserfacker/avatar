@@ -243,16 +243,23 @@ scripted_map_modes = {
 				set_temp_variable = { red = 0.75 }
 				set_temp_variable = { blue = 0.0 }
 				set_temp_variable = { green = 0.75 }
-				set_temp_variable = { alpha = 0.1 }
+				set_temp_variable = { alpha = 0.4 }
 
 				FROM = {
-					set_temp_variable = { migration = FROM.modifier@monthly_migration_state }
-					multiply_temp_variable = { migration = 50 }
+					set_temp_variable = { migration = FROM.refugees_accepted_last_month }
+					subtract_from_temp_variable = { migration = FROM.migrating_population }
+						
+					if = {
+						limit = {
+							check_variable = { global.max_refugees_accepted > 0 }
+						}
+						divide_temp_variable = { migration = 100 }
+					}
 
 					subtract_from_temp_variable = { red = migration }
 					clamp_temp_variable = { var = red  min = 0  max = 0.75 }
 					add_to_temp_variable = { green = migration }
-					add_to_temp_variable = { green = FROM.refugees_accepted_last_month }
+					#add_to_temp_variable = { green = FROM.refugees_accepted_last_month }
 					clamp_temp_variable = { var = green  min = 0  max = 0.75 }
 
 
