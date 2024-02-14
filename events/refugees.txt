@@ -2,7 +2,51 @@
 # refugees
 ###########################
 
+add_namespace = refugee_calc
 add_namespace = refugee_event
+
+state_event = {
+	id = refugee_calc.1
+
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		hidden_effect = {
+			save_event_target_as = migration_origin
+
+			every_state = {
+				limit = {
+					is_valid_migration_target = yes
+				}
+				
+				add_to_array = {
+					array = PREV.available_migrant_states_array
+					value = THIS.id
+				}
+			}
+		}
+	}
+}
+
+country_event = {
+	id = refugee_calc.2
+	
+	is_triggered_only = yes
+
+	hidden = yes
+
+	immediate = {
+		hidden_effect = {
+			every_controlled_state = {
+				state_event = {
+					id = refugee_calc.1
+				}
+			}
+		}
+	}
+}
 
 ### refugees arrive
 country_event = {
@@ -13,18 +57,14 @@ country_event = {
 
 	is_triggered_only = yes
 
+
+	### accept them
 	option = {
-		name = refugee_event.1.a  ## accept them
+		name = refugee_event.1.a
 
 		event_target:migration_state = {
-			add_to_variable = { refugees_accepted_last_month = refugee_var }
-			
-			set_temp_variable = { stability_debuff = refugee_var }
 
-			remove_dynamic_modifier = { modifier = refugees }
-			add_manpower = var:refugee_var
-			clear_variable = refugee_var
-
+			set_temp_variable = { stability_debuff = refugees_accepted_last_month }
 			multiply_temp_variable = { stability_debuff = 0.001 }
 			multiply_temp_variable = { stability_debuff = -0.01 }
 		}
@@ -41,11 +81,13 @@ country_event = {
 			}
 		}
 	}
+
+	### dont accept them
 	option = {
-		name = refugee_event.1.b  ## dont accept them
+		name = refugee_event.1.b
 
 		event_target:migration_state = {
-			
+			add_dynamic_modifier = { modifier = refugee_node }
 		}
 
 		ai_chance = { 
@@ -58,8 +100,10 @@ country_event = {
 			}
 		}
 	}
+
+	### establish refugee department
 	option = {
-		name = refugee_event.1.c   ## establish refugee department
+		name = refugee_event.1.c
 
 		trigger = {
 			check_variable = { FROM.refugee_var > 1000 }

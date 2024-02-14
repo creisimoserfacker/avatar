@@ -174,27 +174,15 @@ pluralist_settlers = {
 	local_manpower = mtth:pluralist_settler_modifier
 }
 
-wandering_refugees = {
+refugee_node = {
 	enable = { always = yes }
 	remove_trigger = {
-		check_variable = { refugee_var = 0 }
+		check_variable = { refugees_accepted_last_month < 100 }
 	}
 
 	icon = GFX_modifiers_refugees
 	
-	local_refugees = refugee_var
-	local_supplies = mtth:refugee_supplies
-}
-
-refugees = {
-	enable = { always = yes }
-	remove_trigger = {
-		check_variable = { refugee_var = 0 }
-	}
-
-	icon = GFX_modifiers_refugees
-	
-	local_refugees = refugee_var
+	monthly_migration_state = mtth:refugees_on_the_move
 	local_supplies = mtth:refugee_supplies
 }
 
