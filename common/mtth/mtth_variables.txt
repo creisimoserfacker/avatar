@@ -674,20 +674,6 @@ refugee_supplies = {
 }
 
 
-refugees_on_the_move = {
-	base = 0
-	modifier = {
-		set_temp_variable = { refugee = refugees_accepted_last_month }
-		set_temp_variable = { refugee_all = refugees_accepted_last_month }
-		add_to_temp_variable = { refugee_all = state_population }
-		divide_temp_variable = { refugee = refugee_all }
-		multiply_temp_variable = { refugee = -1 }
-		
-		add = refugee
-	}
-}
-
-
 
 animal_breeding = {
 	base = 0

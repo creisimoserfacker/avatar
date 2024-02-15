@@ -50,7 +50,6 @@ add_ideas = {
 	kyoshi_constitution
 	weak_legitimacy
 	corrupt_bureaucracy
-	the_dai_li
 
 	volunteer_earth_nation
 	earth_benders_only
@@ -58,6 +57,10 @@ add_ideas = {
 	economy_1
 	family_support_2
 	no_education
+}
+
+add_dynamic_modifier = {
+	modifier = the_dai_li
 }
 
 ba_sing_se_walls = yes
@@ -120,12 +123,18 @@ recruit_character = EAR_cam
 	activate_advisor = ear_cam
 
 	remove_ideas = corrupt_bureaucracy
-	remove_ideas = the_dai_li
 	add_ideas = {
 		extensive_conscription
 		earth_exceptional
-		dai_li_government
 	}
+
+	remove_dynamic_modifier = {
+		modifier = the_dai_li
+	}
+	add_dynamic_modifier = {
+		modifier = dai_li_government
+	}
+
 
 	add_to_variable = {
 		dai_li_influence = 20

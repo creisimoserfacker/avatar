@@ -62,14 +62,24 @@ country_event = {
 	option = {
 		name = refugee_event.1.a
 
-		event_target:migration_state = {
-
-			set_temp_variable = { stability_debuff = refugees_accepted_last_month }
-			multiply_temp_variable = { stability_debuff = 0.001 }
-			multiply_temp_variable = { stability_debuff = -0.01 }
+		trigger = {
+			event_target:migration_state = {
+				check_variable = { local_prosperity > 10 }
+			}
 		}
 
-		add_stability = var:stability_debuff
+		event_target:migration_state = {
+			add_dynamic_modifier = { modifier = migration_target }
+		}
+
+#		event_target:migration_state = {
+#
+#			set_temp_variable = { stability_debuff = refugees_accepted_last_month }
+#			multiply_temp_variable = { stability_debuff = 0.001 }
+#			multiply_temp_variable = { stability_debuff = -0.01 }
+#		}
+#
+#		add_stability = var:stability_debuff
 
 		ai_chance = { 
 			base = 100
@@ -77,7 +87,7 @@ country_event = {
 			modifier = {
 				factor = 0
 
-				has_stability < 0.75
+				check_variable = { wealth_bar < 50 }
 			}
 		}
 	}

@@ -182,8 +182,21 @@ refugee_node = {
 
 	icon = GFX_modifiers_refugees
 	
-	monthly_migration_state = mtth:refugees_on_the_move
+	monthly_migration_state = mtth:refugee_supplies
 	local_supplies = mtth:refugee_supplies
+}
+
+migration_target = {
+	enable = { always = yes }
+	remove_trigger = {
+		check_variable = { refugees_accepted_last_month < 100 }
+		check_variable = { local_prosperity > 10 }
+	}
+
+	icon = GFX_modifiers_refugees
+	
+	migration_attraction = 0.75
+	prosperity = mtth:refugee_supplies
 }
 
 occupied_has_dominant_culture = {

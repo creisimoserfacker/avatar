@@ -24,6 +24,10 @@ on_actions = {
 		effect = {
 			every_controlled_state = {
 
+				limit = {
+					check_variable = { modifier@monthly_migration_state < 0 }
+				}
+
 				add_to_variable = { THIS.migrant_check_state = 1 }
 				if = {
 					limit = {
@@ -33,6 +37,27 @@ on_actions = {
 				}
 
 				save_event_target_as = migration_origin
+
+				random_scope_in_array = {
+					array = available_migrant_states_array
+					
+					if = {
+						limit = {
+							is_valid_migration_target = yes
+						}
+						if = {
+							limit = {
+								NOT = {
+									is_in_array = { PREV.available_migrant_states_array = THIS.id }
+								}
+							}
+							add_to_array = {
+								array = PREV.available_migrant_states_array
+								value = THIS.id
+							}
+						}
+					}
+				}
 
 				var:migrant_check_state = {
 
@@ -196,19 +221,13 @@ on_actions = {
 						limit = {
 							AND = {
 								check_variable = { refugees_accepted_last_month > 100 }
-								#event_target:migration_origin = {
-								#	controller = {
-								#		tag = PREV.owner
-								#		has_war_with = PREV.PREV.controller
-								#	}
-								#	any_neighbor_state = {
-								#		controller = {
-								#			has_war_with = PREV.PREV.controller
-								#		}
-								#	}
-								#}
 								NOT = {
-									has_dynamic_modifier = { modifier = refugee_node }
+
+									###   state is managing refugees
+									OR = {
+										has_dynamic_modifier = { modifier = refugee_node }
+										has_dynamic_modifier = { modifier = migration_target }
+									}
 								}
 							}
 						}
