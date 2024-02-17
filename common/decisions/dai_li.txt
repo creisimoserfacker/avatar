@@ -154,11 +154,11 @@ EAR_dai_li_category = {
 
 		icon = dai_li_government
 		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
+		#visible = {
+		#	tag = EAR
+		#	has_country_flag = dai_li_ministers
+		#	has_start_date < 100.1.1
+		#}
 
 		available = {
 			custom_trigger_tooltip = {
@@ -184,6 +184,43 @@ EAR_dai_li_category = {
 			swap_ideas = {
 				remove_idea = the_dai_li
 				add_idea = dai_li_government
+			}
+
+			every_character = {
+				limit = {
+					OR = {
+						is_character = EAR_quon
+						is_character = EAR_hiroshi
+						is_character = EAR_juno
+						is_character = EAR_moku
+						is_character = EAR_saiful
+						is_character = EAR_cam
+					}
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_personnel
+					value = no
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_finance
+					value = no
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_culture
+					value = no
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_justice
+					value = no
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_works
+					value = no
+				}
+				set_can_be_fired_in_advisor_role = {
+					slot = minister_of_rites
+					value = no
+				}
 			}
 		}
 	}
