@@ -48,8 +48,11 @@ THE_EARTHKINGDOM = {
 				}
 			}
 			set_country_flag = dai_li_headquater_expansion
-			custom_effect_tooltip = dai_li_10
-			add_to_variable = { dai_li_influence = 10 }
+			add_to_variable = { 
+				var = dai_li_influence
+				value = 10
+				tooltip = dai_li_influence
+			}
 		}
 	}
 }
@@ -79,8 +82,11 @@ EAR_dai_li_category = {
 		complete_effect = {
 			custom_effect_tooltip = dai_li_extremism_ttp
 			set_country_flag = extremist_dai_li
-			custom_effect_tooltip = dai_li_5
-			add_to_variable = { dai_li_influence = 5 }
+			add_to_variable = { 
+				var = dai_li_influence
+				value = 5
+				tooltip = dai_li_influence
+			}
 		}
 	}
 
@@ -107,8 +113,11 @@ EAR_dai_li_category = {
 		complete_effect = {
 			custom_effect_tooltip = dai_li_loyalist_ttp
 			set_country_flag = loyalist_dai_li
-			custom_effect_tooltip = dai_li_remove_5
-			subtract_from_variable = { dai_li_influence = 5 }
+			add_to_variable = { 
+				var = dai_li_influence
+				value = -5
+				tooltip = dai_li_influence
+			}
 		}
 	}
 
@@ -133,188 +142,11 @@ EAR_dai_li_category = {
 		complete_effect = {
 			custom_effect_tooltip = dai_li_ministers_ttp
 			set_country_flag = dai_li_ministers
-			custom_effect_tooltip = dai_li_5
-			add_to_variable = { dai_li_influence = 5 }
-		}
-	}
-
-	dai_li_minister_of_personnel = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_personnel
-			custom_effect_tooltip = EAR_dai_li_minister_of_personnel_tt
-		}
-	}
-
-	dai_li_minister_of_finance = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_finance
-			custom_effect_tooltip = EAR_dai_li_minister_of_finance_tt
-		}
-	}
-
-	dai_li_minister_of_culture = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_culture
-			custom_effect_tooltip = EAR_dai_li_minister_of_culture_tt
-		}
-	}
-
-	dai_li_minister_of_justice = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_justice
-			custom_effect_tooltip = EAR_dai_li_minister_of_justice_tt
-		}
-	}
-
-	dai_li_minister_of_works = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_works
-			custom_effect_tooltip = EAR_dai_li_minister_of_works_tt
-		}
-	}
-
-	dai_li_minister_of_rites = {
-
-		icon = dai_li_minister
-		
-		visible = {
-			tag = EAR
-			has_country_flag = dai_li_ministers
-			has_start_date < 100.1.1
-		}
-
-		available = {
-			
-		}
-		
-		fire_only_once = yes
-
-		cost = 25
-		days_remove = 30
-
-		modifier = {
-			stability_weekly = 0.025
-			war_support_weekly = -0.025
-		}
-
-		remove_effect = {
-			set_country_flag = EAR_dai_li_minister_of_rites
-			custom_effect_tooltip = EAR_dai_li_minister_of_rites_tt
+			add_to_variable = { 
+				var = dai_li_influence
+				value = 5
+				tooltip = dai_li_influence
+			}
 		}
 	}
 
@@ -349,11 +181,9 @@ EAR_dai_li_category = {
 
 		remove_effect = {
 			remove_ideas = corrupt_bureaucracy
-			remove_dynamic_modifier = {
-				modifier = the_dai_li
-			}
-			add_dynamic_modifier = {
-				modifier = dai_li_government
+			swap_ideas = {
+				remove_idea = the_dai_li
+				add_idea = dai_li_government
 			}
 		}
 	}
@@ -444,6 +274,12 @@ EAR_dai_li_category = {
 		cost = 100
 
 		complete_effect = {
+			add_to_variable = { 
+				var = dai_li_loyalty
+				value = -0.05
+				tooltip = dai_li_loyalty
+			}
+
 			set_country_flag = duplicate_units
 			custom_effect_tooltip = EAR_duplicate_genocide_units
 		}

@@ -29,9 +29,53 @@ ideas = {
 		heart_of_the_kingdom_spirit_delayed = {
 			removal_cost = -1
 		}
+
+		no_war_in_ba_sing_se_spirit = {
+
+			removal_cost = -1
+
+			on_add = {
+				set_variable = { victory_condition = token:no_war_in_ba_sing_se_spirit }
+				set_variable = { victory_condition_description = token:no_war_in_ba_sing_se_spirit_description }
+				set_variable = { victory_condition_delayed = token:no_war_in_ba_sing_se_spirit_delayed }
+			}
+
+			cancel = {
+				NOT = {
+					check_variable = { victory_condition = token:no_war_in_ba_sing_se_spirit }
+				}
+			}
+			
+			modifier = {
+				centralisation_target_modifier = 0.5
+				migration_attraction = 1.0
+				stability_factor = 0.25
+			}
+		}
+		no_war_in_ba_sing_se_spirit_description = {
+			removal_cost = -1
+		}
+		no_war_in_ba_sing_se_spirit_delayed = {
+			removal_cost = -1
+		}
 	}
 
 	country = {
+
+		heart_of_the_kingdom_idea = {
+
+			removal_cost = -1
+
+			#cancel = {
+			#	check_variable = { global.fire_pop < 25 }
+			#}
+			
+			modifier = {
+				monthly_population = 0.25
+				political_power_factor = 0.25
+				surrender_limit = 1
+			}
+		}
 	
 		kyoshi_constitution = {
 			
@@ -50,7 +94,7 @@ ideas = {
 				political_power_factor = -0.25
 				expenses_per_pop = 0.02
 				peasant_opinion = 25
-				#conscription_factor = -0.25
+				centralisation_target_modifier = -0.05
 				min_export = 0.2
 			}
 		}
@@ -94,6 +138,51 @@ ideas = {
 				planning_speed = -0.25
 				dig_in_speed_factor = -0.25
 				experience_gain_army_factor = -0.3
+			}
+		}
+
+		the_dai_li = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				operative_slot = 6
+				enemy_intel_network_gain_factor = -0.5
+				intelligence_agency_defense = 1
+			}
+		}
+
+		dai_li_government = {
+
+			allowed = {
+				always = no
+			}
+
+			allowed_civil_war = {
+				always = yes
+			}
+
+			removal_cost = -1
+
+			modifier = {
+				political_power_factor = -0.2
+				experience_gain_army_factor = -0.2
+				stability_factor = 0.3
+				centralisation_target_modifier = 0.15
+				operative_slot = 12
+				enemy_intel_network_gain_factor = -0.5
+				intelligence_agency_defense = 1
+
+				### cant have ministers at all?
+				##disabled_ideas = 1
 			}
 		}
 		
