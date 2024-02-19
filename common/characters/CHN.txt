@@ -181,14 +181,16 @@ characters = {
 	#   #  #  #  #   #  #     #  #   #  # #      #      
 	#   #  ###    ###   #  ###    ###   #  #  ###    
 	CHN_Yuan = {
+		name = "Yuan"
 		corps_commander = {
 			skill = 2
 			attack_skill = 1
-			defense_skill = 2
-			planning_skill = 1
+			defense_skill = 4
+			planning_skill = 2
 			logistics_skill = 1
 			traits = {
 				generic
+				defensive_infantry
 			}
 		}
 		portraits = {
@@ -196,8 +198,16 @@ characters = {
 				large = "gfx/leaders/CHN/Portrait_CHN_generic1.dds"
 			}
 		}
+		advisor = {
+			slot = field_marshal
+			idea_token = CHN_Yuan
+			traits = {
+				defensive_strategist_2
+			}
+		}
 	}
 	CHN_Qing = {
+		name = "Qing"
 		corps_commander = {
 			skill = 2
 			attack_skill = 1
@@ -218,6 +228,32 @@ characters = {
 			idea_token = x
 			traits = {
 				smithing_guildmaster_1
+			}
+		}
+	}
+	CHN_Li = {
+		name = "Li"
+		field_marshal = {
+			skill = 2
+			attack_skill = 1
+			defense_skill = 3
+			planning_skill = 1
+			logistics_skill = 1
+			traits = {
+				generic
+				resolute_defender
+			}
+		}
+		portraits = {
+			army = {
+				large = "gfx/leaders/EAR/Portrait_Earthkingdom_Kai.dds"
+			}
+		}
+		advisor = {
+			slot = war_minister
+			idea_token = CHN_Li
+			traits = {
+				unyielding_defender_2
 			}
 		}
 	}
