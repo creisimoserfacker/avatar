@@ -308,7 +308,27 @@ on_actions = {
 				add_to_variable = { real_prosp_growth = var_local_tax }
 				add_to_variable = { real_prosp_growth = var_local_inflation_steal }
 				add_to_variable = { real_prosp_growth = var_local_goods_bought }
-				add_to_variable = { local_prosperity = THIS.real_prosp_growth }
+				
+				if = {
+					limit = {
+						OR = {
+							check_variable = {
+								var = real_prosp_growth
+								value = 0.1
+								compare = greater_than_or_equals
+							}
+							check_variable = {
+								var = real_prosp_growth
+								value = -0.1
+								compare = less_than_or_equals
+							}
+						}
+					}
+					add_to_variable = { local_prosperity = THIS.real_prosp_growth }
+				}
+				else = {
+					set_variable = { real_prosp_growth = 0 }
+				}
 				set_variable = { prosp_cap = mtth:local_prosperity_cap }
 				clamp_variable = { 
 					var = local_prosperity

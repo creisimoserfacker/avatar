@@ -60,6 +60,8 @@ THE_EARTHKINGDOM = {
 EAR_dai_li_category = {
 	encourage_extremism = {
 
+		priority = 100
+
 		icon = dai_li_extremism
 		
 		visible = {
@@ -87,10 +89,70 @@ EAR_dai_li_category = {
 				value = 5
 				tooltip = dai_li_influence
 			}
+			EAR_clamp_dli = yes
+			add_to_variable = { 
+				var = dai_li_disloyalty
+				value = 0.05
+				tooltip = dai_li_disloyalty
+			}
+		}
+	}
+
+	concessions_to_the_dai_li = {
+		
+		priority = 80	
+
+		icon = GFX_decision_generic_military 
+		
+		allowed = { original_tag = EAR }
+
+		visible = {
+			has_country_flag = extremist_dai_li
+		}
+
+		fire_only_once = no
+
+		custom_cost_trigger = {
+			command_power > 49
+			has_political_power > 99
+		}
+
+		custom_cost_text = decision_cost_CP_50_PP_100
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+				add_political_power = -100 
+			}
+		}
+
+		days_remove = 45
+
+		remove_effect = {
+			add_to_variable = { 
+				var = dai_li_influence
+				value = 10
+				tooltip = dai_li_influence
+			}
+			EAR_clamp_dli = yes
+		}
+		ai_will_do = {
+			base = 25 
+			modifier = {
+				factor = 3
+				has_political_power > 600
+				command_power > 100  
+			}
+			modifier = {
+				factor = 0
+				dai_li_full = yes 
+			}
 		}
 	}
 
 	loyalists_in_the_dai_li = {
+
+		priority = 100
 
 		icon = dai_li_loyalists
 		
@@ -117,6 +179,12 @@ EAR_dai_li_category = {
 				var = dai_li_influence
 				value = -5
 				tooltip = dai_li_influence
+			}
+			EAR_clamp_dli = yes
+			add_to_variable = { 
+				var = dai_li_disloyalty
+				value = -0.05
+				tooltip = dai_li_disloyalty
 			}
 		}
 	}
@@ -147,82 +215,191 @@ EAR_dai_li_category = {
 				value = 5
 				tooltip = dai_li_influence
 			}
+			EAR_clamp_dli = yes
 		}
 	}
 
-	under_new_management = {
+	expand_the_dai_li_units = {
 
-		icon = dai_li_government
+		priority = 20
+
+		icon = GFX_decision_POL_looming_peasants_strike
+
+		allowed = { original_tag = EAR }
 		
-		#visible = {
-		#	tag = EAR
-		#	has_country_flag = dai_li_ministers
-		#	has_start_date < 100.1.1
-		#}
+		visible = {
+			
+		}
 
-		available = {
-			custom_trigger_tooltip = {
-				tooltip = dai_li_government_tt		
-				count_triggers = {
-					amount = 6
-					has_idea = ear_quon
-					has_idea = ear_hiroshi
-					has_idea = ear_juno
-					has_idea = ear_moku
-					has_idea = ear_saiful
-					has_idea = ear_cam
-				}
+		fire_only_once = no 
+		
+		days_remove = 90 
+
+		custom_cost_trigger = {
+			check_variable = {
+				var = dai_li_influence 
+				value = 25
+				compare = greater_than_or_equals
 			}
 		}
-		
-		fire_only_once = yes
 
-		cost = 100
+		custom_cost_text = EAR_decision_cost_medium_DLI
+
+		complete_effect = {
+			SWI_mr_max_reduction = yes 
+		}
 
 		remove_effect = {
-			remove_ideas = corrupt_bureaucracy
-			swap_ideas = {
-				remove_idea = the_dai_li
-				add_idea = dai_li_government
+			EAR_increase_militia_cap = yes 
+		}
+		
+		ai_will_do = {
+			base = 10 
+			modifier = {
+				factor = 10
+				check_variable = { SWI_militia_division_cap < 20 }
 			}
-
-			every_character = {
-				limit = {
-					OR = {
-						is_character = EAR_quon
-						is_character = EAR_hiroshi
-						is_character = EAR_juno
-						is_character = EAR_moku
-						is_character = EAR_saiful
-						is_character = EAR_cam
-					}
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_personnel
-					value = no
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_finance
-					value = no
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_culture
-					value = no
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_justice
-					value = no
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_works
-					value = no
-				}
-				set_can_be_fired_in_advisor_role = {
-					slot = minister_of_rites
-					value = no
+			modifier = {
+				factor = 0 
+				check_variable = { SWI_militia_template_level > 40 }
+			}
+		}
+		ai_will_do = {
+			base = 25 
+			modifier = {
+				factor = 3 
+				SWI_is_historical_ai = yes 
+			}
+			modifier = {
+				factor = 5
+				SWI_MR_full = yes 
+			}
+			modifier = {
+				add = 150 
+				check_variable = {
+					SWI_militia_division_cap < 50
 				}
 			}
 		}
+	}
+
+#	under_new_management = {
+#
+#		icon = dai_li_government
+#		
+#		#visible = {
+#		#	tag = EAR
+#		#	has_country_flag = dai_li_ministers
+#		#	has_start_date < 100.1.1
+#		#}
+#
+#		available = {
+#			custom_trigger_tooltip = {
+#				tooltip = dai_li_government_tt		
+#				count_triggers = {
+#					amount = 6
+#					has_idea = ear_quon
+#					has_idea = ear_hiroshi
+#					has_idea = ear_juno
+#					has_idea = ear_moku
+#					has_idea = ear_saiful
+#					has_idea = ear_cam
+#				}
+#			}
+#		}
+#		
+#		fire_only_once = yes
+#
+#		cost = 100
+#
+#		remove_effect = {
+#			remove_ideas = corrupt_bureaucracy
+#			swap_ideas = {
+#				remove_idea = the_dai_li
+#				add_idea = dai_li_government
+#			}
+#
+#			every_character = {
+#				limit = {
+#					OR = {
+#						is_character = EAR_quon
+#						is_character = EAR_hiroshi
+#						is_character = EAR_juno
+#						is_character = EAR_moku
+#						is_character = EAR_saiful
+#						is_character = EAR_cam
+#					}
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_personnel
+#					value = no
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_finance
+#					value = no
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_culture
+#					value = no
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_justice
+#					value = no
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_works
+#					value = no
+#				}
+#				set_can_be_fired_in_advisor_role = {
+#					slot = minister_of_rites
+#					value = no
+#				}
+#			}
+#		}
+#	}
+
+
+	EAR_dai_li_coup = {
+
+		icon = dai_li_coup
+
+		allowed = {
+			#always = no
+		}
+
+		available = {
+			GIF = {
+				controls_state = 208
+			}
+        }
+
+
+		days_mission_timeout = 200
+		fire_only_once = yes
+
+		activation = {
+
+		}
+
+		is_good = no
+
+		complete_effect = {
+			EAR = {
+				country_event = { id = air_gen.3 days = 7 }
+			}
+			set_global_flag = west_temple_fallen
+		}
+
+		timeout_effect = {
+			EAR_dai_li_government = {
+				promote_character = yes
+			}
+		}
+
+        ai_will_do = {
+			factor = 100
+		}
+
 	}
 
 
