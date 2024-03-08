@@ -26,9 +26,10 @@ ConstantBuffer( 0, 0 )
 	float3		AmbientPosZ;
 	float3		AmbientNegZ;
 	float		CubemapIntensity;
-	float4		SunDiffuseIntensity
-	float4		MoonDiffuseIntensity
+	float4		SunDiffuseIntensity;
+	float4		MoonDiffuseIntensity;
 	float		GB_TextureHeight;
+	float		SunSpecularIntensity;
 };
 
 
@@ -234,11 +235,14 @@ PixelShader =
 
 	
 	float3 GetMudColor( in float3 vResult, in float4 vMudSnowColor, in float3 vPos, inout float3 vNormal, inout float vGlossiness, inout float vSpec,
-						 in sampler2D MudDiffuseGlossSampler, in sampler2D MudNormalSpecSampler )
+						 in sampler2D MudDiffuseGlossSampler, in sampler2D MudNormalSpecSampler, in float3 TerrainColor, in sampler2D SnowNoise )
 	{
+		float vOpacity = cam_distance( MUD_CAM_MIN, MUD_CAM_MAX );
+		float vNoise = lerp( 1.0, (0.5 + tex2D( SnowNoise, vPos.xz * 0.01f ).a) * 0.5, vOpacity);
+
 		float vMudCurrent = lerp( vMudSnowColor.r, vMudSnowColor.a, vFoWOpacity_FoWTime_SnowMudFade_MaxGameSpeed.z );
 		vMudCurrent *= 1.0 - saturate( saturate( vNormal.y - MUD_NORMAL_CUTOFF ) * ( ( 1.0 - MUD_NORMAL_CUTOFF ) * 1000.0 ) );
-		vMudCurrent = saturate( vMudCurrent * MUD_STRENGHTEN );
+		vMudCurrent = saturate( vMudCurrent * MUD_STRENGHTEN * vNoise );
 		float4 vMudDiffuseGloss = tex2D( MudDiffuseGlossSampler, vPos.xz * MUD_TILING );
 		float4 vMudNormalSpec = tex2D( MudNormalSpecSampler, vPos.xz * MUD_TILING );
 		
@@ -248,7 +252,8 @@ PixelShader =
 		vGlossiness = lerp( vGlossiness, vMudDiffuseGloss.a, vMudCurrent );
 		vSpec = lerp( vSpec, vMudNormalSpec.a, vMudCurrent );
 		
-		return lerp( vResult, vMudDiffuseGloss.rgb, vMudCurrent );
+		float3 MudMix = GetOverlay( vMudDiffuseGloss.rgb, TerrainColor.rgb, COLORMAP_MUD_OVERLAY_STRENGTH );
+		return lerp( vResult, MudMix, vMudCurrent );
 	}
 
 	float GetSnow( float4 vMudSnowColor )
@@ -646,12 +651,14 @@ PixelShader =
 			+ MoonDiffuseIntensity.rgb * MoonDiffuseIntensity.a * aShadowTerm * vNightFactor;	
 		//sunIntensity += 0.6f * (1.0f - (vDayFactor  * aShadowTerm + vNightFactor));
 
+
 	#ifdef PDX_IMPROVED_BLINN_PHONG
 		ImprovedBlinnPhong(sunIntensity, -vLightSourceDirection, aProperties, aDiffuseLightOut, aSpecularLightOut);
 	#else
 		aDiffuseLightOut = CalculateLight(aProperties._Normal, vLightSourceDirection, sunIntensity);
 		aSpecularLightOut = CalculatePBRSpecularPower(aProperties._WorldSpacePos, aProperties._Normal, aProperties._SpecularColor, aProperties._Glossiness, sunIntensity, vLightSourceDirection);
 	#endif
+	aSpecularLightOut *= SunSpecularIntensity;
 	}
 
 	void CalculateSunLight(LightingProperties aProperties, float aShadowTerm, out float3 aDiffuseLightOut, out float3 aSpecularLightOut )
