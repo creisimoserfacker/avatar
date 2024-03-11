@@ -19,8 +19,8 @@ EAR_upgrade_dai_li = {
 		add_units_to_division_template = {
 			template_name = "EARss Citizen Militia"
 			regiments = {
-				militia = 0
-				militia = 0 
+				spearmen = 0
+				spearmen = 0 
 			}
 		}
 	}
@@ -32,8 +32,8 @@ EAR_upgrade_dai_li = {
 		add_units_to_division_template = {
 			template_name = "EARss Citizen Militia"
 			regiments = {
-				militia = 1
-				militia = 1 
+				spearmen = 1
+				spearmen = 1 
 			}
 		}
 	}
@@ -46,8 +46,8 @@ EAR_upgrade_dai_li = {
 		add_units_to_division_template = {
 			template_name = "EARss Citizen Militia"
 			regiments = {
-				militia = 2
-				militia = 2 
+				spearmen = 2
+				spearmen = 2 
 			}
 		}
 	}
@@ -60,8 +60,8 @@ EAR_upgrade_dai_li = {
 		add_units_to_division_template = {
 			template_name = "EARss Citizen Militia"
 			regiments = {
-				militia = 3
-				militia = 3 
+				spearmen = 3
+				spearmen = 3 
 			}
 		}
 	}
@@ -73,8 +73,8 @@ EAR_upgrade_dai_li = {
 		add_units_to_division_template = {
 			template_name = "EARss Citizen Militia"
 			regiments = {
-				militia = 4
-				militia = 4 
+				spearmen = 4
+				spearmen = 4 
 			}
 		}
 	}
@@ -96,25 +96,25 @@ EAR_upgrade_dai_li = {
 			priority = 1
 			template_counter = 70
 			regiments = {
-				militia = { x = 0 y = 0 }
-				militia = { x = 0 y = 1 }
+				spearmen = { x = 0 y = 0 }
+				spearmen = { x = 0 y = 1 }
 			}
 			support = {
 
 			}
 			division_cap = 15 
 		}
-		set_variable = { EAR_militia_template_level = 1 }
+		set_variable = { EAR_spearmen_template_level = 1 }
 	}
 }
 
-EAR_increase_militia_cap = { 
+EAR_increase_spearmen_cap = { 
 	effect_tooltip = {
-		set_temp_variable = { EAR_new_militia_cap_for_tooltip = EAR_dai_li_cap }
-		add_to_temp_variable = { EAR_new_militia_cap_for_tooltip = 1 }
+		set_temp_variable = { EAR_new_spearmen_cap_for_tooltip = EAR_dai_li_cap }
+		add_to_temp_variable = { EAR_new_spearmen_cap_for_tooltip = 1 }
 		set_division_template_cap = { 
 			division_template = "Dai Li Unit" 
-			division_cap = EAR_new_militia_cap_for_tooltip   
+			division_cap = EAR_new_spearmen_cap_for_tooltip   
 		}
 	}
 	hidden_effect = {
@@ -132,15 +132,15 @@ EAR_increase_militia_cap = {
 }
 
 
-EAR_turn_militias_into_regulars = { #Effect to turn militias into regulars 
-	custom_effect_tooltip = EAR_professionalize_militias_TT
+EAR_turn_spearmens_into_regulars = { #Effect to turn spearmens into regulars 
+	custom_effect_tooltip = EAR_professionalize_spearmens_TT
 	hidden_effect = {
 		division_template = {
 			name = "EARss Infantry Division"
 			priority = 1
 			regiments = {
-				infantry = { x = 0 y = 0 }
-				infantry = { x = 0 y = 1 }
+				swordsmen = { x = 0 y = 0 }
+				swordsmen = { x = 0 y = 1 }
 			}
 			support = {
 			}
@@ -151,11 +151,11 @@ EAR_turn_militias_into_regulars = { #Effect to turn militias into regulars
 				division_has_majority_template = militia
 			}
 			change_division_template = {
-				division_template = "EARss Infantry Division" 
+				division_template = "EARss infantry Division" 
 			}
 		}
-		set_division_template_lock = { division_template = "EARss Citizen Militia" is_locked = no }
-		clear_division_template_cap = { division_template = "EARss Citizen Militia"  }
+		set_division_template_lock = { division_template = "EARss Citizen militia" is_locked = no }
+		clear_division_template_cap = { division_template = "EARss Citizen militia"  }
 		EAR = { 
 			set_country_flag = EAR_militias_turned_into_regulars 
 			if = {
@@ -198,10 +198,10 @@ EAR_bring_professionalized_divisions_to_the_correct_level = {
 				check_variable =  { EAR_infantry_template_level < 2 }
 			}
 			add_units_to_division_template = {
-				template_name = "EARss Infantry Division"
+				template_name = "EARss infantry Division"
 				regiments = {
-					infantry = 0
-					infantry = 0 
+					swordsmen = 0
+					swordsmen = 0 
 				}
 			}
 		}
@@ -210,10 +210,10 @@ EAR_bring_professionalized_divisions_to_the_correct_level = {
 				check_variable =  { EAR_infantry_template_level < 4 }
 			}
 			add_units_to_division_template = {
-				template_name = "EARss Infantry Division"
+				template_name = "EARss infantry Division"
 				regiments = {
-					infantry = 1
-					infantry = 1 
+					swordsmen = 1
+					swordsmen = 1 
 				}
 			}
 		}
@@ -223,10 +223,10 @@ EAR_bring_professionalized_divisions_to_the_correct_level = {
 	
 			}
 			add_units_to_division_template = {
-				template_name = "EARss Infantry Division"
+				template_name = "EARss infantry Division"
 				regiments = {
-					infantry = 2
-					infantry = 2 
+					swordsmen = 2
+					swordsmen = 2 
 				}
 			}
 		}
@@ -236,10 +236,10 @@ EAR_bring_professionalized_divisions_to_the_correct_level = {
 	
 			}
 			add_units_to_division_template = {
-				template_name = "EARss Infantry Division"
+				template_name = "EARss infantry Division"
 				regiments = {
-					infantry = 3
-					infantry = 3 
+					swordsmen = 3
+					swordsmen = 3 
 				}
 			}
 		}
@@ -248,10 +248,10 @@ EAR_bring_professionalized_divisions_to_the_correct_level = {
 				check_variable =  { EAR_infantry_template_level < 10 }
 			}
 			add_units_to_division_template = {
-				template_name = "EARss Infantry Division"
+				template_name = "EARss infantry Division"
 				regiments = {
-					infantry = 4
-					infantry = 4 
+					swordsmen = 4
+					swordsmen = 4 
 				}
 			}
 		}
