@@ -2,6 +2,7 @@
 add_namespace = economy
 add_namespace = culture
 add_namespace = legitimacy_event
+add_namespace = population_calc
 
 country_event = {
 	id = culture.1
@@ -12,6 +13,18 @@ country_event = {
 	immediate = {
 
 		culture_pie_chart_recalc = yes
+	}
+}
+
+country_event = {
+	id = population_calc.1
+	hidden = yes
+
+	is_triggered_only = yes
+
+	immediate = {
+		add_manpower = var:used_oob_manpower
+		clear_variable = used_oob_manpower
 	}
 }
 

@@ -74,10 +74,7 @@ scripted_gui = {
 			}
 
 			warning_missing_workers_visible = {
-				#any_controlled_state {
-				#	check_variable = { mtth:workers_needed > mtth:state_workfore_k }
-				#}
-				always = no
+				check_variable = { worker_deficit_k > 0 }
 			}
 
 			fire_boni_visible = {
@@ -138,6 +135,41 @@ scripted_gui = {
 			#	}
 			#	else = { set_country_flag = state_deposit_mapicon_visible }
 			#}
+
+			warning_missing_workers_click = {
+				if = {
+					limit = {
+						any_controlled_state = {
+							NOT = { check_variable = { worker_deficit_k > 0 } }
+							state = var:PREV.previous_state_checked
+						}
+					}
+					clear_variable = previous_state_checked
+				}
+				random_controlled_state = {
+					limit = {
+						check_variable = { worker_deficit_k > 0 }
+						NOT = { state = var:PREV.previous_state_checked }
+					}
+					meta_effect = {
+						text = {
+							PREV = {
+								goto_state = [STATE]
+							}
+						}
+						STATE = "[?THIS.GetID]"
+					}
+					set_variable = { PREV.previous_state_checked = THIS.id }
+				}
+				if = {
+					limit = {
+						var:PREV.previous_state_checked = {
+							check_variable = { worker_deficit_k > 0 }
+						}
+					}
+					clear_variable = ROOT.previous_state_checked
+				}
+			}
 
 
 			toggle_auto_click = {

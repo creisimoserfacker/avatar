@@ -581,7 +581,7 @@ NResistance = {
 
 NProduction = {
 	MAX_EQUIPMENT_RESOURCES_NEED = 6, 	-- Max number of different strategic resources an equipment can be dependent on.
-	MAX_CIV_FACTORIES_PER_LINE = 50,	-- 15 #Max number of factories that can be assigned a single production line.
+	MAX_CIV_FACTORIES_PER_LINE = 25,	-- 15 #Max number of factories that can be assigned a single production line.
 	DEFAULT_MAX_NAV_FACTORIES_PER_LINE = 10,
 	FLOATING_HARBOR_MAX_NAV_FACTORIES_PER_LINE = 5,
 	CONVOY_MAX_NAV_FACTORIES_PER_LINE = 15,
@@ -591,7 +591,7 @@ NProduction = {
 	RAILWAY_GUN_REPAIR_SPEED = 8.0,			-- Railway gun strength repair speed per factory
 	EFFICIENCY_LOSS_PER_UNUSED_DAY = 1,		-- Daily loss of efficiency for unused factory slots ( efficiency is tracked per factory slot in the production line )
 	RESOURCE_PENALTY_WARNING_CRITICAL_RATIO =  0.8, -- Switch to red progress bar if penalty is over threshold 
-	BASE_FACTORY_SPEED = 0.2, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
+	BASE_FACTORY_SPEED = 1, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 	BASE_FACTORY_SPEED_MIL = 10, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 	BASE_FACTORY_SPEED_NAV = 10, 				-- Base factory speed multiplier (how much hoi3 style IC each factory gives).
 	BASE_FACTORY_START_EFFICIENCY_FACTOR = 1,	-- Base start efficiency for factories expressed in %.

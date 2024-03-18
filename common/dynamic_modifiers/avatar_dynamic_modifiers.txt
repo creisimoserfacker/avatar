@@ -75,7 +75,17 @@ destroyed_city = {
 	resistance_activity = -0.6
 	resistance_decay = -0.75
 	#garrison_factor_modifier = -0.5  ### will be reduced by migration
+	monthly_migration_state = -0.05
+	prosperity = -0.5
+}
+
+devestated_state = {
+	enable = { always = yes }
+
+	icon = GFX_modifiers_devestated_state
+
 	migration_attraction = -0.5
+	prosperity = -0.2
 }
 
 firenation_settlers = {
@@ -190,13 +200,24 @@ migration_target = {
 	enable = { always = yes }
 	remove_trigger = {
 		check_variable = { refugees_accepted_last_month < 100 }
-		check_variable = { local_prosperity > 10 }
+		check_variable = { local_prosperity < 10 }
 	}
 
 	icon = GFX_modifiers_refugees
 	
 	migration_attraction = 0.75
 	prosperity = mtth:refugee_supplies
+}
+
+empoverished_region = {
+	enable = { always = yes }
+	remove_trigger = {
+		check_variable = { local_prosperity > 1 }
+	}
+
+	icon = GFX_modifiers_empoverished_region
+	
+	monthly_migration_state = 0.01
 }
 
 occupied_has_dominant_culture = {

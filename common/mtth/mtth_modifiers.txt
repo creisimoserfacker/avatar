@@ -539,6 +539,26 @@ air_wages_factor = {
 	}
 }
 
+reservist_wages_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@reservist_wages } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
+officer_wages_factor = {
+	base = 0
+	modifier = { 
+		set_temp_variable = { factor = 1 } 
+		add_to_temp_variable = { factor = modifier@officer_wages } 
+		clamp_temp_variable = { var = factor min = 0 }
+		add = factor
+	}
+}
+
 expenses_per_pop = {
 	base = 0
 	modifier = { 

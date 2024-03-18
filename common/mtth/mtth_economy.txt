@@ -1448,7 +1448,7 @@ working_soldiers_k = {
 	}
 }
 
-state_workfore_k = {
+state_workforce_k = {
 	base = 0
 	modifier = {
 		set_temp_variable = { population_k = state_population_k }
@@ -1498,7 +1498,7 @@ workers_number = {
 		}
 		clamp_temp_variable = {
 			var = workers_number
-			max = mtth:state_workfore_k
+			max = mtth:state_workforce_k
 		}
 
 		add = workers_number
@@ -1508,7 +1508,7 @@ workers_number = {
 state_self_employed = {
 	base = 0
 	modifier = {
-		set_temp_variable = { self_employed = mtth:state_workfore_k }
+		set_temp_variable = { self_employed = mtth:state_workforce_k }
 		subtract_from_temp_variable = { self_employed = mtth:workers_number }
 		
 		clamp_temp_variable = {
@@ -1517,7 +1517,7 @@ state_self_employed = {
 		}
 		clamp_temp_variable = {
 			var = self_employed
-			max = mtth:state_workfore_k
+			max = mtth:state_workforce_k
 		}
 
 		add = self_employed
@@ -1529,6 +1529,7 @@ self_employed_grain_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 		}
@@ -1562,6 +1563,7 @@ self_animal_products_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 		}
@@ -1590,6 +1592,7 @@ self_employed_minerals_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 		}
@@ -1616,6 +1619,7 @@ self_employed_iron_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 		}
@@ -1642,6 +1646,7 @@ self_employed_wood_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = wood_need }
@@ -1668,6 +1673,7 @@ self_employed_textile_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = textile_need }
@@ -1690,6 +1696,7 @@ self_employed_consumer_goods_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = consumer_goods_need }
@@ -1712,6 +1719,7 @@ self_employed_planks_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = planks_need }
@@ -1738,6 +1746,7 @@ self_employed_bricks_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = bricks_need }
@@ -1761,6 +1770,7 @@ self_employed_food_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mtth:state_self_employed }
+		multiply_temp_variable = { output = 2 }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
 			multiply_temp_variable = { output = mtth:food_throughput }
@@ -2039,7 +2049,7 @@ missing_workers_resource_modifier = {
 	base = 0
 	modifier = {
 		set_temp_variable = { worker_deficit_k = mtth:workers_needed }
-		subtract_from_temp_variable = { worker_deficit_k = mtth:state_workfore_k }
+		subtract_from_temp_variable = { worker_deficit_k = mtth:state_workforce_k }
 		clamp_temp_variable = { 
 			var = worker_deficit_k
 			min = 0.001
@@ -2047,7 +2057,7 @@ missing_workers_resource_modifier = {
 
 		set_temp_variable = { temp_worker_deficit = worker_deficit_k }
 		set_temp_variable = { temp_total_ratio = worker_deficit_k }
-		add_to_temp_variable = { temp_total_ratio = mtth:state_workfore_k }
+		add_to_temp_variable = { temp_total_ratio = mtth:state_workforce_k }
 		divide_temp_variable = { temp_worker_deficit = temp_total_ratio }
 		set_temp_variable = { worker_deficit_malus = temp_worker_deficit }
 		multiply_temp_variable = { worker_deficit_malus = -1 }
@@ -2057,7 +2067,7 @@ missing_workers_resource_modifier = {
 
 	modifier = {
 		set_temp_variable = { worker_deficit_k = mtth:workers_needed }
-		subtract_from_temp_variable = { worker_deficit_k = mtth:state_workfore_k }
+		subtract_from_temp_variable = { worker_deficit_k = mtth:state_workforce_k }
 		check_variable = { worker_deficit_k < 0.001 }
 
 		factor = 0
