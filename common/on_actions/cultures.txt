@@ -2,49 +2,6 @@ on_actions = {
 
 	on_startup = {
 		effect = {
-			every_country = {
-				culture_setup_calculation = yes
-
-				country_event = {
-					id = culture.1
-				}
-
-				if = { 
-					limit = {
-						has_government = fire_culture
-					}
-					set_variable = { bender_percentage = 0.30 }
-					add_dynamic_modifier = { modifier = fire_nation }
-				}
-				if = { 
-					limit = {
-						has_government = earth_culture
-					}
-					set_variable = { bender_percentage = 0.20 }
-					add_dynamic_modifier = { modifier = earth_nation }
-				}
-				if = { 
-					limit = {
-						has_government = water_culture
-					}
-					set_variable = { bender_percentage = 0.40 }
-					add_dynamic_modifier = { modifier = water_nation }
-				}
-				if = { 
-					limit = {
-						has_government = air_culture
-					}
-					set_variable = { bender_percentage = 1.0 }
-					add_dynamic_modifier = { modifier = air_nation }
-				}
-				if = { 
-					limit = {
-						has_government = pluralist_culture
-					}
-					set_variable = { bender_percentage = 0.25 }
-					add_dynamic_modifier = { modifier = pluralist_nation }
-				}
-			}
 
 			if = {
 				limit = {
@@ -67,6 +24,12 @@ on_actions = {
 			}
 
 			every_country = {
+				culture_setup_calculation = yes
+
+				country_event = {
+					id = culture.1
+				}
+
 				every_controlled_state = {
 					add_settlers_effect = yes
 					add_occupation_culture_buff = yes
@@ -77,6 +40,7 @@ on_actions = {
 			FIR = {
 				global_culture = yes
 			}
+
 		}
 	}
 
@@ -89,6 +53,12 @@ on_actions = {
 	on_daily = {
 		effect = {
 
+		}
+	}
+
+	on_weekly = {
+		effect = {
+			
 		}
 	}
 

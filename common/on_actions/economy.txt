@@ -332,6 +332,17 @@ on_actions = {
 
 				add_to_variable = { ROOT.national_prosperity = THIS.local_prosperity }
 
+				if = {
+					limit = {
+						check_variable = {
+							var = local_prosperity
+							value = 0
+							compare = less_than_or_equals
+						}
+					}
+					add_dynamic_modifier = { modifier = impoverished_region }
+				}
+
 
 
 				set_temp_variable = { temp_worker_deficit = mtth:workers_needed }
@@ -428,8 +439,8 @@ on_actions = {
 			add_to_variable = { deployed_manpower_k = deployed_navy_manpower_k }
 			add_to_variable = { deployed_manpower_k = deployed_airforce_manpower_k }
 
-			set_variable = { reservist_manpower_k = max_available_manpower_k }
-			subtract_from_variable = { reservist_manpower_k = deployed_manpower_k }
+			set_variable = { reservist_manpower_k = manpower_k }
+			#subtract_from_variable = { reservist_manpower_k = deployed_manpower_k }
 
 			set_variable = { deployed_percentage = deployed_manpower_k }
 			divide_variable = { deployed_percentage = max_population_k }
