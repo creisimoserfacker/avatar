@@ -3,20 +3,10 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_state = {
-				add_dynamic_modifier = { modifier = needed_garrison_modifier }
+				
 			}
 			every_country = {
-				add_ideas = {
-					strategic_redeployment_blocker
-				}
-				add_dynamic_modifier = { modifier = population_resource_bought_on_market }
-				add_dynamic_modifier = { modifier = building_upkeep_resources }
-				add_dynamic_modifier = { modifier = logistics_and_orga_spirit }
-				add_dynamic_modifier = { modifier = wages_and_professionalism_spirit }
-				add_dynamic_modifier = { modifier = unit_leader_spirit }
-				set_variable = { spirit_army_orga = logistic_spirit_var }
-				multiply_variable = { spirit_army_orga = 0.015 }
-				subtract_from_variable = { spirit_army_orga = 0.1 }
+				building_upkeep_calc = yes
 			}
 		}
 	}
