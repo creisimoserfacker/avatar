@@ -675,7 +675,53 @@ FIR_royal_family_category = {
 	}
 
 
+        ozai_general = {
 
+		icon = general
+
+		allowed = {
+			tag = FIR
+		}
+		#visible = {	
+			#has_character = FIR_ozai
+			#FIR_ozai = {
+				#has_character_flag = FIR_character_born
+				#NOT = {
+					#has_character_flag = FIR_character_general
+				#}
+			#}
+		#}
+		available = {
+			FIR_azulon = {
+				custom_trigger_tooltip = {
+					tooltip = age_16_tt
+					check_variable = { mtth:ozai_age > 15 }
+				}
+			}
+		}
+
+		complete_effect = {
+			hidden_effect = {
+				add_command_power = -50
+			}
+
+			FIR_ozai = {
+				set_character_flag = FIR_character_general
+				custom_effect_tooltip = becomes_general
+			}
+		}
+
+		custom_cost_trigger = {
+			command_power > 50
+		}
+		custom_cost_text = honour_cost_50
+		#fire_only_once = yes
+
+		ai_will_do = {
+			factor = 110
+		}
+
+	}
 	############################
 	###	DRAGON DECISIONS
 	############################
