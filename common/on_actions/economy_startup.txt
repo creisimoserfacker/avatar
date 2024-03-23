@@ -3,19 +3,10 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_country = {
+
+				country_event = { id = population_calc.1 }
+
 				country_event = { id = economy.1 }
-
-
-				#### population counter
-
-				set_variable = { max_population_k = max_manpower_k }
-
-				#set_variable = { used_oob_manpower = deployed_army_manpower_k }
-				#add_to_variable = { used_oob_manpower = deployed_navy_manpower_k }
-				#add_to_variable = { used_oob_manpower = deployed_airforce_manpower_k }
-				#multiply_variable = { used_oob_manpower = -1000 }
-				#country_event = { id = population_calc.1  days = 3 }
-				
 
 				every_controlled_state = {
 					set_variable = { local_prosperity = state_population_k }
@@ -40,15 +31,10 @@ on_actions = {
 					}
 				}
 
-				set_variable = { national_prosperity = 0 }
-				every_core_state = {
-					add_to_variable = { ROOT.national_prosperity = THIS.local_prosperity }
-				}
-				set_variable = { national_prosperity_cap = core_population_k }
+				country_event = { id = economy.2 }
 
-				set_variable = { wealth_bar = national_prosperity }
-				divide_variable = { wealth_bar = national_prosperity_cap }
-				multiply_variable = { wealth_bar = 100 }
+				force_update_dynamic_modifier = yes
+
 				
 
 				set_variable = { army_medium_prio_var = 3 }
@@ -62,92 +48,6 @@ on_actions = {
 				set_variable = { occupied_priority_var = 2 }
 				ration_distribution = yes
 
-				
-				set_variable = { working_percentage = 0.55 }
-				#set_variable = { food_production_bonus = 1 }
-
-				set_variable = { farm_output = 2 }
-				set_variable = { farm_output_2 = 1 }
-				add_to_variable = { farm_output = modifier@farm_output }
-				add_to_variable = { farm_output_2 = modifier@farm_output_2 }
-				set_variable = { fishing_stand_output = 2 }
-				set_variable = { fishing_stand_output_2 = 2 }
-				add_to_variable = { fishing_stand_output = modifier@fishing_stand_output }
-				add_to_variable = { fishing_stand_output_2 = modifier@fishing_stand_output_2 }
-				set_variable = { ranch_output = 6 }
-				set_variable = { ranch_output_2 = 3 }
-				add_to_variable = { ranch_output = modifier@ranch_output }
-				add_to_variable = { ranch_output_2 = modifier@ranch_output_2 }
-				set_variable = { lumber_mill_output = 10 }
-				add_to_variable = { lumber_mill_output = modifier@lumber_mill_output }
-				set_variable = { quarry_output = 6 }
-				set_variable = { quarry_output_2 = 2 }
-				set_variable = { quarry_output_3 = 2 }
-				add_to_variable = { quarry_output = modifier@quarry_output }
-				add_to_variable = { quarry_output_2 = modifier@quarry_output_2 }
-				add_to_variable = { quarry_output_3 = modifier@quarry_output_3 }
-				set_variable = { mine_output1 = 9 }
-				set_variable = { mine_output2 = 1 }
-				add_to_variable = { mine_output1 = modifier@mine_output1 }
-				add_to_variable = { mine_output2 = modifier@mine_output2 }
-				set_variable = { crop_weaving_need = 6 }
-				set_variable = { crop_weaving_output = 10 }
-				set_variable = { crop_weaving_output_2 = 4 }
-				set_variable = { crop_weaving_output_3 = 4 }
-				add_to_variable = { crop_weaving_output = modifier@crop_weaving_output }
-				add_to_variable = { crop_weaving_output_2 = modifier@crop_weaving_output_2 }
-				add_to_variable = { crop_weaving_output_3 = modifier@crop_weaving_output_3 }
-				set_variable = { animal_weaving_need = 6 }
-				set_variable = { animal_weaving_output = 10 }
-				set_variable = { animal_weaving_output_2 = 4 }
-				set_variable = { animal_weaving_output_3 = 4 }
-				add_to_variable = { animal_weaving_output = modifier@animal_weaving_output }
-				add_to_variable = { animal_weaving_output_2 = modifier@animal_weaving_output_2 }
-				add_to_variable = { animal_weaving_output_3 = modifier@animal_weaving_output_3 }
-				set_variable = { mill_need = 4 }
-				set_variable = { mill_output = 4 }
-				add_to_variable = { mill_output = modifier@mill_output }
-				set_variable = { steelworks_need1 = 20 }
-				set_variable = { steelworks_need2 = 1 }
-				set_variable = { steelworks_output = 10 }
-				add_to_variable = { steelworks_output = modifier@steelworks_output }
-
-				set_variable = { smithy_fuel = 50 }
-				set_variable = { steelworks_fuel = 100 }
-				set_variable = { factory_fuel = 200 }
-				set_variable = { dockyard_fuel = 100 }
-				set_variable = { steel_beam_factory_fuel = 300 }
-
-				set_variable = { smithy_output = 1 } # max 3 + 1 base (calculation on_weekly)
-				set_variable = { smithy_output_2 = 2 }
-				add_to_variable = { smithy_output = modifier@smithy_output }
-				add_to_variable = { smithy_output_2 = modifier@smithy_output_2 }
-				set_variable = { factory_output = 8 } # max 12 (0 base)
-				add_to_variable = { factory_output = modifier@factory_output }
-				set_variable = { harbour_output = 1 }
-				set_variable = { dockyard_output = 2 }
-				set_variable = { manufactory_output = 1 } # max 1
-				set_variable = { consumer_good_factory_need1 = 2 }
-				set_variable = { consumer_good_factory_need2 = 2 }
-				set_variable = { consumer_good_factory_output = 4 }
-				add_to_variable = { consumer_good_factory_output = modifier@consumer_good_factory_output }
-				set_variable = { luxury_good_factory_need1 = 2 }
-				set_variable = { luxury_good_factory_need2 = 1 }
-				set_variable = { luxury_good_factory_output = 3 }
-				add_to_variable = { luxury_good_factory_output = modifier@luxury_good_factory_output }
-				set_variable = { carpentry_need = 2 }
-				set_variable = { carpentry_output = 6 }
-				set_variable = { carpentry_output_2 = 3 }
-				set_variable = { carpentry_output_3 = 3 }
-				add_to_variable = { carpentry_output = modifier@carpentry_output }
-				add_to_variable = { carpentry_output_2 = modifier@carpentry_output_2 }
-				add_to_variable = { carpentry_output_3 = modifier@carpentry_output_3 }
-				set_variable = { masonry_need = 2 }
-				set_variable = { masonry_output = 6 }
-				add_to_variable = { masonry_output = modifier@masonry_output }
-				set_variable = { steel_beam_factory_need = 6 }
-				set_variable = { steel_beam_factory_output = 6 }
-				add_to_variable = { steel_beam_factory_output = modifier@steel_beam_factory_output }
 
 				if = {
 					limit = {

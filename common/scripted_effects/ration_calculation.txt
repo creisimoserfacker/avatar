@@ -1,0 +1,516 @@
+
+
+ration_calculation = {
+	#### rations
+
+
+
+	#### daily consumption
+
+	set_variable = { daily_ration_need = 0 }
+
+	set_variable = { soldier_demand_k = deployed_army_manpower_k }
+	#divide_variable = { soldier_demand_k = 7 }
+	set_variable = { soldier_demand_factor = 1 }
+	add_to_variable = { soldier_demand_factor = modifier@military_ration_need_factor }
+	multiply_variable = { soldier_demand_k = soldier_demand_factor }
+	add_to_variable = { daily_ration_need = soldier_demand_k }
+
+	set_temp_variable = { not_working_temp = 1 }
+	subtract_from_temp_variable = { not_working_temp = working_percentage }
+
+	set_variable = { family_demand_k = core_population_k }
+	multiply_variable = { family_demand_k = not_working_temp }
+	divide_variable = { family_demand_k = 9 }
+	set_variable = { family_demand_factor = 1 }
+	add_to_variable = { family_demand_factor = modifier@population_ration_need_factor }
+	multiply_variable = { family_demand_k = family_demand_factor }
+	add_to_variable = { daily_ration_need = family_demand_k }
+
+	set_variable = { working_demand_k = working_population_k }
+	divide_variable = { working_demand_k = 7 }
+	set_variable = { working_demand_factor = 1 }
+	add_to_variable = { working_demand_factor = modifier@workers_ration_need_factor }
+	multiply_variable = { working_demand_k = working_demand_factor }
+	add_to_variable = { daily_ration_need = working_demand_k }
+
+	set_variable = { occupied_demand_k = occupied_population_k }
+	multiply_variable = { occupied_demand_k = not_working_temp }
+	divide_variable = { occupied_demand_k = 9 }
+	set_variable = { occupied_demand_factor = 1 }
+	add_to_variable = { occupied_demand_factor = modifier@occupied_ration_need_factor }
+	multiply_variable = { occupied_demand_k = occupied_demand_factor }
+	add_to_variable = { daily_ration_need = occupied_demand_k }
+
+
+	set_variable = { average_need = 0 }
+
+	set_variable = { soldier_demand_percentage = soldier_demand_k }
+	divide_variable = { soldier_demand_percentage = daily_ration_need }
+
+	set_variable = { soldier_priority_percentage = soldier_priority_factor }
+	multiply_variable = { soldier_priority_percentage = 10 }
+	multiply_variable = { soldier_priority_percentage = soldier_demand_percentage }
+	add_to_variable = { average_need = soldier_priority_percentage }
+
+
+	set_variable = { family_demand_percentage = family_demand_k }
+	divide_variable = { family_demand_percentage = daily_ration_need }
+
+	set_variable = { family_priority_percentage = family_priority_factor }
+	multiply_variable = { family_priority_percentage = 10 }
+	multiply_variable = { family_priority_percentage = family_demand_percentage }
+	add_to_variable = { average_need = family_priority_percentage }
+
+
+	set_variable = { working_demand_percentage = working_demand_k }
+	divide_variable = { working_demand_percentage = daily_ration_need }
+	
+	set_variable = { working_priority_percentage = working_priority_factor }
+	multiply_variable = { working_priority_percentage = 10 }
+	multiply_variable = { working_priority_percentage = working_demand_percentage }
+	add_to_variable = { average_need = working_priority_percentage }
+
+
+	set_variable = { occupied_demand_percentage = occupied_demand_k }
+	divide_variable = { occupied_demand_percentage = daily_ration_need }
+	
+	set_variable = { occupied_priority_percentage = occupied_priority_factor }
+	multiply_variable = { occupied_priority_percentage = 10 }
+	multiply_variable = { occupied_priority_percentage = occupied_demand_percentage }
+	add_to_variable = { average_need = occupied_priority_percentage }
+
+	divide_variable = { average_need = 10 }
+
+	divide_variable = { soldier_priority_percentage = average_need }
+	divide_variable = { family_priority_percentage = average_need }
+	divide_variable = { working_priority_percentage = average_need }
+	divide_variable = { occupied_priority_percentage = average_need }
+
+
+	################## end daily consumption
+
+
+
+
+	#### daily addition
+
+	set_variable = { ration_daily = 0 }
+
+	# base gain
+	set_variable = { modifier_gain = modifier@daily_ration_gain }
+	divide_variable = { modifier_gain = 1000 }
+	add_to_variable = { ration_daily = modifier_gain }
+
+	# base gain
+	set_variable = { resource_gain = resource@food_resource }
+	divide_variable = { resource_gain = 3.5 }
+	add_to_variable = { ration_daily = resource_gain }
+
+	# factor
+	set_variable = { ration_factor_calc = 1 }
+	add_to_variable = { ration_factor_calc = modifier@ration_factor }
+	clamp_variable = { 
+		var = ration_factor_calc 
+		min = 0
+	}
+
+	multiply_variable = { ration_daily = ration_factor_calc }
+
+	################## end daily addition
+
+	set_variable = { soldier_get_k = ration_variable }
+	add_to_variable = { soldier_get_k = ration_daily }
+	multiply_variable = { soldier_get_k = soldier_priority_percentage }
+	divide_variable = { soldier_get_k = 10 }
+
+	set_variable = { family_get_k = ration_variable }
+	add_to_variable = { family_get_k = ration_daily }
+	multiply_variable = { family_get_k = family_priority_percentage }
+	divide_variable = { family_get_k = 10 }
+	
+	set_variable = { working_get_k = ration_variable }
+	add_to_variable = { working_get_k = ration_daily }
+	multiply_variable = { working_get_k = working_priority_percentage }
+	divide_variable = { working_get_k = 10 }
+	
+	set_variable = { occupied_get_k = ration_variable }
+	add_to_variable = { occupied_get_k = ration_daily }
+	multiply_variable = { occupied_get_k = occupied_priority_percentage }
+	divide_variable = { occupied_get_k = 10 }
+	
+	set_variable = { surplus_rations_1 = 0 }
+	set_variable = { total_missing = 0 }
+
+	if = {
+		limit = {
+			check_variable = { soldier_get_k > soldier_demand_k }
+		}
+		set_variable = { soldier_surplus = soldier_get_k }
+		subtract_from_variable = { soldier_surplus = soldier_demand_k }
+		if = {
+			limit = {
+				check_variable = { soldier_surplus < 0 }
+			}
+			set_variable = { soldier_missing = soldier_surplus }
+			multiply_variable = { soldier_missing = -1 }
+			add_to_variable = { total_missing = soldier_missing }
+		}
+		else = {
+			set_variable = { soldier_missing = 0 }
+		}
+		add_to_variable = { surplus_rations_1 = soldier_surplus }
+		set_variable = { soldier_get_k = soldier_demand_k }
+	}
+
+	if = {
+		limit = {
+			check_variable = { family_get_k > family_demand_k }
+		}
+		set_variable = { family_surplus = family_get_k }
+		subtract_from_variable = { family_surplus = family_demand_k }
+		if = {
+			limit = {
+				check_variable = { family_surplus < 0 }
+			}
+			set_variable = { family_missing = family_surplus }
+			multiply_variable = { family_missing = -1 }
+			add_to_variable = { total_missing = family_missing }
+		}
+		else = {
+			set_variable = { family_missing = 0 }
+		}
+		add_to_variable = { surplus_rations_1 = family_surplus }
+		set_variable = { family_get_k = family_demand_k }
+	}
+
+	if = {
+		limit = {
+			check_variable = { working_get_k > working_demand_k }
+		}
+		set_variable = { working_surplus = working_get_k }
+		subtract_from_variable = { working_surplus = working_demand_k }
+		if = {
+			limit = {
+				check_variable = { working_surplus < 0 }
+			}
+			set_variable = { working_missing = working_surplus }
+			multiply_variable = { working_missing = -1 }
+			add_to_variable = { total_missing = working_missing }
+		}
+		else = {
+			set_variable = { working_missing = 0 }
+		}
+		add_to_variable = { surplus_rations_1 = working_surplus }
+		set_variable = { working_get_k = working_demand_k }
+	}
+
+	if = {
+		limit = {
+			check_variable = { occupied_get_k > occupied_demand_k }
+		}
+		set_variable = { occupied_surplus = occupied_get_k }
+		subtract_from_variable = { occupied_surplus = occupied_demand_k }
+		if = {
+			limit = {
+				check_variable = { occupied_surplus < 0 }
+			}
+			set_variable = { occupied_missing = occupied_surplus }
+			multiply_variable = { occupied_missing = -1 }
+			add_to_variable = { total_missing = occupied_missing }
+		}
+		else = {
+			set_variable = { occupied_missing = 0 }
+		}
+		add_to_variable = { surplus_rations_1 = occupied_surplus }
+		set_variable = { occupied_get_k = occupied_demand_k }
+	}
+
+	divide_variable = { soldier_missing = total_missing }
+	divide_variable = { family_missing = total_missing }
+	divide_variable = { working_missing = total_missing }
+	divide_variable = { occupied_missing = total_missing }
+
+	multiply_variable = { soldier_missing = surplus_rations_1 }
+	multiply_variable = { family_missing = surplus_rations_1 }
+	multiply_variable = { working_missing = surplus_rations_1 }
+	multiply_variable = { occupied_missing = surplus_rations_1 }
+
+	if = {
+		limit = {
+			check_variable = { soldier_get_k > soldier_demand_k }
+		}
+		add_to_variable = { soldier_get_k = soldier_missing }
+	}
+	if = {
+		limit = {
+			check_variable = { family_get_k > family_demand_k }
+		}
+		add_to_variable = { family_get_k = family_missing }
+	}
+	if = {
+		limit = {
+			check_variable = { working_get_k > working_demand_k }
+		}
+		add_to_variable = { working_get_k = working_missing }
+	}
+	if = {
+		limit = {
+			check_variable = { occupied_get_k > occupied_demand_k }
+		}
+		add_to_variable = { occupied_get_k = occupied_missing }
+	}
+
+	set_variable = { soldier_ratio_hundred = soldier_get_k }
+	divide_variable = { soldier_ratio_hundred = soldier_demand_k }
+	set_variable = { soldier_ratio_percent = soldier_ratio_hundred }
+	multiply_variable = { soldier_ratio_hundred = 100 }
+
+	set_variable = { family_ratio_hundred = family_get_k }
+	divide_variable = { family_ratio_hundred = family_demand_k }
+	set_variable = { family_ratio_percent = family_ratio_hundred }
+	multiply_variable = { family_ratio_hundred = 100 }
+
+	set_variable = { working_ratio_hundred = working_get_k }
+	divide_variable = { working_ratio_hundred = working_demand_k }
+	set_variable = { working_ratio_percent = working_ratio_hundred }
+	multiply_variable = { working_ratio_hundred = 100 }
+
+	set_variable = { occupied_ratio_hundred = occupied_get_k }
+	divide_variable = { occupied_ratio_hundred = occupied_demand_k }
+	set_variable = { occupied_ratio_percent = occupied_ratio_hundred }
+	multiply_variable = { occupied_ratio_hundred = 100 }
+
+
+
+	set_variable = { ration_balance = ration_daily }
+	subtract_from_variable = { ration_balance = daily_ration_need }
+	set_variable = { ration_balance_int = ration_balance }
+	if = {
+		limit = {
+			check_variable = { ration_balance < 0 }
+		}
+		multiply_variable = { ration_balance_int = -1 }
+	}
+
+	add_to_variable = { ration_variable = ration_balance }
+
+
+
+	set_variable = { ration_max = 0 }
+	add_to_variable = { ration_max = owned_controlled_states }
+	multiply_variable = { ration_max = 100 }
+	if = {
+		limit = {
+			has_capitulated = yes
+		}
+		add_to_variable = { ration_max = num_core_states }
+		multiply_variable = { ration_max = 10 }
+	}
+	set_temp_variable = { ration_storage = modifier@max_rations_building_k }
+	add_to_variable = { ration_max = ration_storage }
+	set_temp_variable = { ration_capacity_factor = 1 }
+	add_to_temp_variable = { ration_capacity_factor = modifier@ration_capacity_factor }
+	multiply_variable = { ration_max = ration_capacity_factor }
+
+	clamp_variable = { 
+		var = ration_max 
+		min = 0.1
+	}
+
+	clamp_variable = { 
+		var = ration_variable 
+		min = 0 
+		max = ration_max
+	}
+
+	set_variable = { ration_ratio_percent = ration_variable }
+	divide_variable = { ration_ratio_percent = ration_max }
+
+}
+
+
+ratio_effects_and_interface = {
+	### effects
+
+	set_variable = { ration_penalty = daily_ration_need }
+	subtract_from_variable = { ration_penalty = ration_daily }
+	divide_variable = { ration_penalty = daily_ration_need }
+	multiply_variable = { ration_penalty = -1 }
+	set_variable = { famine_check = ration_penalty }
+	clamp_variable = { 
+		var = ration_penalty 
+		min = -0.5 
+		max = 0
+	}
+	set_variable = { soldier_penalty = 1 }
+	subtract_from_variable = { soldier_penalty = soldier_ratio_percent }
+	set_variable = { soldier_penalty_good = soldier_penalty }
+	clamp_variable = { 
+		var = soldier_penalty_good 
+		min = 0 
+		max = 0.5
+	}
+	multiply_variable = { soldier_penalty = -1 }
+	clamp_variable = { 
+		var = soldier_penalty 
+		min = -0.5 
+		max = 0
+	}
+
+	set_variable = { family_penalty = 1 }
+	subtract_from_variable = { family_penalty = family_ratio_percent }
+	multiply_variable = { family_penalty = -1 }
+	clamp_variable = { 
+		var = family_penalty 
+		min = -0.5 
+		max = 0
+	}
+
+	set_variable = { working_penalty = 1 }
+	subtract_from_variable = { working_penalty = working_ratio_percent }
+	multiply_variable = { working_penalty = -1 }
+	clamp_variable = { 
+		var = working_penalty 
+		min = -0.5 
+		max = 0
+	}
+
+	set_variable = { occupied_penalty = 1 }
+	subtract_from_variable = { occupied_penalty = occupied_ratio_percent }
+	#multiply_variable = { occupied_penalty = -1 }
+	clamp_variable = { 
+		var = occupied_penalty 
+		min = 0 
+		max = 0.5
+	}
+
+	if = {
+		limit = {
+			check_variable = { famine_check < ration_penalty }
+			check_variable = { ration_variable = 0 }
+			NOT = {
+				has_dynamic_modifier = { modifier = famine }
+			}
+		}
+		add_dynamic_modifier = { modifier = famine }
+	}
+	if = {
+		limit = {
+			check_variable = { ration_variable = 0 }
+			check_variable = { ration_penalty > -0.5 }
+			NOT = {
+				has_dynamic_modifier = { modifier = food_shortages }
+			}
+		}
+		add_dynamic_modifier = { modifier = food_shortages }
+	}
+
+
+	set_variable = { ratio_buff_expected_storage = daily_ration_need }
+	multiply_variable = { ratio_buff_expected_storage = 365 }
+
+	set_variable = { ration_buff = ration_variable }
+	divide_variable = { ration_buff = ratio_buff_expected_storage }
+
+	clamp_variable = { 
+		var = ration_buff 
+		min = 0 
+		max = 1
+	}
+
+	if = {
+		limit = {
+			check_variable = { ration_variable > 0 }
+			NOT = {
+				check_variable = { ration_variable = ration_max }
+				has_dynamic_modifier = { modifier = food_surplus_idea }
+			}
+		}
+		add_dynamic_modifier = { modifier = food_surplus_idea }
+	}
+	if = {
+		limit = {
+			check_variable = { ration_variable = ration_max }
+			NOT = {
+				has_dynamic_modifier = { modifier = burgerking }
+			}
+		}
+		add_dynamic_modifier = { modifier = burgerking }
+	}
+
+
+	##### interface
+
+	set_variable = { ration_h = ration_variable }
+	multiply_variable = { ration_h = 1000 }
+
+	set_variable = { ration_m = ration_variable }
+	divide_variable = { ration_m = 1000 }
+
+	set_variable = { ration_daily_h = ration_daily }
+	multiply_variable = { ration_daily_h = 1000 }
+
+	set_variable = { ration_daily_m = ration_daily }
+	divide_variable = { ration_daily_m = 1000 }
+
+	set_variable = { ration_need_h = daily_ration_need }
+	multiply_variable = { ration_need_h = 1000 }
+
+	set_variable = { ration_need_m = daily_ration_need }
+	divide_variable = { ration_need_m = 1000 }
+
+	set_variable = { ration_max_h = ration_max }
+	multiply_variable = { ration_max_h = 1000 }
+
+	set_variable = { ration_max_m = ration_max }
+	divide_variable = { ration_max_m = 1000 }
+
+	set_variable = { ratio_buff_expected_storage_h = ratio_buff_expected_storage }
+	multiply_variable = { ratio_buff_expected_storage_h = 1000 }
+
+	set_variable = { ratio_buff_expected_storage_m = ratio_buff_expected_storage }
+	divide_variable = { ratio_buff_expected_storage_m = 1000 }
+
+	set_variable = { ration_ratio_var = ration_ratio_percent }
+	multiply_variable = { ration_ratio_var = 100 }
+
+	set_variable = { ration_days_to_full = ration_max }
+	subtract_from_variable = { ration_days_to_full = ration_variable }
+	divide_variable = { ration_days_to_full = ration_balance }
+
+	set_variable = { ration_months_to_full = ration_days_to_full }
+	divide_variable = { ration_months_to_full = 30.5 }
+
+	set_variable = { ration_years_to_full = ration_days_to_full }
+	divide_variable = { ration_years_to_full = 365 }
+
+	set_variable = { ration_days_to_empty = ration_variable }
+	divide_variable = { ration_days_to_empty = ration_balance }
+	multiply_variable = { ration_days_to_empty = -1 }
+
+	set_variable = { ration_months_to_empty = ration_days_to_empty }
+	divide_variable = { ration_months_to_empty = 30.5 }
+
+	set_variable = { ration_years_to_empty = ration_days_to_empty }
+	divide_variable = { ration_years_to_empty = 365 }
+
+	if = {
+		limit = {
+			check_variable = { ration_balance > 0 }
+		}
+		set_variable = { ration_frame_var = 2 }
+	}
+	if = {
+		limit = {
+			check_variable = { ration_variable = ration_max }
+		}
+		set_variable = { ration_frame_var = 1 }
+	}
+	if = {
+		limit = {
+			check_variable = { ration_balance < 0 }
+		}
+		set_variable = { ration_frame_var = 3 }
+	}
+}

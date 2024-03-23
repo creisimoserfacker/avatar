@@ -5,6 +5,12 @@ on_actions = {
 				
 				add_dynamic_modifier = { modifier = unit_quality_effects }
 				set_variable = { unit_quality_variable = modifier@unit_quality_target }
+
+				clamp_variable = { 
+					var = unit_quality_variable 
+					min = -0.5 
+					max = 0.5
+				}
 			}
 
 		}
