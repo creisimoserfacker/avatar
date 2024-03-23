@@ -675,24 +675,27 @@ FIR_royal_family_category = {
 	}
 
 
-        ozai_general = {
+	ozai_general = {
 
 		icon = general
 
 		allowed = {
 			tag = FIR
 		}
-		#visible = {	
-			#has_character = FIR_ozai
-			#FIR_ozai = {
-				#has_character_flag = FIR_character_born
-				#NOT = {
-					#has_character_flag = FIR_character_general
-				#}
-			#}
-		#}
+		visible = {	
+			has_character = FIR_ozai
+			FIR_ozai = {
+				has_character_flag = FIR_character_born
+				NOT = {
+					has_character_flag = FIR_character_general
+				}
+			}
+			NOT = {
+				has_country_flag = FIR_ozai_home_representative
+			}
+		}
 		available = {
-			FIR_azulon = {
+			FIR_ozai = {
 				custom_trigger_tooltip = {
 					tooltip = age_16_tt
 					check_variable = { mtth:ozai_age > 15 }
@@ -704,6 +707,8 @@ FIR_royal_family_category = {
 			hidden_effect = {
 				add_command_power = -50
 			}
+
+			set_country_flag = FIR_ozai_general
 
 			FIR_ozai = {
 				set_character_flag = FIR_character_general
@@ -720,8 +725,53 @@ FIR_royal_family_category = {
 		ai_will_do = {
 			factor = 110
 		}
-
 	}
+
+
+	ozai_home_representative = {
+
+		icon = general
+
+		allowed = {
+			tag = FIR
+		}
+		visible = {	
+			has_character = FIR_ozai
+			FIR_ozai = {
+				has_character_flag = FIR_character_born
+				NOT = {
+					has_character_flag = FIR_character_general
+				}
+			}
+			NOT = {
+				has_country_flag = FIR_ozai_general
+			}
+		}
+		available = {
+			FIR_ozai = {
+				custom_trigger_tooltip = {
+					tooltip = age_16_tt
+					check_variable = { mtth:ozai_age > 15 }
+				}
+			}
+		}
+
+		complete_effect = {
+
+			set_country_flag = FIR_ozai_home_representative
+
+			add_ideas = { spirit_ozai_representative_prince }
+		}
+
+		cost = 50
+
+		ai_will_do = {
+			factor = 110
+		}
+	}
+
+
+
 	############################
 	###	DRAGON DECISIONS
 	############################
