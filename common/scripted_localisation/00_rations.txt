@@ -212,6 +212,29 @@ defined_text = {
 }
 
 defined_text = {
+	name = GetRationBalanceHundreds
+	text = {
+		trigger = {
+			check_variable = { ration_balance_int < 1.001 }
+		}
+		localization_key = ration_balance_hundreds
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_balance_int > 1 }
+			check_variable = { ration_balance_int < 1000.001 }
+		}
+		localization_key = ration_balance_thousands
+	}
+	text = {
+		trigger = {
+			check_variable = { ration_balance_int > 1000 }
+		}
+		localization_key = ration_balance_milions
+	}
+}
+
+defined_text = {
 	name = GetRationNeedHundreds
 	text = {
 		trigger = {
