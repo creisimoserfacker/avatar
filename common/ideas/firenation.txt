@@ -118,8 +118,6 @@ ideas = {
 			}
 		}
 
-
-		
 		national_prosperity = {
 
 			cancel = {
@@ -318,28 +316,6 @@ ideas = {
 			
 			modifier = {
 				stability_factor = 0.05
-			}
-		}
-
-		spirit_ozai_representative_prince = {
-
-			cancel = {
-				OR = {
-					has_country_leader = {
-						character = FIR_ozai
-						ruling_only = yes
-					}
-					NOT = {
-						has_character = FIR_ozai
-					}
-				}
-			}
-
-			removal_cost = -1
-			
-			modifier = {
-				stability_factor = 0.05
-				peasant_opinion = 10
 			}
 		}
 		
@@ -590,6 +566,18 @@ ideas = {
 				experience_gain_air = 0.05
 				max_command_power = 20
 				nobility_opinion = 5
+			}
+		}
+
+		banned_poaching = {
+			
+			name = banned_poaching
+			picture = FIR_banned_poaching
+
+			modifier = {
+				experience_gain_army = -0.15
+				nobility_opinion = -1
+				experience_gain_air = .3
 			}
 		}
 
