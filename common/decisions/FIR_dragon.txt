@@ -569,6 +569,7 @@ FIR_dragon_category = {
 	}
 
 	dragons_in_the_army = {
+		icon = dragon_hunt
 
 		allowed = {
 			tag = FIR
@@ -595,4 +596,67 @@ FIR_dragon_category = {
 		}
 	}
 
+	origins_of_firebending = {
+		icon = dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = befriend_dragons
+		}
+
+		available = {
+			
+		}
+
+		cost = 100
+
+		complete_effect = {
+			add_dynamic_modifier = { modifier = Firebending_Origins }
+		}
+
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
+
+	ban_poaching = {
+		icon = poacher_dragon_hunt
+
+		allowed = {
+			tag = FIR
+		}
+
+		visible = {	
+			has_country_flag = befriend_dragons
+		}
+
+		available = {
+			
+		}
+
+		cost = 150
+
+		complete_effect = {
+			add_ideas = { banned_poaching }
+			417 = { 
+				add_building_construction = {
+   					type = air_base
+    				level = 1
+    				instant_build = yes
+					province = {8232}
+				}
+			}
+		}
+
+		fire_only_once = yes
+		
+		ai_will_do = {
+			factor = 10
+		}
+	}
 }
