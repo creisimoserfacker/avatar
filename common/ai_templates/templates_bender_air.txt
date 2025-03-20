@@ -6,10 +6,7 @@
 	###  #### #   # ###  #### #   # ###                                 
 
 template_airbenders = {
-	role = {
-		airbenders
-		benders_only
-	}
+	role = benders_only
 	
 	upgrade_prio = {
 		base = 1
@@ -17,6 +14,7 @@ template_airbenders = {
 	
 	airbender_1 = {
 		upgrade_prio = { factor = 0.01 }
+		enable = {has_country_flag = AIR_special_forces}
 		reinforce_prio = 1
 		target_template = {			
 			regiments = {
@@ -24,9 +22,20 @@ template_airbenders = {
 			}
 		}
 	}
-
 	airbender_2 = {
+		upgrade_prio = { base = 1 }
+		enable = {has_country_flag = AIR_special_forces}
+		reinforce_prio = 1
+		target_template = {			
+			regiments = {
+				airbender = 5
+			}
+		}
+	}
+
+	airbender_3 = {
 		upgrade_prio = { factor = 1 }
+		enable = {has_country_flag = AIR_special_forces}
 		reinforce_prio = 1
 		target_template = {
 			regiments = {

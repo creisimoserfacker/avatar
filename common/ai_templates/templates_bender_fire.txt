@@ -7,11 +7,8 @@
 
 template_firebenders = {
 
-	role = {
-		firebenders
-		benders_only
-	}
-	
+	role = benders_only
+
 	upgrade_prio = {
 		base = 1
 	}
@@ -19,6 +16,7 @@ template_firebenders = {
 	firebender_1 = {
 		upgrade_prio = { factor = 0.01 }
 		reinforce_prio = 1
+		enable = {has_country_flag = FIR_special_forces}
 		target_template = {
 			regiments = {
 				firebender = 3
@@ -28,7 +26,8 @@ template_firebenders = {
 
 	firebender_2 = {	
 		upgrade_prio = { factor = 1 }
-		reinforce_prio = 1		
+		reinforce_prio = 1
+		enable = {has_country_flag = FIR_special_forces}		
 		target_template = {
 			regiments = {
 				firebender = 6
@@ -55,11 +54,7 @@ template_firebenders = {
 
 template_firebender_marines = {
 
-	role = {
-		firebenders
-		marines
-		combined_arms
-	}
+	role = marines
 	
 	upgrade_prio = {
 		base = 1
@@ -67,6 +62,7 @@ template_firebender_marines = {
 	
 	firebender_marines = {
 		upgrade_prio = { factor = 1 }
+		enable = {has_country_flag = FIR_special_forces}
 		target_template = {
 			regiments = {
 				firebender = 3
@@ -93,17 +89,14 @@ template_firebender_marines = {
 
 template_firebender_offensive = {
 
-	role = {
-		firebenders
-		combined_arms
-	}
-	
+	role = combined_arms
 	upgrade_prio = {
 		base = 1
 	}
 	
 	firebender_offensive = {
 		upgrade_prio = { factor = 1 }
+		enable = {has_country_flag = FIR_special_forces}
 		target_template = {
 			regiments = {
 				firebender = 3
