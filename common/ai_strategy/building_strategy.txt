@@ -123,7 +123,10 @@ build_food = {
 		}
 	}
 	enable = {
-		has_country_flag = AI_focus_on_food
+		OR = {
+			has_dynamic_modifier = { modifier = famine }
+			has_dynamic_modifier = { modifier = food_shortages }
+		}
 	}
 	abort_when_not_enabled = yes
 
@@ -211,7 +214,7 @@ water_tribes_build_food = {
 		}
 	}
 	enable = {
-		has_country_flag = AI_focus_on_food
+		check_variable = { FROM.ration_balance < 0 }
 	}
 	abort_when_not_enabled = yes
 	ai_strategy = {
@@ -226,95 +229,6 @@ water_tribes_build_food = {
 	}
 
 }
-build_wood = {
-	allowed = {
-		always = yes
-	}
-	enable = {
-		has_country_flag = AI_focus_on_wood
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = building_target
-		id = lumber_mill
-		value = 30
-	}
-	ai_strategy = {
-		type = building_target
-		id = farm
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = fishing_stand
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = mill
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = arms_factory
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = carpentry
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = masonry
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = steelworks
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = quarry
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = mine
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = rail_way
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = supply_node
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = wall
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = naval_base
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = coastal_fortress
-		value = 0
-	}
-	ai_strategy = {
-		type = building_target
-		id = infrastructure
-		value = 0
-	}
-}
 build_consumer = {
 	allowed = {
 		always = yes
@@ -324,21 +238,13 @@ build_consumer = {
 			resource = consumer_goods_resource
 			amount < 0
 		}
-		has_resources_in_country = {
-			resource = aluminium
-			amount > 3
-		}
-		has_resources_in_country = {
-			resource = aluminium
-			amount > 3
-		}
 	}
 	abort_when_not_enabled = yes
 
 	ai_strategy = {
 		type = building_target
 		id = consumer_good_factory
-		value = 50
+		value = 1000
 	}
 }
 
@@ -367,7 +273,7 @@ build_luxury = {
 	ai_strategy = {
 		type = building_target
 		id = luxury_good_factory
-		value = 50
+		value = 1000
 	}
 }
 
@@ -392,7 +298,7 @@ build_carpentries = {
 	ai_strategy = {
 		type = building_target
 		id = carpentry
-		value = 50
+		value = 1000
 	}
 }
 
@@ -415,7 +321,7 @@ build_masonry = {
 	ai_strategy = {
 		type = building_target
 		id = masonry
-		value = 50
+		value = 1000
 	}
 }
 

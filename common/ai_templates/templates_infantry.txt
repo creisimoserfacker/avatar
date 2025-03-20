@@ -7,7 +7,7 @@
 
 
 template_infantry_high_tier = {
-	role = high_tier
+	role = {high_tier}
 	upgrade_prio = {
 		base = 1
 		modifier = {
@@ -44,14 +44,22 @@ template_infantry_high_tier = {
 			modifier = {
 				factor = 1
 			}
-		}	
+		}
+		
+		target_width = 20.0
+		width_weight = 0.4
+		column_swap_factor = 0.7
+		
 		target_template = {
+			weight = 0.6
+			match_value = 3000.0
 			
 			regiments = {
 				spearmen = 4
 				pikemen = 2
 				archers = 2
 			}
+
 			support = {
 				avatar_engineer = 1
 				scout = 1
@@ -60,6 +68,15 @@ template_infantry_high_tier = {
 			}
 		}
 		
+		allowed_types = {
+			spearmen
+			pikemen
+			archers
+			avatar_engineer
+			scout
+			supply_wagon
+			field_commander
+		}
 	}
 	
 }
@@ -72,7 +89,7 @@ template_infantry_high_tier = {
 
 
 template_infantry_average_tier = {
-	role = average_tier	
+	role = {average_tier}	
 	upgrade_prio = {base = 2}
 
 	infantry_average_tier_1 = {
@@ -106,7 +123,9 @@ template_infantry_average_tier = {
 	
 }
 template_infantry_supportless = {
-	role = supportless
+	role = {
+		supportless
+	}
 	upgrade_prio = {
 		base = 3
 		modifier = {
@@ -123,15 +142,7 @@ template_infantry_supportless = {
 				num_of_military_factories < 10
 				factor = 0.25
 			}
-			modifier = {
-				has_country_flag = {
-					flag = EARTH_special_forces
-					days < 2
-				}
-				factor = 0		#Do not consider upgrading at the start of the game before you really know how much equipment you have.
-			}
 		}
-		replace_at_match = 0.4
 		replace_with = supportless_2
 		can_upgrade_in_field = {
 			has_equipment = {
@@ -153,7 +164,6 @@ template_infantry_supportless = {
 				factor = 0.25
 			}
 		}
-		replace_at_match = 0.4
 		replace_with = supportless_3
 		can_upgrade_in_field = {
 			has_equipment = {
@@ -176,7 +186,6 @@ template_infantry_supportless = {
 				factor = 0.25
 			}
 		}
-		replace_at_match = 0.4
 		replace_with = supportless_4
 		can_upgrade_in_field = {
 			has_equipment = {

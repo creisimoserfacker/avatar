@@ -35,48 +35,24 @@ OMS_production_1 = {
 	enable = {always = yes}
 	abort_when_not_enabled = yes
 	ai_strategy = {
-		type = equipment_variant_production_factor
-		id = spear_equipment
+		type = equipment_production_factor
+		id = spear_equipment_1
 		value = 5
 	}
 	ai_strategy = {
-		type = equipment_production_min_factories_archetype
-		id = spear_equipment
+		type = equipment_production_min_factories
+		id = spear_equipment_1
 		value = 2
 	}
 	ai_strategy = {
-		type = equipment_variant_production_factor
+		type = equipment_production_factor
 		id = heavy_armor_equipment
 		value = 5
 	}
 	ai_strategy = {
-		type = equipment_production_min_factories_archetype
+		type = equipment_production_min_factories
 		id = heavy_armor_equipment
 		value = 2
 	}
 
-}
-OMS_buildup_1 = {
-	allowed = {tag = OMS}
-	enable = {
-		check_variable = {
-			THIS.resource@aluminium < 20
-		}
-	}
-	abort = {
-		check_variable = {
-			THIS.resource@food_resource < 1
-		}
-	}
-	abort_when_not_enabled = yes
-	ai_strategy = {
-		type = building_target
-		id = lumber_mill
-		value = 50
-	}
-	ai_strategy = {
-		type = building_target
-		id = consumer_good_factory
-		value = 0
-	}
 }
