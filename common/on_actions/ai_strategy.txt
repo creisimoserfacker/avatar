@@ -11,6 +11,17 @@ on_actions = {
 				set_variable = { ai_forest = modifier@lumber_mill_level }
 			}
 		}
+		effect = {
+			every_country = {
+				limit = {
+					is_ai = yes
+				}
+				set_country_flag = {
+					flag = AIs_dont_evaluate_resources
+					days = 1
+				} 
+			}
+		}
 	}
 
 	#on_naval_invasion = { 

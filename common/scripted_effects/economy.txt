@@ -416,7 +416,7 @@ add_farm_random = {
 				field > farms
 			}
 			check_variable = {
-				var = ROOT:modifier@farm_level_max
+				var = ROOT:modifier@farm_level_max #Cordy10: What is that?
 				value = farms
 				compare = greater_than
 			}
@@ -1083,11 +1083,15 @@ add_farm_random_instant = {
 				field > farms
 			}
 		}
-
+		
 		add_building_construction = {
 			type = farm
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}
@@ -1113,6 +1117,10 @@ add_fishing_stand_random_instant = {
 			type = fishing_stand
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}
@@ -1138,6 +1146,10 @@ add_ranch_random_instant = {
 			type = ranch
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}
@@ -1162,6 +1174,10 @@ add_lumber_mill_random_instant = {
 			type = lumber_mill
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}
@@ -1186,6 +1202,10 @@ add_quarry_random_instant = {
 			type = quarry
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}
@@ -1204,12 +1224,17 @@ add_mine_random_instant = {
 			check_variable = {
 				mountain > mines
 			}
+			
 		}
 
 		add_building_construction = {
 			type = mine
 			level = 1
 			instant_build = yes
+			province = {
+				limit_to_victory_point = yes
+				all_provinces = no
+			}
 		}
 		save_event_target_as = building_in_this_state
 	}

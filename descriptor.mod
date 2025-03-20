@@ -1,4 +1,5 @@
 name="Avatar - The last Airbender"
+path = "c:/Users/petam/Documents/Paradox Interactive/Hearts of Iron IV/mod/avatar"
 replace_path="common/dynamic_modifiers"
 replace_path="common/peace_conference/ai_peace"
 replace_path="common/peace_conference/categories"
