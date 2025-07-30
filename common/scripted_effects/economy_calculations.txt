@@ -380,15 +380,15 @@ worker_counting_states = {
 
 
 count_buildings_in_states = {
-	add_to_variable = { ROOT.farm_count = modifier@farm_level }
+	add_to_variable = { ROOT.farm_count = building_level@farm }
 	add_to_variable = { ROOT.mill_count = building_level@mill }
-	add_to_variable = { ROOT.fishing_stand_count = modifier@fishing_stand_level }
-	add_to_variable = { ROOT.ranch_count = modifier@ranch_level }
-	add_to_variable = { ROOT.lumber_mill_count = modifier@lumber_mill_level }
-	add_to_variable = { ROOT.quarry_count = modifier@quarry_level }
+	add_to_variable = { ROOT.fishing_stand_count = building_level@fishing_stand }
+	add_to_variable = { ROOT.ranch_count = building_level@ranch }
+	add_to_variable = { ROOT.lumber_mill_count = building_level@lumber_mill }
+	add_to_variable = { ROOT.quarry_count = building_level@quarry }
 	add_to_variable = { ROOT.crop_weaving_count = building_level@crop_weaving }
 	add_to_variable = { ROOT.animal_weaving_count = building_level@animal_weaving }
-	add_to_variable = { ROOT.mine_count = modifier@mine_level }
+	add_to_variable = { ROOT.mine_count = building_level@mine }
 	add_to_variable = { ROOT.steelworks_count = building_level@steelworks }
 
 	add_to_variable = { ROOT.smithy_count = building_level@arms_factory }
@@ -2589,7 +2589,7 @@ resource_state_calc = {
 
 	######## farm grain
 
-	set_variable = { farm_grain_gain = modifier@farm_level }
+	set_variable = { farm_grain_gain = non_damaged_building_level@farm }
 	multiply_variable = { farm_grain_gain = controller:farm_output }
 	multiply_variable = { farm_grain_gain = field_available }
 	multiply_variable = { farm_grain_gain = harvest }
@@ -2599,7 +2599,7 @@ resource_state_calc = {
 
 	######  farm food
 
-	set_variable = { farm_food_gain = modifier@farm_level }
+	set_variable = { farm_food_gain = non_damaged_building_level@farm }
 	multiply_variable = { farm_food_gain = controller:farm_output_2 }
 	multiply_variable = { farm_food_gain = field_available }
 	multiply_variable = { farm_food_gain = harvest }
@@ -2609,7 +2609,7 @@ resource_state_calc = {
 
 	######  ranch leather
 
-	set_variable = { ranch_leather_gain = modifier@ranch_level }
+	set_variable = { ranch_leather_gain = non_damaged_building_level@ranch }
 	multiply_variable = { ranch_leather_gain = controller:ranch_output }
 	multiply_variable = { ranch_leather_gain = animal_available }
 	multiply_variable = { ranch_leather_gain = local_resource_factor }
@@ -2618,7 +2618,7 @@ resource_state_calc = {
 
 	######  fishing food leather
 
-	set_variable = { fishing_stand_food_gain = modifier@fishing_stand_level }
+	set_variable = { fishing_stand_food_gain = non_damaged_building_level@fishing_stand }
 	multiply_variable = { fishing_stand_food_gain = controller:fishing_stand_output }
 	multiply_variable = { fishing_stand_food_gain = water_available }
 	multiply_variable = { fishing_stand_food_gain = local_resource_factor }
@@ -2627,7 +2627,7 @@ resource_state_calc = {
 
 	######  lumber mill wood
 
-	set_variable = { lumber_mill_wood_gain = modifier@lumber_mill_level }
+	set_variable = { lumber_mill_wood_gain = non_damaged_building_level@lumber_mill }
 	multiply_variable = { lumber_mill_wood_gain = controller:lumber_mill_output }
 	multiply_variable = { lumber_mill_wood_gain = wood_available }
 	multiply_variable = { lumber_mill_wood_gain = local_resource_factor }
@@ -2636,7 +2636,7 @@ resource_state_calc = {
 
 	######  quarry stone
 
-	set_variable = { quarry_stone_gain = modifier@quarry_level }
+	set_variable = { quarry_stone_gain = non_damaged_building_level@quarry }
 	multiply_variable = { quarry_stone_gain = controller:quarry_output }
 	multiply_variable = { quarry_stone_gain = stonefield }
 	multiply_variable = { quarry_stone_gain = local_resource_factor }
@@ -2705,7 +2705,7 @@ resource_state_calc = {
 
 	#### mine iron
 
-	set_variable = { mine_iron_gain = modifier@mine_level }
+	set_variable = { mine_iron_gain = non_damaged_building_level@mine }
 	if = {
 		limit = {
 			controller = {
@@ -2724,7 +2724,7 @@ resource_state_calc = {
 
 	#### mine coal
 	
-	set_variable = { mine_coal_gain = modifier@mine_level }
+	set_variable = { mine_coal_gain = non_damaged_building_level@mine }
 	if = {
 		limit = {
 			controller = {

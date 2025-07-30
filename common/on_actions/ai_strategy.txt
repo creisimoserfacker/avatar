@@ -3,12 +3,12 @@ on_actions = {
 	on_startup = {
 		effect = {
 			every_state = {
-				set_variable = { ai_water = modifier@fishing_stand_level }
-				set_variable = { ai_mountain = modifier@mine_level }
-				set_variable = { ai_stonefield = modifier@quarry_level }
-				set_variable = { ai_field = modifier@farm_level }
-				set_variable = { ai_animal = modifier@ranch_level }
-				set_variable = { ai_forest = modifier@lumber_mill_level }
+				set_variable = { ai_water = building_level@fishing_stand }
+				set_variable = { ai_mountain = building_level@mine }
+				set_variable = { ai_stonefield = building_level@quarry }
+				set_variable = { ai_field = building_level@farm }
+				set_variable = { ai_animal = building_level@ranch }
+				set_variable = { ai_forest = building_level@lumber_mill }
 			}
 		}
 	}
@@ -47,7 +47,7 @@ on_actions = {
 				every_controlled_state = {
 					if = {
 						limit = {
-							check_variable = { modifier@fishing_stand_level > ai_water }
+							check_variable = { building_level@fishing_stand > ai_water }
 						}
 						remove_building = {
 							type = fishing_stand
@@ -59,7 +59,7 @@ on_actions = {
 					}
 					if = {
 						limit = {
-							check_variable = { modifier@mine_level > ai_mountain }
+							check_variable = { building_level@mine > ai_mountain }
 						}
 						remove_building = {
 							type = mine
@@ -71,7 +71,7 @@ on_actions = {
 					}
 					if = {
 						limit = {
-							check_variable = { modifier@quarry_level > ai_stonefield }
+							check_variable = { building_level@quarry > ai_stonefield }
 						}
 						remove_building = {
 							type = quarry
@@ -83,7 +83,7 @@ on_actions = {
 					}
 					if = {
 						limit = {
-							check_variable = { modifier@farm_level > ai_field }
+							check_variable = { building_level@farm > ai_field }
 						}
 						remove_building = {
 							type = farm
@@ -95,7 +95,7 @@ on_actions = {
 					}
 					if = {
 						limit = {
-							check_variable = { modifier@ranch_level > ai_animal }
+							check_variable = { building_level@ranch > ai_animal }
 						}
 						remove_building = {
 							type = ranch
@@ -107,7 +107,7 @@ on_actions = {
 					}
 					if = {
 						limit = {
-							check_variable = { modifier@lumber_mill_level > ai_forest }
+							check_variable = { building_level@lumber_mill > ai_forest }
 						}
 						remove_building = {
 							type = lumber_mill

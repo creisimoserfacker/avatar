@@ -71,78 +71,78 @@ scripted_gui = {
 				check_variable = { military_ic_transfer < 0 }
 			}
 
-#			farm_construction_click_enabled = {
-#				check_variable = { modifier@farm_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { farms = modifier@farm_level }
-#					add_to_temp_variable = { farms = farm_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@farm_level_max
-#						value = farms
-#						compare = greater_than
-#					}
-#				}
-#			}
-#			fishing_stand_construction_click_enabled = {
-#				check_variable = { modifier@fishing_stand_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { fishing_stands = modifier@fishing_stand_level }
-#					add_to_temp_variable = { fishing_stands = fishing_stand_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@fishing_stand_level_max
-#						value = fishing_stands
-#						compare = greater_than
-#					}
-#				}
-#			}
-#			ranch_construction_click_enabled = {
-#				check_variable = { modifier@ranch_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { ranches = modifier@ranch_level }
-#					add_to_temp_variable = { ranches = ranch_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@ranch_level_max
-#						value = ranches
-#						compare = greater_than
-#					}
-#				}
-#			}
-#			lumber_mill_construction_click_enabled = {
-#				check_variable = { modifier@lumber_mill_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { lumber_mills = modifier@lumber_mill_level }
-#					add_to_temp_variable = { lumber_mills = lumber_mill_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@lumber_mill_level_max
-#						value = lumber_mills
-#						compare = greater_than
-#					}
-#				}
-#			}
-#			quarry_construction_click_enabled = {
-#				check_variable = { modifier@quarry_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { quarries = modifier@quarry_level }
-#					add_to_temp_variable = { quarries = quarry_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@quarry_level_max
-#						value = quarries
-#						compare = greater_than
-#					}
-#				}
-#			}
-#			mine_construction_click_enabled = {
-#				check_variable = { modifier@mine_level_max > 0}
-#				any_controlled_state = {
-#					set_temp_variable = { mines = modifier@mine_level }
-#					add_to_temp_variable = { mines = mine_construction_que }
-#					check_variable = {
-#						var = ROOT:modifier@mine_level_max
-#						value = mines
-#						compare = greater_than
-#					}
-#				}
-#			}
+			farm_construction_click_enabled = {
+				check_variable = { modifier@farm_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { farms = building_level@farm }
+					add_to_temp_variable = { farms = farm_construction_que }
+					check_variable = {
+						var = ROOT:modifier@farm_level_max
+						value = farms
+						compare = greater_than
+					}
+				}
+			}
+			fishing_stand_construction_click_enabled = {
+				check_variable = { modifier@fishing_stand_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { fishing_stands = building_level@fishing_stand }
+					add_to_temp_variable = { fishing_stands = fishing_stand_construction_que }
+					check_variable = {
+						var = ROOT:modifier@fishing_stand_level_max
+						value = fishing_stands
+						compare = greater_than
+					}
+				}
+			}
+			ranch_construction_click_enabled = {
+				check_variable = { modifier@ranch_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { ranches = building_level@ranch }
+					add_to_temp_variable = { ranches = ranch_construction_que }
+					check_variable = {
+						var = ROOT:modifier@ranch_level_max
+						value = ranches
+						compare = greater_than
+					}
+				}
+			}
+			lumber_mill_construction_click_enabled = {
+				check_variable = { modifier@lumber_mill_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { lumber_mills = building_level@lumber_mill }
+					add_to_temp_variable = { lumber_mills = lumber_mill_construction_que }
+					check_variable = {
+						var = ROOT:modifier@lumber_mill_level_max
+						value = lumber_mills
+						compare = greater_than
+					}
+				}
+			}
+			quarry_construction_click_enabled = {
+				check_variable = { modifier@quarry_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { quarries = building_level@quarry }
+					add_to_temp_variable = { quarries = quarry_construction_que }
+					check_variable = {
+						var = ROOT:modifier@quarry_level_max
+						value = quarries
+						compare = greater_than
+					}
+				}
+			}
+			mine_construction_click_enabled = {
+				check_variable = { modifier@mine_level_max > 0}
+				any_controlled_state = {
+					set_temp_variable = { mines = building_level@mine }
+					add_to_temp_variable = { mines = mine_construction_que }
+					check_variable = {
+						var = ROOT:modifier@mine_level_max
+						value = mines
+						compare = greater_than
+					}
+				}
+			}
 
 		}
 

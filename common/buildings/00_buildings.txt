@@ -67,27 +67,25 @@ buildings = {
 		base_cost = 3700
 		icon_frame = 3
 		level_cap = {
-			province_max = 10
+			state_max = 50
 		}
 		#shares_slots = yes
 		value = 9
 		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
 
 		#local_resources_oil = 2
 		#local_resources_food_resource = 1
 		country_modifiers = {
 			modifiers = { 
-				farmer_k = 0.60
 				building_upkeep_cost = 1
 				max_grain_building_k = 0.5
 	
 			}
 		}
 		state_modifiers = {
+			farmer_k = 0.60
 			local_supplies_for_controller = 0.05
 			urbanisation = -0.1
-			farm_level = 1
 		}
 		show_modifier = yes
 	}
@@ -97,25 +95,21 @@ buildings = {
 		base_cost = 4000
 		icon_frame = 6
 		level_cap = {
-			province_max = 10
-		}
+			state_max = 50
+		} 
 		#shares_slots = yes
 		value = 6
 		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
-
 		country_modifiers = {
 			modifiers = {
-				rancher_k = 0.10
 				building_upkeep_cost = 1
 				max_grain_building_k = 0.2
 			}
 		}
 		state_modifiers = {
+			rancher_k = 0.10
 			local_supplies_for_controller = 0.025
 			urbanisation = -0.1
-			ranch_level = 1
-			#local_resources_chromium = 6
 		}
 		show_modifier = yes
 	}
@@ -125,24 +119,22 @@ buildings = {
 		base_cost = 3500
 		icon_frame = 11
 		level_cap = {
-			province_max = 10
+			state_max = 50
 		}
 		#shares_slots = yes
 		value = 7
 		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
 		only_costal = yes
+		#local_resources_food_resource = 2
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 		
-				fisher_k = 0.075
 				building_upkeep_cost = 1
 			}
 		}
 		state_modifiers = {
+			fisher_k = 0.075
 			local_supplies_for_controller = 0.025
-			fishing_stand_level = 1
-			#local_resources_food_resource = 2
 		}
 	}
 
@@ -152,52 +144,24 @@ buildings = {
 		#per_level_extra_cost = 540
 		icon_frame = 4
 		level_cap = {
-			province_max = 10
+			state_max = 50	# This is the max unlock level
 		}
 		#shares_slots = yes
 		value = 12
 		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
+		
 
 		#local_resources_aluminium = 10
 
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = {
-				lumberjack_k = 0.1
 				building_upkeep_cost = 1
 			}
 		}
 		state_modifiers = {
+			lumberjack_k = 0.1
 			urbanisation = -0.1
-			lumber_mill_level = 1
-		}
-	}
-
-	mine = {
-		show_on_map = 1
-		base_cost = 9000
-		#per_level_extra_cost = 380
-		icon_frame = 7
-		level_cap = {
-			province_max = 10
-		}
-		#shares_slots = yes
-		value = 8
-		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
-		show_modifier = yes
-		country_modifiers = {
-			modifiers = { 
-				miner_k = 0.180
-				building_upkeep_cost = 2
-			}
-		}
-		state_modifiers = {
-			urbanisation = -0.1
-			mine_level = 1
-			#local_resources_iron = 9
-			#local_resources_rubber = 1
 		}
 	}
 	
@@ -208,35 +172,61 @@ buildings = {
 		icon_frame = 5
 		##local_resources_aluminium = -1000
 		level_cap = {
-			province_max = 10
+			state_max = 50	# This is the max unlock level
 		}
 		#shares_slots = yes
 		value = 16
 		infrastructure_construction_effect = yes
-		only_display_if_exists = yes
+		
 
 		#local_resources_stone = 6
 
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 
-				miner_k = 0.160
 				building_upkeep_cost = 2
 			}
 		}
 		state_modifiers = {
+			miner_k = 0.160
 			urbanisation = -0.1
-			quarry_level = 1
 		}
 	}
 
+	mine = {
+		show_on_map = 1
+		base_cost = 9000
+		#per_level_extra_cost = 380
+		icon_frame = 7
+		level_cap = {
+			state_max = 50	# This is the max unlock level
+		} 
+		#shares_slots = yes
+		value = 8
+		infrastructure_construction_effect = yes
+		
 
+		#local_resources_iron = 9
+		#local_resources_rubber = 1
+
+		show_modifier = yes
+		country_modifiers = {
+			modifiers = { 
+				building_upkeep_cost = 2
+			}
+		}
+		state_modifiers = {
+			miner_k = 0.180
+			urbanisation = -0.1
+		}
+	}
 
 
 
 	###### state buildings
 
 	industrial_complex = {
+		hide_if_missing_tech = yes
 		show_on_map = 6
 		base_cost = 8000
 		base_cost_conversion = 16000
@@ -244,7 +234,6 @@ buildings = {
 		icon_frame = 32
 		#shares_slots = yes
 		value = 6
-		is_buildable = no
 
 		level_cap = {
 			state_max = 10000000
@@ -254,8 +243,10 @@ buildings = {
 			modifiers = { 
 				civilian_capacity_modifier = 1
 				building_upkeep_cost = 2
-				craftsman_k = 0.1
 			}
+		}
+		state_modifiers = {
+			craftsman_k = 0.1
 		}
 	}
 
@@ -389,7 +380,6 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = {
-				smith_k = 0.10
 				#military_capacity_modifier = 4
 			}
 		}
@@ -397,6 +387,7 @@ buildings = {
 			#fuel_gain_from_states = -1.0 #per hour
 			building_upkeep_cost = 2
 			urbanisation = 0.8
+			smith_k = 0.10
 		}
 	}
 
@@ -416,13 +407,13 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = {
-				industrial_worker_k = 1.500
 				#fuel_gain_from_states = -5.0 #per hour
 			 }
 		}
 		state_modifiers = {
 			building_upkeep_cost = 4
 			urbanisation = 1
+			industrial_worker_k = 1.500
 		}
 	}
 
@@ -442,13 +433,14 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = {
-				harbour_worker_k = 0.400
 				#naval_capacity_modifier = 10
 			}
 		}
 		state_modifiers = {
 			building_upkeep_cost = 2
-			urbanisation = 1.2
+			urbanisation = 1.4
+			local_trade_network = 0.02
+			harbour_worker_k = 0.400
 		}
 	}
 
@@ -469,14 +461,14 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 
-				industrial_worker_k = 1.000
-				harbour_worker_k = 0.200
 				#naval_capacity_modifier = 20
 			}
 		}
 		state_modifiers = {
 			building_upkeep_cost = 3
-			urbanisation = 1.4
+			urbanisation = 0.7
+			industrial_worker_k = 1.000
+			harbour_worker_k = 0.200
 		}
 	}
 
@@ -493,7 +485,6 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 
-				weaver_k = 0.10
 				max_grain_building_k = 0.25
 				#country_resource_cost_oil = 6
 			}
@@ -502,6 +493,7 @@ buildings = {
 			#local_resources_tungsten = 10
 			building_upkeep_cost = 1
 			urbanisation = 0.1
+			weaver_k = 0.10
 		}
 	}
 
@@ -519,7 +511,6 @@ buildings = {
 		country_modifiers = {
 			modifiers = {
 				#country_resource_cost_chromium = 5 
-				weaver_k = 0.10
 				max_animal_products_building_k = 0.25
 			}
 		}
@@ -527,6 +518,7 @@ buildings = {
 			#local_resources_tungsten = 10
 			building_upkeep_cost = 1
 			urbanisation = 0.1
+			weaver_k = 0.10
 		}
 	}
 
@@ -543,7 +535,6 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 
-				miller_k = 0.060
 				max_grain_building_k = 0.5
 				#country_resource_cost_oil = 4
 			}
@@ -552,6 +543,7 @@ buildings = {
 			building_upkeep_cost = 1
 			urbanisation = 0.1
 			#local_resources_food_resource = 4
+			miller_k = 0.060
 		}
 	}
 
@@ -570,7 +562,6 @@ buildings = {
 			modifiers = {
 				#country_resource_cost_iron = 20
 				#country_resource_cost_stone = 1
-				industrial_worker_k = 0.400
 				building_upkeep_cost = 3
 				max_iron_building_k = 0.5
 			}
@@ -580,6 +571,7 @@ buildings = {
 			#local_resources_steel = 10
 			#fuel_gain_from_states = -10.0 #per hour
 			urbanisation = 0.6
+			industrial_worker_k = 0.400
 		}
 	}
 
@@ -597,13 +589,13 @@ buildings = {
 			modifiers = {
 				#country_resource_cost_aluminium = 2
 				#country_resource_cost_tungsten = 2 
-				shopkeeper_k = 0.120
 				max_consumer_goods_building_k = 0.1
 			}
 		}
 		state_modifiers = {
 			building_upkeep_cost = 2
 			urbanisation = 0.8
+			shopkeeper_k = 0.120
 			#local_resources_consumer_goods_resource = 4
 		}
 		show_modifier = yes
@@ -622,13 +614,13 @@ buildings = {
 			modifiers = {
 				#country_resource_cost_iron = 2
 				#country_resource_cost_stone = 1
-				shopkeeper_k = 0.080	
 				max_luxury_goods_building_k = 0.1				
 			}
 		}
 		state_modifiers = {
 			building_upkeep_cost = 2
-			urbanisation = 1.2			
+			urbanisation = 1.2
+			shopkeeper_k = 0.080		
 			#local_resources_luxury_goods_resource = 4			
 		}
 		show_modifier = yes
@@ -648,13 +640,13 @@ buildings = {
 		country_modifiers = {
 			modifiers = {
 				#country_resource_cost_aluminium = 2 
-				craftsman_k = 0.12
 				max_wood_building_k = 0.5
 			}
 		}
 		state_modifiers = {
 			urbanisation = 0.5
 			building_upkeep_cost = 2
+			craftsman_k = 0.12
 			#local_resources_planks_resource = 6
 		}
 	}
@@ -672,13 +664,13 @@ buildings = {
 		country_modifiers = {
 			modifiers = {
 				#country_resource_cost_stone = 2	 
-				craftsman_k = 0.24
 				max_stone_building_k = 0.5
 			}
 		}
 		state_modifiers = {
 			building_upkeep_cost = 2
 			urbanisation = 0.7
+			craftsman_k = 0.24
 			#local_resources_bricks_resource = 6			
 		}
 		show_modifier = yes
@@ -702,11 +694,11 @@ buildings = {
 		show_modifier = yes
 		country_modifiers = {
 			modifiers = { 
-				industrial_worker_k = 2.400
 				max_steel_building_k = 1			
 			}
 		}
 		state_modifiers = {
+			industrial_worker_k = 2.400
 			building_upkeep_cost = 3
 			urbanisation = 0.9	
 		}
@@ -859,80 +851,6 @@ buildings = {
 	#	resistance_damage_to_garrison = -0.1
 	#	resistance_decay = 0.1
 	#}
-
-	mega_gun_emplacement = {
-		dlc_allowed = { has_dlc = Gotterdammerung }
-		hide_if_missing_tech = yes
-		show_on_map = 1
-		base_cost = 20000
-		damage_factor = 0 # This building can't be damaged by regular strat bombing
-		icon_frame = 24
-		value = 1
-		disabled_in_dmz = yes
-		infrastructure_construction_effect = yes
-		gun_emplacement = yes
-		spawn_point = rocket_site_spawn
-		level_cap = {
-			state_max = 1
-			shares_slots = yes
-			exclusive_with = rocket_site
-		}
-		#Building utilizes equipment "explosive_ammo_equipment" as ammunition for the air mission barrage
-	}
-
-
-	rocket_site = {
-		hide_if_missing_tech = yes
-		show_on_map = 1
-		base_cost = 6400
-		icon_frame = 12
-		rocket_production = 0
-		rocket_launch_capacity = 1
-		value = 1
-		tags = {}
-		infrastructure_construction_effect = yes
-		disabled_in_dmz = yes
-		spawn_point = rocket_site_spawn
-		level_cap = {
-			state_max = 3
-			shares_slots = yes
-			exclusive_with = mega_gun_emplacement
-		}
-	}
-	
-	nuclear_reactor = {
-		hide_if_missing_tech = yes
-		missing_tech_loc = { 
-			localization_key = SP_BUILDING_MISSING_PROJECT
-			PROJECT = sp_nuclear_reactor
-		}
-		spawn_point = nuclear_reactor_spawn
-		show_on_map = 1
-		base_cost = 30000
-		icon_frame = 13
-		nuclear_reactor = yes
-		value = 10
-		tags = { specialization_nuclear }
-		infrastructure_construction_effect = yes
-
-		country_modifiers = {
-			modifiers = {
-				nuclear_production_factor = 3
-				sp_nuclear_bomb_speed_factor = 0.05
-				sp_thermo_nuclear_bomb_speed_factor = 0.05
-				thermonuclear_production_factor = 2
-			}
-		}
-
-		level_cap = {
-			state_max = 1
-			shares_slots = yes
-			group_by = reactors
-		}
-	}
-
-	
-
 
 }
 

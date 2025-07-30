@@ -197,7 +197,7 @@ farm_grain_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@farm_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@farm }
 		controller = {
 			multiply_temp_variable = { local_resource = farm_output }
 		}
@@ -220,7 +220,7 @@ farm_food_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@farm_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@farm }
 		controller = {
 			multiply_temp_variable = { local_resource = farm_output_2 }
 		}
@@ -243,7 +243,7 @@ ranch_leather_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@ranch_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@ranch }
 		controller = {
 			multiply_temp_variable = { local_resource = ranch_output }
 		}
@@ -267,7 +267,7 @@ fishing_stand_food_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@fishing_stand_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@fishing_stand }
 		controller = {
 			multiply_temp_variable = { local_resource = fishing_stand_output }
 		}
@@ -291,7 +291,7 @@ lumber_mill_wood_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@lumber_mill_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@lumber_mill }
 		controller = {
 			multiply_temp_variable = { local_resource = lumber_mill_output }
 		}
@@ -316,7 +316,7 @@ quarry_stone_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@quarry_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@quarry }
 		controller = {
 			multiply_temp_variable = { local_resource = quarry_output }
 		}
@@ -417,7 +417,7 @@ mine_iron_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@mine_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@mine }
 		if = {
 			limit = {
 				controller = {
@@ -446,7 +446,7 @@ mine_coal_gain = {
 	base = 0
 	modifier = {
 		set_temp_variable = { local_resource = 0 }
-		add_to_temp_variable = { local_resource = modifier@mine_level }
+		add_to_temp_variable = { local_resource = non_damaged_building_level@mine }
 		if = {
 			limit = {
 				controller = {
@@ -897,7 +897,7 @@ steel_beam_factory_steel_beam_gain = {
 farm_bonus = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@farm_level }
+		set_temp_variable = { bonus = building_level@farm }
 		multiply_temp_variable = { bonus = 0.05 }
 		
 		add = bonus
@@ -1028,7 +1028,7 @@ smithy_bonus = {
 quarry_bonus = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@quarry_level }
+		set_temp_variable = { bonus = building_level@quarry }
 		controller = {
 			multiply_temp_variable = { bonus = quarry_output_2 }
 		}
@@ -1050,10 +1050,10 @@ quarry_bonus = {
 quarry_bonus_2 = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@quarry_level }
+		set_temp_variable = { bonus = building_level@quarry }
 		if = {
 			limit = {
-				check_variable = { modifier@quarry_level < 10 }
+				check_variable = { building_level@quarry < 10 }
 			}
 			NOT = {
 				controller = {
@@ -1104,7 +1104,7 @@ masonry_bonus = {
 fishing_stand_bonus = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@fishing_stand_level }
+		set_temp_variable = { bonus = building_level@fishing_stand }
 		controller = {
 			multiply_temp_variable = { bonus = fishing_stand_output_2 }
 		}
@@ -1127,7 +1127,7 @@ fishing_stand_bonus = {
 fishing_stand_bonus_2 = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@fishing_stand_level }
+		set_temp_variable = { bonus = building_level@fishing_stand }
 		if = {
 			limit = {
 				OR = {
@@ -1149,7 +1149,7 @@ fishing_stand_bonus_2 = {
 mine_bonus_1 = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@mine_level }
+		set_temp_variable = { bonus = building_level@mine }
 		multiply_temp_variable = { bonus = 2 }
 
 		add = bonus
@@ -1159,7 +1159,7 @@ mine_bonus_1 = {
 mine_bonus_2 = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@mine_level }
+		set_temp_variable = { bonus = building_level@mine }
 		multiply_temp_variable = { bonus = -0.0005 }
 
 		add = bonus
@@ -1356,7 +1356,7 @@ animal_weaving_bonus_2 = {
 ranch_bonus = {
 	base = 0
 	modifier = {
-		set_temp_variable = { bonus = modifier@ranch_level }
+		set_temp_variable = { bonus = building_level@ranch }
 		controller = {
 			multiply_temp_variable = { bonus = ranch_output_2 }
 		}
@@ -1560,7 +1560,7 @@ self_employed_grain_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = field }
-		subtract_from_temp_variable = { output = modifier@farm_level }
+		subtract_from_temp_variable = { output = building_level@farm }
 		multiply_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
@@ -1593,7 +1593,7 @@ self_animal_products_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = animal }
-		subtract_from_temp_variable = { output = modifier@ranch_level }
+		subtract_from_temp_variable = { output = building_level@ranch }
 		multiply_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
@@ -1627,7 +1627,7 @@ self_employed_minerals_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = stonefield }
-		subtract_from_temp_variable = { output = modifier@quarry_level }
+		subtract_from_temp_variable = { output = building_level@quarry }
 		multiply_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
@@ -1656,7 +1656,7 @@ self_employed_iron_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = mountain }
-		subtract_from_temp_variable = { output = modifier@mine_level }
+		subtract_from_temp_variable = { output = building_level@mine }
 		multiply_temp_variable = { output = mtth:state_self_employed }
 		controller = {
 			multiply_temp_variable = { output = mtth:peasant_output_factor }
@@ -1685,7 +1685,7 @@ self_employed_wood_supply = {
 	base = 0
 	modifier = {
 		set_temp_variable = { output = forest }
-		subtract_from_temp_variable = { output = modifier@quarry_level }
+		subtract_from_temp_variable = { output = building_level@quarry }
 		multiply_temp_variable = { output = mtth:state_self_employed }
 		set_temp_variable = { wood_available = 1 }
 		add_to_temp_variable = { wood_available = modifier@reforestation }
@@ -1828,7 +1828,7 @@ self_employed_food_supply = {
 		multiply_temp_variable = { output = 0.05 }
 
 		set_temp_variable = { food_available = field }
-		subtract_from_temp_variable = { food_available = modifier@farm_level }
+		subtract_from_temp_variable = { food_available = building_level@farm }
 		add_to_temp_variable = { food_available = modifier@fertilizer }
 		clamp_temp_variable = { var = food_available  min = 0}
 		multiply_temp_variable = { output = food_available }
@@ -1852,7 +1852,7 @@ self_employed_food_supply = {
 		multiply_temp_variable = { output = 0.05 }
 
 		add_to_temp_variable = { food_available = animal }
-		subtract_from_temp_variable = { food_available = modifier@ranch_level }
+		subtract_from_temp_variable = { food_available = building_level@ranch }
 		set_temp_variable = { animal_available = 1 }
 		add_to_temp_variable = { animal_available = modifier@breeding }
 		clamp_temp_variable = { var = animal_available  min = 0 }

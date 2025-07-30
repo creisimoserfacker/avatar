@@ -3,6 +3,7 @@ guiTypes = {
 		name = "special_project_tech_icon_offset"
 		position = { x = -10 y = -10 }
 	}
+
 	containerWindowType = {
 		name = "subunit_icon_entry"
 		position = { x=0 y=0 }
@@ -3398,6 +3399,11 @@ guiTypes = {
 				format = center		
 			}
 			
+			positionType = {
+				name = "tech_info_special_description_bottom_margin"
+				position = { x = 0 y = 0 }
+			}
+			
 			background = {
 				name = "Background"
 				quadTextureSprite ="GFX_tiled_paper_bg"
@@ -3581,6 +3587,11 @@ guiTypes = {
 			quadTextureSprite ="GFX_technology_unavailable_item_bg"
 		}
 
+		gridboxtype = {
+			# contains special_project_specialization
+			name = "special_project_specialization_list"
+		}
+
 		iconType = {
 			name = "Icon"
 			position = { x=3 y=3 }
@@ -3622,6 +3633,11 @@ guiTypes = {
 		background = {
 			name = "Background"
 			quadTextureSprite ="GFX_technology_unavailable_item_bg"
+		}
+			
+		gridboxtype = {
+			# contains special_project_specialization
+			name = "special_project_specialization_list"
 		}
 
 		iconType = {
@@ -4716,6 +4732,11 @@ guiTypes = {
 		background = {
 			name = "Background"
 			quadTextureSprite ="GFX_technology_unavailable_item_bg"
+		}
+				
+		gridboxtype = {
+			# contains special_project_specialization
+			name = "special_project_specialization_list"
 		}
 
 		iconType = {
@@ -6131,10 +6152,19 @@ guiTypes = {
 		
 		gridboxtype = {
 			name = "air_missions_grid"
-			position = { x = -8 y = 56 }
+			position = { x = 15 y = 40 }
 			size = { width = 400 height = 70 }
-			slotsize = { width = 40 height = 60 }
-			max_slots_horizontal = 6
+			slotsize = { width = 45 height = 60 }
+			max_slots_horizontal = 10
+			format = "UPPER_LEFT"
+		}
+
+		gridboxtype = {
+			name = "terrain_modifiers_grid"
+			position = { x = 35 y = 65 } # Y set in code
+			size = { width = 400 height = 400 }
+			slotsize = { width = 82 height = 70 }
+			max_slots_horizontal = 5
 			format = "UPPER_LEFT"
 		}
 		
@@ -6142,13 +6172,6 @@ guiTypes = {
 			name = "3d_container"
 			position = { x=0 y=0 }
 			clipping = no
-			
-			iconType = {
-				name ="3d_view"
-				quadTextureSprite = "GFX_3d_view_placeholder"
-				position = { x= 5 y = 10 }
-				##size = { width=300 height=80 }
-			}
 			
 			containerWindowType = {
 				name = "border_container"
@@ -6161,6 +6184,13 @@ guiTypes = {
 					position = { x=0 y=0 }
 					size = { x=100%% y=100%%}
 				}
+			}
+
+			iconType = {
+				name ="3d_view"
+				quadTextureSprite = "GFX_3d_view_placeholder"
+				position = { x= 5 y = 10 }
+				##size = { width=300 height=80 }
 			}
 
 			buttonType = {
@@ -6205,6 +6235,7 @@ guiTypes = {
 			name = "equipment_icon"
 			position = { x = 140 y = 27 }
 			spriteType = "GFX_sub_tech_strip_w_bg"
+			centerposition = yes
 			frame = 1
 		}
 		
@@ -6214,6 +6245,15 @@ guiTypes = {
 			size = { width = 400 height = 400 }
 			slotsize = { width = 224 height = 30 }
 			max_slots_horizontal = 2
+			format = "UPPER_LEFT"
+		}
+
+		gridboxtype = {
+			name = "air_missions_grid"
+			position = { x = 15 y = 40 }
+			size = { width = 400 height = 70 }
+			slotsize = { width = 45 height = 60 }
+			max_slots_horizontal = 10
 			format = "UPPER_LEFT"
 		}
 	}
@@ -6691,17 +6731,6 @@ guiTypes = {
 	}
 	
 	containerWindowType = {
-		name = "technology_air_mission_entry"
-		size = { width = 40 height = 40 }	
-		clipping = no
-
-		iconType = {
-			name ="mission_icon"
-			spriteType = "GFX_strategicair_mission_types"
-		}
-	}
-	
-	containerWindowType = {
 		name = "technology_tech_stat_item"
 		position = { x=10 y=2 }	
 		size = { width=201 height=25 }
@@ -6758,5 +6787,4 @@ guiTypes = {
 		position = { x=0 y=0 }
 		size = { width=1 height=1 }
 	}	
-
 }

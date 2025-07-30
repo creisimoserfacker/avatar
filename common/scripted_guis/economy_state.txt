@@ -183,75 +183,75 @@ scripted_gui = {
 				}
 			}
 
-			build_farm_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { farms = modifier@farm_level }
-				add_to_temp_variable = { farms = farm_construction_que }
-				check_variable = { field > farms }
-				check_variable = {
-					var = ROOT:modifier@farm_level_max
-					value = farms
-					compare = greater_than
-				}
-			}
-			build_lumber_mill_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { lumber_mills = modifier@lumber_mill_level }
-				add_to_temp_variable = { lumber_mills = lumber_mill_construction_que }
-				check_variable = { forest > lumber_mills }
-				check_variable = {
-					var = ROOT:modifier@lumber_mill_level_max
-					value = lumber_mills
-					compare = greater_than
-				}
-			}
-			build_ranch_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { ranches = modifier@ranch_level }
-				add_to_temp_variable = { ranches = ranch_construction_que }
-				check_variable = { animal > ranches }
-				check_variable = {
-					var = ROOT:modifier@ranch_level_max
-					value = ranches
-					compare = greater_than
-				}
-			}
-			build_mine_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { mines = modifier@mine_level }
-				add_to_temp_variable = { mines = mine_construction_que }
-				check_variable = { mountain > mines }
-				check_variable = {
-					var = ROOT:modifier@mine_level_max
-					value = mines
-					compare = greater_than
-				}
-			}
-			build_quarry_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { quarries = modifier@quarry_level }
-				add_to_temp_variable = { quarries = quarry_construction_que }
-				check_variable = { stonefield > quarries }
-				check_variable = {
-					var = ROOT:modifier@quarry_level_max
-					value = quarries
-					compare = greater_than
-				}
-			}
-			build_fishing_stand_click_enabled = {
-				is_controlled_by = ROOT
-				set_temp_variable = { fishing_stands = modifier@fishing_stand_level }
-				add_to_temp_variable = { fishing_stands = fishing_stand_construction_que }
-				check_variable = { water > fishing_stands }
-				check_variable = {
-					var = ROOT:modifier@fishing_stand_level_max
-					value = fishing_stands
-					compare = greater_than
-				}
-			}
+		#	build_farm_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { farms = building_level@farm }
+		#		add_to_temp_variable = { farms = farm_construction_que }
+		#		check_variable = { field > farms }
+		#		check_variable = {
+		#			var = ROOT:modifier@farm_level_max
+		#			value = farms
+		#			compare = greater_than
+		#		}
+		#	}
+		#	build_lumber_mill_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { lumber_mills = building_level@lumber_mill }
+		#		add_to_temp_variable = { lumber_mills = lumber_mill_construction_que }
+		#		check_variable = { forest > lumber_mills }
+		#		check_variable = {
+		#			var = ROOT:modifier@lumber_mill_level_max
+		#			value = lumber_mills
+		#			compare = greater_than
+		#		}
+		#	}
+		#	build_ranch_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { ranches = building_level@ranch }
+		#		add_to_temp_variable = { ranches = ranch_construction_que }
+		#		check_variable = { animal > ranches }
+		#		check_variable = {
+		#			var = ROOT:modifier@ranch_level_max
+		#			value = ranches
+		#			compare = greater_than
+		#		}
+		#	}
+		#	build_mine_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { mines = building_level@mine }
+		#		add_to_temp_variable = { mines = mine_construction_que }
+		#		check_variable = { mountain > mines }
+		#		check_variable = {
+		#			var = ROOT:modifier@mine_level_max
+		#			value = mines
+		#			compare = greater_than
+		#		}
+		#	}
+		#	build_quarry_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { quarries = building_level@quarry }
+		#		add_to_temp_variable = { quarries = quarry_construction_que }
+		#		check_variable = { stonefield > quarries }
+		#		check_variable = {
+		#			var = ROOT:modifier@quarry_level_max
+		#			value = quarries
+		#			compare = greater_than
+		#		}
+		#	}
+		#	build_fishing_stand_click_enabled = {
+		#		is_controlled_by = ROOT
+		#		set_temp_variable = { fishing_stands = building_level@fishing_stand }
+		#		add_to_temp_variable = { fishing_stands = fishing_stand_construction_que }
+		#		check_variable = { water > fishing_stands }
+		#		check_variable = {
+		#			var = ROOT:modifier@fishing_stand_level_max
+		#			value = fishing_stands
+		#			compare = greater_than
+		#		}
+		#	}
 
 
-			farm_progress_visible = {
+		farm_progress_visible = {
 				check_variable = { farm_construction_que > 0 }
 			}
 			lumber_mill_progress_visible = {
@@ -310,24 +310,24 @@ scripted_gui = {
 					base = 100
 				}
 			}
-			build_farm_click = {
-				ai_will_do = {
-					base = 0
-					modifier = {
-						set_temp_variable = {
-							d = ROOT.ai_build_farm_desire
-						}
-						set_temp_variable = {
-							q = ROOT.farm_construction_que
-						}
-						subtract_from_temp_variable = {
-							var = d
-							value = q
-						}
-						add = d
-					}
-				}
-			}
+		#	build_farm_click = {
+		#		ai_will_do = {
+		#			base = 0
+		#			modifier = {
+		#				set_temp_variable = {
+		#					d = ROOT.ai_build_farm_desire
+		#				}
+		#				set_temp_variable = {
+		#					q = ROOT.farm_construction_que
+		#				}
+		#				subtract_from_temp_variable = {
+		#					var = d
+		#					value = q
+		#				}
+		#				add = d
+		#			}
+		#		}
+		#	}
 			send_settlers_click = {
 				ai_will_do = {
 					base = 10
