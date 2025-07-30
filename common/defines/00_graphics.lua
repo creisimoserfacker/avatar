@@ -616,6 +616,7 @@ NAirGfx = {
 	AIRPLANES_BANK_STRENGTH = 210.0, 				-- Multiplier of how much the curve affects the wings banking. (angle limited by the following value)
 	AIRPLANES_BANK_ANGLE_LIMIT = 55.0, 				-- Bank angle limit.
 	AIRPLANES_GROUND_COLLISION_OFFSET_Y = -5.0, 		-- Lets the 3d airplanes disappear after going a bit under the ground.
+	AIRPLANES_GROUND_EXPLOSION_TIME_DELAY = 0.6,	-- Time in seconds to play explosion animation when plane hit ground before the plane entity is deleted
 	AIRPLANES_1_FIGHTER_PATROL_ANIM = 1, 			-- Number of fighters needed for a single instance of this animation 
 	AIRPLANES_3_FIGHTER_PATROL_ANIM = 3,			-- Number of fighters needed for a single instance of this animation
 	AIRPLANES_1_BOMBER_BOMBING_ANIM = 1, 			-- Number of bombers needed for a single instance of this animation
@@ -1228,9 +1229,20 @@ NGraphics = {
 	RAID_ARROW_NAVAL_SUBDIVISIONS = 20,             -- Number of subdivisions for the path spline (more = smoother, but slower to render)
 	RAID_ARROW_NAVAL_SHARP_TURN_SMOOTHNESS = 0.10,  -- Amount of smoothness that is applied to smooth out sharp turns (0 = off)
 	RAID_ARROW_NAVAL_USE_MIDPOINTS = true,          -- Whether to use midpoints between provinces to build the path
+
 	RAID_UNIT_ENTITY_BASE_SCALE = 2.0,              -- Base scale of the raid unit entity used to show the progress of the raid (can be further modifier in raid script)
 	RAID_UNIT_ENTITY_OFFSET = { 0.0, 0.0, 0.0 },    -- Raid entity offset from the arrow spline position
     RAID_CONVOY_ENTITY_START_OFFSET = 15.0,         -- Offset along the arrow where the convoy entity starts (to avoid being placed on land)
+
+	-- The next two values specify how multi-stage animation works for raid units, which is used, for example, for some nuclear rockets.
+	-- Currently, three-stage animation is supported, in order for it to work, the unit entity must have following animation states:
+	--  "idle"			- idle animation of the first stage (looped)
+	--  "idle2_intro"	- intro animation of the second stage (not looped, goes to "idle2" when done)
+	--  "idle2"			- idle animation of the second stage (looped)
+	--  "idle3_intro"	- intro animation of the third stage (not looped, goes to "idle3" when done)
+	--  "idle3"			- idle animation of the third stage (looped)
+	RAID_UNIT_SECOND_STAGE_PROGRESS = 0.33,			-- Specifies raid progress value on [0,1] where second stage is activated
+	RAID_UNIT_THIRD_STAGE_PROGRESS = 0.66,			-- Specifies raid progress value on [0,1] where third stage is activated
 
 	DEFAULT_NUDGE_FLOATING_HARBOR_DIST = 7.0,       -- Default distance of floating harbors from the coast in pixels, for nudger
 
