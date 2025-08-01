@@ -212,20 +212,20 @@ on_actions = {
 					}
 					add_dynamic_modifier = { modifier = farm_upgrade }
 				}
-				set_temp_variable = { population_growth_temp = state_population }
-				#### 0.03% base growth
-				multiply_temp_variable = { population_growth_temp = 0.03 }
-				multiply_temp_variable = { population_growth_temp = 0.01 }
-
-				set_variable = { population_growth_factor = 1}
-				add_to_variable = { population_growth_factor = modifier@monthly_population_state }
-				add_to_variable = { population_growth_factor = ROOT.modifier@monthly_population }
-
-				multiply_temp_variable = { population_growth_temp = population_growth_factor }
-	
-				round_temp_variable = population_growth_temp
-				set_variable = { population_growth = population_growth_temp }
-				add_manpower = var:population_growth
+#				set_temp_variable = { population_growth_temp = state_population }
+#				#### 0.03% base growth
+#				multiply_temp_variable = { population_growth_temp = 0.03 }
+#				multiply_temp_variable = { population_growth_temp = 0.01 }
+#
+#				set_variable = { population_growth_factor = 1}
+#				add_to_variable = { population_growth_factor = modifier@monthly_population_state }
+#				add_to_variable = { population_growth_factor = ROOT.modifier@monthly_population }
+#
+#				multiply_temp_variable = { population_growth_temp = population_growth_factor }
+#	
+#				round_temp_variable = population_growth_temp
+#				set_variable = { population_growth = population_growth_temp }
+#				add_manpower = var:population_growth
 
 				if = {
 					limit = {

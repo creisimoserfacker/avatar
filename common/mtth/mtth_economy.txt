@@ -1482,7 +1482,11 @@ working_soldiers_k = {
 state_workforce_k = {
 	base = 0
 	modifier = {
+		set_temp_variable = { missing_people_k = missing_people }
+		divide_temp_variable = { missing_people_k = 1000 }
+
 		set_temp_variable = { population_k = state_population_k }
+		subtract_from_temp_variable = { population_k = missing_people_k }
 		controller = {
 			multiply_temp_variable = { population_k = working_percentage }
 		}
@@ -2353,6 +2357,18 @@ missing_workers_resource_modifier = {
 	}
 }
 
+missing_people_resource_modifier = {
+	base = 0
+	modifier = {
+		set_temp_variable = { people_deficit_malus = var:missing_people }
+		divide_temp_variable = { people_deficit_malus = state_population }
+		multiply_temp_variable = { people_deficit_malus = -1 }
+
+		add = people_deficit_malus
+	}
+
+}
+
 
 
 
@@ -2413,7 +2429,7 @@ urbanisation_migration_attraction = {
 	}
 }
 
-urbanisation_birth_bonus = {
+urbanisation_resource_bonus = {
 	base = 0
 	modifier = {
 		check_variable = { urbanisation_cap = 0 }
@@ -2421,14 +2437,14 @@ urbanisation_birth_bonus = {
 		add = 2
 	}
 	modifier = {
-		set_temp_variable = { birthings = 50 }
-		subtract_from_temp_variable = { birthings = urbanisation_cap }
-		multiply_temp_variable = { birthings = 0.04 }
+		set_temp_variable = { resource_gain = 50 }
+		subtract_from_temp_variable = { resource_gain = urbanisation_cap }
+		multiply_temp_variable = { resource_gain = 0.02 }
 
-		multiply_temp_variable = { birthings = urbanisation_percentage }
+		multiply_temp_variable = { resource_gain = urbanisation_percentage }
 		
 
-		add = birthings
+		add = resource_gain
 	}
 }
 

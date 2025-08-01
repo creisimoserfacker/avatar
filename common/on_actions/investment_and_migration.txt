@@ -1,71 +1,71 @@
 on_actions = {
 
-	on_startup = {
-		effect = {
+#	on_startup = {
+#		effect = {
+#
+#
+#		###### too lagy to calculate at once, has to check 198025 states for the limit trigger
+#
+#		### events spread the innitial calcualtion over some hours and then its only updated 
+#		### for some states daily
+#			
+#			every_country = {
+#				country_event = {
+#					id = refugee_calc.2
+#					hours = 12
+#					random_hours = 120
+#				}
+#			}
+#
+#		}
+#	}
 
-
-		###### too lagy to calculate at once, has to check 198025 states for the limit trigger
-
-		### events spread the innitial calcualtion over some hours and then its only updated 
-		### for some states daily
-			
-			every_country = {
-				country_event = {
-					id = refugee_calc.2
-					hours = 12
-					random_hours = 120
-				}
-			}
-
-		}
-	}
-
-	on_daily = {
-		effect = {
-			every_controlled_state = {
-
-				#limit = {
-				#	check_variable = { modifier@monthly_migration_state < 0 }
-				#}
-
-				save_event_target_as = migration_origin
-
-				random_scope_in_array = {
-					array = available_migrant_states_array
-					
-					if = {
-						limit = {
-							is_valid_migration_target = yes
-						}
-						if = {
-							limit = {
-								NOT = {
-									is_in_array = { PREV.available_migrant_states_array = THIS.id }
-								}
-							}
-							add_to_array = {
-								array = PREV.available_migrant_states_array
-								value = THIS.id
-							}
-						}
-					}
-				}
-
-
-				### more of these kill performance, less increase it
-
-				migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-				#migrant_per_state_recalc = yes
-
-				
-			}
-		}
-	}
+#	on_daily = {
+#		effect = {
+#			every_controlled_state = {
+#
+#				#limit = {
+#				#	check_variable = { modifier@monthly_migration_state < 0 }
+#				#}
+#
+#				save_event_target_as = migration_origin
+#
+#				random_scope_in_array = {
+#					array = available_migrant_states_array
+#					
+#					if = {
+#						limit = {
+#							is_valid_migration_target = yes
+#						}
+#						if = {
+#							limit = {
+#								NOT = {
+#									is_in_array = { PREV.available_migrant_states_array = THIS.id }
+#								}
+#							}
+#							add_to_array = {
+#								array = PREV.available_migrant_states_array
+#								value = THIS.id
+#							}
+#						}
+#					}
+#				}
+#
+#
+#				### more of these kill performance, less increase it
+#
+#				migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#				#migrant_per_state_recalc = yes
+#
+#				
+#			}
+#		}
+#	}
 
 	on_monthly = {
 		effect = {
@@ -87,9 +87,7 @@ on_actions = {
 				}
 			}
 
-
-
-			### migration improved mechanic
+			### migration v2.0 improved mechanic
 
 			if = {
 				limit = {
@@ -101,109 +99,28 @@ on_actions = {
 
 				set_variable = { global.total_population_k = 0 }
 
-				### set_variable = { global.migrat_1 = 0 }
-				### set_variable = { global.migrat_2 = 0 }
-
 				every_state = {
 					add_to_variable = { global.total_population_k = state_population_k }
 
-					
-					### migration attraction
-					set_variable = { local_migration_attraction = mtth:urbanisation_migration_attraction }
-					add_to_variable = { local_migration_attraction = mtth:workers_needed }
-					subtract_from_variable = { local_migration_attraction = mtth:workers_number }
-
-					set_variable = { local_migration_factor = 1 }
-					add_to_variable = { local_migration_factor = modifier@migration_attraction }
-					controller = {
-						add_to_variable = { PREV.local_migration_factor = modifier@migration_attraction }
-					}
-
-					multiply_variable = { local_migration_attraction = local_migration_factor }
-					clamp_variable = {
-						var = local_migration_attraction
-						min = 0.001
-					}
-
-					set_variable = { refugees_accepted_last_month = 0 }
-					set_variable = { migrant_states_value = 0 }
-					set_variable = { available_migrant_states = 0 }
-					set_variable = { received_migrants = 0 }
-					set_variable = { target_of_migrants = 0 }
-					set_variable = { migrating_population = 0 }
 				}
 
 				every_state = {
-					if = {
-						limit = {
-							AND = {
-								check_variable = { modifier@monthly_migration_state < 0 }
-							}
-						}
-						set_variable = { migrating_population = state_population }
-						multiply_variable = { migrating_population = modifier@monthly_migration_state }
-						round_variable = migrating_population
+					set_variable = { migrating_population = state_population }
+					multiply_variable = { migrating_population = modifier@monthly_migration_state }
+					round_variable = migrating_population
 					
-						add_manpower = var:migrating_population
+					subtract_from_variable = { missing_people = var:migrating_population }
 
-						multiply_variable = { migrating_population = -1 }
+					round_variable = missing_people
 
-
-						set_variable = { available_migrant_states = 0 }
-
-						#### states they can go to
-
-						for_each_scope_loop = {
-							array = available_migrant_states_array
-							
-							set_variable = { potential_migrants = 0 }
-
-							add_to_variable = { target_of_migrants = 1 }
-
-							set_variable = { potential_migrants = PREV.migrating_population }
-
-							add_to_variable = { PREV.migrant_states_value = local_migration_attraction }
-
-							add_to_variable = { PREV.available_migrant_states = 1 }
-						}
-
-
-						### actual adding of migrants
-
-						for_each_scope_loop = {
-							array = available_migrant_states_array
-							
-							set_variable = { received_migrants = local_migration_attraction }
-
-							divide_variable = { received_migrants = PREV.migrant_states_value }
-							multiply_variable = { received_migrants = potential_migrants }
-							add_to_variable = { refugees_accepted_last_month = received_migrants }
-						}
+					clamp_variable = {
+						var = missing_people
+						min = 0
+						max = state_population
 					}
 				}
 
 				every_state = {
-
-					round_variable = refugees_accepted_last_month
-
-
-					###### test to see if migration adds up
-
-					###  add_to_variable = { global.migrat_1 = refugees_accepted_last_month }
-					###  add_to_variable = { global.migrat_2 = migrating_population }
-
-					#### potential fluctuation here, but not everyone can survive and some are born along the way ;D
-
-					set_variable = { migration_balance = refugees_accepted_last_month }
-					subtract_from_variable = { migration_balance = migrating_population }
-
-					clamp_variable = {
-						var = global.max_refugees_accepted
-						min = migration_balance
-					}
-
-
-
 
 					#################################### prosperity ### unrelated economy code ##########
 					
@@ -213,35 +130,165 @@ on_actions = {
 					}
 
 					#####################################################################################
-					add_manpower = var:refugees_accepted_last_month
-
-					if = {
-						limit = {
-							AND = {
-								check_variable = { refugees_accepted_last_month > 100 }
-								NOT = {
-
-									###   state is managing refugees
-									OR = {
-										has_dynamic_modifier = { modifier = refugee_node }
-										has_dynamic_modifier = { modifier = migration_target }
-									}
-								}
-							}
-						}
-
-						save_event_target_as = migration_state
-						controller = {
-							country_event = {
-								id = refugee_event.1
-								days = 1
-								random_days = 2
-							}
-						}
-					}
 				}
 
 			}
+
+
+
+#			### migration improved mechanic
+#
+#			if = {
+#				limit = {
+#					has_country_flag = calculator
+#				}
+#
+#				set_variable = { global.max_refugees_accepted = 0 }
+#				set_variable = { global.max_local_prosperity = 0 }
+#
+#				set_variable = { global.total_population_k = 0 }
+#
+#				### set_variable = { global.migrat_1 = 0 }
+#				### set_variable = { global.migrat_2 = 0 }
+#
+#				every_state = {
+#					add_to_variable = { global.total_population_k = state_population_k }
+#
+#					
+#					### migration attraction
+#					set_variable = { local_migration_attraction = mtth:urbanisation_migration_attraction }
+#					add_to_variable = { local_migration_attraction = mtth:workers_needed }
+#					subtract_from_variable = { local_migration_attraction = mtth:workers_number }
+#
+#					set_variable = { local_migration_factor = 1 }
+#					add_to_variable = { local_migration_factor = modifier@migration_attraction }
+#					controller = {
+#						add_to_variable = { PREV.local_migration_factor = modifier@migration_attraction }
+#					}
+#
+#					multiply_variable = { local_migration_attraction = local_migration_factor }
+#					clamp_variable = {
+#						var = local_migration_attraction
+#						min = 0.001
+#					}
+#
+#					set_variable = { refugees_accepted_last_month = 0 }
+#					set_variable = { migrant_states_value = 0 }
+#					set_variable = { available_migrant_states = 0 }
+#					set_variable = { received_migrants = 0 }
+#					set_variable = { target_of_migrants = 0 }
+#					set_variable = { migrating_population = 0 }
+#				}
+#
+#				every_state = {
+#					if = {
+#						limit = {
+#							AND = {
+#								check_variable = { modifier@monthly_migration_state < 0 }
+#							}
+#						}
+#						set_variable = { migrating_population = state_population }
+#						multiply_variable = { migrating_population = modifier@monthly_migration_state }
+#						round_variable = migrating_population
+#					
+#						add_manpower = var:migrating_population
+#
+#						multiply_variable = { migrating_population = -1 }
+#
+#
+#						set_variable = { available_migrant_states = 0 }
+#
+#						#### states they can go to
+#
+#						for_each_scope_loop = {
+#							array = available_migrant_states_array
+#							
+#							set_variable = { potential_migrants = 0 }
+#
+#							add_to_variable = { target_of_migrants = 1 }
+#
+#							set_variable = { potential_migrants = PREV.migrating_population }
+#
+#							add_to_variable = { PREV.migrant_states_value = local_migration_attraction }
+#
+#							add_to_variable = { PREV.available_migrant_states = 1 }
+#						}
+#
+#
+#						### actual adding of migrants
+#
+#						for_each_scope_loop = {
+#							array = available_migrant_states_array
+#							
+#							set_variable = { received_migrants = local_migration_attraction }
+#
+#							divide_variable = { received_migrants = PREV.migrant_states_value }
+#							multiply_variable = { received_migrants = potential_migrants }
+#							add_to_variable = { refugees_accepted_last_month = received_migrants }
+#						}
+#					}
+#				}
+#
+#				every_state = {
+#
+#					round_variable = refugees_accepted_last_month
+#
+#
+#					###### test to see if migration adds up
+#
+#					###  add_to_variable = { global.migrat_1 = refugees_accepted_last_month }
+#					###  add_to_variable = { global.migrat_2 = migrating_population }
+#
+#					#### potential fluctuation here, but not everyone can survive and some are born along the way ;D
+#
+#					set_variable = { migration_balance = refugees_accepted_last_month }
+#					subtract_from_variable = { migration_balance = migrating_population }
+#
+#					clamp_variable = {
+#						var = global.max_refugees_accepted
+#						min = migration_balance
+#					}
+#
+#
+#
+#
+#					#################################### prosperity ### unrelated economy code ##########
+#					
+#					clamp_variable = {
+#						var = global.max_local_prosperity
+#						min = local_prosperity
+#					}
+#
+#					#####################################################################################
+#					add_manpower = var:refugees_accepted_last_month
+#
+#					if = {
+#						limit = {
+#							AND = {
+#								check_variable = { refugees_accepted_last_month > 100 }
+#								NOT = {
+#
+#									###   state is managing refugees
+#									OR = {
+#										has_dynamic_modifier = { modifier = refugee_node }
+#										has_dynamic_modifier = { modifier = migration_target }
+#									}
+#								}
+#							}
+#						}
+#
+#						save_event_target_as = migration_state
+#						controller = {
+#							country_event = {
+#								id = refugee_event.1
+#								days = 1
+#								random_days = 2
+#							}
+#						}
+#					}
+#				}
+#
+#			}
 
 
 

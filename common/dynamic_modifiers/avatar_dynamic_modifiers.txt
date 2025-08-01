@@ -28,31 +28,28 @@ genocide_state = {
 	enable = { always = yes }
 
 	remove_trigger = {
-		state_population > 100
+		check_variable = { var:missing_people < state_population_k }
 	}
 
 	icon = GFX_modifiers_genocide_state
 
 	#local_manpower = -1.0
-	local_resources = -0.75 
-	state_production_speed_buildings_factor = -0.5
-	resistance_target = -1.0
-	resistance_activity = -1.0
+	#local_resources = -0.75 
 	#garrison_factor_modifier = -1
-	compliance_gain = 10
-	resistance_decay = 1
+	#compliance_gain = 10
+	core_state_cost_factor = 2
 }
 
 new_settlement = {
 	enable = { always = yes }
 
 	remove_trigger = {
-		state_population > 2000
+		check_variable = { var:missing_people < state_population_k }
 	}
 
 	icon = GFX_modifiers_new_settlement
 
-	migration_attraction = 1.0
+	monthly_migration_state = 0.1
 }
 
 brave_pioneers = {
@@ -84,7 +81,7 @@ devestated_state = {
 
 	icon = GFX_modifiers_devestated_state
 
-	migration_attraction = -0.5
+	monthly_migration_state = -0.005
 	prosperity = -0.2
 }
 
@@ -110,7 +107,7 @@ migration_target = {
 
 	icon = GFX_modifiers_refugees
 	
-	migration_attraction = 0.75
+	monthly_migration_state = 0.01
 	prosperity = mtth:refugee_supplies
 }
 

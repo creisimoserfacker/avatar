@@ -55,7 +55,7 @@ trade_hub = {
 
 	icon = GFX_modifiers_trade_hub
 
-	migration_attraction = 0.5
+	monthly_migration_state = 0.01
 	state_resources_factor = 0.1
 	prosperity = 0.1
 	local_trade_network = 0.75
@@ -76,7 +76,7 @@ famine = {
 			check_variable = { ration_penalty > -0.5 }
 		}
 	}
-	MONTHLY_POPULATION = family_penalty_2
+	monthly_population_modifier = family_penalty_2
 
 	#### army
 	army_org_factor = soldier_penalty
@@ -102,7 +102,7 @@ food_shortages = {
 			check_variable = { famine_check < -0.5 }
 		}
 	}
-	MONTHLY_POPULATION = family_penalty_2
+	monthly_population_modifier = family_penalty_2
 
 	#### army
 	army_org_factor = soldier_penalty
@@ -126,7 +126,7 @@ food_surplus_idea = {
 			check_variable = { ration_variable = ration_max }
 		}
 	}
-	MONTHLY_POPULATION = ration_buff
+	monthly_population_modifier = ration_buff
 	stability_factor = ration_stability_buff
 	population_ration_need_factor = ration_ratio_percent
 }
@@ -137,7 +137,7 @@ burgerking = {
 			check_variable = { ration_variable = ration_max }
 		}
 	}
-	MONTHLY_POPULATION = ration_buff
+	monthly_population_modifier = ration_buff
 	stability_factor = ration_stability_buff
 	population_ration_need_factor = ration_ratio_percent
 }

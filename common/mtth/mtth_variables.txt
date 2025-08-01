@@ -10,7 +10,8 @@ core_state_cost = {
 	}
 	modifier = {
 		set_temp_variable = { modifier_factor = 1 }
-		add_to_temp_variable = { modifier_factor = modifier@core_state_cost_factor }
+		add_to_temp_variable = { modifier_factor = THIS:modifier@core_state_cost_factor }
+		add_to_temp_variable = { modifier_factor = controller:modifier@core_state_cost_factor }
 		clamp_temp_variable = {
 			var = modifier_factor
 			min = 0

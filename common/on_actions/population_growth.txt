@@ -1,0 +1,28 @@
+
+on_actions = {
+
+	on_weekly = {
+		effect = {
+
+			set_variable = { monthly_population_calculated = THIS.modifier@monthly_population_modifier }
+			clamp_variable = {
+				var = monthly_population_calculated
+				min = -1
+			}
+
+			if = {
+				limit = {
+					check_variable = { 
+						var = modifier@disable_population_growth
+						value = 0
+						compare = not_equals
+					}
+				}
+				set_variable = { monthly_population_calculated = -1 }
+			}
+			
+			
+		}
+	}
+
+}

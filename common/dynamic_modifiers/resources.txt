@@ -171,16 +171,18 @@ urbanisation_modifiers = {
 
 	building_upkeep_cost = pleb_construction_cost
 	local_building_slots_factor = mtth:urbanisation_building_slots
-	monthly_population_state = mtth:urbanisation_birth_bonus
+
 	taxation_efficiency = mtth:urbanisation_taxation_efficiency
 	prosperity_factor = mtth:urbanisation_prosperity_cap
 
+	fertilizer = mtth:urbanisation_resource_bonus
+	reforestation = mtth:urbanisation_resource_bonus
 }
 
 prosperity_modifiers = {
 	enable = { always = yes }
 
-	migration_attraction = mtth:prosperity_attraction
+	#migration_attraction = mtth:prosperity_attraction
 
 }
 
@@ -188,6 +190,14 @@ missing_workers_state = {
 	enable = { always = yes }
 
 	state_resources_factor = mtth:missing_workers_resource_modifier
+}
+
+missing_people_state = {
+	enable = { always = yes }
+
+	state_production_speed_buildings_factor = mtth:missing_people_resource_modifier
+	resistance_target = mtth:missing_people_resource_modifier
+	resistance_activity = mtth:missing_people_resource_modifier
 }
 
 
@@ -199,7 +209,7 @@ farm_upgrade = {
 
 	icon = GFX_farm_bonus
 
-	monthly_population_state = mtth:farm_bonus
+	monthly_migration_state = mtth:farm_bonus
 }
 
 farm_ranch_upgrade = {

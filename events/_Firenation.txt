@@ -631,7 +631,8 @@ country_event = {
 			set_temp_variable = { population_killed = state_population_k }
 			multiply_temp_variable = { population_killed = -10 }
 			
-			add_manpower = var:population_killed
+			add_to_variable = { missing_people = var:population_killed }
+
 
 			clr_state_flag = dragon_attack
 		}
