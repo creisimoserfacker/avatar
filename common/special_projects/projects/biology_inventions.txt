@@ -1,0 +1,151 @@
+sp_domestication = {
+	specialization = inventions_biology	
+	icon = GFX_domestication_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_biology
+
+	breakthrough_cost = {
+		inventions_biology = 1
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				domestication_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_agriculture = {
+	specialization = inventions_biology	
+	icon = GFX_agriculture_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_biology
+
+	special_project_parent = {
+		sp_domestication
+	}
+
+	breakthrough_cost = {
+		inventions_biology = 2
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				agriculture_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_surgery = {
+	specialization = inventions_biology	
+	icon = GFX_surgery_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_biology
+
+	special_project_parent = {
+		sp_agriculture
+	}
+
+	breakthrough_cost = {
+		inventions_biology = 4
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				surgery_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_botanics = {
+	specialization = inventions_biology	
+	icon = GFX_botanics_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_biology
+
+	special_project_parent = {
+		sp_surgery
+	}
+
+	breakthrough_cost = {
+		inventions_biology = 8
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				botanics_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_genetics = {
+	specialization = inventions_biology	
+	icon = GFX_genetics_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_biology
+
+	special_project_parent = {
+		sp_botanics
+	}
+
+	breakthrough_cost = {
+		inventions_biology = 16
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				genetics_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_chemistry = {
+	specialization = inventions_biology	
+	icon = GFX_gchemistry_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_biology
+
+	special_project_parent = {
+		sp_genetics
+	}
+
+	breakthrough_cost = {
+		inventions_biology = 32
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				chemistry_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}

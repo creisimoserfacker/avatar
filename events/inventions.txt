@@ -19,19 +19,17 @@ country_event = {
 
 	trigger = {
 		NOT = {
-			has_tech = measurements
+			is_special_project_completed = sp:sp_measurements
 		}
 	}
 
 	immediate = {
 		hidden_effect = {
-			set_technology = {
-				measurements = 1
-			}
+			complete_special_project = sp:sp_measurements
 			if = {
 				limit = {
 					all_country = {
-						has_tech = measurements
+						is_special_project_completed = sp:sp_measurements
 					}
 				}
 				news_event = { id = invention_news.1  random_days = 30 }
@@ -72,19 +70,17 @@ country_event = {
 
 	trigger = {
 		NOT = {
-			has_tech = kinectics
+			is_special_project_completed = sp:sp_kinectics
 		}
 	}
 
 	immediate = {
 		hidden_effect = {
-			set_technology = {
-				kinectics = 1
-			}
+			complete_special_project = sp:sp_kinectics
 			if = {
 				limit = {
 					all_country = {
-						has_tech = kinectics
+						is_special_project_completed = sp:sp_kinectics
 					}
 				}
 				news_event = { id = invention_news.2  random_days = 30 }

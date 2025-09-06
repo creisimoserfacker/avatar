@@ -1,0 +1,151 @@
+sp_measurements = {
+	specialization = inventions_mathematics	
+	icon = GFX_measurements_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_mathematics
+
+	breakthrough_cost = {
+		inventions_mathematics = 1
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				measurements_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_geometry = {
+	specialization = inventions_mathematics	
+	icon = GFX_geometry_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_measurements
+	}
+
+	breakthrough_cost = {
+		inventions_mathematics = 2
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				geometryspread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_architecture = {
+	specialization = inventions_mathematics	
+	icon = GFX_architecture_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_geometry
+	}
+
+	breakthrough_cost = {
+		inventions_mathematics = 4
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				architecturespread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_statistics = {
+	specialization = inventions_mathematics	
+	icon = GFX_statistics_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_architecture
+	}
+
+	breakthrough_cost = {
+		inventions_mathematics = 8
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				statisticsspread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_laws_of_nature = {
+	specialization = inventions_mathematics	
+	icon = GFX_laws_of_nature_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_statistics
+	}
+
+	breakthrough_cost = {
+		inventions_mathematics = 16
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				laws_of_naturespread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_applied_mathematics = {
+	specialization = inventions_mathematics	
+	icon = GFX_applied_mathematics_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_laws_of_nature
+	}
+
+	breakthrough_cost = {
+		inventions_mathematics = 32
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				applied_mathematicsspread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}

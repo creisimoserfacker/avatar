@@ -1,0 +1,151 @@
+sp_wind_manipulation = {
+	specialization = inventions_chemistry	
+	icon = GFX_wind_manipulation_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_chemistry
+
+	breakthrough_cost = {
+		inventions_chemistry = 1
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				wind_manipulation_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_smelting = {
+	specialization = inventions_chemistry	
+	icon = GFX_smelting_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_chemistry
+
+	special_project_parent = {
+		sp_wind_manipulation
+	}
+
+	breakthrough_cost = {
+		inventions_chemistry = 2
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				smelting_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_bronze_alloy = {
+	specialization = inventions_chemistry	
+	icon = GFX_bronze_alloy_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_chemistry
+
+	special_project_parent = {
+		sp_smelting
+	}
+
+	breakthrough_cost = {
+		inventions_chemistry = 4
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				bronze_alloy_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_alchemy = {
+	specialization = inventions_chemistry	
+	icon = GFX_alchemy_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_chemistry
+
+	special_project_parent = {
+		sp_bronze_alloy
+	}
+
+	breakthrough_cost = {
+		inventions_chemistry = 8
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				alchemy_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_steel_alloy = {
+	specialization = inventions_chemistry	
+	icon = GFX_steel_alloy_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_chemistry
+
+	special_project_parent = {
+		sp_alchemy
+	}
+
+	breakthrough_cost = {
+		inventions_chemistry = 16
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				steel_alloy_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_aerodynamics = {
+	specialization = inventions_chemistry	
+	icon = GFX_gaerodynamics_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_chemistry
+
+	special_project_parent = {
+		sp_steel_alloy
+	}
+
+	breakthrough_cost = {
+		inventions_chemistry = 32
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				aerodynamics_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}

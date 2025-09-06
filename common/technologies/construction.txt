@@ -1690,9 +1690,12 @@ technologies = {
 	}
 
 	masonry_1 = {
-		dependencies = {
-			measurements = 1
+		allow = {
+	 		ROOT = {
+				is_special_project_completed = sp:sp_measurements
+			}
 		}
+
 		enable_building = {
 			building = masonry
 			level = 5
@@ -2786,16 +2789,17 @@ technologies = {
 
 	road_1 = {
 
-		enable_building = {
-			building = infrastructure
-			level = 3
-		}
+		#enable_building = {
+		#	building = infrastructure
+		#	level = 3
+		#}
 
 		#### disabled til works
 		#enable_building = {
 		#	building = rail_way
 		#	level = 2
 		#}
+		production_cost_rail_way_factor = -0.1
 
 		path = {
 			leads_to_tech = shops_1
@@ -2861,10 +2865,10 @@ technologies = {
 			measurements = 1
 			kinectics = 1
 		}
-		enable_building = {
-			building = infrastructure
-			level = 6
-		}
+		#enable_building = {
+		#	building = infrastructure
+		#	level = 6
+		#}
 
 		#### disabled til works
 		#enable_building = {
@@ -2922,10 +2926,10 @@ technologies = {
 		dependencies = {
 			writing = 1
 		}
-		enable_building = {
-			building = infrastructure
-			level = 10
-		}
+		#enable_building = {
+		#	building = infrastructure
+		#	level = 10
+		#}
 
 		#### disabled til works
 		#enable_building = {
@@ -2983,6 +2987,11 @@ technologies = {
 		dependencies = {
 			steam_engine = 1
 			magnetism = 1
+		}
+
+		enable_building = {
+			building = infrastructure
+			level = 1
 		}
 
 		#### disabled til works
@@ -3050,6 +3059,11 @@ technologies = {
 		dependencies = {
 			steel_alloy = 1
 			gas_turbine = 1
+		}
+
+		enable_building = {
+			building = infrastructure
+			level = 2
 		}
 
 		production_cost_rail_way_factor = -0.2

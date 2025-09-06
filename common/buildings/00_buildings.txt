@@ -253,7 +253,7 @@ buildings = {
 	infrastructure = {
 		base_cost = 10000
 		per_level_extra_cost = 1000
-		icon_frame = 1
+		icon_frame = 16
 		infrastructure = yes
 		level_cap = {
 			state_max = 10
@@ -283,7 +283,7 @@ buildings = {
 		base_cost = 200
 		per_level_extra_cost = 200
 		disabled_in_dmz = yes
-		icon_frame = 16
+		icon_frame = 1
 		level_cap = {
 			province_max = 1
 		}
@@ -704,6 +704,9 @@ buildings = {
 		}
 	}
 
+
+
+
 	fuel_repository = {
 		show_on_map = 1
 		base_cost = 20000
@@ -748,6 +751,7 @@ buildings = {
 		infrastructure_construction_effect = yes
 		
 		show_modifier = yes
+
 		country_modifiers = {
 			modifiers = {
 				max_rations_building_k = 10 #1m
@@ -775,6 +779,7 @@ buildings = {
 		}
 		value = 2
 		show_modifier = yes
+
 		state_modifiers = {
 			building_upkeep_cost = 1
 		}
@@ -794,6 +799,7 @@ buildings = {
 			shares_slots = yes
 		}
 		show_modifier = yes
+
 		state_modifiers = {
 			building_upkeep_cost = 1
 		}
@@ -807,6 +813,7 @@ buildings = {
 		value = 1
 		damage_factor = 0.5
 		show_modifier = yes
+
 		country_modifiers = {
 			modifiers = { 
 				max_grain_building_k = 0.1
@@ -821,36 +828,144 @@ buildings = {
 		}
 	}
 
-	#trainingscamp = {
-	#	show_on_map = 1
-	#	base_cost = 12000
-	#	icon_frame = 33
-	#	max_level = 5
-	#	value = 1
-	#	shares_slots = yes
-#
-	#	show_modifier = yes
-	#	building_upkeep_cost = 3
-	#	mobilization_speed = 0.1
-	#	#experience_gain_army = 0.01
-	#	local_non_core_manpower = 0.05
-	#}
-#
-	#garrison_building = {
-	#	show_on_map = 1
-	#	base_cost = 8000
-	#	per_level_extra_cost = 4000
-	#	icon_frame = 34
-	#	max_level = 5
-	#	value = 1
-	#	shares_slots = yes
-#
-	#	show_modifier = yes
-	#	building_upkeep_cost = 3
-	#	resistance_target = -0.05
-	#	resistance_damage_to_garrison = -0.1
-	#	resistance_decay = 0.1
-	#}
+	trainingscamp = {
+		show_on_map = 1
+		base_cost = 12000
+		icon_frame = 33
+		value = 1
+		level_cap = {
+			state_max = 5
+			shares_slots = yes
+		}
+
+		show_modifier = yes
+		state_modifiers = {
+			building_upkeep_cost = 3
+			mobilization_speed = 0.1
+			local_non_core_manpower = 0.05
+		}
+		country_modifiers = {
+			modifiers = { 
+				experience_gain_army = 0.01
+			}
+		}
+	}
+
+	garrison_building = {
+		show_on_map = 1
+		base_cost = 8000
+		per_level_extra_cost = 4000
+		icon_frame = 2
+		value = 1
+		level_cap = {
+			state_max = 5
+			shares_slots = yes
+		}
+
+		state_modifiers = {
+			building_upkeep_cost = 3
+			resistance_target = -0.05
+			resistance_damage_to_garrison = -0.1
+			resistance_decay = 0.1
+		}
+		show_modifier = yes
+	}
+
+
+
+	school_facility = {
+		show_on_map = 1
+		base_cost = 12000
+		#per_controlled_building_extra_cost = 5000
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
+		icon_frame = 34
+		value = 1
+		#spawn_point = naval_base_spawn 
+		specialization = { inventions_mathematics inventions_physics inventions_chemistry inventions_biology inventions_philosophy }
+		tags = { facility }
+		#disabled_in_dmz = yes
+		need_supply = yes
+		#only_display_if_exists = yes
+		special_icon = GFX_specialization_naval
+		level_cap = {
+			province_max = 1
+			state_max = 1
+			group_by = special_project_facility
+		}
+		
+		country_modifiers = {
+			modifiers = { 
+				knowledge = 0.01
+			}
+		}
+		state_modifiers = {
+			building_upkeep_cost = 1
+		}
+		show_modifier = yes
+	}
+
+	university_facility = {
+		show_on_map = 1
+		base_cost = 22000
+		per_controlled_building_extra_cost = 400
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
+		icon_frame = 35
+		value = 1
+		#spawn_point = naval_base_spawn 
+		specialization = { inventions_mathematics inventions_physics inventions_chemistry inventions_biology inventions_philosophy }
+		tags = { facility }
+		need_supply = yes
+		#only_display_if_exists = yes
+		special_icon = GFX_specialization_naval
+		level_cap = {
+			province_max = 1
+			state_max = 1
+			group_by = special_project_facility_2
+		}
+		
+		country_modifiers = {
+			modifiers = { 
+				knowledge = 0.01
+				knowledge_spread = 0.05
+			}
+		}
+		state_modifiers = {
+			building_upkeep_cost = 2
+		}
+		show_modifier = yes
+	}
+
+	hospital_facility = {
+		show_on_map = 1
+		base_cost = 12000
+		#per_controlled_building_extra_cost = 5000
+		damage_factor = 0 # This building can't be damaged by regular strat bombing
+		icon_frame = 36
+		value = 1
+		#spawn_point = naval_base_spawn 
+		specialization = { inventions_biology }
+		tags = { facility }
+		#disabled_in_dmz = yes
+		need_supply = yes
+		#only_display_if_exists = yes
+		special_icon = GFX_specialization_naval
+		level_cap = {
+			province_max = 1
+			state_max = 1
+			group_by = hospitals
+		}
+		
+		country_modifiers = {
+			modifiers = { 
+				monthly_population_modifier = 0.05
+			}
+		}
+		state_modifiers = {
+			building_upkeep_cost = 2
+			monthly_migration_state = 0.02
+		}
+		show_modifier = yes
+	}
 
 }
 

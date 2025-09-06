@@ -1,0 +1,151 @@
+sp_kinectics = {
+	specialization = inventions_physics
+	icon = GFX_kinectics_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_physics
+
+	breakthrough_cost = {
+		inventions_physics = 1
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				kinectics_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_astronomy = {
+	specialization = inventions_physics	
+	icon = GFX_astronomy_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_kinectics
+	}
+
+	breakthrough_cost = {
+		inventions_physics = 2
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				astronomy_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_leverage = {
+	specialization = inventions_physics	
+	icon = GFX_leverage_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_astronomy
+	}
+
+	breakthrough_cost = {
+		inventions_physics = 4
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				leverage_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_magnetism = {
+	specialization = inventions_physics	
+	icon = GFX_magnetism_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_leverage
+	}
+
+	breakthrough_cost = {
+		inventions_physics = 8
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				magnetism_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_steam_engine = {
+	specialization = inventions_physics	
+	icon = GFX_steam_engine_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_magnetism
+	}
+
+	breakthrough_cost = {
+		inventions_physics = 16
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				steam_engine_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_gas_turbine = {
+	specialization = inventions_physics	
+	icon = GFX_gas_turbine_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_mathematics
+
+	special_project_parent = {
+		sp_steam_engine
+	}
+
+	breakthrough_cost = {
+		inventions_physics = 32
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				gas_turbine_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}

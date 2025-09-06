@@ -1,0 +1,151 @@
+sp_metaphysics = {
+	specialization = inventions_philosophy	
+	icon = GFX_metaphysics_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_philosophy
+
+	breakthrough_cost = {
+		inventions_philosophy = 1
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				metaphysics_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_writing = {
+	specialization = inventions_philosophy	
+	icon = GFX_writing_medium
+
+	complexity = sp_complexity.medium
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_philosophy
+
+	special_project_parent = {
+		sp_metaphysics
+	}
+
+	breakthrough_cost = {
+		inventions_philosophy = 2
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				writing_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_natural_philosophy = {
+	specialization = inventions_philosophy	
+	icon = GFX_natural_philosophy_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.medium
+
+	project_tags = sp_tag_philosophy
+
+	special_project_parent = {
+		sp_writing
+	}
+
+	breakthrough_cost = {
+		inventions_philosophy = 4
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				natural_philosophy_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_printing_press = {
+	specialization = inventions_philosophy	
+	icon = GFX_printing_press_medium
+	
+	complexity = sp_complexity.large
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_philosophy
+
+	special_project_parent = {
+		sp_natural_philosophy
+	}
+
+	breakthrough_cost = {
+		inventions_philosophy = 8
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				printing_press_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_scientific_method = {
+	specialization = inventions_philosophy	
+	icon = GFX_scientific_method_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_philosophy
+
+	special_project_parent = {
+		sp_printing_press
+	}
+
+	breakthrough_cost = {
+		inventions_philosophy = 16
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				scientific_method_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
+
+sp_energy_manipulation = {
+	specialization = inventions_philosophy	
+	icon = GFX_genergy_manipulation_medium
+	
+	complexity = sp_complexity.insane
+	prototype_time = sp_time.prototype.long
+
+	project_tags = sp_tag_philosophy
+
+	special_project_parent = {
+		sp_scientific_method
+	}
+
+	breakthrough_cost = {
+		inventions_philosophy = 32
+	}
+	project_output = {
+		country_effects = {
+			hidden_effect = {
+				energy_manipulation_spread = yes
+				recalculate_age = yes
+			}
+		}
+	}
+}
